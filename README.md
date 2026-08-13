@@ -1,7 +1,8 @@
 # Palantir Foundry skills
 
-This repository is the file-based distribution for the `pal_found_cli_skills`
-project. It contains skill folders under `.agents/skills/`.
+This repository distributes 19 skills. The canonical source is
+`.agents/skills/`; each skill has one `SKILL.md` and uses its `pal-found` name.
+Copy only those skill folders. Do not copy `.git` or a harness's legacy pointer.
 
 ## Clone
 
@@ -11,25 +12,110 @@ cd pal_found_cli_skills
 git checkout <release-tag>
 ```
 
-## Copy into a harness
+Use `git checkout <release-tag>` for a pinned release. Omit it to use the
+repository's default branch.
 
-Copy each `pal-found-*` folder from `.agents/skills/` into the target folder.
+## Canonical inventory
 
-| Harness | Target folder | Verification |
-| --- | --- | --- |
-| Codex and other standard-layout harnesses | `<workspace>/.agents/skills/` | Confirm a copied `SKILL.md` exists below the target. |
-| Claude Code | `<workspace>/.claude/skills/` | Start a new session and confirm the skill appears in the available skills list. |
+The distribution contains these folders under `.agents/skills/`:
 
-Use the harness's documented skills directory when it has a different path.
-Do not copy the repository's `.git` directory.
+`pal-found`, `pal-found-admin`, `pal-found-aip-agents`,
+`pal-found-audit`, `pal-found-checkpoints`, `pal-found-connectivity`,
+`pal-found-data-health`, `pal-found-datasets`, `pal-found-filesystem`,
+`pal-found-functions`, `pal-found-language-models`, `pal-found-media-sets`,
+`pal-found-models`, `pal-found-ontologies`, `pal-found-orchestration`,
+`pal-found-sql-queries`, `pal-found-streams`,
+`pal-found-third-party-applications`, `pal-found-widgets`.
+
+## Supported harnesses
+
+| Harness | Discovery mode | Target | Result to verify |
+| --- | --- | --- | --- |
+| Codex | Native | `<workspace>/.agents/skills/` | A new session lists `pal-found` and a namespace skill. |
+| Claude Code | Configured link | `<workspace>/.claude/skills/` linked to `.agents/skills/` | A new session lists `pal-found` and a namespace skill. |
+
+Codex reads the standard `.agents/skills/` location directly. Claude Code
+expects `.claude/skills/`, so point that path at the canonical directory. The
+link keeps one copy of each skill.
+
+### Copy for Codex
+
+PowerShell:
+
+```powershell
+$Workspace = "C:\path\to\workspace"
+New-Item -ItemType Directory -Force "$Workspace\.agents\skills" | Out-Null
+Get-ChildItem -Directory -Filter "pal-found*" \
+  | Copy-Item -Destination "$Workspace\.agents\skills" -Recurse -Force
+```
+
+POSIX shell:
+
+```bash
+workspace=/path/to/workspace
+mkdir -p "$workspace/.agents/skills"
+find .agents/skills -mindepth 1 -maxdepth 1 -type d -name 'pal-found*' \
+  -exec cp -R {} "$workspace/.agents/skills/" \;
+```
+
+Verify the copied tree before starting the session:
+
+```powershell
+$skills = @(Get-ChildItem -Directory "$Workspace\.agents\skills" -Filter "pal-found*")
+if ($skills.Count -ne 19) { throw "Expected 19 skills, found $($skills.Count)" }
+if (-not (Test-Path "$Workspace\.agents\skills\pal-found\SKILL.md")) { throw "Missing pal-found/SKILL.md" }
+```
+
+Start a new Codex session in the workspace and confirm that its available
+skills include `pal-found` and at least one namespace skill such as
+`pal-found-datasets`.
+
+### Onboard Claude Code without a duplicate copy
+
+First copy the 19 folders into `<workspace>/.agents/skills/`. If the workspace
+contains this migration pointer at `.claude/skills/README.md`, remove only
+that empty pointer directory, then create a link to the canonical tree.
+
+PowerShell (junction, no administrator permission required):
+
+```powershell
+$legacy = Join-Path $Workspace ".claude\skills"
+$entries = @(Get-ChildItem -Force $legacy -ErrorAction SilentlyContinue)
+if ($entries.Count -gt 0 -and ($entries.Name -ne "README.md" -or $entries.Count -ne 1)) {
+  throw "Refusing to replace non-pointer content at $legacy"
+}
+if (Test-Path "$legacy\README.md") { Remove-Item -LiteralPath "$legacy\README.md" }
+if (Test-Path $legacy) { Remove-Item -LiteralPath $legacy }
+New-Item -ItemType Junction -Path $legacy -Target (Join-Path $Workspace ".agents\skills") | Out-Null
+```
+
+POSIX shell:
+
+```bash
+workspace=/path/to/workspace
+legacy="$workspace/.claude/skills"
+test ! -e "$legacy" || test "$(find "$legacy" -mindepth 1 -maxdepth 1 ! -name README.md -print)" = ""
+rm -f "$legacy/README.md"
+rmdir "$legacy" 2>/dev/null || true
+ln -s "$workspace/.agents/skills" "$legacy"
+```
+
+Start a new Claude Code session and confirm that its available skills include
+`pal-found` and a namespace skill. If the harness still shows no skills,
+inspect the link target and repeat the count and sentinel checks above.
+
+The source repository's `.claude/skills/README.md` is a migration pointer,
+not a skill. Do not copy it into either harness.
 
 ## Update
 
 ```bash
 git fetch --tags
-git checkout <release-tag>  # or: git pull --ff-only
+git checkout <release-tag>
+# Or follow the default branch:
+git pull --ff-only
 ```
 
-Re-copy the skill folders after every update. If an update is bad, check out
-the last known-good tag and copy again. No package manager or credential is
-needed for distribution.
+Re-copy the 19 `pal-found*` folders after every update. If an update is bad,
+check out the last known-good tag and copy again. Distribution needs only git
+and file-copy tools; no package manager or credential is required.
