@@ -46,33 +46,69 @@ PowerShell:
 $Workspace = "C:\path\to\workspace"
 $Source = Join-Path -Path (Get-Location) -ChildPath ".agents\skills"
 $Destination = Join-Path -Path $Workspace -ChildPath ".agents\skills"
+$ExpectedSkillNames = @(
+  "pal-found",
+  "pal-found-admin",
+  "pal-found-aip-agents",
+  "pal-found-audit",
+  "pal-found-checkpoints",
+  "pal-found-connectivity",
+  "pal-found-data-health",
+  "pal-found-datasets",
+  "pal-found-filesystem",
+  "pal-found-functions",
+  "pal-found-language-models",
+  "pal-found-media-sets",
+  "pal-found-models",
+  "pal-found-ontologies",
+  "pal-found-orchestration",
+  "pal-found-sql-queries",
+  "pal-found-streams",
+  "pal-found-third-party-applications",
+  "pal-found-widgets"
+)
 $Skills = @(
   Get-ChildItem -LiteralPath $Source -Directory |
     Where-Object { $_.Name -like "pal-found*" }
 )
-if ($Skills.Count -ne 19) {
-  throw "Expected 19 source skills in $Source, found $($Skills.Count)"
+$ActualSkillNames = @($Skills | ForEach-Object { $_.Name })
+$InventoryDifference = @(
+  Compare-Object -ReferenceObject $ExpectedSkillNames -DifferenceObject $ActualSkillNames
+)
+if ($InventoryDifference.Count -ne 0) {
+  throw "Source skill inventory does not match the canonical 19 names in $Source"
 }
-if (-not (Test-Path -LiteralPath (Join-Path $Source "pal-found\SKILL.md") -PathType Leaf)) {
-  throw "Missing source pal-found/SKILL.md"
+foreach ($SkillName in $ExpectedSkillNames) {
+  $SourceSentinel = Join-Path -Path $Source -ChildPath "$SkillName\SKILL.md"
+  if (-not (Test-Path -LiteralPath $SourceSentinel -PathType Leaf)) {
+    throw "Missing source $SkillName/SKILL.md"
+  }
 }
 New-Item -ItemType Directory -Force -Path $Destination | Out-Null
-foreach ($Skill in $Skills) {
-  $Target = Join-Path -Path $Destination -ChildPath $Skill.Name
+foreach ($SkillName in $ExpectedSkillNames) {
+  $SourceSkill = Join-Path -Path $Source -ChildPath $SkillName
+  $Target = Join-Path -Path $Destination -ChildPath $SkillName
   if (Test-Path -LiteralPath $Target) {
     Remove-Item -LiteralPath $Target -Recurse -Force
   }
-  Copy-Item -LiteralPath $Skill.FullName -Destination $Destination -Recurse -Force
+  Copy-Item -LiteralPath $SourceSkill -Destination $Destination -Recurse -Force
 }
 $Copied = @(
   Get-ChildItem -LiteralPath $Destination -Directory |
     Where-Object { $_.Name -like "pal-found*" }
 )
-if ($Copied.Count -ne 19) {
-  throw "Expected 19 copied skills in $Destination, found $($Copied.Count)"
+$CopiedSkillNames = @($Copied | ForEach-Object { $_.Name })
+$CopiedDifference = @(
+  Compare-Object -ReferenceObject $ExpectedSkillNames -DifferenceObject $CopiedSkillNames
+)
+if ($CopiedDifference.Count -ne 0) {
+  throw "Copied skill inventory does not match the canonical 19 names in $Destination"
 }
-if (-not (Test-Path -LiteralPath (Join-Path $Destination "pal-found\SKILL.md") -PathType Leaf)) {
-  throw "Missing copied pal-found/SKILL.md"
+foreach ($SkillName in $ExpectedSkillNames) {
+  $CopiedSentinel = Join-Path -Path $Destination -ChildPath "$SkillName\SKILL.md"
+  if (-not (Test-Path -LiteralPath $CopiedSentinel -PathType Leaf)) {
+    throw "Missing copied $SkillName/SKILL.md"
+  }
 }
 Write-Host "Copied and verified $($Copied.Count) skills in $Destination"
 ```

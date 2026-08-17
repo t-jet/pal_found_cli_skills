@@ -1,6 +1,7 @@
 """Executable checks for commands published in the distribution README."""
 
 import base64
+import hashlib
 from pathlib import Path
 import shutil
 import subprocess
@@ -9,9 +10,25 @@ import subprocess
 ROOT = Path(__file__).parent.parent
 README = ROOT / "README.md"
 EXPECTED_SKILLS = {
-    path.name
-    for path in (ROOT / ".agents" / "skills").iterdir()
-    if path.is_dir() and path.name.startswith("pal-found")
+    "pal-found",
+    "pal-found-admin",
+    "pal-found-aip-agents",
+    "pal-found-audit",
+    "pal-found-checkpoints",
+    "pal-found-connectivity",
+    "pal-found-data-health",
+    "pal-found-datasets",
+    "pal-found-filesystem",
+    "pal-found-functions",
+    "pal-found-language-models",
+    "pal-found-media-sets",
+    "pal-found-models",
+    "pal-found-ontologies",
+    "pal-found-orchestration",
+    "pal-found-sql-queries",
+    "pal-found-streams",
+    "pal-found-third-party-applications",
+    "pal-found-widgets",
 }
 
 
@@ -58,6 +75,25 @@ def _copy_source_tree(destination: Path) -> Path:
     return source
 
 
+def _seed_destination(workspace: Path) -> Path:
+    destination = workspace / ".agents" / "skills"
+    for name in ("pal-found", "pal-found-widgets", "unrelated-skill"):
+        skill = destination / name
+        skill.mkdir(parents=True)
+        (skill / "SKILL.md").write_text(f"original {name}", encoding="utf-8")
+    return destination
+
+
+def _tree_fingerprint(root: Path) -> dict[str, str]:
+    fingerprint = {}
+    for path in sorted(root.rglob("*")):
+        relative = path.relative_to(root).as_posix()
+        fingerprint[relative] = (
+            "directory" if path.is_dir() else hashlib.sha256(path.read_bytes()).hexdigest()
+        )
+    return fingerprint
+
+
 def test_published_powershell_copy_is_complete_and_safe_to_rerun(tmp_path: Path) -> None:
     source = _copy_source_tree(tmp_path)
     workspace = tmp_path / "workspace with spaces"
@@ -93,9 +129,45 @@ def test_published_powershell_copy_fails_before_mutation_on_bad_source(
     source = _copy_source_tree(tmp_path)
     shutil.rmtree(source / ".agents" / "skills" / "pal-found-widgets")
     workspace = tmp_path / "untouched-workspace"
+    destination = _seed_destination(workspace)
+    before = _tree_fingerprint(destination)
 
     result = _run_copy_block(source, workspace)
 
     assert result.returncode != 0
-    assert "Expected 19 source skills" in result.stderr
-    assert not (workspace / ".agents" / "skills").exists()
+    assert "Source skill inventory does not match the canonical 19 names" in result.stderr
+    assert _tree_fingerprint(destination) == before
+
+
+def test_published_powershell_copy_rejects_same_count_wrong_name_atomically(
+    tmp_path: Path,
+) -> None:
+    source = _copy_source_tree(tmp_path)
+    skills = source / ".agents" / "skills"
+    (skills / "pal-found-widgets").rename(skills / "pal-found-widgetz")
+    workspace = tmp_path / "untouched-workspace"
+    destination = _seed_destination(workspace)
+    before = _tree_fingerprint(destination)
+
+    result = _run_copy_block(source, workspace)
+
+    assert result.returncode != 0
+    assert "Source skill inventory does not match the canonical 19 names" in result.stderr
+    assert _tree_fingerprint(destination) == before
+
+
+def test_published_powershell_copy_rejects_missing_sentinel_atomically(
+    tmp_path: Path,
+) -> None:
+    source = _copy_source_tree(tmp_path)
+    sentinel = source / ".agents" / "skills" / "pal-found-widgets" / "SKILL.md"
+    sentinel.unlink()
+    workspace = tmp_path / "untouched-workspace"
+    destination = _seed_destination(workspace)
+    before = _tree_fingerprint(destination)
+
+    result = _run_copy_block(source, workspace)
+
+    assert result.returncode != 0
+    assert "Missing source pal-found-widgets/SKILL.md" in result.stderr
+    assert _tree_fingerprint(destination) == before
