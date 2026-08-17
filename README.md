@@ -44,9 +44,37 @@ PowerShell:
 
 ```powershell
 $Workspace = "C:\path\to\workspace"
-New-Item -ItemType Directory -Force "$Workspace\.agents\skills" | Out-Null
-Get-ChildItem -Directory -Filter "pal-found*" \
-  | Copy-Item -Destination "$Workspace\.agents\skills" -Recurse -Force
+$Source = Join-Path -Path (Get-Location) -ChildPath ".agents\skills"
+$Destination = Join-Path -Path $Workspace -ChildPath ".agents\skills"
+$Skills = @(
+  Get-ChildItem -LiteralPath $Source -Directory |
+    Where-Object { $_.Name -like "pal-found*" }
+)
+if ($Skills.Count -ne 19) {
+  throw "Expected 19 source skills in $Source, found $($Skills.Count)"
+}
+if (-not (Test-Path -LiteralPath (Join-Path $Source "pal-found\SKILL.md") -PathType Leaf)) {
+  throw "Missing source pal-found/SKILL.md"
+}
+New-Item -ItemType Directory -Force -Path $Destination | Out-Null
+foreach ($Skill in $Skills) {
+  $Target = Join-Path -Path $Destination -ChildPath $Skill.Name
+  if (Test-Path -LiteralPath $Target) {
+    Remove-Item -LiteralPath $Target -Recurse -Force
+  }
+  Copy-Item -LiteralPath $Skill.FullName -Destination $Destination -Recurse -Force
+}
+$Copied = @(
+  Get-ChildItem -LiteralPath $Destination -Directory |
+    Where-Object { $_.Name -like "pal-found*" }
+)
+if ($Copied.Count -ne 19) {
+  throw "Expected 19 copied skills in $Destination, found $($Copied.Count)"
+}
+if (-not (Test-Path -LiteralPath (Join-Path $Destination "pal-found\SKILL.md") -PathType Leaf)) {
+  throw "Missing copied pal-found/SKILL.md"
+}
+Write-Host "Copied and verified $($Copied.Count) skills in $Destination"
 ```
 
 POSIX shell:
@@ -117,5 +145,7 @@ git pull --ff-only
 ```
 
 Re-copy the 19 `pal-found*` folders after every update. If an update is bad,
-check out the last known-good tag and copy again. Distribution needs only git
+check out the last known-good tag and copy again. The PowerShell command is safe
+to rerun: it replaces only the 19 validated target skill folders, so removed or
+stale files do not survive an update or rollback. Distribution needs only git
 and file-copy tools; no package manager or credential is required.
