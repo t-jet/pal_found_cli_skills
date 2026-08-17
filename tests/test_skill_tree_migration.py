@@ -4,7 +4,7 @@ from pathlib import Path
 ROOT = Path(__file__).parent.parent
 SKILLS = ROOT / ".agents" / "skills"
 LEGACY = ROOT / ".claude" / "skills"
-DISTRIBUTION_README = ROOT / "pal_found_cli_skills" / "README.md"
+DISTRIBUTION_README = ROOT / "README.md"
 
 EXPECTED_SKILLS = {
     "pal-found",
