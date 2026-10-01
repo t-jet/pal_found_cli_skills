@@ -35,3 +35,18 @@ is operation-specific. Other variants include `--name`, `--parent-folder-rid`,
 `--changelog`, `--offset`, and bounded `--output`. Positional forms are the
 experiment, model, deployment, series, artifact, Studio, and version IDs shown
 by help.
+
+## Install requirement
+
+`pal-found-models` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
+
+```bash
+# conda (t-jet channel)
+conda install -c t-jet pal_found_cli
+
+# PyPI / pip
+pip install pal_found_cli
+
+# uv
+uv tool install pal_found_cli
+```

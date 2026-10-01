@@ -33,3 +33,18 @@ object) and optionally accept `--intent`. Delete/get use positional
 `check_rid`; report get uses `check_rid check_report_rid`; get-latest uses
 `check_rid` and optional `--limit` (1-100). No pagination flags or other JSON
 forms are accepted.
+
+## Install requirement
+
+`pal-found-data-health` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
+
+```bash
+# conda (t-jet channel)
+conda install -c t-jet pal_found_cli
+
+# PyPI / pip
+pip install pal_found_cli
+
+# uv
+uv tool install pal_found_cli
+```

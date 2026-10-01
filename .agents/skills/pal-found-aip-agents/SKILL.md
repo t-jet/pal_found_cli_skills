@@ -48,3 +48,18 @@ and `--user-input-json`. `session blocking-continue` and
 requires `--title`; trace get requires `--session-trace-id`.
 `agent-version get` uses positional `agent_rid agent_version_string`; session
 list uses positional `agent_rid`.
+
+## Install requirement
+
+`pal-found-aip-agents` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
+
+```bash
+# conda (t-jet channel)
+conda install -c t-jet pal_found_cli
+
+# PyPI / pip
+pip install pal_found_cli
+
+# uv
+uv tool install pal_found_cli
+```

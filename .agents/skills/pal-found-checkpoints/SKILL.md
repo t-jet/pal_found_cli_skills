@@ -32,3 +32,18 @@ All commands accept `--timeout`, `--format json|toon|auto`, and `--pretty`.
 `--where-json`, a JSON filter object, and optionally accepts
 `--sort-direction`. Only search accepts `--page-size`, `--page-token`,
 `--all`, and `--max-pages`.
+
+## Install requirement
+
+`pal-found-checkpoints` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
+
+```bash
+# conda (t-jet channel)
+conda install -c t-jet pal_found_cli
+
+# PyPI / pip
+pip install pal_found_cli
+
+# uv
+uv tool install pal_found_cli
+```

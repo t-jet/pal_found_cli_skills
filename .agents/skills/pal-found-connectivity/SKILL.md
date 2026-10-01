@@ -34,3 +34,18 @@ Paged import lists add `--page-size`, `--page-token`, `--all`, and
 `--display-name`, `--parent-rid`, `--parent-folder-rid`, `--dataset-rid`,
 `--branch-name`, `--import-mode`, `--allow-schema-changes`, `--subfolder`,
 `--file`, and `--file-name`. `--file-name` must end in `.jar`.
+
+## Install requirement
+
+`pal-found-connectivity` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
+
+```bash
+# conda (t-jet channel)
+conda install -c t-jet pal_found_cli
+
+# PyPI / pip
+pip install pal_found_cli
+
+# uv
+uv tool install pal_found_cli
+```

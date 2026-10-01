@@ -36,3 +36,18 @@ Scalar variants include `--branch-name`, `--force-build`, `--retry-count`,
 `--abort-on-failure`, `--notifications-enabled`, `--display-name`, and
 `--description`; positional forms are build, job, schedule, and schedule
 version RIDs.
+
+## Install requirement
+
+`pal-found-orchestration` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
+
+```bash
+# conda (t-jet channel)
+conda install -c t-jet pal_found_cli
+
+# PyPI / pip
+pip install pal_found_cli
+
+# uv
+uv tool install pal_found_cli
+```

@@ -43,3 +43,18 @@ transformation-job reads, while media content reads use `--read-token`.
 Downloads (`get-result`, `read`, `read-original`, and `retrieve`) use
 `--output`. `media-set register` requires `--physical-item-name`.
 `--preview` is available on operations that expose the SDK preview option.
+
+## Install requirement
+
+`pal-found-media-sets` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
+
+```bash
+# conda (t-jet channel)
+conda install -c t-jet pal_found_cli
+
+# PyPI / pip
+pip install pal_found_cli
+
+# uv
+uv tool install pal_found_cli
+```

@@ -67,10 +67,11 @@ def test_canonical_skill_tree_has_one_renamed_skill_set() -> None:
         assert "from foundry_cli" not in text
 
 
-def test_datasets_ontologies_skills_are_documentation_only() -> None:
-    # FEATURE-011 (DEV-STORY-039): datasets/ontologies standalone scripts are
-    # removed and both skills invoke the installed tool commands.
-    for name in ("pal-found-datasets", "pal-found-ontologies"):
+def test_namespace_skills_are_documentation_only() -> None:
+    # FEATURE-011 (DEV-STORY-038/039): every namespace skill is doc-only; no
+    # scripts/ dir and no Python launcher remains, and each SKILL.md invokes
+    # the installed pal-found-* command.
+    for name in sorted(EXPECTED_SKILLS - {"pal-found"}):
         skill_dir = SKILLS / name
         assert not (skill_dir / "scripts").exists(), (
             f"{name} must not contain a scripts/ directory"
