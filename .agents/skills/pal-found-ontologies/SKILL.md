@@ -14,7 +14,7 @@ and property clients.
 
 Source: [Palantir Ontology-aware applications](https://www.palantir.com/docs/foundry/ontology/applications/index.html); reviewed 2026-08-13.
 
-67 Foundry Ontologies API v2 operations are available through `pal_found_ontologies_cli.py`.
+67 Foundry Ontologies API v2 operations are available through the installed `pal-found-ontologies` command.
 
 ## Operations
 
@@ -44,7 +44,7 @@ Source: [Palantir Ontology-aware applications](https://www.palantir.com/docs/fou
 ## Usage
 
 ```bash
-python pal_found_ontologies_cli.py <resource> <operation> [options]
+pal-found-ontologies <resource> <operation> [options]
 ```
 
 Common options: `--timeout`, `--format json|toon|auto`, `--pretty`, `--page-size`, `--page-token`, and `--batch-pages`.
@@ -77,3 +77,18 @@ Additional scalar choices and switches are `--accuracy`, `--aggregate`,
 `--link-types`, `--load-property-securities`, `--object-primary-key`,
 `--object-set`, `--other-interface-types`, `--snapshot`, `--sort-order`, and
 `--stream-format`.
+
+## Install requirement
+
+`pal-found-ontologies` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
+
+```bash
+# conda (t-jet channel)
+conda install -c t-jet pal_found_cli
+
+# PyPI / pip
+pip install pal_found_cli
+
+# uv
+uv tool install pal_found_cli
+```

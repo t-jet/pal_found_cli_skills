@@ -13,7 +13,7 @@ Transaction, and View operations for those lifecycle and read paths.
 
 Source: [Palantir data integration](https://www.palantir.com/docs/foundry/data-integration/application-reference); reviewed 2026-08-13.
 
-33 Foundry Datasets API v2 operations exposed as CLI subcommands via `pal_found_datasets_cli.py`.
+33 Foundry Datasets API v2 operations are available through the installed `pal-found-datasets` command.
 
 ## Operations
 
@@ -28,29 +28,29 @@ Source: [Palantir data integration](https://www.palantir.com/docs/foundry/data-i
 ## Usage
 
 ```bash
-python pal_found_datasets_cli.py <resource> <operation> [options]
+pal-found-datasets <resource> <operation> [options]
 ```
 
 ### Examples
 
 ```bash
 # Get dataset info
-python pal_found_datasets_cli.py dataset get <DATASET_RID>
+pal-found-datasets dataset get <DATASET_RID>
 
 # List branches
-python pal_found_datasets_cli.py branch list <DATASET_RID> --page-size 50
+pal-found-datasets branch list <DATASET_RID> --page-size 50
 
 # Read table data
-python pal_found_datasets_cli.py dataset read-table <DATASET_RID> --branch-name main
+pal-found-datasets dataset read-table <DATASET_RID> --branch-name main
 
 # Upload file
-python pal_found_datasets_cli.py file upload <DATASET_RID> --file-path ./data.csv
+pal-found-datasets file upload <DATASET_RID> --file-path ./data.csv
 
 # Create view
-python pal_found_datasets_cli.py view create --name "My View" --parent-folder-rid "some_rid"
+pal-found-datasets view create --name "My View" --parent-folder-rid "some_rid"
 
 # Get schema batch
-python pal_found_datasets_cli.py dataset get-schema-batch --dataset-r '["rid1", "rid2"]'
+pal-found-datasets dataset get-schema-batch --dataset-r '["rid1", "rid2"]'
 ```
 
 ### Common Options
@@ -138,11 +138,24 @@ table branch. File content variants accept `--start-transaction-rid` and
 | `FOUNDRY_AGENTIC_CLI_ENABLE_ATTRIBUTION` | Enable attribution |
 | `FOUNDRY_AGENTIC_CLI_ATTRIBUTION_RIDS` | Comma-separated attribution RIDs |
 
+## Install requirement
+
+`pal-found-datasets` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
+
+```bash
+# conda (t-jet channel)
+conda install -c t-jet pal_found_cli
+
+# PyPI / pip
+pip install pal_found_cli
+
+# uv
+uv tool install pal_found_cli
+```
+
 ## File Location
 
 ```
 .agents/skills/pal-found-datasets/
-├── SKILL.md
-└── scripts/
-    └── pal_found_datasets_cli.py    # Main CLI entry point (33 operations)
+└── SKILL.md
 ```

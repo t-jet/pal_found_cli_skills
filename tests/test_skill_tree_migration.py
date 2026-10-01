@@ -67,15 +67,27 @@ def test_canonical_skill_tree_has_one_renamed_skill_set() -> None:
         assert "from foundry_cli" not in text
 
 
-def test_namespace_launchers_use_pal_found_names() -> None:
-    for skill_dir in SKILLS.iterdir():
-        if skill_dir.name in {"pal-found", "self-improvement"}:
-            continue
-        namespace = skill_dir.name.removeprefix("pal-found-").replace("-", "_")
-        launchers = list((skill_dir / "scripts").glob("*.py"))
-        assert [path.name for path in launchers] == [
-            f"pal_found_{namespace}_cli.py"
+def test_datasets_ontologies_skills_are_documentation_only() -> None:
+    # FEATURE-011 (DEV-STORY-039): datasets/ontologies standalone scripts are
+    # removed and both skills invoke the installed tool commands.
+    for name in ("pal-found-datasets", "pal-found-ontologies"):
+        skill_dir = SKILLS / name
+        assert not (skill_dir / "scripts").exists(), (
+            f"{name} must not contain a scripts/ directory"
+        )
+        python_files = [
+            path
+            for path in skill_dir.rglob("*")
+            if path.is_file() and path.suffix == ".py"
         ]
+        assert python_files == [], (
+            f"{name} must not contain Python files: {python_files}"
+        )
+        skill_text = (skill_dir / "SKILL.md").read_text(encoding="utf-8")
+        assert "python pal_found_" not in skill_text, (
+            f"{name}/SKILL.md must not reference python launchers"
+        )
+        assert f"`pal-found-{name.removeprefix('pal-found-')}`" in skill_text
 
 
 def test_legacy_skill_path_is_pointer_only() -> None:
