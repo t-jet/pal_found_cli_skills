@@ -13,7 +13,7 @@ operations, including streaming execution and batch lookup.
 
 Source: [Palantir Functions documentation](https://www.palantir.com/docs/foundry/functions/overview); reviewed 2026-08-13.
 
-7 Foundry Functions API v2 operations are available through `pal_found_functions_cli.py`.
+7 Foundry Functions API v2 operations are available through the installed `pal-found-functions` command.
 
 ## Operations
 
@@ -26,7 +26,7 @@ Source: [Palantir Functions documentation](https://www.palantir.com/docs/foundry
 ## Usage
 
 ```bash
-python pal_found_functions_cli.py <resource> <operation> [options]
+pal-found-functions <resource> <operation> [options]
 ```
 
 Common options: `--timeout`, `--format json|toon|auto`, and `--pretty`.
@@ -45,3 +45,18 @@ Optional variants are `--attribution`, `--branch`, `--ontology`,
 `--transaction-id`, `--trace-parent`, `--trace-state`, `--version`,
 `--include-prerelease`, and `--preview`. Query get-by-rid-batch uses required
 positional JSON `body`; `--rid` and the version-id value are scalar forms.
+
+## Install requirement
+
+`pal-found-functions` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
+
+```bash
+# conda (t-jet channel)
+conda install -c t-jet pal_found_cli
+
+# PyPI / pip
+pip install pal_found_cli
+
+# uv
+uv tool install pal_found_cli
+```

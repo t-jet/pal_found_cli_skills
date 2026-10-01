@@ -13,7 +13,7 @@ clients, including create, lookup, access metadata, restore, and deletion.
 
 Source: [Palantir Foundry overview](https://www.palantir.com/docs/foundry/getting-started/overview); reviewed 2026-08-13.
 
-31 Foundry Filesystem API v2 operations are available through `pal_found_filesystem_cli.py`.
+31 Foundry Filesystem API v2 operations are available through the installed `pal-found-filesystem` command.
 
 ## Operations
 
@@ -28,7 +28,7 @@ Source: [Palantir Foundry overview](https://www.palantir.com/docs/foundry/gettin
 ## Usage
 
 ```bash
-python pal_found_filesystem_cli.py <resource> <operation> [options]
+pal-found-filesystem <resource> <operation> [options]
 ```
 
 Common options: `--timeout`, `--format json|toon|auto`, `--pretty`, `--page-size`, `--page-token`, and `--batch-pages`.
@@ -51,3 +51,18 @@ required `--enrollment-rid`, `--parent-folder-rid`, `--template-rid`,
 `--include-inherited` as booleans. Additional scalar variants are
 `--default-role-set-id`, `--description`, `--resource-level-role-grants-allowed`,
 and `--usage-account-rid`.
+
+## Install requirement
+
+`pal-found-filesystem` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
+
+```bash
+# conda (t-jet channel)
+conda install -c t-jet pal_found_cli
+
+# PyPI / pip
+pip install pal_found_cli
+
+# uv
+uv tool install pal_found_cli
+```

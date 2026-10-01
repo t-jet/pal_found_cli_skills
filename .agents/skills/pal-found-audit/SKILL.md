@@ -12,7 +12,7 @@ content stream. The CLI exposes only those two SDK operations.
 
 Source: [Palantir Foundry documentation](https://www.palantir.com/docs/foundry); reviewed 2026-08-13.
 
-Use `pal_found_audit_cli.py` for two Audit API v2 operations:
+Use `pal-found-audit` for two Audit API v2 operations:
 
 | Command | Required arguments | Options |
 |---|---|---|
@@ -22,8 +22,8 @@ Use `pal_found_audit_cli.py` for two Audit API v2 operations:
 Run it with:
 
 ```bash
-python pal_found_audit_cli.py log-file list <organization_rid> --start-date 2026-08-01
-python pal_found_audit_cli.py log-file content <organization_rid> <log_file_id>
+pal-found-audit log-file list <organization_rid> --start-date 2026-08-01
+pal-found-audit log-file content <organization_rid> <log_file_id>
 ```
 
 `list` returns metadata records. It fetches one server page by default and writes continuation metadata to stderr. A continuation request with `--page-token` may omit `--start-date`; batches are capped at 40 pages.
@@ -40,3 +40,18 @@ and `--end-date`, plus `--page-size`, `--page-token`, and `--batch-pages`.
 `log-file content` accepts positional `organization_rid` and `log_file_id`,
 plus `--output-filename`. This namespace has no JSON input flags; dates and
 identifiers are strings.
+
+## Install requirement
+
+`pal-found-audit` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
+
+```bash
+# conda (t-jet channel)
+conda install -c t-jet pal_found_cli
+
+# PyPI / pip
+pip install pal_found_cli
+
+# uv
+uv tool install pal_found_cli
+```

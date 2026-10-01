@@ -1,8 +1,25 @@
 # Palantir Foundry skills
 
 This repository distributes 19 skills. The canonical source is
-`.agents/skills/`; each skill has one `SKILL.md` and uses its `pal-found` name.
-Copy only those skill folders. Do not copy `.git` or a harness's legacy pointer.
+`.agents/skills/`; each skill is documentation only: one `SKILL.md` that
+invokes the installed `pal-found-*` commands. Copy only those skill folders.
+Do not copy `.git` or a harness's legacy pointer.
+
+## Install prerequisite
+
+The `pal-found-*` commands are provided by the `pal_found_cli` Python package.
+Install it with your preferred package manager before using the skills:
+
+```bash
+# conda (t-jet channel)
+conda install -c t-jet pal_found_cli
+
+# PyPI / pip
+pip install pal_found_cli
+
+# uv
+uv tool install pal_found_cli
+```
 
 ## Clone
 
@@ -183,5 +200,6 @@ git pull --ff-only
 Re-copy the 19 `pal-found*` folders after every update. If an update is bad,
 check out the last known-good tag and copy again. The PowerShell command is safe
 to rerun: it replaces only the 19 validated target skill folders, so removed or
-stale files do not survive an update or rollback. Distribution needs only git
-and file-copy tools; no package manager or credential is required.
+stale files do not survive an update or rollback. Distribution needs git and
+file-copy tools plus the `pal_found_cli` package installed (see Install
+prerequisite above); no credential is required.

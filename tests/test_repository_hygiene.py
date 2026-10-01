@@ -1,10 +1,13 @@
-"""Regression checks for local credential ignore rules."""
+"""Regression checks for local credential ignore rules and doc-only skills."""
 
 from pathlib import Path
+import re
 import subprocess
 
 
 ROOT = Path(__file__).parent.parent
+SKILLS = ROOT / ".agents" / "skills"
+README = ROOT / "README.md"
 IGNORED_CREDENTIAL_PATHS = (
     ".env",
     ".env.local",
@@ -15,6 +18,7 @@ IGNORED_CREDENTIAL_PATHS = (
     "qa-certificate.pfx",
 )
 TRACKABLE_ENV_PATHS = (".env.example", ".env.template")
+STALE_SCRIPT_RE = re.compile(r"python\s+pal_found_|pal_found_[a-z_]+_cli\.py|scripts/")
 
 
 def _git(*args: str) -> subprocess.CompletedProcess[str]:
@@ -52,3 +56,25 @@ def test_no_live_credential_pattern_is_tracked() -> None:
             unsafe.append(tracked_path)
 
     assert not unsafe, f"tracked credential-pattern files: {unsafe}"
+
+
+def test_no_skill_md_contains_stale_python_script_references() -> None:
+    # FEATURE-011 (DEV-STORY-040 AC-D-012-02): no SKILL.md may reference a
+    # python launcher or scripts/ directory; every skill is documentation-only
+    # and invokes the installed pal-found-* command.
+    for skill_file in SKILLS.glob("pal-found-*/SKILL.md"):
+        text = skill_file.read_text(encoding="utf-8")
+        assert not STALE_SCRIPT_RE.search(text), (
+            f"{skill_file} still contains a stale python/scripts reference"
+        )
+
+
+def test_distribution_readme_states_doc_only_model_and_install_prerequisite() -> None:
+    # FEATURE-011 (DEV-STORY-040 AC-D-012-06/08): distribution states skills are
+    # documentation-only and the pal_found_cli package must be installed first.
+    text = README.read_text(encoding="utf-8")
+    assert "documentation only" in text
+    assert "pal_found_cli" in text
+    assert "conda install -c t-jet pal_found_cli" in text
+    assert "pip install pal_found_cli" in text
+    assert "uv tool install pal_found_cli" in text

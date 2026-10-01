@@ -5,7 +5,7 @@ description: Foundry Admin API v2 CLI with 66 canonical operations across enroll
 
 # Foundry Admin CLI
 
-66 Foundry Admin API v2 operations are available through `pal_found_admin_cli.py`.
+66 Foundry Admin API v2 operations are available through the installed `pal-found-admin` command.
 
 ## Capability and source
 
@@ -33,7 +33,7 @@ and `user-provider-info` (get, replace).
 ## Usage
 
 ```bash
-python pal_found_admin_cli.py <resource> <operation> [options]
+pal-found-admin <resource> <operation> [options]
 ```
 
 Common options: `--timeout`, `--format json|toon|auto`, and `--pretty`.
@@ -60,3 +60,18 @@ commands. Scalar or list parameter variants include `--category-id`, `--descript
 Other positional variants are the resource RIDs shown by `--help`.
 
 The CLI uses the shared config loader, ADMIN access control guard, retry handler, pagination helper, structured error serializer, output formatter, and SDK-native B3 tracing scope.
+
+## Install requirement
+
+`pal-found-admin` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
+
+```bash
+# conda (t-jet channel)
+conda install -c t-jet pal_found_cli
+
+# PyPI / pip
+pip install pal_found_cli
+
+# uv
+uv tool install pal_found_cli
+```
