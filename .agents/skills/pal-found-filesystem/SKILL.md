@@ -1,6 +1,6 @@
 ---
 name: pal-found-filesystem
-description: Foundry Filesystem API v2 CLI with 31 canonical operations across folders, projects, resources, resource roles, and spaces.
+description: Offline entry point for Foundry Filesystem API v2 CLI. Documents 31 Folder, Project, Resource, ResourceRole, and Space operations with preconditions, effect, inputs, result, and failure offline.
 ---
 
 # Foundry Filesystem CLI
@@ -8,22 +8,13 @@ description: Foundry Filesystem API v2 CLI with 31 canonical operations across f
 ## Capability and source
 
 Foundry Filesystem organizes projects, folders, resources, spaces, markings,
-and resource roles. This CLI exposes 31 operations across those five resource
-clients, including create, lookup, access metadata, restore, and deletion.
+and resource roles. The `pal-found-filesystem` command exposes 31 operations
+across those five resource clients, including create, lookup, access metadata,
+restore, and deletion.
 
-Source: [Palantir Foundry overview](https://www.palantir.com/docs/foundry/getting-started/overview); reviewed 2026-08-13.
+Source: [Palantir Foundry overview](https://www.palantir.com/docs/foundry/getting-started/overview); reviewed 2026-08-13. This source link is maintenance evidence for maintainers; it is not needed to use the skill offline.
 
 31 Foundry Filesystem API v2 operations are available through the installed `pal-found-filesystem` command.
-
-## Operations
-
-| Resource | Operations | Count |
-|---|---|---|
-| folder | children, create, get, get-batch, replace | 5 |
-| project | add-organizations, create, create-from-template, get, organizations, remove-organizations, replace | 7 |
-| resource | add-markings, delete, get, get-access-requirements, get-batch, get-by-path, get-by-path-batch, markings, permanently-delete, remove-markings, restore | 11 |
-| resource-role | add, list, remove | 3 |
-| space | create, delete, get, list, replace | 5 |
 
 ## Usage
 
@@ -31,26 +22,38 @@ Source: [Palantir Foundry overview](https://www.palantir.com/docs/foundry/gettin
 pal-found-filesystem <resource> <operation> [options]
 ```
 
-Common options: `--timeout`, `--format json|toon|auto`, `--pretty`, `--page-size`, `--page-token`, and `--batch-pages`.
+Common options: `--timeout`, `--format json|toon|auto`, `--pretty`,
+`--page-size`, `--page-token`, `--batch-pages` (where paging applies).
 
-Paginated operations are folder children, project organizations, resource markings, resource-role list, and space list.
+Paginated operations are folder `children`, project `organizations`, resource
+`markings`, resource-role `list`, and space `list`.
 
-The CLI uses the shared config loader, access control guard, retry handler, pagination helper, structured error serializer, output formatter, and SDK-native B3 tracing scope.
+The CLI uses the shared config loader, access control guard, retry handler,
+pagination helper, structured error serializer, output formatter, and
+SDK-native B3 tracing scope.
 
-### Parameters and JSON
+## Operation index
 
-Every operation accepts `--timeout`, `--format json|toon|auto`, and `--pretty`.
-Paged operations add `--page-size`, `--page-token`, and `--batch-pages`.
-JSON payloads use positional `body` for batch and replacement bodies, plus
-`--organizations`, `--organization-rids`, `--roles`, `--role-grants`,
-`--default-roles`, `--deletion-policy-organizations`, and
+| Part | Resource clients | Operations |
+| --- | --- | ---: |
+| [Folder and project operations](references/01-folder-project.md) | `folder`, `project` | 12 |
+| [Resource operations](references/02-resource.md) | `resource` | 11 |
+| [Resource role and space operations](references/03-resource-role-space.md) | `resource_role`, `space` | 8 |
+
+## Parameters and JSON
+
+Every operation accepts `--timeout`, `--format json|toon|auto`, and
+`--pretty`; paged operations add `--page-size`, `--page-token`, and
+`--batch-pages`. JSON payloads use a positional `body` for batch and
+replacement bodies, plus `--organizations`, `--organization-rids`, `--roles`,
+`--role-grants`, `--default-roles`, `--deletion-policy-organizations`, and
 `--variable-values` where command help shows them. Other variants include
 required `--enrollment-rid`, `--parent-folder-rid`, `--template-rid`,
 `--project-description`, `--display-name`, `--path`, `--marking-ids`,
 `--space-rid`, and `--file-system-id`, with `--preview` and
 `--include-inherited` as booleans. Additional scalar variants are
-`--default-role-set-id`, `--description`, `--resource-level-role-grants-allowed`,
-and `--usage-account-rid`.
+`--default-role-set-id`, `--description`,
+`--resource-level-role-grants-allowed`, and `--usage-account-rid`.
 
 ## Install requirement
 
@@ -66,3 +69,17 @@ pip install pal_found_cli
 # uv
 uv tool install pal_found_cli
 ```
+
+## File layout
+
+```
+.agents/skills/pal-found-filesystem/
+├── SKILL.md
+└── references/
+    ├── 01-folder-project.md
+    ├── 02-resource.md
+    └── 03-resource-role-space.md
+```
+
+Copy the entire `pal-found-filesystem` folder, including `references/`, so the
+relative links above resolve offline.
