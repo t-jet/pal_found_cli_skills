@@ -1,37 +1,44 @@
 ---
 name: pal-found-third-party-applications
-description: Run Foundry Third-Party Applications API v2 operations across ThirdPartyApplication, Website, and Version: get application and website state, deploy/undeploy websites, and manage website versions including bounded zip uploads and cursor-paged version listing.
+description: Offline entry point for Foundry Third-Party Applications API v2 CLI. Documents 9 ThirdPartyApplication, Website, and WebsiteVersion operations with preconditions, effect, inputs, result, and failure offline.
 ---
 
-# Foundry Third-Party Applications
+# Foundry Third-Party Applications CLI
 
 ## Capability and source
 
-Foundry Third-Party Applications manages website state and versioned website
-builds. This CLI exposes application get, website deploy/get/undeploy, and the
-five version operations, including bounded zip uploads and version listing.
+Foundry Third-Party Applications manage websites, their versions, and
+deployments. The `pal-found-third-party-applications` command exposes 9
+ThirdPartyApplication, Website, and Version operations.
 
-Source: [Palantir application reference](https://www.palantir.com/docs/foundry/getting-started/application-reference); reviewed 2026-08-13.
+Source: [Palantir third-party applications](https://www.palantir.com/docs/foundry/third-party-applications); reviewed 2026-08-13. This source link is maintenance evidence for maintainers; it is not needed to use the skill offline.
 
-Run `pal-found-third-party-applications --help` for syntax. The CLI exposes exactly 9 Third-Party Applications v2 operations: `third-party-application get`; `website deploy|get|undeploy`; `version delete|get|list|upload|upload-snapshot`.
+9 Foundry Third-Party Applications API v2 operations are available through the installed `pal-found-third-party-applications` command.
 
-`version list` uses the ADR-003 cursor-paged pattern with `--page-size`/`--page-token`/`--all`/`--max-pages`. `version upload` and `version upload-snapshot` read the `--file` content (bounded at 16 MiB) and pass it as the Website build zip; `--version` is the SDK `version` query parameter. Snapshot versions are automatically deleted after two days. `version upload-snapshot` also accepts `--snapshot-identifier` (optional).
+## Usage
 
-Access control runs before client and file effects. The write set is `website deploy|undeploy` and `version delete|upload|upload-snapshot` (5 operations); read-only mode blocks them before any work. Metadata-only policy is fail closed: exactly 4 operations (`third-party-application get`, `website get`, `version get`, `version list`) are permitted and the other 5 are blocked.
+```bash
+pal-found-third-party-applications <resource> <operation> [options]
+```
 
-Client creation and invocation scope use `include_attribution=False`. SDK-native B3 context remains active across client creation and every retry, then restores the caller's prior context. Retries have at-least-once semantics: retrying `website deploy`/`website undeploy` re-applies the same version (idempotent target state), but retrying `version upload` can create a duplicate version record. Do not add another automatic retry loop after this CLI exhausts its policy.
+Common options: `--timeout`, `--format json|toon|auto`, `--pretty`,
+`--page-size`, `--page-token`, `--batch-pages` (where paging applies).
 
-Successful results go only to stdout; logs and errors must not contain secrets, credentials, tokens, or attribution RIDs.
+The CLI uses the shared config loader, access control guard, retry handler,
+pagination helper, structured error serializer, output formatter, and
+SDK-native B3 tracing scope. Version uploads are bounded zip reads.
 
-### Parameters and JSON
+## Operation index
 
-All commands accept `--timeout`, `--format json|toon|auto`, and `--pretty`.
-`version list` adds `--page-size`, `--page-token`, `--all`, and `--max-pages`.
-Version upload and upload-snapshot require `--version` and `--file`; snapshot
-upload optionally accepts `--snapshot-identifier`. Website deploy requires
-`--version`. Other commands use positional `third_party_application_rid` and,
-for version get/delete, `version_version`. This namespace has no JSON input
-flags; zip content comes from `--file`.
+| Part | Resource clients | Operations |
+| --- | --- | ---: |
+| [Application, website, and version operations](references/01-applications.md) | `third_party_application`, `website`, `version` | 9 |
+
+## Parameters and JSON
+
+Every operation accepts `--timeout`, `--format json|toon|auto`, and
+`--pretty`; paged operations add `--page-size`, `--page-token`, and
+`--batch-pages`. Binary uploads use `--file` (bounded 16 MiB zip).
 
 ## Install requirement
 
@@ -47,3 +54,15 @@ pip install pal_found_cli
 # uv
 uv tool install pal_found_cli
 ```
+
+## File layout
+
+```
+.agents/skills/pal-found-third-party-applications/
+├── SKILL.md
+└── references/
+    └── 01-applications.md
+```
+
+Copy the entire `pal-found-third-party-applications` folder, including
+`references/`, so the relative links above resolve offline.

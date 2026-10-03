@@ -1,36 +1,45 @@
 ---
 name: pal-found-widgets
-description: Run Foundry Widgets API v2 operations across DevModeSettings, Repository, WidgetSet, and WidgetSet.Release: enable dev mode, set dev-mode settings by widget ID, get/publish repositories, manage widget-set releases with cursor-paged listing, and bounded zip uploads.
+description: Offline entry point for Foundry Widgets API v2 CLI. Documents 8 DevModeSettings, Release, Repository, and WidgetSet operations, and records 4 legacy design-catalogue operations as unsupported (negative checks only).
 ---
 
-# Foundry Widgets
+# Foundry Widgets CLI
 
 ## Capability and source
 
-Foundry Widgets manages widget-set repositories, releases, widget metadata,
-and development-mode settings. This CLI implements the installed SDK's eight
-operations, including release listing and bounded repository publication.
+Foundry Widgets manage widget-set repositories, their releases, and dev-mode
+settings. The `pal-found-widgets` command exposes 8 operations on the
+installed runtime surface (DevModeSettings 2, Release 3, Repository 2,
+WidgetSet 1).
 
-Source: [Palantir application building](https://www.palantir.com/docs/foundry/getting-started/application-reference); reviewed 2026-08-13.
+Source: [Palantir Widgets](https://www.palantir.com/docs/foundry/widgets); reviewed 2026-08-13. This source link is maintenance evidence for maintainers; it is not needed to use the skill offline.
 
-Run `pal-found-widgets --help` for syntax. The CLI exposes exactly 8 Widgets v2 operations: `dev-mode-settings enable|set-widget-set-by-id`; `release delete|get|list`; `repository get|publish`; `widget-set get`.
+8 Foundry Widgets API v2 operations are available through the installed `pal-found-widgets` command.
 
-`release list` uses the ADR-003 cursor-paged pattern with `--page-size`/`--page-token`/`--all`/`--max-pages`. `repository publish` reads the `--file` content (bounded at 16 MiB) and passes it as the widget-set build zip, which must include a valid manifest at `.palantir/widgets.config.json`; `--repository-version` is the SDK `repository_version` query parameter. `dev-mode-settings set-widget-set-by-id` takes `--widget-set-rid` and `--settings-json` (the `WidgetSetDevModeSettingsById` payload).
+## Usage
 
-Access control runs before client and file effects. The write set is `dev-mode-settings enable|set-widget-set-by-id`, `release delete`, and `repository publish` (4 operations); read-only mode blocks them before any work. Metadata-only policy is fail closed: exactly 4 operations (`release get`, `release list`, `repository get`, `widget-set get`) are permitted and the other 4 are blocked.
+```bash
+pal-found-widgets <resource> <operation> [options]
+```
 
-Client creation and invocation scope use `include_attribution=False`. SDK-native B3 context remains active across client creation and every retry, then restores the caller's prior context. Retries have at-least-once semantics: retrying `repository publish` can create a duplicate release, and retrying `dev-mode-settings enable` re-applies the same target state. Do not add another automatic retry loop after this CLI exhausts its policy.
+Common options: `--timeout`, `--format json|toon|auto`, `--pretty`,
+`--page-size`, `--page-token`, `--batch-pages` (where paging applies).
 
-Successful results go only to stdout; logs and errors must not contain secrets, credentials, tokens, or attribution RIDs.
+The CLI uses the shared config loader, access control guard, retry handler,
+pagination helper, structured error serializer, output formatter, and
+SDK-native B3 tracing scope. `repository.publish` reads a bounded zip.
 
-### Parameters and JSON
+## Operation index
 
-Every command accepts `--timeout`, `--format json|toon|auto`, and `--pretty`.
-`release list` adds `--page-size`, `--page-token`, `--all`, and `--max-pages`.
-`repository publish` requires `--repository-version` and `--file`;
-`dev-mode-settings set-widget-set-by-id` requires `--widget-set-rid` and
-`--settings-json`. Other positional variants are repository, widget-set, and
-release identifiers. No other JSON or short parameter form is accepted.
+| Part | Resource clients | Operations |
+| --- | --- | ---: |
+| [Widget repository and settings operations](references/01-repository.md) | `dev_mode_settings`, `release`, `repository`, `widget_set` | 8 |
+
+## Parameters and JSON
+
+Every operation accepts `--timeout`, `--format json|toon|auto`, and
+`--pretty`; paged operations add `--page-size`, `--page-token`, and
+`--batch-pages`. `set_widget_set_by_id` uses `--settings-json`.
 
 ## Install requirement
 
@@ -46,3 +55,30 @@ pip install pal_found_cli
 # uv
 uv tool install pal_found_cli
 ```
+
+## Unsupported legacy operations
+
+The older Widgets design catalogue contained these operations, which the
+installed runtime does **not** expose. They are unsupported and must not be
+invoked or presented as callable:
+
+- `dev-mode-settings disable`
+- `dev-mode-settings get`
+- `dev-mode-settings pause`
+- `dev-mode-settings set-widget-set`
+
+These are negative checks only (SA-DES-012 section 4, AC-D-013-08). If a task
+names one of them, stop and report that it is not supported by the installed
+CLI.
+
+## File layout
+
+```
+.agents/skills/pal-found-widgets/
+├── SKILL.md
+└── references/
+    └── 01-repository.md
+```
+
+Copy the entire `pal-found-widgets` folder, including `references/`, so the
+relative links above resolve offline.
