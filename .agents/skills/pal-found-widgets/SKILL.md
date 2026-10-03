@@ -62,12 +62,13 @@ The older Widgets design catalogue contained these operations, which the
 installed runtime does **not** expose. They are unsupported and must not be
 invoked or presented as callable:
 
-- `dev-mode-settings disable`
-- `dev-mode-settings get`
-- `dev-mode-settings pause`
-- `dev-mode-settings set-widget-set`
+- `dev-mode-settings disable` (operation `disable`)
+- `dev-mode-settings get` (operation `get`)
+- `dev-mode-settings pause` (operation `pause`)
+- `dev-mode-settings set-widget-set` (operation `set-widget-set`)
 
-These are negative checks only (SA-DES-012 section 4, AC-D-013-08). If a task
+Each is a negative check only: operations `disable`, `get`, `pause`, and
+`set-widget-set` are unsupported (SA-DES-012 section 4, AC-D-013-08). If a task
 names one of them, stop and report that it is not supported by the installed
 CLI.
 
