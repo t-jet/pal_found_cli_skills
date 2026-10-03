@@ -1,53 +1,47 @@
 ---
 name: pal-found-aip-agents
-description: Manage Foundry AIP agents, versions, sessions, content, and traces through local session aliases.
+description: Offline entry point for Foundry AIP Agents API v2 CLI. Documents 15 Agent, AgentVersion, Content, Session, and SessionTrace operations with preconditions, effect, inputs, result, and failure offline.
 ---
 
-# Foundry AIP Agents
-
-Run `pal-found-aip-agents --help` for command syntax. The namespace exposes 15 SDK v2 operations plus local `session purge`.
+# Foundry AIP Agents CLI
 
 ## Capability and source
 
-Foundry AIP agents provide agent/version metadata plus aliased sessions for
-blocking, streaming, cancellation, RAG context, content, titles, and traces.
-The CLI exposes the 15 SDK operations listed below; `session purge` is local
-cleanup, not an SDK operation.
+Foundry AIP Agents are conversational Foundry agents. The `pal-found-aip-agents`
+command exposes 15 Agent, AgentVersion, Content, Session, and SessionTrace
+operations for agent and session lifecycle and conversation continuation.
 
-Source: [Palantir AIP overview](https://www.palantir.com/docs/foundry/aip/overview); reviewed 2026-08-13.
+Source: [Palantir AIP Agents](https://www.palantir.com/docs/foundry/aip-agents); reviewed 2026-08-13. This source link is maintenance evidence for maintainers; it is not needed to use the skill offline.
 
-Operations: `agent all-sessions|get`; `agent-version get|list`; `content get`;
-`session blocking-continue|cancel|create|delete|get|list|rag-context|
-streaming-continue|update-title`; `session-trace get`.
+15 Foundry AIP Agents API v2 operations are available through the installed `pal-found-aip-agents` command.
 
-Create a session with `session create --alias NAME --agent-rid RID`. Later session, content, and trace commands use that alias; they do not accept raw session IDs. Aliases are normalized and stored under the configured session path. Cleanup runs once per command. `session delete` marks local state completed, while `session purge` removes unlocked local records without deleting remote sessions.
+## Usage
 
-Paged commands are `agent all-sessions`, `agent-version list`, and `session list`. They fetch one server page by default. Use `--batch-pages` for up to 40 pages and read continuation metadata from stderr.
+```bash
+pal-found-aip-agents <resource> <operation> [options]
+```
 
-`session streaming-continue` receives eager bytes from the current SDK, writes only the configured file-size prefix, and returns JSON checksums and file metadata. The write limit does not bound memory already allocated by the SDK.
+Common options: `--timeout`, `--format json|toon|auto`, `--pretty`,
+`--page-size`, `--page-token`, `--batch-pages` (where paging applies).
 
-ACL checks run before alias access, SDK calls, downloads, and purge. Metadata-only mode permits six metadata routes from the packaged policy. AIP Agents requests suppress attribution while preserving the caller's prior SDK context. Prompts, contexts, response bytes, and tokens must not enter logs.
+The CLI uses the shared config loader, access control guard, retry handler,
+pagination helper, structured error serializer, output formatter, and
+SDK-native B3 tracing scope. Session content and traces are never written to
+logs.
 
-Success data and structured errors go to stdout. Logs and pagination metadata go to stderr. Objects, purge results, and download envelopes use JSON; uniform non-empty lists may use TOON in auto mode.
+## Operation index
 
-### Parameters and JSON
+| Part | Resource clients | Operations |
+| --- | --- | ---: |
+| [Agent and session operations](references/01-agents-sessions.md) | `agent`, `agent_version`, `session` | 13 |
+| [Session content and trace operations](references/02-content-trace.md) | `content`, `session_trace` | 2 |
 
-All remote commands accept `--timeout`, `--format json|toon|auto`, and
-`--pretty`; paged commands add `--page-size`, `--page-token`, and
-`--batch-pages`. `session purge` accepts `--format` and `--pretty`, but no
-timeout. `--alias` is required for session, content, and trace commands;
-`agent get` accepts optional `--version`, and session create requires
-`--agent-rid` with optional `--agent-version`.
+## Parameters and JSON
 
-The exchange commands require JSON object inputs `--parameter-inputs-json`
-and `--user-input-json`. `session blocking-continue` and
-`session streaming-continue` also accept optional list
-`--contexts-override-json`; streaming accepts `--message-id`,
-`--session-trace-id`, and `--output-filename`. `session cancel` requires
-`--message-id` and optionally accepts `--response`; `session update-title`
-requires `--title`; trace get requires `--session-trace-id`.
-`agent-version get` uses positional `agent_rid agent_version_string`; session
-list uses positional `agent_rid`.
+Every operation accepts `--timeout`, `--format json|toon|auto`, and
+`--pretty`; paged operations add `--page-size`, `--page-token`, and
+`--batch-pages`. JSON payloads use `--parameter-inputs-json`,
+`--user-input-json`, and `--contexts-override-json` where help shows them.
 
 ## Install requirement
 
@@ -63,3 +57,16 @@ pip install pal_found_cli
 # uv
 uv tool install pal_found_cli
 ```
+
+## File layout
+
+```
+.agents/skills/pal-found-aip-agents/
+├── SKILL.md
+└── references/
+    ├── 01-agents-sessions.md
+    └── 02-content-trace.md
+```
+
+Copy the entire `pal-found-aip-agents` folder, including `references/`, so the
+relative links above resolve offline.
