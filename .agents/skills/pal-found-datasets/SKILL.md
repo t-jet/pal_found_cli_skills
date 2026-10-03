@@ -1,6 +1,6 @@
 ---
 name: pal-found-datasets
-description: Foundry Datasets API v2 CLI — 33 operations across 5 resource clients (Dataset, Branch, File, Transaction, View). Implements async REST API client patterns with access control, retry, pagination, and structured output.
+description: Offline entry point for Foundry Datasets API v2 CLI. Documents 33 Dataset, Branch, File, Transaction, and View operations with preconditions, effect, inputs, result, and failure offline.
 ---
 
 # Foundry Datasets CLI
@@ -8,22 +8,13 @@ description: Foundry Datasets API v2 CLI — 33 operations across 5 resource cli
 ## Capability and source
 
 Foundry Datasets stores tabular data with branches, transactions, schemas,
-files, and derived views. This CLI exposes 33 Dataset, Branch, File,
-Transaction, and View operations for those lifecycle and read paths.
+files, and derived views. The `pal-found-datasets` command exposes 33 Dataset,
+Branch, File, Transaction, and View operations for those lifecycle and read
+paths.
 
-Source: [Palantir data integration](https://www.palantir.com/docs/foundry/data-integration/application-reference); reviewed 2026-08-13.
+Source: [Palantir data integration](https://www.palantir.com/docs/foundry/data-integration/application-reference); reviewed 2026-08-13. This source link is maintenance evidence for maintainers; it is not needed to use the skill offline.
 
 33 Foundry Datasets API v2 operations are available through the installed `pal-found-datasets` command.
-
-## Operations
-
-| Resource | Operations | Count |
-|---|---|---|
-| **dataset** | create, get, get-health-check-reports, get-health-checks, get-schedules, get-schema, get-schema-batch, jobs, put-schema, read-table, transactions | 11 |
-| **branch** | create, delete, get, list, transactions | 5 |
-| **file** | content, delete, get, list, upload | 5 |
-| **transaction** | abort, build, commit, create, get, job | 6 |
-| **view** | add-backing-datasets, add-primary-key, create, get, remove-backing-datasets, replace-backing-datasets | 6 |
 
 ## Usage
 
@@ -31,112 +22,37 @@ Source: [Palantir data integration](https://www.palantir.com/docs/foundry/data-i
 pal-found-datasets <resource> <operation> [options]
 ```
 
-### Examples
+Common options: `--timeout`, `--format json|toon|auto`, `--pretty`,
+`--page-size`, `--page-token`, `--batch-pages` (where paging applies).
 
-```bash
-# Get dataset info
-pal-found-datasets dataset get <DATASET_RID>
+The CLI uses the shared config loader, access control guard, retry handler,
+pagination helper, structured error serializer, output formatter, and
+SDK-native B3 tracing scope. Its parser is built from `_add_operation` loops;
+per-operation records cite the CLI and SDK source locators.
 
-# List branches
-pal-found-datasets branch list <DATASET_RID> --page-size 50
+## Operation index
 
-# Read table data
-pal-found-datasets dataset read-table <DATASET_RID> --branch-name main
-
-# Upload file
-pal-found-datasets file upload <DATASET_RID> --file-path ./data.csv
-
-# Create view
-pal-found-datasets view create --name "My View" --parent-folder-rid "some_rid"
-
-# Get schema batch
-pal-found-datasets dataset get-schema-batch --dataset-r '["rid1", "rid2"]'
-```
-
-### Common Options
-
-| Option | Description |
-|---|---|
-| `--timeout <seconds>` | Request timeout in seconds |
-| `--format json\|toon\|auto` | Output format (default: auto) |
-| `--pretty` | Pretty-print JSON output |
-| `--page-size <n>` | Page size for paginated operations |
-| `--page-token <token>` | Resume pagination from token |
-| `--batch-pages <n>` | Number of pages to fetch in batch |
+| Part | Resource clients | Operations |
+| --- | --- | ---: |
+| [Dataset operations](references/01-dataset.md) | `dataset` | 11 |
+| [Branch operations](references/02-branch.md) | `branch` | 5 |
+| [File operations](references/03-file.md) | `file` | 5 |
+| [Transaction operations](references/04-transaction.md) | `transaction` | 6 |
+| [View operations](references/05-view.md) | `view` | 6 |
 
 ## Parameters and JSON
 
-All operations accept the common options above. Dataset, branch, file,
-transaction, and view commands use positional `dataset_rid` where shown;
-batch dataset IDs use required `--dataset-r` (a JSON list). Required scalar
-variants include `--name`, `--parent-folder-rid`, `--branch-name`,
-`--file-path`, `--transaction-rid`, `--view-dataset-rid`, and `--primary-key`.
-JSON or list payloads use `--schema`, `--backing-datasets`, and
-`--primary-key` in operation-specific forms; `--branch` selects a view or
-table branch. File content variants accept `--start-transaction-rid` and
-`--end-transaction-rid`. No other JSON flag or short form is accepted.
-
-## Architecture
-
-### Shared Infrastructure (src/pal_found_cli/common/)
-
-| Module | Purpose | ADR |
-|---|---|---|
-| ConfigLoader | .env file search path (explicit → git root → env vars) | ADR-006 |
-| AsyncClientFactory | Creates Foundry SDK client with auth/attribution | - |
-| RetryHandler | Exponential backoff + jitter for transient errors | ADR-002 |
-| ErrorSerializer | Maps exceptions to exit codes (0-9) | ADR-001 |
-| OutputFormatter | JSON/TOON auto-selection on stdout | ADR-004 |
-| LogSetup | NDJSON structured logging to stderr | ADR-005 |
-| AccessControlGuard | 8-step access control precedence model | ADR-007 |
-| PaginationHelper | --page-size, --page-token, --batch-pages | - |
-
-### Exit Codes (ADR-001)
-
-| Code | Name | Description |
-|---|---|---|
-| 0 | Success | Operation completed successfully |
-| 1 | UserInputError | Invalid CLI args, validation failure |
-| 2 | AuthenticationError | Missing/invalid token |
-| 3 | PermissionDeniedError | API 403 |
-| 4 | NotFoundError | API 404 |
-| 5 | TimeoutError | Request timeout |
-| 6 | ServerError | API 5xx |
-| 7 | RateLimitExhausted | HTTP 429 + retries exhausted |
-| 8 | AccessControlError | CLI access control policy |
-| 9 | ConfigurationError | Missing env var, malformed config |
-
-### Access Control (ADR-007)
-
-8-step precedence model evaluated before each operation:
-1. Operation-level ENABLED
-2. Namespace-level ENABLED
-3. Operation-level READONLY override (false = permit write)
-4. Namespace-level READONLY override
-5. Global READONLY
-6. Namespace METADATA_ONLY
-7. Global METADATA_ONLY
-8. Permit
-
-### Output (ADR-004)
-
-- Data on stdout (JSON or TOON)
-- Metadata on stderr with `# ---metadata-start---` separator
-- Auto-selection: explicit format → error → non-list → empty list → field set comparison
-
-## Configuration
-
-| Environment Variable | Description |
-|---|---|
-| `FOUNDRY_TOKEN` | API token (required) |
-| `FOUNDRY_HOSTNAME` | Foundry host URL (required) |
-| `FOUNDRY_AGENTIC_CLI_TIMEOUT_S` | Default timeout (default: 30s) |
-| `FOUNDRY_AGENTIC_CLI_DEFAULT_FORMAT` | Default output format |
-| `FOUNDRY_AGENTIC_CLI_READONLY` | Global read-only mode |
-| `FOUNDRY_AGENTIC_CLI_METADATA_ONLY` | Global metadata-only mode |
-| `FOUNDRY_AGENTIC_CLI_LOG_LEVEL` | Log level: DEBUG, INFO, WARNING, ERROR |
-| `FOUNDRY_AGENTIC_CLI_ENABLE_ATTRIBUTION` | Enable attribution |
-| `FOUNDRY_AGENTIC_CLI_ATTRIBUTION_RIDS` | Comma-separated attribution RIDs |
+Every operation accepts `--timeout`, `--format json|toon|auto`, and
+`--pretty`; paged operations add `--page-size`, `--page-token`, and
+`--batch-pages`. Dataset, branch, file, transaction, and view commands use a
+positional `dataset_rid` where shown. Batch dataset IDs use required
+`--dataset-r` (a JSON list). Required scalar variants include `--name`,
+`--parent-folder-rid`, `--branch-name`, `--file-path`, `--transaction-rid`,
+`--view-dataset-rid`, and `--primary-key`. JSON or list payloads use
+`--schema`, `--backing-datasets`, and `--primary-key` in operation-specific
+forms; `--branch` selects a view or table branch. File content variants accept
+`--start-transaction-rid` and `--end-transaction-rid`. The exact flag set is
+per-operation; read the record before invoking.
 
 ## Install requirement
 
@@ -153,9 +69,18 @@ pip install pal_found_cli
 uv tool install pal_found_cli
 ```
 
-## File Location
+## File layout
 
 ```
 .agents/skills/pal-found-datasets/
-└── SKILL.md
+├── SKILL.md
+└── references/
+    ├── 01-dataset.md
+    ├── 02-branch.md
+    ├── 03-file.md
+    ├── 04-transaction.md
+    └── 05-view.md
 ```
+
+Copy the entire `pal-found-datasets` folder, including `references/`, so the
+relative links above resolve offline.
