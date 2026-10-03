@@ -1,37 +1,44 @@
 ---
 name: pal-found-sql-queries
-description: Run Foundry SQL Queries API v2 operations: cancel, execute, execute-ontology, get-results, and get-status.
+description: Offline entry point for Foundry SQL Queries API v2 CLI. Documents 5 SqlQuery operations (cancel, execute, execute_ontology, get_results, get_status) with preconditions, effect, inputs, result, and failure offline.
 ---
 
-# Foundry SQL Queries
+# Foundry SQL Queries CLI
 
 ## Capability and source
 
-Foundry SQL Queries runs ad-hoc SQL, including ontology-aware queries, status
-and cancellation, and bounded Arrow result downloads. This CLI exposes all
-five `SqlQuery` operations.
+Foundry SQL Queries runs ad-hoc SQL against Foundry data and returns Arrow
+result bytes. The `pal-found-sql-queries` command exposes 5 `sql_query`
+operations. The CLI resource subcommand is `query`.
 
-Source: [Palantir SQL queries API](https://www.palantir.com/docs/foundry/api/v2/general/overview); reviewed 2026-08-13.
+Source: [Palantir SQL queries](https://www.palantir.com/docs/foundry/sql); reviewed 2026-08-13. This source link is maintenance evidence for maintainers; it is not needed to use the skill offline.
 
-Run `pal-found-sql-queries --help` for syntax. The CLI exposes exactly 5 SqlQueries v2 operations on the `query` resource: `query cancel`, `query execute`, `query execute-ontology`, `query get-results`, `query get-status`.
+5 Foundry SQL Queries API v2 operations are available through the installed `pal-found-sql-queries` command.
 
-Structured public options use a `-json` suffix (`--fallback-branch-ids-json`, `--parameters-json`) and are validated locally before any client is created. `query execute-ontology` and `query get-results` return Arrow bytes: both write bounded content atomically under the configured download path and emit a metadata envelope; they never print content bytes. `query get-results` long-polls the server (up to 1 minute) and can be safely retried while the query is still running.
+## Usage
 
-Access control runs before client and filesystem effects. The write set is `cancel`, `execute`, and `execute-ontology`; read-only mode blocks them before any work. Metadata-only policy is fail closed: exactly 1 operation (`query get-status`) is permitted and the other 4 are blocked.
+```bash
+pal-found-sql-queries query <operation> [options]
+```
 
-Client creation and invocation scope use `include_attribution=False`. SDK-native B3 context remains active across client creation and every retry, then restores the caller's prior context. Retries have at-least-once semantics; retrying `execute`, `execute-ontology`, or `cancel` can duplicate billable work or cost. Do not add another automatic retry loop after this CLI exhausts its policy.
+Common options: `--timeout`, `--format json|toon|auto`, `--pretty`.
 
-Successful results or metadata envelopes go only to stdout. Logs and errors must not contain prompts, queries, downloaded bytes, credentials, tokens, or attribution RIDs.
+The CLI uses the shared config loader, access control guard, retry handler,
+pagination helper, structured error serializer, output formatter, and
+SDK-native B3 tracing scope. Arrow result bytes are downloaded via the shared
+binary handler.
 
-### Parameters and JSON
+## Operation index
 
-All commands accept `--timeout`, `--format json|toon|auto`, and `--pretty`.
-`query execute` requires scalar `--query` and optionally accepts
-`--fallback-branch-ids-json`; `query execute-ontology` requires `--query` and
-optionally accepts `--parameters-json`, `--dry-run`, and `--row-limit`.
-`query cancel`, `query get-status`, and `query get-results` take positional
-`sql_query_id`; get-results optionally accepts `--output`. JSON inputs are
-validated before client creation.
+| Part | Resource client | Operations |
+| --- | --- | ---: |
+| [SQL query lifecycle](references/01-query.md) | `sql_query` (CLI `query`) | 5 |
+
+## Parameters and JSON
+
+Every operation accepts `--timeout`, `--format json|toon|auto`, and
+`--pretty`. Query execution uses `--query-string` and `--parameters-json`,
+`--fallback-branch-ids-json` where shown.
 
 ## Install requirement
 
@@ -47,3 +54,15 @@ pip install pal_found_cli
 # uv
 uv tool install pal_found_cli
 ```
+
+## File layout
+
+```
+.agents/skills/pal-found-sql-queries/
+├── SKILL.md
+└── references/
+    └── 01-query.md
+```
+
+Copy the entire `pal-found-sql-queries` folder, including `references/`, so
+the relative links above resolve offline.
