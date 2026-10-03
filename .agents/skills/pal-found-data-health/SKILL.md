@@ -1,38 +1,42 @@
 ---
 name: pal-found-data-health
-description: Run Foundry Data Health API v2 operations across the Check client and its nested CheckReport client: check create/delete/get/replace and check-report get/get-latest.
+description: Offline entry point for Foundry Data Health API v2 CLI. Documents 6 Check and CheckReport operations with preconditions, effect, inputs, result, and failure offline.
 ---
 
-# Foundry Data Health
+# Foundry Data Health CLI
 
 ## Capability and source
 
-Foundry Data Health checks resources and exposes check reports for quality
-monitoring. This CLI maps Check and CheckReport to six operations: create,
-delete, get, replace, get-report, and get-latest-report.
+Foundry Data Health runs checks that report on data quality and a dataset's
+readiness. The `pal-found-data-health` command exposes 6 Check and
+CheckReport operations.
 
-Source: [Palantir application reference](https://www.palantir.com/docs/foundry/getting-started/application-reference); reviewed 2026-08-13.
+Source: [Palantir data health](https://www.palantir.com/docs/foundry/data-health); reviewed 2026-08-13. This source link is maintenance evidence for maintainers; it is not needed to use the skill offline.
 
-Run `pal-found-data-health --help` for syntax. The CLI exposes exactly 6 Data Health v2 operations: `check create|delete|get|replace`; `check-report get|get-latest`.
+6 Foundry Data Health API v2 operations are available through the installed `pal-found-data-health` command.
 
-`check create` and `check replace` take the required `--config-json` flag — the `CheckConfig` discriminated union (`type` discriminator across all check config kinds) — plus the optional `--intent` string. `check delete` and `check get` take a positional `check_rid`. `check-report get` takes positional `check_rid` and `check_report_rid`. `check-report get-latest` takes a positional `check_rid` and the optional integer `--limit` (default 10, maximum 100; validated locally).
+## Usage
 
-`check-report get-latest` is a single-response bound, not a cursor: no operation returns a `ResourceIterator` and there are no pagination flags anywhere. Structured options use the `-json` suffix and are validated locally before any client is created.
+```bash
+pal-found-data-health <resource> <operation> [options]
+```
 
-Access control runs before client construction. The write set is `check.create`, `check.delete`, and `check.replace` (3 operations); read-only mode blocks them before any work. `check.get`, `check_report.get`, and `check_report.get_latest` are semantic reads. Metadata-only policy is fail closed: exactly 3 operations (`check.get`, `check_report.get`, `check_report.get_latest`) are permitted and the other 3 are blocked.
+Common options: `--timeout`, `--format json|toon|auto`, `--pretty`.
 
-Client creation and invocation scope use `include_attribution=False`. SDK-native B3 context remains active across client creation and every retry, then restores the caller's prior context. Retries have at-least-once semantics; retrying `check create` or `check replace` can duplicate checks or re-run validation. Do not add another automatic retry loop after this CLI exhausts its policy.
+The CLI uses the shared config loader, access control guard, retry handler,
+pagination helper, structured error serializer, output formatter, and
+SDK-native B3 tracing scope.
 
-Successful results go only to stdout. Logs and errors must not contain check configurations, credentials, tokens, or attribution RIDs.
+## Operation index
 
-### Parameters and JSON
+| Part | Resource clients | Operations |
+| --- | --- | ---: |
+| [Check and check-report operations](references/01-check-report.md) | `check`, `check_report` | 6 |
 
-All commands accept `--timeout`, `--format json|toon|auto`, and `--pretty`.
-`check create` and `check replace` require `--config-json` (a CheckConfig
-object) and optionally accept `--intent`. Delete/get use positional
-`check_rid`; report get uses `check_rid check_report_rid`; get-latest uses
-`check_rid` and optional `--limit` (1-100). No pagination flags or other JSON
-forms are accepted.
+## Parameters and JSON
+
+Every operation accepts `--timeout`, `--format json|toon|auto`, and
+`--pretty`. Check payloads use JSON flags for the check definition.
 
 ## Install requirement
 
@@ -48,3 +52,15 @@ pip install pal_found_cli
 # uv
 uv tool install pal_found_cli
 ```
+
+## File layout
+
+```
+.agents/skills/pal-found-data-health/
+├── SKILL.md
+└── references/
+    └── 01-check-report.md
+```
+
+Copy the entire `pal-found-data-health` folder, including `references/`, so
+the relative links above resolve offline.

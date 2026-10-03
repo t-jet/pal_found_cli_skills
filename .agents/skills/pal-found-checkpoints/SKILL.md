@@ -1,37 +1,44 @@
 ---
 name: pal-found-checkpoints
-description: Run Foundry Checkpoints API v2 operations through the Record client: single-record get, batch get, and cursor-paged record search.
+description: Offline entry point for Foundry Checkpoints API v2 CLI. Documents 3 Record operations (get, get_batch, search) with preconditions, effect, inputs, result, and failure offline.
 ---
 
-# Foundry Checkpoints
+# Foundry Checkpoints CLI
 
 ## Capability and source
 
-Checkpoints store named records used to track external-system state. This CLI
-exposes Record get, batch get, and cursor-paged search, all as semantic reads.
+Foundry Checkpoints stores named records that hold external system state for
+coordination between jobs. The `pal-found-checkpoints` command exposes 3
+`record` operations.
 
-Source: [Palantir Foundry API v2 overview](https://www.palantir.com/docs/foundry/api/v2/general/overview); reviewed 2026-08-13.
+Source: [Palantir Foundry checkpoints](https://www.palantir.com/docs/foundry/data-integration); reviewed 2026-08-13. This source link is maintenance evidence for maintainers; it is not needed to use the skill offline.
 
-Run `pal-found-checkpoints --help` for syntax. The CLI exposes exactly 3 Checkpoints v2 operations: `record get`, `record get-batch`, and `record search`.
+3 Foundry Checkpoints API v2 operations are available through the installed `pal-found-checkpoints` command.
 
-`record get` takes one positional `record_rid`. `record get-batch` takes the required `--records-json` flag (a JSON array of `{"recordRid": "ri.checks.main.record.xxx"}` elements, bounded at 100 by the SDK contract) and dispatches its body positionally. `record search` takes the required `--where-json` flag (the search filter object) plus the optional `--sort-direction`.
+## Usage
 
-`record search` returns a `SearchCheckpointRecordsResponse` with a `next_page_token` cursor and is the only paged operation. It accepts the ADR-003 cursor-paged flags `--page-size`, `--page-token`, `--all`, and `--max-pages` (at most 40 actual pages). `record get` and `record get-batch` have no cursor and expose no pagination flags. Structured options use the `-json` suffix and are validated locally before any client is created.
+```bash
+pal-found-checkpoints record <operation> [options]
+```
 
-All 3 operations are semantic reads. `record get_batch` and `record search` use POST but read only; the namespace has zero write operations and read-only mode permits everything. Metadata-only policy is fail closed and permits exactly all 3 operations (`record.get`, `record.get_batch`, `record.search`).
+Common options: `--timeout`, `--format json|toon|auto`, `--pretty`,
+`--page-size`, `--page-token`, `--batch-pages` (on paged search).
 
-Client creation and invocation scope use `include_attribution=False`. SDK-native B3 context remains active across client creation and every retry, then restores the caller's prior context. Retries cover only ADR-002 transient conditions; all 3 operations are safe to retry (no mutating or billable side effects). Do not add another automatic retry loop after this CLI exhausts its policy.
+The CLI uses the shared config loader, access control guard, retry handler,
+pagination helper, structured error serializer, output formatter, and
+SDK-native B3 tracing scope.
 
-Successful results go only to stdout. Logs and errors must not contain credentials, tokens, or record content.
+## Operation index
 
-### Parameters and JSON
+| Part | Resource client | Operations |
+| --- | --- | ---: |
+| [Record operations](references/01-record.md) | `record` | 3 |
 
-All commands accept `--timeout`, `--format json|toon|auto`, and `--pretty`.
-`record get` takes positional `record_rid`. `record get-batch` requires
-`--records-json`, a JSON array of record objects. `record search` requires
-`--where-json`, a JSON filter object, and optionally accepts
-`--sort-direction`. Only search accepts `--page-size`, `--page-token`,
-`--all`, and `--max-pages`.
+## Parameters and JSON
+
+Every operation accepts `--timeout`, `--format json|toon|auto`, and
+`--pretty`. JSON payloads use `--records-json` (batch RIDs) and `--where-json`
+(search criteria).
 
 ## Install requirement
 
@@ -47,3 +54,15 @@ pip install pal_found_cli
 # uv
 uv tool install pal_found_cli
 ```
+
+## File layout
+
+```
+.agents/skills/pal-found-checkpoints/
+├── SKILL.md
+└── references/
+    └── 01-record.md
+```
+
+Copy the entire `pal-found-checkpoints` folder, including `references/`, so
+the relative links above resolve offline.
