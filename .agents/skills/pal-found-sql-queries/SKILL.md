@@ -13,7 +13,7 @@ an ID, status can be polled, and results are downloaded as Apache Arrow.
 Ontology SQL is a separate private-beta path that returns Arrow bytes
 synchronously. The CLI exposes both paths through five `query` operations.
 
-Source: [Palantir SQL access to Foundry datasets](https://www.palantir.com/docs/foundry/analytics-connectivity/odbc-jdbc-drivers/#use-sql-to-query-foundry-datasets) and SDK `docs/v2/SqlQueries/SqlQuery.md`.
+Source: [Palantir SQL access to Foundry datasets](https://www.palantir.com/docs/foundry/analytics-connectivity/odbc-jdbc-drivers/#use-sql-to-query-foundry-datasets).
 
 5 Foundry SQL Queries API v2 operations are available through the installed `pal-found-sql-queries` command.
 

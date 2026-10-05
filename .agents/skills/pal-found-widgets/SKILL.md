@@ -22,7 +22,6 @@ development server supplies no override for a viewed widget.
 Source: [Custom widgets](https://www.palantir.com/docs/foundry/custom-widgets/overview),
 [core concepts](https://www.palantir.com/docs/foundry/custom-widgets/core-concepts),
 [development](https://www.palantir.com/docs/foundry/custom-widgets/development).
-Operation details: SDK `docs/v2/Widgets/` used to author this skill.
 
 8 Foundry Widgets API v2 operations are available through the installed `pal-found-widgets` command.
 

@@ -22,7 +22,6 @@ see the site by default; grant other Foundry users hosted website access in
 Sharing & Tokens. This CLI manages versions and deployment, not sharing.
 
 Source: [Host an OSDK application](https://www.palantir.com/docs/foundry/developer-console/deploy-custom-application-on-foundry).
-Operation details: SDK `docs/v2/ThirdPartyApplications/` used to author this skill.
 
 9 Foundry Third-Party Applications API v2 operations are available through the installed `pal-found-third-party-applications` command.
 

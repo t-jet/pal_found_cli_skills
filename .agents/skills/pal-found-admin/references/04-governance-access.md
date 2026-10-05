@@ -1,6 +1,6 @@
 # Governance: membership and organization access
 
-Marking membership determines who satisfies a marking requirement. Marking roles determine who can administer it. Organizations form mandatory boundaries around users and work; guests can access another organization when configured. See [organizations and spaces](https://www.palantir.com/docs/foundry/security/orgs-and-spaces) and [access control propagation](https://www.palantir.com/docs/foundry/security/access-control-propagation). Examples follow SDK `docs/v2/Admin` and the Admin CLI parser. Replace sample identifiers before running.
+Marking membership determines who satisfies a marking requirement. Marking roles determine who can administer it. Organizations form mandatory boundaries around users and work; guests can access another organization when configured. See [organizations and spaces](https://www.palantir.com/docs/foundry/security/orgs-and-spaces) and [access control propagation](https://www.palantir.com/docs/foundry/security/access-control-propagation). Examples use the installed Admin CLI. Replace sample identifiers before running.
 
 ## Operation records
 

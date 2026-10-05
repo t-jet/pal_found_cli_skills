@@ -14,7 +14,7 @@ file's event content. A log file is a delivery unit, not a single audit event;
 listing returns file IDs and a continuation token while content retrieval
 returns bytes.
 
-Source: [Palantir audit logs overview](https://www.palantir.com/docs/foundry/security/audit-logs-overview) and SDK `docs/v2/Audit/LogFile.md`.
+Source: the [Palantir audit logs overview](https://www.palantir.com/docs/foundry/security/audit-logs-overview).
 
 Use `pal-found-audit` for 2 Foundry Audit API v2 operations:
 

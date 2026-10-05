@@ -29,7 +29,7 @@ types before constructing object queries or action payloads, and inspect an
 action response's validation result before treating the edit as applied.
 Object Storage V1 edits may take time to become visible; V2 edits are visible
 when the action completes. See Palantir's [action type overview](https://www.palantir.com/docs/foundry/action-types/overview)
-and the SDK `Ontologies/Action.md` method description.
+for details about action behavior.
 
 67 Foundry Ontologies API v2 operations are exposed by `pal-found-ontologies`. Its scope is existing
 ontology metadata and runtime data; each resource page states whether a call

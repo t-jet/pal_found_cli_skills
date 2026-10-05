@@ -1,6 +1,6 @@
 # Identity: groups and roles
 
-Groups gather principals so access can be granted consistently. Group membership can convey roles, while expiration policy limits its lifetime. A role is a set of permissions, and mandatory organization and marking requirements still apply. See [users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups) and [projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles). Examples follow SDK `docs/v2/Admin` and the Admin CLI parser. Replace sample identifiers before running.
+Groups gather principals so access can be granted consistently. Group membership can convey roles, while expiration policy limits its lifetime. A role is a set of permissions, and mandatory organization and marking requirements still apply. See [users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups) and [projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles). Examples use the installed Admin CLI. Replace sample identifiers before running.
 
 ## Operation records
 

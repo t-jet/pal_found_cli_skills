@@ -36,7 +36,7 @@ For a write, confirm the target branch, resource RID, and body before sending. D
 
 ## Paging
 
-List endpoints that return multiple objects can return a `data` array and `nextPageToken`. Repeat the same request with `pageToken=<nextPageToken>` until no next token remains. Treat tokens as opaque and short-lived. `pageSize` is a requested size, not a guaranteed response length. Data may change between pages; snapshot pagination exists only on endpoints that explicitly offer it. Some endpoints have a limit across all pages of one query: List Objects returns at most 10,000 objects. Add a filter or narrower query if that limit is reached. See [Paging](https://www.palantir.com/docs/foundry/api/general/overview/paging).
+List endpoints that return multiple objects can return a `data` array and `nextPageToken`. Repeat the same request with `pageToken=<nextPageToken>` until no next token remains. Treat tokens as opaque and short-lived. `pageSize` is a requested size, not a guaranteed response length. Data may change between pages; snapshot pagination exists only on endpoints that explicitly offer it. The [List Objects endpoint](https://www.palantir.com/docs/foundry/api/v2/ontologies-v2-resources/ontology-objects/list-objects) has a 10,000-object cross-page limit for Object Storage V1 backed objects; Object Storage V2 backed objects have no such platform limit. Bound total work in your client and narrow the query when a platform limit applies. See [Paging](https://www.palantir.com/docs/foundry/api/general/overview/paging).
 
 ```python
 import os
@@ -51,7 +51,7 @@ url = f"https://{host}/api/v2/ontologies/{ontology}/objects/{object_type}"
 headers = {"Authorization": f"Bearer {token}"}
 page_token = None
 seen = 0
-max_objects = 10_000  # List Objects limit across all pages of this query.
+max_objects = 10_000  # Example client limit; OSv1 has the same platform ceiling.
 
 while seen < max_objects:
     params = {"pageSize": min(100, max_objects - seen)}
@@ -62,14 +62,14 @@ while seen < max_objects:
     page = response.json()
     for obj in page["data"]:
         if seen >= max_objects:
-            raise RuntimeError("List Objects limit reached; narrow the query")
+            raise RuntimeError("Client retrieval limit reached; narrow the query")
         print(obj["properties"])
         seen += 1
     page_token = page.get("nextPageToken")
     if not page_token:
         break
     if seen >= max_objects:
-        raise RuntimeError("List Objects limit reached; narrow the query")
+        raise RuntimeError("Client retrieval limit reached; narrow the query")
 ```
 
 The endpoint and fields follow Palantir's [paging example](https://www.palantir.com/docs/foundry/api/general/overview/paging). Install `requests` for this direct HTTP example. Use the Python SDK's iterator when direct control of page requests is unnecessary.

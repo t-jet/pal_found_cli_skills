@@ -1,6 +1,6 @@
 # Checkpoint record operations
 
-A checkpoint interrupts a sensitive Foundry interaction and asks its user for a justification. Submission creates a record with the time, acting user, checkpoint type, justification, and associated resources or objects. Users can review their own historical justifications; authorized administrators can review records across their scope. These commands retrieve records; they do not configure checkpoints or submit justifications. See the [Checkpoints overview](https://www.palantir.com/docs/foundry/checkpoints/overview) and SDK `docs/v2/Checkpoints/Record.md`.
+A checkpoint interrupts a sensitive Foundry interaction and asks its user for a justification. Submission creates a record with the time, acting user, checkpoint type, justification, and associated resources or objects. Users can review their own historical justifications; authorized administrators can review records across their scope. These commands retrieve records; they do not configure checkpoints or submit justifications. See the [Checkpoints overview](https://www.palantir.com/docs/foundry/checkpoints/overview).
 
 Examples use replaceable identifiers. The CLI requires Foundry credentials and permission to view the records.
 

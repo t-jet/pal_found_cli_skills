@@ -18,8 +18,6 @@ clears its records and creates a new view; resetting a subscriber changes only
 that subscriber's read position.
 
 Source: [Streams](https://www.palantir.com/docs/foundry/data-integration/streams).
-Operation details: SDK `docs/v2/Streams/{Dataset,Stream,Subscriber}.md` in
-the SDK documentation used to author this skill.
 
 15 Foundry Streams API v2 operations are available through the installed `pal-found-streams` command.
 

@@ -1,6 +1,6 @@
 # Governance: classifications, markings, and categories
 
-Foundry uses markings, classification-based controls, and organizations as mandatory access requirements. They apply alongside project roles and can propagate with derived data. A marking category groups markings and controls discoverability. See [security overview](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), and [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings). Examples follow SDK `docs/v2/Admin` and the Admin CLI parser. Replace sample identifiers before running.
+Foundry uses markings, classification-based controls, and organizations as mandatory access requirements. They apply alongside project roles and can propagate with derived data. A marking category groups markings and controls discoverability. See [security overview](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), and [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings). Examples use the installed Admin CLI. Replace sample identifiers before running.
 
 ## Operation records
 

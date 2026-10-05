@@ -1,6 +1,6 @@
 # SQL query operations
 
-Dataset SQL supports SELECT queries in Spark SQL over Foundry datasets referenced by path or RID. Submission returns a query status and ID; results are Apache Arrow. Ontology SQL returns Arrow bytes synchronously. Examples require read access to the referenced data. See SDK `docs/v2/SqlQueries/SqlQuery.md` and [querying datasets with SQL](https://www.palantir.com/docs/foundry/analytics-connectivity/odbc-jdbc-drivers/#use-sql-to-query-foundry-datasets).
+Dataset SQL supports SELECT queries in Spark SQL over Foundry datasets referenced by path or RID. Submission returns a query status and ID; results are Apache Arrow. Ontology SQL returns Arrow bytes synchronously. Examples require read access to the referenced data. See [querying datasets with SQL](https://www.palantir.com/docs/foundry/analytics-connectivity/odbc-jdbc-drivers/#use-sql-to-query-foundry-datasets).
 
 ### sql_query.execute
 

@@ -19,7 +19,7 @@ delegate responsibilities within an organization. The CLI exposes 66 Admin
 API v2 operations for these controls; invoking a command still requires
 credentials and the relevant Foundry permission.
 
-Source: [Palantir administration](https://www.palantir.com/docs/foundry/administration/overview), [security model](https://www.palantir.com/docs/foundry/security/overview), and SDK `docs/v2/Admin`.
+Source: [Palantir administration](https://www.palantir.com/docs/foundry/administration/overview) and the [security model](https://www.palantir.com/docs/foundry/security/overview).
 
 66 Foundry Admin API v2 operations are available through the installed `pal-found-admin` command.
 

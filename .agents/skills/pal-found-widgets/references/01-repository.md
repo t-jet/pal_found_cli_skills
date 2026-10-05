@@ -5,7 +5,7 @@ commands take widget set RID; releases use semantic version. Dev mode applies
 to user associated with CLI token. Examples use `REPOSITORY_RID` and
 `WIDGET_SET_RID` shell variables. Input errors exit 1, SDK permission denials
 exit 3, missing resources exit 4, and read-only policy blocks writes (8).
-Server may conceal a denial as 404. SDK: `docs/v2/Widgets/`.
+Server may conceal a denial as 404.
 
 ### dev_mode_settings.enable
 

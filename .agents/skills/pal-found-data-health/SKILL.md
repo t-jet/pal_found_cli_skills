@@ -20,7 +20,7 @@ Users can receive alerts in Foundry, email digests, or configured external
 systems. This CLI covers six check and report operations. It does not manage
 monitoring views, alert subscriptions, or notification integrations.
 
-Source: [Data Health overview](https://www.palantir.com/docs/foundry/observability/data-health), [check evaluation](https://www.palantir.com/docs/foundry/health-checks/check-evaluation), and SDK `docs/v2/DataHealth/{Check,CheckReport}.md`.
+Source: the [Data Health overview](https://www.palantir.com/docs/foundry/observability/data-health) and [check evaluation](https://www.palantir.com/docs/foundry/health-checks/check-evaluation).
 
 6 Foundry Data Health API v2 operations are available through the installed `pal-found-data-health` command.
 

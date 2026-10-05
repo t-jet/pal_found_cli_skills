@@ -60,6 +60,7 @@ def test_distributed_skills_omit_project_internals_and_copy_directions() -> None
         re.compile(r"\b(?:BA|SA)-(?:ANA|DES)-\d+\b", re.I),
         re.compile(r"\b(?:FEATURE|DEV-STORY|CODEREVIEW)-\d+\b", re.I),
         re.compile(r"foundry-platform-python|docs[/\\]customer_input|docs[/\\]deliverables", re.I),
+        re.compile(r"(?<![a-z0-9])docs[/\\]v2[/\\]", re.I),
         re.compile(r"development-skill-coverage|architecture decision record", re.I),
         re.compile(r"copy (?:the entire |this |the )?(?:skill )?folder", re.I),
     )
@@ -81,6 +82,8 @@ def test_rest_guide_contains_read_only_contract_and_limits() -> None:
         "401",
         "403",
         "429",
+        "Object Storage V1 backed objects",
+        "Object Storage V2 backed objects have no such platform limit",
         "https://www.palantir.com/docs/foundry/api/v2/general/overview/sdks",
     )
     for item in required:

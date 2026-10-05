@@ -20,7 +20,6 @@ asynchronous job; use `get-status` and then `get-result`. `calculate` and
 
 Source: [Media sets](https://www.palantir.com/docs/foundry/media-sets-advanced-formats),
 [importing media](https://www.palantir.com/docs/foundry/media-sets-advanced-formats/importing-media).
-Operation details: SDK `docs/v2/MediaSets/MediaSet.md` used to author this skill.
 
 19 Foundry Media Sets API v2 operations are available through the installed `pal-found-media-sets` command.
 

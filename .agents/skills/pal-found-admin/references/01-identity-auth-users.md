@@ -1,6 +1,6 @@
 # Identity: authentication, enrollment, users
 
-Authentication verifies users through configured providers. Enrollment roles delegate broad administrative powers; organization, group, and marking controls still affect access. User provider records map external identities to Foundry users. See [administration overview](https://www.palantir.com/docs/foundry/administration/overview) and [users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups). Commands here follow SDK `docs/v2/Admin` and the installed Admin CLI parser. Example identifiers and names are illustrative; replace them with values from your enrollment.
+Authentication verifies users through configured providers. Enrollment roles delegate broad administrative powers; organization, group, and marking controls still affect access. User provider records map external identities to Foundry users. See [administration overview](https://www.palantir.com/docs/foundry/administration/overview) and [users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups). Commands here use the installed Admin CLI. Example identifiers and names are illustrative; replace them with values from your enrollment.
 
 ## Operation records
 

@@ -5,7 +5,7 @@ Developer Console application RID identifies website and all its versions.
 `APP_RID` holding real third-party application RID. Input errors exit 1;
 SDK permission denials exit 3, missing resources exit 4, and read-only policy
 blocks writes (8). Server may conceal a denial as 404.
-SDK: `docs/v2/ThirdPartyApplications/`.
+
 
 ### third_party_application.get
 

@@ -15,7 +15,7 @@ associated data. Users can review their own submitted justifications;
 authorized administrators can review records across their scope. This CLI
 exposes three read operations for records; it does not configure prompts.
 
-Source: [Palantir Checkpoints overview](https://www.palantir.com/docs/foundry/checkpoints/overview) and SDK `docs/v2/Checkpoints/Record.md`.
+Source: the [Palantir Checkpoints overview](https://www.palantir.com/docs/foundry/checkpoints/overview).
 
 3 Foundry Checkpoints API v2 operations are available through the installed `pal-found-checkpoints` command.
 
