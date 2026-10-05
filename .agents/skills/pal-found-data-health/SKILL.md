@@ -1,17 +1,26 @@
 ---
 name: pal-found-data-health
-description: Offline entry point for Foundry Data Health API v2 CLI. Documents 6 Check and CheckReport operations with preconditions, effect, inputs, result, and failure offline.
+description: Define dataset health checks and read evaluation reports through the Foundry Data Health API.
 ---
 
 # Foundry Data Health CLI
 
 ## Capability and source
 
-Foundry Data Health runs checks that report on data quality and a dataset's
-readiness. The `pal-found-data-health` command exposes 6 Check and
-CheckReport operations.
+Foundry Data Health monitors resources for operational and data-quality
+problems. Monitoring views apply rules across a project, folder, or resource;
+their coverage can grow as resources are added. Health checks validate an
+individual resource in detail, including dataset content and schema. A check
+stores a rule; each evaluation creates a report with the result and a snapshot
+of that rule. Time-based checks can evaluate when a dataset updates or passes
+a configured threshold, or on a regular manual schedule. Creating a check
+therefore need not create a report immediately. Both monitoring views and
+health checks can generate alerts.
+Users can receive alerts in Foundry, email digests, or configured external
+systems. This CLI covers six check and report operations. It does not manage
+monitoring views, alert subscriptions, or notification integrations.
 
-Source: [Palantir data health](https://www.palantir.com/docs/foundry/data-health); reviewed 2026-08-13. This source link is maintenance evidence for maintainers; it is not needed to use the skill offline.
+Source: [Data Health overview](https://www.palantir.com/docs/foundry/observability/data-health), [check evaluation](https://www.palantir.com/docs/foundry/health-checks/check-evaluation), and SDK `docs/v2/DataHealth/{Check,CheckReport}.md`.
 
 6 Foundry Data Health API v2 operations are available through the installed `pal-found-data-health` command.
 
@@ -36,7 +45,16 @@ SDK-native B3 tracing scope.
 ## Parameters and JSON
 
 Every operation accepts `--timeout`, `--format json|toon|auto`, and
-`--pretty`. Check payloads use JSON flags for the check definition.
+`--pretty`. `create` and `replace` require `--config-json`, a typed check
+configuration. `get-latest` accepts `--limit` (default 10, maximum 100).
+Read [check and report operations](references/01-check-report.md) before
+replacing a rule: its type cannot change after creation.
+
+`--timeout` limits a request in seconds; `--format json|toon|auto` selects
+output encoding; `--pretty` indents structured output. For check creation,
+`--config-json` defines the rule and its subject, while `--intent` records why
+it exists. For replacement, the configuration changes the existing rule but
+does not change its subject. `--limit` on `get-latest` caps returned reports.
 
 ## Install requirement
 
@@ -52,15 +70,3 @@ pip install pal_found_cli
 # uv
 uv tool install pal_found_cli
 ```
-
-## File layout
-
-```
-.agents/skills/pal-found-data-health/
-├── SKILL.md
-└── references/
-    └── 01-check-report.md
-```
-
-Copy the entire `pal-found-data-health` folder, including `references/`, so
-the relative links above resolve offline.

@@ -1,18 +1,28 @@
 ---
 name: pal-found-widgets
-description: Offline entry point for Foundry Widgets API v2 CLI. Documents 8 DevModeSettings, Release, Repository, and WidgetSet operations, and records 4 legacy design-catalogue operations as unsupported (negative checks only).
+description: Inspect widget sets and releases, publish widget builds, and manage user dev mode through 8 CLI operations.
 ---
 
 # Foundry Widgets CLI
 
 ## Capability and source
 
-Foundry Widgets manage widget-set repositories, their releases, and dev-mode
-settings. The `pal-found-widgets` command exposes 8 operations on the
-installed runtime surface (DevModeSettings 2, Release 3, Repository 2,
-WidgetSet 1).
+Custom widgets extend Workshop with frontend components such as tailored
+charts or object views. A widget set is a permissioned resource containing
+multiple widgets and versioned code from a repository. Publishing a build
+creates a release; host applications choose which release to use. Dev mode
+previews unpublished assets for the token's user only, so other users retain
+the published version. `release` operations use a **widget set RID** and
+semantic release version, while `repository` operations use a repository RID.
+Dev mode expires after 24 hours. New widgets can be previewed in playground
+or Code Workspaces before release; Workshop can select them only after first
+publication. An inactive dev mode session displays published assets when the
+development server supplies no override for a viewed widget.
 
-Source: [Palantir Widgets](https://www.palantir.com/docs/foundry/widgets); reviewed 2026-08-13. This source link is maintenance evidence for maintainers; it is not needed to use the skill offline.
+Source: [Custom widgets](https://www.palantir.com/docs/foundry/custom-widgets/overview),
+[core concepts](https://www.palantir.com/docs/foundry/custom-widgets/core-concepts),
+[development](https://www.palantir.com/docs/foundry/custom-widgets/development).
+Operation details: SDK `docs/v2/Widgets/` used to author this skill.
 
 8 Foundry Widgets API v2 operations are available through the installed `pal-found-widgets` command.
 
@@ -22,8 +32,8 @@ Source: [Palantir Widgets](https://www.palantir.com/docs/foundry/widgets); revie
 pal-found-widgets <resource> <operation> [options]
 ```
 
-Common options: `--timeout`, `--format json|toon|auto`, `--pretty`,
-`--page-size`, `--page-token`, `--batch-pages` (where paging applies).
+Common options: `--timeout`, `--format json|toon|auto`, `--pretty`; release
+listing also accepts `--page-size`, `--page-token`, `--all`, `--max-pages`.
 
 The CLI uses the shared config loader, access control guard, retry handler,
 pagination helper, structured error serializer, output formatter, and
@@ -37,9 +47,16 @@ SDK-native B3 tracing scope. `repository.publish` reads a bounded zip.
 
 ## Parameters and JSON
 
-Every operation accepts `--timeout`, `--format json|toon|auto`, and
-`--pretty`; paged operations add `--page-size`, `--page-token`, and
-`--batch-pages`. `set_widget_set_by_id` uses `--settings-json`.
+`set-widget-set-by-id` requires `--widget-set-rid` and `--settings-json`.
+`repository publish` requires `--repository-version` and a bounded zip file.
+
+`--timeout` limits a request in seconds; `--format json|toon|auto` chooses
+output encoding; `--pretty` indents it. Release listing accepts `--page-size`
+as the requested number of releases, `--page-token` to resume from a returned
+token, and `--all --max-pages` for bounded automatic traversal.
+`--widget-set-rid` identifies the widget set whose dev overrides change;
+`--settings-json` is its JSON override map. Publishing uses
+`--repository-version` as the build version and `--file` as the local zip path.
 
 ## Install requirement
 
@@ -68,18 +85,6 @@ invoked or presented as callable:
 - `dev-mode-settings set-widget-set` (operation `set-widget-set`)
 
 Each is a negative check only: operations `disable`, `get`, `pause`, and
-`set-widget-set` are unsupported (SA-DES-012 section 4, AC-D-013-08). If a task
+`set-widget-set` are unsupported. If a task
 names one of them, stop and report that it is not supported by the installed
 CLI.
-
-## File layout
-
-```
-.agents/skills/pal-found-widgets/
-├── SKILL.md
-└── references/
-    └── 01-repository.md
-```
-
-Copy the entire `pal-found-widgets` folder, including `references/`, so the
-relative links above resolve offline.

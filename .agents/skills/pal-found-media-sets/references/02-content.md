@@ -1,97 +1,107 @@
-# Media content operations
+# Item reads and downloads
 
-This part documents the media-set content operations (9): get, get_result,
-get_rid_by_path, get_status, info, metadata, read, read_original, and
-retrieve. The download-class operations stream bounded binary content.
-
-Source/pins: CLI parser
-`pal_found_cli_tool/src/pal_found_cli/media_sets/scripts/pal_found_media_sets_cli.py`;
-SDK `foundry_sdk/v2/media_sets/media_set.py` at pinned commit `2da67907`.
-Reviewer architect (CODEREVIEW-053), 2026-10-03. QA baseline TESTCASE-018.
-
-## Operation records
+Examples use `MEDIA_SET_RID`, `MEDIA_ITEM_RID`, and `JOB_ID` shell variables.
+Downloads save bytes through CLI's bounded handler and return path, size,
+checksum, and `truncated` metadata. `--output` is a **basename**, never a path:
+the handler saves it under configured download directory. Omit it for
+generated name. Default limit is 1.5 MiB; larger content is saved as a
+truncated prefix and marked `truncated: true`. Read token options apply to
+individual items where SDK supports them. `--read-token` applies to item
+reads; transformation status/result use `--token`. `--preview` enables beta
+endpoint behavior where accepted. Input errors exit 1; SDK permission denials
+exit 3, missing items exit 4, and metadata-only policy may block binary reads
+(8). Server may conceal a denial as 404.
 
 ### media_set.get
 
-- **Class**: read. Returns a media set.
-- **Preconditions**: can read the set.
-- **Effect**: returns the media set record.
-- **Inputs**: positional `media_set_rid`; optional `--branch-rid`/`--view-rid`.
-- **Success**: the media set.
-- **Failure**: exit 4 if missing.
+Returns set RID, media schema, default branch name, transaction policy,
+and `pathsRequired`. Use policy before opening transaction and path rule
+before upload. Requires set RID. Missing set or read permission fails;
+no item bytes are returned.
 
-### media_set.get_result
-
-- **Class**: read (binary download). Downloads a media item's result.
-- **Preconditions**: can read the item.
-- **Effect**: saves the media content; returns a metadata envelope.
-- **Inputs**: positional `media_set_rid`; `--media-item-path`/`--media-item-rid`;
-  `--output` (required).
-- **Success**: metadata envelope; download bound applies.
-- **Failure**: exit 8 if read blocked in metadata-only mode.
+**Example:** `pal-found-media-sets media-set get "$MEDIA_SET_RID"`
 
 ### media_set.get_rid_by_path
 
-- **Class**: read. Resolves a media item RID by its branch/path.
-- **Preconditions**: can read the set.
-- **Effect**: returns the item RID for a path.
-- **Inputs**: positional `media_set_rid`; `--branch-rid`/`--view-rid`,
-  `--media-item-path`.
-- **Success**: the item RID.
+Resolves current item at `--media-item-path` to its RID. Defaults to set's
+default branch; choose `--branch-name`, `--branch-rid`, or `--view-rid`, one
+at a time, to scope lookup. Response has optional `mediaItemRid`; absent path
+may yield null. Denied branch access fails. Older direct reference can still
+point to an overwritten item at same path.
 
-### media_set.get_status
-
-- **Class**: read. Returns a media set transaction/job status.
-- **Preconditions**: can read the set.
-- **Effect**: returns the status of the set or a transform.
-- **Inputs**: positional `media_set_rid`; branch/transaction context.
-- **Success**: the status record.
+**Example:** `pal-found-media-sets media-set get-rid-by-path "$MEDIA_SET_RID" --media-item-path reports/q3.pdf --branch-name master`
 
 ### media_set.info
 
-- **Class**: read. Returns a media item's info.
-- **Preconditions**: can read the item.
-- **Effect**: returns item metadata (size, type).
-- **Inputs**: positional `media_set_rid`; item selectors.
-- **Success**: the item info.
+Returns item information: view RID, optional path, logical timestamp,
+original/upload MIME type, current MIME type, and size when available.
+Optional `--read-token` authorizes item read. Use `metadata` for extracted
+type-specific details. Missing item or read permission fails.
+
+**Example:** `pal-found-media-sets media-set info "$MEDIA_SET_RID" "$MEDIA_ITEM_RID"`
 
 ### media_set.metadata
 
-- **Class**: read. Returns media set/transaction metadata.
-- **Preconditions**: can read the set.
-- **Effect**: returns metadata for the set or transaction.
-- **Inputs**: positional `media_set_rid`; `--transaction-id`/`--branch-name`.
-- **Success**: the metadata.
+Returns detailed extracted metadata for item RID: image dimensions,
+audio/video duration, document page count, or other type-specific fields
+when available. Optional `--read-token` authorizes item read. Missing item
+or read permission fails; extracted fields depend on item format.
+
+**Example:** `pal-found-media-sets media-set metadata "$MEDIA_SET_RID" "$MEDIA_ITEM_RID"`
+
+### media_set.reference
+
+Returns media reference for item RID. Reference lets Ontology or another
+Foundry workflow point to item without downloading bytes. This is a read;
+it does not add item to transaction. Optional `--read-token` authorizes item
+read; missing item or read permission fails. Response is `MediaReference`.
+
+**Example:** `pal-found-media-sets media-set reference "$MEDIA_SET_RID" "$MEDIA_ITEM_RID"`
 
 ### media_set.read
 
-- **Class**: read (binary download). Reads a media item's bytes.
-- **Preconditions**: can read the item.
-- **Effect**: saves the media content; returns an envelope.
-- **Inputs**: positional `media_set_rid`; item + `--output`.
-- **Success**: metadata envelope; download bound applies.
-- **Failure**: exit 8 if read blocked.
+Downloads current content of item RID, saving bounded bytes under `--output`
+basename or generated name. Optional `--read-token` grants item read. Response
+gives local path, size, checksum, and truncation flag. Missing item or read
+denial fails; content over configured bound is truncated. Use `read-original`
+when upload converted its format.
+
+**Example:** `pal-found-media-sets media-set read "$MEDIA_SET_RID" "$MEDIA_ITEM_RID" --output q3.pdf`
 
 ### media_set.read_original
 
-- **Class**: read (binary download). Reads a media item's original bytes.
-- **Preconditions**: can read the item.
-- **Effect**: saves the original content; returns an envelope.
-- **Inputs**: positional `media_set_rid`; item + `--output`.
-- **Success**: metadata envelope; download bound applies.
+Downloads original uploaded file even when media set transformed additional
+input format on upload. `--read-token` can grant item access and `--output`
+chooses basename. Missing original or read permission fails. Result reports
+local path, saved size, checksum, and truncation status.
+
+**Example:** `pal-found-media-sets media-set read-original "$MEDIA_SET_RID" "$MEDIA_ITEM_RID" --output q3-original.docx`
+
+### media_set.get_status
+
+Returns `jobId` and status for transformation identified by set RID, item
+RID, and job ID. Optional `--token` supplies media item read token. Use after
+`transform`; `PENDING` means wait, `FAILED` needs handling, and `SUCCESSFUL`
+allows `get-result`. Unknown job or missing read access fails.
+
+**Example:** `pal-found-media-sets media-set get-status "$MEDIA_SET_RID" "$MEDIA_ITEM_RID" "$JOB_ID"`
+
+### media_set.get_result
+
+Downloads transformed bytes after job succeeded. Requires set RID, item RID,
+job ID; `--output` selects basename and optional `--token` grants item read.
+Pending or failed job returns error; read denial also fails. Oversize result
+is truncated and marked in envelope;
+download does not create a new media item in set.
+
+**Example:** `pal-found-media-sets media-set get-result "$MEDIA_SET_RID" "$MEDIA_ITEM_RID" "$JOB_ID" --output resized.webp`
 
 ### media_set.retrieve
 
-- **Class**: read (binary download). Retrieves media by a read token.
-- **Preconditions**: a valid read token for the item.
-- **Effect**: saves the content; returns an envelope.
-- **Inputs**: positional `media_set_rid`; `--read-token`, `--output`.
-- **Success**: metadata envelope; download bound applies.
+Downloads successfully calculated 200-pixel WebP thumbnail for image item.
+First call `calculate` and confirm `successful` status. Optional
+`--read-token` grants item read; `--preview` enables beta endpoint where
+needed. Missing thumbnail, non-image item, or read denial fails. Result is
+local file metadata with truncation status.
 
-## Evidence and review
-
-Reviewed against the installed `pal-found-media-sets` parser and pinned SDK
-sources (commit `2da67907`). All content operations are read-class; the four
-downloads (get_result, read, read_original, retrieve) use BinaryDownloadHandler
-with the 1.5 MiB default bound (AC-D-013-09). No unsupported operation is
-documented as callable.
+**Example:** `pal-found-media-sets media-set retrieve "$MEDIA_SET_RID" "$MEDIA_ITEM_RID" --output thumbnail.webp`

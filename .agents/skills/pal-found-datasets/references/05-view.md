@@ -1,86 +1,95 @@
 # View operations
 
-This part documents the `view` resource client (6 operations). A view is a
-derived dataset backed by one or more source datasets; its primary key defines
-the identifying column(s). Read the [Datasets entry](SKILL.md) first.
+Datasets hold versioned files, with an optional schema for tabular reads. A transaction changes a
+branch view; a branch is a pointer to transaction history. A View is a separate resource that reads
+a union of backing datasets without storing their files. Most enrollments use `master` as the
+default branch, but omit the branch flag to use the enrollment default.
 
-Source/pins: CLI parser
-`pal_found_cli_tool/src/pal_found_cli/datasets/scripts/pal_found_datasets_cli.py`;
-SDK `foundry_sdk/v2/datasets/view.py` at pinned commit `2da67907`. Reviewer
-architect (CODEREVIEW-044), 2026-10-03. QA baseline TESTCASE-003.
-
-## Workflow
-
-1. `view.create` the view dataset.
-2. Add backing datasets (`view.add_backing_datasets`) and set the primary key
-   (`view.add_primary_key`).
-3. Read `view.get`; update backing with `replace_backing_datasets` or remove
-   with `remove_backing_datasets` as needed.
+Platform context: [Palantir
+documentation](https://www.palantir.com/docs/foundry/data-integration/datasets). The behavior below
+describes the installed CLI commands. Replace
+example identifiers and configuration values with values from your Foundry enrollment.
 
 ## Operation records
 
 ### view.add_backing_datasets
 
-- **Class**: change. Adds backing datasets to a view.
-- **Preconditions**: can write the view.
-- **Effect**: registers additional source datasets behind the view.
-- **Inputs**: positional `view_dataset_rid`; `--backing-datasets` JSON list.
-- **Success**: returns the updated view.
-- **Example**: `pal-found-datasets view add-backing-datasets <VIEW_RID> --backing-datasets '["ri.foundry.main.dataset.s1"]'`.
-
-### view.add_primary_key
-
-- **Class**: change. Sets the primary key on a view.
-- **Preconditions**: can write the view.
-- **Effect**: defines which column(s) make rows unique in the view.
-- **Inputs**: positional `view_dataset_rid`; `--primary-key` (list).
-- **Success**: returns the updated view.
-- **Example**: `pal-found-datasets view add-primary-key <VIEW_RID> --primary-key '["order_id"]'`.
-
-### view.create
-
-- **Class**: create. Creates a view dataset.
-- **Preconditions**: a parent folder and a derived name.
-- **Effect**: creates a view; returns its RID.
-- **Inputs**: required `--name`, `--parent-folder-rid`; `--backing-datasets`,
-  `--primary-key` as needed.
-- **Success**: the created view dataset.
-- **Failure**: exit 1 invalid input; exit 8 readonly block.
-- **Example**: `pal-found-datasets view create --name "OrderView" --parent-folder-rid ri.foundry.main.folder.f1 --backing-datasets '["ri.foundry.main.dataset.s1"]' --primary-key '["order_id"]'`.
-
-### view.get
-
-- **Class**: read. Returns a view dataset.
-- **Preconditions**: can read the view.
-- **Effect**: returns the view record and its backing/primary key metadata.
-- **Inputs**: positional `view_dataset_rid`.
-- **Success**: the view record.
-- **Failure**: exit 4 if missing.
-- **Example**: `pal-found-datasets view get <VIEW_RID>`.
+- **Behavior:** Adds one or more backing datasets to a View. Any duplicates with the same dataset
+  RID and branch name are ignored.
+- **Before use:** The View must be writable. Each backing dataset must be accessible, have a schema,
+  and live in the View's project or be added there as a project reference.
+- **Inputs:** positional none; required `--view-dataset-rid`, `--backing-datasets`; optional
+  `--branch`. `view_dataset_rid`: The rid of the View.
+- **Parameter notes:** `--branch` selects the View branch whose backing dataset list changes.
+- **Result:** `View`.
+- **Failure or follow-up:** Invalid identifiers or insufficient permission reject the change; read
+  the view afterward to verify its state.
+- **Example:** `pal-found-datasets view add-backing-datasets --view-dataset-rid VIEW_DATASET_RID --backing-datasets '[{"datasetRid":"ri.foundry.main.dataset.c26f11c8-cdb3-4f44-9f5d-9816ea1c82da","stopPropagatingMarkingIds":["18212f9a-0e63-4b79-96a0-aae04df23336"],"branch":"master"}]'`
 
 ### view.remove_backing_datasets
 
-- **Class**: change. Removes backing datasets from a view.
-- **Preconditions**: can write the view.
-- **Effect**: unregisters source datasets from the view.
-- **Inputs**: positional `view_dataset_rid`; `--backing-datasets` JSON list.
-- **Success**: returns the updated view.
-- **Example**: `pal-found-datasets view remove-backing-datasets <VIEW_RID> --backing-datasets '["ri.foundry.main.dataset.s1"]'`.
+- **Behavior:** Removes specified backing datasets from a View. Removing a dataset triggers a
+  SNAPSHOT transaction on the next update. If a specified dataset does not exist, no error is
+  thrown.
+- **Before use:** The View must be writable; identify the exact backing dataset RID and branch to
+  remove. A dataset not currently backing the View is ignored.
+- **Inputs:** positional none; required `--view-dataset-rid`, `--backing-datasets`; optional
+  `--branch`. `view_dataset_rid`: The rid of the View.
+- **Parameter notes:** `--branch` selects the View branch from which the listed backing datasets are removed.
+- **Result:** `View`.
+- **Failure or follow-up:** A missing view, invalid target, or insufficient permission rejects the
+  removal. Confirm the resulting state with a read operation.
+- **Example:** `pal-found-datasets view remove-backing-datasets --view-dataset-rid VIEW_DATASET_RID --backing-datasets '[{"datasetRid":"ri.foundry.main.dataset.c26f11c8-cdb3-4f44-9f5d-9816ea1c82da","stopPropagatingMarkingIds":["18212f9a-0e63-4b79-96a0-aae04df23336"],"branch":"master"}]'`
 
 ### view.replace_backing_datasets
 
-- **Class**: change. Replaces the full set of backing datasets.
-- **Preconditions**: can write the view.
-- **Effect**: replaces backing with the provided set; sources no longer listed
-  are removed.
-- **Inputs**: positional `view_dataset_rid`; `--backing-datasets` JSON list.
-- **Success**: returns the updated view.
-- **Example**: `pal-found-datasets view replace-backing-datasets <VIEW_RID> --backing-datasets '["ri.foundry.main.dataset.s2"]'`.
+- **Behavior:** Replaces the backing datasets for a View. Removing any backing dataset triggers a
+  SNAPSHOT transaction the next time the View is updated.
+- **Before use:** The View must be writable. New backing datasets need schemas and must be in the
+  View's project or added there as project references.
+- **Inputs:** positional none; required `--view-dataset-rid`, `--backing-datasets`; optional
+  `--branch`. `view_dataset_rid`: The rid of the View.
+- **Parameter notes:** `--branch` selects the View branch whose full backing dataset list is replaced.
+- **Result:** `View`.
+- **Failure or follow-up:** Invalid input or insufficient access to the view is returned through the
+  CLI error envelope.
+- **Example:** `pal-found-datasets view replace-backing-datasets --view-dataset-rid VIEW_DATASET_RID --backing-datasets '[{"datasetRid":"ri.foundry.main.dataset.c26f11c8-cdb3-4f44-9f5d-9816ea1c82da","stopPropagatingMarkingIds":["18212f9a-0e63-4b79-96a0-aae04df23336"],"branch":"master"}]'`
 
-## Evidence and review
+### view.add_primary_key
 
-Reviewed against the installed `pal-found-datasets` parser and pinned SDK
-sources (commit `2da67907`). `create` and the backing/primary-key writes change
-the view; `get` is a read. `replace_backing_datasets` is destructive to the
-listed-but-removed sources' view membership. No unsupported operation is
-documented as callable.
+- **Behavior:** Adds a primary key to a View that does not already have one. Primary keys are
+  treated as guarantees provided by the creator of the dataset.
+- **Before use:** The View must be writable and must not already have a primary key. Choose columns
+  present in its backing datasets and a resolution rule that fits the data.
+- **Inputs:** positional none; required `--view-dataset-rid`, `--primary-key`; optional `--branch`.
+  `view_dataset_rid`: The rid of the View.
+- **Parameter notes:** `--branch` selects the View branch on which to add the primary key.
+- **Result:** `View`.
+- **Failure or follow-up:** Invalid identifiers or insufficient permission reject the change; read
+  the view afterward to verify its state.
+- **Example:** `pal-found-datasets view add-primary-key --view-dataset-rid VIEW_DATASET_RID --primary-key '{"columns":["colA"],"resolution":{"type":"duplicate","deletionColumn":"deletionCol","resolutionStrategy":{"type":"latestWins","columns":["colB","colC"]}}}'`
+
+### view.create
+
+- **Behavior:** Create a new View.
+- **Before use:** Choose a writable parent folder and backing datasets with compatible schemas.
+- **Inputs:** positional none; required `--view-name`, `--parent-folder-rid`, and
+  `--backing-datasets` as a JSON array of dataset RID and branch selections. Optional
+  `--branch` selects the view branch and `--primary-key` supplies key configuration.
+- **Parameter notes:** `--branch` names the initial View branch; `--primary-key` gives key columns and a duplicate-resolution rule for the new View.
+- **Result:** `View`.
+- **Failure or follow-up:** An invalid configuration or insufficient permission rejects view
+  creation; use the returned RID for later calls.
+- **Example:** `pal-found-datasets view create --view-name Orders --parent-folder-rid PARENT_FOLDER_RID --backing-datasets '[{"datasetRid":"DATASET_RID","branch":"master"}]'`
+
+### view.get
+
+- **Behavior:** Get metadata for a View.
+- **Before use:** The View must exist and be readable.
+- **Inputs:** positional none; required `--view-dataset-rid`; optional `--branch`.
+  `view_dataset_rid`: The rid of the View.
+- **Parameter notes:** `--branch` selects the View branch whose metadata is read.
+- **Result:** `View`.
+- **Failure or follow-up:** A missing or inaccessible view returns an error, except where the SDK
+  declares an optional result.
+- **Example:** `pal-found-datasets view get --view-dataset-rid VIEW_DATASET_RID`

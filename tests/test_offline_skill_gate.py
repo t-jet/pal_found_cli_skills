@@ -1,4 +1,4 @@
-"""Reusable offline skill integration gates for FEATURE-012.
+"""Reusable offline skill integration gates for FEATURE-012 and FEATURE-013.
 
 These checks validate the offline distribution contract from SA-DES-012
 section 5 and the frozen per-operation registers frozen at grooming by the
@@ -6,8 +6,8 @@ Tech Lead (2026-10-03). They are real content-verification unit tests: they
 never make network calls and never invoke a Foundry API.
 
 Checks:
-- 300-line leaf limit for every SKILL.md and references/*.md part.
-- Exact FEATURE-011 install block (conda / PyPI-pip / uv) in every SKILL.md.
+- 300-line leaf limit for every skill Markdown part, including pal-found-dev.
+- Exact FEATURE-011 install block in command skills; pal-found-dev is knowledge only.
 - Relative local links in every SKILL.md resolve within that skill folder.
 - Every frozen operation key is documented (reachable record) in the owning
   namespace references parts, and no extra callable claim is introduced.
@@ -31,6 +31,9 @@ INSTALL_STRINGS = (
 # Frozen per-operation registers (grooming comments 20261003-1747xx-1749xx).
 # Map namespace skill name to the set of canonical operation keys it owns.
 FROZEN_OPERATIONS = {
+    "pal-found-audit": {
+        "log_file list", "log_file content",
+    },
     "pal-found-admin": {
         # 042 identity (38) — authentication_provider, enrollment,
         # enrollment_role_assignment, group, group_member, group_membership,
@@ -275,7 +278,7 @@ def _text(name: str) -> str:
 
 
 def test_leaf_files_respect_300_line_limit() -> None:
-    for name in set(FROZEN_OPERATIONS) | {"pal-found"}:
+    for name in set(FROZEN_OPERATIONS) | {"pal-found", "pal-found-dev"}:
         for path in _files(name):
             count = len(path.read_text(encoding="utf-8").splitlines())
             assert count <= LEAF_LIMIT, f"{path.name} has {count} lines > {LEAF_LIMIT}"
@@ -289,15 +292,19 @@ def test_every_skill_has_install_prerequisite_block() -> None:
             assert expected in text, f"{name} missing install string: {expected}"
 
 
-def test_skillmd_relative_links_resolve_within_folder() -> None:
-    for name in set(FROZEN_OPERATIONS) | {"pal-found"}:
-        skill = (SKILLS / name / "SKILL.md").read_text(encoding="utf-8")
-        links = re.findall(r"\]\(([^)#]+)\)", skill)
-        for link in links:
-            if link.startswith("http") or link.startswith("#"):
-                continue
-            target = (SKILLS / name / link.split("#")[0]).resolve()
-            assert target.exists(), f"{name}: relative link {link} does not resolve"
+def test_relative_links_resolve_within_skill_folder() -> None:
+    for name in set(FROZEN_OPERATIONS) | {"pal-found", "pal-found-dev"}:
+        root = (SKILLS / name).resolve()
+        for path in _files(name):
+            content = path.read_text(encoding="utf-8")
+            links = re.findall(r"\]\(([^)#]+)\)", content)
+            for link in links:
+                if link.startswith("http") or link.startswith("#"):
+                    continue
+                target = (path.parent / link.split("#")[0]).resolve()
+                assert target.is_relative_to(root) and target.exists(), (
+                    f"{path}: relative link {link} does not resolve within skill"
+                )
 
 
 def test_frozen_operations_are_documented_and_reachable() -> None:
@@ -318,8 +325,72 @@ def test_frozen_operations_are_documented_and_reachable() -> None:
             )
 
 
+def test_each_operation_has_its_own_example_record() -> None:
+    """An operation name elsewhere in a skill cannot stand in for guidance."""
+    heading = re.compile(r"^### ([a-z][a-z0-9_]*\.[a-z][a-z0-9_]*)\s*$", re.M)
+    for name, operations in FROZEN_OPERATIONS.items():
+        records: dict[str, list[str]] = {}
+        sources = [SKILLS / name / "SKILL.md"]
+        sources.extend((SKILLS / name / "references").glob("*.md"))
+        for path in sources:
+            content = path.read_text(encoding="utf-8")
+            matches = list(heading.finditer(content))
+            for index, match in enumerate(matches):
+                end = matches[index + 1].start() if index + 1 < len(matches) else len(content)
+                key = match.group(1).replace(".", " ", 1)
+                records.setdefault(key, []).append(content[match.end():end])
+
+        missing = operations - records.keys()
+        unexpected = records.keys() - operations
+        duplicate = {key for key, bodies in records.items() if len(bodies) != 1}
+        assert not missing, f"{name}: missing individual records: {sorted(missing)}"
+        assert not unexpected, f"{name}: unsupported records: {sorted(unexpected)}"
+        assert not duplicate, f"{name}: duplicate records: {sorted(duplicate)}"
+
+        for key in operations:
+            body = records[key][0]
+            assert re.search(r"\bExample\s*:", body, re.I), (
+                f"{name}: {key} needs a concrete example"
+            )
+            assert f"pal-found-{name.removeprefix('pal-found-')}" in body, (
+                f"{name}: {key} example needs the installed command"
+            )
+            assert "Value defined by SDK type" not in body, (
+                f"{name}: {key} must explain the input, not repeat its SDK type"
+            )
+            assert not re.search(r"Calls the [\w_]+ \w+ endpoint", body), (
+                f"{name}: {key} purpose must explain the operation's behavior"
+            )
+
+
+def test_each_listed_flag_has_guidance_beyond_the_input_inventory() -> None:
+    """Listing a parser flag alone does not explain how to use it in Foundry."""
+    heading = re.compile(r"^### ([a-z][a-z0-9_]*\.[a-z][a-z0-9_]*)\s*$", re.M)
+    for name in FROZEN_OPERATIONS:
+        for path in (SKILLS / name / "references").glob("*.md"):
+            content = path.read_text(encoding="utf-8")
+            matches = list(heading.finditer(content))
+            for index, match in enumerate(matches):
+                end = matches[index + 1].start() if index + 1 < len(matches) else len(content)
+                body = content[match.end():end]
+                inventory = next(
+                    (line for line in body.splitlines() if line.startswith((
+                        "- **CLI inputs:**", "- **Inputs:**"
+                    ))),
+                    None,
+                )
+                if inventory is None:
+                    continue
+                guidance = body.replace(inventory, "", 1)
+                for flag in set(re.findall(r"--[a-z][a-z0-9-]+", inventory)):
+                    assert flag in guidance, (
+                        f"{name}: {match.group(1)} lists {flag} without further guidance"
+                    )
+
+
 def test_summary_counts_match_frozen_register() -> None:
     expected = {
+        "pal-found-audit": 2,
         "pal-found-admin": 66,
         "pal-found-datasets": 33,
         "pal-found-filesystem": 31,
@@ -372,6 +443,7 @@ def test_namespace_totals_frozen_register_equivalence() -> None:
     # The union of every frozen per-namespace op key set must equal the
     # documented per-namespace counts: each skill documents its full surface.
     checks = {
+        "pal-found-audit": 2,
         "pal-found-admin": 66,
         "pal-found-datasets": 33,
         "pal-found-filesystem": 31,

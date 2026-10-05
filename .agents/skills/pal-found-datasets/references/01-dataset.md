@@ -1,131 +1,156 @@
 # Dataset operations
 
-This part documents the `dataset` resource client (11 operations). Read the
-[Datasets entry](SKILL.md) and the general [platform
-concepts](../pal-found/references/01-platform-concepts.md) part first.
+Datasets hold versioned files, with an optional schema for tabular reads. A transaction changes a
+branch view; a branch is a pointer to transaction history. A View is a separate resource that reads
+a union of backing datasets without storing their files. Most enrollments use `master` as the
+default branch, but omit the branch flag to use the enrollment default.
 
-Source/pins: CLI parser
-`pal_found_cli_tool/src/pal_found_cli/datasets/scripts/pal_found_datasets_cli.py`;
-SDK `foundry_sdk/v2/datasets/*.py` at pinned commit `2da67907`. Reviewer
-architect (CODEREVIEW-044), 2026-10-03. QA baseline TESTCASE-003.
-
-## Workflow
-
-1. Create a dataset (`dataset.create`) in a parent folder.
-2. Set its schema (`dataset.put_schema`) and read it back
-   (`dataset.get_schema`, `dataset.get_schema_batch`).
-3. Read data (`dataset.read_table`), health and schedules
-   (`get_health_checks`, `get_health_check_reports`, `get_schedules`), and
-   transaction status (`dataset.transactions`, `dataset.jobs`).
+Platform context: [Palantir
+documentation](https://www.palantir.com/docs/foundry/data-integration/datasets). The behavior below
+describes the installed CLI commands. Replace
+example identifiers and configuration values with values from your Foundry enrollment.
 
 ## Operation records
 
 ### dataset.create
 
-- **Class**: create. Stores a new dataset in a parent folder.
-- **Preconditions**: a parent folder you can write into; a display name.
-- **Effect**: creates the dataset and returns it, including its RID.
-- **Inputs**: required `--parent-folder-rid`, `--name`; optional `--description`.
-- **Success**: the created dataset; a branch (`branch`) is typically created
-  for it.
-- **Failure**: exit 1 invalid input; exit 8 readonly block; exit 3 permission.
-- **Example**: `pal-found-datasets dataset create --parent-folder-rid ri.foundry.main.folder.f1 --name "Orders"`.
+- **Behavior:** Creates a new Dataset. A default branch - `master` for most enrollments - will be
+  created on the Dataset.
+- **Before use:** Choose an existing parent folder in which you can create datasets.
+- **Inputs:** positional none; required `--name`, `--parent-folder-rid`; optional none.
+- **Result:** `Dataset`.
+- **Failure or follow-up:** An invalid configuration or insufficient permission rejects dataset
+  creation; use the returned RID for later calls.
+- **Example:** `pal-found-datasets dataset create --name Orders --parent-folder-rid PARENT_FOLDER_RID`
 
 ### dataset.get
 
-- **Class**: read. Returns a dataset by RID.
-- **Preconditions**: can read the dataset.
-- **Effect**: returns dataset metadata (RID, file-system-path).
-- **Inputs**: positional `dataset_rid`.
-- **Success**: the dataset record.
-- **Failure**: exit 4 if RID wrong.
-- **Example**: `pal-found-datasets dataset get <DATASET_RID>`.
-
-### dataset.get_health_checks
-
-- **Class**: read. Returns configured data health checks for a dataset.
-- **Preconditions**: can read the dataset's checks.
-- **Effect**: returns health checks.
-- **Inputs**: positional `dataset_rid`.
-- **Success**: health checks; empty if none configured.
+- **Behavior:** Reads dataset metadata by RID, including its name and parent folder. This does not
+  read files or table rows; use `file list` or `dataset read-table` for content.
+- **Before use:** The dataset must exist and be readable.
+- **Inputs:** positional `dataset_rid`; required none; optional none.
+- **Result:** `Dataset`.
+- **Failure or follow-up:** A missing or inaccessible dataset returns an error, except where the SDK
+  declares an optional result.
+- **Example:** `pal-found-datasets dataset get DATASET_RID`
 
 ### dataset.get_health_check_reports
 
-- **Class**: read. Returns check reports for a dataset.
-- **Preconditions**: can read the dataset's check reports.
-- **Effect**: returns reports.
-- **Inputs**: positional `dataset_rid`.
+- **Behavior:** Get the most recent Data Health Check report for each check configured on the given
+  Dataset. Returns one report per check, representing the current health status of the dataset. To
+  get the list of checks configured on a Dataset, use Get Dataset Health Checks. For the full report
+  history of a specific check, use Get Latest Check Reports.
+- **Before use:** The dataset must exist and be readable.
+- **Inputs:** positional `dataset_rid`; required none; optional `--branch-name`. `branch_name`: The
+  name of the Branch. If none is provided, the default Branch name - `master` for most enrollments -
+  will be used.
+- **Parameter notes:** `--branch-name` selects the dataset branch whose configured checks are reported; omit it for the default branch.
+- **Result:** `GetHealthCheckReportsResponse`.
+- **Failure or follow-up:** Invalid input or insufficient access to the dataset is returned through
+  the CLI error envelope.
+- **Example:** `pal-found-datasets dataset get-health-check-reports DATASET_RID`
+
+### dataset.get_health_checks
+
+- **Behavior:** Get the RIDs of the Data Health Checks that are configured for the given Dataset.
+- **Before use:** The dataset must exist and be readable.
+- **Inputs:** positional `dataset_rid`; required none; optional `--branch-name`. `branch_name`: The
+  name of the Branch. If none is provided, the default Branch name - `master` for most enrollments -
+  will be used.
+- **Parameter notes:** `--branch-name` selects the dataset branch whose check RIDs are listed; omit it for the default branch.
+- **Result:** `ListHealthChecksResponse`.
+- **Failure or follow-up:** Invalid input or insufficient access to the dataset is returned through
+  the CLI error envelope.
+- **Example:** `pal-found-datasets dataset get-health-checks DATASET_RID`
 
 ### dataset.get_schedules
 
-- **Class**: read. Returns the build/transform schedules on a dataset.
-- **Preconditions**: can read the dataset's schedules.
-- **Effect**: returns schedules.
-- **Inputs**: positional `dataset_rid`.
+- **Behavior:** Get the RIDs of the Schedules that target the given Dataset. Note: It may take up to
+  an hour for recent changes to schedules to be reflected in this response, especially for schedules
+  managed by Marketplace. This operation will return outdated results in the meantime.
+- **Before use:** The dataset must exist and be readable.
+- **Inputs:** positional `dataset_rid`; required none; optional `--branch-name`. `branch_name`: The
+  name of the Branch. If none is provided, the default Branch name - `master` for most enrollments -
+  will be used.
+- **Parameter notes:** `--branch-name` selects the branch whose targeting schedules are listed; omit it for the default branch.
+- **Result:** `ListSchedulesResponse`.
+- **Failure or follow-up:** An empty page is not proof there are no more results; follow the
+  returned page token when present.
+- **Example:** `pal-found-datasets dataset get-schedules DATASET_RID`
 
 ### dataset.get_schema
 
-- **Class**: read. Returns a branch's schema.
-- **Preconditions**: the dataset and branch exist.
-- **Effect**: returns the schema for the selected branch; does not write.
-- **Inputs**: positional `dataset_rid`; `--branch-name` (default branch if
-  omitted).
-- **Success**: schema information for that branch. An absent schema must be
-  interpreted from the observed CLI/SDK response, not guessed.
-- **Failure**: exit 4 if dataset/branch missing.
-- **Example**: `pal-found-datasets dataset get-schema <DATASET_RID> --branch-name main`.
-
-### dataset.get_schema_batch
-
-- **Class**: read. Returns schemas for several datasets in one call.
-- **Preconditions**: can read each dataset.
-- **Effect**: returns a batch of schemas.
-- **Inputs**: required `--dataset-r` (JSON list of dataset RIDs).
-- **Success**: a list of schemas for the requested RIDs.
-
-### dataset.jobs
-
-- **Class**: read (async status). Returns jobs that built the dataset.
-- **Preconditions**: can read the dataset.
-- **Effect**: returns build/job records for the dataset.
-- **Inputs**: positional `dataset_rid`; paging options.
-- **Success**: job records; empty if none. Use `transaction.job` for a single
-  build status.
-
-### dataset.put_schema
-
-- **Class**: change. Sets or replaces a dataset's schema.
-- **Preconditions**: can write the dataset and its branch.
-- **Effect**: writes the schema for the branch; the dataset now advertises it.
-- **Inputs**: positional `dataset_rid`; `--schema` JSON; `--branch-name`.
-- **Success**: returns the updated dataset.
-- **Failure**: exit 1 invalid schema JSON; exit 8 readonly block.
-- **Example**: `pal-found-datasets dataset put-schema <DATASET_RID> --branch-name main --schema '{"schema_type":"STRUCT","fieldSchemaList":[]}'`.
+- **Behavior:** Reads the schema associated with the selected branch's latest committed version.
+  The SDK also supports an end transaction, but this CLI operation exposes only `--branch-name`.
+- **Before use:** The dataset must exist and be readable.
+- **Inputs:** positional `dataset_rid`; required none; optional `--branch-name`.
+- **Result:** `GetDatasetSchemaResponse`.
+- **Failure or follow-up:** A missing or inaccessible dataset returns an error, except where the SDK
+  declares an optional result.
+- **Example:** `pal-found-datasets dataset get-schema DATASET_RID`
 
 ### dataset.read_table
 
-- **Class**: read. Reads tabular data from a dataset branch.
-- **Preconditions**: can read the dataset; the branch holds a transaction.
-- **Effect**: returns rows from the branch (respecting format/paging).
-- **Inputs**: positional `dataset_rid`; `--branch-name`; format/row options.
-- **Success**: the returned rows; may be a full or bounded set depending on the
-  parser.
-- **Failure**: exit 5 on timeout for large reads; consider rows limit.
-- **Example**: `pal-found-datasets dataset read-table <DATASET_RID> --branch-name main`.
+- **Behavior:** Gets the content of a dataset as a table in the specified format. This endpoint
+  currently does not support views (virtual datasets composed of other datasets).
+- **Before use:** The dataset must have readable tabular data and a schema on the selected branch.
+- **Inputs:** positional `dataset_rid`; required `--table-format ARROW|CSV`; optional `--output`,
+  `--branch-name`, `--columns-json`, `--row-limit`, `--start-transaction-rid`, and
+  `--end-transaction-rid`. `--columns-json` is an array of column names. Row order is not guaranteed.
+- **Parameter notes:** `--branch-name` selects the branch to export. `--columns-json` is a JSON array of columns to include. `--start-transaction-rid` and `--end-transaction-rid` bound the transaction view read by the export.
+- **Result:** Saves the table export under the configured download root and prints JSON metadata
+  with the saved path, byte count, checksums, and MIME type. `--output` sets a basename, not a path;
+  omitting it lets the download handler choose a filename.
+- **Failure or follow-up:** An invalid column list, format, or missing dataset fails. Large exports
+  may exceed the configured download size limit; use `--row-limit` or select fewer columns.
+- **Example:** `pal-found-datasets dataset read-table DATASET_RID --table-format CSV --row-limit 100 --output orders.csv`
+
+### dataset.get_schema_batch
+
+- **Behavior:** Fetch schemas for multiple datasets in a single request. Datasets not found or
+  inaccessible to the user will be omitted from the response. The maximum batch size for this
+  endpoint is 1000.
+- **Before use:** Supply readable dataset RIDs; missing or inaccessible RIDs are omitted from the
+  batch response.
+- **Inputs:** positional none; required `--body-json` containing an array of up to 1000 objects,
+  each with a `datasetRid`; optional none. The response includes schemas for accessible datasets.
+- **Result:** `GetSchemaDatasetsBatchResponse`.
+- **Failure or follow-up:** Check the returned entries: batch endpoints may omit missing or
+  inaccessible resources, so compare the result with requested RIDs.
+- **Example:** `pal-found-datasets dataset get-schema-batch --body-json '[{"datasetRid":"DATASET_RID"}]'`
+
+### dataset.jobs
+
+- **Behavior:** Lists jobs that wrote the dataset. By default, jobs appear in descending start-time
+  order; inspect a job through Orchestration for its status and build details.
+- **Before use:** The dataset must exist and be readable.
+- **Inputs:** positional `dataset_rid`; required none; optional none.
+- **Result:** A page of job details and a continuation token when more jobs exist.
+- **Failure or follow-up:** An empty page is not proof there are no more results; follow the
+  returned page token when present.
+- **Example:** `pal-found-datasets dataset jobs DATASET_RID`
+
+### dataset.put_schema
+
+- **Behavior:** Sets the dataset schema for the selected branch so Foundry can interpret its files
+  as typed table columns. The supplied schema describes columns; it does not upload data.
+- **Before use:** The dataset and selected branch must exist and be writable; supply a schema
+  matching the intended data.
+- **Inputs:** positional `dataset_rid`; required `--schema`; optional `--branch-name`. `schema`: The
+  schema that will be added.
+- **Parameter notes:** `--branch-name` selects the branch on which to write the schema; omit it for the default branch.
+- **Result:** `GetDatasetSchemaResponse`.
+- **Failure or follow-up:** An invalid replacement payload or insufficient permission leaves the
+  dataset unchanged; read it again after success.
+- **Example:** `pal-found-datasets dataset put-schema DATASET_RID --schema '{"fieldSchemaList":[{"name":"id","type":"LONG","nullable":false,"customMetadata":{"description":"Primary key"}},{"name":"event_time","type":"TIMESTAMP","nullable":false},{"name":"price","type":"DECIMAL","precision":10,"scale":2,"nullable":true},{"name":"tags","type":"ARRAY","nullable":true,"arraySubtype":{"type":"STRING","nullable":false}},{"name":"metrics","type":"STRUCT","nullable":true,"subSchemas":[{"name":"temperature","type":"DOUBLE","nullable":true},{"name":"humidity","type":"DOUBLE","nullable":true}]}]}'`
 
 ### dataset.transactions
 
-- **Class**: read. Lists transactions on a dataset branch.
-- **Preconditions**: can read the dataset.
-- **Effect**: returns transactions, paged.
-- **Inputs**: positional `dataset_rid`; `--branch-name`; paging options.
-- **Success**: transactions; empty if none.
-- **Example**: `pal-found-datasets dataset transactions <DATASET_RID> --branch-name main`.
-
-## Evidence and review
-
-Each record was reviewed against the installed `pal-found-datasets` parser
-and pinned SDK sources (commit `2da67907`). Reads never write; `create` and
-`put_schema` are the write operations here. Data-volume and row-limit cues
-apply to `read_table` (AC-D-013-09). No unsupported operation is documented as
-callable.
+- **Behavior:** Lists transactions for the dataset across branches in reverse chronological order.
+  Use `branch transactions` to inspect history for one branch.
+- **Before use:** The dataset must exist and be readable.
+- **Inputs:** positional `dataset_rid`; required none; optional none.
+- **Result:** `ListTransactionsOfDatasetResponse`.
+- **Failure or follow-up:** An empty page is not proof there are no more results; follow the
+  returned page token when present.
+- **Example:** `pal-found-datasets dataset transactions DATASET_RID`

@@ -7,12 +7,23 @@ description: Offline entry point for Foundry Filesystem API v2 CLI. Documents 31
 
 ## Capability and source
 
-Foundry Filesystem organizes projects, folders, resources, spaces, markings,
-and resource roles. The `pal-found-filesystem` command exposes 31 operations
-across those five resource clients, including create, lookup, access metadata,
-restore, and deletion.
+Projects are Foundry's main collaboration boundary. A project contains
+resources such as datasets and repositories, and folders organize those
+resources without changing their RIDs. Project roles grant discretionary
+access to contents; markings and organization requirements still apply and
+can prevent access even when a role is present. Spaces contain projects and
+limit the organizations that may see them.
 
-Source: [Palantir Foundry overview](https://www.palantir.com/docs/foundry/getting-started/overview); reviewed 2026-08-13. This source link is maintenance evidence for maintainers; it is not needed to use the skill offline.
+Use `folder` and `project` to create or inspect containers, `resource` to
+resolve paths, inspect markings, and manage deletion, `resource-role` to
+inspect or change explicit roles, and `space` for the enclosing scope. A
+trashed resource can be restored; permanent deletion is a separate operation
+with a different effect. Read [projects and resources](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources),
+[projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles),
+and [spaces](https://www.palantir.com/docs/foundry/platform-security-management/manage-orgs-and-spaces)
+for platform behavior. The CLI exposes 31 Filesystem operations.
+
+Source: [Palantir projects and resources](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources).
 
 31 Foundry Filesystem API v2 operations are available through the installed `pal-found-filesystem` command.
 
@@ -69,17 +80,3 @@ pip install pal_found_cli
 # uv
 uv tool install pal_found_cli
 ```
-
-## File layout
-
-```
-.agents/skills/pal-found-filesystem/
-├── SKILL.md
-└── references/
-    ├── 01-folder-project.md
-    ├── 02-resource.md
-    └── 03-resource-role-space.md
-```
-
-Copy the entire `pal-found-filesystem` folder, including `references/`, so the
-relative links above resolve offline.

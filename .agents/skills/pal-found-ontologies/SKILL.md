@@ -1,20 +1,39 @@
 ---
 name: pal-found-ontologies
-description: Offline entry point for Foundry Ontologies API v2 CLI. Documents 67 operations across ontology metadata, object types, objects, object sets, actions, queries, attachments, media, and time series. Navigation to the discovery part (DEV-046) and the action/rich-property part (DEV-047).
+description: Understand Foundry's operational Ontology and use 67 Ontologies API v2 CLI operations for type discovery, object queries, Actions, rich properties, and transactions.
 ---
 
 # Foundry Ontologies CLI
 
 ## Capability and source
 
-Foundry Ontology APIs expose semantic object types, links, actions, queries,
-attachments, media, and time-series values. The `pal-found-ontologies` command
-maps those concepts to 67 operations across ontology metadata, objects,
-object sets, transactions, and property clients.
+The Ontology is Foundry's operational representation of an organization. It
+maps data and models to business entities such as orders, equipment, and
+transactions. Object types define entities and their properties; link types
+define relationships. Objects and links carry the current values. Interfaces
+let applications address compatible object types through a common contract.
+Object sets select objects for search, loading, and aggregation. These concepts
+give users and applications a shared account of what data means, not merely
+where it is stored. See Palantir's [Ontology overview](https://www.palantir.com/docs/foundry/ontology/overview)
+and [platform overview](https://www.palantir.com/docs/foundry/platform-overview/overview).
 
-Source: [Palantir Ontology-aware applications](https://www.palantir.com/docs/foundry/ontology/applications/index.html); reviewed 2026-08-13. This source link is maintenance evidence for maintainers; it is not needed to use the skill offline.
+Source: Palantir's Ontology, platform, and action type overviews linked in
+this section; the operation records below explain each supported command.
+`Ontologies` documentation.
 
-67 Foundry Ontologies API v2 operations are available through the installed `pal-found-ontologies` command.
+Actions are the Ontology's controlled write path. An action type defines
+parameters, validation, permissions, and the edits or external effects that
+execution may perform. A query type exposes reusable logic; attachment,
+media, and time-series properties attach richer values to objects. Discover
+types before constructing object queries or action payloads, and inspect an
+action response's validation result before treating the edit as applied.
+Object Storage V1 edits may take time to become visible; V2 edits are visible
+when the action completes. See Palantir's [action type overview](https://www.palantir.com/docs/foundry/action-types/overview)
+and the SDK `Ontologies/Action.md` method description.
+
+67 Foundry Ontologies API v2 operations are exposed by `pal-found-ontologies`. Its scope is existing
+ontology metadata and runtime data; each resource page states whether a call
+reads, executes, or changes state.
 
 ## Usage
 
@@ -24,6 +43,12 @@ pal-found-ontologies <resource> <operation> [options]
 
 Common options: `--timeout`, `--format json|toon|auto`, `--pretty`,
 `--page-size`, `--page-token`, and `--batch-pages`.
+
+`--timeout` sets the request timeout in seconds. `--format` selects JSON,
+TOON, or automatic structured output; `--pretty` indents it. For paged
+operations, `--page-size` requests entries per page, `--page-token` resumes
+from a returned cursor, and `--batch-pages` bounds how many pages this call
+fetches.
 
 Binary downloads use the shared download handler and return a metadata
 envelope with the saved file path and checksums. Binary uploads use
@@ -47,6 +72,9 @@ series.
 | [Actions and rich properties](references/03-actions-rich-properties.md) | `action`, `attachment`, `attachment_property`, `cipher_text_property`, `geotemporal_series_property`, `media_reference_property`, `ontology_interface`, `ontology_object_set`, `ontology_transaction`, `query`, `time_series_property_v2`, `time_series_value_bank_property` | 39 |
 
 ## Parameters and JSON
+
+Read [identifiers and JSON inputs](references/inputs.md) before constructing
+action payloads, object sets, or property requests.
 
 Every operation accepts `--timeout`, `--format json|toon|auto`, and
 `--pretty`; paginated operations add `--page-size`, `--page-token`, and
@@ -84,18 +112,3 @@ pip install pal_found_cli
 # uv
 uv tool install pal_found_cli
 ```
-
-## File layout
-
-```
-.agents/skills/pal-found-ontologies/
-├── SKILL.md
-└── references/
-    ├── 01-discovery-metadata.md
-    ├── 02-discovery-objects.md
-    └── 03-actions-rich-properties.md
-```
-
-Copy the entire `pal-found-ontologies` folder, including `references/`, so the
-relative links above resolve offline. Parts 01 and 02 (discovery) are owned by
-DEV-046; part 03 (actions and rich properties) is owned by DEV-047.

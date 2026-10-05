@@ -1,102 +1,98 @@
 # Application, website, and version operations
 
-This part documents the `third_party_application` (1), `website` (3), and
-`version` (5) resource clients (9 operations). A website belongs to a
-third-party application; versions hold deployable builds.
-
-Source/pins: CLI parser
-`pal_found_cli_tool/src/pal_found_cli/third_party_applications/scripts/pal_found_third_party_applications_cli.py`;
-SDK `foundry_sdk/v2/third_party_applications/{third_party_application,website,version}.py`
-at pinned commit `2da67907`. Reviewer architect (CODEREVIEW-054), 2026-10-03.
-QA baseline TESTCASE-021.
-
-## Operation records
+Developer Console application RID identifies website and all its versions.
+`version` is a semantic version string, not a RID. Examples use shell variable
+`APP_RID` holding real third-party application RID. Input errors exit 1;
+SDK permission denials exit 3, missing resources exit 4, and read-only policy
+blocks writes (8). Server may conceal a denial as 404.
+SDK: `docs/v2/ThirdPartyApplications/`.
 
 ### third_party_application.get
 
-- **Class**: read. Returns a third-party application.
-- **Preconditions**: can read the application.
-- **Effect**: returns the application record.
-- **Inputs**: positional `third_party_application_rid`.
-- **Success**: the application.
-- **Failure**: exit 4 if missing.
+Retrieves Developer Console application by positional RID. Response contains
+its application RID, which also identifies website and versions in this CLI.
+Use before website operations to confirm target. Unknown RID or missing read
+permission prevents lookup.
+
+**Example:** `pal-found-third-party-applications third-party-application get "$APP_RID"`
 
 ### website.deploy
 
-- **Class**: change (write). Deploys a website.
-- **Preconditions**: can deploy; a website and version.
-- **Effect**: makes a website version live.
-- **Inputs**: positional `website_rid`; version/URL config.
-- **Success**: returns the deployed website.
-- **Failure**: exit 8 readonly block; exit 1 invalid version.
-- **Example**: `pal-found-third-party-applications website deploy <WEBSITE_RID> --version-rid <VERSION_RID>`.
+Selects uploaded website version served to users. Requires application RID,
+`--version` semantic version, and deployment permission. Response is Website
+with `deployedVersion` and served `subdomains`; all users on those subdomains
+see selected build. Absent version or incomplete asset scan can prevent
+deployment. Site visitors also need Foundry login and hosted website access;
+deployment alone does not grant it. Check version first, then inspect
+`website get`.
+
+**Example:** `pal-found-third-party-applications website deploy "$APP_RID" --version 1.2.0`
 
 ### website.get
 
-- **Class**: read. Returns a website.
-- **Preconditions**: can read the website.
-- **Effect**: returns the website record.
-- **Inputs**: positional `website_rid`.
-- **Success**: the website.
-- **Failure**: exit 4 if missing.
+Reads Website for positional application RID. Response gives optional
+`deployedVersion` and `subdomains` currently serving it; absent deployed
+version means no version is live. Missing website or access permission can
+fail. Use after deploy or undeploy to verify state.
+
+**Example:** `pal-found-third-party-applications website get "$APP_RID"`
 
 ### website.undeploy
 
-- **Class**: change (write). Undeploys a website.
-- **Preconditions**: can undeploy.
-- **Effect**: stops the website deployment.
-- **Inputs**: positional `website_rid`.
-- **Success**: returns the updated website.
+Removes currently deployed version from application. Response is Website;
+`deployedVersion` becomes absent. Previously uploaded versions remain
+available for later deployment. Requires deployment permission; missing
+application or website can fail. Verify with `website get`.
+
+**Example:** `pal-found-third-party-applications website undeploy "$APP_RID"`
 
 ### version.delete
 
-- **Class**: delete (write). Deletes a website version.
-- **Preconditions**: can delete the version.
-- **Effect**: deletes the version.
-- **Inputs**: positional `website_rid`, `version`/`version_rid`.
-- **Success**: returns the deleted version.
+Deletes named semantic version of application website. Supply application
+RID and version as positional arguments. Successful deletion has no response
+body. Confirm current `deployedVersion` before deleting an asset; missing
+version or delete permission fails.
+
+**Example:** `pal-found-third-party-applications version delete "$APP_RID" 1.2.0`
 
 ### version.get
 
-- **Class**: read. Returns a website version.
-- **Preconditions**: can read the version.
-- **Effect**: returns the version record.
-- **Inputs**: positional `website_rid`, `version`.
-- **Success**: the version.
-- **Failure**: exit 4 if missing.
+Retrieves uploaded Version by positional application RID and semantic version
+string. Response includes its `version`; use to check asset before deploy or
+delete. Missing version or read permission prevents lookup.
+
+**Example:** `pal-found-third-party-applications version get "$APP_RID" 1.2.0`
 
 ### version.list
 
-- **Class**: read. Lists a website's versions.
-- **Preconditions**: can read the website.
-- **Effect**: returns versions, paged.
-- **Inputs**: positional `website_rid`; paging options.
-- **Success**: versions; empty if none.
+Lists versions for application. Response has `data` array of Version records
+and optional `nextPageToken`. `--page-size` requests page size but server may
+return fewer or more records. Omit `--page-token` on first call; reuse returned
+token on next call. `--all --max-pages` gives bounded traversal. Missing
+application or read permission fails.
+
+**Example:** `pal-found-third-party-applications version list "$APP_RID" --page-size 50`
 
 ### version.upload
 
-- **Class**: create (binary upload). Uploads a new website version.
-- **Preconditions**: can write the website.
-- **Effect**: stores the version build (zip) for the website.
-- **Inputs**: positional `website_rid`; `--file` (bounded zip), `--version`.
-- **Success**: the uploaded version.
-- **Failure**: exit 1 file too large or invalid zip; exit 8 readonly block.
-- **Example**: `pal-found-third-party-applications version upload <WEBSITE_RID> --file ./build.zip --version "1.0.0"`.
+Uploads zipped static website assets under `--version` for later preview or
+deployment. Requires website upload permission. `--file` must name existing
+zip no larger than 16 MiB. Put build directory **contents** at archive root
+(`index.html`, assets), not an enclosing `dist/` directory. CLI rejects
+absent or oversized file, while
+Foundry can reject invalid archive or version conflict. Response is Version
+with semantic `version`. Upload stores asset; `website deploy` makes it live.
+
+**Example:** `pal-found-third-party-applications version upload "$APP_RID" --version 1.2.0 --file ./website.zip`
 
 ### version.upload_snapshot
 
-- **Class**: create (binary upload). Uploads a website version snapshot.
-- **Preconditions**: can write the website.
-- **Effect**: stores a snapshot build; like upload but marks it as snapshot.
-- **Inputs**: positional `website_rid`; `--file`, `--version`,
-  `--snapshot-identifier`.
-- **Success**: the uploaded snapshot version.
-- **Failure**: exit 1 invalid file; exit 8 readonly block.
+Uploads temporary zipped snapshot for preview. SDK states snapshots are
+automatically deleted after two days. `--version` and bounded `--file` remain
+required. Optional `--snapshot-identifier` associates build with preview;
+the SDK's `foundry.v1@<repositoryRid>@<pullRequestRid>@<commitHash>` form
+connects PR preview in Foundry Code Repositories. Response is Version.
+Invalid archive or denied upload fails; snapshot stays off production until
+explicit deployment.
 
-## Evidence and review
-
-Reviewed against the installed `pal-found-third-party-applications` parser and
-pinned SDK sources (commit `2da67907`). `website.deploy/undeploy` and
-`version.upload/upload_snapshot/delete` are write with material deploy/release
-effects; uploads are bounded 16 MiB (AC-D-013-09). `get`/`list` are reads. No
-unsupported operation is documented as callable.
+**Example:** `pal-found-third-party-applications version upload-snapshot "$APP_RID" --version 1.2.0-snapshot.1 --file ./website.zip --snapshot-identifier review-42`

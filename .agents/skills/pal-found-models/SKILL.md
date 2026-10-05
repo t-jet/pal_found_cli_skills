@@ -1,19 +1,34 @@
 ---
 name: pal-found-models
-description: Offline entry point for Foundry Models API v2 CLI. Documents 23 Model, ModelVersion, Experiment, ModelStudio, LiveDeployment operations with preconditions, effect, inputs, result, and failure offline.
+description: Understand Foundry model lifecycle and use 23 Models API v2 CLI operations for versions, experiments, Model Studio, and live inference.
 ---
 
 # Foundry Models CLI
 
 ## Capability and source
 
-Foundry Models manages ML model artifacts, their versions, live deployments,
-experiments, and Model Studio resources. The `pal-found-models` command
-exposes 23 operations across those resource clients.
+Foundry models are versioned artifacts that package machine learning logic.
+Teams can train in Foundry or integrate existing artifacts, containers, and
+external services. Model versions preserve distinct implementations. An
+experiment records training runs and their metrics or artifacts; a live
+deployment accepts inputs and returns inference results. Modeling Objectives
+support evaluation, review, release, and deployment across that lifecycle.
+See Palantir's [model integration overview](https://www.palantir.com/docs/foundry/model-integration/overview).
 
-Source: [Palantir Models](https://www.palantir.com/docs/foundry/model-integration); reviewed 2026-08-13. This source link is maintenance evidence for maintainers; it is not needed to use the skill offline.
+Source: Palantir's model integration and Model Studio overviews linked in this
+section; the operation records below explain each supported command.
 
-23 Foundry Models API v2 operations are available through the installed `pal-found-models` command.
+Model Studio is Foundry's no-code model development tool. Users choose a
+trainer, provide datasets, set configuration, and launch a training job. A
+run records progress and results, and a successful trained model can be used
+for inference in other Foundry workflows. The CLI exposes Model Studio
+resources, configuration versions, trainers, and runs. `launch` starts work;
+its response is not proof that training finished. See Palantir's
+[Model Studio overview](https://www.palantir.com/docs/foundry/model-studio/overview).
+
+23 Foundry Models API v2 operations are exposed by `pal-found-models`. Model creation and version
+promotion change resources; artifact reads can transfer substantial data;
+live deployment transforms run inference.
 
 ## Usage
 
@@ -22,7 +37,13 @@ pal-found-models <resource> <operation> [options]
 ```
 
 Common options: `--timeout`, `--format json|toon|auto`, `--pretty`,
-`--page-size`, `--page-token`, `--batch-pages` (where paging applies).
+`--page-size`, `--page-token`, `--all`, and `--max-pages` (where paging applies).
+
+`--timeout` sets the request timeout in seconds. `--format` selects JSON,
+TOON, or automatic structured output; `--pretty` indents it. For paged
+operations, `--page-size` requests entries per page and `--page-token`
+resumes from a returned cursor. `--all` retrieves up to the CLI page cap;
+`--max-pages` sets a smaller page cap.
 
 The CLI uses the shared config loader, access control guard, retry handler,
 pagination helper, structured error serializer, output formatter, and
@@ -37,9 +58,12 @@ SDK-native B3 tracing scope. Artifact and series reads download streamed data.
 
 ## Parameters and JSON
 
+Read [model identifiers and JSON inputs](references/inputs.md) for model API,
+trainer configuration, experiment, and deployment payloads.
+
 Every operation accepts `--timeout`, `--format json|toon|auto`, and
 `--pretty`; paged operations add `--page-size`, `--page-token`, and
-`--batch-pages`. JSON payloads use `--model-api-json` and `--where-json`
+`--all` or `--max-pages`. JSON payloads use `--model-api-json` and `--where-json`
 where help shows them.
 
 ## Install requirement
@@ -56,16 +80,3 @@ pip install pal_found_cli
 # uv
 uv tool install pal_found_cli
 ```
-
-## File layout
-
-```
-.agents/skills/pal-found-models/
-├── SKILL.md
-└── references/
-    ├── 01-models.md
-    └── 02-model-studio.md
-```
-
-Copy the entire `pal-found-models` folder, including `references/`, so the
-relative links above resolve offline.

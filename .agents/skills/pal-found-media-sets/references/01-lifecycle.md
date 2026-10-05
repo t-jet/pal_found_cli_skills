@@ -1,114 +1,106 @@
-# Media set lifecycle
+# Transactions and writes
 
-This part documents the media-set lifecycle operations (10): create, commit,
-abort, clear, transform, upload, upload_media, calculate, register, and
-reference. Read the [Media Sets entry](SKILL.md) first.
-
-Source/pins: CLI parser
-`pal_found_cli_tool/src/pal_found_cli/media_sets/scripts/pal_found_media_sets_cli.py`;
-SDK `foundry_sdk/v2/media_sets/media_set.py` at pinned commit `2da67907`.
-Reviewer architect (CODEREVIEW-053), 2026-10-03. QA baseline TESTCASE-018.
-
-## Workflow
-
-1. `media_set.create` the set.
-2. Open a transaction and upload media (`upload`, `upload_media`), or
-   `register`/`reference` existing items.
-3. `commit` the transaction to make media visible, or `abort`/`clear` to
-   discard it.
-4. Apply `transform`/`calculate` to derive content.
-
-## Operation records
+Media set must already exist. `media-set create` opens a transaction on it;
+it does not create a new set. Examples use `MEDIA_SET_RID`, `MEDIA_ITEM_RID`,
+and `TRANSACTION_ID` shell variables. For transactional sets, pass transaction
+ID to uploads, register, and clear, then commit. Select at most one branch
+name, branch RID, or view RID. CLI input errors exit 1 and read-only policy
+blocks writes (8); server can reject schema, permission, or state errors.
+`--preview` enables preview features on operations that accept it. A
+`--read-token` or `--token` can supply item-level read access on supported
+transform and thumbnail calls; the flag spelling depends on endpoint.
 
 ### media_set.create
 
-- **Class**: create (write). Creates a media set.
-- **Preconditions**: can create media sets.
-- **Effect**: creates a media set and returns it (RID).
-- **Inputs**: `--display-name`, parent/space context.
-- **Success**: the created media set.
-- **Failure**: exit 8 readonly block; exit 1 invalid input.
+Opens transaction on existing media set, optionally on `--branch-name`.
+Without branch, SDK uses default (`master` for most enrollments). Response is
+transaction ID for later upload and commit. Use `get` first to inspect
+`transactionPolicy` and default branch. Missing set or permission fails.
+
+**Example:** `pal-found-media-sets media-set create "$MEDIA_SET_RID" --branch-name master`
 
 ### media_set.commit
 
-- **Class**: change (write). Commits a media set transaction.
-- **Preconditions**: an open transaction on a writable set.
-- **Effect**: makes the transaction's media visible.
-- **Inputs**: `--branch-name`/`--transaction-id`.
-- **Success**: the committed set/transaction.
-- **Failure**: exit 1 invalid state.
+Commits open transaction. Uploaded or cleared items become visible on its
+branch. Requires media set RID and transaction ID; server returns no body on
+success. Invalid, aborted, or already committed transaction fails.
+
+**Example:** `pal-found-media-sets media-set commit "$MEDIA_SET_RID" "$TRANSACTION_ID"`
 
 ### media_set.abort
 
-- **Class**: change (write). Aborts a media set transaction.
-- **Preconditions**: an open transaction.
-- **Effect**: discards the transaction's changes.
-- **Inputs**: `--branch-name`/`--transaction-id`.
-- **Success**: returns the aborted transaction.
+Aborts open transaction and deletes items uploaded within it. Requires set
+RID and transaction ID; server returns no body. This discards unpublished
+work. Unknown or closed transaction fails.
+
+**Example:** `pal-found-media-sets media-set abort "$MEDIA_SET_RID" "$TRANSACTION_ID"`
 
 ### media_set.clear
 
-- **Class**: change (write). Clears a media set transaction.
-- **Preconditions**: an open transaction.
-- **Effect**: clears media in the transaction scope.
-- **Inputs**: `--branch-name`/`--transaction-id`.
-- **Success**: returns the cleared transaction.
+Soft-deletes item at `--media-item-path`, making it and older items at that
+path unretrievable. Defaults to set's default branch. `--branch-name`,
+`--branch-rid`, or `--view-rid` chooses target, one at a time. Transactional
+sets require `--transaction-id`; change becomes visible on commit. Server
+returns no body; conflicting branch selectors or missing permission fail.
 
-### media_set.transform
-
-- **Class**: execute (write, async). Applies a transformation.
-- **Preconditions**: a valid transformation over the set.
-- **Effect**: starts a transform; acceptance is not proof it finished.
-- **Inputs**: `--transformation-json`; branch/transaction context.
-- **Success**: a transform reference; check status for completion.
-- **Failure**: exit 5 on timeout.
+**Example:** `pal-found-media-sets media-set clear "$MEDIA_SET_RID" --media-item-path reports/q3.pdf --transaction-id "$TRANSACTION_ID"`
 
 ### media_set.upload
 
-- **Class**: create (binary upload). Uploads a media item.
-- **Preconditions**: can write the set/transaction.
-- **Effect**: stores the media bytes into the set.
-- **Inputs**: `--file` (bounded 16 MiB), `--media-item-path`,
-  `--transaction-id`, `--branch-name`.
-- **Success**: the uploaded item reference.
-- **Failure**: exit 1 file too large; exit 8 readonly block.
+Uploads file bytes into existing set. `--file` is required and limited by CLI
+to 16 MiB. `--media-item-path` is required when backing set's
+`pathsRequired` is true. Optional `--media-item-rid` chooses client-controlled
+RID, otherwise server generates it; custom RID must use media set instance
+and unused UUID. Supply at most one branch name/RID or view RID; default
+branch applies otherwise. Transactional sets require transaction ID. Response
+contains new item RID and media set view RID. Schema mismatch, malformed or
+duplicate custom RID, or denied write fails. Upload to existing path makes
+new item current at that path while direct old references still identify old
+item.
+
+**Example:** `pal-found-media-sets media-set upload "$MEDIA_SET_RID" --file ./q3.pdf --media-item-path reports/q3.pdf --transaction-id "$TRANSACTION_ID"`
 
 ### media_set.upload_media
 
-- **Class**: create (binary upload). Uploads media with a filename.
-- **Preconditions**: can write the set/transaction.
-- **Effect**: stores media; requires `--file` + `--filename`.
-- **Inputs**: `--file`, `--filename`, `--media-item-path`, transaction/branch.
-- **Success**: the uploaded item.
-- **Failure**: exit 1 if `--file`/`--filename` missing or too large.
+Uploads temporary item outside a specified set and returns media reference.
+Requires `--file` (16 MiB maximum) and `--filename` logical label; no media
+set RID or transaction is accepted. Optional `--media-item-rid` supplies a
+client RID, usually best omitted. Item expires after one hour unless
+persisted. Useful for Functions or Ontology workflows. Invalid file,
+duplicate custom RID, or missing upload permission fails.
 
-### media_set.calculate
-
-- **Class**: change (write). Recomputes derived metadata/transform output.
-- **Preconditions**: can write the set.
-- **Effect**: recalculates derived content for the set/transaction.
-- **Inputs**: `--branch-name`/`--transaction-id`.
-- **Success**: returns the updated set.
+**Example:** `pal-found-media-sets media-set upload-media --file ./preview.png --filename preview.png`
 
 ### media_set.register
 
-- **Class**: change (write). Registers an existing item in a transaction.
-- **Preconditions**: can write the set/transaction.
-- **Effect**: adds an existing media item to the transaction scope.
-- **Inputs**: `--media-item-rid`, `--transaction-id`, `--branch-name`.
-- **Success**: returns the registered item.
+Registers file already in federated media store into federated media set.
+`--physical-item-name` is path relative to store; optional
+`--media-item-path` sets logical path in set. `--branch-name` or `--view-rid`
+selects target. Registration validates schema and extracts initial metadata.
+Transactional sets require transaction ID. Response contains item RID and
+media type. Ordinary stored sets or missing physical item reject operation.
 
-### media_set.reference
+**Example:** `pal-found-media-sets media-set register "$MEDIA_SET_RID" --physical-item-name camera/frame-001.jpg --media-item-path frames/frame-001.jpg --transaction-id "$TRANSACTION_ID"`
 
-- **Class**: change (write). Adds a reference to a media item in a transaction.
-- **Preconditions**: can write the set/transaction.
-- **Effect**: references a media item for the transaction.
-- **Inputs**: `--media-item-rid`/`--physical-item-name`, branch/transaction.
-- **Success**: returns the reference.
+### media_set.transform
 
-## Evidence and review
+Starts asynchronous transformation of existing item; read access or media
+read token is required. Supply SDK transformation object with
+`--transformation-json`; example resizes image to 800 by 600 WebP. Optional
+`--token` passes media read token. Response includes job ID and status
+(`PENDING`, `FAILED`, or `SUCCESSFUL`). Accepted request may still be pending;
+poll `get-status`, then `get-result`. Unsupported transformation or missing
+read permission fails.
 
-Reviewed against the installed `pal-found-media-sets` parser and pinned SDK
-sources (commit `2da67907`). Lifecycle ops write material media state; `upload`
-and `upload_media` are bounded 16 MiB; `transform` is async and needs a status
-check (AC-D-013-05). No unsupported operation is documented as callable.
+**Example:** `pal-found-media-sets media-set transform "$MEDIA_SET_RID" "$MEDIA_ITEM_RID" --transformation-json '{"type":"image","encoding":{"type":"webp"},"operations":[{"type":"resize","width":800,"height":600}]}'`
+
+### media_set.calculate
+
+Starts calculation of 200-pixel WebP thumbnail for image item. This GET
+endpoint can start work; response is tracked state (`successful`, `pending`,
+or `failed`) rather than image bytes. Optional `--read-token` can grant item
+access; `--preview` enables beta endpoint where required. Non-image item,
+failed calculation, or missing read permission prevents usable thumbnail.
+Call `retrieve` once state is successful.
+
+**Example:** `pal-found-media-sets media-set calculate "$MEDIA_SET_RID" "$MEDIA_ITEM_RID"`

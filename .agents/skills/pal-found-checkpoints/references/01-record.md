@@ -1,45 +1,34 @@
-# Record operations
+# Checkpoint record operations
 
-This part documents the `record` resource client (3 operations). A checkpoint
-record holds arbitrary state identified by a RID, searchable by criteria.
+A checkpoint interrupts a sensitive Foundry interaction and asks its user for a justification. Submission creates a record with the time, acting user, checkpoint type, justification, and associated resources or objects. Users can review their own historical justifications; authorized administrators can review records across their scope. These commands retrieve records; they do not configure checkpoints or submit justifications. See the [Checkpoints overview](https://www.palantir.com/docs/foundry/checkpoints/overview) and SDK `docs/v2/Checkpoints/Record.md`.
 
-Source/pins: CLI parser
-`pal_found_cli_tool/src/pal_found_cli/checkpoints/scripts/pal_found_checkpoints_cli.py`;
-SDK `foundry_sdk/v2/checkpoints/record.py` at pinned commit `2da67907`.
-Reviewer architect (CODEREVIEW-048), 2026-10-03. QA baseline TESTCASE-019.
-
-## Operation records
+Examples use replaceable identifiers. The CLI requires Foundry credentials and permission to view the records.
 
 ### record.get
 
-- **Class**: read. Returns a single checkpoint record.
-- **Preconditions**: can read the record.
-- **Effect**: returns the record's value/state.
-- **Inputs**: positional `record_rid`.
-- **Success**: the record.
-- **Failure**: exit 4 if RID missing.
-- **Example**: `pal-found-checkpoints record get <RECORD_RID>`.
+Retrieve one checkpoint record by RID when an investigation already has its identifier. The response is a `Record` containing the justification and interaction context. No state changes. An unknown or inaccessible RID cannot yield a readable record.
+
+**Example:**
+```bash
+pal-found-checkpoints record get ri.checkpoints.main.checkpoint.a1b2c3d4-e5f6-7890-abcd-ef1234567890
+```
 
 ### record.get_batch
 
-- **Class**: read. Returns several records.
-- **Preconditions**: can read each.
-- **Effect**: returns a batch of records.
-- **Inputs**: `--records-json` (list of record RIDs).
-- **Success**: list of records.
-- **Example**: `pal-found-checkpoints record get-batch --records-json '["r1","r2"]'`.
+Retrieve up to 100 records in one request. `--records-json` takes a JSON array of RIDs. The API omits records that do not exist or that the caller cannot access, so compare returned RIDs with the requested list. A successful empty batch does not prove those records do not exist. More than 100 RIDs exceeds the endpoint limit; malformed JSON fails CLI validation.
+
+**Example:**
+```bash
+pal-found-checkpoints record get-batch --records-json '["ri.checkpoints.main.checkpoint.a1b2c3d4-e5f6-7890-abcd-ef1234567890","ri.checkpoints.main.checkpoint.b1b2c3d4-e5f6-7890-abcd-ef1234567890"]'
+```
 
 ### record.search
 
-- **Class**: read/query. Searches records by criteria.
-- **Preconditions**: can read records.
-- **Effect**: returns records matching the search criteria, paged.
-- **Inputs**: `--where-json` (search criteria); paging options.
-- **Success**: matching records; empty if none.
-- **Example**: `pal-found-checkpoints record search --where-json '{"branchId":"main"}'`.
+Search records using a typed `--where-json` filter. For example, an equality filter on `checkpointType` finds justifications for an interaction type. Results are paged; creation time defaults to reverse chronological order. A filter that matches nothing returns an empty result, while invalid filter structure fails. Use a returned continuation token with `--page-token` for the next page. The SDK default page size is 100.
 
-## Evidence and review
+**Example:**
+```bash
+pal-found-checkpoints record search --where-json '{"filter":{"type":"eq","field":"checkpointType","value":"CONTOUR_EXPORT"}}' --page-size 50 --sort-direction DESC
+```
 
-All three records are read-class. Reviewed against the installed
-`pal-found-checkpoints` parser and pinned SDK sources (commit `2da67907`).
-Reads never write. No unsupported operation is documented as callable.
+Filters support equality, range, text search, AND, OR, and NOT, subject to each filter type's allowed fields. The search is read-only.

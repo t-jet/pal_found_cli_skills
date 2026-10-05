@@ -1,75 +1,71 @@
 # Subscriber operations
 
-This part documents the `subscriber` resource client (6 operations). A
-subscriber consumes records from a stream and commits offsets so delivery is
-tracked.
-
-Source/pins: CLI parser
-`pal_found_cli_tool/src/pal_found_cli/streams/scripts/pal_found_streams_cli.py`;
-SDK `foundry_sdk/v2/streams/subscriber.py` at pinned commit `2da67907`.
-Reviewer architect (CODEREVIEW-052), 2026-10-03. QA baseline TESTCASE-016.
-
-## Operation records
+Subscriber ID belongs to stream's dataset and branch. It stores read
+positions by partition. Examples use `DATASET_RID` and `SUBSCRIBER_ID` shell
+variables. Reads with `--auto-commit` advance stored position when fetched;
+otherwise commit after processing.
+Input errors exit 1, SDK permission denials exit 3, missing resources exit 4,
+and read-only policy can block writes (8). Some server 404s can conceal denial.
 
 ### subscriber.create
 
-- **Class**: create (write). Creates a subscriber on a stream.
-- **Preconditions**: can write subscriptions to the stream.
-- **Effect**: creates a subscriber that will read from the stream.
-- **Inputs**: positional `stream_rid`; `--subscriber-name`,
-  `--schema-json` (where needed).
-- **Success**: the created subscriber (RID).
-- **Example**: `pal-found-streams subscriber create <STREAM_RID> --subscriber-name "processor"`.
+Registers consumer identified by `--subscriber-id` on positional dataset
+RID and branch. `--read-position-json` chooses `{"type":"earliest"}`
+(default), `{"type":"latest"}`, or `{"type":"specific","offsets":{"0":50}}`.
+Earliest replays retained history; latest starts after current records;
+specific uses valid partition offsets. Result includes subscriber ID, dataset
+RID, branch, current view RID, and starting offsets. Same ID on same stream
+returns existing registration; ID bound to different stream fails.
+
+**Example:** `pal-found-streams subscriber create "$DATASET_RID" master --subscriber-id events-worker --read-position-json '{"type":"earliest"}'`
 
 ### subscriber.commit_offsets
 
-- **Class**: execute (write). Commits processed offsets for a subscriber.
-- **Preconditions**: can write to the subscription.
-- **Effect**: advances the subscriber's committed offsets; affects what it
-  reads next.
-- **Inputs**: positional `stream_rid`, `subscriber_rid`; `--offsets-json`.
-- **Success**: commits the offsets; returns the updated position.
-- **Example**: `pal-found-streams subscriber commit-offsets <STREAM_RID> <SUBSCRIBER_RID> --offsets-json '{}'`.
+Stores **last processed** offset per partition when auto commit is off.
+Committing `{"0":50}` makes next read of partition 0 start at 51. Required
+`--offsets-json` maps string partition IDs to numeric offsets. Optional
+`--view-rid` commits for a specific view; default is latest branch view.
+Result is partition-to-next-read-offset map. Invalid partitions, stale views,
+or missing write permission can reject request.
+
+**Example:** `pal-found-streams subscriber commit-offsets "$DATASET_RID" master "$SUBSCRIBER_ID" --offsets-json '{"0":50}'`
 
 ### subscriber.delete
 
-- **Class**: delete (write). Deletes a subscriber.
-- **Preconditions**: can delete the subscription.
-- **Effect**: removes the subscriber; its offsets are removed.
-- **Inputs**: positional `stream_rid`, `subscriber_rid`.
-- **Success**: returns the deleted subscriber.
+Deletes subscriber and committed offset state; response has no body. ID can
+then be registered again, perhaps at different start. Confirm no consumer
+relies on checkpoint; nonexistent ID or insufficient permission fails.
+
+**Example:** `pal-found-streams subscriber delete "$DATASET_RID" master "$SUBSCRIBER_ID"`
 
 ### subscriber.get_read_position
 
-- **Class**: read. Returns a subscriber's read position.
-- **Preconditions**: can read the subscription.
-- **Effect**: returns the subscriber's current read offsets per partition.
-- **Inputs**: positional `stream_rid`, `subscriber_rid`.
-- **Success**: the read-position map.
+Returns map of string partition IDs to next read offsets. Optional
+`--view-rid` targets a specific stream view; default is latest branch view.
+Use after commit or reset to inspect checkpoint. Absent subscriber or
+inaccessible view can fail.
+
+**Example:** `pal-found-streams subscriber get-read-position "$DATASET_RID" master "$SUBSCRIBER_ID"`
 
 ### subscriber.read_records
 
-- **Class**: read. Reads unprocessed records for a subscriber.
-- **Preconditions**: can read the subscription.
-- **Effect**: returns a batch of records up to `--max-records` (default 100).
-- **Inputs**: positional `stream_rid`, `subscriber_rid`; `--max-records`.
-- **Success**: a batch of records; empty if none pending.
-- **Failure**: exit 5 on timeout.
-- **Example**: `pal-found-streams subscriber read-records <STREAM_RID> <SUBSCRIBER_RID> --max-records 100`.
+Fetches records from stored position, grouped by partition ID in
+`recordsByPartition`. `--max-records` bounds total across partitions (default
+100, CLI range 1–1,000). `--partition-ids-json` accepts array of string IDs;
+omitting it reads all partitions. Default `auto_commit` is false, so call
+`commit-offsets` after processing for at-least-once behavior. With
+`--auto-commit`, fetching advances position before process handles records.
+Optional `--view-rid` pins one view. Missing subscriber or view fails.
+
+**Example:** `pal-found-streams subscriber read-records "$DATASET_RID" master "$SUBSCRIBER_ID" --max-records 100 --partition-ids-json '["0"]'`
 
 ### subscriber.reset_offsets
 
-- **Class**: change (write). Resets a subscriber's offsets.
-- **Preconditions**: can write the subscription.
-- **Effect**: resets offsets so the subscriber re-reads from a position.
-- **Inputs**: positional `stream_rid`, `subscriber_rid`; `--offsets-json` or a
-  reset target.
-- **Success**: returns the reset position.
+Moves this subscriber's position without changing stream data. Supply
+`--position-json` with earliest, latest, or specific per-partition offsets.
+Earliest replays retained records; latest skips existing records. Specific
+offsets must be nonnegative and no later than each partition's end. Result
+maps partitions to new next-read offsets; malformed position or missing
+permission rejects change.
 
-## Evidence and review
-
-Reviewed against the installed `pal-found-streams` parser and pinned SDK
-sources (commit `2da67907`). `create`/`commit_offsets`/`delete`/`reset_offsets`
-are write with material offset/subscription effects; `read_records` is bounded
-by `--max-records` (AC-D-013-09). Committing offsets changes what a subscriber
-reads next. No unsupported operation is documented as callable.
+**Example:** `pal-found-streams subscriber reset-offsets "$DATASET_RID" master "$SUBSCRIBER_ID" --position-json '{"type":"earliest"}'`

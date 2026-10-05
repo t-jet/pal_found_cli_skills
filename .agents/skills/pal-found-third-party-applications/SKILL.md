@@ -1,17 +1,28 @@
 ---
 name: pal-found-third-party-applications
-description: Offline entry point for Foundry Third-Party Applications API v2 CLI. Documents 9 ThirdPartyApplication, Website, and WebsiteVersion operations with preconditions, effect, inputs, result, and failure offline.
+description: Inspect Developer Console applications and manage their static website versions and deployment through 9 CLI operations.
 ---
 
 # Foundry Third-Party Applications CLI
 
 ## Capability and source
 
-Foundry Third-Party Applications manage websites, their versions, and
-deployments. The `pal-found-third-party-applications` command exposes 9
-ThirdPartyApplication, Website, and Version operations.
+Developer Console applications can expose an OSDK frontend hosted by Foundry.
+Website hosting serves static assets such as HTML, JavaScript, CSS, and images;
+the frontend calls APIs for server functionality. It is available for
+client-facing applications. Uploading a zipped version stores assets, while
+`website deploy` selects the version served to users. A snapshot version is
+temporary and is deleted after two days. Each website and version operation
+uses the **third-party application RID**; versions are identified by semantic
+version strings.
+Zip the **contents** of production build directory, so `index.html` is at
+archive root; wrapping all files in `dist/` changes served paths. Hosted sites
+require Foundry login. Users with Developer Console application access can
+see the site by default; grant other Foundry users hosted website access in
+Sharing & Tokens. This CLI manages versions and deployment, not sharing.
 
-Source: [Palantir third-party applications](https://www.palantir.com/docs/foundry/third-party-applications); reviewed 2026-08-13. This source link is maintenance evidence for maintainers; it is not needed to use the skill offline.
+Source: [Host an OSDK application](https://www.palantir.com/docs/foundry/developer-console/deploy-custom-application-on-foundry).
+Operation details: SDK `docs/v2/ThirdPartyApplications/` used to author this skill.
 
 9 Foundry Third-Party Applications API v2 operations are available through the installed `pal-found-third-party-applications` command.
 
@@ -21,8 +32,8 @@ Source: [Palantir third-party applications](https://www.palantir.com/docs/foundr
 pal-found-third-party-applications <resource> <operation> [options]
 ```
 
-Common options: `--timeout`, `--format json|toon|auto`, `--pretty`,
-`--page-size`, `--page-token`, `--batch-pages` (where paging applies).
+Common options: `--timeout`, `--format json|toon|auto`, `--pretty`; version
+listing also accepts `--page-size`, `--page-token`, `--all`, `--max-pages`.
 
 The CLI uses the shared config loader, access control guard, retry handler,
 pagination helper, structured error serializer, output formatter, and
@@ -36,9 +47,15 @@ SDK-native B3 tracing scope. Version uploads are bounded zip reads.
 
 ## Parameters and JSON
 
-Every operation accepts `--timeout`, `--format json|toon|auto`, and
-`--pretty`; paged operations add `--page-size`, `--page-token`, and
-`--batch-pages`. Binary uploads use `--file` (bounded 16 MiB zip).
+Binary version uploads require `--version` and `--file` (16 MiB maximum).
+Use `version get` or `version list` to inspect uploaded versions before
+changing the live deployment.
+
+`--timeout` limits a request in seconds; `--format json|toon|auto` chooses
+output encoding; `--pretty` indents it. Version listing accepts `--page-size`
+as the requested number of versions, `--page-token` to resume from a returned
+token, and `--all --max-pages` for bounded automatic traversal. Uploads use
+`--version` as the website version label and `--file` as the local zip path.
 
 ## Install requirement
 
@@ -54,15 +71,3 @@ pip install pal_found_cli
 # uv
 uv tool install pal_found_cli
 ```
-
-## File layout
-
-```
-.agents/skills/pal-found-third-party-applications/
-├── SKILL.md
-└── references/
-    └── 01-applications.md
-```
-
-Copy the entire `pal-found-third-party-applications` folder, including
-`references/`, so the relative links above resolve offline.

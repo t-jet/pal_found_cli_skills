@@ -60,8 +60,7 @@ def test_no_live_credential_pattern_is_tracked() -> None:
 
 def test_no_skill_md_contains_stale_python_script_references() -> None:
     # FEATURE-011 (DEV-STORY-040 AC-D-012-02): no SKILL.md may reference a
-    # python launcher or scripts/ directory; every skill is documentation-only
-    # and invokes the installed pal-found-* command.
+    # python launcher or scripts/ directory. The knowledge skill has no command.
     for skill_file in SKILLS.glob("pal-found-*/SKILL.md"):
         text = skill_file.read_text(encoding="utf-8")
         assert not STALE_SCRIPT_RE.search(text), (
@@ -71,7 +70,7 @@ def test_no_skill_md_contains_stale_python_script_references() -> None:
 
 def test_distribution_readme_states_doc_only_model_and_install_prerequisite() -> None:
     # FEATURE-011 (DEV-STORY-040 AC-D-012-06/08): distribution states skills are
-    # documentation-only and the pal_found_cli package must be installed first.
+    # documentation-only; command skills require the pal_found_cli package.
     text = README.read_text(encoding="utf-8")
     assert "documentation only" in text
     assert "pal_found_cli" in text

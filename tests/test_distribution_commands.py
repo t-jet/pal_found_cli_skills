@@ -18,6 +18,7 @@ EXPECTED_SKILLS = {
     "pal-found-connectivity",
     "pal-found-data-health",
     "pal-found-datasets",
+    "pal-found-dev",
     "pal-found-filesystem",
     "pal-found-functions",
     "pal-found-language-models",
@@ -100,12 +101,15 @@ def test_published_powershell_copy_is_complete_and_safe_to_rerun(tmp_path: Path)
 
     first = _run_copy_block(source, workspace)
     assert first.returncode == 0, first.stderr
-    assert "Copied and verified 19 skills" in first.stdout
+    assert "Copied and verified 20 skills" in first.stdout
 
     destination = workspace / ".agents" / "skills"
     copied = {path.name for path in destination.iterdir() if path.is_dir()}
     assert copied == EXPECTED_SKILLS
     assert all((destination / name / "SKILL.md").is_file() for name in copied)
+    dev_source = source / ".agents" / "skills" / "pal-found-dev"
+    dev_copy = destination / "pal-found-dev"
+    assert _tree_fingerprint(dev_copy) == _tree_fingerprint(dev_source)
 
     sentinel = destination / "pal-found" / "SKILL.md"
     expected_sentinel = (source / ".agents" / "skills" / "pal-found" / "SKILL.md")
@@ -135,7 +139,7 @@ def test_published_powershell_copy_fails_before_mutation_on_bad_source(
     result = _run_copy_block(source, workspace)
 
     assert result.returncode != 0
-    assert "Source skill inventory does not match the canonical 19 names" in result.stderr
+    assert "Source skill inventory does not match the canonical 20 names" in result.stderr
     assert _tree_fingerprint(destination) == before
 
 
@@ -152,7 +156,7 @@ def test_published_powershell_copy_rejects_same_count_wrong_name_atomically(
     result = _run_copy_block(source, workspace)
 
     assert result.returncode != 0
-    assert "Source skill inventory does not match the canonical 19 names" in result.stderr
+    assert "Source skill inventory does not match the canonical 20 names" in result.stderr
     assert _tree_fingerprint(destination) == before
 
 
@@ -170,4 +174,21 @@ def test_published_powershell_copy_rejects_missing_sentinel_atomically(
 
     assert result.returncode != 0
     assert "Missing source pal-found-widgets/SKILL.md" in result.stderr
+    assert _tree_fingerprint(destination) == before
+
+
+def test_published_powershell_copy_rejects_missing_development_part_atomically(
+    tmp_path: Path,
+) -> None:
+    source = _copy_source_tree(tmp_path)
+    part = source / ".agents" / "skills" / "pal-found-dev" / "references" / "rest-api.md"
+    part.unlink()
+    workspace = tmp_path / "untouched-workspace"
+    destination = _seed_destination(workspace)
+    before = _tree_fingerprint(destination)
+
+    result = _run_copy_block(source, workspace)
+
+    assert result.returncode != 0
+    assert "Missing source pal-found-dev/references/rest-api.md" in result.stderr
     assert _tree_fingerprint(destination) == before

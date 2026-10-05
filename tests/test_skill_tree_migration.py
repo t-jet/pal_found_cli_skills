@@ -15,6 +15,7 @@ EXPECTED_SKILLS = {
     "pal-found-connectivity",
     "pal-found-data-health",
     "pal-found-datasets",
+    "pal-found-dev",
     "pal-found-filesystem",
     "pal-found-functions",
     "pal-found-language-models",
@@ -49,7 +50,7 @@ def test_canonical_skill_tree_has_one_renamed_skill_set() -> None:
         for path in SKILLS.iterdir()
         if path.is_dir() and path.name != "self-improvement"
     }
-    assert len(actual) == 19
+    assert len(actual) == 20
     assert actual == EXPECTED_SKILLS
 
     for name in EXPECTED_SKILLS:
@@ -71,7 +72,7 @@ def test_namespace_skills_are_documentation_only() -> None:
     # FEATURE-011 (DEV-STORY-038/039): every namespace skill is doc-only; no
     # scripts/ dir and no Python launcher remains, and each SKILL.md invokes
     # the installed pal-found-* command.
-    for name in sorted(EXPECTED_SKILLS - {"pal-found"}):
+    for name in sorted(EXPECTED_SKILLS - {"pal-found", "pal-found-dev"}):
         skill_dir = SKILLS / name
         assert not (skill_dir / "scripts").exists(), (
             f"{name} must not contain a scripts/ directory"
@@ -108,7 +109,7 @@ def test_distribution_readme_documents_supported_harness_onboarding() -> None:
         for line in text.splitlines()
         if line.startswith("|") and line.count("|") >= 4
     }
-    assert "19 skills" in text
+    assert "20 skills" in text
     assert ".agents/skills" in text
     assert ".claude/skills" in text
     assert "ln -s" in text

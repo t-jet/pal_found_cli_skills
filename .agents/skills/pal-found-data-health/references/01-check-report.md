@@ -1,75 +1,49 @@
-# Check and check-report operations
+# Data Health checks and reports
 
-This part documents the `check` (4) and `check_report` (2) resource clients (6
-operations). A check defines a data-quality rule; a check report records a
-run's outcome.
+Data Health monitors individual resources with checks for status, freshness, size, content, and schema. For example, a build status check asks whether the most recent build of a dataset succeeded. A check is the saved rule; each evaluation produces a check report with a result and a snapshot of the rule at that time. Time-based checks can evaluate on dataset updates, at configured thresholds, or on a regular schedule. Creation alone need not produce a report, so `get-latest` may return an empty collection until evaluation occurs. A failed check reports unhealthy data, while an API failure means the request itself could not complete. See [Health checks](https://www.palantir.com/docs/foundry/health-checks/overview), [check evaluation](https://www.palantir.com/docs/foundry/health-checks/check-evaluation), the [checks reference](https://www.palantir.com/docs/foundry/health-checks/checks-reference), and SDK `docs/v2/DataHealth/{Check,CheckReport}.md`.
 
-Source/pins: CLI parser
-`pal_found_cli_tool/src/pal_found_cli/data_health/scripts/pal_found_data_health_cli.py`;
-SDK `foundry_sdk/v2/data_health/{check,check_report}.py` at pinned commit
-`2da67907`. Reviewer architect (CODEREVIEW-048), 2026-10-03. QA baseline
-TESTCASE-020.
-
-## Operation records
+The examples assume valid Foundry credentials and the required dataset or check permissions. Replace sample RIDs. A `buildStatus` rule uses a dataset RID, branch, and severity (`MODERATE` or `CRITICAL`). Other rule types have different configuration fields; inspect their SDK model before editing the JSON.
 
 ### check.create
 
-- **Class**: create (write). Defines a new data-health check.
-- **Preconditions**: can create checks; a dataset target and rule.
-- **Effect**: creates a check that will evaluate the target.
-- **Inputs**: `--display-name`, target dataset/rule JSON.
-- **Success**: the created check, including its RID.
-- **Failure**: exit 1 invalid rule; exit 8 readonly block.
-- **Example**: `pal-found-data-health check create --display-name "No nulls in id" --dataset-rid <DATASET_RID> --rule-json '{}'`.
+Create a check on a dataset. `--config-json` is a required, typed rule definition; `--intent` explains why the rule exists. The returned `Check` contains its RID and saved configuration. Creation does not mean that a report has already been produced. Invalid rule fields, a missing dataset, or insufficient write permission prevent creation.
 
-### check.delete
-
-- **Class**: delete (write). Deletes a check.
-- **Preconditions**: can delete the check.
-- **Effect**: removes the check definition; reports remain historical.
-- **Inputs**: positional `check_rid`.
-- **Success**: returns the deleted check.
+**Example:**
+```bash
+pal-found-data-health check create --config-json '{"type":"buildStatus","subject":{"datasetRid":"ri.foundry.main.dataset.a1b2c3d4-e5f6-7890-abcd-ef1234567890","branchId":"master"},"statusCheckConfig":{"severity":"CRITICAL"}}' --intent 'Alert when the orders build fails'
+```
 
 ### check.get
 
-- **Class**: read. Returns a check definition.
-- **Preconditions**: can read the check.
-- **Effect**: returns the check.
-- **Inputs**: positional `check_rid`.
-- **Success**: the check record.
-- **Failure**: exit 4 if missing.
+Read one saved rule by `check_rid` without changing it. Use this before replacing a check to confirm its type and current fields. An unknown or inaccessible RID fails instead of returning a rule.
+
+**Example:** `pal-found-data-health check get ri.data-health.main.check.8e27b13a-e21b-4232-ae1b-76ccf5ff42b3`
 
 ### check.replace
 
-- **Class**: change (write). Replaces a check definition.
-- **Preconditions**: can write the check.
-- **Effect**: replaces the check's rule/target.
-- **Inputs**: positional `check_rid`; replacement fields.
-- **Success**: the updated check.
+Replace an existing check's configuration and optional intent. The JSON is a `ReplaceCheckConfig`; it omits the subject because the check keeps its existing target. Foundry does not support changing a check's type after creation. The response is the updated `Check`. Use `get` first and preserve its type; wrong type, invalid fields, missing check, or insufficient permission fails.
+
+**Example:**
+```bash
+pal-found-data-health check replace ri.data-health.main.check.8e27b13a-e21b-4232-ae1b-76ccf5ff42b3 --config-json '{"type":"buildStatus","statusCheckConfig":{"severity":"MODERATE"}}' --intent 'Monitor the orders build'
+```
+
+### check.delete
+
+Delete the check definition identified by RID. This stops future evaluation of that rule and returns no resource body (HTTP 204). It does not repair the dataset. Confirm the RID and downstream alerting expectations before running; an unknown RID or insufficient delete permission fails.
+
+**Example:** `pal-found-data-health check delete ri.data-health.main.check.8e27b13a-e21b-4232-ae1b-76ccf5ff42b3`
 
 ### check_report.get
 
-- **Class**: read. Returns a check report.
-- **Preconditions**: can read the check/report.
-- **Effect**: returns the report for a specific check run.
-- **Inputs**: positional `check_rid`, `check_report_rid`.
-- **Success**: the report.
-- **Failure**: exit 4 if report missing.
+Read one historical report using both its check RID and report RID. The report includes its result and a snapshot of the check configuration from evaluation time; later check edits do not rewrite it. An unknown check/report pair or inadequate read access fails.
+
+**Example:** `pal-found-data-health check-report get ri.data-health.main.check.8e27b13a-e21b-4232-ae1b-76ccf5ff42b3 ri.data-health.main.check-report.a1b2c3d4-e5f6-7890-abcd-ef1234567890`
 
 ### check_report.get_latest
 
-- **Class**: read. Returns the latest check report.
-- **Preconditions**: can read the check.
-- **Effect**: returns the most recent report for the check.
-- **Inputs**: positional `check_rid`; routed through the nested
-  Check.CheckReport accessor.
-- **Success**: the latest report.
-- **Failure**: exit 4 if no report yet (check never ran).
+Read recent reports for one check in reverse chronological order. `--limit` defaults to 10 and has a maximum of 100. The response is a collection, so a never-evaluated check can yield no reports. Use the newest report's result to understand current observed health, and retain its RID if you need to retrieve that exact report later.
 
-## Evidence and review
+**Example:** `pal-found-data-health check-report get-latest ri.data-health.main.check.8e27b13a-e21b-4232-ae1b-76ccf5ff42b3 --limit 5`
 
-Reviewed against the installed `pal-found-data-health` parser and pinned SDK
-sources (commit `2da67907`). `check.create/delete/replace` write; `check_report`
-operations read run results. `get_latest` returns nothing until the check has
-run; an empty/not-found outcome is valid for a never-run check. No unsupported
-operation is documented as callable.
+An invalid limit, unknown check, or insufficient read permission fails. Reading reports does not run a check.

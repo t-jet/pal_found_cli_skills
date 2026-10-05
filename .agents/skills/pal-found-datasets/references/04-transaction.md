@@ -1,91 +1,82 @@
 # Transaction operations
 
-This part documents the `transaction` resource client (6 operations). A
-transaction groups a set of changes to a dataset branch: it is created, edits
-are applied, then it is `commit`ed or `abort`ed. Read the [Datasets
-entry](SKILL.md) first.
+Datasets hold versioned files, with an optional schema for tabular reads. A transaction changes a
+branch view; a branch is a pointer to transaction history. A View is a separate resource that reads
+a union of backing datasets without storing their files. Most enrollments use `master` as the
+default branch, but omit the branch flag to use the enrollment default.
 
-Source/pins: CLI parser
-`pal_found_cli_tool/src/pal_found_cli/datasets/scripts/pal_found_datasets_cli.py`;
-SDK `foundry_sdk/v2/datasets/transaction.py` at pinned commit `2da67907`.
-Reviewer architect (CODEREVIEW-044), 2026-10-03. QA baseline TESTCASE-003.
-
-## Workflow
-
-1. `transaction.create` an open (open) transaction on a branch.
-2. Apply edits such as `file.upload`/`file.delete` against it.
-3. `transaction.commit` to make the changes visible, or `transaction.abort` to
-   discard them.
-4. Read status with `transaction.get` and build output with `transaction.job`.
+Platform context: [Palantir
+documentation](https://www.palantir.com/docs/foundry/data-integration/datasets). The behavior below
+describes the installed CLI commands. Replace
+example identifiers and configuration values with values from your Foundry enrollment.
 
 ## Operation records
 
 ### transaction.abort
 
-- **Class**: change. Discards an open transaction's changes.
-- **Preconditions**: an open transaction on a branch you can write.
-- **Effect**: aborts the transaction; its changes are not applied.
-- **Inputs**: positional `dataset_rid`, `transaction_rid`; `--branch-name`.
-- **Success**: returns the aborted transaction.
-- **Failure**: exit 1 if the transaction is not open.
-- **Example**: `pal-found-datasets transaction abort <DATASET_RID> <TXN_RID> --branch-name main`.
+- **Behavior:** Aborts an open Transaction. File modifications made on this Transaction are not
+  preserved and the Branch is not updated.
+- **Before use:** The transaction must be open and belong to the specified dataset.
+- **Inputs:** positional `dataset_rid`; required `--transaction-rid`; optional none.
+- **Result:** `Transaction`.
+- **Failure or follow-up:** The transaction must still be open; a state conflict or missing
+  transaction is returned as a CLI error.
+- **Example:** `pal-found-datasets transaction abort DATASET_RID --transaction-rid TRANSACTION_RID`
 
 ### transaction.build
 
-- **Class**: execute (async). Builds the dataset from the transaction.
-- **Preconditions**: write access; branch wants build-on-commit-compatible state.
-- **Effect**: triggers a build/job for the transaction; acceptance is not proof
-  the build finished.
-- **Inputs**: positional `dataset_rid`, `transaction_rid`; branch options.
-- **Success**: returns a build reference; check `transaction.job` for status.
-- **Failure**: exit 1 invalid state; exit 3 permission.
-- **Example**: `pal-found-datasets transaction build <DATASET_RID> <TXN_RID> --branch-name main`.
+- **Behavior:** Get the Build that computed the given Transaction. Not all Transactions have an
+  associated Build. For example, if a Dataset is updated by a User uploading a CSV file into the
+  browser, no Build will be tied to the Transaction.
+- **Before use:** The dataset and transaction must be readable.
+- **Inputs:** positional `dataset_rid`; required `--transaction-rid`; optional none.
+- **Result:** `Optional[BuildRid]`. This is a read: it returns the build associated with a
+  transaction when one exists; it does not start a build.
+- **Failure or follow-up:** A missing or inaccessible transaction returns an error, except where the
+  SDK declares an optional result.
+- **Example:** `pal-found-datasets transaction build DATASET_RID --transaction-rid TRANSACTION_RID`
 
 ### transaction.commit
 
-- **Class**: change. Commits an open transaction, making its changes visible.
-- **Preconditions**: an open transaction on a writable branch.
-- **Effect**: applies the transaction's changes to the branch.
-- **Inputs**: positional `dataset_rid`, `transaction_rid`; `--branch-name`.
-- **Success**: returns the committed transaction.
-- **Failure**: exit 1 invalid state (already committed/aborted); exit 8 block.
-- **Example**: `pal-found-datasets transaction commit <DATASET_RID> <TXN_RID> --branch-name main`.
-
-### transaction.create
-
-- **Class**: create. Opens a new transaction on a branch.
-- **Preconditions**: can write the branch.
-- **Effect**: creates an open transaction to group edits.
-- **Inputs**: positional `dataset_rid`, `branch_id`; `--transaction-type`
-  (e.g. SNAPSHOT/APPEND/UPDATE).
-- **Success**: the created open transaction, including its RID.
-- **Failure**: exit 1 invalid type; exit 8 readonly block.
-- **Example**: `pal-found-datasets transaction create <DATASET_RID> main --transaction-type SNAPSHOT`.
+- **Behavior:** Commits an open Transaction. File modifications made on this Transaction are
+  preserved and the Branch is updated to point to the Transaction.
+- **Before use:** The transaction must be open and belong to the specified dataset.
+- **Inputs:** positional `dataset_rid`; required `--transaction-rid`; optional none.
+- **Result:** `Transaction`.
+- **Failure or follow-up:** The transaction must still be open; a state conflict or missing
+  transaction is returned as a CLI error.
+- **Example:** `pal-found-datasets transaction commit DATASET_RID --transaction-rid TRANSACTION_RID`
 
 ### transaction.get
 
-- **Class**: read. Returns a transaction's status and summary.
-- **Preconditions**: can read the branch.
-- **Effect**: returns transaction metadata.
-- **Inputs**: positional `dataset_rid`, `transaction_rid`; `--branch-name`.
-- **Success**: the transaction record and its status.
-- **Failure**: exit 4 if missing.
-- **Example**: `pal-found-datasets transaction get <DATASET_RID> <TXN_RID> --branch-name main`.
+- **Behavior:** Gets a Transaction of a Dataset.
+- **Before use:** The dataset and transaction must be readable.
+- **Inputs:** positional `dataset_rid`; required `--transaction-rid`; optional none.
+- **Result:** `Transaction`.
+- **Failure or follow-up:** A missing or inaccessible transaction returns an error, except where the
+  SDK declares an optional result.
+- **Example:** `pal-found-datasets transaction get DATASET_RID --transaction-rid TRANSACTION_RID`
 
 ### transaction.job
 
-- **Class**: read (async status). Returns the build job for a transaction.
-- **Preconditions**: a transaction that had a build.
-- **Effect**: returns the job/build status.
-- **Inputs**: positional `dataset_rid`, `transaction_rid`.
-- **Success**: the job record, showing whether the build succeeded/pending.
-- **Failure**: exit 4 if no job for the transaction.
-- **Example**: `pal-found-datasets transaction job <DATASET_RID> <TXN_RID>`.
+- **Behavior:** Get the Job that computed the given Transaction. Not all Transactions have an
+  associated Job. For example, if a Dataset is updated by a User uploading a CSV file into the
+  browser, no Job will be tied to the Transaction.
+- **Before use:** The dataset and transaction must be readable.
+- **Inputs:** positional `dataset_rid`; required `--transaction-rid`; optional none.
+- **Result:** `Optional[JobRid]`.
+- **Failure or follow-up:** A missing or inaccessible transaction returns an error, except where the
+  SDK declares an optional result.
+- **Example:** `pal-found-datasets transaction job DATASET_RID --transaction-rid TRANSACTION_RID`
 
-## Evidence and review
+### transaction.create
 
-Reviewed against the installed `pal-found-datasets` parser and pinned SDK
-sources (commit `2da67907`). `commit`/`abort`/`build` change branch state;
-`create` opens a transaction; `get`/`job` are reads. Async build work requires a
-follow-up `get`/`job`; a zero exit does not prove the build finished
-(AC-D-013-04/05). No unsupported operation is documented as callable.
+- **Behavior:** Creates a Transaction on a Branch of a Dataset.
+- **Before use:** The dataset branch must exist, be writable, and have no other open transaction.
+- **Inputs:** positional `dataset_rid`; required `--transaction-type`; optional `--branch-name`.
+  Choose `SNAPSHOT`, `APPEND`, `UPDATE`, or `DELETE` according to how this transaction should change
+  the dataset view. The branch defaults to `master` for most enrollments.
+- **Result:** `Transaction`.
+- **Failure or follow-up:** An invalid configuration or insufficient permission rejects transaction
+  creation; use the returned RID for later calls.
+- **Example:** `pal-found-datasets transaction create DATASET_RID --transaction-type APPEND --branch-name master`

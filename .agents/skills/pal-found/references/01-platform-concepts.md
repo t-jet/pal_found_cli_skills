@@ -5,20 +5,37 @@ to a resource and its owning namespace skill. Read it from the general
 `pal-found` skill before opening a namespace; each namespace skill also states
 its own lifecycle and starting conditions.
 
+## How the platform fits together
+
+Data Connection and dataset uploads bring source data into Foundry. A dataset
+stores files and records changes as transactions, so a pipeline can read a
+specific branch or view rather than an unversioned file location. Build jobs
+apply transformation logic and write new dataset versions; schedules decide
+when builds should be attempted. Projects organize these resources and
+control who can work on them, subject to markings and organization rules.
+
+The Ontology turns selected data into business objects and links and brings
+logic and actions alongside it. Applications and agents can then read those
+objects and invoke governed actions. This is why a dataset, an Ontology
+object type, and an action are related but distinct resources: loading files
+does not by itself create an object type or expose an action. See the
+[platform overview](https://www.palantir.com/docs/foundry/platform-overview/overview)
+for the data, logic, and action model.
+
 ## Core resource model
 
 | Concept | What it is | Owning namespace |
 | --- | --- | --- |
 | Project | A top-level container that groups folders and resources under a user-visible name. | `pal-found-filesystem` |
 | Folder | A container inside a project that organizes resources by path. | `pal-found-filesystem` |
-| Space | A named container that scopes resource creation, often used to isolate work. | `pal-found-filesystem` |
+| Space | A scope for projects, their organization access, deletion policy, and defaults for storage and roles. | `pal-found-filesystem` |
 | Resource | A general roll-up category that includes projects, folders, datasets, and documents exposed through `resource` operations. | `pal-found-filesystem` |
-| Dataset | Tabular data stored in named branches; each branch holds an ordered set of transactions. | `pal-found-datasets` |
-| Branch | A named line of dataset history; a dataset usually has a default branch (for example `main`). | `pal-found-datasets` |
+| Dataset | A versioned collection of files, either tabular with a schema or unstructured; branches refer to transaction history. | `pal-found-datasets` |
+| Branch | A named pointer to dataset transaction history; the default is `master` in most enrollments. Branches do not merge. | `pal-found-datasets` |
 | Transaction | A grouped set of changes to a dataset (created, then `commit` or `abort`). | `pal-found-datasets` |
 | Schema | Column and type definitions applied to a dataset. | `pal-found-datasets` |
 | File | A named binary blob stored inside a dataset's branch. | `pal-found-datasets` |
-| View | A derived dataset backed by one or more source datasets. | `pal-found-datasets` |
+| View | A union of backing datasets evaluated when read, without storing their data files; optional primary key supports deduplication. | `pal-found-datasets` |
 | Ontology | The semantic layer over datasets: object types, object sets, links, action types, query types. | `pal-found-ontologies` |
 | Object type | A typed view of dataset rows; each row becomes an object. | `pal-found-ontologies` |
 | Object set | A collection of objects, possibly filtered or derived. | `pal-found-ontologies` |
@@ -30,15 +47,15 @@ its own lifecycle and starting conditions.
 | Media set | A store for unstructured binary media with a transaction lifecycle. | `pal-found-media-sets` |
 | Stream | A time-ordered record stream; subscribers consume records at committed offsets. | `pal-found-streams` |
 | Model | An ML model artifact, its versions, live deployments, experiments, and Model Studio resources. | `pal-found-models` |
-| Schedule / build | Orchestration resources: scheduled runs, builds, jobs, and their versions. | `pal-found-orchestration` |
+| Schedule / build | A schedule decides when to run; a build computes new dataset versions through jobs. A started run is not proof of a successful build. | `pal-found-orchestration` |
 | SQL query | An ad-hoc SQL query with Arrow result downloads and lifecycle operations. | `pal-found-sql-queries` |
 | Enrollment | The broad scope under which groups, organizations, and roles are governed. | `pal-found-admin` |
 | Group / user / role | Identity subjects and the roles assigned to them. | `pal-found-admin` |
 | Marking / organization | Governance constructs that control who can see or act on resources. | `pal-found-admin` |
 | Audit log | A log file listing platform events; content can be downloaded. | `pal-found-audit` |
-| Checkpoint | A named record holding external system state. | `pal-found-checkpoints` |
+| Checkpoint | A justification prompt for a sensitive Foundry interaction; its submitted answer becomes a reviewable record. | `pal-found-checkpoints` |
 | Data health check | A check and its latest report on data quality. | `pal-found-data-health` |
-| Connection / import | An external data source (connection) and the file/table imports from it. | `pal-found-connectivity` |
+| Connection / import | An external source configuration and file or table sync definitions that write into datasets when executed. | `pal-found-connectivity` |
 | Third-party application | A website/app that can be deployed and versioned through the CLI. | `pal-found-third-party-applications` |
 | Widget set | A collection of Foundry widgets managed in a repository, with releases. | `pal-found-widgets` |
 
@@ -64,8 +81,9 @@ Resources are not all static. Several namespaces model a lifecycle:
   `transaction`, `commit` or `abort` it.
 - **Ontology actions**: `apply` an action to change objects; the result may
   depend on the object's current state.
-- **Media sets**: `create` the set, `create` a transaction, `upload` media,
-  `commit` (or `abort`/`clear`) the transaction.
+- **Media sets**: work with an existing set, use `create` to open a transaction,
+  `upload` media, then `commit` (or `abort`) the transaction. `clear` removes
+  media by path where the selected set and transaction policy allow it.
 - **Streams**: create the dataset/stream, publish records, and have a
   subscriber read at committed offsets.
 - **Orchestration**: a schedule `run` starts a build; a build processes
@@ -77,11 +95,11 @@ advance or read the resource.
 ## Cross-capability examples
 
 A full task usually spans several resources. For example, to "load a file into
-a dataset, build an image from it, and expose it in the ontology":
+a dataset, compute a derived dataset, and expose it in the Ontology":
 
 1. Upload a file into a dataset branch (`pal-found-datasets`).
-2. Configure a transformer or schedule to build an updated dataset
-   (`pal-found-orchestration`).
+2. Run a build or an existing schedule for the derived dataset
+   (`pal-found-orchestration`); its transformation logic must already exist.
 3. Once the dataset holds rows, its object type presents them to users
    (`pal-found-ontologies`).
 

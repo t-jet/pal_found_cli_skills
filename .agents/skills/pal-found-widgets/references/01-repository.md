@@ -1,97 +1,89 @@
 # Widget repository and settings operations
 
-This part documents the `dev_mode_settings` (2), `release` (3), `repository`
-(2), and `widget_set` (1) resource clients (8 operations). A widget-set
-repository holds widget code; releases are taggable builds; dev-mode settings
-control runtime overrides.
-
-Source/pins: CLI parser
-`pal_found_cli_tool/src/pal_found_cli/widgets/scripts/pal_found_widgets_cli.py`;
-SDK `foundry_sdk/v2/widgets/{dev_mode_settings,release,repository,widget_set}.py`
-at pinned commit `2da67907`. Reviewer architect (CODEREVIEW-054), 2026-10-03.
-QA baseline TESTCASE-022.
-
-## Operation records
+`repository` commands take repository RID. `widget-set` and `release`
+commands take widget set RID; releases use semantic version. Dev mode applies
+to user associated with CLI token. Examples use `REPOSITORY_RID` and
+`WIDGET_SET_RID` shell variables. Input errors exit 1, SDK permission denials
+exit 3, missing resources exit 4, and read-only policy blocks writes (8).
+Server may conceal a denial as 404. SDK: `docs/v2/Widgets/`.
 
 ### dev_mode_settings.enable
 
-- **Class**: change (write). Enables dev mode.
-- **Preconditions**: can write dev-mode settings.
-- **Effect**: turns on dev mode for the widget runtime.
-- **Inputs**: settings/scope context.
-- **Success**: returns the updated dev-mode settings.
+Enables dev mode for user associated with CLI token. Response contains dev
+mode `status` and `widgetSetSettings` map. This does not publish widget code
+or affect other users. Development server and matching overrides must exist
+for widget to show unpublished assets; otherwise host shows published build.
+Session expires after 24 hours. A new widget needs first published release
+before Workshop can select it; playground can preview it sooner. Permission
+or disabled feature can reject request.
+
+**Example:** `pal-found-widgets dev-mode-settings enable`
 
 ### dev_mode_settings.set_widget_set_by_id
 
-- **Class**: change (write). Sets the active widget set by its id.
-- **Preconditions**: can write dev-mode settings.
-- **Effect**: points dev mode at a specific widget set.
-- **Inputs**: `--settings-json` (`WidgetSetDevModeSettingsById` payload),
-  `--widget-set-rid`.
-- **Success**: returns the updated settings.
-- **Example**: `pal-found-widgets dev-mode-settings set-widget-set-by-id --widget-set-rid <WIDGET_SET_RID> --settings-json '{}'`.
+Sets dev mode overrides for one widget set, identifying widgets by widget ID.
+Requires widget set RID and JSON settings object matching SDK's
+`WidgetSetDevModeSettingsById`: `baseHref` is HTML base path;
+`widgetSettings` maps widget IDs to `scriptEntrypoints` and
+`stylesheetEntrypoints` file paths. A script entrypoint also has `scriptType`.
+Response contains updated `status` and settings map for token's user.
+Malformed JSON or inaccessible set can fail.
+
+**Example:** `pal-found-widgets dev-mode-settings set-widget-set-by-id --widget-set-rid "$WIDGET_SET_RID" --settings-json '{"baseHref":"/","widgetSettings":{"myCustomWidget":{"scriptEntrypoints":[{"filePath":"dist/app.js","scriptType":"DEFAULT"}],"stylesheetEntrypoints":[{"filePath":"dist/app.css"}]}}}'`
 
 ### release.delete
 
-- **Class**: delete (write). Deletes a widget release.
-- **Preconditions**: can delete the release.
-- **Effect**: removes the release.
-- **Inputs**: positional `widget_set_repository_rid`, `release`.
-- **Success**: returns the deleted release.
+Deletes named release from widget set. Positional widget set RID and semantic
+release version identify target. Successful call returns no body. Check which
+version host applications use before deletion; missing release or delete
+permission fails.
+
+**Example:** `pal-found-widgets release delete "$WIDGET_SET_RID" 1.2.0`
 
 ### release.get
 
-- **Class**: read. Returns a widget release.
-- **Preconditions**: can read the release.
-- **Effect**: returns the release record.
-- **Inputs**: positional `widget_set_repository_rid`, `release`.
-- **Success**: the release.
-- **Failure**: exit 4 if missing.
+Retrieves release by positional widget set RID and semantic version. Response
+contains widget set RID, version, optional description, and locator with
+repository RID/version holding build files. Missing release or read
+permission fails.
+
+**Example:** `pal-found-widgets release get "$WIDGET_SET_RID" 1.2.0`
 
 ### release.list
 
-- **Class**: read. Lists releases of a repository.
-- **Preconditions**: can read the repository.
-- **Effect**: returns releases, paged.
-- **Inputs**: positional `widget_set_repository_rid`; paging options.
-- **Success**: releases; empty if none.
+Lists releases of positional widget set RID. Response has `data` array and
+optional `nextPageToken`; server may return page of different size than
+`--page-size` request. Omit `--page-token` on first page, then pass returned
+token for next. `--all --max-pages` bounds automatic traversal. Missing
+widget set or read access fails.
+
+**Example:** `pal-found-widgets release list "$WIDGET_SET_RID" --page-size 50`
 
 ### repository.get
 
-- **Class**: read. Returns a widget-set repository.
-- **Preconditions**: can read the repository.
-- **Effect**: returns the repository record.
-- **Inputs**: positional `widget_set_repository_rid`.
-- **Success**: the repository.
-- **Failure**: exit 4 if missing.
+Retrieves repository by positional repository RID. Response contains RID and
+optional `widgetSetRid` authorized to publish from this repository. Confirm
+authorization target before publishing. Absent repository or read denial
+fails.
+
+**Example:** `pal-found-widgets repository get "$REPOSITORY_RID"`
 
 ### repository.publish
 
-- **Class**: create (binary upload). Publishes a new widget release.
-- **Preconditions**: can write the repository.
-- **Effect**: stores a release build (zip) and publishes it.
-- **Inputs**: positional `widget_set_repository_rid`; `--file` (bounded zip
-  with a `.palantir/widgets.config.json` manifest), `--repository-version`.
-- **Success**: the published release.
-- **Failure**: exit 1 missing/invalid manifest or too-large file; exit 8
-  readonly block.
-- **Example**: `pal-found-widgets repository publish <REPOSITORY_RID> --file ./repo.zip --repository-version 1.0.0`.
+Publishes new release from zipped widget build. Requires repository RID,
+`--repository-version`, and existing `--file` no larger than 16 MiB. Archive
+must contain valid `.palantir/widgets.config.json` manifest describing build.
+Response is Release with widget set RID, release version, and backing
+repository locator. Invalid archive, version conflict, or missing publish
+permission fails. Host applications must select new version to display it.
+
+**Example:** `pal-found-widgets repository publish "$REPOSITORY_RID" --repository-version 1.2.0 --file ./widgets.zip`
 
 ### widget_set.get
 
-- **Class**: read. Returns a widget set.
-- **Preconditions**: can read the widget set.
-- **Effect**: returns the widget set.
-- **Inputs**: positional `widget_set_rid`.
-- **Success**: the widget set.
-- **Failure**: exit 4 if missing.
+Retrieves widget set by positional RID. Response contains widget set RID and
+optional `publishRepositoryRid` authorized to publish releases. Use that
+repository RID with `repository publish`; missing set or read permission
+fails.
 
-## Evidence and review
-
-Reviewed against the installed `pal-found-widgets` parser and pinned SDK
-sources (commit `2da67907`). Dev-mode settings writes and repository publish
-write with material runtime/release effects; publish is a bounded zip upload
-(AC-D-013-09). The four legacy `dev-mode-settings` operations
-(disable/get/pause/set-widget-set) are unsupported negatives and are not
-documented as callable here. No other unsupported operation is documented as
-callable.
+**Example:** `pal-found-widgets widget-set get "$WIDGET_SET_RID"`

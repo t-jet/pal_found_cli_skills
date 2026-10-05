@@ -7,11 +7,22 @@ description: Offline entry point for Foundry Orchestration API v2 CLI. Documents
 
 ## Capability and source
 
-Foundry Orchestration manages scheduled builds, jobs, and schedules. The
-`pal-found-orchestration` command exposes 20 Build, Job, Schedule, and
-ScheduleVersion operations.
+Foundry builds compute new versions of datasets. A build coordinates jobs;
+each job runs a defined unit of work and can write one or more output
+datasets. A one-time `build create` starts a build from its target and branch
+configuration. Inspect the build and its jobs for progress, failures, and
+output rather than treating a successful start request as completed work.
 
-Source: [Palantir Orchestration](https://www.palantir.com/docs/foundry/orchestration); reviewed 2026-08-13. This source link is maintenance evidence for maintainers; it is not needed to use the skill offline.
+Schedules repeat builds when their trigger conditions are met. The trigger
+can depend on time, changed data, changed logic, or a combination. A schedule
+run records whether it started a build, was ignored because there was no
+work, or failed; a successful run still does not mean its build succeeded.
+Scope matters: a user-scoped schedule's buildable outputs depend on the
+user's current permissions. Read [build concepts](https://www.palantir.com/docs/foundry/data-integration/builds)
+and [schedule concepts](https://www.palantir.com/docs/foundry/data-integration/schedules).
+The CLI exposes 20 build, job, schedule, and schedule-version operations.
+
+Source: [Palantir build concepts](https://www.palantir.com/docs/foundry/data-integration/builds).
 
 20 Foundry Orchestration API v2 operations are available through the installed `pal-found-orchestration` command.
 
@@ -22,7 +33,7 @@ pal-found-orchestration <resource> <operation> [options]
 ```
 
 Common options: `--timeout`, `--format json|toon|auto`, `--pretty`,
-`--page-size`, `--page-token`, `--batch-pages` (where paging applies).
+`--page-size`, `--page-token`, `--all`, `--max-pages` (where paging applies).
 
 The CLI uses the shared config loader, access control guard, retry handler,
 pagination helper, structured error serializer, output formatter, and
@@ -39,8 +50,12 @@ SDK-native B3 tracing scope.
 
 Every operation accepts `--timeout`, `--format json|toon|auto`, and
 `--pretty`; paged operations add `--page-size`, `--page-token`, and
-`--batch-pages`. JSON payloads use `--target-json` and `--where-json` where
-help shows them.
+`--all` and `--max-pages`. JSON payloads use `--target-json`,
+`--fallback-branches-json`, `--action-json`, `--trigger-json`,
+`--scope-mode-json`, and search filters such as `--where-json`. For
+`build create`, the target and fallback branches are required. For schedule
+create or replace, action, trigger, and scope mode are required. Read the
+operation record for the other flags and the returned status.
 
 ## Install requirement
 
@@ -56,16 +71,3 @@ pip install pal_found_cli
 # uv
 uv tool install pal_found_cli
 ```
-
-## File layout
-
-```
-.agents/skills/pal-found-orchestration/
-├── SKILL.md
-└── references/
-    ├── 01-build-job.md
-    └── 02-schedule.md
-```
-
-Copy the entire `pal-found-orchestration` folder, including `references/`, so
-the relative links above resolve offline.

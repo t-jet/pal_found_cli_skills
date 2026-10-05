@@ -1,17 +1,19 @@
 ---
 name: pal-found-sql-queries
-description: Offline entry point for Foundry SQL Queries API v2 CLI. Documents 5 SqlQuery operations (cancel, execute, execute_ontology, get_results, get_status) with preconditions, effect, inputs, result, and failure offline.
+description: Run SELECT queries over Foundry datasets, query Ontology data, inspect execution, and retrieve Arrow results.
 ---
 
 # Foundry SQL Queries CLI
 
 ## Capability and source
 
-Foundry SQL Queries runs ad-hoc SQL against Foundry data and returns Arrow
-result bytes. The `pal-found-sql-queries` command exposes 5 `sql_query`
-operations. The CLI resource subcommand is `query`.
+Foundry SQL Queries lets authorized users analyze datasets with SELECT-only
+Spark SQL. Dataset queries run asynchronously: submission returns status and
+an ID, status can be polled, and results are downloaded as Apache Arrow.
+Ontology SQL is a separate private-beta path that returns Arrow bytes
+synchronously. The CLI exposes both paths through five `query` operations.
 
-Source: [Palantir SQL queries](https://www.palantir.com/docs/foundry/sql); reviewed 2026-08-13. This source link is maintenance evidence for maintainers; it is not needed to use the skill offline.
+Source: [Palantir SQL access to Foundry datasets](https://www.palantir.com/docs/foundry/analytics-connectivity/odbc-jdbc-drivers/#use-sql-to-query-foundry-datasets) and SDK `docs/v2/SqlQueries/SqlQuery.md`.
 
 5 Foundry SQL Queries API v2 operations are available through the installed `pal-found-sql-queries` command.
 
@@ -37,8 +39,17 @@ binary handler.
 ## Parameters and JSON
 
 Every operation accepts `--timeout`, `--format json|toon|auto`, and
-`--pretty`. Query execution uses `--query-string` and `--parameters-json`,
-`--fallback-branch-ids-json` where shown.
+`--pretty`. Both execution commands require `--query`. Dataset execution
+accepts `--fallback-branch-ids-json`; Ontology execution accepts
+`--dry-run`, `--parameters-json`, and `--row-limit`.
+`get-results` accepts `--output`.
+
+`--timeout` limits a request in seconds; `--format json|toon|auto` chooses
+metadata encoding; `--pretty` indents structured output. `--query` is the SQL
+text. `--fallback-branch-ids-json` gives an ordered JSON array of dataset
+branch names. For Ontology SQL, `--dry-run` validates a query, `--row-limit`
+caps returned rows, and `--parameters-json` supplies typed query values.
+`--output` names the saved Arrow file within the configured download directory.
 
 ## Install requirement
 
@@ -54,15 +65,3 @@ pip install pal_found_cli
 # uv
 uv tool install pal_found_cli
 ```
-
-## File layout
-
-```
-.agents/skills/pal-found-sql-queries/
-├── SKILL.md
-└── references/
-    └── 01-query.md
-```
-
-Copy the entire `pal-found-sql-queries` folder, including `references/`, so
-the relative links above resolve offline.

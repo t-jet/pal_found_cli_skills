@@ -1,14 +1,16 @@
 # Palantir Foundry skills
 
-This repository distributes 19 skills. The canonical source is
-`.agents/skills/`; each skill is documentation only: one `SKILL.md` that
-invokes the installed `pal-found-*` commands. Copy only those skill folders.
+This repository distributes 20 skills. The canonical source is
+`.agents/skills/`: one platform guide, 18 CLI command skills, and
+`pal-found-dev`, a guide to developing on Foundry. Copy the full skill folders.
+The skills are documentation only; they contain no executable command wrappers.
 Do not copy `.git` or a harness's legacy pointer.
 
 ## Install prerequisite
 
-The `pal-found-*` commands are provided by the `pal_found_cli` Python package.
-Install it with your preferred package manager before using the skills:
+The 18 CLI command skills use the `pal-found-*` commands provided by the
+`pal_found_cli` Python package. Install it before using those skills.
+`pal-found-dev` can be read without the CLI package:
 
 ```bash
 # conda (t-jet channel)
@@ -38,7 +40,7 @@ The distribution contains these folders under `.agents/skills/`:
 
 `pal-found`, `pal-found-admin`, `pal-found-aip-agents`,
 `pal-found-audit`, `pal-found-checkpoints`, `pal-found-connectivity`,
-`pal-found-data-health`, `pal-found-datasets`, `pal-found-filesystem`,
+`pal-found-data-health`, `pal-found-datasets`, `pal-found-dev`, `pal-found-filesystem`,
 `pal-found-functions`, `pal-found-language-models`, `pal-found-media-sets`,
 `pal-found-models`, `pal-found-ontologies`, `pal-found-orchestration`,
 `pal-found-sql-queries`, `pal-found-streams`,
@@ -72,6 +74,7 @@ $ExpectedSkillNames = @(
   "pal-found-connectivity",
   "pal-found-data-health",
   "pal-found-datasets",
+  "pal-found-dev",
   "pal-found-filesystem",
   "pal-found-functions",
   "pal-found-language-models",
@@ -93,12 +96,19 @@ $InventoryDifference = @(
   Compare-Object -ReferenceObject $ExpectedSkillNames -DifferenceObject $ActualSkillNames
 )
 if ($InventoryDifference.Count -ne 0) {
-  throw "Source skill inventory does not match the canonical 19 names in $Source"
+  throw "Source skill inventory does not match the canonical 20 names in $Source"
 }
 foreach ($SkillName in $ExpectedSkillNames) {
   $SourceSentinel = Join-Path -Path $Source -ChildPath "$SkillName\SKILL.md"
   if (-not (Test-Path -LiteralPath $SourceSentinel -PathType Leaf)) {
     throw "Missing source $SkillName/SKILL.md"
+  }
+}
+$DevParts = @("pipelines.md", "ontology-compute.md", "applications-branching-security.md", "rest-api.md", "operations.md")
+foreach ($Part in $DevParts) {
+  $SourcePart = Join-Path -Path $Source -ChildPath "pal-found-dev\references\$Part"
+  if (-not (Test-Path -LiteralPath $SourcePart -PathType Leaf)) {
+    throw "Missing source pal-found-dev/references/$Part"
   }
 }
 New-Item -ItemType Directory -Force -Path $Destination | Out-Null
@@ -119,12 +129,18 @@ $CopiedDifference = @(
   Compare-Object -ReferenceObject $ExpectedSkillNames -DifferenceObject $CopiedSkillNames
 )
 if ($CopiedDifference.Count -ne 0) {
-  throw "Copied skill inventory does not match the canonical 19 names in $Destination"
+  throw "Copied skill inventory does not match the canonical 20 names in $Destination"
 }
 foreach ($SkillName in $ExpectedSkillNames) {
   $CopiedSentinel = Join-Path -Path $Destination -ChildPath "$SkillName\SKILL.md"
   if (-not (Test-Path -LiteralPath $CopiedSentinel -PathType Leaf)) {
     throw "Missing copied $SkillName/SKILL.md"
+  }
+}
+foreach ($Part in $DevParts) {
+  $CopiedPart = Join-Path -Path $Destination -ChildPath "pal-found-dev\references\$Part"
+  if (-not (Test-Path -LiteralPath $CopiedPart -PathType Leaf)) {
+    throw "Missing copied pal-found-dev/references/$Part"
   }
 }
 Write-Host "Copied and verified $($Copied.Count) skills in $Destination"
@@ -134,17 +150,33 @@ POSIX shell:
 
 ```bash
 workspace=/path/to/workspace
-mkdir -p "$workspace/.agents/skills"
-find .agents/skills -mindepth 1 -maxdepth 1 -type d -name 'pal-found*' \
-  -exec cp -R {} "$workspace/.agents/skills/" \;
+source=.agents/skills
+destination="$workspace/.agents/skills"
+expected='pal-found pal-found-admin pal-found-aip-agents pal-found-audit pal-found-checkpoints pal-found-connectivity pal-found-data-health pal-found-datasets pal-found-dev pal-found-filesystem pal-found-functions pal-found-language-models pal-found-media-sets pal-found-models pal-found-ontologies pal-found-orchestration pal-found-sql-queries pal-found-streams pal-found-third-party-applications pal-found-widgets'
+actual=$(find "$source" -mindepth 1 -maxdepth 1 -type d -name 'pal-found*' | sed 's|.*/||' | sort | tr '\n' ' ')
+expected_sorted=$(printf '%s\n' $expected | sort | tr '\n' ' ')
+test "$actual" = "$expected_sorted" || { echo 'Source skill inventory differs from the 20 canonical names' >&2; exit 1; }
+for name in $expected; do
+  test -f "$source/$name/SKILL.md" || { echo "Missing source $name/SKILL.md" >&2; exit 1; }
+done
+for part in pipelines.md ontology-compute.md applications-branching-security.md rest-api.md operations.md; do
+  test -f "$source/pal-found-dev/references/$part" || { echo "Missing source pal-found-dev/references/$part" >&2; exit 1; }
+done
+mkdir -p "$destination"
+for name in $expected; do
+  rm -rf "$destination/$name"
+  cp -R "$source/$name" "$destination/$name"
+done
+test "$(find "$destination" -mindepth 1 -maxdepth 1 -type d -name 'pal-found*' | wc -l | tr -d ' ')" = 20
 ```
 
 Verify the copied tree before starting the session:
 
 ```powershell
 $skills = @(Get-ChildItem -Directory "$Workspace\.agents\skills" -Filter "pal-found*")
-if ($skills.Count -ne 19) { throw "Expected 19 skills, found $($skills.Count)" }
+if ($skills.Count -ne 20) { throw "Expected 20 skills, found $($skills.Count)" }
 if (-not (Test-Path "$Workspace\.agents\skills\pal-found\SKILL.md")) { throw "Missing pal-found/SKILL.md" }
+if (-not (Test-Path "$Workspace\.agents\skills\pal-found-dev\references\rest-api.md")) { throw "Missing pal-found-dev REST guide" }
 ```
 
 Start a new Codex session in the workspace and confirm that its available
@@ -153,7 +185,7 @@ skills include `pal-found` and at least one namespace skill such as
 
 ### Onboard Claude Code without a duplicate copy
 
-First copy the 19 folders into `<workspace>/.agents/skills/`. If the workspace
+First copy the 20 folders into `<workspace>/.agents/skills/`. If the workspace
 contains this migration pointer at `.claude/skills/README.md`, remove only
 that empty pointer directory, then create a link to the canonical tree.
 
@@ -197,9 +229,9 @@ git checkout <release-tag>
 git pull --ff-only
 ```
 
-Re-copy the 19 `pal-found*` folders after every update. If an update is bad,
+Re-copy the 20 `pal-found*` folders after every update. If an update is bad,
 check out the last known-good tag and copy again. The PowerShell command is safe
-to rerun: it replaces only the 19 validated target skill folders, so removed or
+to rerun: it replaces only the 20 validated target skill folders, so removed or
 stale files do not survive an update or rollback. Distribution needs git and
-file-copy tools plus the `pal_found_cli` package installed (see Install
-prerequisite above); no credential is required.
+file-copy tools. The 18 command skills also need the `pal_found_cli` package
+(see Install prerequisite above); no credential is required to copy or read.

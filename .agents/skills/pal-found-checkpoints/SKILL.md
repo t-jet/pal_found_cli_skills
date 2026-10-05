@@ -1,17 +1,21 @@
 ---
 name: pal-found-checkpoints
-description: Offline entry point for Foundry Checkpoints API v2 CLI. Documents 3 Record operations (get, get_batch, search) with preconditions, effect, inputs, result, and failure offline.
+description: Investigate Foundry checkpoint justifications with get, batch retrieval, and filtered record search.
 ---
 
 # Foundry Checkpoints CLI
 
 ## Capability and source
 
-Foundry Checkpoints stores named records that hold external system state for
-coordination between jobs. The `pal-found-checkpoints` command exposes 3
-`record` operations.
+Foundry Checkpoints is a governance capability. A checkpoint prompts a user
+to justify a sensitive interaction, such as an export. Its configuration
+determines who sees the prompt and what justification is required. Submission
+creates a record of the user, time, justification, checkpoint type, and
+associated data. Users can review their own submitted justifications;
+authorized administrators can review records across their scope. This CLI
+exposes three read operations for records; it does not configure prompts.
 
-Source: [Palantir Foundry checkpoints](https://www.palantir.com/docs/foundry/data-integration); reviewed 2026-08-13. This source link is maintenance evidence for maintainers; it is not needed to use the skill offline.
+Source: [Palantir Checkpoints overview](https://www.palantir.com/docs/foundry/checkpoints/overview) and SDK `docs/v2/Checkpoints/Record.md`.
 
 3 Foundry Checkpoints API v2 operations are available through the installed `pal-found-checkpoints` command.
 
@@ -37,8 +41,15 @@ SDK-native B3 tracing scope.
 ## Parameters and JSON
 
 Every operation accepts `--timeout`, `--format json|toon|auto`, and
-`--pretty`. JSON payloads use `--records-json` (batch RIDs) and `--where-json`
-(search criteria).
+`--pretty`. `get-batch` uses `--records-json` (array of RIDs, at most 100).
+`search` uses `--where-json` (typed filter), `--page-size`, `--page-token`,
+and `--sort-direction ASC|DESC`. Read the [record guide](references/01-record.md)
+for the visibility rule: batch retrieval omits missing and inaccessible records.
+
+`--timeout` limits a request in seconds; `--format` selects output encoding;
+`--pretty` indents it. On search, `--page-size` requests records per page,
+`--page-token` resumes at a returned continuation token, and `--batch-pages`
+caps automatic traversal. `--sort-direction` controls creation-time order.
 
 ## Install requirement
 
@@ -54,15 +65,3 @@ pip install pal_found_cli
 # uv
 uv tool install pal_found_cli
 ```
-
-## File layout
-
-```
-.agents/skills/pal-found-checkpoints/
-├── SKILL.md
-└── references/
-    └── 01-record.md
-```
-
-Copy the entire `pal-found-checkpoints` folder, including `references/`, so
-the relative links above resolve offline.

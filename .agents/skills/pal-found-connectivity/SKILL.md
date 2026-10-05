@@ -7,12 +7,22 @@ description: Offline entry point for Foundry Connectivity API v2 CLI. Documents 
 
 ## Capability and source
 
-Foundry Connectivity manages external data sources: connections, file and
-table imports from them, virtual tables, and JDBC driver uploads. The
-`pal-found-connectivity` command exposes 20 Connection, FileImport,
-TableImport, and VirtualTable operations.
+Foundry Data Connection provides a controlled path from external files,
+databases, and warehouses into Foundry. A connection identifies the source,
+its runtime, and credentials. A file import selects files and writes them to
+a dataset; a table import, also called a batch sync, copies tabular data with
+a schema into a dataset. The import definition can be created, inspected,
+replaced, and executed. Execution is separate from defining the import and
+updates the output dataset only after the sync finishes.
 
-Source: [Palantir data integration](https://www.palantir.com/docs/foundry/data-integration); reviewed 2026-08-13. This source link is maintenance evidence for maintainers; it is not needed to use the skill offline.
+Virtual tables are different: for supported sources, Foundry can query the
+remote table without first storing a copy in a dataset. Read [Data Connection
+concepts](https://www.palantir.com/docs/foundry/data-connection/core-concepts),
+[file syncs](https://www.palantir.com/docs/foundry/data-connection/file-based-syncs/),
+and [virtual tables](https://www.palantir.com/docs/foundry/data-integration/virtual-tables/index.html).
+The CLI exposes 20 connection, import, and virtual-table operations.
+
+Source: [Palantir Data Connection concepts](https://www.palantir.com/docs/foundry/data-connection/core-concepts).
 
 20 Foundry Connectivity API v2 operations are available through the installed `pal-found-connectivity` command.
 
@@ -23,7 +33,7 @@ pal-found-connectivity <resource> <operation> [options]
 ```
 
 Common options: `--timeout`, `--format json|toon|auto`, `--pretty`,
-`--page-size`, `--page-token`, `--batch-pages` (where paging applies).
+`--page-size`, `--page-token`, `--all`, `--max-pages` (for import lists).
 
 The CLI uses the shared config loader, access control guard, retry handler,
 pagination helper, structured error serializer, output formatter, and
@@ -40,11 +50,15 @@ SDK-native B3 tracing scope.
 
 Every operation accepts `--timeout`, `--format json|toon|auto`, and
 `--pretty`; paged operations add `--page-size`, `--page-token`, and
-`--batch-pages`. JSON payloads use `--configuration-json`,
-`--file-import-filters-json`, and `--secrets-json` where help shows them.
+`--all` and `--max-pages`. JSON payloads use `--configuration-json`,
+`--filters-json`, `--config-json`, and `--secrets-json` where help shows them.
+`file-import create` takes positional `connection_rid` plus required
+`--dataset-rid`, `--display-name`, `--filters-json`, and `--import-mode`.
+`table-import create` takes a connection RID, output dataset RID, name,
+import mode, and `--config-json`.
 `upload_custom_jdbc_drivers` reads a bounded JDBC `.jar` file via `--file`.
-Secrets are supplied only as JSON flags and are never echoed in output or
-logs.
+Secret values passed through `--secrets-json` are command-line arguments;
+handle them according to your shell and environment's secret-handling rules.
 
 ## Install requirement
 
@@ -60,16 +74,3 @@ pip install pal_found_cli
 # uv
 uv tool install pal_found_cli
 ```
-
-## File layout
-
-```
-.agents/skills/pal-found-connectivity/
-├── SKILL.md
-└── references/
-    ├── 01-connection.md
-    └── 02-imports.md
-```
-
-Copy the entire `pal-found-connectivity` folder, including `references/`, so
-the relative links above resolve offline.

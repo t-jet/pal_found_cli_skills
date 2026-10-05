@@ -1,69 +1,45 @@
-# SQL query lifecycle
+# SQL query operations
 
-This part documents the `sql_query` resource client (5 operations, CLI
-subcommand `query`). A query goes: `execute` (or `execute_ontology`), poll
-`get_status`, download `get_results`, and `cancel` if needed.
-
-Source/pins: CLI parser
-`pal_found_cli_tool/src/pal_found_cli/sql_queries/scripts/pal_found_sql_queries_cli.py`;
-SDK `foundry_sdk/v2/sql_queries/sql_query.py` at pinned commit `2da67907`.
-Reviewer architect (CODEREVIEW-051), 2026-10-03. QA baseline TESTCASE-015.
-
-## Operation records
-
-### sql_query.cancel
-
-- **Class**: change (write). Cancels an in-progress query.
-- **Preconditions**: a running query you can cancel.
-- **Effect**: cancels the query if it is running.
-- **Inputs**: positional `query_id`.
-- **Success**: returns the canceled query.
-- **Failure**: exit 1 if query already finished/not cancellable.
+Dataset SQL supports SELECT queries in Spark SQL over Foundry datasets referenced by path or RID. Submission returns a query status and ID; results are Apache Arrow. Ontology SQL returns Arrow bytes synchronously. Examples require read access to the referenced data. See SDK `docs/v2/SqlQueries/SqlQuery.md` and [querying datasets with SQL](https://www.palantir.com/docs/foundry/analytics-connectivity/odbc-jdbc-drivers/#use-sql-to-query-foundry-datasets).
 
 ### sql_query.execute
 
-- **Class**: execute (write, async, may start compute). Runs a SQL query.
-- **Preconditions**: a valid query string you can run.
-- **Effect**: starts the query; acceptance is not proof it finished.
-- **Inputs**: `--query-string`; `--parameters-json`;
-  `--fallback-branch-ids-json`.
-- **Success**: returns a query id; poll `get_status` for completion.
-- **Failure**: exit 5 on timeout; query may still be running.
-- **Example**: `pal-found-sql-queries query execute --query-string "SELECT * FROM \`dataset\`"`.
+Submit a dataset query. `--query` is required. `--fallback-branch-ids-json` gives an ordered list of branches to try when execution on the primary branch fails. For a dataset reference without an explicit branch, Foundry uses the first listed fallback branch that exists; without a list it uses the default branch (`master` in most enrollments). A reference with an explicit branch uses that branch. The `QueryStatus` response contains an ID and current state. Submission does not guarantee completion. Results default to a one-million-row limit. Invalid SQL, non-SELECT statements, or inaccessible datasets can fail.
 
-### sql_query.execute_ontology
+**Example:**
+```bash
+pal-found-sql-queries query execute --query 'SELECT * FROM `/Operations/Orders` LIMIT 10' --fallback-branch-ids-json '["master"]'
+```
 
-- **Class**: execute (write, async). Runs a query scoped to an ontology.
-- **Preconditions**: an ontology you can query.
-- **Effect**: starts an ontology-scoped query; may directly return results.
-- **Inputs**: ontology context + query string.
-- **Success**: a query id/results; check status.
-
-### sql_query.get_results
-
-- **Class**: read (Arrow download). Downloads a finished query's results.
-- **Preconditions**: the query reached a finished status.
-- **Effect**: downloads Arrow result bytes via the binary handler;
-  `--output` destination. This operation has no `--format` rendering of the
-  binary itself.
-- **Inputs**: positional `query_id`; `--output`.
-- **Success**: the saved Arrow file (bounded download).
-- **Failure**: exit 4 if query not finished/missing; exit 8 if read blocked.
-- **Example**: `pal-found-sql-queries query get-results <QUERY_ID> --output out.arrow`.
+Only the invoking user can operate on the query later. Preserve its returned ID.
 
 ### sql_query.get_status
 
-- **Class**: read (async status). Returns a query's execution status.
-- **Preconditions**: can read the query.
-- **Effect**: returns the query status (running/succeeded/failed).
-- **Inputs**: positional `query_id`.
-- **Success**: the status record.
-- **Failure**: exit 4 if query missing.
+Read the current state of a submitted dataset query. The response distinguishes running, succeeded, failed, and canceled states without changing the query. The ID comes from `execute`; an unknown query or one owned by another user cannot be inspected.
 
-## Evidence and review
+**Example:** `pal-found-sql-queries query get-status '<SQL_QUERY_ID>'`
 
-Reviewed against the installed `pal-found-sql-queries` parser and pinned SDK
-sources (commit `2da67907`). `execute`/`execute_ontology` start compute; a zero
-exit means the query was accepted, not finished. Use `get_status`, then
-`get_results` only after success (AC-D-013-05). No unsupported operation is
-documented as callable.
+### sql_query.get_results
+
+Retrieve Arrow results by query ID. The endpoint uses long polling; a request can time out after one minute while execution continues. Retry the read or check status. The CLI saves bounded binary content in its configured download directory and prints file metadata. `--output` selects the filename there. It does not print Arrow bytes to stdout.
+
+**Example:** `pal-found-sql-queries query get-results '<SQL_QUERY_ID>' --output orders.arrow`
+
+Call after success. Failed, canceled, unknown, or inaccessible queries have no usable result. A client timeout alone does not establish server failure.
+
+### sql_query.cancel
+
+Request cancellation by query ID. Cancellation of a query that has stopped is a no-op. The SDK returns no resource body (HTTP 204). Check status afterward if you need the final state.
+
+**Example:** `pal-found-sql-queries query cancel '<SQL_QUERY_ID>'`
+
+### sql_query.execute_ontology
+
+Run SQL against Ontology data. This private-beta endpoint returns Apache Arrow bytes synchronously. It provides no query ID for `get-status` or `get-results`. The CLI saves bytes and prints download metadata. `--dry-run` validates without execution; `--row-limit` caps rows. `--parameters-json` accepts the SDK's named or positional typed parameters. An inaccessible object type or unavailable beta access fails.
+
+**Example:**
+```bash
+pal-found-sql-queries query execute-ontology --query 'SELECT * FROM `ri.ontology.main.object-type.example`' --row-limit 10
+```
+
+Replace the sample object type RID with one visible to the caller.

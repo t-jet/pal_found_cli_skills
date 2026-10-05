@@ -29,7 +29,7 @@ Every CLI call needs two values before it can reach Foundry:
 | `FOUNDRY_TOKEN` | yes | Palantir bearer token; the SDK builds `UserTokenAuth` from it. |
 | `FOUNDRY_HOSTNAME` | yes | Foundry instance hostname, e.g. `https://pal-found.example.com`. |
 
-Set them in the shell, or in a `.env` file. The loader follows ADR-006:
+Set them in the shell, or in a `.env` file. The CLI loads configuration in this order:
 
 1. **Explicit override**: if `FOUNDRY_AGENTIC_CLI_ENV_FILE` is set, load exactly
    that file; if it is missing, fail with exit code 9 (ConfigurationError).
@@ -53,7 +53,7 @@ authorized; it does not grant access.
 ## Access control configuration
 
 Every operation passes through an access control guard before any SDK call.
-Decisions follow the 8-step precedence model (ADR-007):
+The guard applies these checks in order:
 
 | Step | Check | If true |
 | --- | --- | --- |
@@ -66,7 +66,7 @@ Decisions follow the 8-step precedence model (ADR-007):
 | 7 | Global `FOUNDRY_AGENTIC_CLI_METADATA_ONLY` | `true` → metadata-only policy applies |
 | 8 | Permit | default |
 
-Control variable naming follows ENV-REF-001:
+Control variables use these names:
 
 | Scope | Pattern | Example |
 | --- | --- | --- |
@@ -79,7 +79,7 @@ Control suffixes: `_ENABLED` (`true`/`false`), `_READONLY` (override only,
 Operation-level `_READONLY=true` is not supported as an independent setting;
 to block a single write operation, set its `_ENABLED=false`.
 
-Metadata-only mode is default-deny (META-ALLOW-001): only the operations on
+Metadata-only mode permits only listed operations: only the operations on
 each namespace's `metadata-allow-list.md` are permitted. A blocked operation
 exits with code 8 (AccessControlError) before any network call.
 

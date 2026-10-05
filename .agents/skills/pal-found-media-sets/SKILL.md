@@ -1,18 +1,26 @@
 ---
 name: pal-found-media-sets
-description: Offline entry point for Foundry Media Sets API v2 CLI. Documents 19 MediaSet operations for the media lifecycle and bounded binary uploads/downloads with preconditions, effect, inputs, result, and failure offline.
+description: Work with Foundry media items, transactions, references, transformations, and bounded binary transfers through 19 CLI operations.
 ---
 
 # Foundry Media Sets CLI
 
 ## Capability and source
 
-Foundry Media Sets store unstructured binary media with a transaction
-lifecycle. The `pal-found-media-sets` command exposes 19 operations on the
-single `media_set` resource client, including four bounded binary downloads
-and two binary uploads.
+Media sets collect unstructured items such as documents, images, audio, and
+video under a shared schema and primary format. An item has a path and RID;
+uploading to an existing path changes the item shown at that path, while an
+older direct media reference can still identify the earlier item. Media
+references let other Foundry workflows use the item without copying its bytes.
+Transactional sets require `create` to open a transaction and `commit` to
+expose uploaded items; `abort` discards that transaction's uploads. The CLI's
+`create` operation does **not** create a media set. `transform` starts an
+asynchronous job; use `get-status` and then `get-result`. `calculate` and
+`retrieve` specifically produce and read 200-pixel WebP thumbnails.
 
-Source: [Palantir media sets](https://www.palantir.com/docs/foundry/media-sets); reviewed 2026-08-13. This source link is maintenance evidence for maintainers; it is not needed to use the skill offline.
+Source: [Media sets](https://www.palantir.com/docs/foundry/media-sets-advanced-formats),
+[importing media](https://www.palantir.com/docs/foundry/media-sets-advanced-formats/importing-media).
+Operation details: SDK `docs/v2/MediaSets/MediaSet.md` used to author this skill.
 
 19 Foundry Media Sets API v2 operations are available through the installed `pal-found-media-sets` command.
 
@@ -25,7 +33,9 @@ pal-found-media-sets media-set <operation> [options]
 Common options: `--timeout`, `--format json|toon|auto`, `--pretty`.
 
 Downloads use the shared `BinaryDownloadHandler` and return a JSON/TOON
-metadata envelope (file path, size, checksums); the download bound applies.
+metadata envelope (file path, size, checksums, truncation status); the download
+bound applies. Oversized responses yield truncated files, so inspect envelope
+before using saved content.
 Uploads read a bounded file (16 MiB).
 
 The CLI uses the shared config loader, access control guard, retry handler,
@@ -36,16 +46,22 @@ SDK-native B3 tracing scope. Attribution is applied per FR-ATTR-4.
 
 | Part | Resource clients | Operations |
 | --- | --- | ---: |
-| [Media set lifecycle](references/01-lifecycle.md) | `media_set` | 10 |
-| [Media content operations](references/02-content.md) | `media_set` | 9 |
+| [Transactions and writes](references/01-lifecycle.md) | `media_set` | 9 |
+| [Item reads and downloads](references/02-content.md) | `media_set` | 10 |
 
 ## Parameters and JSON
 
 Every operation accepts `--timeout`, `--format json|toon|auto`, and
-`--pretty`. Binary variants use `--file`, `--filename`, `--output`,
-`--media-item-path`, `--media-item-rid`, `--transaction-id`, `--branch-name`,
-`--branch-rid`, `--view-rid`, `--token`, `--read-token`, `--physical-item-name`,
-and `--transformation-json` where help shows them.
+`--pretty`. Use exactly one of `--branch-name`, `--branch-rid`, or `--view-rid`
+when selecting a branch or view. `--media-item-path` selects an item by path
+for upload, clear, or RID lookup; `--media-item-rid` can choose a client RID
+on upload. `--transaction-id` binds changes to an open transaction.
+`--physical-item-name` names a file within a federated store for `register`.
+`upload-media` uses `--filename` as the temporary item's label. `transform`
+requires `--transformation-json`; `--token` or `--read-token` can grant
+item read access on supported calls. Binary downloads take optional
+`--output` basename, saved under configured download directory. The CLI
+enforces its download bound. Files uploaded with `--file` are limited to 16 MiB.
 
 ## Install requirement
 
@@ -61,16 +77,3 @@ pip install pal_found_cli
 # uv
 uv tool install pal_found_cli
 ```
-
-## File layout
-
-```
-.agents/skills/pal-found-media-sets/
-├── SKILL.md
-└── references/
-    ├── 01-lifecycle.md
-    └── 02-content.md
-```
-
-Copy the entire `pal-found-media-sets` folder, including `references/`, so the
-relative links above resolve offline.

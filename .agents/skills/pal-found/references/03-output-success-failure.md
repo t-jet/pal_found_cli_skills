@@ -7,7 +7,7 @@ interpret the result of any command.
 ## Output format: TOON vs JSON
 
 `--format` accepts `json`, `toon`, or `auto`; `FOUNDRY_AGENTIC_CLI_DEFAULT_FORMAT`
-(default `auto`) sets the same choice. Under `auto`, the rule from ADR-004 is:
+(default `auto`) sets the same choice. Under `auto`:
 
 - **TOON** is used only when the top-level result is a list **and** every item
   is a dict with the identical field set.
@@ -22,7 +22,7 @@ preceded by the separator line `# ---metadata-start---`. TOON rendering uses
 JSON formatting has no connection to a Foundry state change. The output shape
 only reflects what the API returned and how the CLI rendered it.
 
-## Exit codes (ADR-001)
+## Exit codes
 
 | Code | Meaning | Typical recovery |
 | --- | --- | --- |
@@ -39,7 +39,7 @@ only reflects what the API returned and how the CLI rendered it.
 
 All failures also emit a JSON error object on stdout.
 
-## Retries and timeouts (ADR-002)
+## Retries and timeouts
 
 Exponential backoff with jitter, max 4 total attempts (1 + 3 retries), per-call
 timeout 30 s by default (`FOUNDRY_AGENTIC_CLI_TIMEOUT_S`, range 1–3600). The
@@ -50,7 +50,7 @@ A nonzero exit from a timeout or retry means the CLI did not get a conclusive
 response. Do **not** assume the intended Foundry change happened. Use a status
 or read operation to check.
 
-## Logs (ADR-005)
+## Logs
 
 NDJSON structured logs go to stderr. Required fields: `ts`, `level`,
 `logger`, `msg`; context fields (`op`, `call_id`, `attempt`, `delay_ms`,

@@ -13,7 +13,7 @@ def test_namespace_skills_document_capability_and_parameters() -> None:
     namespace_skills = sorted(
         path.name
         for path in SKILLS.glob("pal-found-*")
-        if path.is_dir()
+        if path.is_dir() and path.name != "pal-found-dev"
     )
 
     assert len(namespace_skills) == 18
@@ -34,7 +34,7 @@ def test_json_parameter_docs_cover_namespace_specific_surfaces() -> None:
         "pal-found-checkpoints": {"--records-json", "--where-json"},
         "pal-found-connectivity": {
             "--configuration-json",
-            "--file-import-filters-json",
+            "--filters-json",
             "--secrets-json",
         },
         "pal-found-language-models": {
