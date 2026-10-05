@@ -4,6 +4,10 @@ import ast
 from pathlib import Path
 import re
 import shutil
+import sys
+from types import SimpleNamespace
+
+import pytest
 
 
 ROOT = Path(__file__).parent.parent
@@ -93,3 +97,48 @@ def test_rest_guide_contains_read_only_contract_and_limits() -> None:
     assert snippets, "REST guide must include executable Python examples"
     for snippet in snippets:
         ast.parse(snippet)
+
+
+def test_rest_paging_example_stops_on_repeated_token(monkeypatch) -> None:
+    text = (DEV / "references" / "rest-api.md").read_text(encoding="utf-8")
+    snippet = re.findall(r"```python\n(.*?)\n```", text, re.S)[0]
+    for name in ("FOUNDRY_HOSTNAME", "FOUNDRY_TOKEN", "ONTOLOGY_RID", "OBJECT_TYPE_API_NAME"):
+        monkeypatch.setenv(name, "example")
+
+    calls = []
+
+    def get(url, headers, params, timeout):
+        calls.append(params.copy())
+        assert len(calls) <= 3, "paging example made unbounded requests"
+        return SimpleNamespace(
+            raise_for_status=lambda: None,
+            json=lambda: {"data": [], "nextPageToken": "repeated-token"},
+        )
+
+    monkeypatch.setitem(sys.modules, "requests", SimpleNamespace(get=get))
+    with pytest.raises(RuntimeError, match="Repeated page token"):
+        exec(snippet, {})
+    assert len(calls) == 2
+
+
+def test_rest_paging_example_finishes_normal_sequence(monkeypatch, capsys) -> None:
+    text = (DEV / "references" / "rest-api.md").read_text(encoding="utf-8")
+    snippet = re.findall(r"```python\n(.*?)\n```", text, re.S)[0]
+    for name in ("FOUNDRY_HOSTNAME", "FOUNDRY_TOKEN", "ONTOLOGY_RID", "OBJECT_TYPE_API_NAME"):
+        monkeypatch.setenv(name, "example")
+
+    calls = []
+
+    def get(url, headers, params, timeout):
+        calls.append(params.copy())
+        page = (
+            {"data": [{"properties": {"id": 1}}], "nextPageToken": "next"}
+            if len(calls) == 1
+            else {"data": [{"properties": {"id": 2}}]}
+        )
+        return SimpleNamespace(raise_for_status=lambda: None, json=lambda: page)
+
+    monkeypatch.setitem(sys.modules, "requests", SimpleNamespace(get=get))
+    exec(snippet, {})
+    assert calls == [{"pageSize": 100}, {"pageSize": 100, "pageToken": "next"}]
+    assert "'id': 1" in capsys.readouterr().out

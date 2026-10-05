@@ -52,10 +52,15 @@ headers = {"Authorization": f"Bearer {token}"}
 page_token = None
 seen = 0
 max_objects = 10_000  # Example client limit; OSv1 has the same platform ceiling.
+max_pages = 100
+used_tokens = set()
 
-while seen < max_objects:
+for _ in range(max_pages):
     params = {"pageSize": min(100, max_objects - seen)}
     if page_token:
+        if page_token in used_tokens:
+            raise RuntimeError("Repeated page token; stop to avoid an endless loop")
+        used_tokens.add(page_token)
         params["pageToken"] = page_token
     response = requests.get(url, headers=headers, params=params, timeout=30)
     response.raise_for_status()
@@ -70,6 +75,8 @@ while seen < max_objects:
         break
     if seen >= max_objects:
         raise RuntimeError("Client retrieval limit reached; narrow the query")
+else:
+    raise RuntimeError("Client page limit reached; narrow the query")
 ```
 
 The endpoint and fields follow Palantir's [paging example](https://www.palantir.com/docs/foundry/api/general/overview/paging). Install `requests` for this direct HTTP example. Use the Python SDK's iterator when direct control of page requests is unnecessary.
