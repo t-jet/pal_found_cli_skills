@@ -60,7 +60,7 @@ def test_distributed_skills_omit_project_internals_and_copy_directions() -> None
         re.compile(r"\b(?:BA|SA)-(?:ANA|DES)-\d+\b", re.I),
         re.compile(r"\b(?:FEATURE|DEV-STORY|CODEREVIEW)-\d+\b", re.I),
         re.compile(r"foundry-platform-python|docs[/\\]customer_input|docs[/\\]deliverables", re.I),
-        re.compile(r"(?<![a-z0-9])docs[/\\]v2[/\\]", re.I),
+        re.compile(r"(?<![a-z0-9])docs[/\\]v[12][/\\]", re.I),
         re.compile(r"development-skill-coverage|architecture decision record", re.I),
         re.compile(r"copy (?:the entire |this |the )?(?:skill )?folder", re.I),
     )
