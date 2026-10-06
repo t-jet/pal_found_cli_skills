@@ -13,8 +13,18 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout skills
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          path: pal_found_cli_skills
+
+      - name: Checkout CLI parser source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          repository: t-jet/pal_found_cli_tool
+          ref: 86b060271bbff50b4fc8a4d62b09d489099ae6fb
+          path: pal_found_cli_tool
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
@@ -22,9 +32,10 @@ jobs:
           python-version: "3.11"
 
       - name: Install validators
-        run: python -m pip install pytest ruff
+        run: python -m pip install pytest ruff ./pal_found_cli_tool
 
       - name: Run validation
+        working-directory: pal_found_cli_skills
         run: |
           ruff check tests
           pytest -q
