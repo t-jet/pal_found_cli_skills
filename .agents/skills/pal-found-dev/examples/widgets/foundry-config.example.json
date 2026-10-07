@@ -1,0 +1,8 @@
+{
+  "foundryUrl": "https://example.invalid",
+  "widgetSet": {
+    "rid": "ri.widgetregistry..widget-set.00000000-0000-0000-0000-000000000000",
+    "directory": "dist",
+    "autoVersion": { "type": "package-json" }
+  }
+}
