@@ -12,8 +12,8 @@ permissions or the application's resource restrictions.
 
 Effective access combines user/service identity, application resource and
 operation restrictions, and requested token operation scopes. Restricted
-applications use `api:use-*` scopes for public APIs. Empty scopes default to
-configured client restrictions; an unrestricted authorization-code client
+applications use `api:use-*` scopes for public APIs. An explicit empty array `[]`
+defaults to configured client restrictions; an unrestricted authorization-code client
 must explicitly request scopes. Allow each needed operation and cross-namespace
 dependency; one namespace grant does not implicitly grant another.
 
@@ -65,9 +65,35 @@ the configured accessible objects. A user denied the underlying type or an
 application lacking that resource remains denied even after successful login.
 
 Use `auth.signIn()` at the configured callback/sign-in boundary and
-`auth.signOut()` when the user signs out. Pass approved operation scopes in
-`configureClient` when required. For the example, approve Ontology read and
-Action write capabilities; a read-only token must not execute `completeTodo`.
+`auth.signOut()` when the user signs out. The helper requires an explicit approved
+`scopes` array before sign-in. For this query/Action example, use
+`scopes: ["api:use-ontologies-read", "api:use-ontologies-write"]` after those
+operations/resources are allowed. A query-only app should request only
+`["api:use-ontologies-read"]`; it must not execute `completeTodo`.
+
+In pinned `@osdk/oauth`1.14.0, omitted or `undefined` scopes differ from `[]`:
+the library supplies `api:read-data`, `api:write-data`,
+`api:use-ontologies-read` and `api:use-ontologies-write`. This helper rejects
+omission to avoid relying on those defaults. An explicit nonempty array requests
+exactly the approved operations; restrictions and user permissions still apply.
+
+Set `requestTimeoutMs` in `configureClient` to bound this app's JSON query/Action
+HTTP requests. The helper defaults to 15000ms and accepts integer 1–120000ms;
+these are example policy limits, not Foundry server limits. Pinned client2.76.0
+supports a custom fetch as `createClient`'s fifth argument. The local
+[transport](../../examples/applications/timeout.mjs) aborts real fetch through
+AbortController, keeps the deadline through response-body consumption, preserves
+caller cancellation and clears timers/listeners. Direct transport calls reject
+with `TimeoutError`; OSDK 2.76.0 wraps a fetch timeout in `PalantirApiError`.
+Inspect its cause or original error before treating it as a timeout. An HTTP 403
+stays a response for SDK error handling. Reconcile uncertain Action effects
+through a fresh authorized read before retrying. Buffering suits this
+small JSON app; do not use it for streaming/media. It does not bound OAuth
+sign-in/token retrieval or WebSocket subscription lifetimes. Widgets retain
+their supported host transport and cannot perform arbitrary external HTTP calls.
+Run `node timeout_fixture.mjs` from the prepared application example directory
+to exercise an actual local HTTP server's stalled headers/body and cancellation;
+this proves local abort behavior, not Foundry execution.
 
 The [version contract](../../examples/applications/versions.json) pins checked
 client/React/widget APIs. OSDK1.x code using `legacyClient.ontology.objects`
