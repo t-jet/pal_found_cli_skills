@@ -1,6 +1,6 @@
 # Governance: membership and organization access
 
-Marking membership determines who satisfies a marking requirement. Marking roles determine who can administer it. Organizations form mandatory boundaries around users and work; guests can access another organization when configured. See [organizations and spaces](https://www.palantir.com/docs/foundry/security/orgs-and-spaces) and [access control propagation](https://www.palantir.com/docs/foundry/security/access-control-propagation). Examples use the installed Admin CLI. Replace sample identifiers before running.
+Marking membership lets a principal satisfy that marking's access requirement; a marking role allows administration of the marking. These are separate grants. Organizations restrict access to projects and related work. Each user has one primary organization and can have guest membership in others; access to an organization-scoped project requires membership or guest membership in an organization applied to that project, in addition to the relevant project role and markings. Spaces carry organization restrictions to their projects and Ontology. Mandatory controls follow derived data; a project role or a row filter only controls its own read or resource boundary. Before adding a guest or marking member, inspect the target organization or marking and the principal's current assignments, then verify effective access after the change. Examples use the installed Admin CLI. Replace sample identifiers before running.
 
 ## Operation records
 
@@ -131,3 +131,5 @@ Remove organization-scoped roles from principals. `--role-assignments` is a JSON
 Required input: `organization_rid`, `--role-assignments`. The SDK returns no resource body after success. This changes identity or access state. Read the affected resource afterward to verify the intended result. The endpoint accepts at most 100 assignments per request. Invalid identifiers or payloads, insufficient administration rights, and CLI access policy can reject the change.
 
 **Example:** `pal-found-admin organization-role-assignment remove ri.multipass..organization.example --role-assignments '[{"roleId":"8bf49052-dc37-4528-8bf0-b551cfb71268","principalId":"f05f8da4-b84c-4fca-9c77-8af0b13d11de"}]'`
+
+Optional sources: [organizations and spaces](https://www.palantir.com/docs/foundry/security/orgs-and-spaces), [access control propagation](https://www.palantir.com/docs/foundry/security/access-control-propagation).

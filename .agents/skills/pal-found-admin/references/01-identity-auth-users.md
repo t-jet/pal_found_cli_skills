@@ -1,6 +1,6 @@
 # Identity: authentication, enrollment, users
 
-Authentication verifies users through configured providers. Enrollment roles delegate broad administrative powers; organization, group, and marking controls still affect access. User provider records map external identities to Foundry users. See [administration overview](https://www.palantir.com/docs/foundry/administration/overview) and [users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups). Commands here use the installed Admin CLI. Example identifiers and names are illustrative; replace them with values from your enrollment.
+Authentication providers validate sign-in and supply user identities, attributes, and often groups from an external identity system. A provider record and a Foundry user record answer different questions: which source authenticated the person, and which Foundry principal received access. Preregistration reserves an external user or group identity before first login so grants can be prepared; it does not itself prove the person can sign in or read a resource. Enrollment roles grant broad administration. Project roles, organization membership, and mandatory markings still constrain particular resources. Use `enrollment get-current`, provider `list`, then user or provider `get` to resolve IDs before assigning roles or changing provider information. Commands here use the installed Admin CLI. Example identifiers and names are illustrative; replace them with values from your enrollment.
 
 ## Operation records
 
@@ -163,3 +163,5 @@ Change the user's mapping to an external identity provider. `--provider-id` is t
 Required input: `user_id` and `--provider-id`, the user's ID in the external authentication provider. The SDK returns the updated `UserProviderInfo`. A provider ID can identify at most one user in a realm; a duplicate mapping or insufficient permission can reject replacement. Read the mapping afterward to verify it.
 
 **Example:** `pal-found-admin user-provider-info replace f05f8da4-b84c-4fca-9c77-8af0b13d11de --provider-id external-id-123`
+
+Optional sources: [Foundry users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups), [administration overview](https://www.palantir.com/docs/foundry/administration/overview).

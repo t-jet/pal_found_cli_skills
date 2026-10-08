@@ -1,6 +1,6 @@
 # Identity: groups and roles
 
-Groups gather principals so access can be granted consistently. Group membership can convey roles, while expiration policy limits its lifetime. A role is a set of permissions, and mandatory organization and marking requirements still apply. See [users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups) and [projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles). Examples use the installed Admin CLI. Replace sample identifiers before running.
+Groups collect users for shared access grants and are often supplied by an external identity provider. Granting a project role to a group lets its members inherit that discretionary access to project contents. A role controls permitted actions; membership in a group alone does not establish which role was granted, and a project role cannot bypass organization, marking, or classification requirements. Check direct or transitive membership with `group-member list` as appropriate, inspect the role and its assignments, and check membership expiration before relying on an access path. Use the returned principal and role IDs for changes. Examples use the installed Admin CLI. Replace sample identifiers before running.
 
 ## Operation records
 
@@ -147,3 +147,5 @@ Resolve multiple role IDs in a single request, such as those in an assignment li
 Required input: `body`. The SDK returns `GetRolesBatchResponse` on success. The operation does not change Foundry state. Compare returned IDs with requested IDs; some endpoints omit unknown or inaccessible records.  An unknown ID or insufficient read permission prevents a usable response.
 
 **Example:** `pal-found-admin role get-batch '[{"roleId":"8bf49052-dc37-4528-8bf0-b551cfb71268"}]'`
+
+Optional sources: [Foundry users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups), [projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles).

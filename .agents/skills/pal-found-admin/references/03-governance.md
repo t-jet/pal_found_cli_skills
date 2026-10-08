@@ -1,6 +1,6 @@
 # Governance: classifications, markings, and categories
 
-Foundry uses markings, classification-based controls, and organizations as mandatory access requirements. They apply alongside project roles and can propagate with derived data. A marking category groups markings and controls discoverability. See [security overview](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), and [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings). Examples use the installed Admin CLI. Replace sample identifiers before running.
+Markings, classification-based access controls (CBAC), and organizations are mandatory requirements applied alongside project role grants. A user must satisfy the requirements carried by a resource even when the user has a project role; mandatory requirements can follow data into derived outputs. Ordinary markings applied together require access to each marking. CBAC is enrollment-configured and is not enabled by default; classification categories can have different conjunction or disjunction rules, so inspect the configured restrictions rather than assuming ordinary marking behavior. A marking category groups markings and controls their visibility and administration. Before changing a category or marking, inspect its current definition, membership, and role assignments, then verify the intended access after the change. Examples use the installed Admin CLI. Replace sample identifiers before running.
 
 ## Operation records
 
@@ -99,3 +99,5 @@ Change a category's displayed label with `--name` and its explanation with `--de
 Required input: `marking_category_id`, `--description`, `--name`. The SDK returns `MarkingCategory` on success. This changes identity or access state. Read the affected resource afterward to verify the intended result.  Invalid identifiers or payloads, insufficient administration rights, and CLI access policy can reject the change.
 
 **Example:** `pal-found-admin marking-category replace 0950264e-01c8-4e83-81a9-1a6b7f77621a --description 'Markings related to data about our customers' --name 'Customer Data'`
+
+Optional sources: [Foundry security model](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings).
