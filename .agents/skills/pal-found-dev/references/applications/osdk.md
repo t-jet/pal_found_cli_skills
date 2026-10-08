@@ -78,9 +78,10 @@ omission to avoid relying on those defaults. An explicit nonempty array requests
 exactly the approved operations; restrictions and user permissions still apply.
 
 Set `requestTimeoutMs` in `configureClient` to bound this app's JSON query/Action
-HTTP requests. The helper defaults to 15000ms and accepts integer 1–120000ms;
-these are example policy limits, not Foundry server limits. Pinned client2.76.0
-supports a custom fetch as `createClient`'s fifth argument. The local
+and OAuth token HTTP requests. The helper defaults to 15000ms and accepts
+integer 1–120000ms; these are example policy limits, not Foundry server limits.
+Pinned client2.76.0 supports a custom fetch as `createClient`'s fifth argument;
+`@osdk/oauth`1.14.0 accepts the same fetch in `fetchFn`. The local
 [transport](../../examples/applications/timeout.mjs) aborts real fetch through
 AbortController, keeps the deadline through response-body consumption, preserves
 caller cancellation and clears timers/listeners. Direct transport calls reject
@@ -88,12 +89,13 @@ with `TimeoutError`; OSDK 2.76.0 wraps a fetch timeout in `PalantirApiError`.
 Inspect its cause or original error before treating it as a timeout. An HTTP 403
 stays a response for SDK error handling. Reconcile uncertain Action effects
 through a fresh authorized read before retrying. Buffering suits this
-small JSON app; do not use it for streaming/media. It does not bound OAuth
-sign-in/token retrieval or WebSocket subscription lifetimes. Widgets retain
+small JSON app; do not use it for streaming/media. Browser navigation during
+OAuth sign-in and WebSocket subscription lifetimes remain separate. Widgets retain
 their supported host transport and cannot perform arbitrary external HTTP calls.
-Run `node timeout_fixture.mjs` from the prepared application example directory
-to exercise an actual local HTTP server's stalled headers/body and cancellation;
-this proves local abort behavior, not Foundry execution.
+Run `node timeout_unit_fixture.mjs` from the prepared application example
+directory for injected transport tests without network access. Run
+`node timeout_fixture.mjs` there to exercise a local HTTP server's stalled
+headers/body and cancellation. Neither fixture proves Foundry execution.
 
 The [version contract](../../examples/applications/versions.json) pins checked
 client/React/widget APIs. OSDK1.x code using `legacyClient.ontology.objects`

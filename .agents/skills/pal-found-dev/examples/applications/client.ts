@@ -13,12 +13,14 @@ export function configureClient(config: {
   if (!Array.isArray(config.scopes)) {
     throw new TypeError("Configure an explicit approved scopes array before sign-in");
   }
+  const timedFetch = createTimedFetch(config.requestTimeoutMs);
   const auth = createPublicOauthClient(
-    config.clientId, config.foundryUrl, config.redirectUrl, { scopes: config.scopes },
+    config.clientId, config.foundryUrl, config.redirectUrl,
+    { scopes: config.scopes, fetchFn: timedFetch },
   );
   const client = createClient(
     config.foundryUrl, config.ontologyRid, auth, undefined,
-    createTimedFetch(config.requestTimeoutMs),
+    timedFetch,
   );
   return { auth, client };
 }
