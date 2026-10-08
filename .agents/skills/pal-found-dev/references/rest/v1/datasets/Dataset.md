@@ -40,9 +40,7 @@ python -B examples/rest/074/v1/datasets/Dataset/create.py
 
 The example checks the serialized HTTP method, path, query, headers and body, decodes
 the synthetic success result, and checks each source-declared named error. It uses one
-raw response with a 30-second timeout and closes that response. Paged results
-demonstrate one page only; use the local finite-page procedure to continue, preserve
-partial results and reject repeated continuation tokens.
+raw response with a 30-second timeout and closes that response.
 
 Declared failures for this operation:
 
@@ -80,9 +78,7 @@ python -B examples/rest/074/v1/datasets/Dataset/delete_schema.py
 
 The example checks the serialized HTTP method, path, query, headers and body, decodes
 the synthetic success result, and checks each source-declared named error. It uses one
-raw response with a 30-second timeout and closes that response. Paged results
-demonstrate one page only; use the local finite-page procedure to continue, preserve
-partial results and reject repeated continuation tokens.
+raw response with a 30-second timeout and closes that response.
 
 Declared failures for this operation:
 
@@ -116,9 +112,7 @@ python -B examples/rest/074/v1/datasets/Dataset/get.py
 
 The example checks the serialized HTTP method, path, query, headers and body, decodes
 the synthetic success result, and checks each source-declared named error. It uses one
-raw response with a 30-second timeout and closes that response. Paged results
-demonstrate one page only; use the local finite-page procedure to continue, preserve
-partial results and reject repeated continuation tokens.
+raw response with a 30-second timeout and closes that response.
 
 Declared failures for this operation:
 
@@ -148,9 +142,7 @@ python -B examples/rest/074/v1/datasets/Dataset/get_schema.py
 
 The example checks the serialized HTTP method, path, query, headers and body, decodes
 the synthetic success result, and checks each source-declared named error. It uses one
-raw response with a 30-second timeout and closes that response. Paged results
-demonstrate one page only; use the local finite-page procedure to continue, preserve
-partial results and reject repeated continuation tokens.
+raw response with a 30-second timeout and closes that response.
 
 Declared failures for this operation:
 
@@ -183,9 +175,7 @@ python -B examples/rest/074/v1/datasets/Dataset/read.py
 
 The example checks the serialized HTTP method, path, query, headers and body, decodes
 the synthetic success result, and checks each source-declared named error. It uses one
-raw response with a 30-second timeout and closes that response. Paged results
-demonstrate one page only; use the local finite-page procedure to continue, preserve
-partial results and reject repeated continuation tokens.
+raw response with a 30-second timeout and closes that response.
 
 Declared failures for this operation:
 
@@ -218,9 +208,7 @@ python -B examples/rest/074/v1/datasets/Dataset/replace_schema.py
 
 The example checks the serialized HTTP method, path, query, headers and body, decodes
 the synthetic success result, and checks each source-declared named error. It uses one
-raw response with a 30-second timeout and closes that response. Paged results
-demonstrate one page only; use the local finite-page procedure to continue, preserve
-partial results and reject repeated continuation tokens.
+raw response with a 30-second timeout and closes that response.
 
 Declared failures for this operation:
 

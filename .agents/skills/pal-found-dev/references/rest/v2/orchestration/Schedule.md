@@ -42,9 +42,7 @@ python -B examples/rest/075/v2/orchestration/Schedule/create.py
 
 The example checks the serialized HTTP method, path, query, headers and body, decodes
 the synthetic success result, and checks each source-declared named error. It uses one
-raw response with a 30-second timeout and closes that response. Paged results
-demonstrate one page only; use the local finite-page procedure to continue, preserve
-partial results and reject repeated continuation tokens.
+raw response with a 30-second timeout and closes that response.
 
 Declared failures for this operation:
 
@@ -73,9 +71,7 @@ python -B examples/rest/075/v2/orchestration/Schedule/delete.py
 
 The example checks the serialized HTTP method, path, query, headers and body, decodes
 the synthetic success result, and checks each source-declared named error. It uses one
-raw response with a 30-second timeout and closes that response. Paged results
-demonstrate one page only; use the local finite-page procedure to continue, preserve
-partial results and reject repeated continuation tokens.
+raw response with a 30-second timeout and closes that response.
 
 Declared failures for this operation:
 
@@ -104,9 +100,7 @@ python -B examples/rest/075/v2/orchestration/Schedule/get.py
 
 The example checks the serialized HTTP method, path, query, headers and body, decodes
 the synthetic success result, and checks each source-declared named error. It uses one
-raw response with a 30-second timeout and closes that response. Paged results
-demonstrate one page only; use the local finite-page procedure to continue, preserve
-partial results and reject repeated continuation tokens.
+raw response with a 30-second timeout and closes that response.
 
 Declared failures for this operation:
 
@@ -135,9 +129,7 @@ python -B examples/rest/075/v2/orchestration/Schedule/get_affected_resources.py
 
 The example checks the serialized HTTP method, path, query, headers and body, decodes
 the synthetic success result, and checks each source-declared named error. It uses one
-raw response with a 30-second timeout and closes that response. Paged results
-demonstrate one page only; use the local finite-page procedure to continue, preserve
-partial results and reject repeated continuation tokens.
+raw response with a 30-second timeout and closes that response.
 
 Declared failures for this operation:
 
@@ -166,9 +158,7 @@ python -B examples/rest/075/v2/orchestration/Schedule/get_batch.py
 
 The example checks the serialized HTTP method, path, query, headers and body, decodes
 the synthetic success result, and checks each source-declared named error. It uses one
-raw response with a 30-second timeout and closes that response. Paged results
-demonstrate one page only; use the local finite-page procedure to continue, preserve
-partial results and reject repeated continuation tokens.
+raw response with a 30-second timeout and closes that response.
 
 No named operation failures are declared by this frozen SDK method. Generic API,
 authentication, transport and decoding failures remain possible; preserve the error
@@ -195,9 +185,7 @@ python -B examples/rest/075/v2/orchestration/Schedule/pause.py
 
 The example checks the serialized HTTP method, path, query, headers and body, decodes
 the synthetic success result, and checks each source-declared named error. It uses one
-raw response with a 30-second timeout and closes that response. Paged results
-demonstrate one page only; use the local finite-page procedure to continue, preserve
-partial results and reject repeated continuation tokens.
+raw response with a 30-second timeout and closes that response.
 
 Declared failures for this operation:
 
@@ -227,9 +215,7 @@ python -B examples/rest/075/v2/orchestration/Schedule/replace.py
 
 The example checks the serialized HTTP method, path, query, headers and body, decodes
 the synthetic success result, and checks each source-declared named error. It uses one
-raw response with a 30-second timeout and closes that response. Paged results
-demonstrate one page only; use the local finite-page procedure to continue, preserve
-partial results and reject repeated continuation tokens.
+raw response with a 30-second timeout and closes that response.
 
 Declared failures for this operation:
 
@@ -259,9 +245,7 @@ python -B examples/rest/075/v2/orchestration/Schedule/run.py
 
 The example checks the serialized HTTP method, path, query, headers and body, decodes
 the synthetic success result, and checks each source-declared named error. It uses one
-raw response with a 30-second timeout and closes that response. Paged results
-demonstrate one page only; use the local finite-page procedure to continue, preserve
-partial results and reject repeated continuation tokens.
+raw response with a 30-second timeout and closes that response.
 
 Declared failures for this operation:
 

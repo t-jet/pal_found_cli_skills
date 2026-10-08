@@ -1,0 +1,22 @@
+{
+  "type": "primaryKey",
+  "create": {
+    "subject": {
+      "datasetRid": "ri.foundry.main.dataset.a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "branchId": "master"
+    },
+    "primaryKeyConfig": {
+      "columnNames": [
+        "order_id"
+      ],
+      "severity": "MODERATE"
+    },
+    "type": "primaryKey"
+  },
+  "replace": {
+    "primaryKeyConfig": {
+      "severity": "MODERATE"
+    },
+    "type": "primaryKey"
+  }
+}

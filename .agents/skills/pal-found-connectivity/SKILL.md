@@ -16,13 +16,16 @@ replaced, and executed. Execution is separate from defining the import and
 updates the output dataset only after the sync finishes.
 
 Virtual tables are different: for supported sources, Foundry can query the
-remote table without first storing a copy in a dataset. Read [Data Connection
-concepts](https://www.palantir.com/docs/foundry/data-connection/core-concepts),
-[file syncs](https://www.palantir.com/docs/foundry/data-connection/file-based-syncs/),
-and [virtual tables](https://www.palantir.com/docs/foundry/data-integration/virtual-tables/index.html).
+remote table without first storing a copy in a dataset. Choose
+[connection operations](references/01-connection.md) to inspect its configured
+source and access. Choose [imports and virtual tables](references/02-imports.md)
+for the ingestion definition, execution or remote-table resource. A saved
+import is configuration; verify its execution and output separately.
 The CLI exposes 20 connection, import, and virtual-table operations.
 
-Source: [Palantir Data Connection concepts](https://www.palantir.com/docs/foundry/data-connection/core-concepts).
+Optional sources: [Data Connection concepts](https://www.palantir.com/docs/foundry/data-connection/core-concepts),
+[file syncs](https://www.palantir.com/docs/foundry/data-connection/file-based-syncs/),
+and [virtual tables](https://www.palantir.com/docs/foundry/data-integration/virtual-tables/index.html).
 
 20 Foundry Connectivity API v2 operations are available through the installed `pal-found-connectivity` command.
 

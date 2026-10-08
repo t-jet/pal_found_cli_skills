@@ -1,0 +1,501 @@
+{
+  "author": "groom_dev_topics",
+  "status": "author evidence; independent acceptance remains pending",
+  "topics": [
+    {
+      "topic": "T01",
+      "customer_topic": "Platform and developer-tool overview",
+      "registered_path": "references/development-paths.md",
+      "registered_heading": "Platform and tool selection",
+      "owner": "N",
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "3e52113a2991f83ce3d7f6547159db9292474585297a61c4fa40fb0eb348d941",
+      "lines": 173,
+      "heading_matches": false,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/building-pipelines/considerations-pb-cr",
+        "https://www.palantir.com/docs/foundry/code-workspaces",
+        "https://www.palantir.com/docs/foundry/dev-toolchain",
+        "https://www.palantir.com/docs/foundry/developer-console/overview",
+        "https://www.palantir.com/docs/foundry/vs-code/local-vs-workspace-guide"
+      ]
+    },
+    {
+      "topic": "T02",
+      "customer_topic": "Development environments",
+      "registered_path": "references/development-paths.md",
+      "registered_heading": "Environments and connectivity",
+      "owner": "N",
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "3e52113a2991f83ce3d7f6547159db9292474585297a61c4fa40fb0eb348d941",
+      "lines": 173,
+      "heading_matches": false,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/building-pipelines/considerations-pb-cr",
+        "https://www.palantir.com/docs/foundry/code-workspaces",
+        "https://www.palantir.com/docs/foundry/dev-toolchain",
+        "https://www.palantir.com/docs/foundry/developer-console/overview",
+        "https://www.palantir.com/docs/foundry/vs-code/local-vs-workspace-guide"
+      ]
+    },
+    {
+      "topic": "T03",
+      "customer_topic": "2.1 Code Repositories: authoring, Git and SDLC",
+      "registered_path": "references/pipelines/repositories.md",
+      "registered_heading": "Repository authoring and review",
+      "owner": "P",
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "6d9b389a7d9ea72d59fad21701cde88f604ca837c69dfe56f55d7daede0be64b",
+      "lines": 107,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/code-repositories/branch-settings",
+        "https://www.palantir.com/docs/foundry/code-repositories/navigation",
+        "https://www.palantir.com/docs/foundry/code-repositories/preview-transforms",
+        "https://www.palantir.com/docs/foundry/transforms-python/pipelines"
+      ]
+    },
+    {
+      "topic": "T04",
+      "customer_topic": "2.2 Python Transforms",
+      "registered_path": "references/pipelines/python-transforms.md",
+      "registered_heading": "Python transform lifecycle",
+      "owner": "P",
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "b7a7209b11a18025261caac709e5d932febf4fe53ec1da039dc0d4619179aeff",
+      "lines": 108,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/transforms-python/compute-engines",
+        "https://www.palantir.com/docs/foundry/transforms-python/data-expectations-getting-started",
+        "https://www.palantir.com/docs/foundry/transforms-python/transforms"
+      ]
+    },
+    {
+      "topic": "T05",
+      "customer_topic": "2.3 Testing and data quality",
+      "registered_path": "references/pipelines/testing.md",
+      "registered_heading": "Tests and expectations",
+      "owner": "P",
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "4d1fe1911d9da0a55562211c8c307a71f992c5b10168fc744471f91b2464b64c",
+      "lines": 117,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/code-repositories/preview-transforms",
+        "https://www.palantir.com/docs/foundry/transforms-python/data-expectations-getting-started",
+        "https://www.palantir.com/docs/foundry/transforms-python/unit-tests"
+      ]
+    },
+    {
+      "topic": "T06",
+      "customer_topic": "2.4 Local Python / VS Code development",
+      "registered_path": "references/pipelines/local-development.md",
+      "registered_heading": "Local Python development",
+      "owner": "P",
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "d21538f18ef0bc339d25aaf1ce74771545e92af05c52873fc411091fa6ee34c6",
+      "lines": 92,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/code-repositories/preview-transforms",
+        "https://www.palantir.com/docs/foundry/transforms-python/local-development",
+        "https://www.palantir.com/docs/foundry/vs-code/local-vs-workspace-guide"
+      ]
+    },
+    {
+      "topic": "T07",
+      "customer_topic": "2.5 SQL pipelines",
+      "registered_path": "references/pipelines/sql.md",
+      "registered_heading": "SQL transforms",
+      "owner": "W",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T08",
+      "customer_topic": "2.6 Code Workspaces",
+      "registered_path": "references/pipelines/workspaces.md",
+      "registered_heading": "Workspace exploration and publication",
+      "owner": "W",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T09",
+      "customer_topic": "2.7 Production SDLC and release management",
+      "registered_path": "references/pipelines/releases.md",
+      "registered_heading": "Production release procedure",
+      "owner": "P",
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "4df6112cb1460f69eb6f53e5cd4d9245aa8f7def26ecb7d212adcdba40442d2d",
+      "lines": 117,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/building-pipelines/branching-release-process",
+        "https://www.palantir.com/docs/foundry/building-pipelines/building-production-pipeline",
+        "https://www.palantir.com/docs/foundry/building-pipelines/recommended-project-structure",
+        "https://www.palantir.com/docs/foundry/code-repositories/branch-settings",
+        "https://www.palantir.com/docs/foundry/data-integration/builds"
+      ]
+    },
+    {
+      "topic": "T10",
+      "customer_topic": "2.8 Dataset transactions and internal execution semantics",
+      "registered_path": "references/pipelines/transactions.md",
+      "registered_heading": "Transactions and incremental execution",
+      "owner": "P",
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "b84dfb7cc285039527ed3c14e0bb908c1a1aa8d9ce4b98053278c9458d21d367",
+      "lines": 144,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/data-integration/branching",
+        "https://www.palantir.com/docs/foundry/data-integration/datasets",
+        "https://www.palantir.com/docs/foundry/transforms-python/incremental-usage",
+        "https://www.palantir.com/docs/foundry/transforms-python/transforms"
+      ]
+    },
+    {
+      "topic": "T11",
+      "customer_topic": "3.1 Ontology fundamentals and type system",
+      "registered_path": "references/ontology/modeling.md",
+      "registered_heading": "Ontology types and backing data",
+      "owner": "O",
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "d74082feb00b3cbf2029a72d5ec70f90df7999e72bc7a76530242b7392b2e577",
+      "lines": 83,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/functions/object-identifiers",
+        "https://www.palantir.com/docs/foundry/object-link-types/create-link-type",
+        "https://www.palantir.com/docs/foundry/object-link-types/create-object-type"
+      ]
+    },
+    {
+      "topic": "T12",
+      "customer_topic": "3.2 Interfaces and polymorphic Ontology design",
+      "registered_path": "references/ontology/interfaces.md",
+      "registered_heading": "Interfaces and implementations",
+      "owner": "O",
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "4a225f29b0cef2326d0e60e3cc79857372d8791dfdf31013fe788fd2d44fadf7",
+      "lines": 75,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/interfaces/create-interface",
+        "https://www.palantir.com/docs/foundry/interfaces/edit-interface-definition",
+        "https://www.palantir.com/docs/foundry/interfaces/implement-interface",
+        "https://www.palantir.com/docs/foundry/interfaces/interface-overview"
+      ]
+    },
+    {
+      "topic": "T13",
+      "customer_topic": "3.3 Object sets and querying",
+      "registered_path": "references/ontology/queries.md",
+      "registered_heading": "Object sets and query decisions",
+      "owner": "O",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T14",
+      "customer_topic": "3.4 Actions",
+      "registered_path": "references/ontology/actions.md",
+      "registered_heading": "Action validation and writeback",
+      "owner": "O",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T15",
+      "customer_topic": "3.5 Functions",
+      "registered_path": "references/ontology/functions.md",
+      "registered_heading": "Function runtimes and publication",
+      "owner": "O",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T16",
+      "customer_topic": "3.6 Ontology security",
+      "registered_path": "references/ontology/security.md",
+      "registered_heading": "Object and Action authorization",
+      "owner": "O",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T17",
+      "customer_topic": "Compute: Fundamentals and architecture",
+      "registered_path": "references/compute/lifecycle.md",
+      "registered_heading": "Container configuration and lifecycle",
+      "owner": "C",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T18",
+      "customer_topic": "Compute: Execution models and transaction/provenance behavior",
+      "registered_path": "references/compute/execution.md",
+      "registered_heading": "Execution modes and provenance",
+      "owner": "C",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T19",
+      "customer_topic": "Compute: SDK and integration references",
+      "registered_path": "references/compute/integration.md",
+      "registered_heading": "SDK integration and Sources",
+      "owner": "C",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T20",
+      "customer_topic": "5.1 OSDK and Developer Console foundations",
+      "registered_path": "references/applications/osdk.md",
+      "registered_heading": "Application registration and generated SDK",
+      "owner": "A",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T21",
+      "customer_topic": "5.2 React application lifecycle",
+      "registered_path": "references/applications/react.md",
+      "registered_heading": "React query and release lifecycle",
+      "owner": "A",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T22",
+      "customer_topic": "Widget lifecycle",
+      "registered_path": "references/widgets/lifecycle.md",
+      "registered_heading": "Widget Set creation and releases",
+      "owner": "A",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T23",
+      "customer_topic": "Widget: Local development and testing",
+      "registered_path": "references/widgets/testing.md",
+      "registered_heading": "Playground and Workshop previews",
+      "owner": "A",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T24",
+      "customer_topic": "Workshop \u2194 React integration",
+      "registered_path": "references/widgets/integration.md",
+      "registered_heading": "Parameters and events",
+      "owner": "A",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T25",
+      "customer_topic": "Widget: Distribution",
+      "registered_path": "references/widgets/distribution.md",
+      "registered_heading": "Widget and Marketplace distribution",
+      "owner": "A",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T26",
+      "customer_topic": "7.1 Global Branching",
+      "registered_path": "references/branching/global.md",
+      "registered_heading": "Global branch lifecycle",
+      "owner": "B",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T27",
+      "customer_topic": "7.2 Git / local Code Repository branches",
+      "registered_path": "references/branching/git.md",
+      "registered_heading": "Git review and branch settings",
+      "owner": "B",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T28",
+      "customer_topic": "7.3 Global branch vs Git branch",
+      "registered_path": "references/branching/contexts.md",
+      "registered_heading": "Select and verify branch contexts",
+      "owner": "B",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T29",
+      "customer_topic": "7.4 Dataset/build branches",
+      "registered_path": "references/branching/datasets.md",
+      "registered_heading": "Dataset branches and fallbacks",
+      "owner": "B",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T30",
+      "customer_topic": "7.5 Application-specific Global Branching",
+      "registered_path": "references/branching/integrations.md",
+      "registered_heading": "Resource integration boundaries",
+      "owner": "B",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T31",
+      "customer_topic": "Foundry platform security",
+      "registered_path": "references/security/platform.md",
+      "registered_heading": "Projects and resource boundaries",
+      "owner": "B",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T32",
+      "customer_topic": "Ontology/application security",
+      "registered_path": "references/security/applications.md",
+      "registered_heading": "Application and Ontology permission checks",
+      "owner": "B",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T33",
+      "customer_topic": "Compute and branch security",
+      "registered_path": "references/security/compute-branches.md",
+      "registered_heading": "Execution identity and branch authorization",
+      "owner": "B",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T34",
+      "customer_topic": "Lineage",
+      "registered_path": "references/operations/lineage.md",
+      "registered_heading": "Trace branch and build provenance",
+      "owner": "M",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T35",
+      "customer_topic": "Monitoring and alerting",
+      "registered_path": "references/operations/monitoring.md",
+      "registered_heading": "Checks, monitoring and alert ownership",
+      "owner": "M",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    },
+    {
+      "topic": "T36",
+      "customer_topic": "Pipeline support and operations",
+      "registered_path": "references/operations/support.md",
+      "registered_heading": "Diagnose, recover and verify pipelines",
+      "owner": "M",
+      "authored": false,
+      "acceptance": "pending independent topic/source and semantic review"
+    }
+  ],
+  "assets": [
+    {
+      "path": "examples/ontology/model_fixture.py",
+      "sha256": "21a71222a5b8b34242a5232f2500172b8b7063bcbffb965605b462d2ce61f3e2"
+    },
+    {
+      "path": "examples/pipelines/fixture_run.py",
+      "sha256": "b92b39ae5062aa51ab36b3aac45cfca189aff76eb04f1efb5b3d65bc3553d849"
+    },
+    {
+      "path": "examples/pipelines/incremental_transform.py",
+      "sha256": "b4656a86f1e8cad2b258ca7cb543ceb5eecc1de3eb99341e77b2a4ab28f3ae1e"
+    },
+    {
+      "path": "examples/pipelines/order_rules.py",
+      "sha256": "3c511196139499d31188465466638b5721951572107f6b6f4c99d93c714d51c5"
+    },
+    {
+      "path": "examples/pipelines/pyspark_transform.py",
+      "sha256": "2ed7678671cd85019701290bc92f9455dd7d44086f148da57d33e7020e3b127e"
+    },
+    {
+      "path": "examples/pipelines/single_node_transform.py",
+      "sha256": "795181d799cb2de98ed24ec6502a9f67808cb94161ba8c60940809dd3e0b4d9f"
+    },
+    {
+      "path": "examples/rest/073/folders.py",
+      "sha256": "e16f8f3366feffd8d3faf4afd3b1393588081409f6f53fec6921c4dc8a91f0c8"
+    },
+    {
+      "path": "examples/rest/087/sessions.py",
+      "sha256": "d76ebc427b958989cb3530cc78482876167addc79ab6000ab0847ae2de2e0985"
+    },
+    {
+      "path": "examples/rest/common/__pycache__/bounded_pages.cpython-311.pyc",
+      "sha256": "581980580bdeb9c33f659ca09075834c9893a9e5e3cc5f9388a4eddfabdb1ff1"
+    },
+    {
+      "path": "examples/rest/common/__pycache__/mock_transport.cpython-311.pyc",
+      "sha256": "c6c5599e8a76338cde214a42a81f244c7979d721846cb528ce63ddf7863cda6c"
+    },
+    {
+      "path": "examples/rest/common/bounded_pages.py",
+      "sha256": "ff19f90fe5816e59e4c508450e1082d3b0b00a37be46b6734b1819d6f2197f6d"
+    },
+    {
+      "path": "examples/rest/common/mock_transport.py",
+      "sha256": "16f3835c65b9ef1ea89e1b1efb7b2d457682a5996570099f9d216e8175f0fd72"
+    },
+    {
+      "path": "examples/rest/common/response_modes.py",
+      "sha256": "6b096efd9ccb0a1b059b69af63a1b574b66f533e426ab53da94c201c200b3f75"
+    }
+  ],
+  "fixtures": {
+    ".agents/skills/pal-found-dev/examples/pipelines/fixture_run.py": {
+      "exit_code": 0,
+      "stdout": "business fixtures passed: joined row, empty input and four rejected inputs\nincremental fixtures passed: append/full equivalence, renamed reference, recompute and replay rejection\n",
+      "stderr": "",
+      "claim": "local fixtures only; not live Foundry, decorators, Spark or platform authorization evidence"
+    },
+    ".agents/skills/pal-found-dev/examples/ontology/model_fixture.py": {
+      "exit_code": 0,
+      "stdout": "mapping fixtures passed: stable keys/link, duplicate/type rejection, optional interface and incompatible mapping\n",
+      "stderr": "",
+      "claim": "local fixtures only; not live Foundry, decorators, Spark or platform authorization evidence"
+    },
+    ".agents/skills/pal-found-data-health/examples/check_config_fixture.py": {
+      "exit_code": 0,
+      "stdout": "32 configuration payloads parsed; wrong type, missing subject and invalid severity rejected\nNo check saved, dataset evaluated or permission verified\nFive documented empty cross-field choices rejected by local preflight\n",
+      "stderr": "",
+      "claim": "local fixtures only; not live Foundry, decorators, Spark or platform authorization evidence"
+    }
+  },
+  "bug022_model_comparison": {
+    "source_models": 64,
+    "historical_sha256": "6a5fc33324cbba1fd3b92ffb4cf60750388cb9a67458fd7ed6eae1a8977d64bd",
+    "current_sha256": "34529578d38cb664268b6710f66cd911f1af2e21356d0fcf28f7b1921e8c8f07",
+    "changed_model_contracts": {},
+    "interpretation": "AST annotated fields/defaults compared for all32 root and32 recursive models. Semantic model-docstring changes and server availability are separate review obligations."
+  },
+  "062_independent_readonly_architect_review": "groom_rest reports no unresolved source/content findings after exact runtime, Preview, pytest and repository-only fallback corrections; formal CODEREVIEW-063 awaits DEV-062 Resolved. Material edits invalidate that review."
+}

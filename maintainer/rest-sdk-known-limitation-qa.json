@@ -1,0 +1,20 @@
+{
+  "ticket": "BUG-SUB-023",
+  "sdk_version": "1.101.0",
+  "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+  "scope": "Offline documentation and bounded direct REST alternative for one retained operation; native SDK defect remains",
+  "source_reviewer": "author_rest_wave1_015, independent of workaround author",
+  "independent_qa": "groom_verification",
+  "operation": "v2.models.ModelStudioConfigVersion.get",
+  "native_result": "Integer version reaches quote(v,safe=\"\") and fails before HTTP; zero HTTP requests observed",
+  "independent_regressions": "4 passed in 0.35s: native defect, byte/chunk response closure, exact direct path/auth/omitted preview and named error identity",
+  "author_regressions": "5 passed in 0.35s: positive and named/generic errors, malformed HTTP and argument negatives",
+  "extra_independent_checks": "Malformed HTTP/error envelope and invalid success model rejected; public network denied",
+  "limits": "No native SDK correction, operation exclusion, upstream release, live enrollment or full REST acceptance claimed",
+  "file_sha256": {
+    ".agents/skills/pal-found-dev/examples/rest/087/model_studio_config_version.py": "bca2e06ea53cb591617dccfc8109550bb67e2a87a0ba5c8df61861407589487b",
+    ".agents/skills/pal-found-dev/references/rest/v2/models/ModelStudioConfigVersion.md": "76af8a9e881d3ab84a367fe3bde3d7b4b0c3c9699fb4e137c3fb828f66dedf6c",
+    "tests/test_offline_rest_087.py": "e9d6a1325581a3c51357353262b74bc28e7f90c48a07973e95355f863f172bbd",
+    "tests/test_offline_rest_known_limitations.py": "21def7beca80f54cb8ddd96c80392a6c1931c99a910b20ced5a7f9dd10e51417"
+  }
+}

@@ -18,12 +18,16 @@ Use `folder` and `project` to create or inspect containers, `resource` to
 resolve paths, inspect markings, and manage deletion, `resource-role` to
 inspect or change explicit roles, and `space` for the enclosing scope. A
 trashed resource can be restored; permanent deletion is a separate operation
-with a different effect. Read [projects and resources](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources),
-[projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles),
-and [spaces](https://www.palantir.com/docs/foundry/platform-security-management/manage-orgs-and-spaces)
-for platform behavior. The CLI exposes 31 Filesystem operations.
+with a different effect. Navigate with [folders and projects](references/01-folder-project.md),
+inspect the identified [resource](references/02-resource.md), and evaluate
+[roles and spaces](references/03-resource-role-space.md) before modifying it.
+Resolve a displayed path to its RID before planning a change: moving or
+renaming a resource can change its path, while the RID identifies the resource.
+The CLI exposes 31 Filesystem operations.
 
-Source: [Palantir projects and resources](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources).
+Optional sources: [projects and resources](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources),
+[projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles),
+and [spaces](https://www.palantir.com/docs/foundry/platform-security-management/manage-orgs-and-spaces).
 
 31 Foundry Filesystem API v2 operations are available through the installed `pal-found-filesystem` command.
 

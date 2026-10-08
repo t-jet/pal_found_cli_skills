@@ -1,0 +1,38 @@
+# foundry_sdk.v2.connectivity.models.CloudIdentity
+
+
+[Cloud identities](https://palantir.com/docs/foundry/administration/configure-cloud-identities/) allow you to authenticate to
+cloud provider resources without the use of static credentials.
+
+## Exact SDK definition
+
+Python names are SDK attributes; `alias` values are wire names. `Optional` permits null; a default controls omission. A nullable field without a default remains required. `Literal` lists values; `Annotated` retains constraints and discriminators. Request TypedDicts and response Pydantic models are distinct shapes.
+
+## Fields and wire names
+
+Model fields use their declared defaults and aliases. Nullable and omittable are separate; SDK model serialization uses aliases and excludes None values.
+
+| SDK field | Wire name | Type | Omission/default | Meaning |
+| --- | --- | --- | --- | --- |
+| cloud_identity_rid | cloudIdentityRid | CloudIdentityRid | required; no default | No additional field description in SDK source. |
+| type | type | typing.Literal['cloudIdentity'] | 'cloudIdentity' | No additional field description in SDK source. |
+
+```python
+class CloudIdentity(core.ModelBase):
+    """
+    [Cloud identities](https://palantir.com/docs/foundry/administration/configure-cloud-identities/) allow you to authenticate to
+    cloud provider resources without the use of static credentials.
+    """
+
+    cloud_identity_rid: CloudIdentityRid = pydantic.Field(alias=str("cloudIdentityRid"))  # type: ignore[literal-required]
+    type: typing.Literal["cloudIdentity"] = "cloudIdentity"
+```
+
+## Referenced definitions
+
+- [foundry_sdk._core.model_base.ModelBase](../../../_core/ModelBase.md)
+- [foundry_sdk.v2.connectivity.models.CloudIdentityRid](CloudIdentityRid.md)
+
+SDK 1.101.0. Definition adapted from Palantir's Apache-2.0 licensed SDK; Copyright 2024 Palantir Technologies, Inc. [license and notices](../../../../../../assets/rest/LICENSE).
+
+[Part 1](CloudIdentity.md)

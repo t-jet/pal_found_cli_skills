@@ -32,12 +32,13 @@ schedules repeat them. An API call usually handles one resource or lifecycle
 step, so a task such as importing data and exposing it in the Ontology will
 cross several namespace skills.
 
-Read Palantir's [platform overview](https://www.palantir.com/docs/foundry/platform-overview/overview)
-and [data integration overview](https://www.palantir.com/docs/foundry/data-integration/overview)
-for the wider platform model. The `pal-found-*` CLI exposes selected Foundry
+Use [the local resource model](references/01-platform-concepts.md) to select
+the capability, then [identifiers, authentication and access](references/02-identifiers-auth-access.md)
+to establish its prerequisites. The `pal-found-*` CLI exposes selected Foundry
 API v2 operations and uses the same platform permissions as its token.
 
-Source: [Palantir platform overview](https://www.palantir.com/docs/foundry/platform-overview/overview).
+Optional sources: [Palantir platform overview](https://www.palantir.com/docs/foundry/platform-overview/overview)
+and [data integration overview](https://www.palantir.com/docs/foundry/data-integration/overview).
 
 ## 1. Read the shared foundations first
 

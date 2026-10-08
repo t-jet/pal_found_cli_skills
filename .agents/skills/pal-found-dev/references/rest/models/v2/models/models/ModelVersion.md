@@ -1,0 +1,50 @@
+# foundry_sdk.v2.models.models.ModelVersion
+
+
+ModelVersion
+
+## Exact SDK definition
+
+Python names are SDK attributes; `alias` values are wire names. `Optional` permits null; a default controls omission. A nullable field without a default remains required. `Literal` lists values; `Annotated` retains constraints and discriminators. Request TypedDicts and response Pydantic models are distinct shapes.
+
+## Fields and wire names
+
+Model fields use their declared defaults and aliases. Nullable and omittable are separate; SDK model serialization uses aliases and excludes None values.
+
+| SDK field | Wire name | Type | Omission/default | Meaning |
+| --- | --- | --- | --- | --- |
+| rid | rid | ModelVersionRid | required; no default | No additional field description in SDK source. |
+| model_api | modelApi | ModelApi | required; no default | No additional field description in SDK source. |
+| conda_requirements | condaRequirements | typing.List[str] | required; no default | No additional field description in SDK source. |
+| backing_repositories | backingRepositories | typing.List[core.RID] | required; no default | No additional field description in SDK source. |
+| created_time | createdTime | core_models.CreatedTime | required; no default | No additional field description in SDK source. |
+| source | source | typing.Optional[ModelVersionSource] | None | No additional field description in SDK source. |
+| linked_experiment | linkedExperiment | typing.Optional[ExperimentRid] | default None | The Experiment linked to this Model Version, if one exists. |
+
+```python
+class ModelVersion(core.ModelBase):
+    """ModelVersion"""
+
+    rid: ModelVersionRid
+    model_api: ModelApi = pydantic.Field(alias=str("modelApi"))  # type: ignore[literal-required]
+    conda_requirements: typing.List[str] = pydantic.Field(alias=str("condaRequirements"))  # type: ignore[literal-required]
+    backing_repositories: typing.List[core.RID] = pydantic.Field(alias=str("backingRepositories"))  # type: ignore[literal-required]
+    created_time: core_models.CreatedTime = pydantic.Field(alias=str("createdTime"))  # type: ignore[literal-required]
+    source: typing.Optional[ModelVersionSource] = None
+    linked_experiment: typing.Optional[ExperimentRid] = pydantic.Field(alias=str("linkedExperiment"), default=None)  # type: ignore[literal-required]
+    """The Experiment linked to this Model Version, if one exists."""
+```
+
+## Referenced definitions
+
+- [foundry_sdk._core.model_base.ModelBase](../../../_core/ModelBase.md)
+- [foundry_sdk._core.utils.RID](../../../_core/RID.md)
+- [foundry_sdk.v2.core.models.CreatedTime](../../core/models/CreatedTime.md)
+- [foundry_sdk.v2.models.models.ExperimentRid](ExperimentRid.md)
+- [foundry_sdk.v2.models.models.ModelApi](ModelApi.md)
+- [foundry_sdk.v2.models.models.ModelVersionRid](ModelVersionRid.md)
+- [foundry_sdk.v2.models.models.ModelVersionSource](ModelVersionSource.md)
+
+SDK 1.101.0. Definition adapted from Palantir's Apache-2.0 licensed SDK; Copyright 2024 Palantir Technologies, Inc. [license and notices](../../../../../../assets/rest/LICENSE).
+
+[Part 1](ModelVersion.md)

@@ -1,0 +1,108 @@
+# foundry_sdk.v2.media_sets.models.Modality
+
+
+
+DICOM modality code. A list of modalities and their meanings can be found in the DICOM specification. 
+https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html#sect_C.7.3.1.1.1
+
+
+## Exact SDK definition
+
+Python names are SDK attributes; `alias` values are wire names. `Optional` permits null; a default controls omission. A nullable field without a default remains required. `Literal` lists values; `Annotated` retains constraints and discriminators. Request TypedDicts and response Pydantic models are distinct shapes.
+
+```python
+Modality: typing_extensions.TypeAlias = typing.Literal[
+    "AR",
+    "ASMT",
+    "AU",
+    "BDUS",
+    "BI",
+    "BMD",
+    "CR",
+    "CT",
+    "CTPROTOCOL",
+    "DG",
+    "DOC",
+    "DX",
+    "ECG",
+    "EPS",
+    "ES",
+    "FID",
+    "GM",
+    "HC",
+    "HD",
+    "IO",
+    "IOL",
+    "IVOCT",
+    "IVUS",
+    "KER",
+    "KO",
+    "LEN",
+    "LS",
+    "MG",
+    "MR",
+    "M3D",
+    "NM",
+    "OAM",
+    "OCT",
+    "OP",
+    "OPM",
+    "OPT",
+    "OPTBSV",
+    "OPTENF",
+    "OPV",
+    "OSS",
+    "OT",
+    "PLAN",
+    "PR",
+    "PT",
+    "PX",
+    "REG",
+    "RESP",
+    "RF",
+    "RG",
+    "RTDOSE",
+    "RTIMAGE",
+    "RTINTENT",
+    "RTPLAN",
+    "RTRAD",
+    "RTRECORD",
+    "RTSEGANN",
+    "RTSTRUCT",
+    "RWV",
+    "SEG",
+    "SM",
+    "SMR",
+    "SR",
+    "SRF",
+    "STAIN",
+    "TEXTUREMAP",
+    "TG",
+    "US",
+    "VA",
+    "XA",
+    "XC",
+    "AS",
+    "CD",
+    "CF",
+    "CP",
+    "CS",
+    "DD",
+    "DF",
+    "DM",
+    "DS",
+    "EC",
+    "FA",
+    "FS",
+    "LP",
+    "MA",
+    "MS",
+    "OPR",
+    "ST",
+    "VF",
+]
+```
+
+SDK 1.101.0. Definition adapted from Palantir's Apache-2.0 licensed SDK; Copyright 2024 Palantir Technologies, Inc. [license and notices](../../../../../../assets/rest/LICENSE).
+
+[Part 1](Modality.md)

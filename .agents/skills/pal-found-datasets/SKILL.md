@@ -20,13 +20,17 @@ The `view` client manages a different resource: a union of backing datasets
 that stores no files of its own. It can deduplicate on a primary key and can
 be used as a transform input, but not as a transform output.
 
-Read [dataset concepts](https://www.palantir.com/docs/foundry/data-integration/datasets),
-[branching](https://www.palantir.com/docs/foundry/data-integration/branching),
-and [Views](https://www.palantir.com/docs/foundry/data-integration/views)
-for platform behavior. The 33 CLI operations below cover dataset metadata,
+Use [dataset operations](references/01-dataset.md) for metadata and data reads,
+[branch operations](references/02-branch.md) for selected history,
+[transactions](references/04-transaction.md) for the write lifecycle, and
+[Views](references/05-view.md) for backing-dataset unions. A successful file
+upload still needs a committed transaction before readers see the new branch
+state. The 33 CLI operations below cover dataset metadata,
 schemas, table reads, branch and file access, transactions, and Views.
 
-Source: [Palantir dataset concepts](https://www.palantir.com/docs/foundry/data-integration/datasets).
+Optional sources: [dataset concepts](https://www.palantir.com/docs/foundry/data-integration/datasets),
+[branching](https://www.palantir.com/docs/foundry/data-integration/branching),
+and [Views](https://www.palantir.com/docs/foundry/data-integration/views).
 
 33 Foundry Datasets API v2 operations are available through the installed `pal-found-datasets` command.
 
