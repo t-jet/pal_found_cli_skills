@@ -6,6 +6,12 @@
 
 A Connection holds a configured route to an upstream source. Its RID is used by imports and virtual tables. SDK 1.101.0 creates a direct-connection runtime; choosing its configuration and worker requires knowledge of the upstream system, network route and the caller's Foundry permissions. Prepare a parent folder and keep secret values outside logs and examples. Secret fields travel over TLS and are stored encrypted by Foundry, but the service processes them temporarily in plaintext memory.
 
+## Upstream credential boundary
+
+Choose the configuration variant for the real upstream system before calling `create`. The [Snowflake configuration](../../models/v2/connectivity/models/SnowflakeConnectionConfiguration.md) needs an account identifier and an [authentication mode](../../models/v2/connectivity/models/SnowflakeAuthenticationMode.md). For [External OAuth](../../models/v2/connectivity/models/SnowflakeExternalOauth.md), the Snowflake security integration and trusted authorization server must already exist; issuer, audience and Connection RID subject must match their configured token claims. For [key-pair authentication](../../models/v2/connectivity/models/SnowflakeKeyPairAuthentication.md), the matching public key must already be registered to the chosen Snowflake user. Supply the private key through the declared [encrypted-property shape](../../models/v2/connectivity/models/EncryptedProperty.md), not as a public key or a value printed in a fixture. `Connection.create` consumes these values; it does not create a Snowflake security integration, user or public key.
+
+For an AWS role-based source, [STS role configuration](../../models/v2/connectivity/models/StsRoleConfiguration.md) names the role ARN, session name and optional external ID/endpoint. The AWS trust policy and caller's ability to assume that role must already be arranged. A syntactically valid ARN does not grant access. If the required upstream identity or, for External OAuth, the matching Connection RID is unavailable, resolve that provisioning dependency before submitting a connection configuration.
+
 ## Procedure and operation choices
 
 | Operation | When to use it and what to check |
@@ -20,7 +26,9 @@ A Connection holds a configured route to an upstream source. Its RID is used by 
 
 ## Worked example and checks
 
-Each linked contract has a matching [offline SDK fixture directory](../../../../examples/rest/089/v2/connectivity/Connection/invoke_get_configuration_batch.py). Run `python -B examples/rest/089/v2/connectivity/Connection/invoke_get_configuration_batch.py` from the skill root to inspect bounded batch serialization and named errors. For a live onboarding flow, create or find the Connection, read it, then configure imports using its RID. After an export update, compare both flags in `Connection.get` with the intended policy. After a secret rotation, test the authorized upstream operation that uses the secret; read APIs do not reveal plaintext values. The fixtures use synthetic IDs and do not contact upstream systems or Foundry.
+Each operation above links its own offline SDK fixture. Run the [configuration-batch fixture](../../../../examples/rest/089/v2/connectivity/Connection/invoke_get_configuration_batch.py) from the skill root with `python -B examples/rest/089/v2/connectivity/Connection/invoke_get_configuration_batch.py` to inspect bounded batch serialization and named errors. For a live onboarding flow, create or find the Connection, read it, then configure imports using its RID. After an export update, compare both flags in `Connection.get` with the intended policy. After a secret rotation, test the authorized upstream operation that uses the secret; read APIs do not reveal plaintext values. The fixtures use synthetic IDs and do not contact upstream systems or Foundry.
+
+Before live submission, compare the selected model's required fields and discriminator with its local type definition. Afterward, use `get` for RID/parent/export settings and `get_configuration` for non-secret source fields such as Snowflake account and authentication mode. Then run a permitted bounded upstream read or import and confirm both authentication and result shape. A local serialization fixture cannot prove a Snowflake integration, key match, STS trust policy or network route.
 
 ## Failures and recovery
 

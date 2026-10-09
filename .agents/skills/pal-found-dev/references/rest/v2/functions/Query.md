@@ -25,13 +25,13 @@ ID is not a generic request correlation identifier.
 
 | Operation | Purpose and handling |
 | --- | --- |
-| [get](../../contracts/v2/functions/Query/get.md) | Resolve metadata by API name and selected version before constructing argument values. |
-| [get_by_rid](../../contracts/v2/functions/Query/get_by_rid.md) | Resolve the exact function identity when the caller has its RID. |
-| [get_by_rid_batch](../../contracts/v2/functions/Query/get_by_rid_batch.md) | Resolve a bounded set of RID requests and match returned identities to the requested set. |
-| [execute](../../contracts/v2/functions/Query/execute.md) | Invoke a global Query and decode its complete JSON result. Validate the business result shape. |
-| [execute_async](../../contracts/v2/functions/Query/execute_async.md) | Submit execution; inspect whether the response is an immediate result or an execution ID. |
-| [streaming_execute](../../contracts/v2/functions/Query/streaming_execute.md) | Receive raw SSE bytes; SDK ordinary bytes buffer the result. Use the streaming wrapper for bounded incremental consumption. |
-| [streaming_execute_events](../../contracts/v2/functions/Query/streaming_execute_events.md) | Use its typed SSE context manager and handle each discriminated data/error event. |
+| [get](../../contracts/v2/functions/Query/get.md) ([fixture](../../../../examples/rest/085/v2/functions/Query/invoke_get.py)) | Resolve metadata by API name and selected version before constructing argument values. |
+| [get_by_rid](../../contracts/v2/functions/Query/get_by_rid.md) ([fixture](../../../../examples/rest/085/v2/functions/Query/invoke_get_by_rid.py)) | Resolve the exact function identity when the caller has its RID. |
+| [get_by_rid_batch](../../contracts/v2/functions/Query/get_by_rid_batch.md) ([fixture](../../../../examples/rest/085/v2/functions/Query/invoke_get_by_rid_batch.py)) | Resolve a bounded set of RID requests and match returned identities to the requested set. |
+| [execute](../../contracts/v2/functions/Query/execute.md) ([fixture](../../../../examples/rest/085/v2/functions/Query/invoke_execute.py)) | Invoke a global Query and decode its complete JSON result. Validate the business result shape. |
+| [execute_async](../../contracts/v2/functions/Query/execute_async.md) ([fixture](../../../../examples/rest/085/v2/functions/Query/invoke_execute_async.py)) | Submit execution; inspect whether the response is an immediate result or an execution ID. |
+| [streaming_execute](../../contracts/v2/functions/Query/streaming_execute.md) ([fixture](../../../../examples/rest/085/v2/functions/Query/invoke_streaming_execute.py)) | Receive raw SSE bytes; SDK ordinary bytes buffer the result. Use the streaming wrapper for bounded incremental consumption. |
+| [streaming_execute_events](../../contracts/v2/functions/Query/streaming_execute_events.md) ([fixture](../../../../examples/rest/085/v2/functions/Query/invoke_streaming_execute_events.py)) | Use its typed SSE context manager and handle each discriminated data/error event. |
 
 After asynchronous submission, poll [Execution.get_result](../../contracts/v2/functions/Execution/get_result.md)
 with an explicit deadline and attempt budget. Server asynchronous execution differs

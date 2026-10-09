@@ -19,7 +19,7 @@ A Subscriber stores a server-side read position for one stream. Its ID must be u
 
 ## Worked example and expected result
 
-The [offline subscriber fixtures](../../../../examples/rest/089/v2/streams/Subscriber/invoke_commit_offsets.py) verify each SDK request and named errors. Run `python -B examples/rest/089/v2/streams/Subscriber/invoke_commit_offsets.py` from the skill root for the manual-commit shape. In a live worker, create or find the subscriber, read a finite batch with `auto_commit=False`, process each record, then commit the last successful offset per partition. Verify the read position after commit. Sparse stream offsets mean the committed value comes from actual returned records.
+The [sparse-offset example](../../../../examples/rest/089/subscriber_offsets.py) reads synthetic records at offsets 50 and 52 with `auto_commit=False`, simulates processing both, then commits 52 through the actual SDK. Run `python -B examples/rest/089/subscriber_offsets.py` from the skill root. Each linked operation also has a separate offline fixture for its request and named errors. In a live worker, create or find the subscriber, read a finite batch, durably process each record, then commit the last successful offset per partition. Verify the read position after commit. Sparse stream offsets mean the committed value comes from actual returned records.
 
 ## Failures, recovery and access boundary
 

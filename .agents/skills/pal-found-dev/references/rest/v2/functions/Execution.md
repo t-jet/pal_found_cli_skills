@@ -15,7 +15,7 @@
 
 ## Worked example
 
-The local [get-result fixture](../../../../examples/rest/085/v2/functions/Execution/invoke_get_result.py) and [cancel fixture](../../../../examples/rest/085/v2/functions/Execution/invoke_cancel.py) call the real SDK through a synthetic transport. Run each from the skill root with `python -B <linked path>`. They check the HTTP request, decoded response and source-declared named failures. For a live application, submit a Query using [execute_async](../../contracts/v2/functions/Query/execute_async.md), keep its returned ID, then poll with a deadline and finite attempt count. Do not resubmit merely because one poll reports `running`.
+The [async execution example](../../../../examples/rest/085/async_execution.py) submits a synthetic `scale(amount=2, factor=3)` Query with pinned version `1.0.0`, retains its execution ID, then receives `running` and `succeeded(value=6)` in two bounded polls through the actual SDK. Run it from the skill root with `python -B examples/rest/085/async_execution.py`. The separate [get-result fixture](../../../../examples/rest/085/v2/functions/Execution/invoke_get_result.py) and [cancel fixture](../../../../examples/rest/085/v2/functions/Execution/invoke_cancel.py) check source-declared named failures. For a live application, submit using [execute_async](../../contracts/v2/functions/Query/execute_async.md), keep its returned ID, then poll with an overall deadline and finite attempt count. Do not resubmit merely because one poll reports `running`.
 
 ## Expected result and recovery
 

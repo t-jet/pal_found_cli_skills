@@ -18,7 +18,7 @@ The SQL Queries API submits a query, tracks its ID and returns results separatel
 
 ## Worked example and expected result
 
-Each linked contract has a matching [offline SDK fixture](../../../../examples/rest/089/v2/sql_queries/SqlQuery/invoke_get_results.py) for request, response and declared errors. Run `python -B examples/rest/089/v2/sql_queries/SqlQuery/invoke_get_results.py` from the skill root to inspect the result transport. For an application flow, submit one query, retain its ID, poll status, then retrieve results in the chosen format and validate expected columns/row count. Ontology SQL does not use this submit/status/result sequence.
+The [SQL lifecycle example](../../../../examples/rest/089/sql_query_lifecycle.py) submits synthetic `SELECT 1 AS row_count` with `serialization_format="CSV"`, retains the ID, polls `running` then `succeeded` within three attempts, and decodes the returned CSV bytes. Run `python -B examples/rest/089/sql_query_lifecycle.py` from the skill root. Each linked operation also has a separate offline fixture for request, response and named errors. For a live application, validate expected columns and row count against its authorized data. Ontology SQL does not use this submit/status/result sequence.
 
 ## Failures and recovery
 
