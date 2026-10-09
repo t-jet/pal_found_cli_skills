@@ -14,12 +14,9 @@ define relationships. Objects and links carry the current values. Interfaces
 let applications address compatible object types through a common contract.
 Object sets select objects for search, loading, and aggregation. These concepts
 give users and applications a shared account of what data means, not merely
-where it is stored. See Palantir's [Ontology overview](https://www.palantir.com/docs/foundry/ontology/overview)
+where it is stored. Optional sources: Palantir's [Ontology overview](https://www.palantir.com/docs/foundry/ontology/overview)
 and [platform overview](https://www.palantir.com/docs/foundry/platform-overview/overview).
-
-Source: Palantir's Ontology, platform, and action type overviews linked in
-this section; the operation records below explain each supported command.
-`Ontologies` documentation.
+The operation records below explain each supported command.
 
 Actions are the Ontology's controlled write path. An action type defines
 parameters, validation, permissions, and the edits or external effects that
@@ -28,8 +25,8 @@ media, and time-series properties attach richer values to objects. Discover
 types before constructing object queries or action payloads, and inspect an
 action response's validation result before treating the edit as applied.
 Object Storage V1 edits may take time to become visible; V2 edits are visible
-when the action completes. See Palantir's [action type overview](https://www.palantir.com/docs/foundry/action-types/overview)
-for details about action behavior.
+when the action completes. Optional source: Palantir's
+[action type overview](https://www.palantir.com/docs/foundry/action-types/overview).
 
 67 Foundry Ontologies API v2 operations are exposed by `pal-found-ontologies`. Its scope is existing
 ontology metadata and runtime data; each resource page states whether a call
