@@ -4,24 +4,38 @@ Synthetic identifiers do not name tenant resources. Prepared SDK 1.101.0/httpx
 required. No network connections or live mutations occur.
 """
 import json
-import sys
 import urllib.parse
 import datetime
-from pathlib import Path
+from contextlib import contextmanager
+from unittest.mock import patch
 
 import httpx
-from foundry_sdk import PalantirRPCException
-from foundry_sdk.v1.datasets.dataset import DatasetClient
+from foundry_sdk import Config, PalantirRPCException, UserTokenAuth
+from foundry_sdk.v1 import FoundryClient
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
-from mock_transport import mock_resource
+
+@contextmanager
+def mock_composed_client(handler):
+    with httpx.Client(transport=httpx.MockTransport(handler), timeout=30) as transport:
+        # The nested Dataset client is constructed lazily; keep this seam patched
+        # through the request rather than only while constructing FoundryClient.
+        with patch('foundry_sdk._core.api_client.HttpClient', return_value=transport):
+            yield FoundryClient(
+                auth=UserTokenAuth('offline-fixture-token'),
+                hostname='https://offline.example.invalid',
+                config=Config(timeout=30, max_retries=1,
+                              propagate_qos='PROPAGATE_429_AND_503_TO_CALLER'),
+            )
 
 EXPECTED_METHOD = 'GET'
 EXPECTED_PATH = '/api/v1/datasets/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/schema'
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'branchId': 'master', 'preview': None, 'transactionRid': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = 'synthetic-value'
+SUCCESS = {'fieldSchemaList': [
+    {'name': 'id', 'type': 'LONG', 'nullable': False},
+    {'name': 'event_time', 'type': 'TIMESTAMP', 'nullable': False},
+]}
 ERRORS = [{'name': 'BranchNotFound',
   'status': 404,
   'code': 'NOT_FOUND',
@@ -42,7 +56,7 @@ ERRORS = [{'name': 'BranchNotFound',
                  'transactionRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}}]
 
 def invoke(client):
-    return client.with_raw_response.get_schema(dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', request_timeout=30, branch_id='master')
+    return client.datasets.Dataset.with_raw_response.get_schema(dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', request_timeout=30, branch_id='master')
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -83,10 +97,14 @@ def verify():
         if SUCCESS is None:
             return httpx.Response(204)
         return httpx.Response(200, json=SUCCESS)
-    with mock_resource(DatasetClient, success) as client:
+    with mock_composed_client(success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            schema = raw.decode()
+            assert isinstance(schema, dict)
+            assert schema['fieldSchemaList'][0]['name'] == 'id'
+            assert schema['fieldSchemaList'][0]['type'] == 'LONG'
+            assert normalized(schema) == SUCCESS
         finally:
             raw.close()
     assert len(calls) == 1
@@ -98,7 +116,7 @@ def verify():
                 'parameters':error_case['parameters'],
                 'errorInstanceId':'00000000-0000-0000-0000-000000000004',
             })
-        with mock_resource(DatasetClient, failure) as client:
+        with mock_composed_client(failure) as client:
             try:
                 raw = invoke(client)
                 raw.close()

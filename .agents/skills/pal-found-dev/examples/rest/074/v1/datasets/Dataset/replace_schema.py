@@ -18,7 +18,10 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'PUT'
 EXPECTED_PATH = '/api/v1/datasets/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/schema'
-EXPECTED_BODY = 'synthetic-value'
+EXPECTED_BODY = {'fieldSchemaList': [
+    {'name': 'id', 'type': 'LONG', 'nullable': False},
+    {'name': 'event_time', 'type': 'TIMESTAMP', 'nullable': False},
+]}
 EXPECTED_QUERY = {'branchId': 'master', 'preview': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json'}
 SUCCESS = None
@@ -85,7 +88,7 @@ ERRORS = [{'name': 'AbortTransactionPermissionDenied',
                  'transactionStatus': 'ABORTED'}}]
 
 def invoke(client):
-    return client.with_raw_response.replace_schema(dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', body='synthetic-value', request_timeout=30, branch_id='master')
+    return client.with_raw_response.replace_schema(dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', body=EXPECTED_BODY, request_timeout=30, branch_id='master')
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

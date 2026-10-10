@@ -23,7 +23,10 @@ EXPECTED_QUERY = {'branchName': 'master', 'endTransactionRid': None, 'versionId'
 EXPECTED_HEADERS = {'Accept': 'application/json'}
 SUCCESS = {'branchName': 'synthetic-value',
  'endTransactionRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
- 'schema': {'fieldSchemaList': [{'type': 'ARRAY', 'nullable': True}]},
+ 'schema': {'fieldSchemaList': [
+     {'name': 'id', 'type': 'LONG', 'nullable': False},
+     {'name': 'tags', 'type': 'ARRAY', 'nullable': True,
+      'arraySubtype': {'type': 'STRING', 'nullable': False}}]},
  'versionId': '00000000-0000-0000-0000-000000000001'}
 ERRORS = [{'name': 'BranchNotFound',
   'status': 404,

@@ -18,12 +18,18 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'PUT'
 EXPECTED_PATH = '/api/v2/datasets/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/putSchema'
-EXPECTED_BODY = {'branchName': 'master', 'schema': {'fieldSchemaList': [{'type': 'ARRAY', 'nullable': True}]}}
+EXPECTED_BODY = {'branchName': 'master', 'schema': {'fieldSchemaList': [
+    {'name': 'id', 'type': 'LONG', 'nullable': False},
+    {'name': 'tags', 'type': 'ARRAY', 'nullable': True,
+     'arraySubtype': {'type': 'STRING', 'nullable': False}}]}}
 EXPECTED_QUERY = {}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
 SUCCESS = {'branchName': 'synthetic-value',
  'endTransactionRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
- 'schema': {'fieldSchemaList': [{'type': 'ARRAY', 'nullable': True}]},
+ 'schema': {'fieldSchemaList': [
+     {'name': 'id', 'type': 'LONG', 'nullable': False},
+     {'name': 'tags', 'type': 'ARRAY', 'nullable': True,
+      'arraySubtype': {'type': 'STRING', 'nullable': False}}]},
  'versionId': '00000000-0000-0000-0000-000000000001'}
 ERRORS = [{'name': 'BranchNotFound',
   'status': 404,
@@ -49,7 +55,7 @@ ERRORS = [{'name': 'BranchNotFound',
   'parameters': {'datasetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}}]
 
 def invoke(client):
-    return client.with_raw_response.put_schema(dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', schema={'fieldSchemaList': [{'type': 'ARRAY', 'nullable': True}]}, request_timeout=30, branch_name='master')
+    return client.with_raw_response.put_schema(dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', schema=EXPECTED_BODY['schema'], request_timeout=30, branch_name='master')
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
