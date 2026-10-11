@@ -440,7 +440,18 @@ _MODEL_OFFLINE_NOTES = {
     ),
 }
 
+_TRANSACTION_NOT_OPEN_NOTE = (
+    "The requested dataset transaction is not `OPEN`. The typed error parameters identify "
+    "`datasetRid`, `transactionRid` and the reported `transactionStatus`; the SDK status "
+    "values are `OPEN`, `COMMITTED` and `ABORTED`. Read that known transaction and the "
+    "intended branch separately under the authorized identity before choosing a next operation. "
+    "Do not replay an upload, schema change, commit or abort against a closed transaction. "
+    "If its state or access cannot be verified, retain `error_instance_id` for investigation."
+)
+
 _MODEL_OFFLINE_NOTES.update({
+    "foundry_sdk.v1.datasets.errors.TransactionNotOpen": _TRANSACTION_NOT_OPEN_NOTE,
+    "foundry_sdk.v2.datasets.errors.TransactionNotOpen": _TRANSACTION_NOT_OPEN_NOTE,
     "foundry_sdk._core.api_client.ResponseMode": (
         "An SDK transport response mode. `DECODED` returns the operation's ordinary typed result; "
         "`ITERATOR` traverses paged results; `RAW` exposes status and explicit decoding; "
@@ -497,9 +508,9 @@ _MODEL_OFFLINE_NOTES.update({
     ),
     "foundry_sdk.v1.ontologies.models.PropertyValue": (
         "An Ontology property value uses the JSON encoding for its declared property type. "
-        "The source table below gives arrays, primitives, date/time, GeoJSON, Cipher, "
-        "attachment, media and time-series examples. For structured values, follow the "
-        "referenced typed model and the target property's Ontology metadata."
+        "The local type table below gives the SDK's supported encodings, including arrays, "
+        "primitives, date/time, GeoJSON, Cipher, attachment, media and time-series values. "
+        "Use the target property's permitted Ontology metadata to select the type."
     ),
     "foundry_sdk.v2.aip_agents.errors.ObjectTypeIdsNotFoundParameters": (
         "The error names object type IDs unavailable to this Agent request. Compare each ID "
@@ -514,8 +525,10 @@ _MODEL_OFFLINE_NOTES.update({
         "with the permitted Ontology metadata before changing the Agent request."
     ),
     "foundry_sdk.v2.aip_agents.models.AgentRid": (
-        "An RID identifying an Agent created in AIP Chatbot Studio. Obtain the Agent RID "
-        "from the target enrollment's Agent metadata or an Agent list result."
+        "An RID identifying an Agent created in AIP Chatbot Studio. Obtain an existing "
+        "Agent RID from the authorized Studio or application configuration, or use a "
+        "supplied synthetic RID in an offline fixture. The frozen SDK Agent client has "
+        "`get` and session methods but no Agent list operation; `get` already requires the RID."
     ),
     "foundry_sdk.v2.aip_agents.models.InputContext": (
         "Custom retrieved context supplied to an Agent when continuing a session. Use the "
@@ -648,10 +661,9 @@ _MODEL_OFFLINE_NOTES.update({
     ),
     "foundry_sdk.v2.ontologies.models.PropertyValue": (
         "An Ontology property value uses the JSON encoding for its declared property type. "
-        "The SDK source table below lists arrays, primitives, date/time, GeoJSON, Cipher, "
-        "attachment, media and time-series examples. Match the target property metadata and "
-        "use the referenced typed model for structured values; do not pass a display string "
-        "for an attachment or media reference."
+        "The local type table below lists arrays, primitives, date/time, GeoJSON, Cipher, "
+        "attachment, media and time-series encodings. Match the target property metadata; "
+        "an attachment or media reference needs its documented object shape, not a display string."
     ),
     "foundry_sdk.v2.ontologies.models.RelativeDateRangeQuery": (
         "This query filters a date or timestamp property against a range evaluated at query "
@@ -711,14 +723,25 @@ _MODEL_OFFLINE_NOTES.update({
         "Read back the Connection export flags after an update."
     ),
     "foundry_sdk.v2.connectivity.models.ConnectionWorker": (
-        "A worker chooses where source capability compute runs. A Foundry worker executes in Foundry; "
-        "network egress policies choose direct or agent-proxy reachability. Legacy agent workers run "
-        "compute on an agent host whose network and credentials need separate preparation."
+        "This read model distinguishes a configured `FoundryWorker` from `UnknownWorker`. "
+        "A Foundry worker executes source capability compute in Foundry and uses approved "
+        "network egress policies for direct or agent-proxy reachability. `UnknownWorker` "
+        "represents a worker configuration this SDK cannot describe; it is not an agent-host "
+        "configuration to copy into a new Connection."
     ),
     "foundry_sdk.v2.connectivity.models.CreateConnectionRequestConnectionWorker": (
-        "Choose the worker when creating the Connection. A Foundry worker runs capability compute in "
-        "Foundry and needs approved egress policies; an agent worker runs on a prepared agent host. "
-        "Confirm the selected connector supports the worker and network path before creating imports."
+        "For a new supported Connection worker, select `CreateConnectionRequestFoundryWorker` "
+        "(`type='foundryWorker'`) with approved `network_egress_policy_rids`. The other union "
+        "arm is `CreateConnectionRequestUnknownWorker` (`type='unknownWorker'`), which has no "
+        "agent-host configuration fields. This SDK exposes no selectable legacy agent-worker "
+        "creation variant; agent-proxy reachability belongs to the Foundry worker's egress "
+        "policy. Confirm the connector and external host are reachable before creating imports."
+    ),
+    "foundry_sdk.v2.connectivity.models.CreateConnectionRequestUnknownWorker": (
+        "This create-union arm contains only `type='unknownWorker'`. It supplies no host, "
+        "credential or egress configuration and cannot describe a legacy agent worker. "
+        "The frozen SDK does not specify server acceptance or behavior for authoring an "
+        "unknown worker. Use the supported Foundry-worker arm for a new configured worker."
     ),
     "foundry_sdk.v2.connectivity.models.FoundryWorker": (
         "This worker runs source capabilities in Foundry. `network_egress_policy_rids` identifies "
@@ -846,6 +869,70 @@ def localized_model_prose(prose: str) -> str:
         "Use an IANA time-zone ID such as Etc/UTC, Europe/London or America/New_York.",
     )
     return prose
+
+
+def property_value_encoding_table(document: str) -> str:
+    """Expose the pinned SDK's property encodings outside the `Any` source alias."""
+    examples = {
+        "Array": ["alpha", "bravo"],
+        "Attachment": {"rid": "ri.blobster.main.attachment.synthetic"},
+        "Boolean": True,
+        "Byte": 31,
+        "CipherText": "CIPHER::ri.bellaso.main.cipher-channel.synthetic::opaque::CIPHER",
+        "Date": "2021-05-01",
+        "Decimal": "2.718281828",
+        "Double": 3.14159265,
+        "Float": 3.14159265,
+        "GeoPoint": {"type": "Point", "coordinates": [102.0, 0.5]},
+        "GeoShape": {"type": "LineString", "coordinates": [[102.0, 0.0], [103.0, 1.0]]},
+        "Integer": 238940,
+        "Long": "58319870951433",
+        "MediaReference": {
+            "mimeType": "application/pdf",
+            "reference": {"type": "mediaSetViewItem", "mediaSetViewItem": {
+                "mediaSetRid": "ri.mio.main.media-set.synthetic",
+                "mediaSetViewRid": "ri.mio.main.view.synthetic",
+                "mediaItemRid": "ri.mio.main.media-item.synthetic",
+            }},
+        },
+        "Secured Property Value": {"value": 10, "propertySecurityIndex": 5},
+        "Short": 8739,
+        "String": "Call me Ishmael",
+        "Struct": {"firstName": "Alex", "lastName": "Karp"},
+        "Timestamp": "2021-01-04T05:00:00Z",
+        "Timeseries": {"seriesId": "wellPressureSeriesId",
+                       "syncRid": "ri.time-series-catalog.main.sync.synthetic"},
+        "Vector": [0.1, 0.3, 0.02],
+    }
+    rows = []
+    for line in document.splitlines():
+        if not line.startswith("|"):
+            continue
+        cells = [part.strip() for part in line.split("|")[1:3]]
+        if len(cells) != 2 or cells[0] == "Type" or set(cells[0]) <= {"-"}:
+            continue
+        property_type = re.sub(r"\[([^]]+)\]\(https?://[^)]+\)", r"\1", cells[0])
+        rows.append((property_type, cells[1]))
+    if len(rows) != 21 or {name for name, _ in rows} != examples.keys():
+        raise ValueError("Pinned SDK PropertyValue documentation changed: review encodings")
+    return "\n".join([
+        "## JSON encodings by Ontology property type", "",
+        "`typing.Any` is the SDK's Python alias, not permission to send an arbitrary JSON "
+        "shape. Read the target property's type from permitted Ontology metadata, then use "
+        "its encoding below. JSON examples illustrate shape with synthetic values; "
+        "substitute authorized tenant identifiers, metadata and real encrypted values.", "",
+        "| Property type | JSON encoding | JSON example |", "| --- | --- | --- |",
+        *(f"| {name} | {encoding} | `{json.dumps(examples[name], separators=(',', ':'))}` |"
+          for name, encoding in rows), "",
+        "Decimal and Long are JSON strings so their values are not rounded through a JSON "
+        "number. Date uses a local ISO 8601 date; Timestamp uses an ISO 8601 UTC offset "
+        "date-time. GeoPoint and GeoShape use GeoJSON objects. Struct is an object keyed "
+        "by struct field API name. An Attachment is an object with `rid`; a MediaReference "
+        "has `mimeType` and a typed `reference`; a secured value has `value` and "
+        "`propertySecurityIndex`. Timeseries accepts its documented object or series ID "
+        "string. For compatibility the source also accepts Boolean, Byte, Double, Float, "
+        "Integer and Short as JSON strings; prefer the primary encoding shown above.",
+    ])
 
 
 def offline_source_references(blocks: list[str], path: Path, skill: Path) -> list[str]:
@@ -1019,6 +1106,9 @@ def render(root: Path, files: dict[str, str], operations, symbols, limit: int | 
         record = symbols[identity]
         path = model_paths[identity]
         source = definition_source(files[record["source"]], record["node"])
+        property_document = (f"docs/{identity.split('.')[1]}/Ontologies/models/PropertyValue.md"
+                             if identity in {"foundry_sdk.v1.ontologies.models.PropertyValue",
+                                             "foundry_sdk.v2.ontologies.models.PropertyValue"} else None)
         description = localized_model_prose(
             _MODEL_OFFLINE_NOTES[identity] if identity in _MODEL_OFFLINE_NOTES
             else record["description"] or
@@ -1030,6 +1120,10 @@ def render(root: Path, files: dict[str, str], operations, symbols, limit: int | 
                   "`Literal` lists values; `Annotated` retains constraints and discriminators. "
                   "Request TypedDicts and response Pydantic models are distinct shapes.",
                   "```python\n" + source + "\n```"]
+        property_encoding = (property_value_encoding_table(files[property_document])
+                             if property_document else "")
+        if property_encoding:
+            blocks.insert(1, property_encoding)
         table = field_table(record["node"])
         if table:
             table = localized_model_prose(table)
@@ -1043,13 +1137,15 @@ def render(root: Path, files: dict[str, str], operations, symbols, limit: int | 
                       "Copyright 2024 Palantir Technologies, Inc. "
                       "[license and notices](" + relative_link(path, skill / "assets/rest/LICENSE") + ").")
         destinations = write_parts(path, identity, blocks)
-        reader_prose = "\n\n".join([description, table] if table else [description])
+        reader_prose = "\n\n".join(part for part in (description, property_encoding, table) if part)
         model_review_rows.append({
             "id": identity,
             "source": record["source"],
             "source_file_sha256": digest(files[record["source"]]),
             "source_definition_sha256": digest(source),
             "source_description_sha256": digest(record["description"] or ""),
+            "semantic_documentation": property_document,
+            "semantic_documentation_sha256": digest(files[property_document]) if property_document else None,
             "source_description_placeholder": (record["description"] or "").strip().lower() in {"", "todo"},
             "dependencies": record["dependencies"],
             "consumer_operation_ids": consumers[identity],

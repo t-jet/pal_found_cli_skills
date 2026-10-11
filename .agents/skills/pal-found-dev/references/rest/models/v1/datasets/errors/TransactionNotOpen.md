@@ -1,7 +1,7 @@
 # foundry_sdk.v1.datasets.errors.TransactionNotOpen
 
 
-The definition below supplies its fields or permitted values.
+The requested dataset transaction is not `OPEN`. The typed error parameters identify `datasetRid`, `transactionRid` and the reported `transactionStatus`; the SDK status values are `OPEN`, `COMMITTED` and `ABORTED`. Read that known transaction and the intended branch separately under the authorized identity before choosing a next operation. Do not replay an upload, schema change, commit or abort against a closed transaction. If its state or access cannot be verified, retain `error_instance_id` for investigation.
 
 ## Exact SDK definition
 

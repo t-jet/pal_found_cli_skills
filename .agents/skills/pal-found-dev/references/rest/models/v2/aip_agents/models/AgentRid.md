@@ -1,7 +1,7 @@
 # foundry_sdk.v2.aip_agents.models.AgentRid
 
 
-An RID identifying an Agent created in AIP Chatbot Studio. Obtain the Agent RID from the target enrollment's Agent metadata or an Agent list result.
+An RID identifying an Agent created in AIP Chatbot Studio. Obtain an existing Agent RID from the authorized Studio or application configuration, or use a supplied synthetic RID in an offline fixture. The frozen SDK Agent client has `get` and session methods but no Agent list operation; `get` already requires the RID.
 
 ## Exact SDK definition
 

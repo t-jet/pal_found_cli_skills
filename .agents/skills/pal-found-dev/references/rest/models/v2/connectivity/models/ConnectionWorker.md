@@ -1,7 +1,7 @@
 # foundry_sdk.v2.connectivity.models.ConnectionWorker
 
 
-A worker chooses where source capability compute runs. A Foundry worker executes in Foundry; network egress policies choose direct or agent-proxy reachability. Legacy agent workers run compute on an agent host whose network and credentials need separate preparation.
+This read model distinguishes a configured `FoundryWorker` from `UnknownWorker`. A Foundry worker executes source capability compute in Foundry and uses approved network egress policies for direct or agent-proxy reachability. `UnknownWorker` represents a worker configuration this SDK cannot describe; it is not an agent-host configuration to copy into a new Connection.
 
 ## Exact SDK definition
 

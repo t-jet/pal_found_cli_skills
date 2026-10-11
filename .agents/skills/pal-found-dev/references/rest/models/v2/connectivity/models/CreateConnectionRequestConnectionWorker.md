@@ -1,7 +1,7 @@
 # foundry_sdk.v2.connectivity.models.CreateConnectionRequestConnectionWorker
 
 
-Choose the worker when creating the Connection. A Foundry worker runs capability compute in Foundry and needs approved egress policies; an agent worker runs on a prepared agent host. Confirm the selected connector supports the worker and network path before creating imports.
+For a new supported Connection worker, select `CreateConnectionRequestFoundryWorker` (`type='foundryWorker'`) with approved `network_egress_policy_rids`. The other union arm is `CreateConnectionRequestUnknownWorker` (`type='unknownWorker'`), which has no agent-host configuration fields. This SDK exposes no selectable legacy agent-worker creation variant; agent-proxy reachability belongs to the Foundry worker's egress policy. Confirm the connector and external host are reachable before creating imports.
 
 ## Exact SDK definition
 

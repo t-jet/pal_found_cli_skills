@@ -1,7 +1,7 @@
 # foundry_sdk.v2.connectivity.models.CreateConnectionRequestUnknownWorker
 
 
-CreateConnectionRequestUnknownWorker
+This create-union arm contains only `type='unknownWorker'`. It supplies no host, credential or egress configuration and cannot describe a legacy agent worker. The frozen SDK does not specify server acceptance or behavior for authoring an unknown worker. Use the supported Foundry-worker arm for a new configured worker.
 
 ## Exact SDK definition
 
