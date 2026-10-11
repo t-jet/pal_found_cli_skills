@@ -96,14 +96,32 @@ def test_workspace_propagates_rejected_output_write() -> None:
         run_workspace([{"customer_id": "c1", "amount": 10}], reject_write=True)
 
 
-def test_workspace_rejects_non_numeric_amount() -> None:
+@pytest.mark.parametrize("amount", ["invalid", "12.0", True, 1 + 2j])
+def test_workspace_rejects_non_numeric_amount(amount: object) -> None:
     """A schema mismatch must stop before writing an invalid total."""
 
-    try:
-        written = run_workspace([{"customer_id": "c1", "amount": "invalid"}])
-    except (AssertionError, TypeError, ValueError):
-        return
-    pytest.fail(f"non-numeric amount was written: {written.to_dict('records')}")
+    with pytest.raises(TypeError, match="amount must contain numeric"):
+        run_workspace([{"customer_id": "c1", "amount": amount}])
+
+
+def test_workspace_all_null_amounts_follow_zero_policy() -> None:
+    """The type guard must allow null-only input before the zero fill."""
+
+    written = run_workspace([{"customer_id": "c1", "amount": None}])
+    assert written is not None
+    assert written.to_dict("records") == [{"customer_id": "c1", "total_amount": 0}]
+
+
+def test_workspace_rejects_nonnumeric_aggregate_before_write() -> None:
+    """An unexpected aggregation result must not pass the output type check."""
+
+    with patch.object(
+        pd.core.groupby.generic.DataFrameGroupBy,
+        "sum",
+        return_value=pd.DataFrame({"customer_id": ["c1"], "amount": ["invalid"]}),
+    ):
+        with pytest.raises(TypeError, match="total_amount must be numeric"):
+            run_workspace([{"customer_id": "c1", "amount": 10}])
 
 
 def test_workspace_requires_prepared_foundry_runtime() -> None:

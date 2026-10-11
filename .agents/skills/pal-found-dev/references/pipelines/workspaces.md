@@ -53,21 +53,33 @@ environment. Input rows `(customer_id,amount)` are `(c1,10.00)`, `(c1,7.50)`,
 `(c2,NULL)`. Illustrative IDs must be replaced with the enrollment's registered aliases.
 
 ```python
+from numbers import Number
+
 from foundry.transforms import Dataset
 
 orders = Dataset.get("orders").read_table(format="arrow").to_pandas()
 assert set(["customer_id", "amount"]).issubset(orders.columns)
 assert orders["customer_id"].notna().all()
+if not orders["amount"].dropna().map(
+    lambda value: isinstance(value, Number) and not isinstance(value, (bool, complex))
+).all():
+    raise TypeError("amount must contain numeric values or nulls")
 orders["amount"] = orders["amount"].fillna(0)
 totals = orders.groupby("customer_id", as_index=False)["amount"].sum()
 totals = totals.rename(columns={"amount": "total_amount"})
 assert totals["customer_id"].is_unique
+if not totals["total_amount"].map(
+    lambda value: isinstance(value, Number) and not isinstance(value, (bool, complex))
+).all():
+    raise TypeError("total_amount must be numeric")
 Dataset.get("customer_totals").write_table(totals)
 ```
 
 Expected rows: `(c1,17.50)`, `(c2,0.00)`. This notebook uses a sum, not currency
 rounding or a universal financial calculation; preserve suitable decimal types for
-production money. A registered transform's interactive write uses a
+production money. The amount check rejects strings and Boolean values before
+aggregation; it permits nulls because this example explicitly replaces them with
+zero. A registered transform's interactive write uses a
 `code-workspace-sandbox/` branch; its transform run updates the current branch.
 Interactive tabular writes normally create one snapshot transaction per call;
 a transform execution combines script writes into one transaction, snapshot by
