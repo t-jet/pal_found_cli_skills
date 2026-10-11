@@ -23,16 +23,19 @@ def enumerate_files(client, max_pages, max_items=500, seconds=30, clock=monotoni
     files = []
     for _ in range(max_pages):
         remaining = deadline - clock()
-        if remaining <= 0:
+        timeout_seconds = min(5, int(remaining))
+        if timeout_seconds <= 0:
             return [item.id for item in files], False, "time_budget", cursor
         page = client.audit.Organization.LogFile.list(
             ORG, start_date=START, end_date=END, page_size=100,
-            page_token=cursor, request_timeout=min(5, max(1, int(remaining))),
+            page_token=cursor, request_timeout=timeout_seconds,
         )
         if len(files) + len(page.data) > max_items:
             files.extend(page.data[:max_items - len(files)])
             return [item.id for item in files], False, "item_budget", cursor
         files.extend(page.data)  # one fetched page, no SDK iterator iteration
+        if clock() >= deadline:
+            return [item.id for item in files], False, "time_budget", cursor
         following = page.next_page_token
         if following is None:
             return [item.id for item in files], True, None, None
@@ -133,5 +136,12 @@ if __name__ == "__main__":
         ticks = iter([0, 31])
         assert scenario([], 5, ([], False, "time_budget", None),
                         clock=lambda: next(ticks)) == []
+        short_ticks = iter([0, 0])
+        assert scenario([], 5, ([], False, "time_budget", None), seconds=0.01,
+                        clock=lambda: next(short_ticks)) == []
+        overrun_ticks = iter([0, 0, 1.2])
+        assert scenario([{"data": [{"id": "log-1"}]}], 5,
+                        (["log-1"], False, "time_budget", None), seconds=1.01,
+                        clock=lambda: next(overrun_ticks)) == [None]
         missing_start_date()
     print("audit complete/partial pagination, named error and denied network passed")

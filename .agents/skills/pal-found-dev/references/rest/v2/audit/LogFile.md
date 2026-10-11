@@ -45,13 +45,14 @@ files = []
 result = {"complete": False, "reason": "page_budget", "cursor": None}
 for _ in range(5):
     remaining = deadline - monotonic()
-    if remaining <= 0:
+    timeout_seconds = min(5, int(remaining))
+    if timeout_seconds <= 0:
         result = {"complete": False, "reason": "time_budget", "cursor": cursor}
         break
     page = client.audit.Organization.LogFile.list(
         organization_rid, start_date=start_date, end_date=end_date,
         page_size=100, page_token=cursor,
-        request_timeout=min(5, max(1, int(remaining))),
+        request_timeout=timeout_seconds,
     )
     batch = page.data  # read only the fetched page; do not iterate the iterator
     if len(files) + len(batch) > 500:
@@ -59,6 +60,9 @@ for _ in range(5):
         result = {"complete": False, "reason": "item_budget", "cursor": cursor}
         break
     files.extend(batch)
+    if monotonic() >= deadline:
+        result = {"complete": False, "reason": "time_budget", "cursor": cursor}
+        break
     following = page.next_page_token
     if following is None:
         result = {"complete": True, "reason": None, "cursor": None}
@@ -74,6 +78,11 @@ for _ in range(5):
 
 An empty page may still carry a continuation token. Continue within the
 budget; claim complete only when the fixed-window response has no next token.
+The SDK accepts positive integer request timeouts. When less than one whole
+second remains, stop before another request. Check the deadline again after
+each response: a slow or noncooperative transport can exceed the requested
+timeout, so retain the returned records as a partial result. These checks
+report an overrun; they cannot forcibly stop a blocking request.
 The [multi-page offline fixture](../../../../examples/rest/073/v2/audit/LogFile/list_pagination.py)
 checks a populated page, an empty page with continuation, repeated tokens,
 page, item and time budgets, and the named `MissingStartDate` error without
