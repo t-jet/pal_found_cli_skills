@@ -1,14 +1,28 @@
 """Deliberate broken fixtures prove structural failures are detected."""
 
 from copy import deepcopy
+import hashlib
+import importlib.util
+import os
 from pathlib import Path
+import socket
+import subprocess
 
+import httpx
 import pytest
 
 from test_offline_topic_acceptance import (
     COMPONENTS, fixture_revision_matches, local_graph, local_link,
-    markdown_anchors, operation_inventory_matches, topic_contract,
+    markdown_anchors, operation_inventory_matches, skill_identities_match, topic_contract,
+    url_audit_complete,
 )
+
+
+RUNNER = Path(__file__).parent / "fixtures/offline/topic-acceptance/runner.py"
+SPEC = importlib.util.spec_from_file_location("topic_acceptance_runner", RUNNER)
+assert SPEC is not None and SPEC.loader is not None
+runner = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(runner)
 
 
 def make_skill(root: Path) -> Path:
@@ -101,3 +115,92 @@ def test_operation_substitution_cannot_pass_an_equal_count() -> None:
     operation_inventory_matches(["b", "a"], baseline)
     with pytest.raises(AssertionError, match="identity"):
         operation_inventory_matches(["a", "c"], baseline)
+
+
+def test_candidate_hash_check_rejects_changed_content_and_revision(tmp_path) -> None:
+    owner = make_skill(tmp_path)
+    content = (owner / "topic.md").read_bytes()
+    accepted = {"candidate_sha": "reviewed", "required_file_hashes": {
+        "topic.md": hashlib.sha256(content).hexdigest(),
+    }}
+    runner.verify_accepted_candidate(owner, accepted, "reviewed")
+    with pytest.raises(AssertionError, match="Stale"):
+        runner.verify_accepted_candidate(owner, accepted, "changed")
+    (owner / "topic.md").write_text("# New topic\n", encoding="utf-8")
+    with pytest.raises(AssertionError, match="Changed accepted"):
+        runner.verify_accepted_candidate(owner, accepted, "reviewed")
+    with pytest.raises(AssertionError, match="external candidate"):
+        runner.file_hashes(owner, ["../outside.md"])
+
+
+def test_offline_fixture_denies_dns_tcp_and_subprocess() -> None:
+    with runner.denied_public_network():
+        with pytest.raises(AssertionError, match="network denied"):
+            socket.getaddrinfo("example.com", 443)
+        with pytest.raises(AssertionError, match="network denied"):
+            socket.socket().connect(("127.0.0.1", 80))
+        with pytest.raises(AssertionError, match="network denied"):
+            subprocess.Popen(["python", "-V"])
+        with pytest.raises(AssertionError, match="network denied"):
+            os.system("echo should-not-run")
+        with httpx.Client() as client:
+            with pytest.raises(AssertionError, match="network denied"):
+                client.get("https://example.com/")
+        with httpx.Client(transport=httpx.MockTransport(
+            lambda _request: httpx.Response(200, json={"fixture": True})
+        )) as client:
+            assert client.get("https://example.com/").json() == {"fixture": True}
+
+
+def test_required_public_reading_disposition_blocks_acceptance() -> None:
+    row = {"skill": "pal-found-dev", "path": "SKILL.md", "line": 3,
+           "url": "https://example.com/required", "qa_reviewer": "qa-engineer",
+           "qa_reason": "The only instructions are on the public page.",
+           "qa_disposition": "model_or_contract_localization_review",
+           "acceptance_blocking": True}
+    audit = {"current_url_audit": {"occurrences": [row],
+                                   "skill_counts": {"pal-found-dev": 1}}}
+    with pytest.raises(AssertionError, match="essential public-reading contexts unresolved"):
+        url_audit_complete(audit)
+    row["qa_disposition"] = "optional_provenance_local_page"
+    row["acceptance_blocking"] = False
+    url_audit_complete(audit, {"pal-found-dev"})
+
+
+def test_missing_skill_and_audit_entry_are_detected() -> None:
+    baseline = {"skill_identities": ["pal-found", "pal-found-dev"]}
+    skill_identities_match(["pal-found-dev", "pal-found"], baseline)
+    with pytest.raises(AssertionError, match="20-skill identity"):
+        skill_identities_match(["pal-found-dev"], baseline)
+    audit = {"current_url_audit": {"skill_counts": {"pal-found-dev": 1},
+                                   "occurrences": [{"skill": "pal-found-dev"}]}}
+    with pytest.raises(AssertionError, match="20-skill URL audit"):
+        url_audit_complete(audit, set(baseline["skill_identities"]))
+
+
+def test_stale_public_url_context_requires_audit_refresh(tmp_path) -> None:
+    page = tmp_path / "pal-found-dev" / "SKILL.md"
+    page.parent.mkdir()
+    page.write_text("# Skill\nOptional source: https://example.com/overview\n", encoding="utf-8")
+    row = {"skill": "pal-found-dev", "path": "pal-found-dev/SKILL.md", "line": 2,
+           "url": "https://example.com/overview", "qa_reviewer": "qa-engineer",
+           "qa_reason": "Local concept supplied", "qa_disposition": "optional_provenance_local_page",
+           "acceptance_blocking": False}
+    audit = {"current_url_audit": {"skill_counts": {"pal-found-dev": 1},
+                                   "occurrences": [row]}}
+    url_audit_complete(audit, {"pal-found-dev"}, tmp_path)
+    page.write_text("# Skill\nLocal concept only\n", encoding="utf-8")
+    with pytest.raises(AssertionError, match="stale URL audit context"):
+        url_audit_complete(audit, {"pal-found-dev"}, tmp_path)
+
+
+def test_staging_accepts_only_development_skill_under_parent_tmp(tmp_path) -> None:
+    owner = tmp_path / "pal-found-dev"
+    owner.mkdir()
+    (owner / "SKILL.md").write_text("# Offline topic\n", encoding="utf-8")
+    with pytest.raises(AssertionError, match="parent"):
+        runner.stage_skill(owner, tmp_path)
+    approved_tmp = Path(__file__).resolve().parents[2] / ".ept" / "tmp"
+    staged = runner.stage_skill(owner, approved_tmp)
+    assert staged.is_relative_to(approved_tmp)
+    assert sorted(path.name for path in staged.iterdir()) == ["SKILL.md"]

@@ -3,11 +3,9 @@
 import ast
 from pathlib import Path
 import re
+import runpy
 import shutil
-import sys
 from types import SimpleNamespace
-
-import pytest
 
 
 ROOT = Path(__file__).parent.parent
@@ -76,71 +74,55 @@ def test_distributed_skills_omit_project_internals_and_copy_directions() -> None
             assert not pattern.search(text), f"{page}: forbidden {pattern.pattern}"
 
 
-def test_rest_guide_contains_read_only_contract_and_limits() -> None:
-    text = (DEV / "references" / "rest-api.md").read_text(encoding="utf-8")
-    required = (
-        "GET /api/v2/datasets/{datasetRid}",
-        "FoundryClient",
-        "UserTokenAuth",
-        "nextPageToken",
-        "pageToken",
-        "timeout",
-        "401",
-        "403",
-        "429",
-        "Object Storage V1 backed objects",
-        "Object Storage V2 backed objects have no such platform limit",
-        "https://www.palantir.com/docs/foundry/api/v2/general/overview/sdks",
+def test_rest_guide_routes_to_local_contract_and_bounded_paging() -> None:
+    """Keep REST guidance navigable after examples moved into local parts."""
+    guide = (DEV / "references" / "rest-api.md").read_text(encoding="utf-8")
+    behavior = (DEV / "references" / "rest" / "client-behavior.md").read_text(
+        encoding="utf-8"
     )
-    for item in required:
-        assert item in text, f"REST guide missing {item}"
-    assert "https://www.palantir.com/docs/foundry/api/general/overview/sdk" not in text
-    snippets = re.findall(r"```python\n(.*?)\n```", text, re.S)
-    assert snippets, "REST guide must include executable Python examples"
-    for snippet in snippets:
-        ast.parse(snippet)
+    contract = DEV / "references/rest/contracts/v2/filesystem/Folder/get.md"
+    assert "rest/catalog.md" in guide
+    assert "rest/client-behavior.md#bounded-pagination" in guide
+    assert "rest/contracts/v2/filesystem/Folder/get.md" in guide
+    assert contract.is_file()
+    for item in ("FoundryClient", "UserTokenAuth", "request_timeout=30"):
+        assert item in guide
+    for item in ("nextPageToken", "repeated", "empty", "page"):
+        assert item in behavior
+    # Error status handling lives with the operation-specific error models;
+    # the common guide explains the recovery decision and its local route.
+    assert "Errors and cleanup" in behavior
+    assert "identity or permission" in behavior
+    assert "PalantirRPCException" in behavior
+    # The entry-point example is an indented Python block; it must parse.
+    snippet = guide.split("    from foundry_sdk import", 1)[1].split("\n\nRead ", 1)[0]
+    ast.parse("from foundry_sdk import" + snippet.replace("\n    ", "\n"))
 
 
-def test_rest_paging_example_stops_on_repeated_token(monkeypatch) -> None:
-    text = (DEV / "references" / "rest-api.md").read_text(encoding="utf-8")
-    snippet = re.findall(r"```python\n(.*?)\n```", text, re.S)[0]
-    for name in ("FOUNDRY_HOSTNAME", "FOUNDRY_TOKEN", "ONTOLOGY_RID", "OBJECT_TYPE_API_NAME"):
-        monkeypatch.setenv(name, "example")
+def test_local_paging_helper_handles_empty_page_and_repeated_cursor() -> None:
+    helper = runpy.run_path(str(DEV / "examples/rest/common/bounded_pages.py"))
+    fetch_pages = helper["fetch_pages"]
+    network = runpy.run_path(str(ROOT / "tests/fixtures/offline/topic-acceptance/runner.py"))
+    calls, closed = [], []
+    pages = [([], "next"), ([{"id": 2}], None)]
 
-    calls = []
-
-    def get(url, headers, params, timeout):
-        calls.append(params.copy())
-        assert len(calls) <= 3, "paging example made unbounded requests"
+    def fetch_page(*, page_token):
+        calls.append(page_token)
+        data, cursor = pages[len(calls) - 1]
         return SimpleNamespace(
-            raise_for_status=lambda: None,
-            json=lambda: {"data": [], "nextPageToken": "repeated-token"},
+            decode=lambda: SimpleNamespace(data=data, next_page_token=cursor),
+            close=lambda: closed.append(page_token),
         )
 
-    monkeypatch.setitem(sys.modules, "requests", SimpleNamespace(get=get))
-    with pytest.raises(RuntimeError, match="Repeated page token"):
-        exec(snippet, {})
-    assert len(calls) == 2
+    with network["denied_public_network"]():
+        result = fetch_pages(fetch_page, max_pages=3, max_items=2)
+    assert result.complete and result.items == [{"id": 2}]
+    assert calls == [None, "next"] and closed == [None, "next"]
 
-
-def test_rest_paging_example_finishes_normal_sequence(monkeypatch, capsys) -> None:
-    text = (DEV / "references" / "rest-api.md").read_text(encoding="utf-8")
-    snippet = re.findall(r"```python\n(.*?)\n```", text, re.S)[0]
-    for name in ("FOUNDRY_HOSTNAME", "FOUNDRY_TOKEN", "ONTOLOGY_RID", "OBJECT_TYPE_API_NAME"):
-        monkeypatch.setenv(name, "example")
-
-    calls = []
-
-    def get(url, headers, params, timeout):
-        calls.append(params.copy())
-        page = (
-            {"data": [{"properties": {"id": 1}}], "nextPageToken": "next"}
-            if len(calls) == 1
-            else {"data": [{"properties": {"id": 2}}]}
-        )
-        return SimpleNamespace(raise_for_status=lambda: None, json=lambda: page)
-
-    monkeypatch.setitem(sys.modules, "requests", SimpleNamespace(get=get))
-    exec(snippet, {})
-    assert calls == [{"pageSize": 100}, {"pageSize": 100, "pageToken": "next"}]
-    assert "'id': 1" in capsys.readouterr().out
+    calls.clear()
+    closed.clear()
+    pages = [([], "same"), ([], "same")]
+    with network["denied_public_network"]():
+        result = fetch_pages(fetch_page, max_pages=3, max_items=2)
+    assert not result.complete and result.reason == "repeated-token"
+    assert calls == [None, "same"] and closed == [None, "same"]

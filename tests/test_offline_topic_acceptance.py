@@ -4,6 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import runpy
 import unicodedata
 from urllib.parse import unquote, urlsplit
 
@@ -11,6 +12,7 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parent.parent
 SKILLS = ROOT / ".agents" / "skills"
 REGISTER = ROOT / "tests" / "fixtures" / "offline" / "topic-register.json"
+URL_AUDIT = ROOT / "maintainer" / "offline-knowledge-audit.json"
 COMPONENTS = {
     "concept", "prerequisites", "procedure", "example", "validation",
     "recovery", "access_boundary",
@@ -131,8 +133,56 @@ def operation_inventory_matches(actual: list[str], baseline: dict) -> None:
     assert digest == baseline["operation_sha256"], "Changed CLI operation identity"
 
 
+def skill_identities_match(actual: list[str], baseline: dict) -> None:
+    assert sorted(actual) == baseline["skill_identities"], "Changed 20-skill identity set"
+
+
+def url_audit_complete(audit: dict, expected_skills: set[str] | None = None,
+                       skill_root: Path | None = None) -> None:
+    """Require a reviewed, nonblocking decision for each public URL context."""
+    current = audit["current_url_audit"]
+    rows = current["occurrences"]
+    if expected_skills is not None:
+        assert set(current["skill_counts"]) == expected_skills, "Incomplete 20-skill URL audit"
+        assert {row["skill"] for row in rows} == expected_skills, "Missing skill URL review"
+    assert rows, "Missing 20-skill URL audit"
+    blocking = []
+    for row in rows:
+        assert row["skill"] and row["path"] and row["url"], "Incomplete URL context"
+        assert row.get("qa_reviewer") and row.get("qa_reason"), (
+            f"{row['path']}:{row['line']}: URL context lacks review"
+        )
+        assert row.get("qa_disposition") and row["qa_disposition"] != "unreviewed", (
+            f"{row['path']}:{row['line']}: URL context lacks a disposition"
+        )
+        if row.get("acceptance_blocking") is not False:
+            blocking.append(f"{row['path']}:{row['line']}")
+    assert not blocking, (
+        f"{len(blocking)} essential public-reading contexts unresolved; "
+        f"first: {', '.join(blocking[:3])}"
+    )
+    if skill_root is not None:
+        for row in rows:
+            page = (skill_root / row["path"]).resolve()
+            assert page.is_relative_to(skill_root.resolve()) and page.is_file(), (
+                f"{row['path']}: stale URL audit path"
+            )
+            lines = page.read_text(encoding="utf-8").splitlines()
+            assert 0 < row["line"] <= len(lines) and row["url"] in lines[row["line"] - 1], (
+                f"{row['path']}:{row['line']}: stale URL audit context"
+            )
+
+
 def test_all_topics_reachable_inside_standalone_development_skill() -> None:
     topic_contract(SKILLS / "pal-found-dev", json.loads(REGISTER.read_text(encoding="utf-8")))
+
+
+def test_staged_development_skill_keeps_complete_local_topic_graph() -> None:
+    runner = runpy.run_path(str(ROOT / "tests/fixtures/offline/topic-acceptance/runner.py"))
+    staged = runner["stage_skill"](SKILLS / "pal-found-dev", ROOT.parent / ".ept/tmp")
+    topic_contract(staged, json.loads(REGISTER.read_text(encoding="utf-8")))
+    assert staged.parent.parent == (ROOT.parent / ".ept/tmp").resolve()
+    assert sorted(path.name for path in staged.parent.iterdir()) == ["pal-found-dev"]
 
 
 def test_every_skill_local_graph_stays_inside_owning_folder() -> None:
@@ -143,16 +193,44 @@ def test_every_skill_local_graph_stays_inside_owning_folder() -> None:
 def test_skill_identities_match_reviewed_baseline() -> None:
     baseline = json.loads(REGISTER.read_text(encoding="utf-8"))["baseline"]
     actual = sorted(path.parent.name for path in SKILLS.glob("*/SKILL.md"))
-    assert actual == baseline["skill_identities"]
+    skill_identities_match(actual, baseline)
 
 
 def test_cli_operation_inventory_matches_reviewed_baseline() -> None:
-    from test_offline_skill_gate import FROZEN_OPERATIONS
-
     baseline = json.loads(REGISTER.read_text(encoding="utf-8"))["baseline"]
-    actual = [
-        f"{skill}:{operation}"
-        for skill, operations in FROZEN_OPERATIONS.items()
-        for operation in operations
-    ]
+    actual = []
+    for page in SKILLS.glob("pal-found-*/**/*.md"):
+        if page.parent.name == "pal-found-dev" or "pal-found-dev" in page.parts:
+            continue
+        for resource, operation in re.findall(
+            r"^### ([a-z][a-z0-9_]+)\.([a-z][a-z0-9_]+)$",
+            page.read_text(encoding="utf-8"), re.M,
+        ):
+            actual.append(f"{page.relative_to(SKILLS).parts[0]}:{resource} {operation}")
     operation_inventory_matches(actual, baseline)
+
+
+def test_reader_case_plan_covers_all_topics_journeys_and_rest_namespaces() -> None:
+    fixtures = ROOT / "tests/fixtures/feature015_qa"
+    plan = json.loads((fixtures / "reader_coverage.json").read_text(encoding="utf-8"))
+    prompts = json.loads((fixtures / "reader_prompts.json").read_text(encoding="utf-8"))
+    topics = json.loads(REGISTER.read_text(encoding="utf-8"))["topics"]
+    journey_ids = {f"J{number}" for number in range(1, 15)}
+    topic_ids = {row["id"] for row in topics}
+    assert set(plan["journey_topic_map"]) == journey_ids
+    assert {row["id"] for row in prompts["cases"]} == journey_ids - {"J9", "J10"}
+    assert set().union(*(set(ids) for ids in plan["journey_topic_map"].values())) == topic_ids
+    assert len(plan["rubric_dimensions"]) == len(set(plan["rubric_dimensions"])) == 6
+    namespace_cases = json.loads(
+        (fixtures / plan["rest_namespace_cases"]).resolve().read_text(encoding="utf-8")
+    )["cases"]
+    assert len(namespace_cases) == len({case["id"] for case in namespace_cases}) == 20
+
+
+def test_all_public_url_contexts_have_nonblocking_local_disposition() -> None:
+    baseline = json.loads(REGISTER.read_text(encoding="utf-8"))["baseline"]
+    url_audit_complete(
+        json.loads(URL_AUDIT.read_text(encoding="utf-8")),
+        set(baseline["skill_identities"]),
+        SKILLS,
+    )

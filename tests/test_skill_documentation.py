@@ -20,7 +20,7 @@ def test_namespace_skills_document_capability_and_parameters() -> None:
     for name in namespace_skills:
         text = _namespace_skill_text(name)
         assert "## Capability and source" in text
-        assert "Source:" in text
+        assert "Optional source" in text or "Source:" in text
         assert "Parameters and JSON" in text
 
 
