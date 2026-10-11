@@ -11,7 +11,9 @@
     "namespace20-initial": "18 x 4/6 and 2 x 3/6; detached resource fixtures",
     "namespace20-composed": "19 x provisional 6/6 and Audit 3/6; selected composed calls only",
     "Audit-fresh-retest": "provisional 6/6 reader dimensions; eight of eight local MockTransport fixtures pass; BUG-SUB-026 remains open",
-    "J7-J8-addendum": "four independent prompts provisional 6/6 each; four guarded fixture runs pass; no live tenant claim"
+    "J7-J8-addendum": "four independent prompts provisional 6/6 each; four guarded fixture runs pass; no live tenant claim",
+    "J1-J2-formal": "nine approved CASE062 paths pass on frozen local fixture/procedure evidence; no live tenant claim",
+    "J7-J8-formal": "ten approved CASE069 paths pass on frozen local fixture/procedure evidence; no live tenant claim"
   },
   "files": [
     {
@@ -300,6 +302,16 @@
       "sha256": "26b640eebb83ab86b2fc2be51de14d8e8de6c42144ecfb8df054588ef14cd305"
     },
     {
+      "path": "j7_j8_addendum/formal_case_matrix.py",
+      "source_sha256": "4d9e4faf4e83d0947ab34eb3c98b449fc5f8d7cd521c97cabcba0e152df369b3",
+      "sha256": "4d9e4faf4e83d0947ab34eb3c98b449fc5f8d7cd521c97cabcba0e152df369b3"
+    },
+    {
+      "path": "j7_j8_addendum/formal_case_results.json",
+      "source_sha256": "73a16609fc342e5530bf25e1989ba2bebc099941a8eb6573566ccfd574d80e8e",
+      "sha256": "73a16609fc342e5530bf25e1989ba2bebc099941a8eb6573566ccfd574d80e8e"
+    },
+    {
       "path": "j7_j8_addendum/formal_run.py",
       "source_sha256": "f9e3fdfc65e6e83086063015e29f8a30b70a715170b24dc2d45d80df2e496fcb",
       "sha256": "f9e3fdfc65e6e83086063015e29f8a30b70a715170b24dc2d45d80df2e496fcb"
@@ -328,6 +340,16 @@
       "path": "j7_j8_addendum/snapshot_manifest.txt",
       "source_sha256": "5cbf2fc67b3bc706262884b40942caf7a345738edb965dfc0a979e3d785b56b8",
       "sha256": "5cbf2fc67b3bc706262884b40942caf7a345738edb965dfc0a979e3d785b56b8"
+    },
+    {
+      "path": "pipeline_case_execution/formal_run.py",
+      "source_sha256": "1c40e289191a1974e2ba6ff470770484f5e1fa4739435b84a9e0aa62ad28378b",
+      "sha256": "1c40e289191a1974e2ba6ff470770484f5e1fa4739435b84a9e0aa62ad28378b"
+    },
+    {
+      "path": "pipeline_case_execution/formal_run_output.json",
+      "source_sha256": "ca2e63ae5d3aa888e9aaa9c475beb0d3ef33631aa055e0f57be2aa27d3edefec",
+      "sha256": "ca2e63ae5d3aa888e9aaa9c475beb0d3ef33631aa055e0f57be2aa27d3edefec"
     },
     {
       "path": "reader-j9-j10-7767009254d84ed9bdebb27aa85752b3/context_check.py",
