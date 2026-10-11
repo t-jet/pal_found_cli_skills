@@ -1,0 +1,23 @@
+{
+  "sdk_distribution": "foundry-platform-sdk",
+  "sdk_version": "1.101.0",
+  "snapshot_path": ".ept/tmp/feature015_audit_reader_retest/pal-found-dev",
+  "snapshot_files": 4379,
+  "snapshot_sha256": "09c2d044c6caf278f297a01d0c3d62276f1c4c0f21a8790a4ac8b041630c98e7",
+  "selected_skill_files": {
+    "SKILL.md": "2495f974d0c9ba4f9811530fe5f2aa031cfe5912230f6b8624601ef692fbc0fe",
+    "references/rest/v2/audit/LogFile.md": "a0325f077303cdc488f33a137faf09f7da996ddd929d4aa6a3bd28439118496c",
+    "references/rest/contracts/v2/audit/LogFile/list.md": "d0f026918960a72905c2584ae25ac7aa388b95fef6ea29e568a0ceaa72a3b2e5",
+    "examples/rest/073/v2/audit/LogFile/list_pagination.py": "eecc3b8a217108987d1b9353b99879f622793a479168be9dce9b2213c47ffcc0"
+  },
+  "reader_sha256": "a94b44d418bf92fa3df9e79a8730605a2ee96d56e317e2b2c32d333e4ea6c476",
+  "answer_sha256": "4138ada27f6ad39105f01e9fcefe59a4da8270853fa63890983109cc49156993",
+  "output_sha256": "d9651aa8c8cb6252e6f88eabde12dbd2cac0002ccb809a7839db8543f08c1bde",
+  "historical_failed_artifacts": [
+    {
+      "path": "pal_found_cli_skills/tests/fixtures/feature015_qa/evidence/feature015_namespace_reader/composed_reports/v2_audit.md",
+      "sha256": "67b8fec14c6ec1ee2a7ceb8c54fd058f4776b3b0651814d89526efa125cb90ce"
+    }
+  ],
+  "boundary": "Cooperative process DNS and socket denial; synthetic MockTransport; no live tenant call."
+}

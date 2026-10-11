@@ -8,6 +8,7 @@ from pathlib import Path
 import pytest
 
 from test_offline_rest_acceptance import (
+    assert_reader_field_meaning_matches,
     assert_signature_contract,
     no_public_network_probe,
     reader_symbol_definitions,
@@ -17,6 +18,40 @@ from test_offline_rest_acceptance import (
     verify_domain_acceptance,
     verify_reader_definitions,
 )
+
+
+def test_visible_markdown_link_preserves_field_meaning():
+    source = "An RID identifying an Agent created in [AIP Chatbot Studio](https://palantir.com/docs/foundry/chatbot-studio/overview/)."
+    reader = "An RID identifying an Agent created in AIP Chatbot Studio."
+    assert_reader_field_meaning_matches(source, reader, "AgentNotFoundParameters", "agentRid")
+    with pytest.raises(AssertionError, match="field meaning omitted or changed"):
+        assert_reader_field_meaning_matches(
+            source, "An RID identifying an Agent deleted in AIP Chatbot Studio.",
+            "AgentNotFoundParameters", "agentRid",
+        )
+
+
+def test_local_note_cannot_change_source_meaning_or_drop_example_url():
+    symbol = "foundry_sdk.v2.connectivity.models.SmbConnectionConfiguration"
+    source = "Must be a valid SMB share name. https://learn.microsoft.com/en-us/openspecs/example"
+    reader = "Must be a valid SMB share name. Confirm the share name on the SMB server."
+    assert_reader_field_meaning_matches(source, reader, symbol, "share")
+    with pytest.raises(AssertionError, match="field meaning omitted or changed"):
+        assert_reader_field_meaning_matches(
+            source, "Any string is a valid SMB share name. Confirm the share name on the SMB server.",
+            symbol, "share",
+        )
+    example = "An example URL is https://example.snowflakecomputing.com."
+    with pytest.raises(AssertionError, match="field meaning omitted or changed"):
+        assert_reader_field_meaning_matches(example, "An example URL is", "example", "account_identifier")
+
+
+def test_exact_source_fence_remains_required_after_prose_localization():
+    source = "class Error:\n    field: str\n    \"\"\"See [local guide](https://example.invalid).\"\"\""
+    changed = "class Error:\n    field: str\n    \"\"\"See local guide.\"\"\""
+    oracle = {"symbols": {"foundry_sdk.v2.filesystem.errors.Error": {"definition": source}}}
+    with pytest.raises(AssertionError, match="mismatch"):
+        verify_reader_definitions(oracle, {"foundry_sdk.v2.filesystem.errors.Error": ast.dump(ast.parse(changed), include_attributes=False)})
 
 
 def test_equal_count_symbol_substitution_is_rejected():

@@ -1,0 +1,87 @@
+{
+  "skill_root": "<WORKSPACE>\\.ept\\tmp\\feature015-j1j10-gate\\pal-found-dev",
+  "skill_file_count": 4365,
+  "manifest_sha256": "a9a5c8ab7b90e44ee955bf2fcecaceabaabea87b7b20b39a8192d0567863675f",
+  "sdk_version": "1.101.0",
+  "sdk_distribution_version": "1.101.0",
+  "network_boundary": "Python socket/DNS and Node DNS/TCP/IP/fetch/UDP/subprocess/worker patched; no loopback exception",
+  "results": [
+    {
+      "label": "python_j1_j6_j9_j10",
+      "command": [
+        "<LOCAL>/python.exe",
+        "-B",
+        "<WORKSPACE>\\.ept\\tmp\\feature015-j1j10-gate\\run_python_gate.py"
+      ],
+      "cwd": "<WORKSPACE>\\.ept\\tmp\\feature015-j1j10-gate",
+      "exit_code": 0,
+      "stdout": "dns: PUBLIC_NETWORK_DENIED\ndirect_ip: PUBLIC_NETWORK_DENIED\nudp: PUBLIC_NETWORK_DENIED\nsubprocess: PUBLIC_NETWORK_DENIED\nos_system: PUBLIC_NETWORK_DENIED\nmultiprocessing: PUBLIC_NETWORK_DENIED\nJ1_J2: PASS business fixtures passed: joined row, empty input and four rejected inputs\nincremental fixtures passed: append/full equivalence, renamed reference, recompute and replay rejection\nJ3_SQL: PASS Synthetic SQL arithmetic fixture passed; Spark/Foundry execution not tested.\nJ3_WORKSPACE: PASS Synthetic workspace computation passed; no Foundry publication/build tested.\nJ4_MODEL: PASS mapping fixtures passed: stable keys/link, duplicate/type rejection, optional interface and incompatible mapping\nJ5_ACTION: PASS Action decision fixtures passed: accepted/rejected inputs, denied identity and uncertain/partial effects\nJ6_COMPUTE: PASS <LOCAL_PATH>:113: RequestsDependencyWarning: urllib3 (2.3.0) or chardet (7.4.0.post2)/charset_normalizer (3.4.1) doesn't match a supported version!\n  warnings.warn(\nSynthetic compute fixture passed; no Foundry deployment tested.\nJ9_J10_CONTEXT: PASS Synthetic contexts: J9 and J10 expected mismatches confirmed",
+      "stderr": ""
+    },
+    {
+      "label": "node_denial_probe",
+      "command": [
+        "node",
+        "--require",
+        "<WORKSPACE>\\.ept\\tmp\\feature015-j1j10-gate\\deny_public.cjs",
+        "<WORKSPACE>\\.ept\\tmp\\feature015-j1j10-gate\\probe_node.cjs"
+      ],
+      "cwd": "<WORKSPACE>\\.ept\\tmp\\feature015-j1j10-gate",
+      "exit_code": 0,
+      "stdout": "dns: PUBLIC_NETWORK_DENIED\ndirectIp: PUBLIC_NETWORK_DENIED\nfetch: PUBLIC_NETWORK_DENIED\ndatagram: PUBLIC_NETWORK_DENIED\nsubprocess: PUBLIC_NETWORK_DENIED\nworker: PUBLIC_NETWORK_DENIED",
+      "stderr": ""
+    },
+    {
+      "label": "examples/ontology/query_fixture.mjs",
+      "command": [
+        "node",
+        "--require",
+        "<WORKSPACE>\\.ept\\tmp\\feature015-j1j10-gate\\deny_public.cjs",
+        "examples/ontology/query_fixture.mjs"
+      ],
+      "cwd": "<WORKSPACE>\\.ept\\tmp\\feature015-j1j10-gate\\pal-found-dev",
+      "exit_code": 0,
+      "stdout": "Query decision fixtures passed: exact filtered IDs/group counts, null exclusion and empty selection\nNo OSDK query, index, pagination or authorization executed",
+      "stderr": ""
+    },
+    {
+      "label": "examples/applications/fixture_run.mjs",
+      "command": [
+        "node",
+        "--require",
+        "<WORKSPACE>\\.ept\\tmp\\feature015-j1j10-gate\\deny_public.cjs",
+        "examples/applications/fixture_run.mjs"
+      ],
+      "cwd": "<WORKSPACE>\\.ept\\tmp\\feature015-j1j10-gate\\pal-found-dev",
+      "exit_code": 0,
+      "stdout": "UI fixtures passed: loading, denied, empty, retained-data refresh and pending submission\nNo React hook, OAuth grant, Action or website deployment executed",
+      "stderr": ""
+    },
+    {
+      "label": "examples/applications/timeout_unit_fixture.mjs",
+      "command": [
+        "node",
+        "--require",
+        "<WORKSPACE>\\.ept\\tmp\\feature015-j1j10-gate\\deny_public.cjs",
+        "examples/applications/timeout_unit_fixture.mjs"
+      ],
+      "cwd": "<WORKSPACE>\\.ept\\tmp\\feature015-j1j10-gate\\pal-found-dev",
+      "exit_code": 0,
+      "stdout": "PASS network-free timeout, caller abort, transport error, timer cleanup and recovery",
+      "stderr": ""
+    },
+    {
+      "label": "examples/widgets/fixture_run.mjs",
+      "command": [
+        "node",
+        "--require",
+        "<WORKSPACE>\\.ept\\tmp\\feature015-j1j10-gate\\deny_public.cjs",
+        "examples/widgets/fixture_run.mjs"
+      ],
+      "cwd": "<WORKSPACE>\\.ept\\tmp\\feature015-j1j10-gate\\pal-found-dev",
+      "exit_code": 0,
+      "stdout": "PASS: synthetic bidirectional counter, rejected updates, explicit host release selection",
+      "stderr": ""
+    }
+  ]
+}

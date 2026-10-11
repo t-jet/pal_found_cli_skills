@@ -15,6 +15,7 @@ import runpy
 import socket
 import subprocess
 import urllib.request
+import urllib.parse
 from functools import lru_cache
 from pathlib import Path
 from types import SimpleNamespace
@@ -156,9 +157,160 @@ def check_stream_bytes(namespace, content):
         assert json.loads(content) == expected
 
 
+def schema_call_args(namespace):
+    return {
+        "dataset_rid": namespace["EXPECTED_PATH"].split("/")[4],
+        "branch_id": namespace["EXPECTED_QUERY"]["branchId"],
+        "request_timeout": 30,
+    }
+
+
+def assert_public_schema_signature(client):
+    # Dataset.get_schema is public through FoundryClient.datasets.Dataset.
+    signature = inspect.signature(client.datasets.Dataset.get_schema)
+    assert signature.parameters["dataset_rid"].default is inspect.Parameter.empty
+    assert {"branch_id", "preview", "request_timeout"} <= signature.parameters.keys()
+
+
+def schema_preview_transport(namespace, responses):
+    """Check method-level preview=true without changing default omission fixtures."""
+
+    def handler(request):
+        assert request.method == namespace["EXPECTED_METHOD"]
+        assert urllib.parse.unquote(request.url.path) == namespace["EXPECTED_PATH"]
+        assert request.headers["Authorization"] == "Bearer offline-fixture-token"
+        for key, value in namespace["EXPECTED_HEADERS"].items():
+            if value is None:
+                assert key not in request.headers
+            else:
+                assert request.headers[key] == str(value)
+        expected_query = {key: value for key, value in namespace["EXPECTED_QUERY"].items()
+                          if value is not None}
+        expected_query["preview"] = "true"
+        assert sorted(request.url.params.multi_items()) == sorted(
+            httpx.QueryParams(expected_query).multi_items()
+        )
+        assert request.content == b""
+        assert len(responses) < 4, "Preview fixture exceeded finite request budget"
+        response = httpx.Response(200, json=namespace["SUCCESS"])
+        responses.append(response)
+        return response
+
+    return handler
+
+
+def verify_composed_schema_sync(namespace):
+    responses = []
+    with namespace["mock_composed_client"](success_transport(namespace, responses)) as client:
+        assert_public_schema_signature(client)
+        raw = namespace["invoke"](client)
+        try:
+            assert namespace["normalized"](raw.decode()) == namespace["SUCCESS"]
+        finally:
+            raw.close()
+        with client.datasets.Dataset.with_streaming_response.get_schema(
+            **schema_call_args(namespace)
+        ) as stream:
+            chunks = []
+            for count, chunk in enumerate(stream.iter_bytes(), 1):
+                assert count <= 100 and sum(map(len, chunks)) + len(chunk) <= 100_000
+                chunks.append(chunk)
+            check_stream_bytes(namespace, b"".join(chunks))
+    assert len(responses) == 2
+    assert all(response.is_closed for response in responses)
+    preview_responses = []
+    with namespace["mock_composed_client"](
+        schema_preview_transport(namespace, preview_responses)
+    ) as client:
+        assert namespace["normalized"](client.datasets.Dataset.get_schema(
+            **schema_call_args(namespace), preview=True
+        )) == namespace["SUCCESS"]
+        with client.datasets.Dataset.with_streaming_response.get_schema(
+            **schema_call_args(namespace), preview=True
+        ) as stream:
+            check_stream_bytes(namespace, b"".join(stream.iter_bytes()))
+    assert len(preview_responses) == 2
+    assert all(response.is_closed for response in preview_responses)
+
+
+def verify_composed_schema_async(namespace, local_event_loop):
+    from foundry_sdk import Config, UserTokenAuth
+    from foundry_sdk.v1 import AsyncFoundryClient
+    from unittest.mock import patch
+
+    responses = []
+
+    async def execute():
+        async with httpx.AsyncClient(
+            transport=httpx.MockTransport(success_transport(namespace, responses)), timeout=30
+        ) as transport:
+            with patch("foundry_sdk._core.api_client.AsyncHttpClient", return_value=transport):
+                client = AsyncFoundryClient(
+                    auth=UserTokenAuth("offline-fixture-token"),
+                    hostname="https://offline.example.invalid",
+                    config=Config(timeout=30, max_retries=1,
+                                  propagate_qos="PROPAGATE_429_AND_503_TO_CALLER"),
+                    preview=True,
+                )
+                assert_public_schema_signature(client)
+                decoded = await client.datasets.Dataset.get_schema(**schema_call_args(namespace))
+                assert namespace["normalized"](decoded) == namespace["SUCCESS"]
+                raw = await namespace["invoke"](client)
+                try:
+                    assert namespace["normalized"](raw.decode()) == namespace["SUCCESS"]
+                finally:
+                    await raw.aclose()
+                async with client.datasets.Dataset.with_streaming_response.get_schema(
+                    **schema_call_args(namespace)
+                ) as stream:
+                    chunks = []
+                    async for chunk in stream.aiter_bytes():
+                        assert len(chunks) < 100 and sum(map(len, chunks)) + len(chunk) <= 100_000
+                        chunks.append(chunk)
+                    check_stream_bytes(namespace, b"".join(chunks))
+        assert len(responses) == 3
+        assert all(response.is_closed for response in responses)
+
+    local_event_loop.run_until_complete(execute())
+
+    preview_responses = []
+
+    async def execute_preview():
+        async with httpx.AsyncClient(
+            transport=httpx.MockTransport(schema_preview_transport(namespace, preview_responses)),
+            timeout=30,
+        ) as transport:
+            with patch("foundry_sdk._core.api_client.AsyncHttpClient", return_value=transport):
+                client = AsyncFoundryClient(
+                    auth=UserTokenAuth("offline-fixture-token"),
+                    hostname="https://offline.example.invalid",
+                    config=Config(timeout=30, max_retries=1,
+                                  propagate_qos="PROPAGATE_429_AND_503_TO_CALLER"),
+                    preview=True,
+                )
+                assert namespace["normalized"](await client.datasets.Dataset.get_schema(
+                    **schema_call_args(namespace), preview=True
+                )) == namespace["SUCCESS"]
+                async with client.datasets.Dataset.with_streaming_response.get_schema(
+                    **schema_call_args(namespace), preview=True
+                ) as stream:
+                    chunks = []
+                    async for chunk in stream.aiter_bytes():
+                        assert len(chunks) < 100 and sum(map(len, chunks)) + len(chunk) <= 100_000
+                        chunks.append(chunk)
+                    check_stream_bytes(namespace, b"".join(chunks))
+        assert len(preview_responses) == 2
+        assert all(response.is_closed for response in preview_responses)
+
+    local_event_loop.run_until_complete(execute_preview())
+
+
 @pytest.mark.parametrize("row", ROWS, ids=lambda row: row["id"])
 def test_sync_ordinary_and_streaming_modes_close_with_finite_work(row, deny_external_io):
     namespace = runpy.run_path(str(SKILL / row["example"]))
+    if row["id"] == "v1.datasets.Dataset.get_schema":
+        verify_composed_schema_sync(namespace)
+        return
     resource = row["id"].split(".")[2]
     method = row["id"].split(".")[3]
     client_type = namespace[resource + "Client"]
@@ -189,6 +341,9 @@ def test_sync_ordinary_and_streaming_modes_close_with_finite_work(row, deny_exte
 @pytest.mark.parametrize("row", ROWS, ids=lambda row: row["id"])
 def test_actual_async_iterator_raw_and_stream_modes_close_offline(row, deny_external_io, local_event_loop):
     namespace = runpy.run_path(str(SKILL / row["example"]))
+    if row["id"] == "v1.datasets.Dataset.get_schema":
+        verify_composed_schema_async(namespace, local_event_loop)
+        return
     resource = row["id"].split(".")[2]
     method = row["id"].split(".")[3]
     module = importlib.import_module(namespace[resource + "Client"].__module__)

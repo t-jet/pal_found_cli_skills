@@ -1,0 +1,78 @@
+{
+  "purpose": "Blind offline reader tasks. Provide only the isolated pal-found-dev skill, prepared versions, and these synthetic records to the reader. Keep source oracles and expected answers with QA.",
+  "common_instruction": "Use local skill files to choose the capability, state prerequisites and identity/version boundaries, give ordered code or configuration steps, produce an adaptable example, define observable success checks, and explain bounded failure recovery. Cite exact local headings. Public documentation is unavailable. These are fixture decisions, not live tenant actions.",
+  "cases": [
+    {
+      "id": "J1",
+      "task": "Deliver a Python pipeline that joins orders to customers, tests it, previews a branch, and promotes a reviewed revision to production.",
+      "prepared": "Code Repository branch feature-orders; orders and customers datasets with small CSV fixtures; required check ci/foundry-publish; one failing data expectation and one repaired fixture; recorded project owner and build states.",
+      "adverse": "Preview succeeds, but the expectation or required check fails. Explain whether release and production output can be claimed."
+    },
+    {
+      "id": "J2",
+      "task": "Adapt an orders transform for incremental changes while preserving a correct fallback and branch result.",
+      "prepared": "Snapshot input has keys o1,o2; next batch updates o2 and adds o3; a later input changes one column type. A branch build has an earlier main transaction as fallback.",
+      "adverse": "An append-only strategy would duplicate o2; a schema change prevents the planned incremental path. Choose a safe next action."
+    },
+    {
+      "id": "J3",
+      "task": "Produce customer totals once as a repository SQL transform and once through an interactive workspace notebook, then explain publication evidence for each.",
+      "prepared": "Orders (c1,10.00),(c1,7.50),(c2,NULL); customers c1 West,c2 East; prepared SQL repository and Jupyter workspace with registered input/output aliases.",
+      "adverse": "A duplicate customer row would multiply totals; workspace output is visible only in its sandbox and publishing CI is pending."
+    },
+    {
+      "id": "J4",
+      "task": "Model Order and Asset records in an Ontology, expose a compatible interface, and query a selected object set.",
+      "prepared": "Order has stable orderId and optional assetId; Asset has stable assetId; candidate interface requires a nonnullable displayName; one input record lacks it.",
+      "adverse": "One object is inaccessible to the acting identity and another violates the proposed interface mapping."
+    },
+    {
+      "id": "J5",
+      "task": "Author a guarded status-change Action and a server Function that calculates a score for an Order.",
+      "prepared": "Action input orderId/status, test Order with old status OPEN, function test input with score fields, approved editing identity, and published query contract.",
+      "adverse": "Action validation rejects one status and a write times out after submission. Explain side-effect reconciliation and authorization."
+    },
+    {
+      "id": "J6",
+      "task": "Build a Compute Module for a read/score operation and explain its release, execution mode, Source use, and provenance.",
+      "prepared": "Container code, configuration manifest, resource alias map, limited execution identity, synthetic score input, and a Source with separate network and permission settings.",
+      "adverse": "Source connection is denied; one instance fails its probe. Show bounded diagnosis without claiming a live module was deployed."
+    },
+    {
+      "id": "J7",
+      "task": "Create a React application that loads Todo objects and invokes a permitted completion Action with OSDK 2.x.",
+      "prepared": "Generated Todo/Action bindings, exact generated package version, public OAuth client, callback/origin, two users with different grants, and local UI fixtures for loading/error states.",
+      "adverse": "Login succeeds but the Action is denied for one user; a request times out after submission. Explain access and uncertain-effect handling."
+    },
+    {
+      "id": "J8",
+      "task": "Create a first custom widget, add a second widget, exchange typed parameters/events with Workshop, and deliver a later version.",
+      "prepared": "Widget Set project, two widget entry points, parameter/event schema, local playground fixture, Workshop host version before release, and authorized publishing route.",
+      "adverse": "The first widget has no release, an event payload uses the wrong type, and the host remains pinned to an earlier version."
+    },
+    {
+      "id": "J11",
+      "task": "Write an SDK-backed reader for folder children and dataset metadata, including a binary result path and named errors.",
+      "prepared": "SDK 1.101.0, synthetic HTTP transport, folder/dataset identifiers, one empty page with a continuation token, then a resource, plus 401/403/404/429/503 responses.",
+      "adverse": "A repeated continuation token and a partially consumed binary stream must stop within explicit budgets."
+    },
+    {
+      "id": "J12",
+      "task": "Write a dataset file transaction workflow and inspect a pending build until a terminal result or a finite budget is exhausted.",
+      "prepared": "SDK 1.101.0, synthetic dataset/file IDs, recorded transaction create/upload/commit/get/abort states and build history, with no real tenant access.",
+      "adverse": "Upload or commit times out after submission; the status budget ends while the build is pending. Explain reconciliation without blind replay."
+    },
+    {
+      "id": "J13",
+      "task": "Write a governance application that discovers a project, traverses folders, inspects access context, and makes one authorized folder or resource modification.",
+      "prepared": "SDK 1.101.0, synthetic project/folder tree, resource and principal IDs, one empty intermediate child page, known permission boundary, and fake HTTP responses.",
+      "adverse": "A child disappears between reads; modification is denied for one identity and becomes uncertain after a timeout for another."
+    },
+    {
+      "id": "J14",
+      "task": "Write an application using one available AIP Agent capability, with version selection, session exchange, result handling, and cleanup.",
+      "prepared": "SDK 1.101.0, synthetic accessible Agent/version, preview enablement flag, application variables, fake session responses, and bounded stream data.",
+      "adverse": "Preview is unavailable for one identity, another run is canceled midstream, and a third reaches its iteration or byte budget."
+    }
+  ]
+}

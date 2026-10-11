@@ -1,0 +1,117 @@
+{
+  "sdk": "1.101.0",
+  "source": "standalone pal-found-dev skill",
+  "live_tenant_tested": false,
+  "cases": [
+    {
+      "case": "public_network_probe",
+      "status": "PASS",
+      "result": "public network denied by Audit reader fixture"
+    },
+    {
+      "case": "three_pages_with_empty_middle",
+      "status": "PASS",
+      "requests": [
+        null,
+        "A",
+        "B"
+      ],
+      "result": {
+        "ids": [
+          "log-1",
+          "log-2"
+        ],
+        "complete": true,
+        "reason": null,
+        "cursor": null,
+        "pages": 3
+      }
+    },
+    {
+      "case": "page_budget_partial",
+      "status": "PASS",
+      "requests": [
+        null,
+        "A"
+      ],
+      "result": {
+        "ids": [
+          "log-1"
+        ],
+        "complete": false,
+        "reason": "page_budget",
+        "cursor": "B",
+        "pages": 2
+      }
+    },
+    {
+      "case": "item_budget_partial",
+      "status": "PASS",
+      "requests": [
+        null
+      ],
+      "result": {
+        "ids": [
+          "log-1"
+        ],
+        "complete": false,
+        "reason": "item_budget",
+        "cursor": null,
+        "pages": 1
+      }
+    },
+    {
+      "case": "repeated_token_partial",
+      "status": "PASS",
+      "requests": [
+        null,
+        "A"
+      ],
+      "result": {
+        "ids": [
+          "log-1"
+        ],
+        "complete": false,
+        "reason": "repeated_token",
+        "cursor": "A",
+        "pages": 2
+      }
+    },
+    {
+      "case": "time_budget_before_request",
+      "status": "PASS",
+      "requests": [],
+      "result": {
+        "ids": [],
+        "complete": false,
+        "reason": "time_budget",
+        "cursor": null,
+        "pages": 0
+      }
+    },
+    {
+      "case": "MissingStartDate",
+      "status": "PASS",
+      "requests": [
+        {}
+      ],
+      "result": {
+        "name": "MissingStartDate",
+        "type": "MissingStartDate"
+      }
+    },
+    {
+      "case": "ListLogFilesPermissionDenied",
+      "status": "PASS",
+      "requests": [
+        {
+          "startDate": "2026-10-01"
+        }
+      ],
+      "result": {
+        "name": "ListLogFilesPermissionDenied",
+        "type": "ListLogFilesPermissionDenied"
+      }
+    }
+  ]
+}

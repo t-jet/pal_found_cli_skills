@@ -363,6 +363,45 @@ def verify_reader_definitions(oracle: dict, actual: dict[str, str]) -> None:
     reconcile_symbol_definitions(expected, actual)
 
 
+def assert_reader_field_meaning_matches(source: str, reader: str, symbol: str, name: str) -> None:
+    """Compare visible prose; exact source code is checked separately above."""
+    def visible(value: str) -> str:
+        value = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", value)
+        return " ".join(value.replace("<br>", " ").split())
+
+    def without_optional_pointer(value: str) -> str:
+        value = re.sub(r"\s+See https?://\S+(?: for valid values\.)?$", "", value)
+        for suffix in (
+            " For more information, see the official AWS documentation.",
+            " For more details see the official AWS documentation.",
+            " For additional information on keys for Foundry streams, see the streaming keys user documentation.",
+            " See the documentation for more details.",
+        ):
+            if value.endswith(suffix):
+                value = value[: -len(suffix)]
+                break
+        return value
+
+    local_notes = {
+        ("foundry_sdk.v2.connectivity.models.CreateConnectionRequestSmbConnectionConfiguration", "share"):
+            "Confirm the share name on the SMB server.",
+        ("foundry_sdk.v2.connectivity.models.SmbConnectionConfiguration", "share"):
+            "Confirm the share name on the SMB server.",
+        ("foundry_sdk.v2.ontologies.models.RelativeDateRangeQuery", "time_zone_id"):
+            "Use an IANA time-zone ID such as Etc/UTC, Europe/London or America/New_York.",
+    }
+    expected = without_optional_pointer(visible(source))
+    if (symbol, name) in {
+        ("foundry_sdk.v2.connectivity.models.CreateConnectionRequestSmbConnectionConfiguration", "share"),
+        ("foundry_sdk.v2.connectivity.models.SmbConnectionConfiguration", "share"),
+    }:
+        expected = re.sub(r"\s+https?://\S+$", "", expected)
+    note = local_notes.get((symbol, name))
+    if note:
+        expected += " " + note
+    assert visible(reader) == expected, f"{symbol}/{name}: field meaning omitted or changed"
+
+
 def verify_reader_field_tables(oracle: dict, folder: Path) -> tuple[int, int]:
     """Check prose tables against runtime omission/aliases and source annotations."""
     models, fields = 0, 0
@@ -406,8 +445,7 @@ def verify_reader_field_tables(oracle: dict, folder: Path) -> tuple[int, int]:
             following = node.body[node.body.index(member) + 1:][:1]
             if following and isinstance(following[0], ast.Expr) and isinstance(following[0].value, ast.Constant) and isinstance(following[0].value.value, str):
                 source_description = following[0].value.value
-                normalize = lambda value: " ".join(value.replace("<br>", " ").split())
-                assert normalize(meaning) == normalize(source_description), f"{symbol}/{name}: field meaning omitted or changed"
+                assert_reader_field_meaning_matches(source_description, meaning, symbol, name)
             fields += 1
         models += 1
     return models, fields

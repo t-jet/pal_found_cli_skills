@@ -1,0 +1,40 @@
+{
+  "ticket": "BUG-SUB-026",
+  "task": "Discover a fixed audit date window through v2.audit.LogFile.list and report whether retrieval is complete.",
+  "candidate": "Isolated pal-found-dev snapshot; see manifest.json for 4379-file hash and SDK version.",
+  "prior_result": "The retained v2_audit.md reader artifact scored 3/6 before the guide and fixture correction.",
+  "reader_result": "Provisional 6/6; independent QA scoring required.",
+  "rubric": [
+    {
+      "dimension": "capability and lifecycle",
+      "result": "PASS",
+      "evidence": "LogFile.list discovers metadata across a fixed inclusive date window; completion requires an absent next page token. LogFile.content is a separate binary read."
+    },
+    {
+      "dimension": "prerequisites, version, and identity",
+      "result": "PASS",
+      "evidence": "SDK 1.101.0, a configured FoundryClient, organization RID, authorized audit identity, and initial start_date are required. The fixture uses synthetic identity and cannot validate tenant grants."
+    },
+    {
+      "dimension": "exact steps and configuration",
+      "result": "PASS",
+      "evidence": "reader.py calls client.audit.Organization.LogFile.list on the composed route, reads page.data and page.next_page_token, carries continuation, sets per-request timeout, and stops at finite page, item, or elapsed-time budgets."
+    },
+    {
+      "dimension": "complete example inputs and results",
+      "result": "PASS",
+      "evidence": "reader.py asserts the GET route and startDate=2026-10-01, endDate=2026-10-07, pageSize=100. output.json records cursors null/A/B and decoded log-1/log-2 IDs across a populated, empty, and populated page."
+    },
+    {
+      "dimension": "success checks",
+      "result": "PASS",
+      "evidence": "The three-page fixture returns complete=true only after the final response omits nextPageToken. It makes exactly three mock transport requests; public DNS probe is denied."
+    },
+    {
+      "dimension": "failure and recovery",
+      "result": "PASS",
+      "evidence": "output.json records partial results for page, item, time, and repeated-token limits, plus typed MissingStartDate and ListLogFilesPermissionDenied errors. A live operator must preserve partial results, investigate repeated cursors, and verify tenant permission before retrying."
+    }
+  ],
+  "scope_limit": "Eight synthetic MockTransport cases with cooperative DNS and socket denial. No live Foundry enrollment, tenant authorization, or end-to-end production audit was exercised."
+}
