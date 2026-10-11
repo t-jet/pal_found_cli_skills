@@ -33,6 +33,7 @@ more requests than the application budget permits.
 ```python
 from datetime import date
 from time import monotonic
+from foundry_sdk import TimeoutError as FoundryTimeoutError
 
 start_date = date(2026, 10, 1)  # replace with the approved audit window
 end_date = date(2026, 10, 7)
@@ -49,11 +50,15 @@ for _ in range(5):
     if timeout_seconds <= 0:
         result = {"complete": False, "reason": "time_budget", "cursor": cursor}
         break
-    page = client.audit.Organization.LogFile.list(
-        organization_rid, start_date=start_date, end_date=end_date,
-        page_size=100, page_token=cursor,
-        request_timeout=timeout_seconds,
-    )
+    try:
+        page = client.audit.Organization.LogFile.list(
+            organization_rid, start_date=start_date, end_date=end_date,
+            page_size=100, page_token=cursor,
+            request_timeout=timeout_seconds,
+        )
+    except FoundryTimeoutError:
+        result = {"complete": False, "reason": "lost_response", "cursor": cursor}
+        break
     batch = page.data  # read only the fetched page; do not iterate the iterator
     if len(files) + len(batch) > 500:
         files.extend(batch[:500 - len(files)])
@@ -83,9 +88,21 @@ second remains, stop before another request. Check the deadline again after
 each response: a slow or noncooperative transport can exceed the requested
 timeout, so retain the returned records as a partial result. These checks
 report an overrun; they cannot forcibly stop a blocking request.
+The SDK converts HTTP transport connect, read and write timeouts to its
+public `foundry_sdk.ConnectTimeout`, `ReadTimeout` and `WriteTimeout` classes.
+They share `foundry_sdk.TimeoutError`, which the example catches around
+`list(...)`; the first page is fetched during that call. A timeout leaves the
+requested page unconfirmed. Preserve `files`, the fixed organization and date
+window, and the requested `cursor`. Do not advance the cursor or claim the
+missing page was empty. After checking connectivity and authorization, a
+separate bounded run may read the same filters and cursor again; deduplicate
+IDs against the retained prefix. Do not automatically replay requests in an
+unbounded loop. This is a read operation, but repeated reads can overlap as
+new files appear; a fixed end date keeps the discovery window finite.
 The [multi-page offline fixture](../../../../examples/rest/073/v2/audit/LogFile/list_pagination.py)
 checks a populated page, an empty page with continuation, repeated tokens,
-page, item and time budgets, and the named `MissingStartDate` error without
+page, item and time budgets, the named `MissingStartDate` error, and a lost
+response converted to the SDK timeout class without
 connecting to a tenant. Each incomplete result retains a reason and cursor.
 
 Read [exact SDK arguments, HTTP request, result and errors](../../contracts/v2/audit/LogFile/list.md) and run the [offline SDK fixture](../../../../examples/rest/073/v2/audit/LogFile/list.py) from the skill root. The fixture checks serialization, synthetic response decoding and source-declared errors without contacting an enrollment.

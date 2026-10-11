@@ -7,7 +7,7 @@ from time import monotonic
 from unittest.mock import patch
 
 import httpx
-from foundry_sdk import Config, PalantirRPCException, UserTokenAuth
+from foundry_sdk import Config, PalantirRPCException, TimeoutError as FoundryTimeoutError, UserTokenAuth
 from foundry_sdk.v2 import FoundryClient
 
 
@@ -26,10 +26,14 @@ def enumerate_files(client, max_pages, max_items=500, seconds=30, clock=monotoni
         timeout_seconds = min(5, int(remaining))
         if timeout_seconds <= 0:
             return [item.id for item in files], False, "time_budget", cursor
-        page = client.audit.Organization.LogFile.list(
-            ORG, start_date=START, end_date=END, page_size=100,
-            page_token=cursor, request_timeout=timeout_seconds,
-        )
+        try:
+            page = client.audit.Organization.LogFile.list(
+                ORG, start_date=START, end_date=END, page_size=100,
+                page_token=cursor, request_timeout=timeout_seconds,
+            )
+        except FoundryTimeoutError:
+            # The requested page is unconfirmed. Do not advance its cursor.
+            return [item.id for item in files], False, "lost_response", cursor
         if len(files) + len(page.data) > max_items:
             files.extend(page.data[:max_items - len(files)])
             return [item.id for item in files], False, "item_budget", cursor
@@ -105,6 +109,38 @@ def missing_start_date():
     assert len(calls) == 1
 
 
+def lost_response():
+    """Check SDK timeout conversion and preserve the unconfirmed read cursor."""
+    for completed_first_page, expected in (
+        (False, ([], False, "lost_response", None)),
+        (True, (["log-1"], False, "lost_response", "A")),
+    ):
+        calls = []
+
+        def handler(request):
+            calls.append(request)
+            assert request.url.path == f"/api/v2/audit/organizations/{ORG}/logFiles"
+            assert request.url.params["startDate"] == START.isoformat()
+            if completed_first_page and len(calls) == 1:
+                assert request.url.params.get("pageToken") is None
+                return httpx.Response(200, json={
+                    "data": [{"id": "log-1"}], "nextPageToken": "A",
+                })
+            assert request.url.params.get("pageToken") == ("A" if completed_first_page else None)
+            raise httpx.ReadTimeout("synthetic lost audit response")
+
+        with httpx.Client(transport=httpx.MockTransport(handler), timeout=10) as transport:
+            with patch("foundry_sdk._core.api_client.HttpClient", return_value=transport):
+                client = FoundryClient(
+                    auth=UserTokenAuth("offline-fixture-token"),
+                    hostname="https://offline.example.invalid",
+                    config=Config(timeout=10, max_retries=1,
+                                  propagate_qos="PROPAGATE_429_AND_503_TO_CALLER"),
+                )
+                assert enumerate_files(client, 5) == expected
+        assert len(calls) == (2 if completed_first_page else 1)
+
+
 def deny_network(*args, **kwargs):
     raise RuntimeError("public network denied")
 
@@ -144,4 +180,5 @@ if __name__ == "__main__":
                         (["log-1"], False, "time_budget", None), seconds=1.01,
                         clock=lambda: next(overrun_ticks)) == [None]
         missing_start_date()
-    print("audit complete/partial pagination, named error and denied network passed")
+        lost_response()
+    print("audit pagination, named errors, lost response and denied network passed")
