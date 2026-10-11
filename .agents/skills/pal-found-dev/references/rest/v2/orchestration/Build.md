@@ -24,6 +24,70 @@ and reconcile through authorized reads before repeating.
 
 ## Operations and outcome checks
 
+## Wait for a submitted build
+
+Once `client.orchestration.Build.create` returns a build RID for the intended
+target and branch, use the public `client.orchestration.Build.get` route to
+observe the terminal result. The caller must construct the `BuildTarget`
+variant from the linked create contract; a dataset transaction commit alone
+does not imply a Build was submitted. The status enum is `RUNNING`,
+`SUCCEEDED`, `FAILED`, or `CANCELED`.
+
+```python
+from time import monotonic, sleep
+
+deadline = monotonic() + 120
+while True:
+    remaining = deadline - monotonic()
+    if remaining <= 0:
+        raise TimeoutError(f"Build {build_rid} status remains uncertain")
+    build = client.orchestration.Build.get(
+        build_rid, request_timeout=min(10, max(1, int(remaining))),
+    )
+    if build.status == "SUCCEEDED":
+        break
+    if build.status in {"FAILED", "CANCELED"}:
+        raise RuntimeError(f"Build {build_rid} ended {build.status}; inspect jobs")
+    sleep(min(2, max(0, deadline - monotonic())))
+```
+
+`FAILED` and `CANCELED` are unsuccessful terminal results. Record the build
+RID and status, then check the selected dataset branch before correcting and
+resubmitting. Job diagnostics are a separate optional step. Read at most five
+pages and 500 jobs when investigating a failed or canceled build:
+
+```python
+jobs = []
+page_token = None
+seen_tokens = set()
+for _ in range(5):
+    page = client.orchestration.Build.jobs(
+        build_rid, page_size=100, page_token=page_token, request_timeout=30,
+    )
+    jobs.extend(page.data)
+    if len(jobs) > 500:
+        raise RuntimeError(f"Build {build_rid} job count exceeds the review limit")
+    next_token = page.next_page_token
+    if not next_token:
+        break
+    if next_token in seen_tokens:
+        raise RuntimeError(f"Build {build_rid} repeated a jobs page token")
+    seen_tokens.add(next_token)
+    page_token = next_token
+else:
+    raise RuntimeError(f"Build {build_rid} has more jobs pages than the review limit")
+```
+
+Read the returned `ResourceIterator` page through `.data` and
+`.next_page_token`; iterating it would fetch more pages outside these bounds.
+The build status check above does not need jobs. A timeout means the outcome is unknown;
+read the same build RID later instead of creating a duplicate. Per-call
+timeouts are positive integers in SDK 1.101.0, so a final call can exceed
+the application deadline by less than one second. The two-second poll interval
+stays under the documented four-requests-per-second limit. The
+[staged dataset procedure](../datasets/Transaction.md) separately verifies
+file visibility before and after commit.
+
 ### cancel
 
 Request cancellation of unfinished jobs, then inspect build/job state within a finite

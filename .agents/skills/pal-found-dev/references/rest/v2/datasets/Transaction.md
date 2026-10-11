@@ -24,6 +24,64 @@ and reconcile through authorized reads before repeating.
 
 ## Operations and outcome checks
 
+## Stage a file, commit, and verify the branch
+
+Use the public v2 route `client.datasets.Dataset.Transaction` together with
+`client.datasets.Dataset.File` and `client.datasets.Dataset.Branch`. Resolve
+`dataset_rid`, `branch_name` and `file_path` from an authorized dataset first.
+This example stages a small file in one explicit transaction and checks the
+staged view before committing. A read by `end_transaction_rid` selects the
+transaction view; do not substitute a branch read before commit. Set both
+transaction-range bounds to the same RID for this single staged transaction.
+
+```python
+tx = client.datasets.Dataset.Transaction.create(
+    dataset_rid, transaction_type="APPEND", branch_name=branch_name,
+    request_timeout=30,
+)
+assert tx.status == "OPEN"
+payload = b"id,status\n1,ready\n"
+uploaded = client.datasets.Dataset.File.upload(
+    dataset_rid, file_path, payload, transaction_rid=tx.rid,
+    request_timeout=30,
+)
+assert uploaded.transaction_rid == tx.rid and uploaded.path == file_path
+staged = client.datasets.Dataset.File.get(
+    dataset_rid, file_path, start_transaction_rid=tx.rid,
+    end_transaction_rid=tx.rid, request_timeout=30,
+)
+assert staged.transaction_rid == tx.rid
+staged_bytes = client.datasets.Dataset.File.content(
+    dataset_rid, file_path, start_transaction_rid=tx.rid,
+    end_transaction_rid=tx.rid, request_timeout=30,
+)
+assert staged_bytes == payload
+committed = client.datasets.Dataset.Transaction.commit(
+    dataset_rid, tx.rid, request_timeout=30,
+)
+assert committed.rid == tx.rid and committed.status == "COMMITTED"
+branch = client.datasets.Dataset.Branch.get(
+    dataset_rid, branch_name, request_timeout=30,
+)
+assert branch.transaction_rid == tx.rid
+visible = client.datasets.Dataset.File.get(
+    dataset_rid, file_path, branch_name=branch_name, request_timeout=30,
+)
+assert visible.transaction_rid == tx.rid
+assert client.datasets.Dataset.File.content(
+    dataset_rid, file_path, branch_name=branch_name, request_timeout=30,
+) == payload
+```
+
+Limit payload size in the application before calling the ordinary `content`
+method; use the [bounded streaming read](File.md) for larger files. If staging
+fails, inspect transaction state and abort only an OPEN transaction. If commit
+times out, call `Transaction.get` and `Branch.get` before deciding whether to
+retry; a committed transaction or branch pointer can outlive the lost reply.
+The post-commit file check must use the same branch. A different branch or
+default selector can show another version. The [offline staged-commit fixture](../../../../examples/rest/074/v2/datasets/staged_commit_journey.py)
+checks these transitions with SDK transport and synthetic identities.
+
 ### abort
 
 Abort the confirmed open transaction. Its modifications are discarded and the branch
