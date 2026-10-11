@@ -1,10 +1,7 @@
 # foundry_sdk.v2.connectivity.models.FoundryWorker
 
 
-The [Foundry worker](https://palantir.com/docs/foundry/data-connection/core-concepts/#foundry-worker) is used to run capabilities
-in Foundry.
-This is the preferred method for connections, as these connections benefit from Foundry's containerized
-and scalable job execution, improved stability and do not incur the maintenance overhead associated with agents.
+This worker runs source capabilities in Foundry. `network_egress_policy_rids` identifies preconfigured direct or agent-proxy egress rules that permit the intended host and port. A worker selection alone does not make a private source reachable.
 
 ## Exact SDK definition
 

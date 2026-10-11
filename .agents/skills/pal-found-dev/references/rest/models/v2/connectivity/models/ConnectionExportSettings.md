@@ -1,7 +1,7 @@
 # foundry_sdk.v2.connectivity.models.ConnectionExportSettings
 
 
-The [export settings of a Connection](https://palantir.com/docs/foundry/data-connection/export-overview/#enable-exports-for-source).
+`exports_enabled` allows this Connection to receive dataset exports. Set `export_enabled_without_markings_validation` only when the application has independently checked security markings for the data to export; some interactive flows cannot do so. Read back the Connection export flags after an update.
 
 ## Exact SDK definition
 

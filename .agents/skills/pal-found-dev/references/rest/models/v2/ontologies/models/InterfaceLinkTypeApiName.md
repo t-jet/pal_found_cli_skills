@@ -1,10 +1,7 @@
 # foundry_sdk.v2.ontologies.models.InterfaceLinkTypeApiName
 
 
-
-The name of the interface link type in the API. To find the API name for your Interface Link Type, check the 
-[Ontology Manager](https://palantir.com/docs/foundry/ontology-manager/overview/).
-
+The API name of an Ontology interface link type. Obtain it from the permitted Ontology interface metadata for the target enrollment, and use that exact API name in link requests. A display label is not a reliable substitute.
 
 ## Exact SDK definition
 

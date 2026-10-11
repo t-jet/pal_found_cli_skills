@@ -7,6 +7,10 @@ API v2; release stage: Public Beta. Check enrollment enablement and resource acc
 
 Gets the full metadata for a specific object type with the given API name.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.ontologies.Ontology.ObjectType.get_full_metadata`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python
@@ -268,9 +272,5 @@ An absent wrapper method cannot be selected for this operation. Use an exposed m
 - [foundry_sdk.v2.ontologies.models.TimeseriesSyncRid](../../../../models/v2/ontologies/models/TimeseriesSyncRid.md)
 - [foundry_sdk.v2.ontologies.models.TypeClass](../../../../models/v2/ontologies/models/TypeClass.md)
 - [foundry_sdk.v2.ontologies.models.ValueTypeApiName](../../../../models/v2/ontologies/models/ValueTypeApiName.md)
-
-## Identity and execution boundary
-
-[Authentication and effective access](../../../../authentication.md). Method source does not enumerate universal OAuth scopes or an idempotency guarantee. Use configured application grants and resource permissions; verify tenant-specific prerequisites. The domain guide supplies authored workflows, examples and outcome reconciliation.
 
 [Part 1](get_full_metadata.md) | [Part 2](get_full_metadata-2.md)

@@ -1,8 +1,7 @@
 # foundry_sdk.v2.core.models.Field
 
 
-A field in a Foundry schema. For more information on supported data types, see the
-[supported field types](https://palantir.com/docs/foundry/data-integration/datasets/#supported-field-types) user documentation.
+A Foundry schema field pairs `name` with a `FieldSchema` under wire key `schema`. Use the referenced FieldSchema definition for its supported type and nullability. A field name must match the columns or stream records it describes.
 
 ## Exact SDK definition
 

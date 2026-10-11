@@ -7,6 +7,10 @@ API v2; release stage: Stable. Check enrollment enablement and resource access b
 
 Request a cancellation for all unfinished jobs in a build. The build's status will not update immediately. This endpoint is asynchronous and a success response indicates that the cancellation request has been acknowledged and the build is expected to be canceled soon. If the build has already finished or finishes shortly after the request and before the cancellation, the build will not change.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.orchestration.Build.cancel`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

@@ -12,6 +12,10 @@ Pass the last offset you processed for each partition.
 For example, if you processed a record at offset 50, commit `{"0": 50}` and the next
 read from partition "0" will start at offset 51.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.streams.Dataset.Stream.Subscriber.commit_offsets`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

@@ -18,6 +18,10 @@ connection open for up to the specified number of seconds. If the
 execution completes within that window, the result is returned
 immediately. Otherwise, the running variant is returned.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.functions.Execution.get_result`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

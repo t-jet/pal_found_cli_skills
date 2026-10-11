@@ -7,6 +7,10 @@ API v1; release stage: Private Beta. Check enrollment enablement and resource ac
 
 Puts a Schema on an existing Dataset and Branch.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v1.FoundryClient` named `client`, call `client.datasets.Dataset.replace_schema`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python
@@ -37,7 +41,7 @@ def replace_schema(self, dataset_rid: datasets_models.DatasetRid, body: typing.A
 | InvalidBranchId | The requested branch name cannot be used. Branch names cannot be empty and must not look like RIDs or UUIDs. |
 | InvalidTransactionType | The given transaction type is not valid. Valid transaction types are `SNAPSHOT`, `UPDATE`, `APPEND`, and `DELETE`. |
 | OpenTransactionAlreadyExists | A transaction is already open on this dataset and branch. A branch of a dataset can only have one open transaction at a time. |
-| PutSchemaPermissionDenied | todo |
+| PutSchemaPermissionDenied | Permission denied while replacing this dataset schema. Check caller access to the exact dataset; the SDK does not name a specific missing grant. |
 | TransactionNotFound | The requested transaction could not be found on the dataset, or the client token does not have access to it. |
 | TransactionNotOpen | The given transaction is not open. |
 

@@ -1,7 +1,7 @@
 # foundry_sdk.v1.datasets.errors.DeleteSchemaPermissionDeniedParameters
 
 
-todo
+The frozen SDK leaves this error-parameter description unspecified. `Dataset.delete_schema` can return the named permission-denied error. Check access to the exact dataset and preserve the server error envelope; this type does not identify a particular missing grant.
 
 ## Exact SDK definition
 

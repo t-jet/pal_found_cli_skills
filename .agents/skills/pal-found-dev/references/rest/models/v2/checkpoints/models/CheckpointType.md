@@ -1,10 +1,7 @@
 # foundry_sdk.v2.checkpoints.models.CheckpointType
 
 
-
-Checkpoint type identifier. See the [Checkpoints documentation](https://palantir.com/docs/foundry/checkpoints/overview)
-for more details.
-
+A checkpoint type identifies the operation that produced a checkpoint record. Select an exact literal from the SDK definition below when filtering or interpreting records; the type alone does not say whether the operation succeeded. Read the record status and time.
 
 ## Exact SDK definition
 

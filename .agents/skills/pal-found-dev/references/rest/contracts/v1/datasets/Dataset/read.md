@@ -9,6 +9,10 @@ Gets the content of a dataset as a table in the specified format.
 
 This endpoint currently does not support views (virtual datasets composed of other datasets). For more information, refer to the [views documentation](../../../../v2/datasets/index.md).
 
+## Public Python client route
+
+With a configured `foundry_sdk.v1.FoundryClient` named `client`, call `client.datasets.Dataset.read`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

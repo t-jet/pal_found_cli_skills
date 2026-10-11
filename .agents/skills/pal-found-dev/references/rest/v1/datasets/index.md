@@ -1,7 +1,7 @@
 # v1.datasets resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Use these v1 dataset, branch, file and transaction resources when the selected application depends on a v1 contract. A file upload into a transaction is staged until commit; inspect the known transaction and resulting branch before treating data as published. Check the operation stage and do not substitute a v2 signature. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |

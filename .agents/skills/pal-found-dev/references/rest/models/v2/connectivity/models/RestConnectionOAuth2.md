@@ -1,8 +1,7 @@
 # foundry_sdk.v2.connectivity.models.RestConnectionOAuth2
 
 
-In order to use OAuth2 you must have an Outbound application configured in the [Foundry Control Panel Organization settings](https://palantir.com/docs/foundry/administration/configure-outbound-applications#create-an-outbound-application).
-The RID of the Outbound application must be configured in the RestConnectionConfiguration in the `oauth2ClientRid` field.
+This authorization variant uses the Connection's `oauth2_client_rid`. An organization administrator must first configure the outbound application and its external OAuth 2.0 authorization-code client; selecting this variant does not provision that application.
 
 ## Exact SDK definition
 

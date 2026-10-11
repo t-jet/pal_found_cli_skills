@@ -22,7 +22,51 @@ operation-specific documented requirements below take precedence. Source does no
 provide a universal idempotency guarantee. For uncertain writes, retain request identity
 and reconcile through authorized reads before repeating.
 
+## Client route and bounded content read
+
+With a configured `FoundryClient` named `client`, File operations are under
+`client.datasets.Dataset.File`. `client.datasets.File` is not an SDK 1.101.0
+resource. Select the dataset RID, file path and branch or transaction view from
+authorized dataset metadata before reading. The following call reads one known
+file and closes the streaming response:
+
+```python
+metadata = client.datasets.Dataset.File.get(
+    dataset_rid, file_path, branch_name=branch_name, request_timeout=30
+)
+assert metadata.path == file_path
+limit = 8 * 1024 * 1024  # application byte budget
+payload = bytearray()
+with client.datasets.Dataset.File.with_streaming_response.content(
+    dataset_rid, file_path, branch_name=branch_name, request_timeout=30
+) as response:
+    for chunk in response.iter_bytes():
+        if len(payload) + len(chunk) > limit:
+            raise ValueError("File exceeds application byte budget")
+        payload.extend(chunk)
+if metadata.size_bytes is not None:
+    assert len(payload) == metadata.size_bytes
+```
+
+The size check applies when the response provides a size and the file has not
+changed between metadata and content reads. An omitted size is valid; enforce
+the byte budget regardless. Pin a transaction view when repeatable content matters, and
+handle a changed size as an uncertain read to reconcile rather than accepting
+partial bytes. A denied or missing result calls for checking the exact dataset,
+view and path. The [offline content fixture](../../../../examples/rest/074/v2/datasets/File/content.py)
+checks SDK request and bytes with synthetic input; it makes no tenant call.
+The [root-client regression](../../../../examples/rest/074/v2/datasets/file_client_route_regression.py)
+also checks v1/v2 route names, an omitted size and a named missing-file error.
+
 ## Operations and outcome checks
+
+For a write spanning several files, open one explicit transaction, upload with
+its `transaction_rid`, read staged metadata/content with matching
+`start_transaction_rid` and `end_transaction_rid`, then commit and verify the
+named branch and file. Follow
+the [typed staged-commit procedure](Transaction.md) and its offline fixture.
+`File.get` and `File.content` can select a transaction view or a branch view;
+keep those selectors explicit throughout the check.
 
 ### content
 

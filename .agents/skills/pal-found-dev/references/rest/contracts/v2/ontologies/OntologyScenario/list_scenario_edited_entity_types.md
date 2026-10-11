@@ -11,6 +11,10 @@ The response contains the list of object type API names that have been modified,
 many-to-many link types that have been modified, grouped by their source object type. One-to-many
 link type edits are surfaced as object edits on the object type that owns the foreign key property.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.ontologies.OntologyScenario.list_scenario_edited_entity_types`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

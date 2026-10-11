@@ -1,7 +1,7 @@
 # foundry_sdk.v2.streams.models.CreateStreamRequestStreamSchema
 
 
-CreateStreamRequestStreamSchema
+`fields` declares the stream schema. Optional `key_field_names` group records with the same key into one partition and preserve their processing order; keys alone do not deduplicate. Key fields must use one of Boolean, Byte, Date, Decimal, Integer, Long, Short, String or Timestamp. Optional `change_data_capture` adds CDC behavior.
 
 ## Exact SDK definition
 
@@ -13,7 +13,7 @@ Model fields use their declared defaults and aliases. Nullable and omittable are
 
 | SDK field | Wire name | Type | Omission/default | Meaning |
 | --- | --- | --- | --- | --- |
-| key_field_names | keyFieldNames | typing.Optional[typing.List[core_models.FieldName]] | default None | The names of the fields to be used as keys for partitioning records. These key fields are used to group<br>    all records with the same key into the same partition, to guarantee processing order of grouped records. These<br>    keys are not meant to uniquely identify records, and do not by themselves deduplicate records. To deduplicate<br>    records, provide a change data capture configuration for the schema.<br><br>    Key fields can only be of the following types:<br>    - Boolean<br>    - Byte<br>    - Date<br>    - Decimal<br>    - Integer<br>    - Long<br>    - Short<br>    - String<br>    - Timestamp<br><br>    For additional information on keys for Foundry streams, see the<br>    [streaming keys](https://palantir.com/docs/foundry/building-pipelines/streaming-keys/) user documentation. |
+| key_field_names | keyFieldNames | typing.Optional[typing.List[core_models.FieldName]] | default None | The names of the fields to be used as keys for partitioning records. These key fields are used to group<br>    all records with the same key into the same partition, to guarantee processing order of grouped records. These<br>    keys are not meant to uniquely identify records, and do not by themselves deduplicate records. To deduplicate<br>    records, provide a change data capture configuration for the schema.<br><br>    Key fields can only be of the following types:<br>    - Boolean<br>    - Byte<br>    - Date<br>    - Decimal<br>    - Integer<br>    - Long<br>    - Short<br>    - String<br>    - Timestamp<br> |
 | fields | fields | typing.List[core_models.Field] | required; no default | No additional field description in SDK source. |
 | change_data_capture | changeDataCapture | typing.Optional[core_models.ChangeDataCaptureConfiguration] | default None | No additional field description in SDK source. |
 

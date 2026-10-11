@@ -1,10 +1,7 @@
 # foundry_sdk.v2.connectivity.models.FileImportFilter
 
 
-
-[Filters](https://palantir.com/docs/foundry/data-connection/file-based-syncs/#filters) allow you to filter source files
-before they are imported into Foundry.
-
+Filters select which source files enter an import. Apply them in the configured order and test representative paths against the source before executing the import; order can affect efficiency. A filter changes selection, not the Connection's file access permission.
 
 ## Exact SDK definition
 

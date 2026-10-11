@@ -8,6 +8,10 @@ API v2; release stage: Public Beta. Check enrollment enablement and resource acc
 Uploads a media item to the media set which backs the specified property.  The property must be backed by a single media set and branch, otherwise an error will be thrown.
 The body of the request must contain the binary content of the file and the `Content-Type` header must be `application/octet-stream`.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.ontologies.MediaReferenceProperty.upload`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

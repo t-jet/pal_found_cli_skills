@@ -8,6 +8,10 @@ API v2; release stage: Stable. Check enrollment enablement and resource access b
 Adds a primary key to a View that does not already have one. Primary keys are treated as
 guarantees provided by the creator of the dataset.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.datasets.View.add_primary_key`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

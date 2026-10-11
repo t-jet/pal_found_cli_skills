@@ -16,6 +16,10 @@ See the validation result in the response body to determine if the action was ap
 Note that [parameter default values](../../../../../ontology/actions.md) are not currently supported by
 this endpoint.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.ontologies.Action.apply`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

@@ -1,8 +1,7 @@
 # foundry_sdk.v2.connectivity.models.PersonalAccessToken
 
 
-Authenticate as a user or service principal using a personal access token.
-Read the [official Databricks documentation](https://docs.databricks.com/aws/en/dev-tools/auth/pat) for information on generating a personal access token.
+Supply a Databricks personal access token already issued to the intended user or service principal as an `EncryptedProperty`. Keep its owner, expiry and workspace permissions aligned with the Connection. This model cannot generate or renew the external token.
 
 ## Exact SDK definition
 

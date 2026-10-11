@@ -1,7 +1,7 @@
 # foundry_sdk.v2.core.models.TraceParent
 
 
-The W3C Trace Context `traceparent` header value used to propagate distributed tracing information for Foundry telemetry. See https://www.w3.org/TR/trace-context/#traceparent-header for more details. Note the 16 byte trace ID encoded in the header must be derived from a time based uuid to be used within Foundry.
+W3C `traceparent` is a string header for correlating Foundry telemetry across requests. Its trace ID is 16 bytes encoded as 32 hexadecimal characters and, for Foundry, must come from a time-based UUID. Preserve the same trace ID across related requests.
 
 ## Exact SDK definition
 

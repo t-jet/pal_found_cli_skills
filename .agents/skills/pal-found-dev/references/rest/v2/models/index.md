@@ -1,7 +1,7 @@
 # v2.models resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Use Model metadata and version resources to choose a deployed or published artifact before invoking an inference operation. Experiment and live deployment results have distinct formats and lifecycle states; inspect the requested format and model availability before decoding the payload. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |

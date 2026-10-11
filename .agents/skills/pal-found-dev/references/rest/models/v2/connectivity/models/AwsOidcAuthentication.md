@@ -1,8 +1,7 @@
 # foundry_sdk.v2.connectivity.models.AwsOidcAuthentication
 
 
-[OpenID Connect (OIDC)](https://palantir.com/docs/foundry/data-connection/oidc/) is an open authentication protocol that allows
-you to authenticate to external system resources without the use of static credentials.
+Foundry issues an OIDC token when this Connection runs. The external trust policy must accept the configured issuer (`iss`), audience (`aud`) and this Connection RID as subject (`sub`). A token from another Connection does not satisfy that subject check; token issuance does not create the external trust policy.
 
 ## Exact SDK definition
 

@@ -13,6 +13,10 @@ For example, the uniqueness of a primary key or the existence of a user ID will 
 Note that [parameter default values](../../../../../ontology/actions.md) are not currently supported by
 this endpoint. Unspecified parameters will be given a default value of `null`.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v1.FoundryClient` named `client`, call `client.ontologies.Action.validate`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

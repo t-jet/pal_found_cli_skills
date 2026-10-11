@@ -1,7 +1,7 @@
 # v2.ontologies resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Read Ontology, object type and interface metadata before querying objects, Object Sets or links. Actions and Queries use their own declared parameters and authorization; check the result or validation outcome, and reconcile an uncertain write before replaying it. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |

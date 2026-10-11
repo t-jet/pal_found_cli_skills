@@ -1,10 +1,7 @@
 # foundry_sdk.v2.media_sets.models.Modality
 
 
-
-DICOM modality code. A list of modalities and their meanings can be found in the DICOM specification. 
-https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html#sect_C.7.3.1.1.1
-
+A DICOM modality code identifies the imaging device or method associated with an item. Use the code recorded in the source DICOM metadata; the SDK type does not enumerate or validate the complete modality code set.
 
 ## Exact SDK definition
 

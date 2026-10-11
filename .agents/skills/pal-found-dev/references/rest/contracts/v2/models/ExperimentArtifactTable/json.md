@@ -9,6 +9,10 @@ Read table data from an experiment artifact as a streamed binary response contai
 The response body is a JSON array of row objects, where each object maps column names to values.
 Results are paginated by row count with a default page size of 10 and a maximum of 100.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.models.Model.Experiment.ArtifactTable.json`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

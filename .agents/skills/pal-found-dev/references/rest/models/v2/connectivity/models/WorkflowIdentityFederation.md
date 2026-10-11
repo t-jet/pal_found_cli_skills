@@ -1,11 +1,7 @@
 # foundry_sdk.v2.connectivity.models.WorkflowIdentityFederation
 
 
-Authenticate as a service principal using workload identity federation. This is the recommended way to connect to Databricks.
-Workload identity federation allows workloads running in Foundry to access Databricks APIs without the need for Databricks secrets.
-Refer to our [OIDC documentation](https://palantir.com/docs/foundry/data-connection/oidc) for an overview of how OpenID Connect is supported in Foundry.
-A service principal federation policy must exist in Databricks to allow Foundry to act as an identity provider.
-Refer to the [official documentation](https://docs.databricks.com/aws/en/dev-tools/auth/oauth-federation) for guidance.
+Foundry acts as OIDC issuer for this Connection. Match the configured issuer, audience and Connection RID subject to a precreated Databricks federation policy. If `service_principal_application_id` is present, the exchange uses that service principal's policy; otherwise it uses an account federation policy. No Databricks secret is stored here.
 
 ## Exact SDK definition
 
@@ -17,7 +13,7 @@ Model fields use their declared defaults and aliases. Nullable and omittable are
 
 | SDK field | Wire name | Type | Omission/default | Meaning |
 | --- | --- | --- | --- | --- |
-| service_principal_application_id | servicePrincipalApplicationId | typing.Optional[str] | default None | The ID of the Databricks [service principal](https://docs.databricks.com/aws/en/admin/users-groups/service-principals). <br>    If provided, a federated JWT token is exchanged using a<br>    service principal federation policy. If not provided, a federated JWT token is exchanged using an account<br>    federation policy. |
+| service_principal_application_id | servicePrincipalApplicationId | typing.Optional[str] | default None | The ID of the Databricks service principal. <br>    If provided, a federated JWT token is exchanged using a<br>    service principal federation policy. If not provided, a federated JWT token is exchanged using an account<br>    federation policy. |
 | issuer_url | issuerUrl | str | required; no default | Identifies the principal that issued the access token as a string URI. |
 | audience | audience | str | required; no default | Identifies the recipients that the access token is intended for as a string URI. <br>    This should be the primary host name where the Connection lives. |
 | subject | subject | ConnectionRid | required; no default | The RID of the Connection that is connecting to the external system. |

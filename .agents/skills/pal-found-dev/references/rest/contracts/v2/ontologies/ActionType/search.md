@@ -12,6 +12,10 @@ Each page may be smaller than the requested page size. However, it is guaranteed
 results available, at least one result will be present in the response. Search results are eventually
 consistent with the latest Ontology version and may lag slightly behind the last Ontology modification.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.ontologies.Ontology.ActionType.search`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

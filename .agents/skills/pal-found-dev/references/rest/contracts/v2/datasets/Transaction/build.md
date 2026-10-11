@@ -9,6 +9,10 @@ Get the [Build](../../../../../pipelines/releases.md) that computed the
 given Transaction. Not all Transactions have an associated Build. For example, if a Dataset
 is updated by a User uploading a CSV file into the browser, no Build will be tied to the Transaction.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.datasets.Dataset.Transaction.build`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

@@ -9,6 +9,10 @@ Removes specified backing datasets from a View. Removing a dataset triggers a
 [SNAPSHOT](../../../../../pipelines/transactions.md) transaction on the next update. If a
 specified dataset does not exist, no error is thrown.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.datasets.View.remove_backing_datasets`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

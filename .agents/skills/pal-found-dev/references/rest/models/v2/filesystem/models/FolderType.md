@@ -1,11 +1,7 @@
 # foundry_sdk.v2.filesystem.models.FolderType
 
 
-
-A folder can be a regular Folder, a
-[Project](https://palantir.com/docs/foundry/getting-started/projects-and-resources/#projects) or a
-[Space](https://palantir.com/docs/foundry/security/orgs-and-spaces/#spaces).
-
+The folder type distinguishes an ordinary folder, Project and Space. Read the literal values below and use the matching resource operation when traversing the hierarchy. Project and Space also carry access context that an ordinary folder path does not convey.
 
 ## Exact SDK definition
 

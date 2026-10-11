@@ -1,10 +1,7 @@
 # foundry_sdk.v2.connectivity.models.ConnectionWorker
 
 
-
-[The worker of a Connection](https://palantir.com/docs/foundry/data-connection/core-concepts/#workers), which defines where
-compute for capabilities are run.
-
+A worker chooses where source capability compute runs. A Foundry worker executes in Foundry; network egress policies choose direct or agent-proxy reachability. Legacy agent workers run compute on an agent host whose network and credentials need separate preparation.
 
 ## Exact SDK definition
 

@@ -1,7 +1,7 @@
 # foundry_sdk._core.api_client.SdkInternal
 
 
-The definition below supplies its fields or permitted values.
+The SDK uses this internal TypedDict to carry an optional response mode into transport code. Application code selects ordinary, raw or streaming behavior through the public client wrappers described in the local client-behavior guide. This key is not a Foundry API field.
 
 ## Exact SDK definition
 

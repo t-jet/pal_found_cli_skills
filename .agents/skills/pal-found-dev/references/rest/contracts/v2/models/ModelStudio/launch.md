@@ -7,6 +7,10 @@ API v2; release stage: Public Beta. Check enrollment enablement and resource acc
 
 Launches a new training run for the Model Studio using the latest configuration version.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.models.ModelStudio.launch`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

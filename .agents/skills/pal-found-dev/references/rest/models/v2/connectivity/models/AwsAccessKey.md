@@ -1,11 +1,7 @@
 # foundry_sdk.v2.connectivity.models.AwsAccessKey
 
 
-[Access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) are long-term
-credentials for an IAM user or the AWS account root user.
-Access keys consist of two parts: an access key ID (for example, AKIAIOSFODNN7EXAMPLE) and a secret access
-key (for example, wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY). You must use both the access key ID and
-secret access key together to authenticate your requests.
+AWS access-key authentication requires both the IAM access key ID and matching secret access key. Provide the secret as an `EncryptedProperty`; do not put it in JDBC properties or logs. The external IAM principal and its permissions must already exist.
 
 ## Exact SDK definition
 

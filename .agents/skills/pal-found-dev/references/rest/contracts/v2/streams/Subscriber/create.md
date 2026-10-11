@@ -11,6 +11,10 @@ allowing reliable consumption without client-side state management.
 If a subscriber with the same ID already exists for this stream, the existing registration
 is returned. If a subscriber with the same ID exists for a different stream, an error is returned.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.streams.Dataset.Stream.Subscriber.create`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

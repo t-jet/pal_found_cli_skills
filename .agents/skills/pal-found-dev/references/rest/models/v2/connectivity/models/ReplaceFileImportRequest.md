@@ -1,7 +1,7 @@
 # foundry_sdk.v2.connectivity.models.ReplaceFileImportRequest
 
 
-ReplaceFileImportRequest
+Choose the import mode, display name, source subfolder and ordered file filters for the replacement. An omitted subfolder means the source root. Preview representative included and excluded paths, then read back the import configuration before executing it.
 
 ## Exact SDK definition
 
@@ -16,7 +16,7 @@ Model fields use their declared defaults and aliases. Nullable and omittable are
 | import_mode | importMode | FileImportMode | required; no default | No additional field description in SDK source. |
 | display_name | displayName | FileImportDisplayName | required; no default | No additional field description in SDK source. |
 | subfolder | subfolder | typing.Optional[str] | None | A subfolder in the external system that will be imported. If not specified, defaults to the root folder of the external system. |
-| file_import_filters | fileImportFilters | typing.List[FileImportFilter] | required; no default | Use filters to limit which files should be imported. Filters are applied in the order they are defined. A different ordering of filters may lead to a more optimized import. [Learn more about optimizing file imports.](https://palantir.com/docs/foundry/data-connection/file-based-syncs/#optimize-file-based-syncs) |
+| file_import_filters | fileImportFilters | typing.List[FileImportFilter] | required; no default | Use filters to limit which files should be imported. Filters are applied in the order they are defined. A different ordering of filters may lead to a more optimized import. Learn more about optimizing file imports. |
 
 ```python
 class ReplaceFileImportRequest(core.ModelBase):

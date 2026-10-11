@@ -1,7 +1,7 @@
 # foundry_sdk._core.api_client.ResponseMode
 
 
-The definition below supplies its fields or permitted values.
+An SDK transport response mode. `DECODED` returns the operation's ordinary typed result; `ITERATOR` traverses paged results; `RAW` exposes status and explicit decoding; `STREAMING` keeps the response open in a context manager. The table and SSE values are specialized operation formats. Choose through the public response wrapper supported by the operation, rather than passing `_sdk_internal` as application input.
 
 ## Exact SDK definition
 

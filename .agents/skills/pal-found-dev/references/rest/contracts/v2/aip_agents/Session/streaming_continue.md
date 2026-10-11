@@ -13,6 +13,10 @@ Streamed exchanges also support cancellation; see `cancel` for details.
 Concurrent requests to continue the same session are not supported.
 Clients should wait to receive a response, or cancel the in-progress exchange, before sending the next message.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.aip_agents.Agent.Session.streaming_continue`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

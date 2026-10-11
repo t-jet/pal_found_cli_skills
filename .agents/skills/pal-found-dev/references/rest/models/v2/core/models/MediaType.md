@@ -1,10 +1,7 @@
 # foundry_sdk.v2.core.models.MediaType
 
 
-
-The [media type](https://www.iana.org/assignments/media-types/media-types.xhtml) of the file or attachment.
-Examples: `application/json`, `application/pdf`, `application/octet-stream`, `image/jpeg`
-
+The MIME media type of a file or attachment, such as `application/pdf`. Use the actual content type of the bytes; this SDK alias is a string and does not validate it.
 
 ## Exact SDK definition
 

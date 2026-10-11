@@ -1,7 +1,7 @@
 # foundry_sdk.v2.ontologies.models.ObjectTypeId
 
 
-The unique identifier (ID) for an object type. This can be viewed in [Ontology Manager](https://palantir.com/docs/foundry/ontology-manager/overview/).
+The unique object-type ID in Ontology metadata. Read the permitted target Ontology metadata and use its returned ID; an object type API name or display title may differ.
 
 ## Exact SDK definition
 

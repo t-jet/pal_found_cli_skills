@@ -1,7 +1,7 @@
 # foundry_sdk.v2.core.models.TraceState
 
 
-The W3C Trace Context `tracestate` header value, which is used to propagate vendor specific distributed tracing information for Foundry telemetry. See https://www.w3.org/TR/trace-context/#tracestate-header for more details.
+W3C `tracestate` is a string header carrying vendor-specific tracing state alongside `traceparent`. Pass through the state supplied by the active tracing context; this SDK alias does not construct or validate vendor entries.
 
 ## Exact SDK definition
 

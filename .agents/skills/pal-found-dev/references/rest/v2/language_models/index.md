@@ -1,7 +1,7 @@
 # v2.language_models resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Select a model exposed by the permitted enrollment and use its operation-specific request and response format. Model availability, token limits and streaming behavior are operation dependent; test with a bounded prompt and handle rejected or partial responses explicitly. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |

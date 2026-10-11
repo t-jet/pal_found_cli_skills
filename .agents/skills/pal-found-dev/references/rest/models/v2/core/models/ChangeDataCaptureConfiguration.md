@@ -1,13 +1,7 @@
 # foundry_sdk.v2.core.models.ChangeDataCaptureConfiguration
 
 
-
-Configuration for utilizing the stream as a change data capture (CDC) dataset. To configure CDC on a stream, at
-least one key needs to be provided.
-
-For more information on CDC in
-Foundry, see the [Change Data Capture](https://palantir.com/docs/foundry/data-integration/change-data-capture/) user documentation.
-
+Change data capture uses the stream as a keyed update feed. Supply at least one key field in its stream schema, then choose the CDC configuration that matches the incoming change records. A key groups updates to the same entity; a key alone does not deduplicate records.
 
 ## Exact SDK definition
 

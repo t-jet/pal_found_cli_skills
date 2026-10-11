@@ -1,7 +1,7 @@
 # foundry_sdk.v2.connectivity.models.RestConnectionConfiguration
 
 
-The configuration needed to connect to a [REST external system](https://palantir.com/docs/foundry/available-connectors/rest-apis).
+The REST Connection limits requests to its configured domains. An optional `oauth2_client_rid` selects one preconfigured outbound application for OAuth 2.0; replacing it changes the OAuth selection for all configured domains. Check approved egress to the domains and the external server's authorization settings before using the Connection.
 
 ## Exact SDK definition
 
@@ -15,7 +15,7 @@ Model fields use their declared defaults and aliases. Nullable and omittable are
 | --- | --- | --- | --- | --- |
 | domains | domains | typing.List[Domain] | required; no default | The domains that the connection is allowed to access.<br>    At least one domain must be specified. |
 | additional_secrets | additionalSecrets | typing.Optional[RestConnectionAdditionalSecrets] | default None | Additional secrets that can be referenced in code and webhook configurations.<br>    If not provided, no additional secrets will be created. |
-| oauth2_client_rid | oauth2ClientRid | typing.Optional[core.RID] | default None | The RID of the [Outbound application](https://palantir.com/docs/foundry/administration/configure-outbound-applications) that is used to authenticate to the external system via OAuth2.<br>    Currently, a connection may use only one outbound application for OAuth 2.0 authentication.<br>    Selecting a different outbound application will update the configuration for all domains with OAuth 2.0 as the selected authorization. |
+| oauth2_client_rid | oauth2ClientRid | typing.Optional[core.RID] | default None | The RID of the Outbound application that is used to authenticate to the external system via OAuth2.<br>    Currently, a connection may use only one outbound application for OAuth 2.0 authentication.<br>    Selecting a different outbound application will update the configuration for all domains with OAuth 2.0 as the selected authorization. |
 | type | type | typing.Literal['rest'] | 'rest' | No additional field description in SDK source. |
 
 ```python

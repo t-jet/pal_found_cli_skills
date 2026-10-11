@@ -1,12 +1,7 @@
 # foundry_sdk.v2.connectivity.models.JdbcProperties
 
 
-
-A map of [properties](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Properties.html) passed 
-to the JDBC driver to configure behavior. Refer to the documentation of your specific connection type for additional 
-available JDBC properties to add to your connection configuration.
-This should only contain unencrypted properties, all values specified here are sent unencrypted to Foundry.
-
+This is a map of JDBC driver property names to unencrypted values. Take supported keys from the approved driver and connector configuration; this SDK type declares no universal keys or defaults. Put passwords and tokens in the connector's encrypted authentication fields.
 
 ## Exact SDK definition
 

@@ -9,16 +9,110 @@ from __future__ import annotations
 import argparse
 import ast
 import hashlib
+import importlib
 import io
 import json
 import re
 import subprocess
 import tarfile
+from collections import defaultdict, deque
 from pathlib import Path
 
 RELEASE = "1.101.0"
 COMMIT = "168d51910570b6966afa2320333ab36f6a3f7ccf"
 EXPECTED_ID_HASH = "a6542de72e2fd73a6197ddb6063cf76617b1c8c1bad95f53547dbbce87760bcd"
+
+_SERVICE_CONTEXT = {
+    "v1.datasets": "Use these v1 dataset, branch, file and transaction resources when the selected application depends on a v1 contract. A file upload into a transaction is staged until commit; inspect the known transaction and resulting branch before treating data as published. Check the operation stage and do not substitute a v2 signature.",
+    "v1.ontologies": "Use v1 Ontology metadata, objects, linked objects, Actions, Queries and attachments for a client pinned to v1. Read the target Ontology and type metadata before constructing object or Action inputs; result visibility and write authorization remain tenant specific.",
+    "v2.admin": "Use Admin resources to read enrollment identity, users, groups, Organizations, role assignments and Markings before changing access. A role or membership change affects the named security boundary; identify the exact principal and resource, then read back assignments rather than assuming effective access from a write response.",
+    "v2.aip_agents": "Use Agent and version metadata to select an enabled Agent before creating a session. Continue, stream or cancel a known session according to the interaction; inspect context and trace operations separately. Agent parameters and available Ontology context come from the permitted enrollment metadata.",
+    "v2.audit": "Use Organization audit log files for a bounded, time-filtered evidence retrieval. Supply the documented date range and follow every page token, including after an empty page; retain partial results if a finite page budget or repeated token stops the traversal.",
+    "v2.checkpoints": "Use checkpoint resources to search and inspect recorded pipeline checkpoints. Select the relevant checkpoint type, operation and time window, then distinguish an existing checkpoint from evidence that a later production build succeeded.",
+    "v2.connectivity": "Use Connections to configure an authorized external source and its worker, authentication and network route. File and table imports refer to that Connection; inspect a configured import before replacement or execution. External credentials, permissions and reachable endpoints are prerequisites supplied by the enrollment and source system.",
+    "v2.data_health": "Use checks and reports to inspect data quality or freshness results. A check definition, its latest report and an upstream build are different records; correlate their timestamps and target resources before diagnosing a stale output.",
+    "v2.datasets": "Use v2 datasets, branches, files, transactions and views for data reads and writes. Select the intended branch or known transaction, bound file/page reads, and verify transaction commit plus resulting branch state before treating staged content as visible.",
+    "v2.filesystem": "Start governance navigation with a permitted Project or Folder, then traverse children and inspect resources. Create or modify a folder/project only after identifying its parent, applicable access context and exact RID; verify the resulting resource and permissions through supported read operations.",
+    "v2.functions": "Use Function and Query metadata to choose a published callable version and its input/output types. Execute or stream only with arguments matching the selected version; validation or permission failures require correcting the input or access before retrying.",
+    "v2.language_models": "Select a model exposed by the permitted enrollment and use its operation-specific request and response format. Model availability, token limits and streaming behavior are operation dependent; test with a bounded prompt and handle rejected or partial responses explicitly.",
+    "v2.media_sets": "Use Media Set metadata to identify an authorized collection, then select its items, views or retrieval operations. Binary/media outputs require the declared content format and a byte budget; a missing item or denied view should not be treated as an empty successful payload.",
+    "v2.models": "Use Model metadata and version resources to choose a deployed or published artifact before invoking an inference operation. Experiment and live deployment results have distinct formats and lifecycle states; inspect the requested format and model availability before decoding the payload.",
+    "v2.ontologies": "Read Ontology, object type and interface metadata before querying objects, Object Sets or links. Actions and Queries use their own declared parameters and authorization; check the result or validation outcome, and reconcile an uncertain write before replaying it.",
+    "v2.orchestration": "Use schedules, builds and jobs to observe pipeline execution. Creating or requesting a build is not completion: poll a known build with a finite budget and inspect its terminal status, output and failing jobs before declaring data ready.",
+    "v2.sql_queries": "Use SQL query resources for permitted Foundry dataset reads. Author the documented SELECT dialect, select branch and result format, then decode the returned Arrow or other declared payload and verify row/schema expectations within a byte budget.",
+    "v2.streams": "Use stream metadata to select an existing stream or define a schema, partition keys and optional change-data-capture behavior. Publish or subscribe with finite batches and cursor handling; a key groups records but does not by itself deduplicate them.",
+    "v2.third_party_applications": "Use application, version and website resources to inspect an application before uploading a version or deploying a website. Treat archive bytes, version identity and deployment state separately; verify the selected live version after a write or uncertain reply.",
+    "v2.widgets": "Use Widget Set and Repository resources for authored widget bundles, then inspect Release and development-mode settings. A repository publish, first release and host-selected version are separate steps; confirm the host can use the intended release before treating the widget as deployed.",
+}
+
+# The frozen SDK leaves these three error docstrings as `todo`. Keep their
+# source identity while giving readers the bounded meaning known from the
+# error class and operation. No tenant role or grant name is inferred.
+_ERROR_TODO_NOTES = {
+    ("v1.datasets.Dataset.delete_schema", "DeleteSchemaPermissionDenied"):
+        "Permission denied while deleting this dataset schema. Check caller access to the exact dataset; the SDK does not name a specific missing grant.",
+    ("v1.datasets.Dataset.replace_schema", "PutSchemaPermissionDenied"):
+        "Permission denied while replacing this dataset schema. Check caller access to the exact dataset; the SDK does not name a specific missing grant.",
+    ("v1.datasets.File.delete", "PutSchemaPermissionDenied"):
+        "Permission denied in a schema-related step of file deletion. Check caller access to the exact dataset and retain the error envelope; the SDK leaves the reason unspecified.",
+}
+
+
+def public_client_paths(operations) -> dict[str, str]:
+    """Resolve methods through pinned public client objects, including nested resources."""
+    sdk = importlib.import_module("foundry_sdk")
+    if sdk.__version__ != RELEASE:
+        raise ValueError(f"Installed SDK release differs: {sdk.__version__}")
+    resolved = {}
+    for version in ("v1", "v2"):
+        client_type = importlib.import_module(f"foundry_sdk.{version}").FoundryClient
+        client = client_type(auth=sdk.UserTokenAuth("offline-route-check"),
+                             hostname="https://example.invalid")
+        queue = deque([(client, "client", 0)])
+        seen = set()
+        methods = defaultdict(list)
+        while queue:
+            resource, prefix, depth = queue.popleft()
+            if id(resource) in seen or depth > 5:
+                continue
+            seen.add(id(resource))
+            for name in dir(resource):
+                if name.startswith("_") or name in {"with_raw_response", "with_streaming_response"}:
+                    continue
+                try:
+                    child = getattr(resource, name)
+                except (AttributeError, RuntimeError):
+                    continue
+                path = f"{prefix}.{name}"
+                if callable(child) and hasattr(child, "__func__"):
+                    methods[(child.__func__.__module__, name)].append(path)
+                elif depth < 5 and type(child).__name__.endswith("Client"):
+                    queue.append((child, path, depth + 1))
+        for row in operations:
+            if row["version"] != version:
+                continue
+            module = row["source"][:-3].replace("/", ".")
+            paths = methods.get((module, row["method"]), [])
+            if len(paths) != 1:
+                raise ValueError(f"Expected one public client path for {row['id']}: {paths}")
+            resolved[row["id"]] = paths[0]
+    if len(resolved) != len(operations):
+        raise ValueError(f"Public client path count differs: {len(resolved)}")
+    return resolved
+
+
+def behavior_leaf(base: Path, method: str) -> Path:
+    """Link a split guide to the page with this operation, when identifiable."""
+    if not base.is_file():
+        return base
+    heading = re.compile(rf"(?m)^#{{2,3}} {re.escape(method)}\s*$")
+    candidates = [base] + [base.with_name(f"{base.stem}-{number}.md")
+                           for number in range(2, 12)]
+    matches = [path for path in candidates if path.is_file()
+               and heading.search(path.read_text(encoding="utf-8"))]
+    if len(matches) > 1:
+        raise ValueError(f"Duplicate operation heading for {base}: {method}")
+    return matches[0] if matches else base
 
 
 def digest(value: str | bytes) -> str:
@@ -318,6 +412,442 @@ _OFFLINE_SOURCE_CONTEXT = {
 }
 
 
+_MODEL_OFFLINE_NOTES = {
+    "foundry_sdk.v2.connectivity.models.SnowflakeExternalOauth": (
+        "External OAuth uses an authorization server trusted by Snowflake. Configure a Snowflake External OAuth "
+        "security integration before using this connection. Its issuer and audience must match the token's `iss` "
+        "and `aud` claims; `subject` is the Foundry Connection RID. The authorization server and Snowflake "
+        "integration must agree on token signature validation, user mapping and authorized scopes. A malformed "
+        "or unmatched token cannot be repaired by changing the Connection RID. The SDK model stores identifiers, "
+        "not an access token or the Snowflake integration itself."
+    ),
+    "foundry_sdk.v2.connectivity.models.SnowflakeKeyPairAuthentication": (
+        "Key-pair authentication uses the Snowflake user in `user` and its matching private key in "
+        "`private_key`. Register the corresponding public key on that Snowflake user first. Supply the "
+        "private key through the `EncryptedProperty` variant chosen for a write: plaintext is encrypted and "
+        "stored by Foundry, while an existing secret name retains its encrypted value. Never substitute the "
+        "public key for this private-key field. If authentication fails, compare user identity and public-key "
+        "fingerprint with the intended key before rotating or resubmitting a secret."
+    ),
+    "foundry_sdk.v2.connectivity.models.StsRoleConfiguration": (
+        "`role_arn` names the AWS IAM role to assume, for example `arn:aws:iam::123456789012:role/"
+        "example-role`; it is not a user or account-root ARN. `role_session_name` identifies this assumed "
+        "session and should be unique enough for audit. If supplied, `role_session_duration` is at least "
+        "900 seconds and no greater than the role's configured maximum (which can be 1–12 hours); AWS role "
+        "chaining imposes a one-hour maximum. `external_id` must match the role trust arrangement when one "
+        "is required. `sts_endpoint` selects the STS endpoint; use the tenant's approved region/endpoint. "
+        "A valid ARN alone does not grant AssumeRole permission or satisfy the trust policy."
+    ),
+}
+
+_MODEL_OFFLINE_NOTES.update({
+    "foundry_sdk._core.api_client.ResponseMode": (
+        "An SDK transport response mode. `DECODED` returns the operation's ordinary typed result; "
+        "`ITERATOR` traverses paged results; `RAW` exposes status and explicit decoding; "
+        "`STREAMING` keeps the response open in a context manager. The table and SSE values are "
+        "specialized operation formats. Choose through the public response wrapper supported by "
+        "the operation, rather than passing `_sdk_internal` as application input."
+    ),
+    "foundry_sdk._core.api_client.SdkInternal": (
+        "The SDK uses this internal TypedDict to carry an optional response mode into transport code. "
+        "Application code selects ordinary, raw or streaming behavior through the public client "
+        "wrappers described in the local client-behavior guide. This key is not a Foundry API field."
+    ),
+    "foundry_sdk._core.utils.Timeout": (
+        "A positive integer request timeout in seconds. Supply it as `request_timeout` where the "
+        "operation signature permits it. Reaching this bound does not prove whether a write "
+        "succeeded; reconcile the known resource or transaction before replaying a mutation."
+    ),
+    "foundry_sdk._core.utils.RID": (
+        "A Foundry resource identifier string beginning `ri.` and matching the SDK constraint below. "
+        "Read the specific resource RID from permitted metadata or a prior response; a valid "
+        "pattern alone does not establish that the resource exists or the caller can access it."
+    ),
+    "foundry_sdk._core.utils.UUID": (
+        "A hyphenated UUID string matching the SDK hexadecimal pattern below. Preserve the "
+        "returned identifier for later requests; this shape alone does not imply a Foundry RID "
+        "or validate a resource's existence."
+    ),
+    "foundry_sdk.v2.connectivity.models.CreateConnectionRequestS3ConnectionConfiguration": (
+        "Create an S3 Connection with a bucket URL ending in `/`, the bucket's region and a supported "
+        "authentication variant. Public buckets may omit authentication. The field table gives the "
+        "source-declared timeouts, retries and connection limits when omitted; those are connector "
+        "behavior, not SDK model defaults. A custom endpoint may need an explicit signing region. "
+        "Check source access and reachability before running an import."
+    ),
+    "foundry_sdk.v2.connectivity.models.CreateConnectionRequestSnowflakeConnectionConfiguration": (
+        "Create a Snowflake Connection for the named account with an existing authentication identity. "
+        "Optional database, schema, role and warehouse choose session defaults; each named resource "
+        "must exist and be accessible to that identity. The account identifier selects the account, "
+        "while `jdbc_properties` carries only approved, nonsecret driver options."
+    ),
+    "foundry_sdk.v2.connectivity.models.SnowflakeConnectionConfiguration": (
+        "A stored Snowflake Connection identifies an account and its authentication mode. The optional "
+        "database, schema, role and warehouse are session defaults and require the chosen identity's "
+        "access. Inspect these fields and `jdbc_properties` before replacing the Connection; keep "
+        "passwords and tokens in the authentication variant's encrypted fields."
+    ),
+    "foundry_sdk.v1.core.models.MediaType": (
+        "The MIME media type of a file or attachment, such as `application/pdf`. Use the "
+        "actual content type of the bytes; this SDK alias is a string and does not validate it."
+    ),
+    "foundry_sdk.v2.core.models.MediaType": (
+        "The MIME media type of a file or attachment, such as `application/pdf`. Use the "
+        "actual content type of the bytes; this SDK alias is a string and does not validate it."
+    ),
+    "foundry_sdk.v1.ontologies.models.PropertyValue": (
+        "An Ontology property value uses the JSON encoding for its declared property type. "
+        "The source table below gives arrays, primitives, date/time, GeoJSON, Cipher, "
+        "attachment, media and time-series examples. For structured values, follow the "
+        "referenced typed model and the target property's Ontology metadata."
+    ),
+    "foundry_sdk.v2.aip_agents.errors.ObjectTypeIdsNotFoundParameters": (
+        "The error names object type IDs unavailable to this Agent request. Compare each ID "
+        "with the object types returned by the permitted Ontology metadata API."
+    ),
+    "foundry_sdk.v2.aip_agents.errors.ObjectTypeRidsNotFoundParameters": (
+        "The error names object type RIDs unavailable to this Agent request. Compare each RID "
+        "with the object types returned by the permitted Ontology metadata API."
+    ),
+    "foundry_sdk.v2.aip_agents.errors.OntologyEntitiesNotFoundParameters": (
+        "The error names unavailable Ontology object or link types. Compare each identity "
+        "with the permitted Ontology metadata before changing the Agent request."
+    ),
+    "foundry_sdk.v2.aip_agents.models.AgentRid": (
+        "An RID identifying an Agent created in AIP Chatbot Studio. Obtain the Agent RID "
+        "from the target enrollment's Agent metadata or an Agent list result."
+    ),
+    "foundry_sdk.v2.aip_agents.models.InputContext": (
+        "Custom retrieved context supplied to an Agent when continuing a session. Use the "
+        "typed fields below and only content the caller is allowed to provide."
+    ),
+    "foundry_sdk.v2.aip_agents.models.Parameter": (
+        "An Agent application-state variable with the name and type configured for that "
+        "Agent. Read the Agent metadata before supplying a value."
+    ),
+    "foundry_sdk.v2.aip_agents.models.ParameterId": (
+        "The identifier of an Agent application-state variable. Use the exact ID returned "
+        "by the target Agent's parameter metadata."
+    ),
+    "foundry_sdk.v2.aip_agents.models.ParameterValue": (
+        "A value for an Agent application-state variable. Match the value shape to the "
+        "parameter type returned by the target Agent's metadata."
+    ),
+    "foundry_sdk.v2.aip_agents.models.ParameterValueUpdate": (
+        "An update to an Agent application-state variable generated by the Agent. "
+        "Check its parameter ID and typed value before applying it to local state."
+    ),
+    "foundry_sdk.v2.connectivity.models.CreateTableImportRequestTableImportConfig": (
+        "Choose the table import configuration variant that matches the existing "
+        "Connection's connector type. The union alternatives and type discriminator below "
+        "give the wire shape; source query syntax depends on the selected connector."
+    ),
+    "foundry_sdk.v2.connectivity.models.ReplaceTableImportRequestTableImportConfig": (
+        "Choose the replacement table import configuration variant that matches the "
+        "Connection's connector type. Preserve the chosen union discriminator and validate "
+        "the source query before replacing the import."
+    ),
+    "foundry_sdk.v2.connectivity.models.TableImportConfig": (
+        "The stored table import configuration has a variant for each supported connector "
+        "type. Read its discriminator and variant fields below before interpreting the query "
+        "or constructing an update."
+    ),
+    "foundry_sdk.v1.core.models.TraceParent": (
+        "W3C `traceparent` is a string header for correlating Foundry telemetry across requests. "
+        "Its trace ID is 16 bytes encoded as 32 hexadecimal characters and, for Foundry, must come "
+        "from a time-based UUID. Preserve the same trace ID across related requests."
+    ),
+    "foundry_sdk.v1.core.models.TraceState": (
+        "W3C `tracestate` is a string header carrying vendor-specific tracing state alongside "
+        "`traceparent`. Pass through the state supplied by the active tracing context; this SDK "
+        "alias does not construct or validate vendor entries."
+    ),
+    "foundry_sdk.v2.core.models.TraceParent": (
+        "W3C `traceparent` is a string header for correlating Foundry telemetry across requests. "
+        "Its trace ID is 16 bytes encoded as 32 hexadecimal characters and, for Foundry, must come "
+        "from a time-based UUID. Preserve the same trace ID across related requests."
+    ),
+    "foundry_sdk.v2.core.models.TraceState": (
+        "W3C `tracestate` is a string header carrying vendor-specific tracing state alongside "
+        "`traceparent`. Pass through the state supplied by the active tracing context; this SDK "
+        "alias does not construct or validate vendor entries."
+    ),
+    "foundry_sdk.v2.checkpoints.models.CheckpointType": (
+        "A checkpoint type identifies the operation that produced a checkpoint record. Select an "
+        "exact literal from the SDK definition below when filtering or interpreting records; the "
+        "type alone does not say whether the operation succeeded. Read the record status and time."
+    ),
+    "foundry_sdk.v2.core.models.ChangeDataCaptureConfiguration": (
+        "Change data capture uses the stream as a keyed update feed. Supply at least one key field "
+        "in its stream schema, then choose the CDC configuration that matches the incoming change "
+        "records. A key groups updates to the same entity; a key alone does not deduplicate records."
+    ),
+    "foundry_sdk.v2.core.models.ComputeSeconds": (
+        "Compute seconds measure consumed compute time for resource usage accounting. This SDK "
+        "alias gives a numeric quantity, not a charge or a per-operation quota. Interpret it with "
+        "the usage record's resource and time window."
+    ),
+    "foundry_sdk.v2.core.models.Field": (
+        "A Foundry schema field pairs `name` with a `FieldSchema` under wire key `schema`. "
+        "Use the referenced FieldSchema definition for its supported type and nullability. "
+        "A field name must match the columns or stream records it describes."
+    ),
+    "foundry_sdk.v2.core.models.RoleId": (
+        "A Role ID identifies a permission set on a resource. Common roles are Owner, Editor, "
+        "Viewer and Discoverer, but use the ID returned for the target resource and enrollment "
+        "when assigning a role. A display name alone does not establish its ID or effective access."
+    ),
+    "foundry_sdk.v2.filesystem.models.FolderType": (
+        "The folder type distinguishes an ordinary folder, Project and Space. Read the literal "
+        "values below and use the matching resource operation when traversing the hierarchy. "
+        "Project and Space also carry access context that an ordinary folder path does not convey."
+    ),
+    "foundry_sdk.v2.filesystem.models.Marking": (
+        "A Marking restricts access to a file, folder or Project. `marking_id` identifies it; "
+        "`is_directly_applied` distinguishes a direct marking from an inherited one. A user "
+        "must satisfy every marking on the resource to access it."
+    ),
+    "foundry_sdk.v2.filesystem.models.Organization": (
+        "An Organization is an access requirement on a Project. `organization_rid` identifies "
+        "it; `is_directly_applied` distinguishes direct from inherited application. A user needs "
+        "membership or guest membership in at least one Organization applied to the Project."
+    ),
+    "foundry_sdk.v2.filesystem.models.ProjectResourceReferenceUnion": (
+        "A project resource reference represents a resource imported from another Project. "
+        "Select the union alternative and discriminator shown below. The reference does not "
+        "change ownership of the source resource; check its access separately."
+    ),
+    "foundry_sdk.v2.language_models.models.AnthropicEffort": (
+        "`effort` controls the response token effort for supported Claude models beginning with "
+        "Opus 4.5. Use one literal below only when the selected model accepts it. `HIGH` has "
+        "the same behavior as omitting the parameter according to the frozen SDK."
+    ),
+    "foundry_sdk.v2.media_sets.models.Modality": (
+        "A DICOM modality code identifies the imaging device or method associated with an item. "
+        "Use the code recorded in the source DICOM metadata; the SDK type does not enumerate "
+        "or validate the complete modality code set."
+    ),
+    "foundry_sdk.v2.ontologies.models.BlueprintIcon": (
+        "This icon descriptor uses `type='blueprint'`, a hexadecimal `color`, and the `name` "
+        "of a Blueprint icon available to the application's icon library. Check the chosen "
+        "name against the locally available library assets before displaying the object type."
+    ),
+    "foundry_sdk.v2.ontologies.models.CipherText": (
+        "An encrypted Cipher value is a string envelope in the form "
+        "`CIPHER::{cipherChannelRid}::<ciphertext>::CIPHER`. Preserve the whole envelope and "
+        "its channel RID; do not treat the ciphertext segment as a plaintext property value."
+    ),
+    "foundry_sdk.v2.ontologies.models.InterfaceLinkTypeApiName": (
+        "The API name of an Ontology interface link type. Obtain it from the permitted "
+        "Ontology interface metadata for the target enrollment, and use that exact API name "
+        "in link requests. A display label is not a reliable substitute."
+    ),
+    "foundry_sdk.v2.ontologies.models.ObjectTypeId": (
+        "The unique object-type ID in Ontology metadata. Read the permitted target Ontology "
+        "metadata and use its returned ID; an object type API name or display title may differ."
+    ),
+    "foundry_sdk.v2.ontologies.models.PropertyValue": (
+        "An Ontology property value uses the JSON encoding for its declared property type. "
+        "The SDK source table below lists arrays, primitives, date/time, GeoJSON, Cipher, "
+        "attachment, media and time-series examples. Match the target property metadata and "
+        "use the referenced typed model for structured values; do not pass a display string "
+        "for an attachment or media reference."
+    ),
+    "foundry_sdk.v2.ontologies.models.RelativeDateRangeQuery": (
+        "This query filters a date or timestamp property against a range evaluated at query "
+        "time. Supply either `field` or `property_identifier`, inclusive start and exclusive "
+        "end bounds as needed, and a valid IANA time-zone ID such as `Etc/UTC`. Bounds are "
+        "rounded to midnight in that zone, so the zone can change which records match."
+    ),
+    "foundry_sdk.v2.sql_queries.models.ExecuteSqlQueryRequest": (
+        "`query` is a Spark SQL SELECT against Foundry datasets identified by path or RID. "
+        "`fallback_branch_ids` supplies ordered branch fallbacks when the primary branch "
+        "cannot be used; validate each intended branch before relying on it. The omitted "
+        "serialization format is ARROW, so decode the returned bytes as Arrow."
+    ),
+    "foundry_sdk.v2.streams.models.CreateStreamRequestStreamSchema": (
+        "`fields` declares the stream schema. Optional `key_field_names` group records with "
+        "the same key into one partition and preserve their processing order; keys alone do "
+        "not deduplicate. Key fields must use one of Boolean, Byte, Date, Decimal, Integer, "
+        "Long, Short, String or Timestamp. Optional `change_data_capture` adds CDC behavior."
+    ),
+    "foundry_sdk.v2.streams.models.StreamType": (
+        "`LOW_LATENCY` is the default stream type. `HIGH_THROUGHPUT` favors larger batches "
+        "with some added latency. Select it after checking stream metrics for batches near "
+        "their maximum or producer batch expiry in downstream jobs."
+    ),
+    "foundry_sdk.v1.datasets.errors.DeleteSchemaPermissionDeniedParameters": (
+        "The frozen SDK leaves this error-parameter description unspecified. "
+        "`Dataset.delete_schema` can return the named permission-denied error. "
+        "Check access to the exact dataset and preserve the server error envelope; "
+        "this type does not identify a particular missing grant."
+    ),
+    "foundry_sdk.v1.datasets.errors.PutSchemaPermissionDeniedParameters": (
+        "The frozen SDK leaves this error-parameter description unspecified. "
+        "The named permission-denied error appears in `Dataset.replace_schema` and in a "
+        "schema-related step of `File.delete`. Check the exact dataset, operation and caller "
+        "access; this shared type does not establish a single missing grant."
+    ),
+    "foundry_sdk.v2.connectivity.models.AwsAccessKey": (
+        "AWS access-key authentication requires both the IAM access key ID and matching secret access key. "
+        "Provide the secret as an `EncryptedProperty`; do not put it in JDBC properties or logs. "
+        "The external IAM principal and its permissions must already exist."
+    ),
+    "foundry_sdk.v2.connectivity.models.AwsOidcAuthentication": (
+        "Foundry issues an OIDC token when this Connection runs. The external trust policy must accept the "
+        "configured issuer (`iss`), audience (`aud`) and this Connection RID as subject (`sub`). "
+        "A token from another Connection does not satisfy that subject check; token issuance does not "
+        "create the external trust policy."
+    ),
+    "foundry_sdk.v2.connectivity.models.CloudIdentity": (
+        "Select a cloud identity already configured for this enrollment by its `cloud_identity_rid`. "
+        "The identity replaces static credentials for the supported cloud resource, but its external "
+        "trust and resource permissions still need to be configured and checked separately."
+    ),
+    "foundry_sdk.v2.connectivity.models.ConnectionExportSettings": (
+        "`exports_enabled` allows this Connection to receive dataset exports. Set "
+        "`export_enabled_without_markings_validation` only when the application has independently "
+        "checked security markings for the data to export; some interactive flows cannot do so. "
+        "Read back the Connection export flags after an update."
+    ),
+    "foundry_sdk.v2.connectivity.models.ConnectionWorker": (
+        "A worker chooses where source capability compute runs. A Foundry worker executes in Foundry; "
+        "network egress policies choose direct or agent-proxy reachability. Legacy agent workers run "
+        "compute on an agent host whose network and credentials need separate preparation."
+    ),
+    "foundry_sdk.v2.connectivity.models.CreateConnectionRequestConnectionWorker": (
+        "Choose the worker when creating the Connection. A Foundry worker runs capability compute in "
+        "Foundry and needs approved egress policies; an agent worker runs on a prepared agent host. "
+        "Confirm the selected connector supports the worker and network path before creating imports."
+    ),
+    "foundry_sdk.v2.connectivity.models.FoundryWorker": (
+        "This worker runs source capabilities in Foundry. `network_egress_policy_rids` identifies "
+        "preconfigured direct or agent-proxy egress rules that permit the intended host and port. "
+        "A worker selection alone does not make a private source reachable."
+    ),
+    "foundry_sdk.v2.connectivity.models.UnknownWorker": (
+        "The API cannot represent this stored worker configuration, possibly because it is malformed "
+        "or legacy. Do not write it back as a new worker. Inspect the Connection and plan a supported "
+        "Foundry-worker configuration with approved direct or agent-proxy egress policies."
+    ),
+    "foundry_sdk.v2.connectivity.models.CreateConnectionRequestRestConnectionConfiguration": (
+        "Supply at least one allowed domain. `oauth2_client_rid` refers to an outbound application "
+        "already configured by an organization administrator for OAuth 2.0 authorization-code flow; "
+        "the Connection can select only one such application. `additional_secrets` are optional named "
+        "secrets for code and webhooks, separate from allowed domains."
+    ),
+    "foundry_sdk.v2.connectivity.models.RestConnectionConfiguration": (
+        "The REST Connection limits requests to its configured domains. An optional "
+        "`oauth2_client_rid` selects one preconfigured outbound application for OAuth 2.0; replacing it "
+        "changes the OAuth selection for all configured domains. Check approved egress to the domains "
+        "and the external server's authorization settings before using the Connection."
+    ),
+    "foundry_sdk.v2.connectivity.models.RestConnectionOAuth2": (
+        "This authorization variant uses the Connection's `oauth2_client_rid`. An organization "
+        "administrator must first configure the outbound application and its external OAuth 2.0 "
+        "authorization-code client; selecting this variant does not provision that application."
+    ),
+    "foundry_sdk.v2.connectivity.models.DatabricksConnectionConfiguration": (
+        "`host_name` is the Databricks workspace hostname and `http_path` is the SQL compute endpoint "
+        "path, such as `/sql/1.0/warehouses/<warehouse-id>` for a SQL warehouse. Choose a supported "
+        "authentication variant and only nonsecret JDBC properties. The prepared Foundry worker needs "
+        "egress to the workspace host on port 443; Cloud Fetch may need separate storage egress."
+    ),
+    "foundry_sdk.v2.connectivity.models.OauthMachineToMachineAuth": (
+        "Create a Databricks service principal and OAuth client secret in the external account first. "
+        "Use its client ID and encrypted client secret here; this mode authenticates the service "
+        "principal and does not itself create or authorize it."
+    ),
+    "foundry_sdk.v2.connectivity.models.PersonalAccessToken": (
+        "Supply a Databricks personal access token already issued to the intended user or service "
+        "principal as an `EncryptedProperty`. Keep its owner, expiry and workspace permissions aligned "
+        "with the Connection. This model cannot generate or renew the external token."
+    ),
+    "foundry_sdk.v2.connectivity.models.WorkflowIdentityFederation": (
+        "Foundry acts as OIDC issuer for this Connection. Match the configured issuer, audience and "
+        "Connection RID subject to a precreated Databricks federation policy. If "
+        "`service_principal_application_id` is present, the exchange uses that service principal's "
+        "policy; otherwise it uses an account federation policy. No Databricks secret is stored here."
+    ),
+    "foundry_sdk.v2.connectivity.models.CreateConnectionRequestWorkflowIdentityFederation": (
+        "The audience identifies the Databricks recipient for a Foundry-issued token. An optional "
+        "service-principal application ID chooses a preconfigured service-principal federation policy; "
+        "without it the token exchange uses an account federation policy. Configure the external "
+        "policy before testing the Connection."
+    ),
+    "foundry_sdk.v2.connectivity.models.JdbcProperties": (
+        "This is a map of JDBC driver property names to unencrypted values. Take supported keys from "
+        "the approved driver and connector configuration; this SDK type declares no universal keys "
+        "or defaults. Put passwords and tokens in the connector's encrypted authentication fields."
+    ),
+    "foundry_sdk.v2.connectivity.models.FileImportFilter": (
+        "Filters select which source files enter an import. Apply them in the configured order and "
+        "test representative paths against the source before executing the import; order can affect "
+        "efficiency. A filter changes selection, not the Connection's file access permission."
+    ),
+    "foundry_sdk.v2.connectivity.models.ReplaceFileImportRequest": (
+        "Choose the import mode, display name, source subfolder and ordered file filters for the "
+        "replacement. An omitted subfolder means the source root. Preview representative included "
+        "and excluded paths, then read back the import configuration before executing it."
+    ),
+    "foundry_sdk.v2.connectivity.models.S3ConnectionConfiguration": (
+        "`bucket_url` needs a trailing slash. Select the bucket region and authentication mode; "
+        "a public bucket may omit authentication. A custom S3 endpoint needs its own reachability "
+        "and possibly signing region. Omitted timeout, connection and retry fields use the SDK "
+        "source defaults shown in the field table; do not infer a tenant-specific bucket or role."
+    ),
+    "foundry_sdk.v2.connectivity.models.CreateConnectionRequestSmbConnectionConfiguration": (
+        "Use a resolvable server hostname without an `smb://` prefix, the server's share name and "
+        "an authentication variant. Omitted port uses 445. Optional base directory confines reads "
+        "and writes beneath that path; message signing defaults true and fails against a server "
+        "that cannot sign. Confirm share name and access on the SMB server."
+    ),
+    "foundry_sdk.v2.connectivity.models.SmbConnectionConfiguration": (
+        "Use a resolvable SMB host, valid server share and supported authentication. Omitted port "
+        "uses 445; optional base directory narrows file access. Message signing defaults true and "
+        "requires server support. The share and credentials must already exist on the server."
+    ),
+})
+
+for _connector, _label in (
+    ("DatabricksTableImportConfig", "Databricks"),
+    ("JdbcTableImportConfig", "custom JDBC"),
+    ("MicrosoftAccessTableImportConfig", "Microsoft Access"),
+    ("MicrosoftSqlServerTableImportConfig", "Microsoft SQL Server"),
+    ("PostgreSqlTableImportConfig", "PostgreSQL"),
+    ("SnowflakeTableImportConfig", "Snowflake"),
+):
+    _MODEL_OFFLINE_NOTES[f"foundry_sdk.v2.connectivity.models.{_connector}"] = (
+        f"This config selects a table import on an authorized {_label} Connection. `query` uses the "
+        "linked `TableImportQuery` shape and must be valid for that external source and caller. "
+        "`initial_incremental_state` is optional; set it only when the import strategy and "
+        "source's change position are known. Execute the import, then verify its run and dataset."
+    )
+
+
+def localized_model_prose(prose: str) -> str:
+    """Render complete local model prose without public-reading directives."""
+    prose = re.sub(r"\[([^]]+)\]\(https?://[^)]+\)", r"\1", prose)
+    prose = re.sub(r"(?i)For more (?:information|details),? see the official "
+                   r"(?:AWS|Databricks) documentation\.?", "", prose)
+    prose = re.sub(r"https://learn\.microsoft\.com/[^\s|<]+",
+                   "Confirm the share name on the SMB server.", prose)
+    prose = re.sub(r"(?:<br>\s*){1,2}See https://docs\.snowflake\.com/[^\s|<]+",
+                   "", prose)
+    prose = re.sub(
+        r"<br>\s*For additional information on keys for Foundry streams, see the"
+        r"<br>\s*streaming keys user documentation\.", "", prose,
+    )
+    prose = re.sub(
+        r"See the\s*<br>\s*documentation<br>\s*for more details\.", "", prose,
+    )
+    prose = prose.replace(
+        "See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for valid values.",
+        "Use an IANA time-zone ID such as Etc/UTC, Europe/London or America/New_York.",
+    )
+    return prose
+
+
 def offline_source_references(blocks: list[str], path: Path, skill: Path) -> list[str]:
     """Turn source doc links into local routes plus the context needed offline."""
     notes: dict[str, str] = {}
@@ -470,8 +1000,13 @@ def render(root: Path, files: dict[str, str], operations, symbols, limit: int | 
     skill = root / ".agents/skills/pal-found-dev"
     refs = skill / "references/rest"
     selected = operations if limit is None else pilot(operations)[:limit]
+    client_paths = public_client_paths(selected)
     required = sorted(set().union(*(set(row["symbols"]) for row in selected))
                       | {identity for identity in symbols if identity.startswith("foundry_sdk._core.")})
+    consumers = defaultdict(list)
+    for operation in selected:
+        for identity in operation["symbols"]:
+            consumers[identity].append(operation["id"])
     model_paths = {}
     for identity in required:
         if identity.startswith("foundry_sdk._core."):
@@ -479,11 +1014,17 @@ def render(root: Path, files: dict[str, str], operations, symbols, limit: int | 
         else:
             _, version, service, kind, short = identity.split(".")
             model_paths[identity] = refs / "models" / version / service / kind / f"{short}.md"
+    model_review_rows = []
     for identity in required:
         record = symbols[identity]
         path = model_paths[identity]
         source = definition_source(files[record["source"]], record["node"])
-        blocks = [record["description"] or "The definition below supplies its fields or permitted values.",
+        description = localized_model_prose(
+            _MODEL_OFFLINE_NOTES[identity] if identity in _MODEL_OFFLINE_NOTES
+            else record["description"] or
+            "The definition below supplies its fields or permitted values."
+        )
+        blocks = [description,
                   "## Exact SDK definition\n\nPython names are SDK attributes; `alias` values are wire names. "
                   "`Optional` permits null; a default controls omission. A nullable field without a default remains required. "
                   "`Literal` lists values; `Annotated` retains constraints and discriminators. "
@@ -491,6 +1032,7 @@ def render(root: Path, files: dict[str, str], operations, symbols, limit: int | 
                   "```python\n" + source + "\n```"]
         table = field_table(record["node"])
         if table:
+            table = localized_model_prose(table)
             blocks.insert(2, table)
         dependencies = record["dependencies"]
         if dependencies:
@@ -500,16 +1042,57 @@ def render(root: Path, files: dict[str, str], operations, symbols, limit: int | 
         blocks.append("SDK 1.101.0. Definition adapted from Palantir's Apache-2.0 licensed SDK; "
                       "Copyright 2024 Palantir Technologies, Inc. "
                       "[license and notices](" + relative_link(path, skill / "assets/rest/LICENSE") + ").")
-        write_parts(path, identity, blocks)
+        destinations = write_parts(path, identity, blocks)
+        reader_prose = "\n\n".join([description, table] if table else [description])
+        model_review_rows.append({
+            "id": identity,
+            "source": record["source"],
+            "source_file_sha256": digest(files[record["source"]]),
+            "source_definition_sha256": digest(source),
+            "source_description_sha256": digest(record["description"] or ""),
+            "source_description_placeholder": (record["description"] or "").strip().lower() in {"", "todo"},
+            "dependencies": record["dependencies"],
+            "consumer_operation_ids": consumers[identity],
+            "local_pages": [str(part.relative_to(skill)).replace("\\", "/") for part in destinations],
+            "local_page_sha256": [digest(part.read_bytes()) for part in destinations],
+            "reader_prose_sha256": digest(reader_prose),
+            "reader_prose_excerpt": description[:400],
+            "unfenced_public_url_count": len(re.findall(r"https?://", reader_prose)),
+            "source_fidelity_review": "pending_independent_review",
+            "local_meaning_review": "pending_independent_review",
+        })
+    (root / "maintainer/rest-model-semantic-matrix.json").write_text(json.dumps({
+        "sdk_release": RELEASE,
+        "source_commit": COMMIT,
+        "scope": "Complete transitive model, error and SDK core definition closure for all 425 operations",
+        "symbol_count": len(model_review_rows),
+        "source_fidelity_review": "pending_independent_review",
+        "local_meaning_review": "pending_independent_review",
+        "symbols": model_review_rows,
+    }, indent=2) + "\n", encoding="utf-8")
     register = []
     for row in selected:
         path = refs / "contracts" / row["version"] / row["service"] / row["resource"] / f"{row['method']}.md"
         node = row["node"]
         description, _, documented_errors = doc_sections(node)
-        behavior = refs / row['version'] / row['service'] / f"{row['resource']}.md"
+        documented_errors = [
+            (name, _ERROR_TODO_NOTES.get((row["id"], name), meaning))
+            for name, meaning in documented_errors
+        ]
+        behavior = behavior_leaf(
+            refs / row['version'] / row['service'] / f"{row['resource']}.md",
+            row['method'],
+        )
         blocks = [f"API {row['version']}; release stage: {row['stage']}. "
                   "Check enrollment enablement and resource access before live execution.",
                   "## Purpose and parameter meaning\n\n" + description,
+                  "## Public Python client route\n\nWith a configured "
+                  f"`foundry_sdk.{row['version']}.FoundryClient` named `client`, call "
+                  f"`{client_paths[row['id']]}`. This is the public composed resource path "
+                  "in SDK 1.101.0; nested resource names and capitalization matter. "
+                  "Use the signature below for required arguments and selectors. "
+                  "The same resource also exposes documented raw and streaming wrappers when "
+                  "the response-mode table lists them.",
                   "## SDK invocation contract\n\n```python\n"
                   + f"def {row['method']}({ast.unparse(node.args)}) -> {row['ordinary_return']}: ...\n```",
                   parameter_table(node),
@@ -545,6 +1128,7 @@ def render(root: Path, files: dict[str, str], operations, symbols, limit: int | 
         destinations = write_parts(path, row["id"], blocks)
         register.append({
             "id": row["id"], "stage": row["stage"], "signature": ast.unparse(node.args),
+            "client_path": client_paths[row["id"]],
             "ordinary_return": row["ordinary_return"], "async_return": row["async_return"],
             "response_modes": row["response_modes"],
             "wire": row["wire"], "source_sha256": digest(files[row["source"]]),
@@ -601,8 +1185,8 @@ def render(root: Path, files: dict[str, str], operations, symbols, limit: int | 
         index = refs / version / service / "index.md"
         rows = [row for row in register if row["id"].startswith(namespace + ".")]
         write_parts(index, namespace + " resources and operations", [
-            "Select the resource matching the task and read its operation contract before preparing an invocation. "
-            "Stage, API version and actual result lifetimes remain operation-specific.",
+            _SERVICE_CONTEXT[namespace] + " Read the selected operation contract before invocation; "
+            "stage, API version and result lifetime remain operation-specific.",
             "| Operation | Stage |\n| --- | --- |\n" + "\n".join(
                 f"| [{row['id']}]({relative_link(index, skill / row['contract'])}) | {row['stage']} |" for row in rows
             ),

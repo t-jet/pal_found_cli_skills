@@ -13,6 +13,10 @@ To get the list of checks configured on a Dataset, use
 For the full report history of a specific check, use
 [Get Latest Check Reports](../../../../v2/data_health/index.md).
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.datasets.Dataset.get_health_check_reports`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

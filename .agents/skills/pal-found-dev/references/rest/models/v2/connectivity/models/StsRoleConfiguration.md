@@ -1,7 +1,7 @@
 # foundry_sdk.v2.connectivity.models.StsRoleConfiguration
 
 
-StsRoleConfiguration
+`role_arn` names the AWS IAM role to assume, for example `arn:aws:iam::123456789012:role/example-role`; it is not a user or account-root ARN. `role_session_name` identifies this assumed session and should be unique enough for audit. If supplied, `role_session_duration` is at least 900 seconds and no greater than the role's configured maximum (which can be 1–12 hours); AWS role chaining imposes a one-hour maximum. `external_id` must match the role trust arrangement when one is required. `sts_endpoint` selects the STS endpoint; use the tenant's approved region/endpoint. A valid ARN alone does not grant AssumeRole permission or satisfy the trust policy.
 
 ## Exact SDK definition
 
@@ -13,10 +13,10 @@ Model fields use their declared defaults and aliases. Nullable and omittable are
 
 | SDK field | Wire name | Type | Omission/default | Meaning |
 | --- | --- | --- | --- | --- |
-| role_arn | roleArn | str | required; no default | The Amazon Resource Name (ARN) of the role to assume.<br>    For more information, see the official [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-arn-format). |
-| role_session_name | roleSessionName | str | required; no default | An identifier for the assumed role session.<br>    The value can be any string that you assume will be unique within the AWS account.<br>    For more information, see the official [AWS documentation](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html#API_AssumeRole_RequestParameters). |
-| role_session_duration | roleSessionDuration | typing.Optional[core_models.Duration] | default None | The duration of the role session.<br>    The value specified can range from 900 seconds (15 minutes) up to the maximum session duration set for the role.<br>    The maximum session duration setting can have a value from 1 hour to 12 hours. For more details see the official [AWS documentation](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html#API_AssumeRole_RequestParameters). |
-| external_id | externalId | typing.Optional[str] | default None | A unique identifier that is used by third parties when assuming roles in their customers' accounts.<br>    For more information, see the official [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html). |
+| role_arn | roleArn | str | required; no default | The Amazon Resource Name (ARN) of the role to assume.<br>     |
+| role_session_name | roleSessionName | str | required; no default | An identifier for the assumed role session.<br>    The value can be any string that you assume will be unique within the AWS account.<br>     |
+| role_session_duration | roleSessionDuration | typing.Optional[core_models.Duration] | default None | The duration of the role session.<br>    The value specified can range from 900 seconds (15 minutes) up to the maximum session duration set for the role.<br>    The maximum session duration setting can have a value from 1 hour to 12 hours.  |
+| external_id | externalId | typing.Optional[str] | default None | A unique identifier that is used by third parties when assuming roles in their customers' accounts.<br>     |
 | sts_endpoint | stsEndpoint | typing.Optional[str] | default None | By default, the AWS Security Token Service (AWS STS) is available as a global service, and all AWS STS requests go to a single endpoint at https://sts.amazonaws.com.<br>    AWS recommends using Regional AWS STS endpoints instead of the global endpoint to reduce latency, build in redundancy, and increase session token validity. |
 
 ```python

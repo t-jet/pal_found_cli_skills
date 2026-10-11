@@ -1,7 +1,7 @@
 # foundry_sdk.v2.aip_agents.models.AgentRid
 
 
-An RID identifying an Agent created in [AIP Chatbot Studio](https://palantir.com/docs/foundry/chatbot-studio/overview/).
+An RID identifying an Agent created in AIP Chatbot Studio. Obtain the Agent RID from the target enrollment's Agent metadata or an Agent list result.
 
 ## Exact SDK definition
 

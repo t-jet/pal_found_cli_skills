@@ -7,6 +7,10 @@ API v1; release stage: Private Beta. Check enrollment enablement and resource ac
 
 Deletes the Schema from a Dataset and Branch.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v1.FoundryClient` named `client`, call `client.datasets.Dataset.delete_schema`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python
@@ -30,7 +34,7 @@ def delete_schema(self, dataset_rid: datasets_models.DatasetRid, *, branch_id: t
 | --- | --- |
 | BranchNotFound | The requested branch could not be found, or the client token does not have access to it. |
 | DatasetNotFound | The requested dataset could not be found, or the client token does not have access to it. |
-| DeleteSchemaPermissionDenied | todo |
+| DeleteSchemaPermissionDenied | Permission denied while deleting this dataset schema. Check caller access to the exact dataset; the SDK does not name a specific missing grant. |
 | InvalidBranchId | The requested branch name cannot be used. Branch names cannot be empty and must not look like RIDs or UUIDs. |
 | SchemaNotFound | A schema could not be found for the given dataset and branch, or the client token does not have access to it. |
 | TransactionNotFound | The requested transaction could not be found on the dataset, or the client token does not have access to it. |

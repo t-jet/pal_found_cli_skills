@@ -8,6 +8,10 @@ API v2; release stage: Private Beta. Check enrollment enablement and resource ac
 Set the dev mode settings for the given widget set for the user associated with the
 provided token. Uses widget IDs to identify widgets within the set.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.widgets.DevModeSettings.set_widget_set_by_id`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

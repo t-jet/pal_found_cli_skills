@@ -21,6 +21,10 @@ will be prefixed with '$' instead of '__' as is the case in `/loadObjects`.
 
 Vector properties will not be returned unless included in the `select` parameter.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.ontologies.OntologyObjectSet.load_objects_or_interfaces`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

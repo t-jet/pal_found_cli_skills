@@ -1,7 +1,7 @@
 # foundry_sdk.v2.connectivity.models.JdbcTableImportConfig
 
 
-The import configuration for a [custom JDBC connection](https://palantir.com/docs/foundry/available-connectors/custom-jdbc-sources).
+This config selects a table import on an authorized custom JDBC Connection. `query` uses the linked `TableImportQuery` shape and must be valid for that external source and caller. `initial_incremental_state` is optional; set it only when the import strategy and source's change position are known. Execute the import, then verify its run and dataset.
 
 ## Exact SDK definition
 

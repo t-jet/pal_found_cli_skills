@@ -10,6 +10,10 @@ List all child resources of the Folder.
 This is a paged endpoint. The page size will be limited to 2,000 results per page. If no page size is
 provided, this page size will also be used as the default.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.filesystem.Folder.children`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

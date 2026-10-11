@@ -1,10 +1,7 @@
 # foundry_sdk.v2.connectivity.models.CreateConnectionRequestConnectionWorker
 
 
-
-[The worker of a Connection](https://palantir.com/docs/foundry/data-connection/core-concepts/#workers), which defines where
-compute for capabilities are run.
-
+Choose the worker when creating the Connection. A Foundry worker runs capability compute in Foundry and needs approved egress policies; an agent worker runs on a prepared agent host. Confirm the selected connector supports the worker and network path before creating imports.
 
 ## Exact SDK definition
 

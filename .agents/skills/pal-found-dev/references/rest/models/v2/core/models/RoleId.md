@@ -1,11 +1,7 @@
 # foundry_sdk.v2.core.models.RoleId
 
 
-
-The unique ID for a Role. Roles are sets of permissions that grant different levels of access to resources.
-The default roles in Foundry are: Owner, Editor, Viewer, and Discoverer. See more about 
-[roles](https://palantir.com/docs/foundry/security/projects-and-roles#roles) in the user documentation.
-
+A Role ID identifies a permission set on a resource. Common roles are Owner, Editor, Viewer and Discoverer, but use the ID returned for the target resource and enrollment when assigning a role. A display name alone does not establish its ID or effective access.
 
 ## Exact SDK definition
 

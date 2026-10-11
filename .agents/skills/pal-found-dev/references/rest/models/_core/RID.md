@@ -1,7 +1,7 @@
 # foundry_sdk._core.utils.RID
 
 
-The definition below supplies its fields or permitted values.
+A Foundry resource identifier string beginning `ri.` and matching the SDK constraint below. Read the specific resource RID from permitted metadata or a prior response; a valid pattern alone does not establish that the resource exists or the caller can access it.
 
 ## Exact SDK definition
 

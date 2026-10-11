@@ -18,6 +18,10 @@ Results are paginated. Use the `nextPageToken` from the response to retrieve sub
   Geotemporal series integrations with only "dataset archive" enabled are not supported.
 :::
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

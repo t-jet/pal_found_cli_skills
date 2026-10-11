@@ -1,7 +1,7 @@
 # v2.orchestration resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Use schedules, builds and jobs to observe pipeline execution. Creating or requesting a build is not completion: poll a known build with a finite budget and inspect its terminal status, output and failing jobs before declaring data ready. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |

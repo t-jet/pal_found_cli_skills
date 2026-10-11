@@ -1,7 +1,7 @@
 # foundry_sdk.v2.connectivity.models.ReplaceTableImportRequestTableImportConfig
 
 
-The import configuration for a specific [connector type](https://palantir.com/docs/foundry/data-integration/source-type-overview).
+Choose the replacement table import configuration variant that matches the Connection's connector type. Preserve the chosen union discriminator and validate the source query before replacing the import.
 
 ## Exact SDK definition
 

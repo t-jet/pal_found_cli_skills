@@ -1,7 +1,7 @@
 # foundry_sdk.v2.connectivity.models.SnowflakeTableImportConfig
 
 
-The table import configuration for a [Snowflake connection](https://palantir.com/docs/foundry/available-connectors/snowflake).
+This config selects a table import on an authorized Snowflake Connection. `query` uses the linked `TableImportQuery` shape and must be valid for that external source and caller. `initial_incremental_state` is optional; set it only when the import strategy and source's change position are known. Execute the import, then verify its run and dataset.
 
 ## Exact SDK definition
 

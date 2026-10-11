@@ -8,6 +8,10 @@ API v2; release stage: Public Beta. Check enrollment enablement and resource acc
 Retrieve raw time-series data for a single series in JSON format.
 Results are paginated with a default page size of 200 and a maximum of 1000.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.models.Model.Experiment.Series.json`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

@@ -1,8 +1,7 @@
 # foundry_sdk.v2.connectivity.models.S3ConnectionConfiguration
 
 
-The configuration needed to connect to an [AWS S3 external system (or any other S3-like external systems that
-implement the s3a protocol)](https://palantir.com/docs/foundry/available-connectors/amazon-s3/#amazon-s3).
+`bucket_url` needs a trailing slash. Select the bucket region and authentication mode; a public bucket may omit authentication. A custom S3 endpoint needs its own reachability and possibly signing region. Omitted timeout, connection and retry fields use the SDK source defaults shown in the field table; do not infer a tenant-specific bucket or role.
 
 ## Exact SDK definition
 
@@ -15,19 +14,19 @@ Model fields use their declared defaults and aliases. Nullable and omittable are
 | SDK field | Wire name | Type | Omission/default | Meaning |
 | --- | --- | --- | --- | --- |
 | bucket_url | bucketUrl | str | required; no default | The URL of the S3 bucket. The URL should contain a trailing slash. |
-| s3_endpoint | s3Endpoint | typing.Optional[str] | default None | The endpoint of the S3 service. This is used to connect to a custom S3 service that is not AWS S3.<br>    If not specified, defaults to the [AWS S3 endpoint](https://docs.aws.amazon.com/general/latest/gr/s3.html).<br>    Warning: Specifying a region and a custom endpoint containing a region can lead to unexpected behavior. |
+| s3_endpoint | s3Endpoint | typing.Optional[str] | default None | The endpoint of the S3 service. This is used to connect to a custom S3 service that is not AWS S3.<br>    If not specified, defaults to the AWS S3 endpoint.<br>    Warning: Specifying a region and a custom endpoint containing a region can lead to unexpected behavior. |
 | region | region | typing.Optional[Region] | None | The region representing the location of the S3 bucket.<br>    Warning: Specifying a region and a custom endpoint containing a region can lead to unexpected behavior. |
 | authentication_mode | authenticationMode | typing.Optional[S3AuthenticationMode] | default None | The authentication mode to use to connect to the S3 external system. No authentication mode is required<br>    to connect to publicly accessible AWS S3 buckets. |
 | s3_endpoint_signing_region | s3EndpointSigningRegion | typing.Optional[Region] | default None | The region used when constructing the S3 client using a custom endpoint.<br>    This is often not required and would only be needed if you are using the S3 connector with an S3-compliant third-party API,<br>    and are also setting a custom endpoint that requires a non-default region. |
 | client_kms_configuration | clientKmsConfiguration | typing.Optional[S3KmsConfiguration] | default None | The client-side KMS key to use for encryption and decryption of data in the S3 bucket.<br>    If not specified, the default KMS key for the bucket is used. |
 | sts_role_configuration | stsRoleConfiguration | typing.Optional[StsRoleConfiguration] | default None | The configuration needed to assume a role to connect to the S3 external system. |
 | proxy_configuration | proxyConfiguration | typing.Optional[S3ProxyConfiguration] | default None | The configuration needed to connect to the S3 external system through a proxy. |
-| max_connections | maxConnections | typing.Optional[int] | default None | The maximum number of HTTP connections to the S3 service per sync.<br>    If not specified, defaults to 50 as defined by the [AWS SDK default](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/ClientConfiguration.html#DEFAULT_MAX_CONNECTIONS). |
-| connection_timeout_millis | connectionTimeoutMillis | typing.Optional[core.Long] | default None | The amount of time (in milliseconds) to wait when initially establishing a connection before giving up and timing out.<br>    If not specified, defaults to 10000 as defined by the [AWS SDK default](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/ClientConfiguration.html#DEFAULT_CONNECTION_TIMEOUT). |
-| socket_timeout_millis | socketTimeoutMillis | typing.Optional[core.Long] | default None | The amount of time (in milliseconds) to wait for data to be transferred over an established, open connection.<br>    If not specified, defaults to 50000 as defined by the [AWS SDK default](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/ClientConfiguration.html#DEFAULT_SOCKET_TIMEOUT). |
-| max_error_retry | maxErrorRetry | typing.Optional[int] | default None | The maximum number of retry attempts for failed requests to the S3 service.<br>    If not specified, defaults to 3 as defined by the [AWS SDK default](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/retry-strategy.html#retry-strategies). |
+| max_connections | maxConnections | typing.Optional[int] | default None | The maximum number of HTTP connections to the S3 service per sync.<br>    If not specified, defaults to 50 as defined by the AWS SDK default. |
+| connection_timeout_millis | connectionTimeoutMillis | typing.Optional[core.Long] | default None | The amount of time (in milliseconds) to wait when initially establishing a connection before giving up and timing out.<br>    If not specified, defaults to 10000 as defined by the AWS SDK default. |
+| socket_timeout_millis | socketTimeoutMillis | typing.Optional[core.Long] | default None | The amount of time (in milliseconds) to wait for data to be transferred over an established, open connection.<br>    If not specified, defaults to 50000 as defined by the AWS SDK default. |
+| max_error_retry | maxErrorRetry | typing.Optional[int] | default None | The maximum number of retry attempts for failed requests to the S3 service.<br>    If not specified, defaults to 3 as defined by the AWS SDK default. |
 | match_subfolder_exactly | matchSubfolderExactly | typing.Optional[bool] | default None | If true, only files in the subfolder specified in the bucket URL will be synced.<br>    If false, all files in the bucket will be synced.<br>    If not specified, defaults to false. |
-| enable_requester_pays | enableRequesterPays | typing.Optional[bool] | default None | Defaults to false, unless set and overwritten.<br>    If true, includes the [requester pays header](https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html)<br>    in requests, allowing reads from requester pays buckets. |
+| enable_requester_pays | enableRequesterPays | typing.Optional[bool] | default None | Defaults to false, unless set and overwritten.<br>    If true, includes the requester pays header<br>    in requests, allowing reads from requester pays buckets. |
 | type | type | typing.Literal['s3'] | 's3' | No additional field description in SDK source. |
 
 ```python

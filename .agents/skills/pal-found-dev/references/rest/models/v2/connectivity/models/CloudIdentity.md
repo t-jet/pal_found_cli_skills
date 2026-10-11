@@ -1,8 +1,7 @@
 # foundry_sdk.v2.connectivity.models.CloudIdentity
 
 
-[Cloud identities](https://palantir.com/docs/foundry/administration/configure-cloud-identities/) allow you to authenticate to
-cloud provider resources without the use of static credentials.
+Select a cloud identity already configured for this enrollment by its `cloud_identity_rid`. The identity replaces static credentials for the supported cloud resource, but its external trust and resource permissions still need to be configured and checked separately.
 
 ## Exact SDK definition
 

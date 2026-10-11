@@ -1,9 +1,7 @@
 # foundry_sdk.v2.connectivity.models.SnowflakeKeyPairAuthentication
 
 
-Use a key-pair to connect and authenticate to Snowflake.
-
-See https://docs.snowflake.com/en/user-guide/key-pair-auth
+Key-pair authentication uses the Snowflake user in `user` and its matching private key in `private_key`. Register the corresponding public key on that Snowflake user first. Supply the private key through the `EncryptedProperty` variant chosen for a write: plaintext is encrypted and stored by Foundry, while an existing secret name retains its encrypted value. Never substitute the public key for this private-key field. If authentication fails, compare user identity and public-key fingerprint with the intended key before rotating or resubmitting a secret.
 
 ## Exact SDK definition
 

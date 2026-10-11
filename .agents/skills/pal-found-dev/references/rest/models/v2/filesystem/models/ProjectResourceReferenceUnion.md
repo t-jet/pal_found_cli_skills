@@ -1,10 +1,7 @@
 # foundry_sdk.v2.filesystem.models.ProjectResourceReferenceUnion
 
 
-
-A [reference](https://palantir.com/docs/foundry/security/projects-and-roles/#references) represents a resource from outside of 
-the current project that has been imported to the given project.
-
+A project resource reference represents a resource imported from another Project. Select the union alternative and discriminator shown below. The reference does not change ownership of the source resource; check its access separately.
 
 ## Exact SDK definition
 

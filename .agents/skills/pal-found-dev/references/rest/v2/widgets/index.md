@@ -1,7 +1,7 @@
 # v2.widgets resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Use Widget Set and Repository resources for authored widget bundles, then inspect Release and development-mode settings. A repository publish, first release and host-selected version are separate steps; confirm the host can use the intended release before treating the widget as deployed. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |

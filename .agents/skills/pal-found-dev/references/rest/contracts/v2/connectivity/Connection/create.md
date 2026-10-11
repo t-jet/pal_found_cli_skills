@@ -15,6 +15,10 @@ By using this endpoint, you acknowledge and accept any potential risks associate
 in-memory handling of secrets. If you do not want your secrets to be temporarily decrypted, you should
 use the Foundry UI instead.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.connectivity.Connection.create`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

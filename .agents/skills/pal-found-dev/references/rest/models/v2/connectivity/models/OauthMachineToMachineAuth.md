@@ -1,9 +1,7 @@
 # foundry_sdk.v2.connectivity.models.OauthMachineToMachineAuth
 
 
-Authenticate as a service principal using OAuth. Create a service principal in Databricks and generate an OAuth secret to obtain a client ID and secret.
-Read the [official Databricks documentation](https://docs.databricks.com/aws/en/dev-tools/auth/oauth-m2m) for more information about OAuth machine-to-machine
-authentication.
+Create a Databricks service principal and OAuth client secret in the external account first. Use its client ID and encrypted client secret here; this mode authenticates the service principal and does not itself create or authorize it.
 
 ## Exact SDK definition
 

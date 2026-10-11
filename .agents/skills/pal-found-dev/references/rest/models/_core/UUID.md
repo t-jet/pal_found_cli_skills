@@ -1,7 +1,7 @@
 # foundry_sdk._core.utils.UUID
 
 
-The definition below supplies its fields or permitted values.
+A hyphenated UUID string matching the SDK hexadecimal pattern below. Preserve the returned identifier for later requests; this shape alone does not imply a Foundry RID or validate a resource's existence.
 
 ## Exact SDK definition
 

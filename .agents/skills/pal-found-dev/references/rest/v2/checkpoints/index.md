@@ -1,7 +1,7 @@
 # v2.checkpoints resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Use checkpoint resources to search and inspect recorded pipeline checkpoints. Select the relevant checkpoint type, operation and time window, then distinguish an existing checkpoint from evidence that a later production build succeeded. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |

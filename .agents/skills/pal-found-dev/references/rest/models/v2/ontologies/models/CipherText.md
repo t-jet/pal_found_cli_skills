@@ -1,10 +1,7 @@
 # foundry_sdk.v2.ontologies.models.CipherText
 
 
-
-A value encrypted with [Cipher](https://palantir.com/docs/foundry/cipher/overview/), stored in its envelope form which encodes
-the Cipher Channel used to encrypt it (for example `CIPHER::{cipherChannelRid}::<ciphertext>::CIPHER`).
-
+An encrypted Cipher value is a string envelope in the form `CIPHER::{cipherChannelRid}::<ciphertext>::CIPHER`. Preserve the whole envelope and its channel RID; do not treat the ciphertext segment as a plaintext property value.
 
 ## Exact SDK definition
 

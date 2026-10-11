@@ -9,6 +9,10 @@ Get the trace of an Agent response. The trace lists the sequence of steps that a
 an answer. For example, a trace may include steps such as context retrieval and tool calls. Clients should
 poll this endpoint to check the realtime progress of a response until the trace is completed.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.aip_agents.Agent.Session.SessionTrace.get`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

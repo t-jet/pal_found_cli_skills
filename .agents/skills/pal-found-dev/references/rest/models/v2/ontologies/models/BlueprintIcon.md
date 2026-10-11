@@ -1,7 +1,7 @@
 # foundry_sdk.v2.ontologies.models.BlueprintIcon
 
 
-BlueprintIcon
+This icon descriptor uses `type='blueprint'`, a hexadecimal `color`, and the `name` of a Blueprint icon available to the application's icon library. Check the chosen name against the locally available library assets before displaying the object type.
 
 ## Exact SDK definition
 
@@ -14,7 +14,7 @@ Model fields use their declared defaults and aliases. Nullable and omittable are
 | SDK field | Wire name | Type | Omission/default | Meaning |
 | --- | --- | --- | --- | --- |
 | color | color | str | required; no default | A hexadecimal color code. |
-| name | name | str | required; no default | The [name](https://blueprintjs.com/docs/#icons/icons-list) of the Blueprint icon. <br>    Used to specify the Blueprint icon to represent the object type in a React app. |
+| name | name | str | required; no default | The name of the Blueprint icon. <br>    Used to specify the Blueprint icon to represent the object type in a React app. |
 | type | type | typing.Literal['blueprint'] | 'blueprint' | No additional field description in SDK source. |
 
 ```python

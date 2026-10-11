@@ -14,6 +14,10 @@ the item will be cleared from the default branch. If more than one is specified,
 For transactional media sets, a transaction ID must be provided. The deletion will not be
 visible until the transaction is committed.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.media_sets.MediaSet.clear`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

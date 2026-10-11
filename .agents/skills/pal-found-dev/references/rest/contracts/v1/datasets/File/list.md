@@ -32,6 +32,10 @@ To **list files on a specific transaction** specify the Transaction's resource i
 `startTransactionRid` and `endTransactionRid`. This will include only files that were modified as part of that
 Transaction.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v1.FoundryClient` named `client`, call `client.datasets.Dataset.File.list`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

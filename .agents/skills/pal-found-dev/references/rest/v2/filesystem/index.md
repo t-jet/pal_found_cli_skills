@@ -1,7 +1,7 @@
 # v2.filesystem resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Start governance navigation with a permitted Project or Folder, then traverse children and inspect resources. Create or modify a folder/project only after identifying its parent, applicable access context and exact RID; verify the resulting resource and permissions through supported read operations. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |

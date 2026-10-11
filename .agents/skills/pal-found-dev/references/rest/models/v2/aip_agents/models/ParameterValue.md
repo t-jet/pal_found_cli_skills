@@ -1,7 +1,7 @@
 # foundry_sdk.v2.aip_agents.models.ParameterValue
 
 
-The value provided for a variable configured in the [application state](https://palantir.com/docs/foundry/chatbot-studio/application-state/) of an Agent.
+A value for an Agent application-state variable. Match the value shape to the parameter type returned by the target Agent's metadata.
 
 ## Exact SDK definition
 

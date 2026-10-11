@@ -14,7 +14,7 @@ TypedDict keys use Required/NotRequired and the declared total setting. A nullab
 | SDK field | Wire name | Type | Omission/default | Meaning |
 | --- | --- | --- | --- | --- |
 | sessionTraceId | sessionTraceId | aip_agents_models.SessionTraceId | TypedDict key required | The unique identifier for the trace. |
-| agentRid | agentRid | aip_agents_models.AgentRid | TypedDict key required | An RID identifying an Agent created in [AIP Chatbot Studio](https://palantir.com/docs/foundry/chatbot-studio/overview/). |
+| agentRid | agentRid | aip_agents_models.AgentRid | TypedDict key required | An RID identifying an Agent created in AIP Chatbot Studio. |
 | sessionRid | sessionRid | aip_agents_models.SessionRid | TypedDict key required | The Resource Identifier (RID) of the conversation session. |
 
 ```python

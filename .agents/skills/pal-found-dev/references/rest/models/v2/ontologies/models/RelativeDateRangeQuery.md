@@ -1,8 +1,7 @@
 # foundry_sdk.v2.ontologies.models.RelativeDateRangeQuery
 
 
-Returns objects where the specified date or timestamp property falls within a relative date range.
-The bounds are calculated relative to query execution time and rounded to midnight in the specified timezone.
+This query filters a date or timestamp property against a range evaluated at query time. Supply either `field` or `property_identifier`, inclusive start and exclusive end bounds as needed, and a valid IANA time-zone ID such as `Etc/UTC`. Bounds are rounded to midnight in that zone, so the zone can change which records match.
 
 ## Exact SDK definition
 
@@ -18,7 +17,7 @@ Model fields use their declared defaults and aliases. Nullable and omittable are
 | property_identifier | propertyIdentifier | typing.Optional[PropertyIdentifier] | default None | The property identifier to filter on (either field or propertyIdentifier must be provided). |
 | relative_start_time | relativeStartTime | typing.Optional[RelativeDateRangeBound] | default None | The lower bound relative to query time (inclusive). Negative values go into the past.<br>    For example, { value: -7, timeUnit: DAY } means 7 days ago. |
 | relative_end_time | relativeEndTime | typing.Optional[RelativeDateRangeBound] | default None | The upper bound relative to query time (exclusive). Negative values go into the past.<br>    For example, { value: 1, timeUnit: MONTH } means the start of next month. |
-| time_zone_id | timeZoneId | str | required; no default | Time zone ID for midnight calculation (e.g., "America/New_York", "Europe/London", "Etc/UTC").<br>    See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for valid values. |
+| time_zone_id | timeZoneId | str | required; no default | Time zone ID for midnight calculation (e.g., "America/New_York", "Europe/London", "Etc/UTC").<br>    Use an IANA time-zone ID such as Etc/UTC, Europe/London or America/New_York. |
 | type | type | typing.Literal['relativeDateRange'] | 'relativeDateRange' | No additional field description in SDK source. |
 
 ```python

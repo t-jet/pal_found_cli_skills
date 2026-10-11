@@ -1,9 +1,7 @@
 # foundry_sdk.v2.aip_agents.errors.ObjectTypeRidsNotFoundParameters
 
 
-Some object types are configured for use by the Agent but could not be found.
-The object types either do not exist or the client token does not have access.
-Object types can be checked by listing available object types through the API, or searching in [Ontology Manager](https://palantir.com/docs/foundry/ontology-manager/overview/).
+The error names object type RIDs unavailable to this Agent request. Compare each RID with the object types returned by the permitted Ontology metadata API.
 
 ## Exact SDK definition
 

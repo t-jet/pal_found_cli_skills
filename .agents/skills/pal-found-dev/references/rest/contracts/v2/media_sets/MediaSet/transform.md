@@ -11,6 +11,10 @@ the result of the transformation.
 Transforming a media item requires that you are able to read the media item, either via `api:mediasets-read` or
 via a `MediaItemReadToken`
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.media_sets.MediaSet.transform`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

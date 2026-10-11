@@ -7,6 +7,10 @@ API v1; release stage: Stable. Check enrollment enablement and resource access b
 
 Executes a Query using the given parameters. Optional parameters do not need to be supplied.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v1.FoundryClient` named `client`, call `client.ontologies.Query.execute`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

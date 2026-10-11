@@ -1,7 +1,7 @@
 # v2.connectivity resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Use Connections to configure an authorized external source and its worker, authentication and network route. File and table imports refer to that Connection; inspect a configured import before replacement or execution. External credentials, permissions and reachable endpoints are prerequisites supplied by the enrollment and source system. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |

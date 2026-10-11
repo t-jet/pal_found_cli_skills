@@ -1,10 +1,7 @@
 # foundry_sdk.v2.filesystem.models.Marking
 
 
-[Markings](https://palantir.com/docs/foundry/security/markings/) provide an additional level of access control for files,
-folders, and Projects within Foundry. Markings define eligibility criteria that restrict visibility
-and actions to users who meet those criteria. To access a resource, a user must be a member of all
-Markings applied to a resource to access it.
+A Marking restricts access to a file, folder or Project. `marking_id` identifies it; `is_directly_applied` distinguishes a direct marking from an inherited one. A user must satisfy every marking on the resource to access it.
 
 ## Exact SDK definition
 

@@ -13,10 +13,10 @@ Model fields use their declared defaults and aliases. Nullable and omittable are
 
 | SDK field | Wire name | Type | Omission/default | Meaning |
 | --- | --- | --- | --- | --- |
-| rid | rid | AgentRid | required; no default | An RID identifying an Agent created in [AIP Chatbot Studio](https://palantir.com/docs/foundry/chatbot-studio/overview/). |
+| rid | rid | AgentRid | required; no default | An RID identifying an Agent created in AIP Chatbot Studio. |
 | version | version | AgentVersionString | required; no default | The version of this instance of the Agent. |
 | metadata | metadata | AgentMetadata | required; no default | No additional field description in SDK source. |
-| parameters | parameters | typing.Dict[ParameterId, Parameter] | required; no default | The types and names of variables configured for the Agent in [AIP Chatbot Studio](https://palantir.com/docs/foundry/chatbot-studio/overview/) in the [application state](https://palantir.com/docs/foundry/chatbot-studio/application-state/).<br>    These variables can be used to send custom values in prompts sent to an Agent to customize and control the Agent's behavior. |
+| parameters | parameters | typing.Dict[ParameterId, Parameter] | required; no default | The types and names of variables configured for the Agent in AIP Chatbot Studio in the application state.<br>    These variables can be used to send custom values in prompts sent to an Agent to customize and control the Agent's behavior. |
 
 ```python
 class Agent(core.ModelBase):

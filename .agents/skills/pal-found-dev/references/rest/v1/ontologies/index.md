@@ -1,7 +1,7 @@
 # v1.ontologies resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Use v1 Ontology metadata, objects, linked objects, Actions, Queries and attachments for a client pinned to v1. Read the target Ontology and type metadata before constructing object or Action inputs; result visibility and write authorization remain tenant specific. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |

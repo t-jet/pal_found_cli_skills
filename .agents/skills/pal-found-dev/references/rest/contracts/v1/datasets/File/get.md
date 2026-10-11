@@ -28,6 +28,10 @@ This will retrieve metadata for the most recent version of the file since the `s
 To **get a file's metadata from a specific transaction** specify the Transaction's resource identifier as both the
 `startTransactionRid` and `endTransactionRid`.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v1.FoundryClient` named `client`, call `client.datasets.Dataset.File.get`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

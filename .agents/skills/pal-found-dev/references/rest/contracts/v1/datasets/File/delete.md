@@ -20,6 +20,10 @@ as `transactionRid`. The transaction must be of type `DELETE`. This is useful fo
 single transaction. See [createTransaction](../../../../catalog.md) to
 open a transaction.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v1.FoundryClient` named `client`, call `client.datasets.Dataset.File.delete`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python
@@ -52,7 +56,7 @@ def delete(self, dataset_rid: datasets_models.DatasetRid, file_path: core_models
 | InvalidParameterCombination | The given parameters are individually valid but cannot be used in the given combination. |
 | InvalidTransactionType | The given transaction type is not valid. Valid transaction types are `SNAPSHOT`, `UPDATE`, `APPEND`, and `DELETE`. |
 | OpenTransactionAlreadyExists | A transaction is already open on this dataset and branch. A branch of a dataset can only have one open transaction at a time. |
-| PutSchemaPermissionDenied | todo |
+| PutSchemaPermissionDenied | Permission denied in a schema-related step of file deletion. Check caller access to the exact dataset and retain the error envelope; the SDK leaves the reason unspecified. |
 | TransactionNotFound | The requested transaction could not be found on the dataset, or the client token does not have access to it. |
 | TransactionNotOpen | The given transaction is not open. |
 

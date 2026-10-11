@@ -1,7 +1,7 @@
 # v2.streams resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Use stream metadata to select an existing stream or define a schema, partition keys and optional change-data-capture behavior. Publish or subscribe with finite batches and cursor handling; a key groups records but does not by itself deduplicate them. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |

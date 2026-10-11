@@ -1,7 +1,7 @@
 # v2.audit resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Use Organization audit log files for a bounded, time-filtered evidence retrieval. Supply the documented date range and follow every page token, including after an empty page; retain partial results if a finite page budget or repeated token stops the traversal. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |

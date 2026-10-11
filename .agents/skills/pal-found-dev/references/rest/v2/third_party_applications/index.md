@@ -1,7 +1,7 @@
 # v2.third_party_applications resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Use application, version and website resources to inspect an application before uploading a version or deploying a website. Treat archive bytes, version identity and deployment state separately; verify the selected live version after a write or uncertain reply. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |

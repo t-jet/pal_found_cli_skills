@@ -1,9 +1,7 @@
 # foundry_sdk.v2.connectivity.models.DatabricksConnectionConfiguration
 
 
-The configuration needed to connect to a [Databricks external system](https://palantir.com/docs/foundry/available-connectors/databricks).
-Refer to the [official Databricks documentation](https://docs.databricks.com/aws/en/integrations/compute-details)
-for more information on how to obtain connection details for your system.
+`host_name` is the Databricks workspace hostname and `http_path` is the SQL compute endpoint path, such as `/sql/1.0/warehouses/<warehouse-id>` for a SQL warehouse. Choose a supported authentication variant and only nonsecret JDBC properties. The prepared Foundry worker needs egress to the workspace host on port 443; Cloud Fetch may need separate storage egress.
 
 ## Exact SDK definition
 

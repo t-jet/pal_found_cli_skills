@@ -1,7 +1,7 @@
 # foundry_sdk.v2.aip_agents.models.InputContext
 
 
-Custom retrieved [context](https://palantir.com/docs/foundry/chatbot-studio/retrieval-context/) to provide to an Agent for continuing a session.
+Custom retrieved context supplied to an Agent when continuing a session. Use the typed fields below and only content the caller is allowed to provide.
 
 ## Exact SDK definition
 

@@ -8,6 +8,10 @@ API v2; release stage: Private Beta. Check enrollment enablement and resource ac
 Get the current read position for a subscriber. Returns the offset per partition where the next read
 will begin.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.streams.Dataset.Stream.Subscriber.get_read_position`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

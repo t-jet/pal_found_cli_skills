@@ -1,7 +1,7 @@
 # foundry_sdk.v2.connectivity.models.TableImportConfig
 
 
-The import configuration for a specific [connector type](https://palantir.com/docs/foundry/data-integration/source-type-overview).
+The stored table import configuration has a variant for each supported connector type. Read its discriminator and variant fields below before interpreting the query or constructing an update.
 
 ## Exact SDK definition
 

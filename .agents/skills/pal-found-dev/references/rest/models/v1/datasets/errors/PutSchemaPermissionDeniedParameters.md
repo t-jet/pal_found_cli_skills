@@ -1,7 +1,7 @@
 # foundry_sdk.v1.datasets.errors.PutSchemaPermissionDeniedParameters
 
 
-todo
+The frozen SDK leaves this error-parameter description unspecified. The named permission-denied error appears in `Dataset.replace_schema` and in a schema-related step of `File.delete`. Check the exact dataset, operation and caller access; this shared type does not establish a single missing grant.
 
 ## Exact SDK definition
 

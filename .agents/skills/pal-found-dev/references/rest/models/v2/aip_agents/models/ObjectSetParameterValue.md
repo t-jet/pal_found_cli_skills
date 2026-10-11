@@ -14,7 +14,7 @@ Model fields use their declared defaults and aliases. Nullable and omittable are
 | SDK field | Wire name | Type | Omission/default | Meaning |
 | --- | --- | --- | --- | --- |
 | object_set | objectSet | ontologies_models.ObjectSet | required; no default | No additional field description in SDK source. |
-| ontology | ontology | ontologies_models.OntologyIdentifier | required; no default | The API name of the Ontology for the provided `ObjectSet`.<br>    To find the API name, use the `List ontologies` endpoint or check the [Ontology Manager](https://palantir.com/docs/foundry/ontology-manager/overview/). |
+| ontology | ontology | ontologies_models.OntologyIdentifier | required; no default | The API name of the Ontology for the provided `ObjectSet`.<br>    To find the API name, use the `List ontologies` endpoint or check the Ontology Manager. |
 | type | type | typing.Literal['objectSet'] | 'objectSet' | No additional field description in SDK source. |
 
 ```python

@@ -1,7 +1,7 @@
 # v2.datasets resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Use v2 datasets, branches, files, transactions and views for data reads and writes. Select the intended branch or known transaction, bound file/page reads, and verify transaction commit plus resulting branch state before treating staged content as visible. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |

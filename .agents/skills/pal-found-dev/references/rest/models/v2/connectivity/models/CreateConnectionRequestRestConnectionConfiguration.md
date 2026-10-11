@@ -1,7 +1,7 @@
 # foundry_sdk.v2.connectivity.models.CreateConnectionRequestRestConnectionConfiguration
 
 
-CreateConnectionRequestRestConnectionConfiguration
+Supply at least one allowed domain. `oauth2_client_rid` refers to an outbound application already configured by an organization administrator for OAuth 2.0 authorization-code flow; the Connection can select only one such application. `additional_secrets` are optional named secrets for code and webhooks, separate from allowed domains.
 
 ## Exact SDK definition
 
@@ -14,7 +14,7 @@ Model fields use their declared defaults and aliases. Nullable and omittable are
 | SDK field | Wire name | Type | Omission/default | Meaning |
 | --- | --- | --- | --- | --- |
 | additional_secrets | additionalSecrets | typing.Optional[RestConnectionAdditionalSecrets] | default None | Additional secrets that can be referenced in code and webhook configurations.<br>    If not provided, no additional secrets will be created. |
-| oauth2_client_rid | oauth2ClientRid | typing.Optional[core.RID] | default None | The RID of the [Outbound application](https://palantir.com/docs/foundry/administration/configure-outbound-applications) that is used to authenticate to the external system via OAuth2.<br>    Currently, a connection may use only one outbound application for OAuth 2.0 authentication.<br>    Selecting a different outbound application will update the configuration for all domains with OAuth 2.0 as the selected authorization. |
+| oauth2_client_rid | oauth2ClientRid | typing.Optional[core.RID] | default None | The RID of the Outbound application that is used to authenticate to the external system via OAuth2.<br>    Currently, a connection may use only one outbound application for OAuth 2.0 authentication.<br>    Selecting a different outbound application will update the configuration for all domains with OAuth 2.0 as the selected authorization. |
 | domains | domains | typing.List[Domain] | required; no default | The domains that the connection is allowed to access.<br>    At least one domain must be specified. |
 | type | type | typing.Literal['rest'] | 'rest' | No additional field description in SDK source. |
 

@@ -7,6 +7,10 @@ API v2; release stage: Public Beta. Check enrollment enablement and resource acc
 
 Get the RIDs of the Jobs for the given dataset. By default, returned Jobs are sorted in descending order by the Job start time.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.datasets.Dataset.jobs`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python
@@ -151,6 +155,6 @@ An absent wrapper method cannot be selected for this operation. Use an exposed m
 
 ## Application workflow
 
-Read the [local resource guide](../../../../v2/datasets/Dataset.md) for its authored operations and runnable examples. A guide covering selected methods does not establish coverage of other methods.
+Read the [local resource guide](../../../../v2/datasets/Dataset-2.md) for its authored operations and runnable examples. A guide covering selected methods does not establish coverage of other methods.
 
 [Part 1](jobs.md)

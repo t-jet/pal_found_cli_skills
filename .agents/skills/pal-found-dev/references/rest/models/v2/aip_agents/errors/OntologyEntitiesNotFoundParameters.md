@@ -1,9 +1,7 @@
 # foundry_sdk.v2.aip_agents.errors.OntologyEntitiesNotFoundParameters
 
 
-Some ontology types are configured for use by the Agent but could not be found.
-The types either do not exist or the client token does not have access.
-Object types and their link types can be checked by listing available object/link types through the API, or searching in [Ontology Manager](https://palantir.com/docs/foundry/ontology-manager/overview/).
+The error names unavailable Ontology object or link types. Compare each identity with the permitted Ontology metadata before changing the Agent request.
 
 ## Exact SDK definition
 

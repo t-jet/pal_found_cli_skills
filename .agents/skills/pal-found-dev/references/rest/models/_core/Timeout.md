@@ -1,7 +1,7 @@
 # foundry_sdk._core.utils.Timeout
 
 
-The definition below supplies its fields or permitted values.
+A positive integer request timeout in seconds. Supply it as `request_timeout` where the operation signature permits it. Reaching this bound does not prove whether a write succeeded; reconcile the known resource or transaction before replaying a mutation.
 
 ## Exact SDK definition
 

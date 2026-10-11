@@ -1,10 +1,7 @@
 # foundry_sdk.v2.connectivity.models.UnknownWorker
 
 
-A ConnectionWorker that is not supported in the Platform APIs. This can happen because either the
-ConnectionWorker configuration is malformed, or because the ConnectionWorker is a legacy one.
-The ConnectionWorker should be updated to use the [Foundry worker](https://palantir.com/docs/foundry/data-connection/core-concepts/#foundry-worker)
-with either direct egress policies or agent proxy egress policies.
+The API cannot represent this stored worker configuration, possibly because it is malformed or legacy. Do not write it back as a new worker. Inspect the Connection and plan a supported Foundry-worker configuration with approved direct or agent-proxy egress policies.
 
 ## Exact SDK definition
 

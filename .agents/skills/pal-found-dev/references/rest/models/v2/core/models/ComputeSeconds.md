@@ -1,7 +1,7 @@
 # foundry_sdk.v2.core.models.ComputeSeconds
 
 
-A measurement of compute usage expressed in [compute-seconds](https://palantir.com/docs/foundry/resource-management/usage-types#compute-second). For more information, please refer to the [Usage types](https://palantir.com/docs/foundry/resource-management/usage-types) documentation.
+Compute seconds measure consumed compute time for resource usage accounting. This SDK alias gives a numeric quantity, not a charge or a per-operation quota. Interpret it with the usage record's resource and time window.
 
 ## Exact SDK definition
 

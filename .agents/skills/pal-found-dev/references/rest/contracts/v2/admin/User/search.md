@@ -8,6 +8,10 @@ API v2; release stage: Stable. Check enrollment enablement and resource access b
 Perform a case-insensitive prefix search for active users based on username, given name and family name.
 Deleted users are not included in results. To list deleted users, use the `list` endpoint with `include=DELETED`.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.admin.User.search`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python
@@ -142,6 +146,6 @@ An absent wrapper method cannot be selected for this operation. Use an exposed m
 
 ## Application workflow
 
-Read the [local resource guide](../../../../v2/admin/User.md) for its authored operations and runnable examples. A guide covering selected methods does not establish coverage of other methods.
+Read the [local resource guide](../../../../v2/admin/User-2.md) for its authored operations and runnable examples. A guide covering selected methods does not establish coverage of other methods.
 
 [Part 1](search.md)

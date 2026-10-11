@@ -1,7 +1,7 @@
 # v2.functions resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Use Function and Query metadata to choose a published callable version and its input/output types. Execute or stream only with arguments matching the selected version; validation or permission failures require correcting the input or access before retrying. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |

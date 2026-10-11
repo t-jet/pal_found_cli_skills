@@ -1,7 +1,7 @@
 # foundry_sdk.v2.connectivity.models.CreateConnectionRequestWorkflowIdentityFederation
 
 
-CreateConnectionRequestWorkflowIdentityFederation
+The audience identifies the Databricks recipient for a Foundry-issued token. An optional service-principal application ID chooses a preconfigured service-principal federation policy; without it the token exchange uses an account federation policy. Configure the external policy before testing the Connection.
 
 ## Exact SDK definition
 
@@ -14,7 +14,7 @@ Model fields use their declared defaults and aliases. Nullable and omittable are
 | SDK field | Wire name | Type | Omission/default | Meaning |
 | --- | --- | --- | --- | --- |
 | audience | audience | str | required; no default | Identifies the recipients that the access token is intended for as a string URI. <br>    This should be the primary host name where the Connection lives. |
-| service_principal_application_id | servicePrincipalApplicationId | typing.Optional[str] | default None | The ID of the Databricks [service principal](https://docs.databricks.com/aws/en/admin/users-groups/service-principals). <br>    If provided, a federated JWT token is exchanged using a<br>    service principal federation policy. If not provided, a federated JWT token is exchanged using an account<br>    federation policy. |
+| service_principal_application_id | servicePrincipalApplicationId | typing.Optional[str] | default None | The ID of the Databricks service principal. <br>    If provided, a federated JWT token is exchanged using a<br>    service principal federation policy. If not provided, a federated JWT token is exchanged using an account<br>    federation policy. |
 | type | type | typing.Literal['workflowIdentityFederation'] | 'workflowIdentityFederation' | No additional field description in SDK source. |
 
 ```python

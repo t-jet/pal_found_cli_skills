@@ -20,6 +20,10 @@ Please keep these limitations in mind:
 - This endpoint does not support OSv1 links and will return an error if links provided are backed by OSv1.
 - This endpoint currently does not support interface object sets or interface links, but support will be added in the near future.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.ontologies.OntologyObjectSet.load_links`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python
@@ -270,8 +274,4 @@ An absent wrapper method cannot be selected for this operation. Use an exposed m
 
 [Authentication and effective access](../../../../authentication.md). Method source does not enumerate universal OAuth scopes or an idempotency guarantee. Use configured application grants and resource permissions; verify tenant-specific prerequisites. The domain guide supplies authored workflows, examples and outcome reconciliation.
 
-## Application workflow
-
-Read the [local resource guide](../../../../v2/ontologies/OntologyObjectSet.md) for its authored operations and runnable examples. A guide covering selected methods does not establish coverage of other methods.
-
-[Part 1](load_links.md)
+[Part 1](load_links.md) | [Part 2](load_links-2.md)

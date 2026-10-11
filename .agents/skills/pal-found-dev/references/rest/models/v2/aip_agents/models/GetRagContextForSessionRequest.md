@@ -14,7 +14,7 @@ Model fields use their declared defaults and aliases. Nullable and omittable are
 | SDK field | Wire name | Type | Omission/default | Meaning |
 | --- | --- | --- | --- | --- |
 | user_input | userInput | UserTextInput | required; no default | The user message to retrieve relevant context for from the configured Agent data sources. |
-| parameter_inputs | parameterInputs | typing.Dict[ParameterId, ParameterValue] | required; no default | Any values for [application variables](https://palantir.com/docs/foundry/chatbot-studio/application-state/) to use for the context retrieval. |
+| parameter_inputs | parameterInputs | typing.Dict[ParameterId, ParameterValue] | required; no default | Any values for application variables to use for the context retrieval. |
 
 ```python
 class GetRagContextForSessionRequest(core.ModelBase):

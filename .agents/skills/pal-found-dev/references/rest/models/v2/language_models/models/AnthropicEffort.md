@@ -1,13 +1,7 @@
 # foundry_sdk.v2.language_models.models.AnthropicEffort
 
 
-
-https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking#effort
-
-Controls how many tokens Claude uses when responding.
-Supported by Claude models beginning with Opus 4.5.
-Setting effort to HIGH produces the same behavior as omitting the parameter entirely.
-
+`effort` controls the response token effort for supported Claude models beginning with Opus 4.5. Use one literal below only when the selected model accepts it. `HIGH` has the same behavior as omitting the parameter according to the frozen SDK.
 
 ## Exact SDK definition
 

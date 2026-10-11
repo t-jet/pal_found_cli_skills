@@ -1,7 +1,7 @@
 # foundry_sdk.v2.connectivity.models.CreateTableImportRequestTableImportConfig
 
 
-The import configuration for a specific [connector type](https://palantir.com/docs/foundry/data-integration/source-type-overview).
+Choose the table import configuration variant that matches the existing Connection's connector type. The union alternatives and type discriminator below give the wire shape; source query syntax depends on the selected connector.
 
 ## Exact SDK definition
 

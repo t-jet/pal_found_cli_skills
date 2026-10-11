@@ -10,6 +10,10 @@ development tokens. If the user has active sessions in a browser, this will forc
 
 The caller must have permission to manage users for the target user's organization.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.admin.User.revoke_all_tokens`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python
@@ -129,6 +133,6 @@ An absent wrapper method cannot be selected for this operation. Use an exposed m
 
 ## Application workflow
 
-Read the [local resource guide](../../../../v2/admin/User.md) for its authored operations and runnable examples. A guide covering selected methods does not establish coverage of other methods.
+Read the [local resource guide](../../../../v2/admin/User-2.md) for its authored operations and runnable examples. A guide covering selected methods does not establish coverage of other methods.
 
 [Part 1](revoke_all_tokens.md)

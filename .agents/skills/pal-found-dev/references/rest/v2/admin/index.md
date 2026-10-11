@@ -1,7 +1,7 @@
 # v2.admin resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Use Admin resources to read enrollment identity, users, groups, Organizations, role assignments and Markings before changing access. A role or membership change affects the named security boundary; identify the exact principal and resource, then read back assignments rather than assuming effective access from a write response. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |

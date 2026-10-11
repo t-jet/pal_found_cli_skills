@@ -1,7 +1,7 @@
 # v2.sql_queries resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Use SQL query resources for permitted Foundry dataset reads. Author the documented SELECT dialect, select branch and result format, then decode the returned Arrow or other declared payload and verify row/schema expectations within a byte budget. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |

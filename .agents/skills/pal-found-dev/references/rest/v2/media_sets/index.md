@@ -1,7 +1,7 @@
 # v2.media_sets resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Use Media Set metadata to identify an authorized collection, then select its items, views or retrieval operations. Binary/media outputs require the declared content format and a byte budget; a missing item or denied view should not be treated as an empty successful payload. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |

@@ -1,9 +1,7 @@
 # foundry_sdk.v2.connectivity.models.SnowflakeExternalOauth
 
 
-Use an External OAuth security integration to connect and authenticate to Snowflake.
-
-See https://docs.snowflake.com/en/user-guide/oauth-ext-custom
+External OAuth uses an authorization server trusted by Snowflake. Configure a Snowflake External OAuth security integration before using this connection. Its issuer and audience must match the token's `iss` and `aud` claims; `subject` is the Foundry Connection RID. The authorization server and Snowflake integration must agree on token signature validation, user mapping and authorized scopes. A malformed or unmatched token cannot be repaired by changing the Connection RID. The SDK model stores identifiers, not an access token or the Snowflake integration itself.
 
 ## Exact SDK definition
 

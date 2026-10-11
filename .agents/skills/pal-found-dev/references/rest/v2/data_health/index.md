@@ -1,7 +1,7 @@
 # v2.data_health resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Use checks and reports to inspect data quality or freshness results. A check definition, its latest report and an upstream build are different records; correlate their timestamps and target resources before diagnosing a stale output. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |

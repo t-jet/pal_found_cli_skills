@@ -9,6 +9,10 @@ Get a specific linked object that originates from another object.
 
 If there is no link between the two objects, `LinkedObjectNotFound` is thrown.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.ontologies.LinkedObject.get_linked_object`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

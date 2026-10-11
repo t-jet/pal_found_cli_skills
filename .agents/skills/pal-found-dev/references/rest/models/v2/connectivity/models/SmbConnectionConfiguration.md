@@ -1,7 +1,7 @@
 # foundry_sdk.v2.connectivity.models.SmbConnectionConfiguration
 
 
-SmbConnectionConfiguration
+Use a resolvable SMB host, valid server share and supported authentication. Omitted port uses 445; optional base directory narrows file access. Message signing defaults true and requires server support. The share and credentials must already exist on the server.
 
 ## Exact SDK definition
 
@@ -16,7 +16,7 @@ Model fields use their declared defaults and aliases. Nullable and omittable are
 | hostname | hostname | str | required; no default | Any identifier that can resolve to a server hosting an SMB share. This includes IP addresses, local <br>    network names (e.g. FS-SERVER-01) or FQDNs. Should not include any protocol information like https://, smb://, etc |
 | port | port | typing.Optional[int] | None | 445 by default |
 | proxy | proxy | typing.Optional[SmbProxyConfiguration] | None | No additional field description in SDK source. |
-| share | share | str | required; no default | Must be a valid SMB share name.<br>    https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fscc/dc9978d7-6299-4c5a-a22d-a039cdc716ea |
+| share | share | str | required; no default | Must be a valid SMB share name.<br>    Confirm the share name on the SMB server. |
 | base_directory | baseDirectory | typing.Optional[str] | default None | All reads and writes in this source will happen in this subdirectory |
 | auth | auth | SmbAuth | required; no default | No additional field description in SDK source. |
 | require_message_signing | requireMessageSigning | typing.Optional[bool] | default None | If true, the client will request that the server sign all messages. If the server does not support <br>    message signing, the connection will fail. Defaults to true. |

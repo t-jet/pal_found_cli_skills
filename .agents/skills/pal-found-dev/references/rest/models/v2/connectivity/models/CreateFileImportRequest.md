@@ -18,7 +18,7 @@ Model fields use their declared defaults and aliases. Nullable and omittable are
 | display_name | displayName | FileImportDisplayName | required; no default | No additional field description in SDK source. |
 | branch_name | branchName | typing.Optional[core_models.BranchName] | default None | The branch name in the output dataset that will contain the imported data. Defaults to `master` for most enrollments. Can not be modified after the file import is created. |
 | subfolder | subfolder | typing.Optional[str] | None | A subfolder in the external system that will be imported. If not specified, defaults to the root folder of the external system. |
-| file_import_filters | fileImportFilters | typing.List[FileImportFilter] | required; no default | Use filters to limit which files should be imported. Filters are applied in the order they are defined. A different ordering of filters may lead to a more optimized import. [Learn more about optimizing file imports.](https://palantir.com/docs/foundry/data-connection/file-based-syncs/#optimize-file-based-syncs) |
+| file_import_filters | fileImportFilters | typing.List[FileImportFilter] | required; no default | Use filters to limit which files should be imported. Filters are applied in the order they are defined. A different ordering of filters may lead to a more optimized import. Learn more about optimizing file imports. |
 
 ```python
 class CreateFileImportRequest(core.ModelBase):

@@ -1,7 +1,7 @@
 # foundry_sdk.v2.sql_queries.models.ExecuteSqlQueryRequest
 
 
-ExecuteSqlQueryRequest
+`query` is a Spark SQL SELECT against Foundry datasets identified by path or RID. `fallback_branch_ids` supplies ordered branch fallbacks when the primary branch cannot be used; validate each intended branch before relying on it. The omitted serialization format is ARROW, so decode the returned bytes as Arrow.
 
 ## Exact SDK definition
 
@@ -13,7 +13,7 @@ Model fields use their declared defaults and aliases. Nullable and omittable are
 
 | SDK field | Wire name | Type | Omission/default | Meaning |
 | --- | --- | --- | --- | --- |
-| query | query | str | required; no default | The SQL query to execute. Queries should conform to the<br>    [Spark SQL dialect](https://spark.apache.org/docs/latest/sql-ref.html). This supports SELECT<br>    queries only. Datasets can be referenced in SQL queries by path or by RID. See the <br>    [documentation](https://www.palantir.com/docs/foundry/analytics-connectivity/odbc-jdbc-drivers/#use-sql-to-query-foundry-datasets)<br>    for more details. |
+| query | query | str | required; no default | The SQL query to execute. Queries should conform to the<br>    Spark SQL dialect. This supports SELECT<br>    queries only. Datasets can be referenced in SQL queries by path or by RID.  |
 | fallback_branch_ids | fallbackBranchIds | typing.Optional[typing.List[core_models.BranchName]] | default None | The list of branch ids to use as fallbacks if the query fails to execute on the primary branch. If a<br>    is not explicitly provided in the SQL query, the resource will be queried on the first fallback branch<br>    provided that exists. If no fallback branches are provided the default branch is used. This is<br>    `master` for most enrollments. |
 | serialization_format | serializationFormat | typing.Optional[SerializationFormat] | default None | The format used to serialize query results. If not specified, defaults to `ARROW`. |
 

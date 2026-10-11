@@ -19,6 +19,10 @@ To **upload a file on a manually opened transaction** specify the Transaction's 
 `transactionRid`. This is useful for uploading multiple files in a single transaction.
 See [createTransaction](../../../../catalog.md) to open a transaction.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.datasets.Dataset.File.upload`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

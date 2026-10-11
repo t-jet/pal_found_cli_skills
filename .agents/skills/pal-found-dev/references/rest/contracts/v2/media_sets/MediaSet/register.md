@@ -9,6 +9,10 @@ Registers a media item that currently resides in a federated media store. Regist
 against the media set's schema and perform initial metadata extraction.
 This endpoint is only applicable for federated media sets.
 
+## Public Python client route
+
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.media_sets.MediaSet.register`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.
+
 ## SDK invocation contract
 
 ```python

@@ -1,11 +1,7 @@
 # foundry_sdk.v2.filesystem.models.Organization
 
 
-[Organizations](https://palantir.com/docs/foundry/security/orgs-and-spaces/#organizations) are access requirements applied to
-Projects that enforce strict silos between groups of users and resources. Every user is a member of only
-one Organization, but can be a guest member of multiple Organizations. In order to meet access requirements,
-users must be a member or guest member of at least one Organization applied to a Project.
-Organizations are inherited via the file hierarchy and direct dependencies.
+An Organization is an access requirement on a Project. `organization_rid` identifies it; `is_directly_applied` distinguishes direct from inherited application. A user needs membership or guest membership in at least one Organization applied to the Project.
 
 ## Exact SDK definition
 

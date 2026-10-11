@@ -1,7 +1,7 @@
 # v2.aip_agents resources and operations
 
 
-Select the resource matching the task and read its operation contract before preparing an invocation. Stage, API version and actual result lifetimes remain operation-specific.
+Use Agent and version metadata to select an enabled Agent before creating a session. Continue, stream or cancel a known session according to the interaction; inspect context and trace operations separately. Agent parameters and available Ontology context come from the permitted enrollment metadata. Read the selected operation contract before invocation; stage, API version and result lifetime remain operation-specific.
 
 | Operation | Stage |
 | --- | --- |
