@@ -7,9 +7,9 @@ description: Offline entry point for Foundry Orchestration API v2 CLI. Documents
 
 ## Capability and source
 
-Foundry builds compute new versions of datasets. A build coordinates jobs;
-each job runs a defined unit of work and can write one or more output
-datasets. A one-time `build create` starts a build from its target and branch
+Foundry builds compute buildable resources, including datasets, media sets,
+and restricted views. A build coordinates jobs; each job runs a defined unit
+of work and can write outputs. A one-time `build create` starts a build from its target and branch
 configuration. Inspect the build and its jobs for progress, failures, and
 output rather than treating a successful start request as completed work.
 
@@ -18,11 +18,14 @@ can depend on time, changed data, changed logic, or a combination. A schedule
 run records whether it started a build, was ignored because there was no
 work, or failed; a successful run still does not mean its build succeeded.
 Scope matters: a user-scoped schedule's buildable outputs depend on the
-user's current permissions. Read [build concepts](https://www.palantir.com/docs/foundry/data-integration/builds)
-and [schedule concepts](https://www.palantir.com/docs/foundry/data-integration/schedules).
-The CLI exposes 20 build, job, schedule, and schedule-version operations.
+user's current permissions. Use [build and job records](references/01-build-job.md)
+for a one-time execution and [schedules](references/02-schedule.md) for saved
+trigger/configuration versions. Verify the effective version and the build
+result independently; changing schedule configuration does not repair an
+already failed build. The CLI exposes 20 build, job, schedule, and schedule-version operations.
 
-Source: [Palantir build concepts](https://www.palantir.com/docs/foundry/data-integration/builds).
+Optional sources: [build concepts](https://www.palantir.com/docs/foundry/data-integration/builds)
+and [schedule concepts](https://www.palantir.com/docs/foundry/data-integration/schedules).
 
 20 Foundry Orchestration API v2 operations are available through the installed `pal-found-orchestration` command.
 

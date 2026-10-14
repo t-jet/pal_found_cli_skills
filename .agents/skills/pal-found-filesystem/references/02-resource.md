@@ -9,7 +9,7 @@ access.
 Platform context: [Palantir
 documentation](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources). The
 behavior below describes the installed CLI commands.
-parser. Replace example identifiers and configuration values with values from your Foundry
+Replace example identifiers and configuration values with values from your Foundry
 enrollment.
 
 ## Operation records
@@ -94,7 +94,7 @@ enrollment.
 - **Inputs:** positional `body`; required none; optional none. `body`: Body of the request
 - **Result:** `GetByPathResourcesBatchResponse`.
 - **Failure or follow-up:** Check the returned entries: batch endpoints may omit missing or
-  inaccessible resources, so compare the result with requested RIDs.
+  inaccessible resources, so compare the result with requested paths.
 - **Example:** `pal-found-filesystem resource get-by-path-batch '[{"path":"/My Organization-abcd/My Important Project/My Dataset"}]'`
 
 ### resource.markings
@@ -102,8 +102,11 @@ enrollment.
 - **Behavior:** List of Markings directly applied to a resource. The number of Markings on a
   resource is typically small so the `pageSize` and `pageToken` parameters are not required.
 - **Before use:** The resource or container must be accessible to the requesting identity.
-- **Inputs:** positional `resource_rid`; required none; optional none.
-- **Result:** `ListMarkingsOfResourceResponse`.
+- **Inputs:** positional `resource_rid`; required none; optional `--page-size`,
+  `--page-token`, and `--batch-pages`.
+- **Parameter notes:** `--page-size` requests the number of results per page, `--page-token` resumes from prior metadata, and `--batch-pages` limits pages fetched in one call.
+- **Result:** A list of markings on stdout. Pagination metadata, including any next-page token,
+  is written to stderr.
 - **Failure or follow-up:** An empty page is not proof there are no more results; follow the
   returned page token when present.
 - **Example:** `pal-found-filesystem resource markings RESOURCE_RID`

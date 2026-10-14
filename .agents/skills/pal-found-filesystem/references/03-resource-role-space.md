@@ -9,7 +9,7 @@ access.
 Platform context: [Palantir
 documentation](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources). The
 behavior below describes the installed CLI commands.
-parser. Replace example identifiers and configuration values with values from your Foundry
+Replace example identifiers and configuration values with values from your Foundry
 enrollment.
 
 ## Operation records
@@ -33,9 +33,12 @@ enrollment.
   `--include-inherited` to include assignments inherited from its containers;
   without it, the response covers direct assignments.
 - **Before use:** The resource or container must be accessible to the requesting identity.
-- **Inputs:** positional `resource_rid`; required none; optional `--include-inherited`.
+- **Inputs:** positional `resource_rid`; required none; optional `--include-inherited`,
+  `--page-size`, `--page-token`, and `--batch-pages`.
   `include_inherited`: Whether to include inherited roles on the resource.
-- **Result:** `ListResourceRolesResponse`.
+- **Parameter notes:** `--include-inherited` includes inherited assignments. `--page-size` requests the number of results per page, `--page-token` resumes from prior metadata, and `--batch-pages` limits pages fetched in one call.
+- **Result:** A list of resource roles on stdout. Pagination metadata, including any next-page
+  token, is written to stderr.
 - **Failure or follow-up:** An empty page is not proof there are no more results; follow the
   returned page token when present.
 - **Example:** `pal-found-filesystem resource-role list RESOURCE_RID`
@@ -101,8 +104,11 @@ enrollment.
 - **Behavior:** Lists spaces visible to the caller in pages. A page can be shorter or longer than
   requested; continue with `nextPageToken` until it is absent.
 - **Before use:** The resource or container must be accessible to the requesting identity.
-- **Inputs:** positional none; required none; optional none.
-- **Result:** `ListSpacesResponse`.
+- **Inputs:** positional none; required none; optional `--page-size`, `--page-token`,
+  and `--batch-pages`.
+- **Parameter notes:** `--page-size` requests the number of results per page, `--page-token` resumes from prior metadata, and `--batch-pages` limits pages fetched in one call.
+- **Result:** A list of spaces on stdout. Pagination metadata, including any next-page token,
+  is written to stderr.
 - **Failure or follow-up:** An empty page is not proof there are no more results; follow the
   returned page token when present.
 - **Example:** `pal-found-filesystem space list`

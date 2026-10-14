@@ -10,7 +10,7 @@ These records describe the `time_series_value_bank_property` commands in `pal-fo
 - **Input guide:** [Identifiers and JSON payloads](./inputs.md).
 - **Preconditions:** The object has a value-bank time-series property and the caller may read its values.
 - **Result:** Returns `Optional[TimeseriesEntry]` for the selected time series value bank property.
-- **Failure:** Unknown series or denied object access fails; a stream may stop after partial output on timeout.
+- **Failure:** Unknown series or denied object access produces a structured error.
 - **Example:** `pal-found-ontologies time-series-value-bank-property get-latest-value palantir employee 50030 performance`
 
 ### time_series_value_bank_property.stream_values

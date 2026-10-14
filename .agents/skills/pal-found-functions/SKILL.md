@@ -13,11 +13,9 @@ objects, follow links, compute a metric, or produce an Ontology edit when
 authored for that purpose. Query functions expose typed inputs and outputs
 through the API gateway. The CLI here executes published queries and reads
 query or value-type definitions; it does not author or publish functions.
-See Palantir's [Functions overview](https://www.palantir.com/docs/foundry/functions/overview)
+Optional sources: Palantir's [Functions overview](https://www.palantir.com/docs/foundry/functions/overview)
 and [query API guide](https://www.palantir.com/docs/foundry/functions/query-functions/).
-
-Source: Palantir's Functions overview and query API guide linked above; method
-the operation records below explain each supported command.
+The operation records below explain each supported command.
 
 Use a query's API name for `execute`, `streaming_execute`, and `get`; use a RID
 only for `get_by_rid` and `get_by_rid_batch`. Execution defaults to the latest

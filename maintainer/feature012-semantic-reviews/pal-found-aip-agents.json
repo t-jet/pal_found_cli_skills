@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "reviews": {
+    "agent.all_sessions": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "c5a85124dc786f3c2b3354e4c953b8cbf6b1441a2f89a92d29b6c2ebfe61a532",
+      "cli_sha256": "8a7db656a3a235b096591f68d23ecf39d80e4363636480f5c90b0b63861428d9",
+      "sdk_sha256": "c26d26e5b6e5a0b5c95e6448d241c6dd77839f3f748f69978af12bda0bafcbac",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-aip-agents/references/agent.md:5; CLI OP_SPECS agent.all_sessions, build_parser and dispatch pal_found_cli_tool/src/pal_found_cli/aip_agents/scripts/pal_found_aip_agents_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/aip_agents/agent.py:81. No RID or alias input; raw SDK page data becomes session list stdout with cursor metadata stderr."
+    },
+    "agent.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "d45a21a628f6977a62624887c488f009aa62661e44ef4d6c8b0ecd49ecf70d54",
+      "cli_sha256": "8a7db656a3a235b096591f68d23ecf39d80e4363636480f5c90b0b63861428d9",
+      "sdk_sha256": "c26d26e5b6e5a0b5c95e6448d241c6dd77839f3f748f69978af12bda0bafcbac",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-aip-agents/references/agent.md:16; CLI OP_SPECS agent.get, build_parser and dispatch pal_found_cli_tool/src/pal_found_cli/aip_agents/scripts/pal_found_aip_agents_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/aip_agents/agent.py:136. Agent RID and optional published version select Agent; no local session alias."
+    },
+    "agent_version.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "7d258d71b899e5a2a46dc76d6a87771272e2a754b4fb5688fd3b52710c818a33",
+      "cli_sha256": "8a7db656a3a235b096591f68d23ecf39d80e4363636480f5c90b0b63861428d9",
+      "sdk_sha256": "1627e4aa7a606909b095630c3cb2ed48a07ee2b5b541d09a2444824b4393c2e5",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-aip-agents/references/agent-version.md:5; CLI OP_SPECS agent_version.get, build_parser and dispatch pal_found_cli_tool/src/pal_found_cli/aip_agents/scripts/pal_found_aip_agents_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/aip_agents/agent_version.py:60. Agent RID and version string select AgentVersion; no local alias."
+    },
+    "agent_version.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "e613af8f18fb853c0911edd51ccb381fd3bed4902cb781c17717b97b994473b2",
+      "cli_sha256": "8a7db656a3a235b096591f68d23ecf39d80e4363636480f5c90b0b63861428d9",
+      "sdk_sha256": "1627e4aa7a606909b095630c3cb2ed48a07ee2b5b541d09a2444824b4393c2e5",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-aip-agents/references/agent-version.md:16; CLI OP_SPECS agent_version.list, build_parser and dispatch pal_found_cli_tool/src/pal_found_cli/aip_agents/scripts/pal_found_aip_agents_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/aip_agents/agent_version.py:118. Agent RID selects version iterator; CLI prints collected page data and cursor metadata separately."
+    },
+    "content.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "bc07c2c9b6fe530ada14a1b47b361aba00338d6edd78ffbc00fc4bf76455d584",
+      "cli_sha256": "8a7db656a3a235b096591f68d23ecf39d80e4363636480f5c90b0b63861428d9",
+      "sdk_sha256": "d0bb0499b890cf4b9c8f858a1dce7dafa8525ca1ff54ff414f382a4e48b8ae4c",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-aip-agents/references/content.md:5; CLI OP_SPECS content.get, build_parser and dispatch pal_found_cli_tool/src/pal_found_cli/aip_agents/scripts/pal_found_aip_agents_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/aip_agents/content.py:60. Local alias resolves agent and session RIDs; SDK returns Content."
+    },
+    "session.blocking_continue": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "41245c119773323f4bca2cc1f86442e7e8a592919168035b4cf269695f420aae",
+      "cli_sha256": "8a7db656a3a235b096591f68d23ecf39d80e4363636480f5c90b0b63861428d9",
+      "sdk_sha256": "45517d4ba88cdb754ad4265e7854932518b542be08e1a999485abbedcdb0f379",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-aip-agents/references/session.md:5; CLI OP_SPECS session.blocking_continue, build_parser and dispatch pal_found_cli_tool/src/pal_found_cli/aip_agents/scripts/pal_found_aip_agents_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/aip_agents/session.py:81. Alias plus JSON application variables and user input yield completed SessionExchangeResult; concurrent continue unsupported."
+    },
+    "session.cancel": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "1de1224cf24b8fc758d0874d7258c5cc4c215b4c4d92973626c7a90182544389",
+      "cli_sha256": "8a7db656a3a235b096591f68d23ecf39d80e4363636480f5c90b0b63861428d9",
+      "sdk_sha256": "45517d4ba88cdb754ad4265e7854932518b542be08e1a999485abbedcdb0f379",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-aip-agents/references/session.md:16; CLI OP_SPECS session.cancel, build_parser and dispatch pal_found_cli_tool/src/pal_found_cli/aip_agents/scripts/pal_found_aip_agents_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/aip_agents/session.py:189. Alias and message ID target in-progress streamed exchange; cancel does not close stream."
+    },
+    "session.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "62197842aeb0ad75b48d36ec88899b6ebfd8a2040bcfa817d34efcfd379796ce",
+      "cli_sha256": "8a7db656a3a235b096591f68d23ecf39d80e4363636480f5c90b0b63861428d9",
+      "sdk_sha256": "45517d4ba88cdb754ad4265e7854932518b542be08e1a999485abbedcdb0f379",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-aip-agents/references/session.md:27; CLI OP_SPECS session.create, build_parser and dispatch pal_found_cli_tool/src/pal_found_cli/aip_agents/scripts/pal_found_aip_agents_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/aip_agents/session.py:260. Remote SDK Session creates alias; CLI returns sanitized local SessionState dict with alias and without session token."
+    },
+    "session.delete": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "03dbd99bf66bbae85d677201ec01b5e9f8c7eb9c506f6676cebcebcf46ba9331",
+      "cli_sha256": "8a7db656a3a235b096591f68d23ecf39d80e4363636480f5c90b0b63861428d9",
+      "sdk_sha256": "45517d4ba88cdb754ad4265e7854932518b542be08e1a999485abbedcdb0f379",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-aip-agents/references/session.md:39; CLI OP_SPECS session.delete, build_parser and dispatch pal_found_cli_tool/src/pal_found_cli/aip_agents/scripts/pal_found_aip_agents_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/aip_agents/session.py:334. Alias resolves remote session; SDK delete returns None and CLI marks local state completed."
+    },
+    "session.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "331f0fd2a6a861fa50ab2194acca4a4c6b97ce3035eeb607265ec5b91cccf04f",
+      "cli_sha256": "8a7db656a3a235b096591f68d23ecf39d80e4363636480f5c90b0b63861428d9",
+      "sdk_sha256": "45517d4ba88cdb754ad4265e7854932518b542be08e1a999485abbedcdb0f379",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-aip-agents/references/session.md:50; CLI OP_SPECS session.get, build_parser and dispatch pal_found_cli_tool/src/pal_found_cli/aip_agents/scripts/pal_found_aip_agents_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/aip_agents/session.py:390. Alias resolves remote session; SDK returns Session without write."
+    },
+    "session.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "aa86c1cbd59fd99940a58e6ba7f89478f71a5838ab5b2fa783889d0a7104f991",
+      "cli_sha256": "8a7db656a3a235b096591f68d23ecf39d80e4363636480f5c90b0b63861428d9",
+      "sdk_sha256": "45517d4ba88cdb754ad4265e7854932518b542be08e1a999485abbedcdb0f379",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-aip-agents/references/session.md:61; CLI OP_SPECS session.list, build_parser and dispatch pal_found_cli_tool/src/pal_found_cli/aip_agents/scripts/pal_found_aip_agents_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/aip_agents/session.py:444. Agent RID selects visible sessions; CLI prints item list stdout and cursor metadata stderr."
+    },
+    "session.rag_context": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "c44a3fee839a6659fc620ef57fc9fbb3d23edfbf044cb9c6d254ed7ed768df0c",
+      "cli_sha256": "8a7db656a3a235b096591f68d23ecf39d80e4363636480f5c90b0b63861428d9",
+      "sdk_sha256": "45517d4ba88cdb754ad4265e7854932518b542be08e1a999485abbedcdb0f379",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-aip-agents/references/session.md:73; CLI OP_SPECS session.rag_context, build_parser and dispatch pal_found_cli_tool/src/pal_found_cli/aip_agents/scripts/pal_found_aip_agents_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/aip_agents/session.py:504. Alias and JSON message/variables retrieve context without adding exchange."
+    },
+    "session.streaming_continue": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "de2a7096f81a9fe4e01705aaa8cccca68058579aba0d8305f9cbde1d62beaf0a",
+      "cli_sha256": "8a7db656a3a235b096591f68d23ecf39d80e4363636480f5c90b0b63861428d9",
+      "sdk_sha256": "45517d4ba88cdb754ad4265e7854932518b542be08e1a999485abbedcdb0f379",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-aip-agents/references/session.md:84; CLI OP_SPECS session.streaming_continue, build_parser and dispatch pal_found_cli_tool/src/pal_found_cli/aip_agents/scripts/pal_found_aip_agents_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/aip_agents/session.py:582. SDK bytes are saved with BinaryDownloadHandler; CLI prints download envelope after call, not live tokens."
+    },
+    "session.update_title": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "19b525b288ac9af5968058069ceadcd5dd5717739b8120ec476903cb7f842fe4",
+      "cli_sha256": "8a7db656a3a235b096591f68d23ecf39d80e4363636480f5c90b0b63861428d9",
+      "sdk_sha256": "45517d4ba88cdb754ad4265e7854932518b542be08e1a999485abbedcdb0f379",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-aip-agents/references/session.md:95; CLI OP_SPECS session.update_title, build_parser and dispatch pal_found_cli_tool/src/pal_found_cli/aip_agents/scripts/pal_found_aip_agents_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/aip_agents/session.py:683. Alias and title update existing session; SDK documents 200-character truncation."
+    },
+    "session_trace.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "24383acbf4eae1c2ef3df6fef589078a3ecd27b140f2b41decb17623c4c6d1be",
+      "cli_sha256": "8a7db656a3a235b096591f68d23ecf39d80e4363636480f5c90b0b63861428d9",
+      "sdk_sha256": "dba4f96c0923e9ab003e48c270fd3caf7cb1e6b6c60cd5dcc177e8d7ef2268be",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-aip-agents/references/session-trace.md:5; CLI OP_SPECS session_trace.get, build_parser and dispatch pal_found_cli_tool/src/pal_found_cli/aip_agents/scripts/pal_found_aip_agents_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/aip_agents/session_trace.py:60. Alias and session trace ID select SessionTrace for polling response progress."
+    }
+  }
+}

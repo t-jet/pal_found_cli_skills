@@ -13,12 +13,10 @@ message model produces a response from conversation messages and generation
 settings. An embedding model turns input text into numeric vectors used for
 similarity and retrieval. These are inference calls, so results depend on the
 selected model and inputs and can consume model usage. Model availability
-depends on the enrollment. See Palantir's [platform overview](https://www.palantir.com/docs/foundry/platform-overview/overview)
+depends on the enrollment. Optional sources: Palantir's
+[platform overview](https://www.palantir.com/docs/foundry/platform-overview/overview)
 and [supported LLMs](https://www.palantir.com/docs/foundry/aip/supported-llms).
-
-Source: Palantir's platform overview and supported LLMs pages linked above;
-the operation records below explain supported request shapes.
-documentation.
+The operation records below explain supported request shapes.
 
 The two CLI commands are provider-shaped endpoints: `anthropic-model messages`
 accepts a model API name, messages, and `--max-tokens`; `open-ai-model

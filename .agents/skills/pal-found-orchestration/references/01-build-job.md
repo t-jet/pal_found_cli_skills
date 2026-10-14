@@ -1,6 +1,6 @@
 # Build and job operations
 
-A build computes selected dataset targets through jobs. A schedule records what to build and when; a
+A build computes selected buildable resources through jobs. A schedule records what to build and when; a
 schedule run may only start a build, so inspect the build and its jobs to determine completion. The
 trigger controls when a schedule fires; its action and scope determine targets and which resources
 can be built.
@@ -28,14 +28,16 @@ example identifiers and configuration values with values from your Foundry enrol
 
 ### build.create
 
-- **Behavior:** Starts a one-time build for the datasets in `target`. Foundry resolves the build
+- **Behavior:** Starts a one-time build for the buildable resources in `target`, such as datasets,
+  media sets, or restricted views. Foundry resolves the build
   graph and runs the necessary jobs on the chosen branch, consulting `fallback_branches` for inputs
   when configured. `force_build` can include targets even when they are not stale.
-- **Before use:** The target datasets and their dependencies must be accessible; build permissions
+- **Before use:** The target resources and their dependencies must be accessible; build permissions
   must cover the target branch.
 - **Inputs:** positional none; required `--target-json`, `--fallback-branches-json`; optional
   `--abort-on-failure`, `--branch-name`, `--force-build`, `--notifications-enabled`,
-  `--retry-backoff-duration-json`, `--retry-count`. `target`: The targets of the schedule.
+  `--retry-backoff-duration-json`, `--retry-count`. `target`: The buildable resources to build in this
+  one-time request.
   `branch_name`: The target branch the build should run on. `retry_count`: The number of retry
   attempts for failed jobs.
 - **Parameter notes:** `--branch-name` selects target branch; `--abort-on-failure` stops remaining work after failure; `--force-build` runs targets even when current; `--notifications-enabled` enables build notifications; `--retry-count` sets job retry attempts; `--retry-backoff-duration-json` supplies delay between retries.
@@ -43,6 +45,8 @@ example identifiers and configuration values with values from your Foundry enrol
 - **Failure or follow-up:** The returned Build is a start response. Use `build get` and `build jobs`
   to check whether computation finished and whether any job failed.
 - **Example:** `pal-found-orchestration build create --target-json '{"type":"manual","targetRids":["ri.foundry.main.dataset.4263bdd9-d6bc-4244-9cca-893c1a2aef62","ri.foundry.main.dataset.86939c1e-4256-41db-9fe7-e7ee9e0f752a"]}' --fallback-branches-json '[]'`
+  This example selects datasets; `targetRids` can also identify buildable media sets or restricted
+  views when the caller has access.
 
 ### build.get
 
@@ -73,10 +77,17 @@ example identifiers and configuration values with values from your Foundry enrol
 - **Behavior:** Lists jobs belonging to a build. Inspect each returned job to see which unit of
   work succeeded or failed; the build's start response alone cannot show this.
 - **Before use:** The build must exist and be visible to the caller.
-- **Inputs:** positional `build_rid`; required none; optional none. `build_rid`: The RID of a Build.
-- **Result:** `ListJobsOfBuildResponse`.
-- **Failure or follow-up:** An empty page is not proof there are no more results; follow the
-  returned page token when present.
+- **Inputs:** positional `build_rid`; required none; optional `--page-size`, `--page-token`,
+  `--all`, `--max-pages`. `build_rid`: The RID of a Build. Use `--page-token` to resume from the
+  `next_page_token` reported by a previous call; `--all` or `--max-pages` fetches more than one
+  page in one invocation.
+- **Parameter notes:** `--page-size` sets requested items per page (default 100 unless CLI
+  configuration changes it). `--page-token` resumes at a cursor. `--max-pages` bounds pages
+  fetched in this call; `--all` fetches up to the CLI page cap.
+- **Result:** A list of jobs on stdout in the selected format. Page count and any
+  `next_page_token` appear separately in stderr metadata.
+- **Failure or follow-up:** An empty item list does not prove there are no more jobs. If stderr
+  metadata contains `next_page_token`, pass it as `--page-token` to continue.
 - **Example:** `pal-found-orchestration build jobs BUILD_RID`
 
 ### build.search
@@ -85,10 +96,18 @@ example identifiers and configuration values with values from your Foundry enrol
   `--order-by-json` controls their order; without filters, results are paginated across visible
   builds.
 - **Before use:** The caller can search only builds visible to its identity; filters are optional.
-- **Inputs:** positional none; required none; optional `--where-json`, `--order-by-json`.
-- **Result:** `SearchBuildsResponse`.
-- **Failure or follow-up:** An empty page is not proof there are no more results; follow the
-  returned page token when present.
+- **Inputs:** positional none; required none; optional `--where-json`, `--order-by-json`,
+  `--page-size`, `--page-token`, `--all`, `--max-pages`. Use `--page-token` to resume from the
+  `next_page_token` reported by a previous call; `--all` or `--max-pages` fetches more than one
+  page in one invocation.
+- **Parameter notes:** `--where-json` filters builds and `--order-by-json` sorts matches.
+  `--page-size` sets requested items per page (default 100 unless CLI configuration changes it).
+  `--page-token` resumes at a cursor. `--max-pages` bounds pages fetched in this call; `--all`
+  fetches up to the CLI page cap.
+- **Result:** A list of builds on stdout in the selected format. Page count and any
+  `next_page_token` appear separately in stderr metadata.
+- **Failure or follow-up:** An empty item list does not prove there are no more builds. If stderr
+  metadata contains `next_page_token`, pass it as `--page-token` to continue.
 - **Example:** `pal-found-orchestration build search`
 
 ### job.get

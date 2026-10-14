@@ -1,6 +1,6 @@
 # Governance: classifications, markings, and categories
 
-Foundry uses markings, classification-based controls, and organizations as mandatory access requirements. They apply alongside project roles and can propagate with derived data. A marking category groups markings and controls discoverability. See [security overview](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), and [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings). Examples use the installed Admin CLI. Replace sample identifiers before running.
+Markings, classification-based access controls (CBAC), and organizations are mandatory requirements applied alongside project role grants. A user must satisfy the requirements carried by a resource even when the user has a project role; mandatory requirements can follow data into derived outputs. Ordinary markings applied together require access to each marking. CBAC is enrollment-configured and is not enabled by default; classification categories can have different conjunction or disjunction rules, so inspect the configured restrictions rather than assuming ordinary marking behavior. A marking category groups markings and controls their visibility and administration. Before changing a category or marking, inspect its current definition, membership, and role assignments, then verify the intended access after the change. Examples use the installed Admin CLI. Replace sample identifiers before running.
 
 ## Operation records
 
@@ -24,7 +24,7 @@ Required input: no required operation arguments. Optional: `--marking-ids`. The 
 
 List host addresses associated with the enrollment, useful when checking which Foundry host belongs to that administrative boundary. Results are paged, and page length may differ from `--page-size`; follow `nextPageToken` until absent.
 
-Required input: `enrollment_rid`. The SDK returns `ListHostsResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned.  Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: `enrollment_rid`. The SDK yields `Host` records through an iterator. The CLI emits collected hosts in the selected output format and pagination metadata on stderr. The operation does not change Foundry state. An empty page can have a continuation token; follow it before concluding no hosts are visible. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin host list ri.multipass..enrollment.example`
 
@@ -56,7 +56,7 @@ Required input: `body`. The SDK returns `GetMarkingsBatchResponse` on success. T
 
 List markings visible to this administrator to discover IDs and categories for later inspection. The maximum page size is 100; follow the returned `nextPageToken` even if a page contains fewer than 100 entries.
 
-Required input: no required operation arguments. The SDK returns `ListMarkingsResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned. The maximum page size is 100. Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: no required operation arguments. The SDK yields `Marking` records through an iterator. The CLI emits collected markings in the selected output format and pagination metadata on stderr. The operation does not change Foundry state. An empty page can have a continuation token; follow it before concluding no markings are visible. The maximum page size is 100. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin marking list`
 
@@ -88,7 +88,7 @@ Required input: `marking_category_id`. The SDK returns `MarkingCategory` on succ
 
 List visible marking categories so an administrator can choose the category ID for a new marking. The maximum page size is 100; follow a returned continuation token to see later categories.
 
-Required input: no required operation arguments. The SDK returns `ListMarkingCategoriesResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned. The maximum page size is 100. Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: no required operation arguments. The SDK yields `MarkingCategory` records through an iterator. The CLI emits collected categories in the selected output format and pagination metadata on stderr. The operation does not change Foundry state. An empty page can have a continuation token; follow it before concluding no categories are visible. The maximum page size is 100. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin marking-category list`
 
@@ -99,3 +99,5 @@ Change a category's displayed label with `--name` and its explanation with `--de
 Required input: `marking_category_id`, `--description`, `--name`. The SDK returns `MarkingCategory` on success. This changes identity or access state. Read the affected resource afterward to verify the intended result.  Invalid identifiers or payloads, insufficient administration rights, and CLI access policy can reject the change.
 
 **Example:** `pal-found-admin marking-category replace 0950264e-01c8-4e83-81a9-1a6b7f77621a --description 'Markings related to data about our customers' --name 'Customer Data'`
+
+Optional sources: [Foundry security model](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings).

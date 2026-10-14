@@ -11,7 +11,7 @@ These records describe the `model_studio_config_version` commands in `pal-found-
 - **Preconditions:** The Model Studio exists; creation needs a valid trainer, compute resources, and worker configuration.
 - **Result:** Returns the created `ModelStudioConfigVersion` with its server-assigned identifier.
 - **Failure:** Unknown trainer or invalid resources/worker config prevents version creation; check existing versions after a timeout.
-- **Example:** `pal-found-models model-studio-config-version create <MODEL_STUDIO_RID> --name 'Order forecast' --resources-json '{"gpu":"V100"}' --trainer-id autogluon --worker-config-json '{"inputs":{},"outputs":{}}'`
+- **Example:** `pal-found-models model-studio-config-version create <MODEL_STUDIO_RID> --name 'Order forecast' --resources-json '{"memory":"4G","cpu":"2","gpu":"V100"}' --trainer-id autogluon --worker-config-json '{"inputs":{},"outputs":{}}'`
 
 The trainer determines which input and output aliases are required. Replace the empty maps with those aliases and their configurations before creating a version.
 
@@ -33,17 +33,17 @@ The trainer determines which input and output aliases are required. Replace the 
 - **Input meaning:** `model_studio_rid`: Resource identifier (RID) of the named Foundry resource.
 - **Input guide:** [Identifiers and JSON payloads](./inputs.md).
 - **Preconditions:** The Model Studio exists and the caller can read its configuration versions.
-- **Result:** Returns `Optional[ModelStudioConfigVersion]` for the selected model studio config version.
+- **Result:** Prints the latest `ModelStudioConfigVersion`, or `null` when the Studio has no configuration version. Create a configuration version before launching training if the result is `null`.
 - **Failure:** An unknown Model Studio or missing read permission returns a structured error.
 - **Example:** `pal-found-models model-studio-config-version latest <MODEL_STUDIO_RID>`
 
 ### model_studio_config_version.list
 
 - **Purpose and behavior:** Lists all configuration versions for a Model Studio.
-- **CLI inputs:** positionals `model_studio_rid`; optional `--page-size`, `--page-token`.
-- **Input meaning:** `model_studio_rid`: Resource identifier (RID) of the named Foundry resource. `--page-size` sets the requested maximum entries in one result page; `--page-token` continues from the previous response's `nextPageToken`; omit on the first page.
+- **CLI inputs:** positionals `model_studio_rid`; optional `--page-size`, `--page-token`, `--all`, `--max-pages`.
+- **Input meaning:** `model_studio_rid`: Resource identifier (RID) of the named Foundry resource. `--page-size` sets the requested maximum entries in one result page; `--page-token` continues from `next_page_token` in the previous call's stderr metadata; omit on the first page. By default, the CLI fetches one page. `--max-pages` fetches up to the given number of pages; `--all` fetches until no cursor remains or the configured limit of at most 40 pages is reached. If both are set, `--all` takes precedence.
 - **Input guide:** [Identifiers and JSON payloads](./inputs.md).
 - **Preconditions:** The Model Studio exists and the caller can read its configuration versions.
-- **Result:** Returns `ListModelStudioConfigVersionsResponse` containing the visible matching model studio config version entries; an empty page means none matched that page.
+- **Result:** Prints Model Studio configuration versions as a list on stdout. Pagination metadata, including `next_page_token` when another page exists, follows a separator on stderr. An empty list means this page contains no entries; follow a returned token to check the next page.
 - **Failure:** An unknown Model Studio or missing read permission returns a structured error.
 - **Example:** `pal-found-models model-studio-config-version list <MODEL_STUDIO_RID>`

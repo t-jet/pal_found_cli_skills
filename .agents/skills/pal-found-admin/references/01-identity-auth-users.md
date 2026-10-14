@@ -1,6 +1,6 @@
 # Identity: authentication, enrollment, users
 
-Authentication verifies users through configured providers. Enrollment roles delegate broad administrative powers; organization, group, and marking controls still affect access. User provider records map external identities to Foundry users. See [administration overview](https://www.palantir.com/docs/foundry/administration/overview) and [users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups). Commands here use the installed Admin CLI. Example identifiers and names are illustrative; replace them with values from your enrollment.
+Authentication providers validate sign-in and supply user identities, attributes, and often groups from an external identity system. A provider record and a Foundry user record answer different questions: which source authenticated the person, and which Foundry principal received access. Preregistration reserves an external user or group identity before first login so grants can be prepared; it does not itself prove the person can sign in or read a resource. Enrollment roles grant broad administration. Project roles, organization membership, and mandatory markings still constrain particular resources. Use `enrollment get-current`, provider `list`, then user or provider `get` to resolve IDs before assigning roles or changing provider information. Commands here use the installed Admin CLI. Example identifiers and names are illustrative; replace them with values from your enrollment.
 
 ## Operation records
 
@@ -14,9 +14,9 @@ Required input: `enrollment_rid`, `authentication_provider_rid`. The SDK returns
 
 ### authentication_provider.list
 
-List authentication providers configured for an enrollment. Use the returned provider RIDs to inspect a provider or preregister an externally managed user or group. An empty list means no providers are visible to this caller.
+List authentication providers configured for an enrollment. Use the returned provider RIDs to inspect a provider or preregister an externally managed user or group. An empty list with no continuation token means no providers are visible to this caller.
 
-Required input: `enrollment_rid`. The SDK returns `ListAuthenticationProvidersResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned.  Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: `enrollment_rid`; optional `--preview` enables preview API behavior when available. The SDK returns `ListAuthenticationProvidersResponse` on success. The operation does not change Foundry state. The CLI has no page-token input for this command, so it cannot resume a continuation token in the response. An empty result may still have a continuation token. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin authentication-provider list ri.multipass..enrollment.example`
 
@@ -64,7 +64,7 @@ Required input: `enrollment_rid`, `--role-assignments`. The SDK returns no resou
 
 Enrollment roles delegate platform-wide administrative permissions to users or groups. List all principals who are assigned a role for the given Enrollment.
 
-Required input: `enrollment_rid`. The SDK returns `ListEnrollmentRoleAssignmentsResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned.  Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: `enrollment_rid`; optional `--preview` enables preview API behavior when available. The SDK returns `ListEnrollmentRoleAssignmentsResponse` on success. The operation does not change Foundry state. The CLI has no page-token input for this command, so it cannot resume a continuation token in the response. An empty result may still have a continuation token. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin enrollment-role-assignment list ri.multipass..enrollment.example`
 
@@ -120,7 +120,7 @@ Required input: `user_id`. The SDK returns `GetUserMarkingsResponse` on success.
 
 List users visible to the caller. Use `--include DELETED` when reviewing deleted accounts; the default view is for active users. Results are paged, and a short page is not the last page when `nextPageToken` is present.
 
-Required input: no required operation arguments. Optional: `--include`. The SDK returns `ListUsersResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned.  Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: no required operation arguments. Optional: `--include`. The SDK yields `User` records through an iterator. The CLI emits collected users in the selected output format and pagination metadata on stderr. The operation does not change Foundry state. An empty page can have a continuation token; follow it before concluding no users are visible. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin user list`
 
@@ -163,3 +163,5 @@ Change the user's mapping to an external identity provider. `--provider-id` is t
 Required input: `user_id` and `--provider-id`, the user's ID in the external authentication provider. The SDK returns the updated `UserProviderInfo`. A provider ID can identify at most one user in a realm; a duplicate mapping or insufficient permission can reject replacement. Read the mapping afterward to verify it.
 
 **Example:** `pal-found-admin user-provider-info replace f05f8da4-b84c-4fca-9c77-8af0b13d11de --provider-id external-id-123`
+
+Optional sources: [Foundry users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups), [administration overview](https://www.palantir.com/docs/foundry/administration/overview).

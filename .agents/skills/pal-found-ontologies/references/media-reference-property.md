@@ -21,16 +21,16 @@ These records describe the `media_reference_property` commands in `pal-found-ont
 - **Input guide:** [Identifiers and JSON payloads](./inputs.md).
 - **Preconditions:** The object has a media reference property and the caller may read the referenced item.
 - **Result:** Returns `MediaMetadata` for the selected media reference property.
-- **Failure:** Missing media reference or denied media access fails; a content transfer may stop before the saved file is complete.
+- **Failure:** Missing media reference or denied metadata access produces a structured error.
 - **Example:** `pal-found-ontologies media-reference-property get-media-metadata palantir employee 50030 <PROPERTY>`
 
 ### media_reference_property.upload
 
 - **Purpose and behavior:** Uploads a media item to the media set which backs the specified property. The property must be backed by a single media set and branch, otherwise an error will be thrown. The body of the request must contain the binary content of the file and the `Content-Type` header must be `application/octet-stream`.
-- **CLI inputs:** positionals `ontology`, `object_type`, `property`; optional `--content-length`, `--content-type`, `--body-file`, `--media-item-path`, `--preview`.
-- **Input meaning:** `ontology`: Ontology API name or RID; find it with `ontology list` or Ontology Manager. `object_type`: API name defined in the ontology; discover it through the corresponding metadata command. `property`: API name defined in the ontology; discover it through the corresponding metadata command. `--body-file`: Path to the local file whose bytes are uploaded. `--content-length` declares the upload body size in bytes; use the actual file length; `--content-type` sets the uploaded file's MIME type; `--media-item-path` sets the path of the media item within the media set; `--preview` enables endpoint preview behavior when that feature is available.
+- **CLI inputs:** positionals `ontology`, `object_type`, `property`; optional `--body-file`, `--media-item-path`, `--preview`. The global `--content-length` and `--content-type` flags are ignored for this operation.
+- **Input meaning:** `ontology`: Ontology API name or RID; find it with `ontology list` or Ontology Manager. `object_type`: API name defined in the ontology; discover it through the corresponding metadata command. `property`: API name defined in the ontology; discover it through the corresponding metadata command. `--body-file`: Path to the local file whose bytes are uploaded. `--content-length` and `--content-type` are accepted global flags but ignored by this upload; they do not set request headers. `--media-item-path` sets the path of the media item within the media set; `--preview` enables endpoint preview behavior when that feature is available.
 - **Input guide:** [Identifiers and JSON payloads](./inputs.md).
-- **Preconditions:** A readable local `--body-file` must exist. The caller needs permission to upload into the target property or attachment service.
+- **Preconditions:** A readable local `--body-file` must exist. The caller needs permission to upload into the media set backing the property.
 - **Result:** Uploads file bytes and returns `MediaReference` identifying the stored media reference property.
 - **Failure:** Missing `--body-file`, an unreadable file, or a rejected upload fails before a usable attachment/media reference is returned. Check the stored resource before retrying after a timeout.
 - **Example:** `pal-found-ontologies media-reference-property upload palantir employee profile_picture --body-file attachment.pdf`

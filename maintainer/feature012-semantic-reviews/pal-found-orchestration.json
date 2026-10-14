@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "reviews": {
+    "build.cancel": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "fa18c26cae27f96ccfae1a7993f8003df73c29abb9f21a101f37dbebc0acc2f8",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "61407c978e0e5913e13514df30c625db79a3d0b05e5bf100694aea8df3d0873d",
+      "note": "Record matches SDK behavior: Request a cancellation for all unfinished jobs in a build. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:133; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:435; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/build.py:61 returns None; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/01-build-job.md:15."
+    },
+    "build.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "d7605a7f6d86efe69fe860b3b19269a00e823e7dd8765a2e5bb973d70784e256",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "61407c978e0e5913e13514df30c625db79a3d0b05e5bf100694aea8df3d0873d",
+      "note": "BUG-022 retest: target now includes buildable datasets, media sets and restricted views per SDK BuildableRid. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:134; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:435; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/build.py:103 returns orchestration_models.Build; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/01-build-job.md:29."
+    },
+    "build.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "02a003b1597daeaa4930b2060f9f238730f8def50ecc2755e371efe1cab10b4d",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "61407c978e0e5913e13514df30c625db79a3d0b05e5bf100694aea8df3d0873d",
+      "note": "Record matches SDK behavior: Get the Build with the specified rid. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:151; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:435; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/build.py:175 returns orchestration_models.Build; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/01-build-job.md:51."
+    },
+    "build.get_batch": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "3e0c5f12b036ff346b5dafec19deaa2a5e7e6e151b8d4c8c799f287095d549fd",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "61407c978e0e5913e13514df30c625db79a3d0b05e5bf100694aea8df3d0873d",
+      "note": "Record matches SDK behavior: Execute multiple get requests on Build. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:152; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:435; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/build.py:221 returns orchestration_models.GetBuildsBatchResponse; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/01-build-job.md:63."
+    },
+    "build.jobs": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "8043bc04297171bff39fb80c3035aef3fb561529421c0b8004de7aca0ce314c7",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "61407c978e0e5913e13514df30c625db79a3d0b05e5bf100694aea8df3d0873d",
+      "note": "BUG-022 retest: stdout list, stderr cursor, and all paging flags now match CLI raw-page dispatch. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:160; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:491; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/build.py:267 returns core.ResourceIterator[orchestration_models.Job]; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/01-build-job.md:75."
+    },
+    "build.search": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "53002e048f377374f00a53e83c4c38cc883a009b081482f1786a26ffde43300c",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "61407c978e0e5913e13514df30c625db79a3d0b05e5bf100694aea8df3d0873d",
+      "note": "BUG-022 retest: stdout list, stderr cursor, filters, and all paging flags now match CLI raw-page dispatch. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:168; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:491; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/build.py:315 returns orchestration_models.SearchBuildsResponse; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/01-build-job.md:93."
+    },
+    "job.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "0bbfebbbf1d05e227fa579b92fc3fa5086547656709cb3c9c94bd10955f749ba",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "7b791264b8f5abba4e4034016cf140df661aa2478484e692e896820a880da5b6",
+      "note": "Record matches SDK behavior: Get the Job with the specified rid. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:176; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:435; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/job.py:61 returns orchestration_models.Job; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/01-build-job.md:113."
+    },
+    "job.get_batch": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "f6d91aa54db90d661fe613a7dfd026ca1d447e75e5d84d0d4c6e6e3bfe4569ba",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "7b791264b8f5abba4e4034016cf140df661aa2478484e692e896820a880da5b6",
+      "note": "Record matches SDK behavior: Execute multiple get requests on Job. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:177; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:435; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/job.py:112 returns orchestration_models.GetJobsBatchResponse; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/01-build-job.md:125."
+    },
+    "schedule.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "57d049c496a83a57f58eec294613e5f87d9909a8a5518bbf1b8f4acc3245cd01",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "note": "BUG-022 retest: trigger input now explains condition for future runs and time-trigger fields. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:185; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:435; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/schedule.py:61 returns orchestration_models.Schedule; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/02-schedule.md:15."
+    },
+    "schedule.delete": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "597fdcd45ac57e03990995ba96f808f97f7961a5152e40de656b931040911d9b",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "note": "Record matches SDK behavior: Delete the Schedule with the specified rid. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:194; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:435; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/schedule.py:133 returns None; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/02-schedule.md:31."
+    },
+    "schedule.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "87d7a0bc98373699f7acfdfb19b6f46fe22bd996c8464fc631ee6b63597e067d",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "note": "Record matches SDK behavior: Get the Schedule with the specified rid. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:195; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:435; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/schedule.py:174 returns orchestration_models.Schedule; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/02-schedule.md:42."
+    },
+    "schedule.get_affected_resources": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "d31625334f609a07159989e03fe9ea30b59e60ffe9216b565a76c51311deac87",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "note": "Read-only SDK Schedule.get_affected_resources returns AffectedResourcesResponse for selected schedule RID. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:196; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:435; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/schedule.py:222 returns orchestration_models.AffectedResourcesResponse; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/02-schedule.md:52."
+    },
+    "schedule.get_batch": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "6dca85616c8e928dc204db941f6570628d2ac6abea558cf78ba77c1e3d12f604",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "note": "Record matches SDK behavior: Fetch multiple schedules in a single request. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:203; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:435; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/schedule.py:270 returns orchestration_models.GetSchedulesBatchResponse; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/02-schedule.md:63."
+    },
+    "schedule.pause": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "784c5fdb237b5c9213f0b2fcd0805bb0299b9e80d4b8b1a107d70f7cf7f40ff3",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "note": "SDK Schedule.pause acknowledges a pause request with no body; read schedule to confirm state. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:211; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:435; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/schedule.py:320 returns None; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/02-schedule.md:75."
+    },
+    "schedule.replace": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "457cb2d2b9a0703e5959022f35d2bcdc9f03d38b54ec4e93d9467f03c7c9f378",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "note": "BUG-022 retest: replacement trigger input now explains condition for future runs and time-trigger fields. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:212; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:435; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/schedule.py:361 returns orchestration_models.Schedule; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/02-schedule.md:87."
+    },
+    "schedule.run": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "d075fd2a8297b104e759231f98684dd67937201334101c92724bc53f95bbe59c",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "note": "SDK Schedule.run returns ScheduleRun; a started schedule run does not prove a downstream build finished. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:222; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:435; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/schedule.py:438 returns orchestration_models.ScheduleRun; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/02-schedule.md:102."
+    },
+    "schedule.runs": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "3472c146d46c614d6066c69397cda3290c13ef3d71cc33d3dae0746adcb83144",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "note": "BUG-022 retest: stdout list, stderr cursor, and all paging flags now match CLI raw-page dispatch. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:223; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:491; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/schedule.py:481 returns core.ResourceIterator[orchestration_models.ScheduleRun]; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/02-schedule.md:114."
+    },
+    "schedule.unpause": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "81147b423f97c6d2ac3941768f5527a6d64d9076b0b9eafb5c12394fed739d1a",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "note": "SDK Schedule.unpause acknowledges unpause with no body; read schedule to confirm state. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:231; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:435; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/schedule.py:530 returns None; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/02-schedule.md:131."
+    },
+    "schedule_version.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "5ff2fe30ba50eae2eb29976a9b80e583bf8c986ae40e3c4f98a4000798670bff",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "59b5ef850327e727b4d728781f15cf80c3949119bd95dd9df95fa38ae4403f7d",
+      "note": "Record matches SDK behavior: Get the ScheduleVersion with the specified rid. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:232; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:435; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/schedule_version.py:60 returns orchestration_models.ScheduleVersion; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/02-schedule.md:142."
+    },
+    "schedule_version.schedule": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "87e86ca5ad9ab9b84ee4ad80e8057e7017832e0c59e1791d38e7c9762b4c66ba",
+      "cli_sha256": "94e5a10098fd6f48c0789185d36bec1735439892e472c5daefadbe4dee861813",
+      "sdk_sha256": "59b5ef850327e727b4d728781f15cf80c3949119bd95dd9df95fa38ae4403f7d",
+      "note": "SDK ScheduleVersion.schedule returns Optional[Schedule], so an absent associated schedule is a valid result. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:239; dispatch pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:435; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/orchestration/schedule_version.py:108 returns typing.Optional[orchestration_models.Schedule]; record pal_found_cli_skills/.agents/skills/pal-found-orchestration/references/02-schedule.md:153."
+    }
+  }
+}

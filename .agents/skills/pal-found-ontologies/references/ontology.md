@@ -27,17 +27,17 @@ These records describe the `ontology` commands in `pal-found-ontologies`. Each r
 ### ontology.list
 
 - **Purpose and behavior:** Lists the Ontologies visible to the current user.
-- **CLI inputs:** .
+- **CLI inputs:** No positional or operation-specific inputs.
 - **Input guide:** [Identifiers and JSON payloads](./inputs.md).
-- **Preconditions:** The caller can see the requested ontology; metadata reads require its RID or API name where the command asks for one.
-- **Result:** Returns `ListOntologiesV2Response` containing the visible matching ontology entries; an empty page means none matched that page.
-- **Failure:** Invalid filters or a denied scope produce a structured error; an empty successful page is not an error.
+- **Preconditions:** The caller is authenticated; Foundry limits the list to visible ontologies.
+- **Result:** Returns `ListOntologiesV2Response` with the ontologies visible to the caller; an empty list means none are visible.
+- **Failure:** Authentication or permission failure produces a structured error; an empty successful list is not an error.
 - **Example:** `pal-found-ontologies ontology list`
 
 ### ontology.load_metadata
 
 - **Purpose and behavior:** Load Ontology metadata for the requested object, link, action, query, and interface types.
-- **CLI inputs:** positionals `ontology`; optional `--action-types`, `--interface-types`, `--link-types`, `--object-types`, `--query-types`, `--branch`, `--preview`.
+- **CLI inputs:** positional `ontology`; required `--action-types`, `--interface-types`, `--link-types`, `--object-types`, `--query-types`; optional `--branch`, `--preview`.
 - **Input meaning:** `ontology`: Ontology API name or RID; find it with `ontology list` or Ontology Manager. `--branch`: The Foundry branch to load metadata from. If not specified, the default branch will be used. Branches are an experimental feature and not all workflows are supported. `--action-types` selects action type metadata to include; `--interface-types` selects interface type metadata to include; `--link-types` selects link type metadata to include; `--object-types` selects object type metadata to include; `--preview` enables endpoint preview behavior when that feature is available; `--query-types` selects query type metadata to include.
 - **Input guide:** [Identifiers and JSON payloads](./inputs.md).
 - **Preconditions:** The caller can see the requested ontology; metadata reads require its RID or API name where the command asks for one.

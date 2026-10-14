@@ -1,6 +1,6 @@
 # Governance: membership and organization access
 
-Marking membership determines who satisfies a marking requirement. Marking roles determine who can administer it. Organizations form mandatory boundaries around users and work; guests can access another organization when configured. See [organizations and spaces](https://www.palantir.com/docs/foundry/security/orgs-and-spaces) and [access control propagation](https://www.palantir.com/docs/foundry/security/access-control-propagation). Examples use the installed Admin CLI. Replace sample identifiers before running.
+Marking membership lets a principal satisfy that marking's access requirement; a marking role allows administration of the marking. These are separate grants. Organizations restrict access to projects and related work. Each user has one primary organization and can have guest membership in others; access to an organization-scoped project requires membership or guest membership in an organization applied to that project, in addition to the relevant project role and markings. Spaces carry organization restrictions to their projects and Ontology. Mandatory controls follow derived data; a project role or a row filter only controls its own read or resource boundary. Before adding a guest or marking member, inspect the target organization or marking and the principal's current assignments, then verify effective access after the change. Examples use the installed Admin CLI. Replace sample identifiers before running.
 
 ## Operation records
 
@@ -16,7 +16,7 @@ Required input: `marking_id`, `--principal-ids`. The SDK returns no resource bod
 
 List principals able to satisfy the specified marking requirement. `--transitive` includes access inherited through group membership. The API ignores `pageSize` and requires `api:admin-write` because marking membership is visible only to marking administrators. Membership alone does not override other access controls.
 
-Required input: `marking_id`. Optional: `--transitive`. The SDK returns `ListMarkingMembersResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned.  Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: `marking_id`. Optional: `--transitive`. The SDK yields `MarkingMember` records through an iterator. The CLI emits collected members in the selected output format and pagination metadata on stderr. The operation does not change Foundry state. An empty page can have a continuation token; follow it before concluding no members are visible. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin marking-member list 0950264e-01c8-4e83-81a9-1a6b7f77621a`
 
@@ -40,7 +40,7 @@ Required input: `marking_id`, `--role-assignments`. The SDK returns no resource 
 
 List direct role assignments on a marking, with each principal and its marking role. Use this to check who can administer or use a marking before changing it. The API ignores `pageSize`; a small requested page size does not limit the result.
 
-Required input: `marking_id`. The SDK returns `ListMarkingRoleAssignmentsResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned.  Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: `marking_id`. The SDK yields `MarkingRoleAssignment` records through an iterator. The CLI emits collected assignments in the selected output format and pagination metadata on stderr. The operation does not change Foundry state. An empty page can have a continuation token; follow it before concluding no assignments are visible. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin marking-role-assignment list 0950264e-01c8-4e83-81a9-1a6b7f77621a`
 
@@ -96,7 +96,7 @@ Required input: `organization_rid`, `--principal-ids`. The SDK returns no resour
 
 List principals added as guests of the specified organization. Use it after `add` or `remove` to verify the effective guest list. A primary member need not appear as a guest; adding one through the guest endpoint can return success without changing its membership kind.
 
-Required input: `organization_rid`. The SDK returns `ListOrganizationGuestMembersResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned.  Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: `organization_rid`; optional `--preview` enables preview API behavior when available. The SDK returns `ListOrganizationGuestMembersResponse` on success. The operation does not change Foundry state. The CLI has no page-token input for this command, so it cannot resume a continuation token in the response. An empty result may still have a continuation token. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin organization-guest-member list ri.multipass..organization.example`
 
@@ -120,7 +120,7 @@ Required input: `organization_rid`, `--role-assignments`. The SDK returns no res
 
 Organization roles delegate administration within an organization. List all principals who are assigned a role for the given Organization.
 
-Required input: `organization_rid`. The SDK returns `ListOrganizationRoleAssignmentsResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned.  Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: `organization_rid`. The SDK returns `ListOrganizationRoleAssignmentsResponse` on success. The operation does not change Foundry state. The CLI has no page-token input for this command, so it cannot resume a continuation token in the response. An empty result may still have a continuation token. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin organization-role-assignment list ri.multipass..organization.example`
 
@@ -131,3 +131,5 @@ Remove organization-scoped roles from principals. `--role-assignments` is a JSON
 Required input: `organization_rid`, `--role-assignments`. The SDK returns no resource body after success. This changes identity or access state. Read the affected resource afterward to verify the intended result. The endpoint accepts at most 100 assignments per request. Invalid identifiers or payloads, insufficient administration rights, and CLI access policy can reject the change.
 
 **Example:** `pal-found-admin organization-role-assignment remove ri.multipass..organization.example --role-assignments '[{"roleId":"8bf49052-dc37-4528-8bf0-b551cfb71268","principalId":"f05f8da4-b84c-4fca-9c77-8af0b13d11de"}]'`
+
+Optional sources: [organizations and spaces](https://www.palantir.com/docs/foundry/security/orgs-and-spaces), [access control propagation](https://www.palantir.com/docs/foundry/security/access-control-propagation).

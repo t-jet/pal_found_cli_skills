@@ -74,13 +74,14 @@ example identifiers and configuration values with values from your Foundry enrol
 - **Behavior:** Create a new View.
 - **Before use:** Choose a writable parent folder and backing datasets with compatible schemas.
 - **Inputs:** positional none; required `--view-name`, `--parent-folder-rid`, and
-  `--backing-datasets` as a JSON array of dataset RID and branch selections. Optional
+  `--backing-datasets` as a JSON array of dataset RIDs, `stopPropagatingMarkingIds`
+  arrays, and branch selections. Optional
   `--branch` selects the view branch and `--primary-key` supplies key configuration.
 - **Parameter notes:** `--branch` names the initial View branch; `--primary-key` gives key columns and a duplicate-resolution rule for the new View.
 - **Result:** `View`.
 - **Failure or follow-up:** An invalid configuration or insufficient permission rejects view
   creation; use the returned RID for later calls.
-- **Example:** `pal-found-datasets view create --view-name Orders --parent-folder-rid PARENT_FOLDER_RID --backing-datasets '[{"datasetRid":"DATASET_RID","branch":"master"}]'`
+- **Example:** `pal-found-datasets view create --view-name Orders --parent-folder-rid PARENT_FOLDER_RID --backing-datasets '[{"datasetRid":"DATASET_RID","stopPropagatingMarkingIds":[],"branch":"master"}]'`
 
 ### view.get
 

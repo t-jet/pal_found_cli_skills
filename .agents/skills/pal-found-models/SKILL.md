@@ -13,17 +13,15 @@ external services. Model versions preserve distinct implementations. An
 experiment records training runs and their metrics or artifacts; a live
 deployment accepts inputs and returns inference results. Modeling Objectives
 support evaluation, review, release, and deployment across that lifecycle.
-See Palantir's [model integration overview](https://www.palantir.com/docs/foundry/model-integration/overview).
-
-Source: Palantir's model integration and Model Studio overviews linked in this
-section; the operation records below explain each supported command.
+Optional source: Palantir's [model integration overview](https://www.palantir.com/docs/foundry/model-integration/overview).
+The operation records below explain each supported command.
 
 Model Studio is Foundry's no-code model development tool. Users choose a
 trainer, provide datasets, set configuration, and launch a training job. A
 run records progress and results, and a successful trained model can be used
 for inference in other Foundry workflows. The CLI exposes Model Studio
 resources, configuration versions, trainers, and runs. `launch` starts work;
-its response is not proof that training finished. See Palantir's
+its response is not proof that training finished. Optional source: Palantir's
 [Model Studio overview](https://www.palantir.com/docs/foundry/model-studio/overview).
 
 23 Foundry Models API v2 operations are exposed by `pal-found-models`. Model creation and version

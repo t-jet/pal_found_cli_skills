@@ -61,9 +61,9 @@ NDJSON structured logs go to stderr. Required fields: `ts`, `level`,
 
 A paged operation returns a page of results and, when another page exists, a
 page token (possibly inside metadata on stderr). To fetch all results, pass the
-returned token to `--page-token`. An empty result set is a valid outcome and is
-not an error; it means no records matched the scope. Confirm whether the result
-list is empty or truncated before concluding.
+returned token to `--page-token`. An empty page is valid, even when a next-page
+token exists. Continue until no token remains before concluding that no records
+matched the scope.
 
 ## Common failure modes
 
@@ -82,8 +82,8 @@ list is empty or truncated before concluding.
 
 1. A zero exit with a data body means the request completed and the platform
    answered. Read the returned identifiers and fields.
-2. An empty result means no matching records for that scope; it is not a
-   failure.
+2. An empty page is not a failure. Check for a next-page token before concluding
+   that no records matched the scope.
 3. A page token means more results may exist; continue paging or note the
    partial view.
 4. A nonzero exit has a specific meaning from the table above. Read the JSON

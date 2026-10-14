@@ -52,7 +52,8 @@ SDK-native B3 tracing scope. `repository.publish` reads a bounded zip.
 `--timeout` limits a request in seconds; `--format json|toon|auto` chooses
 output encoding; `--pretty` indents it. Release listing accepts `--page-size`
 as the requested number of releases, `--page-token` to resume from a returned
-token, and `--all --max-pages` for bounded automatic traversal.
+token. `--max-pages N` bounds a batch to N pages; `--all` uses a cap of up to 40 pages
+and ignores `--max-pages`.
 `--widget-set-rid` identifies the widget set whose dev overrides change;
 `--settings-json` is its JSON override map. Publishing uses
 `--repository-version` as the build version and `--file` as the local zip path.

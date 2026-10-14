@@ -10,7 +10,7 @@ These records describe the `geotemporal_series_property` commands in `pal-found-
 - **Input guide:** [Identifiers and JSON payloads](./inputs.md).
 - **Preconditions:** The object has a geotemporal series property the caller may read.
 - **Result:** Returns `Optional[GeotemporalSeriesEntry]` for the selected geotemporal series property.
-- **Failure:** Missing series property or denied read access fails; a stream may stop after partial output on timeout.
+- **Failure:** Missing series property or denied read access produces a structured error.
 - **Example:** `pal-found-ontologies geotemporal-series-property get-geotemporal-series-latest-value palantir airplane XYZ123 locationHistory`
 
 ### geotemporal_series_property.stream_geotemporal_series_historic_values
