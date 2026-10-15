@@ -12,7 +12,7 @@
       "acceptance": "pending independent topic/source and semantic review",
       "sha256": "3e52113a2991f83ce3d7f6547159db9292474585297a61c4fa40fb0eb348d941",
       "lines": 173,
-      "heading_matches": false,
+      "heading_matches": true,
       "source_urls": [
         "https://www.palantir.com/docs/foundry/building-pipelines/considerations-pb-cr",
         "https://www.palantir.com/docs/foundry/code-workspaces",
@@ -31,7 +31,7 @@
       "acceptance": "pending independent topic/source and semantic review",
       "sha256": "3e52113a2991f83ce3d7f6547159db9292474585297a61c4fa40fb0eb348d941",
       "lines": 173,
-      "heading_matches": false,
+      "heading_matches": true,
       "source_urls": [
         "https://www.palantir.com/docs/foundry/building-pipelines/considerations-pb-cr",
         "https://www.palantir.com/docs/foundry/code-workspaces",
@@ -115,8 +115,16 @@
       "registered_path": "references/pipelines/sql.md",
       "registered_heading": "SQL transforms",
       "owner": "W",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "4296ed77e7353a8d9ac5f523ac052d6ce3a903e1a1f20b721c7f245835fcc871",
+      "lines": 99,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/building-pipelines/create-batch-pipeline-cr",
+        "https://www.palantir.com/docs/foundry/transforms-sql/overview",
+        "https://www.palantir.com/docs/foundry/transforms-sql/spark-reference"
+      ]
     },
     {
       "topic": "T08",
@@ -124,8 +132,16 @@
       "registered_path": "references/pipelines/workspaces.md",
       "registered_heading": "Workspace exploration and publication",
       "owner": "W",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "2e9882799275aef6922bc3bf1733d1d64d2d35ca893b3b20f936512c2d618041",
+      "lines": 116,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/code-workspaces/data",
+        "https://www.palantir.com/docs/foundry/code-workspaces/getting-started/index.html",
+        "https://www.palantir.com/docs/foundry/code-workspaces/jupyterlab"
+      ]
     },
     {
       "topic": "T09",
@@ -205,8 +221,15 @@
       "registered_path": "references/ontology/queries.md",
       "registered_heading": "Object sets and query decisions",
       "owner": "O",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "5dfd575232cc3fe66d24dfa4d9660123b46008b3fcfb0b305779a5397d0ffefe",
+      "lines": 81,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/ontologies/object-set-service-limits",
+        "https://www.palantir.com/docs/foundry/ontology-sdk/typescript-osdk"
+      ]
     },
     {
       "topic": "T14",
@@ -214,8 +237,17 @@
       "registered_path": "references/ontology/actions.md",
       "registered_heading": "Action validation and writeback",
       "owner": "O",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "717b2fc7f2bc609709259e01e06e185a4a4b04236ea4c3c22eeba0342460f267",
+      "lines": 82,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/action-types/getting-started",
+        "https://www.palantir.com/docs/foundry/action-types/side-effects-overview",
+        "https://www.palantir.com/docs/foundry/action-types/submission-criteria",
+        "https://www.palantir.com/docs/foundry/action-types/test-run"
+      ]
     },
     {
       "topic": "T15",
@@ -223,8 +255,18 @@
       "registered_path": "references/ontology/functions.md",
       "registered_heading": "Function runtimes and publication",
       "owner": "O",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "cfba370bb9d14be11483c49302bd34a7733be7a1f50ea9a65afadaf37897052c",
+      "lines": 109,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/functions/language-feature-support",
+        "https://www.palantir.com/docs/foundry/functions/python-getting-started",
+        "https://www.palantir.com/docs/foundry/functions/python-ontology-edits",
+        "https://www.palantir.com/docs/foundry/functions/typescript-v1-getting-started",
+        "https://www.palantir.com/docs/foundry/functions/typescript-v2-getting-started"
+      ]
     },
     {
       "topic": "T16",
@@ -232,8 +274,17 @@
       "registered_path": "references/ontology/security.md",
       "registered_heading": "Object and Action authorization",
       "owner": "O",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "12f60ae72f949ceea31d9015164526ee542eb53720a48c4b1d7f7fe20bf925a8",
+      "lines": 86,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/action-types/permissions",
+        "https://www.palantir.com/docs/foundry/action-types/read-write-authorizations",
+        "https://www.palantir.com/docs/foundry/object-permissioning/object-security-policies",
+        "https://www.palantir.com/docs/foundry/object-permissioning/ontology-permissions"
+      ]
     },
     {
       "topic": "T17",
@@ -241,8 +292,18 @@
       "registered_path": "references/compute/lifecycle.md",
       "registered_heading": "Container configuration and lifecycle",
       "owner": "C",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "9839776cb00bbbc35530f2cfc96f9953d3432cb1477b05e5dc2f86369b1e6120",
+      "lines": 108,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/compute-modules/containers",
+        "https://www.palantir.com/docs/foundry/compute-modules/functions",
+        "https://www.palantir.com/docs/foundry/compute-modules/get-started",
+        "https://www.palantir.com/docs/foundry/compute-modules/overview",
+        "https://www.palantir.com/docs/foundry/compute-modules/probes"
+      ]
     },
     {
       "topic": "T18",
@@ -250,8 +311,16 @@
       "registered_path": "references/compute/execution.md",
       "registered_heading": "Execution modes and provenance",
       "owner": "C",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "9ba221fbfd5293a18b745046e9ff94972d72a68674a075028818cfdb6f4717b3",
+      "lines": 113,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/compute-modules/execution-modes",
+        "https://www.palantir.com/docs/foundry/compute-modules/scaling",
+        "https://www.palantir.com/docs/foundry/compute-modules/usage"
+      ]
     },
     {
       "topic": "T19",
@@ -259,8 +328,16 @@
       "registered_path": "references/compute/integration.md",
       "registered_heading": "SDK integration and Sources",
       "owner": "C",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "2aeb60671a8efbd3ba59860a78ae63e749bd3b02880c696a46fe2abac0567241",
+      "lines": 127,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/compute-modules/osdk-integration",
+        "https://www.palantir.com/docs/foundry/compute-modules/python-sdk",
+        "https://www.palantir.com/docs/foundry/compute-modules/sources"
+      ]
     },
     {
       "topic": "T20",
@@ -268,8 +345,19 @@
       "registered_path": "references/applications/osdk.md",
       "registered_heading": "Application registration and generated SDK",
       "owner": "A",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "fd23a0c7addc6f0de0ff98fda1d0e7477d7e49c70f990e659e30ac70ca0d1993",
+      "lines": 135,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/developer-console/application-restrictions",
+        "https://www.palantir.com/docs/foundry/developer-console/create-application",
+        "https://www.palantir.com/docs/foundry/developer-console/how-to-add-to-existing-typescript",
+        "https://www.palantir.com/docs/foundry/developer-console/permissions",
+        "https://www.palantir.com/docs/foundry/ontology-sdk/typescript-osdk",
+        "https://www.palantir.com/docs/foundry/ontology-sdk/typescript-osdk-migration"
+      ]
     },
     {
       "topic": "T21",
@@ -277,8 +365,16 @@
       "registered_path": "references/applications/react.md",
       "registered_heading": "React query and release lifecycle",
       "owner": "A",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "ec263968f2465d6101770d2b3d611082a5838f31f1ad2e9096c48cf459558423",
+      "lines": 118,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/developer-console/deploy-custom-application-on-foundry",
+        "https://www.palantir.com/docs/foundry/ontology-sdk-react-applications/osdk-react",
+        "https://www.palantir.com/docs/foundry/ontology-sdk/typescript-subscriptions"
+      ]
     },
     {
       "topic": "T22",
@@ -286,8 +382,16 @@
       "registered_path": "references/widgets/lifecycle.md",
       "registered_heading": "Widget Set creation and releases",
       "owner": "A",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "00eac073681eac1c27e8145fc075e7d277f23d672cf67c17a8f9013241c702dd",
+      "lines": 80,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/custom-widgets/additional-widget",
+        "https://www.palantir.com/docs/foundry/custom-widgets/core-concepts",
+        "https://www.palantir.com/docs/foundry/custom-widgets/create"
+      ]
     },
     {
       "topic": "T23",
@@ -295,8 +399,15 @@
       "registered_path": "references/widgets/testing.md",
       "registered_heading": "Playground and Workshop previews",
       "owner": "A",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "859727a4c3cedf9269cea330c1db811b60baf95817afd77f3ec6250d4699f502",
+      "lines": 72,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/custom-widgets/development",
+        "https://www.palantir.com/docs/foundry/custom-widgets/embedding-in-workshop"
+      ]
     },
     {
       "topic": "T24",
@@ -304,8 +415,15 @@
       "registered_path": "references/widgets/integration.md",
       "registered_heading": "Parameters and events",
       "owner": "A",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "fa601011839dbcc045d96a2266bcb9d21d5368dca76e83147ef3c97f750fee2c",
+      "lines": 89,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/custom-widgets/parameters-and-events",
+        "https://www.palantir.com/docs/foundry/custom-widgets/use-osdk"
+      ]
     },
     {
       "topic": "T25",
@@ -313,8 +431,15 @@
       "registered_path": "references/widgets/distribution.md",
       "registered_heading": "Widget and Marketplace distribution",
       "owner": "A",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "deffcf6fe4387c7eb8af72bd048d1336bf1e7841a126256a998cde8c8d21a497",
+      "lines": 86,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/custom-widgets/marketplace",
+        "https://www.palantir.com/docs/foundry/custom-widgets/publish"
+      ]
     },
     {
       "topic": "T26",
@@ -322,8 +447,15 @@
       "registered_path": "references/branching/global.md",
       "registered_heading": "Global branch lifecycle",
       "owner": "B",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "3854b2efbb6f7972059018c5e0aa819156579fdefc48f1f822dd103e4317130f",
+      "lines": 89,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/global-branching/branch-security",
+        "https://www.palantir.com/docs/foundry/global-branching/core-concepts"
+      ]
     },
     {
       "topic": "T27",
@@ -331,8 +463,15 @@
       "registered_path": "references/branching/git.md",
       "registered_heading": "Git review and branch settings",
       "owner": "B",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "cec934138207ea7dff48c2ebb4e61e4fe7b1c07c2d325924de83541d9bf5d3f0",
+      "lines": 67,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/code-repositories/branch-settings",
+        "https://www.palantir.com/docs/foundry/code-repositories/navigation"
+      ]
     },
     {
       "topic": "T28",
@@ -340,8 +479,16 @@
       "registered_path": "references/branching/contexts.md",
       "registered_heading": "Select and verify branch contexts",
       "owner": "B",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "a2d425841cac94c25eb4cd6366e043f30709e665bc11d90bebeb0cf328d1bf0a",
+      "lines": 73,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/data-integration/branching",
+        "https://www.palantir.com/docs/foundry/global-branching/integrations",
+        "https://www.palantir.com/docs/foundry/pipeline-builder/branches-overview"
+      ]
     },
     {
       "topic": "T29",
@@ -349,8 +496,15 @@
       "registered_path": "references/branching/datasets.md",
       "registered_heading": "Dataset branches and fallbacks",
       "owner": "B",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "c5223223ea9f6311a6389b013df0e6f7f880a19adac26caaa111ab7a01b0d981",
+      "lines": 66,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/code-repositories/branch-settings",
+        "https://www.palantir.com/docs/foundry/data-integration/branching"
+      ]
     },
     {
       "topic": "T30",
@@ -358,8 +512,18 @@
       "registered_path": "references/branching/integrations.md",
       "registered_heading": "Resource integration boundaries",
       "owner": "B",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "65854e4e747403cc56833fb6d80e5aee80ffd0d0f17c789166e0e272ac19bead",
+      "lines": 71,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/functions/branching-functions",
+        "https://www.palantir.com/docs/foundry/global-branching/integrations",
+        "https://www.palantir.com/docs/foundry/ontologies/branching-ontology",
+        "https://www.palantir.com/docs/foundry/pipeline-builder/branches-overview",
+        "https://www.palantir.com/docs/foundry/workshop/branching-integration"
+      ]
     },
     {
       "topic": "T31",
@@ -367,8 +531,14 @@
       "registered_path": "references/security/platform.md",
       "registered_heading": "Projects and resource boundaries",
       "owner": "B",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "68990679bdfb8d29d4582c003699da9f2ca26a33f29f26b56e6c05a8cb84b02b",
+      "lines": 70,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/security/projects-and-roles"
+      ]
     },
     {
       "topic": "T32",
@@ -376,8 +546,15 @@
       "registered_path": "references/security/applications.md",
       "registered_heading": "Application and Ontology permission checks",
       "owner": "B",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "7ac7ec0506e1c4b149c7b9423f5d886cd8082487dbac6876890dc9e471e2331d",
+      "lines": 73,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/developer-console/application-restrictions",
+        "https://www.palantir.com/docs/foundry/developer-console/permissions"
+      ]
     },
     {
       "topic": "T33",
@@ -385,8 +562,16 @@
       "registered_path": "references/security/compute-branches.md",
       "registered_heading": "Execution identity and branch authorization",
       "owner": "B",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "dff393c7a4cb504c4e5bd0c66ecf818ea9083f8ccc43c04aa29a6414f9c16ee4",
+      "lines": 72,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/compute-modules/execution-modes",
+        "https://www.palantir.com/docs/foundry/compute-modules/sources",
+        "https://www.palantir.com/docs/foundry/global-branching/branch-security"
+      ]
     },
     {
       "topic": "T34",
@@ -394,8 +579,17 @@
       "registered_path": "references/operations/lineage.md",
       "registered_heading": "Trace branch and build provenance",
       "owner": "M",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "6a425dde1dc0c4036f3fc4d270c924217007f4ea1ea4ee5c57bd2c0d190b3618",
+      "lines": 76,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/data-integration/builds",
+        "https://www.palantir.com/docs/foundry/data-lineage/build-timeline",
+        "https://www.palantir.com/docs/foundry/data-lineage/navigation",
+        "https://www.palantir.com/docs/foundry/data-lineage/overview"
+      ]
     },
     {
       "topic": "T35",
@@ -403,8 +597,18 @@
       "registered_path": "references/operations/monitoring.md",
       "registered_heading": "Checks, monitoring and alert ownership",
       "owner": "M",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "10d343b940761a4a89090deb13e5912075a621eb73f04ec5ed93230d60d9586b",
+      "lines": 78,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/health-checks/check-evaluation",
+        "https://www.palantir.com/docs/foundry/health-checks/check-types",
+        "https://www.palantir.com/docs/foundry/health-checks/notifications",
+        "https://www.palantir.com/docs/foundry/health-checks/overview",
+        "https://www.palantir.com/docs/foundry/health-checks/watching-checks"
+      ]
     },
     {
       "topic": "T36",
@@ -412,8 +616,18 @@
       "registered_path": "references/operations/support.md",
       "registered_heading": "Diagnose, recover and verify pipelines",
       "owner": "M",
-      "authored": false,
-      "acceptance": "pending independent topic/source and semantic review"
+      "authored": true,
+      "acceptance": "pending independent topic/source and semantic review",
+      "sha256": "4ed70a8d3a057f3c6294dc1dbe0351df86f129c1c3c750086aa23564d672f6e4",
+      "lines": 87,
+      "heading_matches": true,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/building-pipelines/create-schedule",
+        "https://www.palantir.com/docs/foundry/data-integration/schedules",
+        "https://www.palantir.com/docs/foundry/maintaining-pipelines/support-processes",
+        "https://www.palantir.com/docs/foundry/optimizing-pipelines/debug-job",
+        "https://www.palantir.com/docs/foundry/optimizing-pipelines/debug-pipeline"
+      ]
     }
   ],
   "assets": [
