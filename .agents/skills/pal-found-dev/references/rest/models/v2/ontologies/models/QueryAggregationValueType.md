@@ -1,7 +1,7 @@
 # foundry_sdk.v2.ontologies.models.QueryAggregationValueType
 
 
-A union of all the types supported by query aggregation keys.
+Use this union for `TwoDimensionalAggregation.value_type`. It accepts `DateType`, `DoubleType`, or `TimestampType`, selected by the `type` discriminator. `QueryAggregationKeyType` is a separate union for `key_type` and supports more alternatives. The SDK description calls this a key type; its field use and definition identify it as the value type.
 
 ## Exact SDK definition
 
