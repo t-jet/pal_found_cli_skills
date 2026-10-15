@@ -9,8 +9,8 @@
     "source_pass": 3251,
     "source_fail": 0,
     "local_meaning_fail": 0,
-    "local_meaning_pass": 51,
-    "local_meaning_pending": 3200
+    "local_meaning_pass": 48,
+    "local_meaning_pending": 3203
   },
   "review_partition_counts": {
     "blank_source_authored_note": 9,
@@ -36419,15 +36419,17 @@
       "reviewed_reader_prose_sha256": "64b51ea15ad955cdcf4df00cb2b2e475019610f4e48465519225c626fe276151",
       "reviewed_source_definition_sha256": "87cfa4105f2532b08018cc2a2380bfd0a341b776e0c14e22ba3f0ce977b2b9aa",
       "source_fidelity_review": "PASS",
-      "local_meaning_review": "PASS",
-      "semantic_review_evidence": "Independent comparison of full frozen source description, local summary, exact definition and linked alternatives/fields; no material meaning lost",
+      "local_meaning_review": "pending_manual_semantic_review",
+      "semantic_review_evidence": null,
       "source_description_placeholder": false,
       "source_description_localized": true,
       "review_partition": "localized_source_description",
       "reader_summary_word_count": 40,
       "consumer_operation_count": 4,
       "dependency_count": 0,
-      "issues": []
+      "issues": [
+        "Reader summary made unsupported access-context and operation-selection claims; corrected page awaits independent retest."
+      ]
     },
     {
       "id": "foundry_sdk.v2.filesystem.models.GetByPathResourcesBatchRequestElement",
@@ -36787,15 +36789,17 @@
       "reviewed_reader_prose_sha256": "f366257b868027546072f22383a89e83a7ec4d2c11f5d0806db40e09703d580b",
       "reviewed_source_definition_sha256": "c29dc0f9506a8867dd66910fa155896a11c497d8a731e1c179908ae895f79708",
       "source_fidelity_review": "PASS",
-      "local_meaning_review": "PASS",
-      "semantic_review_evidence": "Independent comparison of full frozen source description, local summary, exact definition and linked alternatives/fields; no material meaning lost",
+      "local_meaning_review": "pending_manual_semantic_review",
+      "semantic_review_evidence": null,
       "source_description_placeholder": false,
       "source_description_localized": true,
       "review_partition": "localized_source_description",
       "reader_summary_word_count": 34,
       "consumer_operation_count": 1,
       "dependency_count": 4,
-      "issues": []
+      "issues": [
+        "Reader summary omitted Organization inheritance through file hierarchy and direct dependencies; corrected page awaits independent retest."
+      ]
     },
     {
       "id": "foundry_sdk.v2.filesystem.models.PrincipalIdOnly",
@@ -36994,15 +36998,17 @@
       "reviewed_reader_prose_sha256": "721b30d82c3e2bf5ee238b08345730c58029bc02e5549e47b57d723ea151b72e",
       "reviewed_source_definition_sha256": "fbcca1a71cf949812bf418c6789ec045fca70a5b99b1afbff19fbdc757a3d838",
       "source_fidelity_review": "PASS",
-      "local_meaning_review": "PASS",
-      "semantic_review_evidence": "Independent comparison of full frozen source description, local summary, exact definition and linked alternatives/fields; no material meaning lost",
+      "local_meaning_review": "pending_manual_semantic_review",
+      "semantic_review_evidence": null,
       "source_description_placeholder": false,
       "source_description_localized": true,
       "review_partition": "localized_source_description",
       "reader_summary_word_count": 33,
       "consumer_operation_count": 1,
       "dependency_count": 2,
-      "issues": []
+      "issues": [
+        "Reader summary made unsupported ownership and access claims; corrected page awaits independent retest."
+      ]
     },
     {
       "id": "foundry_sdk.v2.filesystem.models.ProjectRid",
