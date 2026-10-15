@@ -50233,10 +50233,10 @@
         "references/rest/models/v2/filesystem/models/FolderType.md"
       ],
       "local_page_sha256": [
-        "c7b557d4d89a1170c95152b442060182488ec19b5360b54fee215050abe17ff5"
+        "d37beab0ac1067b8d3a8895b6a87df93a102d87a28f64d265b8f7fc32535ab29"
       ],
-      "reader_prose_sha256": "64b51ea15ad955cdcf4df00cb2b2e475019610f4e48465519225c626fe276151",
-      "reader_prose_excerpt": "The folder type distinguishes an ordinary folder, Project and Space. Read the literal values below and use the matching resource operation when traversing the hierarchy. Project and Space also carry access context that an ordinary folder path does not convey.",
+      "reader_prose_sha256": "6e6cabe7b0a2b7188c2a80738d44ff71db6ef595192e9999f95a9e49f152d3c1",
+      "reader_prose_excerpt": "A folder can be a regular Folder, a Project, or a Space. The literal values are `FOLDER`, `PROJECT`, and `SPACE`.",
       "unfenced_public_url_count": 0,
       "source_fidelity_review": "pending_independent_review",
       "local_meaning_review": "pending_independent_review"
@@ -50689,10 +50689,10 @@
         "references/rest/models/v2/filesystem/models/Organization.md"
       ],
       "local_page_sha256": [
-        "a7fe69243c9a4cd0e0ea37ddd5fd4963e4f268373255a56d6963a9f98243cc36"
+        "b29a2d23ae1bb04047c16e3f093b74749b8a395fbb4a4cadd71311c2c18324f1"
       ],
-      "reader_prose_sha256": "f366257b868027546072f22383a89e83a7ec4d2c11f5d0806db40e09703d580b",
-      "reader_prose_excerpt": "An Organization is an access requirement on a Project. `organization_rid` identifies it; `is_directly_applied` distinguishes direct from inherited application. A user needs membership or guest membership in at least one Organization applied to the Project.",
+      "reader_prose_sha256": "a883bbd213ca3dbdd5d801b32be762d0be23111ab3eca0309ce05b72b883b6cc",
+      "reader_prose_excerpt": "An Organization is an access requirement on a Project. Each user belongs to one Organization and may be a guest member of several. To meet a Project's access requirements, the user must belong to or be a guest member of at least one Organization applied to that Project. Organizations are inherited through the file hierarchy and direct dependencies. `organization_rid` identifies the Organization; `",
       "unfenced_public_url_count": 0,
       "source_fidelity_review": "pending_independent_review",
       "local_meaning_review": "pending_independent_review"
@@ -50957,10 +50957,10 @@
         "references/rest/models/v2/filesystem/models/ProjectResourceReferenceUnion.md"
       ],
       "local_page_sha256": [
-        "5d93cc35b7b2c399ab3b9d251b7b58f13d0f7737f1129d3c0023252a76fdc1ea"
+        "1ab3dc762cdfafba7254e1e1394be06427a7e32d17d21c3b447383e3db022ff8"
       ],
-      "reader_prose_sha256": "721b30d82c3e2bf5ee238b08345730c58029bc02e5549e47b57d723ea151b72e",
-      "reader_prose_excerpt": "A project resource reference represents a resource imported from another Project. Select the union alternative and discriminator shown below. The reference does not change ownership of the source resource; check its access separately.",
+      "reader_prose_sha256": "ac7baace179abac141dd45576e45a4ff8b8fff8053eec55f31f9183a513f1b46",
+      "reader_prose_excerpt": "A reference represents a resource outside the current Project that has been imported into it. This alias accepts `ProjectExternalResourceReference` or `ProjectFilesystemResourceReference`, selected by the `type` discriminator.",
       "unfenced_public_url_count": 0,
       "source_fidelity_review": "pending_independent_review",
       "local_meaning_review": "pending_independent_review"
@@ -86184,10 +86184,10 @@
         "references/rest/models/v2/ontologies/models/QueryAggregationValueType.md"
       ],
       "local_page_sha256": [
-        "e33b9955a2bf13bc591522d1993ed0763cb2dfec91cf0bfdeb45bae02cfd7267"
+        "9f85a1ba58fdce6cf3212ee79b053a3b609f3b3ba26669be343db02cf0d33121"
       ],
-      "reader_prose_sha256": "4bf26a99929c83856833201810e81eb6f5bdcc2ccb519594f559b93d69c81589",
-      "reader_prose_excerpt": "A union of all the types supported by query aggregation keys.",
+      "reader_prose_sha256": "656bf189bd38b0e569c9ef95532d4d1a06ddb9dbf351c1748869352ff26f991f",
+      "reader_prose_excerpt": "Use this union for `TwoDimensionalAggregation.value_type`. It accepts `DateType`, `DoubleType`, or `TimestampType`, selected by the `type` discriminator. `QueryAggregationKeyType` is a separate union for `key_type` and supports more alternatives. The SDK description calls this a key type; its field use and definition identify it as the value type.",
       "unfenced_public_url_count": 0,
       "source_fidelity_review": "pending_independent_review",
       "local_meaning_review": "pending_independent_review"
