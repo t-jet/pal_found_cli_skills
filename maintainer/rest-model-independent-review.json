@@ -6,8 +6,8 @@
   "register_sha256": "a6144d4f0808bbb7cc6581f8638f44c7460099204a4857585c235993c2073cfe",
   "counts": {
     "symbols": 3251,
-    "source_pass": 3249,
-    "source_fail": 2,
+    "source_pass": 3251,
+    "source_fail": 0,
     "local_meaning_fail": 0,
     "local_meaning_pass": 51,
     "local_meaning_pending": 3200
@@ -5226,11 +5226,11 @@
         "references/rest/models/v1/ontologies/models/PropertyValue.md"
       ],
       "reviewed_local_page_sha256": [
-        "d792fd0fdc8d0bda25681817953b57731474bc2c953502dd82b2880e8bf568e7"
+        "c15ccc17110728a3a7030aa846c7d7e0ad157539db2f4bf2889b4084ee9094aa"
       ],
       "reviewed_reader_prose_sha256": "0c277ff68fdc54687bb93297aa8cdeca68b2124dbef6a1bc0cdede10e2537aa6",
       "reviewed_source_definition_sha256": "d9b86ae9fb36315bf5eec76a8609f972883a4ed2078272b62f712d5cbfcdb1b3",
-      "source_fidelity_review": "FAIL",
+      "source_fidelity_review": "PASS",
       "local_meaning_review": "pending_manual_example_retest",
       "semantic_review_evidence": null,
       "source_description_placeholder": false,
@@ -5239,9 +5239,7 @@
       "reader_summary_word_count": 49,
       "consumer_operation_count": 6,
       "dependency_count": 0,
-      "issues": [
-        "local page SHA differs references/rest/models/v1/ontologies/models/PropertyValue.md"
-      ]
+      "issues": []
     },
     {
       "id": "foundry_sdk.v1.ontologies.models.PropertyValueEscapedString",
@@ -63211,11 +63209,11 @@
         "references/rest/models/v2/ontologies/models/PropertyValue.md"
       ],
       "reviewed_local_page_sha256": [
-        "f97f6eb1b6593e0945d0476f2d4f6ce3aafd4b979cc9752b43e35734c4c8e2a4"
+        "a88574b7baafa1e8a381456bf642fd18112b56095b23c29e95063a38aea4b064"
       ],
       "reviewed_reader_prose_sha256": "c4ae1f13d58168edbfb134538cee427986e6e612303b965ea9bc1ff183a5016d",
       "reviewed_source_definition_sha256": "d9b86ae9fb36315bf5eec76a8609f972883a4ed2078272b62f712d5cbfcdb1b3",
-      "source_fidelity_review": "FAIL",
+      "source_fidelity_review": "PASS",
       "local_meaning_review": "pending_manual_example_retest",
       "semantic_review_evidence": null,
       "source_description_placeholder": false,
@@ -63224,9 +63222,7 @@
       "reader_summary_word_count": 50,
       "consumer_operation_count": 34,
       "dependency_count": 0,
-      "issues": [
-        "local page SHA differs references/rest/models/v2/ontologies/models/PropertyValue.md"
-      ]
+      "issues": []
     },
     {
       "id": "foundry_sdk.v2.ontologies.models.PropertyValueEscapedString",
