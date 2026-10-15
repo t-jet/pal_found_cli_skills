@@ -1,0 +1,28 @@
+{
+  "type": "dateColumnRange",
+  "create": {
+    "subject": {
+      "datasetRid": "ri.foundry.main.dataset.a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "branchId": "master"
+    },
+    "columnName": "status",
+    "dateBoundsConfig": {
+      "dateBounds": {
+        "lowerBound": "2026-10-01T00:00:00Z",
+        "upperBound": "2026-10-01T00:00:00Z"
+      },
+      "severity": "MODERATE"
+    },
+    "type": "dateColumnRange"
+  },
+  "replace": {
+    "dateBoundsConfig": {
+      "dateBounds": {
+        "lowerBound": "2026-10-01T00:00:00Z",
+        "upperBound": "2026-10-01T00:00:00Z"
+      },
+      "severity": "MODERATE"
+    },
+    "type": "dateColumnRange"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "type": "approximateUniquePercentage",
+  "create": {
+    "subject": {
+      "datasetRid": "ri.foundry.main.dataset.a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "branchId": "master"
+    },
+    "percentageCheckConfig": {
+      "columnName": "status",
+      "percentageBounds": {
+        "percentageBounds": {
+          "lowerBoundPercentage": 0,
+          "upperBoundPercentage": 10
+        },
+        "severity": "MODERATE"
+      },
+      "medianDeviation": {
+        "medianDeviation": {
+          "boundsType": "LOWER_BOUND",
+          "dataPoints": 5,
+          "deviationThreshold": 2
+        },
+        "severity": "MODERATE"
+      }
+    },
+    "type": "approximateUniquePercentage"
+  },
+  "replace": {
+    "percentageCheckConfig": {
+      "medianDeviation": {
+        "medianDeviation": {
+          "boundsType": "LOWER_BOUND",
+          "dataPoints": 5,
+          "deviationThreshold": 2
+        },
+        "severity": "MODERATE"
+      },
+      "percentageBounds": {
+        "percentageBounds": {
+          "lowerBoundPercentage": 0,
+          "upperBoundPercentage": 10
+        },
+        "severity": "MODERATE"
+      }
+    },
+    "type": "approximateUniquePercentage"
+  }
+}

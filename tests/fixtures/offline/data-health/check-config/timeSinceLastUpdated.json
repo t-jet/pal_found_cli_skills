@@ -1,0 +1,49 @@
+{
+  "type": "timeSinceLastUpdated",
+  "create": {
+    "subject": {
+      "datasetRid": "ri.foundry.main.dataset.a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "branchId": "master"
+    },
+    "timeCheckConfig": {
+      "timeBounds": {
+        "timeBounds": {
+          "lowerBoundInSeconds": 0,
+          "upperBoundInSeconds": 3600
+        },
+        "severity": "MODERATE"
+      },
+      "medianDeviation": {
+        "medianDeviation": {
+          "boundsType": "LOWER_BOUND",
+          "dataPoints": 5,
+          "deviationThreshold": 2
+        },
+        "severity": "MODERATE"
+      },
+      "ignoreEmptyTransactions": false
+    },
+    "type": "timeSinceLastUpdated"
+  },
+  "replace": {
+    "timeCheckConfig": {
+      "timeBounds": {
+        "timeBounds": {
+          "lowerBoundInSeconds": 0,
+          "upperBoundInSeconds": 3600
+        },
+        "severity": "MODERATE"
+      },
+      "medianDeviation": {
+        "medianDeviation": {
+          "boundsType": "LOWER_BOUND",
+          "dataPoints": 5,
+          "deviationThreshold": 2
+        },
+        "severity": "MODERATE"
+      },
+      "ignoreEmptyTransactions": false
+    },
+    "type": "timeSinceLastUpdated"
+  }
+}

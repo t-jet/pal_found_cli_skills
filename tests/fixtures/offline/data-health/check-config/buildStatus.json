@@ -1,0 +1,27 @@
+{
+  "type": "buildStatus",
+  "create": {
+    "subject": {
+      "datasetRid": "ri.foundry.main.dataset.a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "branchId": "master"
+    },
+    "statusCheckConfig": {
+      "severity": "MODERATE",
+      "escalationConfig": {
+        "failuresToCritical": 3,
+        "timeIntervalInSeconds": 3600
+      }
+    },
+    "type": "buildStatus"
+  },
+  "replace": {
+    "statusCheckConfig": {
+      "severity": "MODERATE",
+      "escalationConfig": {
+        "failuresToCritical": 3,
+        "timeIntervalInSeconds": 3600
+      }
+    },
+    "type": "buildStatus"
+  }
+}

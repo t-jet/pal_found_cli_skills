@@ -1,0 +1,28 @@
+{
+  "type": "numericColumnRange",
+  "create": {
+    "subject": {
+      "datasetRid": "ri.foundry.main.dataset.a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "branchId": "master"
+    },
+    "columnName": "status",
+    "numericBoundsConfig": {
+      "numericBounds": {
+        "lowerBound": 0,
+        "upperBound": 100
+      },
+      "severity": "MODERATE"
+    },
+    "type": "numericColumnRange"
+  },
+  "replace": {
+    "numericBoundsConfig": {
+      "numericBounds": {
+        "lowerBound": 0,
+        "upperBound": 100
+      },
+      "severity": "MODERATE"
+    },
+    "type": "numericColumnRange"
+  }
+}

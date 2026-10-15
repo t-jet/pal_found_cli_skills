@@ -1,0 +1,22 @@
+{
+  "type": "columnType",
+  "create": {
+    "subject": {
+      "datasetRid": "ri.foundry.main.dataset.a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "branchId": "master"
+    },
+    "columnTypeConfig": {
+      "columnName": "status",
+      "expectedType": "STRING",
+      "severity": "MODERATE"
+    },
+    "type": "columnType"
+  },
+  "replace": {
+    "columnTypeConfig": {
+      "severity": "MODERATE",
+      "expectedType": "STRING"
+    },
+    "type": "columnType"
+  }
+}

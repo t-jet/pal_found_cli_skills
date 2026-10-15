@@ -1,0 +1,30 @@
+{
+  "type": "allowedColumnValues",
+  "create": {
+    "subject": {
+      "datasetRid": "ri.foundry.main.dataset.a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "branchId": "master"
+    },
+    "columnName": "status",
+    "allowedValues": [
+      {
+        "value": "2026-10-01T00:00:00Z",
+        "type": "date"
+      }
+    ],
+    "allowNull": false,
+    "severity": "MODERATE",
+    "type": "allowedColumnValues"
+  },
+  "replace": {
+    "allowedValues": [
+      {
+        "value": "2026-10-01T00:00:00Z",
+        "type": "date"
+      }
+    ],
+    "severity": "MODERATE",
+    "allowNull": false,
+    "type": "allowedColumnValues"
+  }
+}

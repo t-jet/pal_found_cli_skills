@@ -1,0 +1,48 @@
+{
+  "type": "numericColumnMedian",
+  "create": {
+    "subject": {
+      "datasetRid": "ri.foundry.main.dataset.a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "branchId": "master"
+    },
+    "numericColumnCheckConfig": {
+      "columnName": "status",
+      "numericBounds": {
+        "numericBounds": {
+          "lowerBound": 0,
+          "upperBound": 100
+        },
+        "severity": "MODERATE"
+      },
+      "trend": {
+        "trendType": "NON_INCREASING",
+        "differenceBounds": {
+          "lowerBound": 0,
+          "upperBound": 100
+        },
+        "severity": "MODERATE"
+      }
+    },
+    "type": "numericColumnMedian"
+  },
+  "replace": {
+    "numericColumnCheckConfig": {
+      "numericBounds": {
+        "numericBounds": {
+          "lowerBound": 0,
+          "upperBound": 100
+        },
+        "severity": "MODERATE"
+      },
+      "trend": {
+        "trendType": "NON_INCREASING",
+        "differenceBounds": {
+          "lowerBound": 0,
+          "upperBound": 100
+        },
+        "severity": "MODERATE"
+      }
+    },
+    "type": "numericColumnMedian"
+  }
+}
