@@ -3,7 +3,7 @@
   "review_mode": "frozen source AST/bytes and local asset validation; explicit manual semantic PASS/FAIL IDs plus disjoint pending risk partitions; no count-only acceptance",
   "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
   "matrix_sha256": "7553548721428e1dc8bb89adfd5a3441e464e8f4667689fc5656011539e70772",
-  "register_sha256": "a6144d4f0808bbb7cc6581f8638f44c7460099204a4857585c235993c2073cfe",
+  "register_sha256": "83f148a9681d1a6fbf6152a9d86fba9190bf613ca2b9680f9432f609813b01f0",
   "counts": {
     "symbols": 3251,
     "source_pass": 3251,
