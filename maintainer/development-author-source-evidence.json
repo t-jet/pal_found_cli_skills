@@ -483,11 +483,11 @@
       "stderr": "",
       "claim": "local fixtures only; not live Foundry, decorators, Spark or platform authorization evidence"
     },
-    ".agents/skills/pal-found-data-health/examples/check_config_fixture.py": {
+    "tests/fixtures/offline/data-health/check_config_fixture.py": {
       "exit_code": 0,
       "stdout": "32 configuration payloads parsed; wrong type, missing subject and invalid severity rejected\nNo check saved, dataset evaluated or permission verified\nFive documented empty cross-field choices rejected by local preflight\n",
       "stderr": "",
-      "claim": "local fixtures only; not live Foundry, decorators, Spark or platform authorization evidence"
+      "claim": "local fixtures only; not live Foundry, decorators, Spark or platform authorization evidence. Maintainer/QA offline fixture; it is intentionally outside the distributed .agents/skills tree, which ships documentation only."
     }
   },
   "bug022_model_comparison": {

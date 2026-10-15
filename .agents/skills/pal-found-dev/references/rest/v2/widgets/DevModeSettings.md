@@ -9,7 +9,7 @@ marks these operations Private Beta; check availability in the enrollment.
 
 ## enable
 
-Call `client.widgets.dev_mode_settings.enable(preview=True)` for the user
+Call `client.widgets.DevModeSettings.enable(preview=True)` for the user
 represented by the token. The returned `DevModeSettings` records that user's
 settings. Read the [exact contract](../../contracts/v2/widgets/DevModeSettings/enable.md)
 and [model](../../models/v2/widgets/models/DevModeSettings.md) before storing
@@ -27,7 +27,7 @@ After enabling dev mode, choose the target widget-set RID and provide
 `WidgetSetDevModeSettingsById` under `settings`. Its widget IDs identify entries
 within that set, so verify each ID against the set's manifest before submitting.
 This method changes the calling user's settings for that set. Call
-`client.widgets.dev_mode_settings.set_widget_set_by_id(settings=...,
+`client.widgets.DevModeSettings.set_widget_set_by_id(settings=...,
 widget_set_rid=..., preview=True)`. Read the
 [exact contract](../../contracts/v2/widgets/DevModeSettings/set_widget_set_by_id.md)
 and [settings model](../../models/v2/widgets/models/WidgetSetDevModeSettingsById.md).

@@ -75,7 +75,7 @@ Read [exact contract](../../contracts/v2/ontologies/OntologyObjectSet/load_objec
 Prepare a bounded `Order` Object Set definition, create a temporary handle when reuse is needed, then load a page and aggregate that same selection. Verify type scope and page completion before claiming a total.
 
 ```python
-from foundry_sdk.v2.ontologies.models import ObjectSetBaseType
+from foundry_sdk.v2.ontologies.models import ObjectSetBaseType, ObjectSetReferenceType
 
 ontology = "dispatch"  # use the authorized Ontology identifier
 selection = ObjectSetBaseType(object_type="Order")  # actual type API name
@@ -86,7 +86,7 @@ assert temporary.object_set_rid
 
 page = client.ontologies.OntologyObjectSet.load(
     ontology=ontology,
-    object_set=selection,
+    object_set=ObjectSetReferenceType(reference=temporary.object_set_rid),
     select=["orderId", "status"],
     page_size=20,
     snapshot=True,
@@ -96,9 +96,10 @@ for order in page.data:
 next_token = page.next_page_token
 ```
 
-Use `next_token` as `page_token` on the same selection and branch until it is
-absent or the agreed page budget ends. The returned temporary RID can be read
-through `get`; it expires after one hour. The `ObjectSetBaseType` discriminator
+Use `next_token` as `page_token` with the same `ObjectSetReferenceType` and
+branch until it is absent or the agreed page budget ends. The returned
+temporary RID can be read through `get`; it expires after one hour. Do not
+reuse it after expiry. The `ObjectSetBaseType` discriminator
 and `LoadObjectSetResponseV2` fields are defined in the linked local models.
 An Object Storage V1 result has a 10,000-object limit; do not claim complete
 enumeration after `ObjectsExceededLimit`. Null-valued properties are omitted

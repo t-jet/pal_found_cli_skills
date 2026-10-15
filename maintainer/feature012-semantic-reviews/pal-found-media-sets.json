@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "reviews": {
+    "media_set.abort": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "bff29bfbf490177774e091c0c0299151c95a2a475189a2e5cb9545a17afddc89",
+      "cli_sha256": "77b9d2b8076d260842fd7f9cc4b346d07e3ce43168a785c0014ded0807b174a3",
+      "sdk_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/media_sets/media_set.py:59 (return None)."
+    },
+    "media_set.calculate": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "701188f72a672597dc676564a9ce30d0927820845e94ee670202766105d1cc20",
+      "cli_sha256": "77b9d2b8076d260842fd7f9cc4b346d07e3ce43168a785c0014ded0807b174a3",
+      "sdk_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/media_sets/media_set.py:106 (return media_sets_models.TrackedTransformationResponse)."
+    },
+    "media_set.clear": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "152ba1662d7c79b5091f60cbc954d32402de903ccec9ed3335204ec6c36862bf",
+      "cli_sha256": "77b9d2b8076d260842fd7f9cc4b346d07e3ce43168a785c0014ded0807b174a3",
+      "sdk_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/media_sets/media_set.py:159 (return None)."
+    },
+    "media_set.commit": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "b8e1034baaba8e058f887b3eeb3a8991392e7c6b1c29ea1db0d30a1e6a9dcfa3",
+      "cli_sha256": "77b9d2b8076d260842fd7f9cc4b346d07e3ce43168a785c0014ded0807b174a3",
+      "sdk_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/media_sets/media_set.py:229 (return None)."
+    },
+    "media_set.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "14e603fc4b6db8b203520bf0297a2b4a90a8435a5b1ee7d25b50f14773b93580",
+      "cli_sha256": "77b9d2b8076d260842fd7f9cc4b346d07e3ce43168a785c0014ded0807b174a3",
+      "sdk_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/media_sets/media_set.py:276 (return media_sets_models.TransactionId)."
+    },
+    "media_set.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "f7c04902a3887042e6a1427fa4e87fd981994c1690132f036a4df3ec99666495",
+      "cli_sha256": "77b9d2b8076d260842fd7f9cc4b346d07e3ce43168a785c0014ded0807b174a3",
+      "sdk_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/media_sets/media_set.py:325 (return media_sets_models.GetMediaSetResponse)."
+    },
+    "media_set.get_result": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "8e69d1e38c921c455d960fae00134dc78eb58dc2eb955d83f4b8c0d88ea10831",
+      "cli_sha256": "77b9d2b8076d260842fd7f9cc4b346d07e3ce43168a785c0014ded0807b174a3",
+      "sdk_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/media_sets/media_set.py:370 (return bytes)."
+    },
+    "media_set.get_rid_by_path": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "1b753710173fd95f4260cf334c3657034d1635a9338d7e0d5291db3a32062ecb",
+      "cli_sha256": "77b9d2b8076d260842fd7f9cc4b346d07e3ce43168a785c0014ded0807b174a3",
+      "sdk_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/media_sets/media_set.py:428 (return media_sets_models.GetMediaItemRidByPathResponse)."
+    },
+    "media_set.get_status": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "896af9bb156117cf736b478c0279cf7cc9c0e0270c6432cee832d894d02ba075",
+      "cli_sha256": "77b9d2b8076d260842fd7f9cc4b346d07e3ce43168a785c0014ded0807b174a3",
+      "sdk_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/media_sets/media_set.py:489 (return media_sets_models.GetTransformationJobStatusResponse)."
+    },
+    "media_set.info": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "dba84021e88d7827d3ffec6f993541e38f73a6177e5215ab917ba8183fe1694c",
+      "cli_sha256": "77b9d2b8076d260842fd7f9cc4b346d07e3ce43168a785c0014ded0807b174a3",
+      "sdk_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/media_sets/media_set.py:546 (return media_sets_models.GetMediaItemInfoResponse)."
+    },
+    "media_set.metadata": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "4cfed131c7d875befb77e3f5fa8c4a25eaffa08293a8ee50499c26490ef5da87",
+      "cli_sha256": "77b9d2b8076d260842fd7f9cc4b346d07e3ce43168a785c0014ded0807b174a3",
+      "sdk_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/media_sets/media_set.py:599 (return media_sets_models.MediaItemMetadata)."
+    },
+    "media_set.read": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "3daa133a7787822cee185f8f0caff966357eb2a84c793171d766e72c12ac5d47",
+      "cli_sha256": "77b9d2b8076d260842fd7f9cc4b346d07e3ce43168a785c0014ded0807b174a3",
+      "sdk_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/media_sets/media_set.py:653 (return bytes)."
+    },
+    "media_set.read_original": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "281893c3b30c8743dd6e0f0dd81ba60f34e9e75ef8fe9f3dbf289235b9a00b56",
+      "cli_sha256": "77b9d2b8076d260842fd7f9cc4b346d07e3ce43168a785c0014ded0807b174a3",
+      "sdk_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/media_sets/media_set.py:706 (return bytes)."
+    },
+    "media_set.reference": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "1f01cf91346aa54d839de3b7ed25882148db36e472afbb2d8e706b2c5f510211",
+      "cli_sha256": "77b9d2b8076d260842fd7f9cc4b346d07e3ce43168a785c0014ded0807b174a3",
+      "sdk_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/media_sets/media_set.py:759 (return core_models.MediaReference)."
+    },
+    "media_set.register": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "068c9fe1f8ca10c209c75553773d6990a01c8748731589f9a10bd0c53b1b4116",
+      "cli_sha256": "77b9d2b8076d260842fd7f9cc4b346d07e3ce43168a785c0014ded0807b174a3",
+      "sdk_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/media_sets/media_set.py:812 (return media_sets_models.RegisterMediaItemResponse)."
+    },
+    "media_set.retrieve": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "b949a2e68dd33037b99db977f025665219d69d5d3a49fae9f83a72f8c677469e",
+      "cli_sha256": "77b9d2b8076d260842fd7f9cc4b346d07e3ce43168a785c0014ded0807b174a3",
+      "sdk_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/media_sets/media_set.py:881 (return bytes)."
+    },
+    "media_set.transform": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "03d2ec796aba8d3bac83ffdac910390a06d519bb04060169d5d4cb45473fa932",
+      "cli_sha256": "77b9d2b8076d260842fd7f9cc4b346d07e3ce43168a785c0014ded0807b174a3",
+      "sdk_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/media_sets/media_set.py:936 (return media_sets_models.TransformMediaItemResponse)."
+    },
+    "media_set.upload": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "d67442460ef4c2cfd51463bc71b1e7aed8f3db289df3d8a83938f11a85df6902",
+      "cli_sha256": "77b9d2b8076d260842fd7f9cc4b346d07e3ce43168a785c0014ded0807b174a3",
+      "sdk_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/media_sets/media_set.py:1003 (return media_sets_models.PutMediaItemResponse)."
+    },
+    "media_set.upload_media": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "5409a730ecd83e5e794db56644b491e8401b3d5bf1c768140ddae4b6877934e6",
+      "cli_sha256": "77b9d2b8076d260842fd7f9cc4b346d07e3ce43168a785c0014ded0807b174a3",
+      "sdk_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/media_sets/media_set.py:1078 (return core_models.MediaReference)."
+    }
+  }
+}

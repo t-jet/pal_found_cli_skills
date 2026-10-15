@@ -31,7 +31,8 @@ These records describe the `session` commands in `pal-found-aip-agents`. Each re
 - **Input meaning:** `--alias` is a local name stored by this CLI for the newly returned session RID. `--agent-rid` identifies the agent to converse with; optional `--agent-version` pins a published version instead of using the default.
 - **Input guide:** [Identifiers and JSON payloads](./inputs.md).
 - **Preconditions:** The agent RID identifies an agent the caller may use; the local alias is available.
-- **Result:** Returns the new `Session` and records its RID under the supplied local alias for later commands.
+- **Result:** Writes a local session-state object with the normalized alias and session RID to
+  stdout. The CLI stores the alias for later commands and omits the session token from output.
 - **Failure:** Invalid session inputs or insufficient permission produce a structured error. After a timeout, read current state before retrying.
 - **Example:** `pal-found-aip-agents session create --alias order-help --agent-rid ri.aip-agents..agent.732cd5b4-7ca7-4219-aabb-6e976faf63b1`
 
@@ -64,8 +65,9 @@ These records describe the `session` commands in `pal-found-aip-agents`. Each re
 - **Input meaning:** `agent_rid` identifies the agent whose sessions to list. This endpoint returns only sessions that the calling user created through this client.
 - **Input guide:** [Identifiers and JSON payloads](./inputs.md).
 - **Preconditions:** The agent exists and the caller can list their sessions for it. No local session alias is needed.
-- **Result:** Returns `ListSessionsResponse` containing the visible matching session entries; an empty page means none matched that page.
-- **Failure:** Invalid filters or a denied scope produce a structured error; an empty successful page is not an error.
+- **Result:** Writes a list of sessions to stdout and pagination metadata, including any
+  continuation token, to stderr.
+- **Failure:** An unknown or inaccessible agent produces a structured error; an empty successful page is not an error.
 - **Example:** `pal-found-aip-agents session list ri.aip-agents..agent.732cd5b4-7ca7-4219-aabb-6e976faf63b1`
 
 ### session.rag_context

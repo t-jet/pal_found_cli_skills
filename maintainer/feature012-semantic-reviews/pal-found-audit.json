@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "reviews": {
+    "log_file.content": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "fbfbe7dc46013dcabc78422805ca5d457ab4e47349c695a03d1b4e66f9de3286",
+      "cli_sha256": "8e26acb0b4f2bba1c951496b4b56455f8c2c206faa9ccc5bec3c05f6bdc363e1",
+      "sdk_sha256": "e1d7f069854638f47c24ff0ff517fdeca6f5880501feee9a66c7dcaf9533a93e",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-audit/SKILL.md:39; CLI OP_SPECS log_file.content and dispatch pal_found_cli_tool/src/pal_found_cli/audit/scripts/pal_found_audit_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/audit/log_file.py:61. Organization and log-file IDs, access guard, bounded byte save and JSON metadata envelope reviewed; payload bytes are not stdout."
+    },
+    "log_file.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "d52befd46a9d8086ab2a63f0ed4fe50b4138f1473def21f3acc5774efb544429",
+      "cli_sha256": "8e26acb0b4f2bba1c951496b4b56455f8c2c206faa9ccc5bec3c05f6bdc363e1",
+      "sdk_sha256": "e1d7f069854638f47c24ff0ff517fdeca6f5880501feee9a66c7dcaf9533a93e",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-audit/SKILL.md:26; CLI OP_SPECS log_file.list and dispatch pal_found_cli_tool/src/pal_found_cli/audit/scripts/pal_found_audit_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/audit/log_file.py:108. First page start date validation, optional inclusive end date, raw SDK page data, continuation token and metadata-only access reviewed."
+    }
+  }
+}

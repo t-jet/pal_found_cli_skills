@@ -19,7 +19,8 @@ These records describe the `ontology_value_type` commands in `pal-found-ontologi
 - **CLI inputs:** positionals `ontology`; optional `--preview`.
 - **Input meaning:** `ontology`: Ontology API name or RID; find it with `ontology list` or Ontology Manager. `--preview` enables endpoint preview behavior when that feature is available.
 - **Input guide:** [Identifiers and JSON payloads](./inputs.md).
-- **Preconditions:** The value type belongs to an ontology visible to the caller.
-- **Result:** Returns `ListOntologyValueTypesResponse` containing the visible matching ontology value type entries; an empty page means none matched that page.
-- **Failure:** Invalid filters or a denied scope produce a structured error; an empty successful page is not an error.
+- **Preconditions:** The ontology is visible to the caller.
+- **Result:** Returns `ListOntologyValueTypesResponse` containing the visible value types; an
+  empty list means none are visible.
+- **Failure:** An unknown ontology or denied read scope produces a structured error; an empty successful list is not an error.
 - **Example:** `pal-found-ontologies ontology-value-type list palantir`

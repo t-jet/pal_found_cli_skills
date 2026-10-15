@@ -14,9 +14,9 @@ Required input: `enrollment_rid`, `authentication_provider_rid`. The SDK returns
 
 ### authentication_provider.list
 
-List authentication providers configured for an enrollment. Use the returned provider RIDs to inspect a provider or preregister an externally managed user or group. An empty list means no providers are visible to this caller.
+List authentication providers configured for an enrollment. Use the returned provider RIDs to inspect a provider or preregister an externally managed user or group. An empty list with no continuation token means no providers are visible to this caller.
 
-Required input: `enrollment_rid`. The SDK returns `ListAuthenticationProvidersResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned.  Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: `enrollment_rid`; optional `--preview` enables preview API behavior when available. The SDK returns `ListAuthenticationProvidersResponse` on success. The operation does not change Foundry state. The CLI has no page-token input for this command, so it cannot resume a continuation token in the response. An empty result may still have a continuation token. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin authentication-provider list ri.multipass..enrollment.example`
 
@@ -64,7 +64,7 @@ Required input: `enrollment_rid`, `--role-assignments`. The SDK returns no resou
 
 Enrollment roles delegate platform-wide administrative permissions to users or groups. List all principals who are assigned a role for the given Enrollment.
 
-Required input: `enrollment_rid`. The SDK returns `ListEnrollmentRoleAssignmentsResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned.  Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: `enrollment_rid`; optional `--preview` enables preview API behavior when available. The SDK returns `ListEnrollmentRoleAssignmentsResponse` on success. The operation does not change Foundry state. The CLI has no page-token input for this command, so it cannot resume a continuation token in the response. An empty result may still have a continuation token. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin enrollment-role-assignment list ri.multipass..enrollment.example`
 
@@ -120,7 +120,7 @@ Required input: `user_id`. The SDK returns `GetUserMarkingsResponse` on success.
 
 List users visible to the caller. Use `--include DELETED` when reviewing deleted accounts; the default view is for active users. Results are paged, and a short page is not the last page when `nextPageToken` is present.
 
-Required input: no required operation arguments. Optional: `--include`. The SDK returns `ListUsersResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned.  Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: no required operation arguments. Optional: `--include`. The SDK yields `User` records through an iterator. The CLI emits collected users in the selected output format and pagination metadata on stderr. The operation does not change Foundry state. An empty page can have a continuation token; follow it before concluding no users are visible. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin user list`
 

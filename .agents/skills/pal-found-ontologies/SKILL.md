@@ -58,9 +58,8 @@ SDK-native B3 tracing scope.
 ## Operation index
 
 The 67 operations are split into two disjoint parts. The discovery part
-(DEV-046) covers reading the ontology model; the action/rich-property part
-(DEV-047) covers executing actions and reading attachments, media, and time
-series.
+covers reading the ontology model; the action/rich-property part covers
+executing actions and reading attachments, media, and time series.
 
 | Part | Resource clients | Operations |
 | --- | --- | ---: |
@@ -75,23 +74,24 @@ action payloads, object sets, or property requests.
 
 Every operation accepts `--timeout`, `--format json|toon|auto`, and
 `--pretty`; paginated operations add `--page-size`, `--page-token`, and
-`--batch-pages`. JSON variants include `--parameters`, `--attribution`,
+`--batch-pages`. JSON variants include `--parameters`,
 `--filters`, `--aggregation`, `--group-by`, `--order-by`, `--where`,
 `--select`, `--select-v2`, `--options`, `--requests`, `--request`, `--edits`,
 `--overrides`, `--links`, `--object-types`, `--interface-types`,
 `--action-types`, `--query-types`, `--augmented-properties`,
 `--augmented-interface-property-types`, `--augmented-shared-property-types`,
 `--selected-object-types`, `--selected-interface-property-types`,
-`--selected-shared-property-types`, `--object-type-api-names`, and `--range`
+`--selected-shared-property-types`, `--object-type-api-names`,
+`--object-primary-key`, and `--range`
 where help shows them. Binary attachment/media operations use `--body-file`,
 `--output-filename`, `--content-type`, `--content-length`, `--filename`, and
 `--media-item-path`. Positional variants are the ontology, object, link,
 action, query, property, and transaction identifiers listed by help; `--preview`,
 `--branch`, `--sdk-package-rid`, `--sdk-version`, `--version`, and
-`--transaction-id` are optional scalar variants. Additional scalar choices and
+`--transaction-id` and `--attribution` are optional scalar variants. Additional scalar choices and
 switches are `--accuracy`, `--aggregate`, `--exclude-rid`,
 `--include-all-previous-properties`, `--include-compute-usage`,
-`--link-types`, `--load-property-securities`, `--object-primary-key`,
+`--link-types`, `--load-property-securities`,
 `--object-set`, `--other-interface-types`, `--snapshot`, `--sort-order`, and
 `--stream-format`.
 

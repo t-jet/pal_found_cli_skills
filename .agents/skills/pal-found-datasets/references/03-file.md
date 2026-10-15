@@ -66,9 +66,11 @@ example identifiers and configuration values with values from your Foundry enrol
   the latest view of the default branch; branch and transaction range flags select another view.
 - **Before use:** The dataset and requested file or transaction view must be readable.
 - **Inputs:** positional `dataset_rid`; required none; optional `--branch-name`,
-  `--path-prefix`, `--start-transaction-rid`, and `--end-transaction-rid`.
-- **Parameter notes:** `--branch-name` selects the branch; `--path-prefix` filters listed file paths. `--start-transaction-rid` and `--end-transaction-rid` select a historical transaction range.
-- **Result:** `ListFilesResponse`.
+  `--path-prefix`, `--start-transaction-rid`, `--end-transaction-rid`,
+  `--page-size`, `--page-token`, and `--batch-pages`.
+- **Parameter notes:** `--branch-name` selects the branch; `--path-prefix` filters listed file paths. `--start-transaction-rid` and `--end-transaction-rid` select a historical transaction range. `--page-size` requests the number of results per page, `--page-token` resumes from prior metadata, and `--batch-pages` limits pages fetched in one call.
+- **Result:** A list of files on stdout. Pagination metadata, including any next-page token,
+  is written to stderr.
 - **Failure or follow-up:** An empty page is not proof there are no more results; follow the
   returned page token when present.
 - **Example:** `pal-found-datasets file list DATASET_RID`

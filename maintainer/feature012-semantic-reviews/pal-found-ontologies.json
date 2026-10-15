@@ -1,0 +1,608 @@
+{
+  "schema_version": 1,
+  "reviews": {
+    "action.apply": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "7af99f58732fedf077683396f1b2c3d436cfed5a2e732fc03454b19c5faaef2b",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "e9e88f3d2e6058c8b004a3b2f1e9f26bb916d0a4087ecadda06f243690b63b47",
+      "note": "SDK requires parameters; current CLI parser rejects omission with exit 1 and skill record marks these inputs required. Independent 18-operation matrix passed; example parses."
+    },
+    "action.apply_batch": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "95cb582536fe435b571533143c450ba5eff3537ad4138d8b85092e94a4a02bb3",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "e9e88f3d2e6058c8b004a3b2f1e9f26bb916d0a4087ecadda06f243690b63b47",
+      "note": "SDK requires requests; current CLI parser rejects omission with exit 1 and skill record marks these inputs required. Independent 18-operation matrix passed; example parses."
+    },
+    "action.apply_with_overrides": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "e5897d37308d3898c4d2ec563ebb7e7b804265486d229367a5af86534aa2a599",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "e9e88f3d2e6058c8b004a3b2f1e9f26bb916d0a4087ecadda06f243690b63b47",
+      "note": "SDK requires overrides, request; current CLI parser rejects omission with exit 1 and skill record marks these inputs required. Independent 18-operation matrix passed; example parses."
+    },
+    "action_type.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "894e8693aaa3bc76253de9e36c1e019bb9bdb8cd521675a12e870445353704d6",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "c58f6f9a7dfe0c047a99da62f4de16ddaaf1d1bddbab9365e1a7a84f03a48c54",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "action_type.get_by_rid": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "d69dc468e471fbad998f9f0aeeb870c58a06ccbaf282ccc516d4c5b88ecf8b0a",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "c58f6f9a7dfe0c047a99da62f4de16ddaaf1d1bddbab9365e1a7a84f03a48c54",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "action_type.get_by_rid_batch": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "490b486193996b773e7c97b9794134559b08c6d61abb9aae0dc97bc62d951884",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "c58f6f9a7dfe0c047a99da62f4de16ddaaf1d1bddbab9365e1a7a84f03a48c54",
+      "note": "SDK requires requests; current CLI parser rejects omission with exit 1 and skill record marks these inputs required. Independent 18-operation matrix passed; example parses."
+    },
+    "action_type.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "a6f05d0c834a610b0eda676b1f18d9d09b35fb5ff8c39d5beba02eb7a52ba59c",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "c58f6f9a7dfe0c047a99da62f4de16ddaaf1d1bddbab9365e1a7a84f03a48c54",
+      "note": "Compared CLI parser/dispatch, SDK page shape, and skill result/continuation wording. Independent two-page, empty, short, and oversized mock cases passed; example parses."
+    },
+    "action_type_full_metadata.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "4dda877f023164724f3a06542e507f76eeab1c57761a20da91dd92ee136c4432",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "ff3bbc4881fd96b70b0b504ba5520910614505a83e027c4d81ed9e1dcb65449d",
+      "note": "Compared CLI parser/dispatch, SDK signature and behavior, output and error semantics, and record example; ActionTypeFullMetadata result matches."
+    },
+    "action_type_full_metadata.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "37db12c6b0c856bf1fbad0f70e5cd6e3393fc522ca60569c34cbbb37de719c15",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "ff3bbc4881fd96b70b0b504ba5520910614505a83e027c4d81ed9e1dcb65449d",
+      "note": "Compared CLI parser/dispatch, SDK page shape, and skill result/continuation wording. Independent two-page, empty, short, and oversized mock cases passed; example parses."
+    },
+    "attachment.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "3070cb61e81a6c8d2d3f7a63c0a790c77aa0f1e6b8fccb29bc9fdef896c96b7c",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "9e98375a9a5c81554e08b0ba84ee5a19443a05a987d288aded730b315ae72902",
+      "note": "Compared CLI parser/dispatch, SDK signature and behavior, output and error semantics, and record example; AttachmentV2 result matches."
+    },
+    "attachment.read": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "ff75e0d11b369b529ae32e5314a8706d8cd5d7c54c1bb01ec3d8be0592558302",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "9e98375a9a5c81554e08b0ba84ee5a19443a05a987d288aded730b315ae72902",
+      "note": "Compared CLI parser/dispatch, SDK signature and behavior, output and error semantics, and record example; bytes result matches."
+    },
+    "attachment.upload": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "37b9a0c3945e8539991f66c00a0916514779930a47649e1eb56d370c4954ad05",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "9e98375a9a5c81554e08b0ba84ee5a19443a05a987d288aded730b315ae72902",
+      "note": "Compared CLI parser/dispatch, SDK signature and behavior, output and error semantics, and record example; AttachmentV2 result matches."
+    },
+    "attachment.upload_with_rid": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "4847318accc90f64a5fb3f8e8216487757250ee4d0ea9ff4fff08949810692ce",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "9e98375a9a5c81554e08b0ba84ee5a19443a05a987d288aded730b315ae72902",
+      "note": "Compared CLI parser/dispatch, SDK signature and behavior, output and error semantics, and record example; AttachmentV2 result matches."
+    },
+    "attachment_property.get_attachment": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "19e04bab04e095f479f84c3992d171a4a11fd22c1831d47bdd898abf423bc631",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "428fde263aef6f71e0f3fe8b01b271e601ddb7daa9a6e7f04bffa56d0eb5f70e",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "attachment_property.get_attachment_by_rid": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "1174b3f82a0977f220aa34ea108eb48662a798b3bdbb7ab1a75124637e7cfcc8",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "428fde263aef6f71e0f3fe8b01b271e601ddb7daa9a6e7f04bffa56d0eb5f70e",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "attachment_property.read_attachment": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "dde36682b9df25f892659cce36f947478ea5ad6b1123f72f21fd0d68312b4111",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "428fde263aef6f71e0f3fe8b01b271e601ddb7daa9a6e7f04bffa56d0eb5f70e",
+      "note": "Compared CLI parser/dispatch, SDK signature and behavior, output and error semantics, and record example; bytes result matches."
+    },
+    "attachment_property.read_attachment_by_rid": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "4ca5d627f2fc6712e1fcce3cca558c9756972e1ad78d550fc328892a9ecc3367",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "428fde263aef6f71e0f3fe8b01b271e601ddb7daa9a6e7f04bffa56d0eb5f70e",
+      "note": "Compared CLI parser/dispatch, SDK signature and behavior, output and error semantics, and record example; bytes result matches."
+    },
+    "cipher_text_property.decrypt": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "ddb5d0d2289afea3733c70f5af035eadb8046d599367567af236f5fe5cfb3c21",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "040ba100fc7d3cd879261d222dd6019bbf14ca97fa010a463526988c5465a92b",
+      "note": "Compared CLI parser/dispatch, SDK signature and behavior, output and error semantics, and record example; DecryptionResult result matches."
+    },
+    "geotemporal_series_property.get_geotemporal_series_latest_value": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "64c31ae013b2c7452a6d95070091b29c0d17ce854af6c8726a4e3a7fc558c0e9",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "982aa99518e050ab486e4a28eb524f1748b0337fe2f50803d4c948116cd48c56",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "geotemporal_series_property.stream_geotemporal_series_historic_values": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "489c853be09ded8d1c716d61df36196fe26d4f1acece831803c8577931f233d0",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "982aa99518e050ab486e4a28eb524f1748b0337fe2f50803d4c948116cd48c56",
+      "note": "Compared CLI parser/dispatch, SDK signature and behavior, output and error semantics, and record example; bytes result matches."
+    },
+    "linked_object.get_linked_object": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "fd017f2bcac00e05bbcaa0993a31bc0cb579055ae4633b195771389ba4e7529c",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "2c53da05a712af7aba36ecbd2615bfd508fb61c908dd9bed93def0195566b02a",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "linked_object.list_linked_objects": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "0a6238a0506f1827b8736652ca09ac58be4f14e3a01b9990db2839f5f477b339",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "2c53da05a712af7aba36ecbd2615bfd508fb61c908dd9bed93def0195566b02a",
+      "note": "Compared CLI parser/dispatch, SDK page shape, and skill result/continuation wording. Independent two-page, empty, short, and oversized mock cases passed; example parses."
+    },
+    "media_reference_property.get_media_content": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "e121efd5403664fdb6a41990fb8291aee6453baa398c3f3261c83a4f2f6c74b1",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "1936db927bb7e939568f29c603e58b2eeb9d16722c4b7359907f38523453d9f6",
+      "note": "Compared CLI parser/dispatch, SDK signature and behavior, output and error semantics, and record example; bytes result matches."
+    },
+    "media_reference_property.get_media_metadata": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "2e0e08e87b5f8b2099fba0d54220d0eab50e074c786f50cf4418b996af9c3911",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "1936db927bb7e939568f29c603e58b2eeb9d16722c4b7359907f38523453d9f6",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "media_reference_property.upload": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "78337c532cd0c186e56df6d515eebdb1f2c23e98cbebbc66f1244a911e0ef8a9",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "1936db927bb7e939568f29c603e58b2eeb9d16722c4b7359907f38523453d9f6",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "object_type.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "1d6ddbdb2250f1b2d237950be79543b93a5fa332bd06e514502bff0fc5a07bec",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "d7c6c0b62fc957ded0c097e9df617eeb195c4cb80cc48c1697b4f923a02eb2e0",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "object_type.get_by_rid_batch": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "8331a266d2508421fa4358f4ac752f07ca3af1557f6e358d7ad4e10e5a01379a",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "d7c6c0b62fc957ded0c097e9df617eeb195c4cb80cc48c1697b4f923a02eb2e0",
+      "note": "SDK requires requests; current CLI parser rejects omission with exit 1 and skill record marks these inputs required. Independent 18-operation matrix passed; example parses."
+    },
+    "object_type.get_edits_history": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "e05a253469cf43464ef25561e89621f373b3ae993d1b541dc5d964b7887729c9",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "d7c6c0b62fc957ded0c097e9df617eeb195c4cb80cc48c1697b4f923a02eb2e0",
+      "note": "Compared CLI parser/dispatch, SDK page shape, and skill result/continuation wording. Independent two-page, empty, short, and oversized mock cases passed; example parses. Typed primary-key mapping and malformed JSON independently tested. Typed primary-key mapping and malformed JSON independently tested. Typed primary-key mapping and malformed JSON independently tested. Typed primary-key mapping and malformed JSON independently tested. Typed primary-key mapping and malformed JSON independently tested."
+    },
+    "object_type.get_full_metadata": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "44ef0fc098f4f4a7b8e2d85b411dc44625434a781bdb377dfd60aa834cc0b83a",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "d7c6c0b62fc957ded0c097e9df617eeb195c4cb80cc48c1697b4f923a02eb2e0",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "object_type.get_outgoing_link_type": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "2fd2668661530f65dd0c0433f4a56d7a6fe2b28a142bd46a6f57ff999a94ff09",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "d7c6c0b62fc957ded0c097e9df617eeb195c4cb80cc48c1697b4f923a02eb2e0",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "object_type.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "4525573106f8d2e9e199839ccad52d334b435c128158416c0cbbdb369e1d8e48",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "d7c6c0b62fc957ded0c097e9df617eeb195c4cb80cc48c1697b4f923a02eb2e0",
+      "note": "Compared CLI parser/dispatch, SDK page shape, and skill result/continuation wording. Independent two-page, empty, short, and oversized mock cases passed; example parses."
+    },
+    "object_type.list_outgoing_link_types": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "73757c053f87c97f86c13692dd13800fe4ae061efce03f15e548353b27dc2242",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "d7c6c0b62fc957ded0c097e9df617eeb195c4cb80cc48c1697b4f923a02eb2e0",
+      "note": "Compared CLI parser/dispatch, SDK page shape, and skill result/continuation wording. Independent two-page, empty, short, and oversized mock cases passed; example parses."
+    },
+    "ontology.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "ae3276935afbc06d7e59bcf826ece00e00a192b43c522db63f3c5b857b2a25f8",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "338bee80e71dff5c504f168d4d45a0af27e2fd1fc627f2b0fc5d65f4ed3d52ae",
+      "note": "Compared CLI parser/dispatch, SDK signature and behavior, output and error semantics, and record example; OntologyV2 result matches."
+    },
+    "ontology.get_full_metadata": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "e3be4d1144c8d6933fdeafcd4d06d203502ddff85bdbbd1ae85fdf76ddbbe899",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "338bee80e71dff5c504f168d4d45a0af27e2fd1fc627f2b0fc5d65f4ed3d52ae",
+      "note": "Compared CLI parser/dispatch, SDK signature and behavior, output and error semantics, and record example; OntologyFullMetadata result matches."
+    },
+    "ontology.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "a637062f127e08a681b8f877138b441650545bdd9c75986da1077859834e3aa1",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "338bee80e71dff5c504f168d4d45a0af27e2fd1fc627f2b0fc5d65f4ed3d52ae",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "ontology.load_metadata": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "57475cc0d53cb34843f075e51f020432a1a81b7e25b1b65bdc8cb9ae161fbe97",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "338bee80e71dff5c504f168d4d45a0af27e2fd1fc627f2b0fc5d65f4ed3d52ae",
+      "note": "SDK requires action_types, interface_types, link_types, object_types, query_types; current CLI parser rejects omission with exit 1 and skill record marks these inputs required. Independent 18-operation matrix passed; example parses."
+    },
+    "ontology_interface.aggregate": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "24eeb1a6a3fbe54a0754c4ff6fc8b22529d5084c640106d5e401e915c73e7493",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "a91cc2021851c6b04dcdecb01039a21997b57403676c159f67cd5ffa685c7e99",
+      "note": "SDK requires aggregation, group_by; current CLI parser rejects omission with exit 1 and skill record marks these inputs required. Independent 18-operation matrix passed; example parses."
+    },
+    "ontology_interface.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "5a2aaa763d5ff877a50b23d8d8d676e90a6f8ea1e39e3c4bccb9002618aa6ff5",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "a91cc2021851c6b04dcdecb01039a21997b57403676c159f67cd5ffa685c7e99",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "ontology_interface.get_outgoing_interface_link_type": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "f49a5027b12f9518fdb4d6ff4b6d4baff5a11d33a68c946a20d0e9d9fba5dbbc",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "a91cc2021851c6b04dcdecb01039a21997b57403676c159f67cd5ffa685c7e99",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "ontology_interface.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "71edb6f0cb7f4e27024b255c4c65f79bad26e5bceb7130ba2d29d2ba0336d762",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "a91cc2021851c6b04dcdecb01039a21997b57403676c159f67cd5ffa685c7e99",
+      "note": "Compared CLI parser/dispatch, SDK page shape, and skill result/continuation wording. Independent two-page, empty, short, and oversized mock cases passed; example parses."
+    },
+    "ontology_interface.list_interface_linked_objects": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "b5e8b48ac6cf618efd8ff3964b686f3484cfc8b3fa4eafc6a61c73098819bec7",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "a91cc2021851c6b04dcdecb01039a21997b57403676c159f67cd5ffa685c7e99",
+      "note": "Compared CLI parser/dispatch, SDK page shape, and skill result/continuation wording. Independent two-page, empty, short, and oversized mock cases passed; example parses."
+    },
+    "ontology_interface.list_objects_for_interface": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "701b444152916c6186e911af3db81291ec7b506ac41b1275adacc9b3fc0d8d3c",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "a91cc2021851c6b04dcdecb01039a21997b57403676c159f67cd5ffa685c7e99",
+      "note": "Compared CLI parser/dispatch, SDK page shape, and skill result/continuation wording. Independent two-page, empty, short, and oversized mock cases passed; example parses."
+    },
+    "ontology_interface.list_outgoing_interface_link_types": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "8ac76d5b8ac52c43982d593c225c737656fecd01593892fb8e7bf1c96621331c",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "a91cc2021851c6b04dcdecb01039a21997b57403676c159f67cd5ffa685c7e99",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "ontology_interface.search": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "6cf9c53b130a148352fb7c2a4c74fcd9f6feb3408a8df58c4513bd23e34c1d67",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "a91cc2021851c6b04dcdecb01039a21997b57403676c159f67cd5ffa685c7e99",
+      "note": "SDK requires augmented_interface_property_types, augmented_properties, augmented_shared_property_types, other_interface_types, selected_interface_property_types, selected_object_types, selected_shared_property_types; current CLI parser rejects omission with exit 1 and skill record marks these inputs required. Independent 18-operation matrix passed; example parses."
+    },
+    "ontology_object.aggregate": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "5347a88e2e5813be36bd617dc29075094bf0a309cd2b0a248935e972a98a351c",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "90f750102e6e270be353771a0ced04047863a0fabc470bfbd8f70ab2fad0754a",
+      "note": "SDK requires aggregation, group_by; current CLI parser rejects omission with exit 1 and skill record marks these inputs required. Independent 18-operation matrix passed; example parses."
+    },
+    "ontology_object.count": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "c57496437707169de4f98da396399d2a1503ba5f3b71b0d1a121c4449dcf7b37",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "90f750102e6e270be353771a0ced04047863a0fabc470bfbd8f70ab2fad0754a",
+      "note": "Compared CLI parser/dispatch, SDK signature and behavior, output and error semantics, and record example; CountObjectsResponseV2 result matches."
+    },
+    "ontology_object.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "748a9f3de92b15dc25ab7458ee87daea3aeb842c550f1b4bc5a540c19a64fcd6",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "90f750102e6e270be353771a0ced04047863a0fabc470bfbd8f70ab2fad0754a",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "ontology_object.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "9ef8d08f32f1d6ef6bf729e78eeee7c2854b1106982bb939d94b4b7aa0478209",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "90f750102e6e270be353771a0ced04047863a0fabc470bfbd8f70ab2fad0754a",
+      "note": "Compared CLI parser/dispatch, SDK page shape, and skill result/continuation wording. Independent two-page, empty, short, and oversized mock cases passed; example parses."
+    },
+    "ontology_object.search": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "f2a2b4cbb7e7cf5e93c63ee2fc88803a3f2c895384640ef42936721f272ebcdc",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "90f750102e6e270be353771a0ced04047863a0fabc470bfbd8f70ab2fad0754a",
+      "note": "SDK requires select; current CLI parser rejects omission with exit 1 and skill record marks these inputs required. Independent 18-operation matrix passed; example parses."
+    },
+    "ontology_object_set.aggregate": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "e5e6dd9cf01c0843d62f99d5052b8fb9abf1c755bab547d863b13f6653c158c1",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "4de16da7cb1c02728a5cba659c4a78d87ca304f71a6b7f45facc43f71b5e7b1e",
+      "note": "SDK requires aggregation, group_by, object_set; current CLI parser rejects omission with exit 1 and skill record marks these inputs required. Independent 18-operation matrix passed; example parses."
+    },
+    "ontology_object_set.create_temporary": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "ee696344d4ae7c0d0c28d723ecfc738db1436d4050d8866ce4bbd0b62eea6e3b",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "4de16da7cb1c02728a5cba659c4a78d87ca304f71a6b7f45facc43f71b5e7b1e",
+      "note": "SDK requires object_set; current CLI parser rejects omission with exit 1 and skill record marks these inputs required. Independent 18-operation matrix passed; example parses."
+    },
+    "ontology_object_set.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "b97cf729fe730020f21f8289fb2c552eebc282e86d7c1f928052c3c3200c19ff",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "4de16da7cb1c02728a5cba659c4a78d87ca304f71a6b7f45facc43f71b5e7b1e",
+      "note": "Compared CLI parser/dispatch, SDK signature and behavior, output and error semantics, and record example; ObjectSet result matches."
+    },
+    "ontology_object_set.load": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "bacf8793eee04a1b9278754b0fb5fd5bc978dbee580981ab1d99e5e9546a1e35",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "4de16da7cb1c02728a5cba659c4a78d87ca304f71a6b7f45facc43f71b5e7b1e",
+      "note": "SDK page fields total_count, compute_usage, property_securities are preserved in ordered stderr response_metadata entries while stdout retains ordered items. Independent two-page probe and skill result wording passed (BUG-030). SDK-required inputs object_set, select are parser-enforced (BUG-023)."
+    },
+    "ontology_object_set.load_links": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "177f0ca5c6b842177c3c68cec7355af4ad6f2f34fd74c9e84922cf4be34b5bd1",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "4de16da7cb1c02728a5cba659c4a78d87ca304f71a6b7f45facc43f71b5e7b1e",
+      "note": "SDK requires links, object_set; current CLI parser rejects omission with exit 1 and skill record marks these inputs required. Independent 18-operation matrix passed; example parses."
+    },
+    "ontology_object_set.load_multiple_object_types": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "0763d976c035d8928a2f76f7b83b5182255089ff2eaea8ca3a32ee043358b789",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "4de16da7cb1c02728a5cba659c4a78d87ca304f71a6b7f45facc43f71b5e7b1e",
+      "note": "SDK page fields total_count, interface_to_object_type_mappings, interface_to_object_type_mappings_v2, compute_usage, property_securities are preserved in ordered stderr response_metadata entries while stdout retains ordered items. Independent two-page probe and skill result wording passed (BUG-030). SDK-required inputs object_set, select are parser-enforced (BUG-023)."
+    },
+    "ontology_object_set.load_objects_or_interfaces": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "a4d2b8c48269bfd58910322ea13165ca4b63bd995075ef7163625eff902c8f32",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "4de16da7cb1c02728a5cba659c4a78d87ca304f71a6b7f45facc43f71b5e7b1e",
+      "note": "SDK page fields total_count, transaction_id are preserved in ordered stderr response_metadata entries while stdout retains ordered items. Independent two-page probe and skill result wording passed (BUG-030). SDK-required inputs object_set, select are parser-enforced (BUG-023)."
+    },
+    "ontology_transaction.post_edits": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "16038a3a8b2ac2964be1c100f5bebc2e456762905eaa1a486d0dfb4fcda5f563",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "ef9f2803ab81a39b45a1b3391877f48a0c66228c263ae0f291eb5e54a9dcb20f",
+      "note": "SDK requires edits; current CLI parser rejects omission with exit 1 and skill record marks these inputs required. Independent 18-operation matrix passed; example parses."
+    },
+    "ontology_value_type.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "c4555fc53c51c9ff3893b75edb4ea65f9959c6483e79515b84ba2e052b4f3927",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "052605a54a4969aa5ae1bf1116829d98b88e94318fc22ab73b9173dbcde144a8",
+      "note": "Compared CLI parser/dispatch, SDK signature and behavior, output and error semantics, and record example; OntologyValueType result matches."
+    },
+    "ontology_value_type.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "a48a9bdb1376413b5ae1f01410fce2c3bba5528081cc0fa123287ef851b09c75",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "052605a54a4969aa5ae1bf1116829d98b88e94318fc22ab73b9173dbcde144a8",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "query.execute": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "b1231da5b49b85f72d096af9d3cffd4960a991f758c38e9fcdde56d608b25003",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "5714eb6aae7804f931b1c0d53dd343c91152a5f599768a3590f7747664ade0c3",
+      "note": "SDK requires parameters; current CLI parser rejects omission with exit 1 and skill record marks these inputs required. Independent 18-operation matrix passed; example parses. Plain string attribution and JSON parameters independently tested."
+    },
+    "query_type.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "740ae2d479e2fa7b566cc6b2458f601b60f4f5fefbfa67a8092247da695b0105",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "e24db3f46dbd11e78663d5daef209a19c8e48ea8103d739f030e04225fb23a30",
+      "note": "Compared CLI parser/dispatch, SDK signature and behavior, output and error semantics, and record example; QueryTypeV2 result matches."
+    },
+    "query_type.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "1b0162cd746b0577436fb2615d71777d43f595b67b17ad26504c1faa2a293326",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "e24db3f46dbd11e78663d5daef209a19c8e48ea8103d739f030e04225fb23a30",
+      "note": "Compared CLI parser/dispatch, SDK page shape, and skill result/continuation wording. Independent two-page, empty, short, and oversized mock cases passed; example parses."
+    },
+    "time_series_property_v2.get_first_point": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "ee1605d9db7103e7727fafb2d97d546934ea12c6f5c15bb57be67d8152674c8b",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "ab169537962d6af9ed747be3c2a2ee8707fa2432efadb2d0f5a15b49be574e55",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "time_series_property_v2.get_last_point": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "5bf68b6bb227acf88109e60bb797d67df14448d68982d587caa5a13ae86740ed",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "ab169537962d6af9ed747be3c2a2ee8707fa2432efadb2d0f5a15b49be574e55",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "time_series_property_v2.stream_points": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "b19b9ce72e639c5100a34bdbaa10f85c1f9441f4675d2fcba201b03967c5da32",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "ab169537962d6af9ed747be3c2a2ee8707fa2432efadb2d0f5a15b49be574e55",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "time_series_value_bank_property.get_latest_value": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "be388a93d8242e743ca1b5c3b055a8be0944fb463dfcf9294d176e9121cd44ea",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "36c9c1019cdc5a6c5cc1fe668ff6b0ded2cdc7803f27e4346be3cfcfcaa5ce9d",
+      "note": "Compared CLI parser/dispatch, SDK signature and return model, operation record, and example command; example parses."
+    },
+    "time_series_value_bank_property.stream_values": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "e784bc0442cb830c80ff5d2848b77d4401de64b45be5045b8aba20c62bc62f67",
+      "cli_sha256": "e7e4eb42ef1b4c6347ea26aa88c29e6310dae18a8109e9c2fe8e7b435631c12d",
+      "sdk_sha256": "36c9c1019cdc5a6c5cc1fe668ff6b0ded2cdc7803f27e4346be3cfcfcaa5ce9d",
+      "note": "Compared CLI parser/dispatch, SDK signature and behavior, output and error semantics, and record example; bytes result matches."
+    }
+  }
+}

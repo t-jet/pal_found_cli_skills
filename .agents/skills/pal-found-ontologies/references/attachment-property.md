@@ -10,7 +10,7 @@ These records describe the `attachment_property` commands in `pal-found-ontologi
 - **Input guide:** [Identifiers and JSON payloads](./inputs.md).
 - **Preconditions:** The object has an attachment-valued property and the caller can read that object and attachment.
 - **Result:** Returns `AttachmentMetadataResponse` for the selected attachment property.
-- **Failure:** Missing attachment value, denied object access, or failed byte transfer prevents a usable result.
+- **Failure:** Missing attachment metadata or denied object access produces a structured error.
 - **Example:** `pal-found-ontologies attachment-property get-attachment palantir employee 50030 performance`
 
 ### attachment_property.get_attachment_by_rid
@@ -21,7 +21,7 @@ These records describe the `attachment_property` commands in `pal-found-ontologi
 - **Input guide:** [Identifiers and JSON payloads](./inputs.md).
 - **Preconditions:** The object has an attachment-valued property and the caller can read that object and attachment.
 - **Result:** Returns `AttachmentV2` for the selected attachment property.
-- **Failure:** Missing attachment value, denied object access, or failed byte transfer prevents a usable result.
+- **Failure:** Missing attachment RID or denied object access produces a structured error.
 - **Example:** `pal-found-ontologies attachment-property get-attachment-by-rid palantir employee 50030 performance ri.attachments.main.attachment.bb32154e-e043-4b00-9461-93136ca96b6f`
 
 ### attachment_property.read_attachment

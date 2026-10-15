@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "reviews": {
+    "dataset.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "b6878b3b2c07564609380bd6f12c305b7b8780b7a44d261b881d45353e1d4d73",
+      "cli_sha256": "d3f615def8b36a891b3d5fabc48de6bc23e19b3611fb776debbfb99e2dd97de2",
+      "sdk_sha256": "ff231e10b62b3be5c18df92884ccf5889432736db05f6c004443afa65d82f0fa",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/streams/dataset.py:75 (return streams_models.Dataset)."
+    },
+    "stream.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "97905e16f8ff08a862984f94e978ea090fc988ed0e42b75a06d5b27332d2d892",
+      "cli_sha256": "d3f615def8b36a891b3d5fabc48de6bc23e19b3611fb776debbfb99e2dd97de2",
+      "sdk_sha256": "4b8369ca5fee3c2e028a6805cd021e36cf47faf5e19b40996337cb122309c2aa",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/streams/stream.py:73 (return streams_models.Stream)."
+    },
+    "stream.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "f28dbb375ef510cb97900cf59fa37864b29770f2853f7cbfc996ba64d77e3ae9",
+      "cli_sha256": "d3f615def8b36a891b3d5fabc48de6bc23e19b3611fb776debbfb99e2dd97de2",
+      "sdk_sha256": "4b8369ca5fee3c2e028a6805cd021e36cf47faf5e19b40996337cb122309c2aa",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/streams/stream.py:152 (return streams_models.Stream)."
+    },
+    "stream.get_end_offsets": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "4f4077fc51547e3b603d7939dc5fc8c35323f4a243bd1ab465514d6790b579ea",
+      "cli_sha256": "d3f615def8b36a891b3d5fabc48de6bc23e19b3611fb776debbfb99e2dd97de2",
+      "sdk_sha256": "4b8369ca5fee3c2e028a6805cd021e36cf47faf5e19b40996337cb122309c2aa",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/streams/stream.py:207 (return streams_models.GetEndOffsetsResponse)."
+    },
+    "stream.get_records": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "34036717db0a53de57aa68bbd9fcf6c8097918033a1c701aebc92ed1d6537ce6",
+      "cli_sha256": "d3f615def8b36a891b3d5fabc48de6bc23e19b3611fb776debbfb99e2dd97de2",
+      "sdk_sha256": "4b8369ca5fee3c2e028a6805cd021e36cf47faf5e19b40996337cb122309c2aa",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/streams/stream.py:265 (return streams_models.GetRecordsResponse)."
+    },
+    "stream.publish_binary_record": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "39650b3c45ec3b8cfbcc8524caad1440b62a0d2f705ab224723597fadad8fd50",
+      "cli_sha256": "d3f615def8b36a891b3d5fabc48de6bc23e19b3611fb776debbfb99e2dd97de2",
+      "sdk_sha256": "4b8369ca5fee3c2e028a6805cd021e36cf47faf5e19b40996337cb122309c2aa",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/streams/stream.py:336 (return None)."
+    },
+    "stream.publish_record": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "8c99645b1a3939847286696d12351d3c9093f7a00b053f327ffa6eb5564fc46f",
+      "cli_sha256": "d3f615def8b36a891b3d5fabc48de6bc23e19b3611fb776debbfb99e2dd97de2",
+      "sdk_sha256": "4b8369ca5fee3c2e028a6805cd021e36cf47faf5e19b40996337cb122309c2aa",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/streams/stream.py:393 (return None)."
+    },
+    "stream.publish_records": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "0c3faed21a81d3686863473f9f2b00103e8c90440acf8b475672183896c72783",
+      "cli_sha256": "d3f615def8b36a891b3d5fabc48de6bc23e19b3611fb776debbfb99e2dd97de2",
+      "sdk_sha256": "4b8369ca5fee3c2e028a6805cd021e36cf47faf5e19b40996337cb122309c2aa",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/streams/stream.py:452 (return None)."
+    },
+    "stream.reset": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "974b78c4b53673a8c94f2a7e23eec6cf800f9b6b10980de9b52b3fe303baffb3",
+      "cli_sha256": "d3f615def8b36a891b3d5fabc48de6bc23e19b3611fb776debbfb99e2dd97de2",
+      "sdk_sha256": "4b8369ca5fee3c2e028a6805cd021e36cf47faf5e19b40996337cb122309c2aa",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/streams/stream.py:511 (return streams_models.Stream)."
+    },
+    "subscriber.commit_offsets": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "26136ddd0ceba3f13232a5cb905a2f8c6accceab96515fd6cc3b4e9d81b0359a",
+      "cli_sha256": "d3f615def8b36a891b3d5fabc48de6bc23e19b3611fb776debbfb99e2dd97de2",
+      "sdk_sha256": "c656c82ccc101b3afb429c34b95840ecb4183a6c534aed8a53d1666af0056f68",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/streams/subscriber.py:60 (return streams_models.PartitionOffsets)."
+    },
+    "subscriber.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "e7e79dc9361045e59a08970d0a4764aa592d790bfb97c43f5346a8725c0ee0fc",
+      "cli_sha256": "d3f615def8b36a891b3d5fabc48de6bc23e19b3611fb776debbfb99e2dd97de2",
+      "sdk_sha256": "c656c82ccc101b3afb429c34b95840ecb4183a6c534aed8a53d1666af0056f68",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/streams/subscriber.py:135 (return streams_models.Subscriber)."
+    },
+    "subscriber.delete": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "8aa06d2f0b457a12b2bef37511e0e15f545e7d7d78be184cb51cbacdb2c20e7a",
+      "cli_sha256": "d3f615def8b36a891b3d5fabc48de6bc23e19b3611fb776debbfb99e2dd97de2",
+      "sdk_sha256": "c656c82ccc101b3afb429c34b95840ecb4183a6c534aed8a53d1666af0056f68",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/streams/subscriber.py:204 (return None)."
+    },
+    "subscriber.get_read_position": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "81636f7d181b5cae919e3fc44ec5714f3cbd1148de9c243c7246cfd7ad9b5f5c",
+      "cli_sha256": "d3f615def8b36a891b3d5fabc48de6bc23e19b3611fb776debbfb99e2dd97de2",
+      "sdk_sha256": "c656c82ccc101b3afb429c34b95840ecb4183a6c534aed8a53d1666af0056f68",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/streams/subscriber.py:262 (return streams_models.PartitionOffsets)."
+    },
+    "subscriber.read_records": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "3889f07be76e961c4a5bc26a70c26b490b96fd5400247539c680f5248b299d51",
+      "cli_sha256": "d3f615def8b36a891b3d5fabc48de6bc23e19b3611fb776debbfb99e2dd97de2",
+      "sdk_sha256": "c656c82ccc101b3afb429c34b95840ecb4183a6c534aed8a53d1666af0056f68",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/streams/subscriber.py:327 (return streams_models.ReadSubscriberRecordsResponse)."
+    },
+    "subscriber.reset_offsets": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "013e2b1e7b17e84313acf7870a39bf4b3c93af7e090f1acc3e17886cb2bd1632",
+      "cli_sha256": "d3f615def8b36a891b3d5fabc48de6bc23e19b3611fb776debbfb99e2dd97de2",
+      "sdk_sha256": "c656c82ccc101b3afb429c34b95840ecb4183a6c534aed8a53d1666af0056f68",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/streams/subscriber.py:413 (return streams_models.PartitionOffsets)."
+    }
+  }
+}

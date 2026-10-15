@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "reviews": {
+    "dev_mode_settings.enable": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "8125f91d3f4152cb605c6365c2b84098c67d3b4314f8a086612d8d111cde2c95",
+      "cli_sha256": "c77d843306dfb08d93635f902c2cecb58ef8c163acf9e0964b55fdd678f50001",
+      "sdk_sha256": "64181f42707c3b06efba2d6eafde750291f9d406b8b6a390af569f864989f0ca",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/widgets/dev_mode_settings.py:103 (return widgets_models.DevModeSettings)."
+    },
+    "dev_mode_settings.set_widget_set_by_id": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "75053ed97a3644201bec96c541988a74a6aa0b95cb2b0cef04a03de6cb6a9bbb",
+      "cli_sha256": "c77d843306dfb08d93635f902c2cecb58ef8c163acf9e0964b55fdd678f50001",
+      "sdk_sha256": "64181f42707c3b06efba2d6eafde750291f9d406b8b6a390af569f864989f0ca",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/widgets/dev_mode_settings.py:285 (return widgets_models.DevModeSettings)."
+    },
+    "release.delete": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "cb65f5a64a9d25925b59f8dad409fc1e279f961af3e309038b509cd4b5840776",
+      "cli_sha256": "c77d843306dfb08d93635f902c2cecb58ef8c163acf9e0964b55fdd678f50001",
+      "sdk_sha256": "0994b1bd9a91619531307b5e31a292a2b15ad1ca9248c293b8c429adb134ea43",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/widgets/release.py:60 (return None)."
+    },
+    "release.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "392eff38f07f7703436327f2ee79f366525fd8a7e26cbd72f086832b983fc82c",
+      "cli_sha256": "c77d843306dfb08d93635f902c2cecb58ef8c163acf9e0964b55fdd678f50001",
+      "sdk_sha256": "0994b1bd9a91619531307b5e31a292a2b15ad1ca9248c293b8c429adb134ea43",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/widgets/release.py:110 (return widgets_models.Release)."
+    },
+    "release.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "c5efadb1ee5d3fc96305288a68eb180d39f9be3e90df5b63827b91608a9a3c22",
+      "cli_sha256": "c77d843306dfb08d93635f902c2cecb58ef8c163acf9e0964b55fdd678f50001",
+      "sdk_sha256": "0994b1bd9a91619531307b5e31a292a2b15ad1ca9248c293b8c429adb134ea43",
+      "note": "Verified corrected CLI list stdout, stderr next_page_token, and --max-pages versus --all 40-page cap; SDK public iterator/raw page and CLI PaginationHelper agree. .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/widgets/release.py:162."
+    },
+    "repository.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "4c543ba6fde18a4a2d8e8d284bd24ba643dc0a67cc374fa9c42017555d1da685",
+      "cli_sha256": "c77d843306dfb08d93635f902c2cecb58ef8c163acf9e0964b55fdd678f50001",
+      "sdk_sha256": "ad776bb646ece75bddbd4c50ece6b2692fdfc9b1948fdd745c2361c5ea932e75",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/widgets/repository.py:60 (return widgets_models.Repository)."
+    },
+    "repository.publish": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "d4af97cca86336aac03ef310ee28d5c916a5d4aa4800506460d14e4f6c7d16d6",
+      "cli_sha256": "c77d843306dfb08d93635f902c2cecb58ef8c163acf9e0964b55fdd678f50001",
+      "sdk_sha256": "ad776bb646ece75bddbd4c50ece6b2692fdfc9b1948fdd745c2361c5ea932e75",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/widgets/repository.py:108 (return widgets_models.Release)."
+    },
+    "widget_set.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "b5fb06a857f8a6afd50d38e36495558f31c10c6cd5826d62cda0c16193f08c1c",
+      "cli_sha256": "c77d843306dfb08d93635f902c2cecb58ef8c163acf9e0964b55fdd678f50001",
+      "sdk_sha256": "f33b9f3db34d77a3e22d20d80c013fb53a4391bb7f98b444fb1aa3a9ea69503c",
+      "note": "Matched documented inputs, effect, result, failure meaning, and example to CLI OP_SPECS/parser/runtime and .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/widgets/widget_set.py:71 (return widgets_models.WidgetSet)."
+    }
+  }
+}

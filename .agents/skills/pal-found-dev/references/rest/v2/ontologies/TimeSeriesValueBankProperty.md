@@ -34,6 +34,32 @@ Read [exact contract](../../contracts/v2/ontologies/TimeSeriesValueBankProperty/
 
 Read the latest approved sensor value, record its timestamp and integration context, then consume a bounded stream for comparison. Do not equate one latest value with a complete history.
 
+```python
+api = client.ontologies.TimeSeriesValueBankProperty
+latest = api.get_latest_value(
+    ontology="operations", object_type="Sensor", primary_key="S-1",
+    property_name="temperature", branch="master"
+)
+if latest is not None:
+    print(latest.time, latest.value)
+
+total_bytes = 0
+with api.with_streaming_response.stream_values(
+    ontology="operations", object_type="Sensor", primary_key="S-1",
+    property="temperature", branch="master", request_timeout=30
+) as response:
+    for chunk in response.iter_bytes():
+        total_bytes += len(chunk)
+        if total_bytes > 1_000_000:
+            raise ValueError("time-series byte budget exceeded")
+```
+
+`get_latest_value` uses `property_name`; `stream_values` uses `property` in
+SDK 1.101.0. Both calls must target the same actual property and branch.
+`latest` may be `None`; when history and live integrations both exist, the
+latest-value endpoint gives live data precedence. A bounded stream and a
+latest-value read have different completeness and recency meaning.
+
 The linked operation fixtures show actual SDK method invocation, serialized request and decoded response/error using a local mock transport. Their synthetic values are test data. Replace them with authorized identifiers and typed payloads from each linked contract; verify the live result under the intended identity before asserting a platform effect.
 
 ## Expected result and checks

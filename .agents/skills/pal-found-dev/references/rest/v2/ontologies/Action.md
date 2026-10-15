@@ -61,20 +61,35 @@ result = client.ontologies.Action.apply(
     ontology=ontology,
     action="changePriority",
     parameters={"ticket": "T-1", "priority": "P0"},
+    request_timeout=30,
 )
 if result.validation is None or result.validation.result != "VALID":
     raise RuntimeError("Action failed validation; inspect criteria and parameters")
-current = client.ontologies.OntologyObject.get(
-    ontology=ontology, object_type="Ticket", primary_key="T-1"
-)
-assert current.get("priority") == "P0"
+from time import monotonic, sleep
+
+deadline = monotonic() + 30  # application verification budget, in seconds
+while True:
+    remaining = deadline - monotonic()
+    if remaining <= 0:
+        raise TimeoutError("Action validated; object edit remains unconfirmed")
+    current = client.ontologies.OntologyObject.get(
+        ontology=ontology, object_type="Ticket", primary_key="T-1",
+        request_timeout=min(5, max(1, int(remaining))),
+    )
+    if current.get("priority") == "P0":
+        break
+    if monotonic() >= deadline:
+        raise TimeoutError("Action validated; object edit remains unconfirmed")
+    sleep(1)
 ```
 
 `ActionTypeV2.parameters` and the target's object type come from the actual
 Ontology, and the supplied values must satisfy that Action's declared types.
 An HTTP 200 response can still contain `validation.result == "INVALID"`.
-For Object Storage V1, a fresh read may lag the edit; use a bounded verification
-window. Confirm notifications/webhooks separately, since an object edit does not
+For Object Storage V1, a fresh read may lag the edit. The bounded loop above
+checks materialization separately from Action validation. The SDK requires an
+integer per-call timeout, so a final read can exceed the 30-second budget by
+less than one second. Confirm notifications/webhooks separately, since an object edit does not
 prove those side effects completed. On timeout, reconcile the target and any
 correlated side-effect record before repeating the Action.
 

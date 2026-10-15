@@ -17,9 +17,9 @@ These records describe the `query_type` commands in `pal-found-ontologies`. Each
 
 - **Purpose and behavior:** Lists the query types for the given Ontology. Each page may be smaller than the requested page size. However, it is guaranteed that if there are more results available, at least one result will be present in the response.
 - **CLI inputs:** positionals `ontology`; optional `--page-size`, `--page-token`.
-- **Input meaning:** `ontology`: Ontology API name or RID; find it with `ontology list` or Ontology Manager. `--page-size` sets the requested maximum entries in one result page; `--page-token` continues from the previous response's `nextPageToken`; omit on the first page.
+- **Input meaning:** `ontology`: Ontology API name or RID; find it with `ontology list` or Ontology Manager. `--page-size` sets the requested maximum entries in one result page; `--page-token` continues from stderr metadata's `next_page_token`; omit on the first page.
 - **Input guide:** [Identifiers and JSON payloads](./inputs.md).
 - **Preconditions:** The caller can inspect the query type in the selected ontology.
-- **Result:** Returns `ListQueryTypesResponseV2` containing the visible matching query type entries; an empty page means none matched that page.
-- **Failure:** Invalid filters or a denied scope produce a structured error; an empty successful page is not an error.
+- **Result:** CLI prints a list of query types; page count and any continuation token appear in stderr metadata. SDK page model: `ListQueryTypesResponseV2`. An empty list means no entries in the fetched pages; follow a continuation token if present.
+- **Failure:** An unknown ontology or denied read scope produces a structured error; an empty successful list is not an error.
 - **Example:** `pal-found-ontologies query-type list palantir`

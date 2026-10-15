@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "reviews": {
+    "experiment.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "43f95f5da7c5c459d037552392197af715db62ed9e6130581d1b4fa4fe9736af",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "afee53ef61ec8fde78a968a24ab7f7695ca85d9f8f89b06fac072eed440896e9",
+      "note": "Record matches SDK behavior: Retrieve a single experiment with all metadata, parameters, series metadata, and summary metrics. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:179; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:488; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/experiment.py:83 returns models_models.Experiment; record pal_found_cli_skills/.agents/skills/pal-found-models/references/experiment.md:5."
+    },
+    "experiment.search": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "68f13835fef108ef6ff318cf158a8b6dfae8e67b55408663f4ea1fbe6fcb8998",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "afee53ef61ec8fde78a968a24ab7f7695ca85d9f8f89b06fac072eed440896e9",
+      "note": "BUG-020 retest: stdout list, stderr next_page_token, and all paging flags now match CLI raw-page dispatch. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:186; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:530; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/experiment.py:138 returns models_models.SearchExperimentsResponse; record pal_found_cli_skills/.agents/skills/pal-found-models/references/experiment.md:16."
+    },
+    "experiment_artifact_table.json": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "e886d08a7f56f39ef1604cbc85ac6b4667f7d99bfc0fa76b5fe38d8ee5f2c02d",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "d0e7fe85815d7e9591ab5c382e2c068a3b0d9665b6537f8b5a5cad131db4b66d",
+      "note": "BUG-020 retest: output basename, saved path metadata, and JSON page slice now match CLI download path. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:211; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:566; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/experiment_artifact_table.py:60 returns bytes; record pal_found_cli_skills/.agents/skills/pal-found-models/references/experiment-artifact-table.md:5."
+    },
+    "experiment_artifact_table.parquet": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "e5d2805adb1636cb90afb25bf5df52174a031627bfdb0e8fb9dc53a161396d4c",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "d0e7fe85815d7e9591ab5c382e2c068a3b0d9665b6537f8b5a5cad131db4b66d",
+      "note": "BUG-020 retest: output basename and configured download root now match BinaryDownloadHandler. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:220; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:566; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/experiment_artifact_table.py:131 returns core.TableResponse; record pal_found_cli_skills/.agents/skills/pal-found-models/references/experiment-artifact-table.md:16."
+    },
+    "experiment_series.json": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "fcfe42374c38a604bfcdf4193cd83b3524f4b5a15c7c0987d2d5eeaa810da6bf",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "695990e14cdef6fe9ab18fb2fa872c9e5bc8f8b4eeec904c080c735d5822d344",
+      "note": "BUG-020 retest: JSON Series response and failures no longer imply Parquet download. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:195; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:488; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/experiment_series.py:60 returns models_models.Series; record pal_found_cli_skills/.agents/skills/pal-found-models/references/experiment-series.md:5."
+    },
+    "experiment_series.parquet": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "7edff0246309a97dae6ad6f1a43a20ae2c782192d2018dfa3978489f7ca149ae",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "695990e14cdef6fe9ab18fb2fa872c9e5bc8f8b4eeec904c080c735d5822d344",
+      "note": "BUG-020 retest: output basename and configured download root now match BinaryDownloadHandler. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:203; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:566; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/experiment_series.py:130 returns core.TableResponse; record pal_found_cli_skills/.agents/skills/pal-found-models/references/experiment-series.md:16."
+    },
+    "live_deployment.transform_json": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "38964f63e1c47d003444702d8217f405ac9331d50937e1c7e8918a833db70475",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "a3d1f97e1636eaa8569e52149a94226d38dc5787a91c7430209a14f70592ec8d",
+      "note": "Record matches SDK behavior: Performs inference on the live deployment. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:130; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:488; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/live_deployment.py:60 returns models_models.TransformLiveDeploymentResponse; record pal_found_cli_skills/.agents/skills/pal-found-models/references/live-deployment.md:5."
+    },
+    "model.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "b7de1a70549c6cd739183d8b86defc9b873e78f1f65bf582c0cb86eaa5f143e5",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "a9863cf32b2f5bbd965efd6d1301acf4edfbdd98e7b75c8a9bb39b6a19efd6ac",
+      "note": "Record matches SDK behavior: Creates a new Model with no versions. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:139; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:488; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/model.py:83 returns models_models.Model; record pal_found_cli_skills/.agents/skills/pal-found-models/references/model.md:5."
+    },
+    "model.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "416500d971aed422764393fcd65c63860126efaf2b4ef243dead6bfa9877882a",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "a9863cf32b2f5bbd965efd6d1301acf4edfbdd98e7b75c8a9bb39b6a19efd6ac",
+      "note": "Record matches SDK behavior: Retrieves a Model by its Resource Identifier (RID). Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:140; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:488; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/model.py:140 returns models_models.Model; record pal_found_cli_skills/.agents/skills/pal-found-models/references/model.md:16."
+    },
+    "model.promote_version": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "a2e3dd00f723f43d20a59e7dc5ae1aa8b79a2d675b0d428cc0f9ab30af778a6c",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "a9863cf32b2f5bbd965efd6d1301acf4edfbdd98e7b75c8a9bb39b6a19efd6ac",
+      "note": "Record matches SDK behavior: Promotes an existing Model Version to the target Model. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:141; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:488; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/model.py:188 returns models_models.ModelVersion; record pal_found_cli_skills/.agents/skills/pal-found-models/references/model.md:27."
+    },
+    "model_studio.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "5e1df7bac843c0cadc7dd7c4a9a71f854df3dc9f6dc87126d4b374500139d9da",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "f5a3a9e856d43855ba7bac704c051e000185125ee9c5008eadf5a3ff02e7d3af",
+      "note": "BUG-020 retest: parent folder RID and create permission now stated as preconditions. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:228; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:488; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/model_studio.py:85 returns models_models.ModelStudio; record pal_found_cli_skills/.agents/skills/pal-found-models/references/model-studio.md:5."
+    },
+    "model_studio.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "22b5b685fff3a100b927d05d5cddf5026c18d15941bc1dacfa1db6de3bf4657c",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "f5a3a9e856d43855ba7bac704c051e000185125ee9c5008eadf5a3ff02e7d3af",
+      "note": "BUG-020 retest: Studio RID and read access now stated as preconditions. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:235; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:488; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/model_studio.py:144 returns models_models.ModelStudio; record pal_found_cli_skills/.agents/skills/pal-found-models/references/model-studio.md:16."
+    },
+    "model_studio.launch": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "bc2ad4613a1f97f70ff865575446991d52198865d21352ce1898eb8db0fe389b",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "f5a3a9e856d43855ba7bac704c051e000185125ee9c5008eadf5a3ff02e7d3af",
+      "note": "Record matches SDK behavior: Launches a new training run for the Model Studio using the latest configuration version. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:236; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:488; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/model_studio.py:192 returns models_models.ModelStudioRun; record pal_found_cli_skills/.agents/skills/pal-found-models/references/model-studio.md:27."
+    },
+    "model_studio_config_version.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "74454858e7f11301f4d3967702cba3504cdbf49f2ec1ad1f4254503e429aa75c",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2",
+      "note": "BUG-020 retest: example resources now include SDK-required memory and cpu; local ResourceConfiguration validation passes. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:237; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:488; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/model_studio_config_version.py:60 returns models_models.ModelStudioConfigVersion; record pal_found_cli_skills/.agents/skills/pal-found-models/references/model-studio-config-version.md:5."
+    },
+    "model_studio_config_version.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "16f3a18a542df5c2ae91f65775948228364256c6e264f37014fd1971b8f804a3",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2",
+      "note": "Record matches SDK behavior: Gets a specific Model Studio configuration version. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:247; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:488; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/model_studio_config_version.py:136 returns models_models.ModelStudioConfigVersion; record pal_found_cli_skills/.agents/skills/pal-found-models/references/model-studio-config-version.md:18."
+    },
+    "model_studio_config_version.latest": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "5d7746a7e1a58427280877de995c3b9fb01fd568c68839dd134b6d8e5dbfb993",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2",
+      "note": "BUG-020 retest: null when no config version exists and next create action now stated. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:254; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:488; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/model_studio_config_version.py:190 returns typing.Optional[models_models.ModelStudioConfigVersion]; record pal_found_cli_skills/.agents/skills/pal-found-models/references/model-studio-config-version.md:29."
+    },
+    "model_studio_config_version.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "04f5e776216f2d561ea11009bfbfa66bd31091eec37ac57b23be537903375c54",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2",
+      "note": "BUG-020 retest: stdout list, stderr cursor, and all paging flags now match CLI raw-page dispatch. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:261; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:530; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/model_studio_config_version.py:240 returns core.ResourceIterator[models_models.ModelStudioConfigVersion]; record pal_found_cli_skills/.agents/skills/pal-found-models/references/model-studio-config-version.md:40."
+    },
+    "model_studio_run.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "50b9b423fe3df2ee05f97cbbfbc134c4066d650042f738b84b47688420c090b7",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "e7bf121ae2c96f41fbff874a53102f22c1f774812936aaf49f435e4963093513",
+      "note": "BUG-020 retest: stdout list, stderr cursor, and all paging flags now match CLI raw-page dispatch. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:269; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:530; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/model_studio_run.py:60 returns core.ResourceIterator[models_models.ModelStudioRun]; record pal_found_cli_skills/.agents/skills/pal-found-models/references/model-studio-run.md:5."
+    },
+    "model_studio_trainer.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "bac5f6d0d00e2ef4b5780b286b2dcbeac84f831e8d95d3536215df4d0ad929e3",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "b4d5fd37b3cebe920077e755adb09d37c9aa499a7b25fa0f46ecc4787d5c09d0",
+      "note": "BUG-020 retest: singular trainer result and failure no longer mention empty list. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:277; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:488; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/model_studio_trainer.py:60 returns models_models.ModelStudioTrainer; record pal_found_cli_skills/.agents/skills/pal-found-models/references/model-studio-trainer.md:5."
+    },
+    "model_studio_trainer.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "80855221a9c74c0f4a2af16311c9f9d507aaa58bce1ce5b02f1d268ec358d829",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "b4d5fd37b3cebe920077e755adb09d37c9aa499a7b25fa0f46ecc4787d5c09d0",
+      "note": "BUG-020 retest: no trainer ID input or precondition; list response and denial now stated. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:285; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:488; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/model_studio_trainer.py:114 returns models_models.ListModelStudioTrainersResponse; record pal_found_cli_skills/.agents/skills/pal-found-models/references/model-studio-trainer.md:16."
+    },
+    "model_version.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "b44299c044154f115ff2a0e7d1646f8bc50cba2a50f68196f10b9b3c6928b078",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "07faca6e87ac9619dd82d51c6bd23e5e18fdccf1d02fbb31df42c353c28cf091",
+      "note": "Record matches SDK behavior: Creates a new Model Version on an existing model. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:149; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:488; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/model_version.py:60 returns models_models.ModelVersion; record pal_found_cli_skills/.agents/skills/pal-found-models/references/model-version.md:5."
+    },
+    "model_version.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "becda8e111628ae3558a826362aacccf5094849944876cc5d68c508a7683f67c",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "07faca6e87ac9619dd82d51c6bd23e5e18fdccf1d02fbb31df42c353c28cf091",
+      "note": "Record matches SDK behavior: Retrieves a Model Version by its Resource Identifier (RID). Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:164; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:488; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/model_version.py:134 returns models_models.ModelVersion; record pal_found_cli_skills/.agents/skills/pal-found-models/references/model-version.md:16."
+    },
+    "model_version.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "c656b02b906c3b2d55cac0cd28a1a2cf349d0444b62fb2c1ee2b2751a168a5c6",
+      "cli_sha256": "a866e2528c72232f92ba16e506b012d93eb23c5506bd0134e18c620b74c3bf33",
+      "sdk_sha256": "07faca6e87ac9619dd82d51c6bd23e5e18fdccf1d02fbb31df42c353c28cf091",
+      "note": "BUG-020 retest: stdout list, stderr cursor, and all paging flags now match CLI raw-page dispatch. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:171; dispatch pal_found_cli_tool/src/pal_found_cli/models/scripts/pal_found_models_cli.py:530; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/models/model_version.py:188 returns core.ResourceIterator[models_models.ModelVersion]; record pal_found_cli_skills/.agents/skills/pal-found-models/references/model-version.md:27."
+    }
+  }
+}

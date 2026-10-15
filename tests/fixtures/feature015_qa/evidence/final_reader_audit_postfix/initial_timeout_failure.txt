@@ -1,0 +1,109 @@
+RECONSTRUCTION of initial failed run; original console output was not retained as a file.
+Runtime: installed foundry-platform-sdk 1.101.0; final fixture source with only the timeout catch restored to its original `except httpx.TimeoutException:` form in memory. No fixture file was changed for this replay.
+Command (PowerShell, repository root):
+python -c 'from pathlib import Path; p=Path("pal_found_cli_skills/tests/fixtures/feature015_qa/evidence/final_reader_audit_postfix/audit_reader_fixture.py").resolve(); s=p.read_text(); old="except (ReadTimeout, httpx.TimeoutException):"; assert s.count(old)==1; s=s.replace(old,"except httpx.TimeoutException:"); exec(compile(s,str(p),"exec"),{"__name__":"__main__","__file__":str(p)})'
+Exit code: 1
+Captured output follows. PowerShell's combined stdout/stderr redirection placed stderr before buffered stdout.
+
+Traceback (most recent call last):
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\api_client.py", line 104, in error_handling
+    yield
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\api_client.py", line 783, in _call_api
+    res = self._auth.execute_with_token(make_request)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\user_token_auth_client.py", line 47, in execute_with_token
+    return func(self.get_token())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\api_client.py", line 778, in make_request
+    return self._session.send(
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\httpx\_transports\mock.py", line 24, in handle_request
+    response = self.handler(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\pal_found_cli_skills\tests\fixtures\feature015_qa\evidence\final_reader_audit_postfix\audit_reader_fixture.py", line 106, in handler
+    raise answer
+httpx.ReadTimeout: lost
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\pal_found_cli_skills\tests\fixtures\feature015_qa\evidence\final_reader_audit_postfix\audit_reader_fixture.py", line 194, in <module>
+    main()
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\pal_found_cli_skills\tests\fixtures\feature015_qa\evidence\final_reader_audit_postfix\audit_reader_fixture.py", line 183, in main
+    run_case("lost_response", [(None, httpx.ReadTimeout("lost"))],
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\pal_found_cli_skills\tests\fixtures\feature015_qa\evidence\final_reader_audit_postfix\audit_reader_fixture.py", line 119, in run_case
+    result = discover(client, max_pages=max_pages, max_items=max_items,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\pal_found_cli_skills\tests\fixtures\feature015_qa\evidence\final_reader_audit_postfix\audit_reader_fixture.py", line 52, in discover
+    raw = client.audit.Organization.LogFile.with_raw_response.list(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\utils.py", line 96, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\pydantic\_internal\_validate_call.py", line 39, in wrapper_function
+    return wrapper(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\pydantic\_internal\_validate_call.py", line 136, in __call__
+    res = self.__pydantic_validator__.validate_python(pydantic_core.ArgsKwargs(args, kwargs))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_errors\sdk_internal_error.py", line 43, in validate
+    raise e
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_errors\sdk_internal_error.py", line 37, in validate
+    return __func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\v2\audit\log_file.py", line 142, in list
+    return self._api_client.call_api(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\api_client.py", line 739, in call_api
+    return apply_middleware(self._middleware, self._call_api)(request_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\api_client.py", line 655, in <lambda>
+    lambda next_fn, mw: lambda req: mw.call_api(req, next_fn),
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\api_client.py", line 691, in call_api
+    return call_api_retrying()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\retrying.py", line 55, in wrapped_f
+    return Retrying(*dargs, **dkw).call(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\retrying.py", line 279, in call
+    return attempt.get(self._wrap_exception)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\retrying.py", line 326, in get
+    raise exc.with_traceback(tb)
+  File "D:\app\Python\Lib\site-packages\retrying.py", line 273, in call
+    attempt = Attempt(fn(*args, **kwargs), attempt_number, False)
+                      ^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\api_client.py", line 689, in call_api_retrying
+    return next_call(request_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\api_client.py", line 657, in <lambda>
+    lambda req: next_call(req),
+                ^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\api_client.py", line 766, in _call_api
+    with error_handling():
+  File "D:\app\Python\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\api_client.py", line 112, in error_handling
+    raise ReadTimeout(str(e)) from e
+foundry_sdk._errors.timeout_error.ReadTimeout: lost
+{"scenario": "public_network_guard", "status": "PASS", "probe": "PUBLIC_NETWORK_DENIED"}
+{"scenario": "complete_empty_middle", "status": "PASS", "requests": [null, "A", "B"], "ids": ["log-1", "log-2"], "complete": true, "reason": "complete", "cursor": null, "pages": 3, "remaining_on_page": []}
+{"scenario": "page_budget", "status": "PASS", "requests": [null, "A"], "ids": ["log-1"], "complete": false, "reason": "page_budget", "cursor": "B", "pages": 2, "remaining_on_page": []}
+{"scenario": "item_budget_mid_page", "status": "PASS", "requests": [null], "ids": ["log-1"], "complete": false, "reason": "item_budget", "cursor": "A", "pages": 1, "remaining_on_page": ["log-2"]}
+{"scenario": "repeated_token", "status": "PASS", "requests": [null, "A"], "ids": ["log-1"], "complete": false, "reason": "repeated_token", "cursor": "A", "pages": 2, "remaining_on_page": []}
+{"scenario": "time_budget_before_request", "status": "PASS", "requests": [], "ids": [], "complete": false, "reason": "time_budget", "cursor": null, "pages": 0, "remaining_on_page": []}
+{"scenario": "time_budget_after_response", "status": "PASS", "requests": [null], "ids": ["log-2"], "complete": false, "reason": "time_budget", "cursor": null, "pages": 1, "remaining_on_page": []}

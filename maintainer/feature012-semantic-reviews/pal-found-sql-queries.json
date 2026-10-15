@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "reviews": {
+    "sql_query.cancel": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "949e2891bbd28e7c19778b33dce127e34e098670dce4929c688d859c5359c09a",
+      "cli_sha256": "d6fcd81b37081460483058d5066a25696f9c1367ff2492aa1c04ae7e007cb463",
+      "sdk_sha256": "19df543eaaf2321f6aab42d793eb9124abbfb856e7619be4db88171d4cccbd97",
+      "note": "Record matches SDK behavior: Cancels a query. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/sql_queries/scripts/pal_found_sql_queries_cli.py:117; dispatch pal_found_cli_tool/src/pal_found_cli/sql_queries/scripts/pal_found_sql_queries_cli.py:360; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/sql_queries/sql_query.py:60 returns None; record pal_found_cli_skills/.agents/skills/pal-found-sql-queries/references/01-query.md:30."
+    },
+    "sql_query.execute": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "dca85a3ccafb2e0f99d5fd508029e595aebb64216414b9308a8a7b40fa3edae0",
+      "cli_sha256": "d6fcd81b37081460483058d5066a25696f9c1367ff2492aa1c04ae7e007cb463",
+      "sdk_sha256": "19df543eaaf2321f6aab42d793eb9124abbfb856e7619be4db88171d4cccbd97",
+      "note": "Record matches SDK behavior: Executes a new query. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/sql_queries/scripts/pal_found_sql_queries_cli.py:124; dispatch pal_found_cli_tool/src/pal_found_cli/sql_queries/scripts/pal_found_sql_queries_cli.py:360; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/sql_queries/sql_query.py:114 returns sql_queries_models.QueryStatus; record pal_found_cli_skills/.agents/skills/pal-found-sql-queries/references/01-query.md:5."
+    },
+    "sql_query.execute_ontology": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "361d52fe45ca082ae71620cd9472f2a4aa4f46ed75d68f0b66b31c64517616fc",
+      "cli_sha256": "d6fcd81b37081460483058d5066a25696f9c1367ff2492aa1c04ae7e007cb463",
+      "sdk_sha256": "19df543eaaf2321f6aab42d793eb9124abbfb856e7619be4db88171d4cccbd97",
+      "note": "Record matches SDK behavior: Executes a SQL query against the Ontology. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/sql_queries/scripts/pal_found_sql_queries_cli.py:133; dispatch pal_found_cli_tool/src/pal_found_cli/sql_queries/scripts/pal_found_sql_queries_cli.py:373; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/sql_queries/sql_query.py:177 returns bytes; record pal_found_cli_skills/.agents/skills/pal-found-sql-queries/references/01-query.md:36."
+    },
+    "sql_query.get_results": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "57658da8880e69fdc37f8c55e4c1f074809afe6b6dc3c02b812369ce36ba449a",
+      "cli_sha256": "d6fcd81b37081460483058d5066a25696f9c1367ff2492aa1c04ae7e007cb463",
+      "sdk_sha256": "19df543eaaf2321f6aab42d793eb9124abbfb856e7619be4db88171d4cccbd97",
+      "note": "Record matches SDK behavior: Gets the results of a query. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/sql_queries/scripts/pal_found_sql_queries_cli.py:142; dispatch pal_found_cli_tool/src/pal_found_cli/sql_queries/scripts/pal_found_sql_queries_cli.py:373; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/sql_queries/sql_query.py:244 returns core.TableResponse; record pal_found_cli_skills/.agents/skills/pal-found-sql-queries/references/01-query.md:22."
+    },
+    "sql_query.get_status": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "8dd2b3b01ceb4f8a763f63b3df858d5880d8bbe6a220b9b82dea0e5e087d36a9",
+      "cli_sha256": "d6fcd81b37081460483058d5066a25696f9c1367ff2492aa1c04ae7e007cb463",
+      "sdk_sha256": "19df543eaaf2321f6aab42d793eb9124abbfb856e7619be4db88171d4cccbd97",
+      "note": "Record matches SDK behavior: Gets the status of a query. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/sql_queries/scripts/pal_found_sql_queries_cli.py:150; dispatch pal_found_cli_tool/src/pal_found_cli/sql_queries/scripts/pal_found_sql_queries_cli.py:360; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/sql_queries/sql_query.py:305 returns sql_queries_models.QueryStatus; record pal_found_cli_skills/.agents/skills/pal-found-sql-queries/references/01-query.md:16."
+    }
+  }
+}

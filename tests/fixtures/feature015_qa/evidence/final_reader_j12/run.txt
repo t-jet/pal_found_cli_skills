@@ -1,0 +1,7 @@
+Command: python -B pal_found_cli_skills/tests/fixtures/feature015_qa/evidence/final_reader_j12/j12_fixture.py
+Exit code: 0
+network probe: PUBLIC_NETWORK_DENIED (cooperative socket guard)
+prepared: SUCCEEDED; writes=create,upload,commit exactly once
+lost-upload: SUCCEEDED; writes=create,upload,commit exactly once
+lost-commit: SUCCEEDED; writes=create,upload,commit exactly once
+pending-budget: RUNNING; writes=create,upload,commit exactly once

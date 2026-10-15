@@ -69,11 +69,13 @@ example identifiers and configuration values with values from your Foundry enrol
   an hour for recent changes to schedules to be reflected in this response, especially for schedules
   managed by Marketplace. This operation will return outdated results in the meantime.
 - **Before use:** The dataset must exist and be readable.
-- **Inputs:** positional `dataset_rid`; required none; optional `--branch-name`. `branch_name`: The
+- **Inputs:** positional `dataset_rid`; required none; optional `--branch-name`,
+  `--page-size`, `--page-token`, and `--batch-pages`. `branch_name`: The
   name of the Branch. If none is provided, the default Branch name - `master` for most enrollments -
   will be used.
-- **Parameter notes:** `--branch-name` selects the branch whose targeting schedules are listed; omit it for the default branch.
-- **Result:** `ListSchedulesResponse`.
+- **Parameter notes:** `--branch-name` selects the branch whose targeting schedules are listed; omit it for the default branch. `--page-size` requests the number of results per page, `--page-token` resumes from prior metadata, and `--batch-pages` limits pages fetched in one call.
+- **Result:** A list of schedule RIDs on stdout. Pagination metadata, including any next-page
+  token, is written to stderr.
 - **Failure or follow-up:** An empty page is not proof there are no more results; follow the
   returned page token when present.
 - **Example:** `pal-found-datasets dataset get-schedules DATASET_RID`
@@ -124,8 +126,12 @@ example identifiers and configuration values with values from your Foundry enrol
 - **Behavior:** Lists jobs that wrote the dataset. By default, jobs appear in descending start-time
   order; inspect a job through Orchestration for its status and build details.
 - **Before use:** The dataset must exist and be readable.
-- **Inputs:** positional `dataset_rid`; required none; optional none.
-- **Result:** A page of job details and a continuation token when more jobs exist.
+- **Inputs:** positional `dataset_rid`; required none; optional `--order-by-json` (a JSON array
+  of sort objects), `--branch-name`, `--page-size`, `--page-token`, and `--batch-pages`.
+  The default sort is descending start time.
+- **Parameter notes:** `--order-by-json` accepts an array of sort objects, such as `[{"sortType":"BY_STARTED_TIME","sortDirection":"DESCENDING"}]`. `--branch-name` selects the branch. `--page-size` requests the number of results per page, `--page-token` resumes from prior metadata, and `--batch-pages` limits pages fetched in one call.
+- **Result:** A list of jobs on stdout. Pagination metadata, including any next-page token,
+  is written to stderr.
 - **Failure or follow-up:** An empty page is not proof there are no more results; follow the
   returned page token when present.
 - **Example:** `pal-found-datasets dataset jobs DATASET_RID`
@@ -149,8 +155,11 @@ example identifiers and configuration values with values from your Foundry enrol
 - **Behavior:** Lists transactions for the dataset across branches in reverse chronological order.
   Use `branch transactions` to inspect history for one branch.
 - **Before use:** The dataset must exist and be readable.
-- **Inputs:** positional `dataset_rid`; required none; optional none.
-- **Result:** `ListTransactionsOfDatasetResponse`.
+- **Inputs:** positional `dataset_rid`; required none; optional `--page-size`,
+  `--page-token`, and `--batch-pages`.
+- **Parameter notes:** `--page-size` requests the number of results per page, `--page-token` resumes from prior metadata, and `--batch-pages` limits pages fetched in one call.
+- **Result:** A list of transactions on stdout. Pagination metadata, including any next-page
+  token, is written to stderr.
 - **Failure or follow-up:** An empty page is not proof there are no more results; follow the
   returned page token when present.
 - **Example:** `pal-found-datasets dataset transactions DATASET_RID`

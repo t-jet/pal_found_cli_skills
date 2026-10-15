@@ -9060,9 +9060,9 @@
         "references/rest/models/v1/ontologies/models/PropertyValue.md"
       ],
       "local_page_sha256": [
-        "d792fd0fdc8d0bda25681817953b57731474bc2c953502dd82b2880e8bf568e7"
+        "c15ccc17110728a3a7030aa846c7d7e0ad157539db2f4bf2889b4084ee9094aa"
       ],
-      "reader_prose_sha256": "0c277ff68fdc54687bb93297aa8cdeca68b2124dbef6a1bc0cdede10e2537aa6",
+      "reader_prose_sha256": "98d99ac488d2d59df1c46fc289c86efa5702f5e1ff6dd59ed7b569bbfa394baf",
       "reader_prose_excerpt": "An Ontology property value uses the JSON encoding for its declared property type. The local type table below gives the SDK's supported encodings, including arrays, primitives, date/time, GeoJSON, Cipher, attachment, media and time-series values. Use the target property's permitted Ontology metadata to select the type.",
       "unfenced_public_url_count": 0,
       "source_fidelity_review": "pending_independent_review",
@@ -85925,9 +85925,9 @@
         "references/rest/models/v2/ontologies/models/PropertyValue.md"
       ],
       "local_page_sha256": [
-        "f97f6eb1b6593e0945d0476f2d4f6ce3aafd4b979cc9752b43e35734c4c8e2a4"
+        "a88574b7baafa1e8a381456bf642fd18112b56095b23c29e95063a38aea4b064"
       ],
-      "reader_prose_sha256": "c4ae1f13d58168edbfb134538cee427986e6e612303b965ea9bc1ff183a5016d",
+      "reader_prose_sha256": "df4c71eee394aebd0ecb581716f7633ee6463c4214c875c313e5322e7471a1a5",
       "reader_prose_excerpt": "An Ontology property value uses the JSON encoding for its declared property type. The local type table below lists arrays, primitives, date/time, GeoJSON, Cipher, attachment, media and time-series encodings. Match the target property metadata; an attachment or media reference needs its documented object shape, not a display string.",
       "unfenced_public_url_count": 0,
       "source_fidelity_review": "pending_independent_review",

@@ -89,3 +89,7 @@ Synthetic SDK fixtures require prepared local libraries. Actual grants, project
 creation, organization changes and custom role-set verification require enrollment
 connectivity and authorized administration. Each contract preserves its release
 stage and supported sync, async, raw and streaming result handling.
+
+## Python client route
+
+With a configured `FoundryClient` named `client`, use `client.filesystem.Project` for this resource. Each operation below is a method on that resource client; `with_raw_response` and `with_streaming_response` are wrappers available where the linked contract lists them. The offline fixture constructs the resource client directly so it can replace HTTP transport without tenant access.

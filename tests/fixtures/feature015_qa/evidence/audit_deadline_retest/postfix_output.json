@@ -1,0 +1,52 @@
+{
+  "executed_utc": "2026-10-11T19:31:01.030293+00:00",
+  "snapshot_tree_sha256": "790d67ad9a291e4810ad97dfdc3ad2d6c8a62fe1237b2f34a47b615dcf6adb4f",
+  "source_path": "examples/rest/073/v2/audit/LogFile/list_pagination.py",
+  "source_sha256": "3c5338c907c588aa9163ab2db81dee90db33bd9b1e98a5d108ed551bc922a0db",
+  "mode": "synthetic clock and page with cooperative DNS/socket denial",
+  "cases": [
+    {
+      "id": "subsecond",
+      "seconds": 0.01,
+      "expected": [
+        [],
+        false,
+        "time_budget",
+        null
+      ],
+      "actual": [
+        [],
+        false,
+        "time_budget",
+        null
+      ],
+      "request_count": 0,
+      "status": "PASS"
+    },
+    {
+      "id": "response_overrun",
+      "seconds": 1.01,
+      "expected": [
+        [
+          "log-1"
+        ],
+        false,
+        "time_budget",
+        null
+      ],
+      "actual": [
+        [
+          "log-1"
+        ],
+        false,
+        "time_budget",
+        null
+      ],
+      "request_count": 1,
+      "request_timeout": 1,
+      "status": "PASS"
+    }
+  ],
+  "live_tenant_tested": false,
+  "hard_wall_time_preemption_claimed": false
+}

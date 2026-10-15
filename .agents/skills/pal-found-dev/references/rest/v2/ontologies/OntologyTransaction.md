@@ -26,11 +26,35 @@ Read [exact contract](../../contracts/v2/ontologies/OntologyTransaction/post_edi
 
 Prepare two ordered edits for a known test object. Post them to the approved transaction, record its ID and result, then read resulting state through the authorized scenario or object route. On timeout, inspect transaction effects before posting again.
 
+```python
+from foundry_sdk.v2.ontologies.models import ModifyObjectEdit
+
+transaction_id = approved_transaction_id  # obtained through authorized workflow
+edits = [
+    ModifyObjectEdit(object_type="Ticket", primary_key="T-1",
+                     properties={"priority": "P0"}),
+    ModifyObjectEdit(object_type="Ticket", primary_key="T-1",
+                     properties={"reviewState": "Ready"}),
+]
+result = client.ontologies.OntologyTransaction.post_edits(
+    ontology="dispatch", transaction_id=transaction_id,
+    edits=edits, preview=True,
+)
+assert result is not None
+```
+
+`ModifyObjectEdit` sets the `modifyObject` discriminator and serializes SDK
+fields to their wire aliases. Replace names and values with the actual type
+contract. Edits are applied in list order. The response model has no fields
+that prove a transaction was committed; inspect the transaction state and
+target objects through the authorized workflow before reporting a durable
+business change. Keep the same transaction ID when reconciling a timeout.
+
 The linked operation fixtures show actual SDK method invocation, serialized request and decoded response/error using a local mock transport. Their synthetic values are test data. Replace them with authorized identifiers and typed payloads from each linked contract; verify the live result under the intended identity before asserting a platform effect.
 
 ## Expected result and checks
 
-Record exact operation ID, API version, release stage, branch, requested IDs, returned IDs, page/snapshot token, response mode and decoded result. For effectful calls, inspect validation/commit state and fresh target data; a successful HTTP response alone may not establish the business result. For lists, finish pagination before claiming completeness.
+Record the Ontology identifier, transaction ID, ordered edit types, request outcome and any declared error. `post_edits` returns one response; it has no page token or list to exhaust. Verify transaction state and target objects through authorized reads before claiming a durable change. A successful HTTP response alone does not establish commit.
 
 ## Failures and recovery
 

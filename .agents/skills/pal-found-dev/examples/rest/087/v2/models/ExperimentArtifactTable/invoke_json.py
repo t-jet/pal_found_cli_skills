@@ -21,7 +21,7 @@ EXPECTED_PATH = '/api/v2/models/ri.synthetic.main.resource.00000000-0000-0000-00
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'offset': None, 'pageSize': None, 'preview': None}
 EXPECTED_HEADERS = {'Accept': 'application/octet-stream'}
-SUCCESS = b'offline synthetic content'
+SUCCESS = b'[{"feature":2,"score":0.75}]'
 ERRORS = [{'name': 'ExperimentArtifactNotFound',
   'status': 404,
   'code': 'NOT_FOUND',
@@ -85,7 +85,11 @@ def verify():
     with mock_resource(ExperimentArtifactTableClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
+            rows = json.loads(decoded)
+            assert rows == [{"feature": 2, "score": 0.75}]
+            assert len(rows) == 1  # a single bounded response page
         finally:
             raw.close()
     assert len(calls) == 1

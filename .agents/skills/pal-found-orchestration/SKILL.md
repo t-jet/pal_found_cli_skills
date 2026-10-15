@@ -7,9 +7,9 @@ description: Offline entry point for Foundry Orchestration API v2 CLI. Documents
 
 ## Capability and source
 
-Foundry builds compute new versions of datasets. A build coordinates jobs;
-each job runs a defined unit of work and can write one or more output
-datasets. A one-time `build create` starts a build from its target and branch
+Foundry builds compute buildable resources, including datasets, media sets,
+and restricted views. A build coordinates jobs; each job runs a defined unit
+of work and can write outputs. A one-time `build create` starts a build from its target and branch
 configuration. Inspect the build and its jobs for progress, failures, and
 output rather than treating a successful start request as completed work.
 

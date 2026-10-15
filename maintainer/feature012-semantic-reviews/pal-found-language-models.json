@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "reviews": {
+    "anthropic_model.messages": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "d1235a864e6c5ea668d3c54a99b2632ddb9868bac8dceaf7fbdb9a6f85de78cc",
+      "cli_sha256": "386e9db7eba29836a43389c47184c9310b459f08864c331334d9fc5b4ca3ee19",
+      "sdk_sha256": "23ce4366d538286c933d8a1a2c20fdc22987c8292997f317ff016ea2b1e24b02",
+      "note": "CLI parses required messages array and max_tokens, invokes SDK AnthropicModel.messages, and formats AnthropicMessagesResponse with content and usage. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/language_models/scripts/pal_found_language_models_cli.py:54; dispatch pal_found_cli_tool/src/pal_found_cli/language_models/scripts/pal_found_language_models_cli.py:230; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/language_models/anthropic_model.py:60 returns language_models_models.AnthropicMessagesResponse; record pal_found_cli_skills/.agents/skills/pal-found-language-models/references/anthropic-model.md:5."
+    },
+    "open_ai_model.embeddings": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "7132fea7d9d3501d8a3adc0a54ba2b647a062678c7f775e1d108cf9d72cb3b2a",
+      "cli_sha256": "386e9db7eba29836a43389c47184c9310b459f08864c331334d9fc5b4ca3ee19",
+      "sdk_sha256": "f0de3feb8825b82a89ae8442176daf1f8e664d49ec0e4bdaf7c5d9fd3d869550",
+      "note": "CLI parses input string array, invokes SDK OpenAiModel.embeddings, and formats indexed embeddings and usage. Parser OP_SPECS pal_found_cli_tool/src/pal_found_cli/language_models/scripts/pal_found_language_models_cli.py:76; dispatch pal_found_cli_tool/src/pal_found_cli/language_models/scripts/pal_found_language_models_cli.py:230; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/language_models/open_ai_model.py:60 returns language_models_models.OpenAiEmbeddingsResponse; record pal_found_cli_skills/.agents/skills/pal-found-language-models/references/open-ai-model.md:5."
+    }
+  }
+}

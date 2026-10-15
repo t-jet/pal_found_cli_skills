@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "reviews": {
+    "connection.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "8f8c5f44585baceb1a6e5ada2515da52c2bb96b36a80cfa3c38df92dead8b49c",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "8500b89d6d94e9254d0bffc7faba12df6b47888a770329c16584f2484393a71a",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/01-connection.md:15; CLI OP_SPECS connection.create, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/connection.py:93. JDBC example including jdbcProperties validates against SDK; secret processing states TLS, temporary plaintext memory and encrypted storage."
+    },
+    "connection.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "66ea08a8181146d868db89f92430269749e8ca0d1e8bf500bda2696e91c43e80",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "8500b89d6d94e9254d0bffc7faba12df6b47888a770329c16584f2484393a71a",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/01-connection.md:30; CLI OP_SPECS connection.get, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/connection.py:170. RID reads Connection metadata; no write."
+    },
+    "connection.get_configuration": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "7573d2a6573e3e49ec3271f2f9698c1a8ebd27dd1c3682d2daaccf24500b9635",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "8500b89d6d94e9254d0bffc7faba12df6b47888a770329c16584f2484393a71a",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/01-connection.md:40; CLI OP_SPECS connection.get_configuration, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/connection.py:217. RID reads configuration without full Connection."
+    },
+    "connection.get_configuration_batch": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "ef35d867535aed2d864c288e56b3e646140fc11c36dbac7b2c2971d40f36eff9",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "8500b89d6d94e9254d0bffc7faba12df6b47888a770329c16584f2484393a71a",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/01-connection.md:52; CLI OP_SPECS connection.get_configuration_batch, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/connection.py:266. List of connectionRid objects, max 200; response map filters missing/inaccessible IDs."
+    },
+    "connection.update_export_settings": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "dbb169819eeaf10a39d25598e57b1a529217745c6b657c8112b24a299ab0188c",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "8500b89d6d94e9254d0bffc7faba12df6b47888a770329c16584f2484393a71a",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/01-connection.md:64; CLI OP_SPECS connection.update_export_settings, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/connection.py:311. Both JSON settings explained, including bypass of markings validation and caller compliance responsibility."
+    },
+    "connection.update_secrets": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "d428e5d8bc49a40929ab7dc1c1681673fbeb0ee10bd68bf26e48dba7078dded9",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "8500b89d6d94e9254d0bffc7faba12df6b47888a770329c16584f2484393a71a",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/01-connection.md:80; CLI OP_SPECS connection.update_secrets, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/connection.py:363. Omitted names remain; record now explains SDK temporary plaintext processing and encrypted storage."
+    },
+    "connection.upload_custom_jdbc_drivers": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "983dc6c032c8d2e145e3d11317072f2b621c47d387e90c9f25eb86555cf80b5d",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "8500b89d6d94e9254d0bffc7faba12df6b47888a770329c16584f2484393a71a",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/01-connection.md:95; CLI OP_SPECS connection.upload_custom_jdbc_drivers, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/connection.py:426. JDBC .jar upload reads bounded local bytes and returns Connection."
+    },
+    "file_import.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "12acde89b1c79493f84d5e0d77c378debe3812b4a676ca4fc5011389ba7ceb4b",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "9c22dcd023eba7deba20bbd6d04acdcbeb8cefffb1211e47a8c1cca2c2f9dffc",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/02-imports.md:15; CLI OP_SPECS file_import.create, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/file_import.py:61. Filters and import mode define destination dataset/branch import; creation does not execute."
+    },
+    "file_import.delete": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "3a37aad6b10bea82c21a13a472538a1d753e3e03429546b4642018c11cec4dcc",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "9c22dcd023eba7deba20bbd6d04acdcbeb8cefffb1211e47a8c1cca2c2f9dffc",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/02-imports.md:36; CLI OP_SPECS file_import.delete, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/file_import.py:150. Deletes import definition without deleting output dataset."
+    },
+    "file_import.execute": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "200ec8e6039273f64277d2e8d7c835acb4078607ecee10855b4b5c36e139d28f",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "9c22dcd023eba7deba20bbd6d04acdcbeb8cefffb1211e47a8c1cca2c2f9dffc",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/02-imports.md:48; CLI OP_SPECS file_import.execute, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/file_import.py:200. Starts asynchronous Build and returns BuildRid; completion needs later status check."
+    },
+    "file_import.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "9a23774615e23502b2ddfa715669463434dc8f74c05de9723687cd422bdcedba",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "9c22dcd023eba7deba20bbd6d04acdcbeb8cefffb1211e47a8c1cca2c2f9dffc",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/02-imports.md:60; CLI OP_SPECS file_import.get, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/file_import.py:251. Reads named FileImport definition by connection and import RIDs."
+    },
+    "file_import.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "4044854b8ceb759c50e036eaa8830d33e1bf9b0ca95f88dec05e786f7e6128d4",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "9c22dcd023eba7deba20bbd6d04acdcbeb8cefffb1211e47a8c1cca2c2f9dffc",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/02-imports.md:70; CLI OP_SPECS file_import.list, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/file_import.py:298. Record now describes selected-format item list stdout, page flags and JSON cursor metadata stderr."
+    },
+    "file_import.replace": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "d6edf157ad2559fa4c5fcbbb66fec97e76ed506871fda21e43bc156c3d3eeef7",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "9c22dcd023eba7deba20bbd6d04acdcbeb8cefffb1211e47a8c1cca2c2f9dffc",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/02-imports.md:87; CLI OP_SPECS file_import.replace, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/file_import.py:352. Replaces editable name, filters, mode and subfolder; output dataset and branch remain fixed."
+    },
+    "table_import.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "a4f59c1a8c31ddd04b9bea74fd53c38ff49adbe585f53470306d2a90559fe703",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "37c27065c8fc496100e35d3d340a49194c7be51496c12b091fa877b45b3c9f52",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/02-imports.md:106; CLI OP_SPECS table_import.create, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/table_import.py:61. Typed source config, dataset, mode and schema-change option save definition without sync."
+    },
+    "table_import.delete": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "992c3346df25cba9fdffa527b9796a95e55df724e5337781f1e41b6b250cfd4d",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "37c27065c8fc496100e35d3d340a49194c7be51496c12b091fa877b45b3c9f52",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/02-imports.md:126; CLI OP_SPECS table_import.delete, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/table_import.py:142. Deletes import definition; output dataset remains."
+    },
+    "table_import.execute": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "d534cda6126afef44e1fed1e2d75824e545f0a9ad6a5847c6aa698787a9cbd3c",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "37c27065c8fc496100e35d3d340a49194c7be51496c12b091fa877b45b3c9f52",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/02-imports.md:138; CLI OP_SPECS table_import.execute, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/table_import.py:192. Starts asynchronous Build and returns BuildRid; later status confirms completion."
+    },
+    "table_import.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "baded3961b92414e13e6f7e1b17855b00e0a4c9d1d7ff42f15181018f7a649ad",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "37c27065c8fc496100e35d3d340a49194c7be51496c12b091fa877b45b3c9f52",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/02-imports.md:150; CLI OP_SPECS table_import.get, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/table_import.py:243. Reads TableImport definition by connection and import RIDs."
+    },
+    "table_import.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "89c0bd03a9a20f99e02fdf6f988fc9f741d4600c65cf6f73a490e75b00c0ff0c",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "37c27065c8fc496100e35d3d340a49194c7be51496c12b091fa877b45b3c9f52",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/02-imports.md:160; CLI OP_SPECS table_import.list, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/table_import.py:292. Record now describes selected-format item list stdout, page flags and JSON cursor metadata stderr."
+    },
+    "table_import.replace": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "678fc7b6c9fbfef42c1e998f6e7810a68c8f44b6102163a9cfc77d0ee1e28d45",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "37c27065c8fc496100e35d3d340a49194c7be51496c12b091fa877b45b3c9f52",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/02-imports.md:177; CLI OP_SPECS table_import.replace, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/table_import.py:346. Replaces editable config, name, mode and schema policy, not dataset/branch; no execution."
+    },
+    "virtual_table.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "64db3e15207a12e50f5160687fe81821e15a6da0f0d3a518915aae01a4831e04",
+      "cli_sha256": "b1f723e8855b59d441e95c4aa299db00a314864a483fd109b05a7de6e4c2e874",
+      "sdk_sha256": "85b7529ce79d215b920e0b58bbc92a3cdb64c98df13a751090b0402634798325",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-connectivity/references/02-imports.md:194; CLI OP_SPECS virtual_table.create, dispatch pal_found_cli_tool/src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/connectivity/virtual_table.py:61. Creates remote-backed VirtualTable without copying source to Foundry dataset."
+    }
+  }
+}

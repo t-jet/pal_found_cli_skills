@@ -27,10 +27,10 @@ These records describe the `model_version` commands in `pal-found-models`. Each 
 ### model_version.list
 
 - **Purpose and behavior:** Lists all Model Versions for a given Model.
-- **CLI inputs:** positionals `model_rid`; optional `--page-size`, `--page-token`.
-- **Input meaning:** `model_rid` identifies the model whose versions will be listed. Use the returned `nextPageToken` as `--page-token` to fetch another page. `--page-size` sets the requested maximum entries in one result page.
+- **CLI inputs:** positionals `model_rid`; optional `--page-size`, `--page-token`, `--all`, `--max-pages`.
+- **Input meaning:** `model_rid` identifies the model whose versions will be listed. Use `next_page_token` from stderr metadata as `--page-token` to fetch another page. `--page-size` sets the requested maximum entries in one result page. By default, the CLI fetches one page. `--max-pages` fetches up to the given number of pages; `--all` fetches until no cursor remains or the configured limit of at most 40 pages is reached. If both are set, `--all` takes precedence.
 - **Input guide:** [Identifiers and JSON payloads](./inputs.md).
 - **Preconditions:** The model exists and the caller can read its versions.
-- **Result:** Returns `ListModelVersionsResponse` containing the visible matching model version entries; an empty page means none matched that page.
+- **Result:** Prints model version entries as a list on stdout. Pagination metadata, including `next_page_token` when another page exists, follows a separator on stderr. An empty list means this page contains no entries; follow a returned token to check the next page.
 - **Failure:** An unknown model or missing read permission returns a structured error.
 - **Example:** `pal-found-models model-version list <MODEL_RID>`

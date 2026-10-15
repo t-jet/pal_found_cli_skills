@@ -15,8 +15,8 @@ Replace example identifiers and configuration values with values from your Found
 ### connection.create
 
 - **Behavior:** Creates a connection in the parent folder. `configuration` selects and configures
-  the source connector; `worker` chooses where its work runs. Foundry stores submitted secrets
-  encrypted after processing the request.
+  the source connector; `worker` chooses where its work runs. Secrets travel over TLS, are
+  temporarily held as plaintext in Foundry server memory for processing, and are stored encrypted.
 - **Before use:** Choose a supported source configuration, a worker that can reach it, and a
   writable parent folder.
 - **Inputs:** positional none; required `--configuration-json`, `--display-name`,
@@ -25,7 +25,7 @@ Replace example identifiers and configuration values with values from your Found
 - **Result:** `Connection`.
 - **Failure or follow-up:** An invalid configuration or insufficient permission rejects connection
   creation; use the returned RID for later calls.
-- **Example:** `pal-found-connectivity connection create --configuration-json '{"type":"jdbc","url":"jdbc:postgresql://localhost:5432/test","driverClass":"org.postgresql.Driver"}' --display-name Orders --parent-folder-rid PARENT_FOLDER_RID --worker-json '{"type":"foundryWorker","networkEgressPolicyRids":[]}'`
+- **Example:** `pal-found-connectivity connection create --configuration-json '{"type":"jdbc","url":"jdbc:postgresql://localhost:5432/test","driverClass":"org.postgresql.Driver","jdbcProperties":{}}' --display-name Orders --parent-folder-rid PARENT_FOLDER_RID --worker-json '{"type":"foundryWorker","networkEgressPolicyRids":[]}'`
 
 ### connection.get
 
@@ -68,6 +68,10 @@ Replace example identifiers and configuration values with values from your Found
 - **Before use:** The connection must exist; the SDK requires the Information Security Officer role
   to change export settings.
 - **Inputs:** positional `connection_rid`; required `--export-settings-json`; optional none.
+- **Parameter notes:** `exportsEnabled` permits exports to this connection.
+  `exportEnabledWithoutMarkingsValidation` permits exports in workflows that cannot validate data
+  security markings. If enabled, you are responsible for checking that exported data complies with
+  your organization's policies.
 - **Result:** `None`.
 - **Failure or follow-up:** Invalid input or insufficient access to the connection is returned
   through the CLI error envelope.
@@ -76,7 +80,9 @@ Replace example identifiers and configuration values with values from your Found
 ### connection.update_secrets
 
 - **Behavior:** Replaces values for the specified secret names on the connection. Omitted secrets
-  stay unchanged. The names must already be configured on that connection.
+  stay unchanged. The names must already be configured on that connection. Secrets travel over TLS,
+  are temporarily held as plaintext in Foundry server memory for processing, and are stored
+  encrypted. Foundry UI is the SDK's alternative if that temporary processing is unacceptable.
 - **Before use:** The connection must exist; secret names in the request must already be configured
   on it.
 - **Inputs:** positional `connection_rid`; required `--secrets-json`; optional none. `secrets`: The

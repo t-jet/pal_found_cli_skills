@@ -3,7 +3,7 @@
 [REST catalog](../../catalog.md) | [Widget development lifecycle](../../../widgets/lifecycle.md)
 
 Use the widget-set RID to relate dev settings, repositories and releases.
-`client.widgets.widget_set.get(widget_set_rid, preview=True)` returns the
+`client.widgets.WidgetSet.get(widget_set_rid, preview=True)` returns the
 set metadata without changing it. Check the returned RID and relevant
 repository or release information before selecting another operation. In SDK
 1.101.0 this is Private Beta; check availability and resource access first.

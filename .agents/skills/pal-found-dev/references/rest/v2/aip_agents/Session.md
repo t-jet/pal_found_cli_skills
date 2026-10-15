@@ -161,3 +161,7 @@ Read the [exact SDK/HTTP contract](../../contracts/v2/aip_agents/Session/streami
 Set a session display title and verify the returned title. The session RID remains its identity.
 
 Read the [exact SDK/HTTP contract](../../contracts/v2/aip_agents/Session/update_title.md) for parameters, models, return mode and named errors. Run the [offline SDK fixture](../../../../examples/rest/087/v2/aip_agents/Session/update_title.py) from the skill root. It checks the synthetic request, result and declared errors without contacting Foundry.
+
+## Python client route
+
+With a configured `FoundryClient` named `client`, use `client.aip_agents.Agent.Session` for this resource. Each operation below is a method on that resource client; `with_raw_response` and `with_streaming_response` are wrappers available where the linked contract lists them. The offline fixture constructs the resource client directly so it can replace HTTP transport without tenant access.

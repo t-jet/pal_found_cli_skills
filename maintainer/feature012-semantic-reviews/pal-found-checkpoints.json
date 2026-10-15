@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "reviews": {
+    "record.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "4cd84ee5679ad2607ed27f0f800d09165d287ea6cac6a157d39a0550bc841b58",
+      "cli_sha256": "bb71f2ff50378b3081cf4ec94a8ebac56799c515181ffb5f7ff4170ecf721198",
+      "sdk_sha256": "7e24a42aeca2358ee592164dee243ff1c7b362453d98a85e10e150cf876bee48",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-checkpoints/references/01-record.md:7; CLI OP_SPECS record.get, dispatch pal_found_cli_tool/src/pal_found_cli/checkpoints/scripts/pal_found_checkpoints_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/checkpoints/record.py:61. RID reads Record with justification and interaction context; no state change."
+    },
+    "record.get_batch": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "e1ea3caf5289649a91f4aca36e8865ef0d0c3e58a3ed14564a0f02d157ab6793",
+      "cli_sha256": "bb71f2ff50378b3081cf4ec94a8ebac56799c515181ffb5f7ff4170ecf721198",
+      "sdk_sha256": "7e24a42aeca2358ee592164dee243ff1c7b362453d98a85e10e150cf876bee48",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-checkpoints/references/01-record.md:16; CLI OP_SPECS record.get_batch, dispatch pal_found_cli_tool/src/pal_found_cli/checkpoints/scripts/pal_found_checkpoints_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/checkpoints/record.py:113. Record and example use recordRid object array, max 100; SDK model validation passes and response map may omit inaccessible RIDs."
+    },
+    "record.search": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "87212ba646eba92739f7cb3fa97376747e3f0ed2c1fbe6ca9cf41506ceb37a59",
+      "cli_sha256": "bb71f2ff50378b3081cf4ec94a8ebac56799c515181ffb5f7ff4170ecf721198",
+      "sdk_sha256": "7e24a42aeca2358ee592164dee243ff1c7b362453d98a85e10e150cf876bee48",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-checkpoints/references/01-record.md:25; CLI OP_SPECS record.search, dispatch pal_found_cli_tool/src/pal_found_cli/checkpoints/scripts/pal_found_checkpoints_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/checkpoints/record.py:163. Typed where.filter validated against SDK; page token and DESC default documented; CLI prints collected page data."
+    }
+  }
+}
