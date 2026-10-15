@@ -86,7 +86,10 @@ timeouts are positive integers in SDK 1.101.0, so a final call can exceed
 the application deadline by less than one second. The two-second poll interval
 stays under the documented four-requests-per-second limit. The
 [staged dataset procedure](../datasets/Transaction.md) separately verifies
-file visibility before and after commit.
+file visibility before and after commit. Its
+[offline composed fixture](../../../../examples/rest/074/v2/datasets/staged_commit_journey.py)
+checks `SUCCEEDED`, `FAILED`, `CANCELED`, two-poll exhaustion and lost upload or
+commit replies with a synthetic transport. Those checks do not submit a tenant build.
 
 ### cancel
 

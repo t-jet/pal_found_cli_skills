@@ -60,6 +60,9 @@ committed = client.datasets.Dataset.Transaction.commit(
     dataset_rid, tx.rid, request_timeout=30,
 )
 assert committed.rid == tx.rid and committed.status == "COMMITTED"
+assert client.datasets.Dataset.Transaction.get(
+    dataset_rid, tx.rid, request_timeout=30,
+).status == "COMMITTED"
 branch = client.datasets.Dataset.Branch.get(
     dataset_rid, branch_name, request_timeout=30,
 )
