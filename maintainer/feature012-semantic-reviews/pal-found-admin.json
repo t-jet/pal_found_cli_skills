@@ -6,7 +6,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "b9dbdbaed6701df9bfd21d360bab4c65c5d011c6b11ed8634dfbbbb05865f766",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "94cfcc9e02dea2e16fe07ee4558b8788ae9c6d1cfa3ce38270a382cef8d33e05",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:7; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:101; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/authentication_provider.py:372; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -15,7 +15,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "2a715c931d5cf3e1258f87b700cf02dd5e8f860feb5571efa6c1fbb53338c934",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "94cfcc9e02dea2e16fe07ee4558b8788ae9c6d1cfa3ce38270a382cef8d33e05",
       "note": "Independent recheck: response model and optional preview match SDK/CLI; no page-token input exists, and continuation limit is stated. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:15; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:109; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/authentication_provider.py:424; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -24,7 +24,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "64081f697ca48a402514db3400c3eb34a0feb2cbd1bbc1cba90ae103410c5d59",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "94cfcc9e02dea2e16fe07ee4558b8788ae9c6d1cfa3ce38270a382cef8d33e05",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:23; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:117; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/authentication_provider.py:474; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -33,7 +33,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "65bf551b6935ab5e5d2305e43e4455b90449c0bc2d13dc3daf58bc697b7afdf0",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "94cfcc9e02dea2e16fe07ee4558b8788ae9c6d1cfa3ce38270a382cef8d33e05",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:31; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:126; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/authentication_provider.py:540; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -42,7 +42,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "ee4c991cda6d58bc2df72788f7f269388b716ffcde834a465667fbc3592402dd",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "f99758e5947f1768787d924a8207abc9afaf76096372796ed1086bca19f7bdb0",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/03-governance.md:7; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:135; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/cbac_banner.py:161; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -51,7 +51,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "1a12504bd7947bbd54b2c54d7f81212d3444bd7def77cd60ed8eacb947ae4f16",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "cdf4b214ec9d0570c06c5fdf8d6c8b74bbc9c8081d67c9825cadf72222cb53e1",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/03-governance.md:15; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:142; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/cbac_marking_restrictions.py:155; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -60,7 +60,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "4489dfb4d62efc05bfad009797dd1906ef2ada7846017680a4610971dca1013a",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "96e8edb9e8ec0b4307019f805cd15f728215fc295da602d18cfdeaa011a4a1d4",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:39; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:149; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/enrollment.py:271; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -69,7 +69,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "a245a883f1c4dc37c32803166a8f3e5d598505dd91a959651e4bba55d331f292",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "96e8edb9e8ec0b4307019f805cd15f728215fc295da602d18cfdeaa011a4a1d4",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:47; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:150; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/enrollment.py:319; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -78,7 +78,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "aaf855e90ab3cb84fe8a6f33ad0af92ab7aaee8f33c7eff0545474ab393e63ee",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "f1f2bb8d4ec6a737737315d664a1e0fdccaddf73693f542753c79b2e0b1e893a",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:55; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:151; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/enrollment_role_assignment.py:279; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -87,7 +87,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "fa5419f0d702e963eff85c47d269b2650869881e54d6e7fe98f5afff40638856",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "f1f2bb8d4ec6a737737315d664a1e0fdccaddf73693f542753c79b2e0b1e893a",
       "note": "Independent recheck: response model and optional preview match SDK/CLI; no page-token input exists, and continuation limit is stated. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:63; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:160; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/enrollment_role_assignment.py:339; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -96,7 +96,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "c35ccbb1270a1d14bcdf183ff3c696565d42c87eccaf3c99bee6dde16e93496b",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "f1f2bb8d4ec6a737737315d664a1e0fdccaddf73693f542753c79b2e0b1e893a",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:71; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:168; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/enrollment_role_assignment.py:390; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -105,7 +105,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "a4a4c37f9eb6c32f54f2c85bd387ead66c37f358d2a2f702b0caf16479d05579",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "60010cfe82e39f188d0599c63d28e42d0a0b32d1b28c0565948442471c9c0176",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/02-identity-groups-roles.md:7; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:177; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/group.py:609; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -114,7 +114,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "2ff596587195c55e79c4a4f75ce9351282ba66400f8c7b512381bacc97ac4049",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "60010cfe82e39f188d0599c63d28e42d0a0b32d1b28c0565948442471c9c0176",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/02-identity-groups-roles.md:15; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:178; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/group.py:671; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -123,7 +123,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "719cc62d6794f614323413f99eddf651c41d87ea3a10531a05dc9ac17c8e81c6",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "60010cfe82e39f188d0599c63d28e42d0a0b32d1b28c0565948442471c9c0176",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/02-identity-groups-roles.md:23; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:179; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/group.py:714; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -132,7 +132,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "1ebc0e7d9edf6751351a21c43cb12296f869444989962ec4f19e9e967e68e429",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "60010cfe82e39f188d0599c63d28e42d0a0b32d1b28c0565948442471c9c0176",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/02-identity-groups-roles.md:31; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:180; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/group.py:757; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -141,7 +141,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "ae8e009d009618c2a0297c75bcec646d99d8db7f3e29e1207c6340e01e8b7783",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "60010cfe82e39f188d0599c63d28e42d0a0b32d1b28c0565948442471c9c0176",
       "note": "Independent BUG-012 QA regression: full SDK pages, resume tokens, empty and short pages, and batch counts passed; current result wording source-checked. Evidence: BUG-012 comments 20261012-223816 and 20261012-223818. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/02-identity-groups-roles.md:39; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:181; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/group.py:800; BUG-026 applies; complete-page/retry path at pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:487; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -150,7 +150,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "18101039e359d8e6215aec9cda8e6a216f46251e691fa4f1f1be40804c71d165",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "60010cfe82e39f188d0599c63d28e42d0a0b32d1b28c0565948442471c9c0176",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/02-identity-groups-roles.md:47; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:182; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/group.py:849; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -159,7 +159,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "71493696ee93221a036fc972725e98e36ca3d31aff83880b98727227fd0fce5a",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "60010cfe82e39f188d0599c63d28e42d0a0b32d1b28c0565948442471c9c0176",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/02-identity-groups-roles.md:55; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:183; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/group.py:897; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -168,7 +168,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "01af336279614d350bdfc00c5133a280b15c6df4a916e04b4885622853fac9eb",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "60010cfe82e39f188d0599c63d28e42d0a0b32d1b28c0565948442471c9c0176",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/02-identity-groups-roles.md:63; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:184; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/group.py:966; BUG-026 applies; complete-page/retry path at pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:487; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517. BUG-031 retest: SDK data flattened, 3 items over 2 pages; 1-page cursor preserved."
     },
@@ -177,7 +177,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "bdea4801189212a70042d4f623e5b105e732a755f5ee5600cfe27d627d4defa3",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "a855053b8c4ad03dc75d3c8adf77951bea91986db5c42319531ebbe9c17969e1",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/02-identity-groups-roles.md:71; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:185; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/group_member.py:290; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -186,7 +186,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "6b92cefe3ba164149ea59870645c9842cb33fa79a788f9f2979a0a6b31c1fb0e",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "a855053b8c4ad03dc75d3c8adf77951bea91986db5c42319531ebbe9c17969e1",
       "note": "Independent BUG-012 QA regression: full SDK pages, resume tokens, empty and short pages, and batch counts passed; current result wording source-checked. Evidence: BUG-012 comments 20261012-223816 and 20261012-223818. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/02-identity-groups-roles.md:79; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:186; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/group_member.py:348; BUG-026 applies; complete-page/retry path at pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:487; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -195,7 +195,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "ebd3592e35a2d7a2078efd0cd159f0953514442a3276931a7ed0cbf797d44258",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "a855053b8c4ad03dc75d3c8adf77951bea91986db5c42319531ebbe9c17969e1",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/02-identity-groups-roles.md:87; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:187; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/group_member.py:419; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -204,7 +204,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "d15469c1f1de23eb6a8ea9beb9c640525a9f01fad99a1fc618002d2d4590cbd1",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "f60b76558c93183c2efb1200725e4bb490fc4a99d4ce0e54c2308e9c88166636",
       "note": "Independent BUG-012 QA regression: full SDK pages, resume tokens, empty and short pages, and batch counts passed; current result wording source-checked. Evidence: BUG-012 comments 20261012-223816 and 20261012-223818. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/02-identity-groups-roles.md:95; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:188; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/group_membership.py:172; BUG-026 applies; complete-page/retry path at pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:487; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -213,7 +213,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "460cb253229dc4c1c83860c1676c3d2cdee964cfe13c20a0f6d091ba7958a7a7",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "0841e5adf0b6e22863fa8edda7c612cd911961f7b96c6bc40b7cf8cf1ffcbd57",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/02-identity-groups-roles.md:103; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:189; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/group_membership_expiration_policy.py:218; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -222,7 +222,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "11b9b883dc860944c653d1df863fc1ef867b545680c8e125889c6ad27886307e",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "0841e5adf0b6e22863fa8edda7c612cd911961f7b96c6bc40b7cf8cf1ffcbd57",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/02-identity-groups-roles.md:111; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:190; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/group_membership_expiration_policy.py:268; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -231,7 +231,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "1df656e1f4267d1a3e7ec8b7beba8d0d0d7869323195a6ab3d6267ac91d04278",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "c5d14a72ae364100378600704aa88ff26842f920de16c4129c1ab6c208d69ccd",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/02-identity-groups-roles.md:119; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:191; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/group_provider_info.py:212; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -240,7 +240,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "a0c7a63e3f892a6bbccb068cc86cf806f37e9d85ca60cfd9e283a4da0efc504a",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "c5d14a72ae364100378600704aa88ff26842f920de16c4129c1ab6c208d69ccd",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/02-identity-groups-roles.md:127; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:192; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/group_provider_info.py:259; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -249,7 +249,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "d29c1f034fcb68b1c5385eef6c9cc2eb31c2208019c3c917f44ee7367a922658",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "b6c091d2cd50b949efba3ed6321f445ffdfdb299af6e079f5316adf573f2b48c",
       "note": "Independent BUG-012 QA regression: full SDK pages, resume tokens, empty and short pages, and batch counts passed; current result wording source-checked. Evidence: BUG-012 comments 20261012-223816 and 20261012-223818. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/03-governance.md:23; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:193; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/host.py:167; BUG-026 applies; complete-page/retry path at pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:487; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -258,7 +258,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "4206a5b62f7219e2fdbee67844909a50d7e3db753f6f082a9b60a7af8d586465",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "1a07162a319ba78a47d4bf6a352a714fc6dd487fcdc3a976fa3b300bbfacc527",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/03-governance.md:31; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:194; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/marking.py:435; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -267,7 +267,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "31d64a12cc9ab52fa58aa990ff22b00fdac8155782867475c593350275bae1b9",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "1a07162a319ba78a47d4bf6a352a714fc6dd487fcdc3a976fa3b300bbfacc527",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/03-governance.md:39; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:195; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/marking.py:507; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -276,7 +276,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "83158a8db34372c73e383aaa87efe07ba5c2cefe563392afc9594d221034a19a",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "1a07162a319ba78a47d4bf6a352a714fc6dd487fcdc3a976fa3b300bbfacc527",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/03-governance.md:47; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:196; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/marking.py:552; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -285,7 +285,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "5e3876fb3c20f7a6a7b722e44895867d92211643949d39bc3130d28b7672f370",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "1a07162a319ba78a47d4bf6a352a714fc6dd487fcdc3a976fa3b300bbfacc527",
       "note": "Independent BUG-012 QA regression: full SDK pages, resume tokens, empty and short pages, and batch counts passed; current result wording source-checked. Evidence: BUG-012 comments 20261012-223816 and 20261012-223818. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/03-governance.md:55; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:197; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/marking.py:595; BUG-026 applies; complete-page/retry path at pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:487; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -294,7 +294,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "046e2ebd401ee3e892fedef46f00c49b715766c8a3de98184855338e42e9fbd1",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "1a07162a319ba78a47d4bf6a352a714fc6dd487fcdc3a976fa3b300bbfacc527",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/03-governance.md:63; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:198; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/marking.py:642; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -303,7 +303,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "1d3c415a2e5cf9c0cf2c4bd060fa3f1c2685846c53196f5246507e31f10fe1f8",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "c00cdd6eb8cd2a2d6ecee921ed40df2206069f95ad5edec483d81baed1a6ebba",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/03-governance.md:71; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:199; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/marking_category.py:334; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -312,7 +312,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "1da9ce761f0bc9b60163db4af82157a2d3f27d398a0b6c2f970d5c3058804306",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "c00cdd6eb8cd2a2d6ecee921ed40df2206069f95ad5edec483d81baed1a6ebba",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/03-governance.md:79; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:200; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/marking_category.py:397; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -321,7 +321,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "3f1473a9781c9ef0ed63a889571b1b505bca65ae5c8620a1297d24a383f563d8",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "c00cdd6eb8cd2a2d6ecee921ed40df2206069f95ad5edec483d81baed1a6ebba",
       "note": "Independent BUG-012 QA regression: full SDK pages, resume tokens, empty and short pages, and batch counts passed; current result wording source-checked. Evidence: BUG-012 comments 20261012-223816 and 20261012-223818. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/03-governance.md:87; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:201; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/marking_category.py:442; BUG-026 applies; complete-page/retry path at pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:487; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -330,7 +330,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "663085ce445ad2b22791c9b8f7d5fe9aad1d44410a1db439970e8bbc11cdb165",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "c00cdd6eb8cd2a2d6ecee921ed40df2206069f95ad5edec483d81baed1a6ebba",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/03-governance.md:95; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:202; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/marking_category.py:489; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -339,7 +339,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "88c26dfebe984b631bd2b87c6b9b572852e5f860d5d34a97798802d592fc974c",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "91221537f59ff65d3d204f5695bfb6626bba1c57c531a4a62eb7ef2bf32eb1a1",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/04-governance-access.md:7; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:203; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/marking_member.py:278; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -348,7 +348,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "1d06d5a819fcd4f75f74f78f15b8a6482ee8c635a1d2ab815454ec1af27e0250",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "91221537f59ff65d3d204f5695bfb6626bba1c57c531a4a62eb7ef2bf32eb1a1",
       "note": "Independent BUG-012 QA regression: full SDK pages, resume tokens, empty and short pages, and batch counts passed; current result wording source-checked. Evidence: BUG-012 comments 20261012-223816 and 20261012-223818. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/04-governance-access.md:15; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:204; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/marking_member.py:332; BUG-026 applies; complete-page/retry path at pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:487; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -357,7 +357,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "750337c3d68b77cfd13909fcf1a8fac0e0bc89e07ee6e77da5f28e55c223a4ac",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "91221537f59ff65d3d204f5695bfb6626bba1c57c531a4a62eb7ef2bf32eb1a1",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/04-governance-access.md:23; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:205; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/marking_member.py:394; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -366,7 +366,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "1dff9804a006d65b596d98af025349fb07004e1cbaacf4f9901de7cb0168e7d3",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "7134a249a96e059a6ee2d4c5a57a78950c5afc38bf3bf2fe873abfa8cd4f8f8f",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/04-governance-access.md:31; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:206; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/marking_role_assignment.py:285; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -375,7 +375,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "e6447921225696ef62d91e4debbf8e0a00fda99e7d1e262234112e6f4be4eebc",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "7134a249a96e059a6ee2d4c5a57a78950c5afc38bf3bf2fe873abfa8cd4f8f8f",
       "note": "Independent BUG-012 QA regression: full SDK pages, resume tokens, empty and short pages, and batch counts passed; current result wording source-checked. Evidence: BUG-012 comments 20261012-223816 and 20261012-223818. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/04-governance-access.md:39; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:207; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/marking_role_assignment.py:343; BUG-026 applies; complete-page/retry path at pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:487; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -384,7 +384,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "5adfee3aaeb95bb287c63cde1da6f4becea88a3b39f7a6c44a3a9d03d3c203b6",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "7134a249a96e059a6ee2d4c5a57a78950c5afc38bf3bf2fe873abfa8cd4f8f8f",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/04-governance-access.md:47; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:208; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/marking_role_assignment.py:398; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -393,7 +393,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "62d11fe4cfeb3163b52824269833fa8dd9b4e91adf4807ed7471ba7461b481a6",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "d4d3c63cb1d22a69e71f5810359213fc1d7e3b338e0c21d16d81ec14eaf11246",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/04-governance-access.md:55; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:209; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/organization.py:396; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -402,7 +402,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "3b968f3495d011e6609986d69fe738013bf4d12f8a1ed62670614727c035726e",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "d4d3c63cb1d22a69e71f5810359213fc1d7e3b338e0c21d16d81ec14eaf11246",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/04-governance-access.md:63; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:210; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/organization.py:471; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -411,7 +411,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "0f09798e7bae4e226600b9a84238ce1663376059b42c871c1d66b9d9f697fd3b",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "d4d3c63cb1d22a69e71f5810359213fc1d7e3b338e0c21d16d81ec14eaf11246",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/04-governance-access.md:71; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:211; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/organization.py:514; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -420,7 +420,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "e2b2406a26644100b8fd96ab8e68785e64000f3aac641b3879c21dac94b55633",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "d4d3c63cb1d22a69e71f5810359213fc1d7e3b338e0c21d16d81ec14eaf11246",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/04-governance-access.md:79; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:212; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/organization.py:560; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -429,7 +429,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "52e7fcb32856ed62245a099b48a1a92d6fc8da85213b311a66dd7a9d9c3b2295",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "5c86c45850a967e5d907b6b1e7ab3bf88b8291989f65a2231cacccb74174a62b",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/04-governance-access.md:87; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:213; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/organization_guest_member.py:275; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -438,7 +438,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "f4b5fb81cbaa445f28eeb36988d80c92811630b00a725ed3e6a02775008e8bd8",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "5c86c45850a967e5d907b6b1e7ab3bf88b8291989f65a2231cacccb74174a62b",
       "note": "Independent recheck: response model and optional preview match SDK/CLI; no page-token input exists, and continuation limit is stated. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/04-governance-access.md:95; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:214; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/organization_guest_member.py:333; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -447,7 +447,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "5228557227dc08a6528e491c8f92566d177a08c9fce090da6e0a9180ff0795a0",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "5c86c45850a967e5d907b6b1e7ab3bf88b8291989f65a2231cacccb74174a62b",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/04-governance-access.md:103; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:215; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/organization_guest_member.py:384; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -456,7 +456,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "c38baeebf5f14dbe9c314d1cc3ca2fb02e0bba05f82493734abcb170fdb8f08a",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "84a5413ae5c2deda602aad02c48312ce175e0cdf9740c1d7563a1009c6e9ac48",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/04-governance-access.md:111; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:216; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/organization_role_assignment.py:260; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -465,7 +465,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "1cf68d2fa7d2de28e9ae35f97b3f041a10391ebe722197c7905723bc19c2cfb3",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "84a5413ae5c2deda602aad02c48312ce175e0cdf9740c1d7563a1009c6e9ac48",
       "note": "Independent recheck: response model and optional preview match SDK/CLI; no page-token input exists, and continuation limit is stated. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/04-governance-access.md:119; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:217; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/organization_role_assignment.py:313; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -474,7 +474,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "7740daad3b0b2d791f6395ef73dd5fb6e8967aac2ea8def0c8e8afbcb2ebbcdb",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "84a5413ae5c2deda602aad02c48312ce175e0cdf9740c1d7563a1009c6e9ac48",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/04-governance-access.md:127; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:218; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/organization_role_assignment.py:359; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -483,7 +483,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "d5ec2f9afa48100f8a384744b7e43295bf555e17c1c593a3ef5dde8022afbfa7",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "5b4fdf66507b417128f6c605ebb9725ae319bd0e2b4f6729ec684787e884f65f",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/02-identity-groups-roles.md:135; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:219; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/role.py:205; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -492,7 +492,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "63931350ea4cb426b779791046353b200ade620b60cca792b4a7912a9ca1ca05",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "5b4fdf66507b417128f6c605ebb9725ae319bd0e2b4f6729ec684787e884f65f",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/02-identity-groups-roles.md:143; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:220; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/role.py:253; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -501,7 +501,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "03fe1cc0197cd42313a43c997f1da6ecfa0475b28432ea2b458507f240698a3b",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "f010b1ecf9b43f246240b8e13c34e05b37036f6febe48794e29b77dbef91cd0b",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:79; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:221; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/user.py:611; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -510,7 +510,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "da8e47a34e1125e102f74b7b42ca397e7337af4580bf54be769e6544364bde0a",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "f010b1ecf9b43f246240b8e13c34e05b37036f6febe48794e29b77dbef91cd0b",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:87; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:222; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/user.py:656; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -519,7 +519,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "ef2f23f548edfc61d7a7e454fc98f82646f7f6dc20bbc48b655b04d390d9ba35",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "f010b1ecf9b43f246240b8e13c34e05b37036f6febe48794e29b77dbef91cd0b",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:95; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:223; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/user.py:708; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -528,7 +528,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "ce129a4908598dc7f777c89ce0dce1d7708708795d117aa23c7aae5ef801a90e",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "f010b1ecf9b43f246240b8e13c34e05b37036f6febe48794e29b77dbef91cd0b",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:103; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:224; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/user.py:751; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -537,7 +537,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "c63be75e8099e7731e306f48038e293fca2bf9ee20dc0817de4377b1c194357e",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "f010b1ecf9b43f246240b8e13c34e05b37036f6febe48794e29b77dbef91cd0b",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:111; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:225; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/user.py:789; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -546,7 +546,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "18b46aeb451f40fb98a1574af274a2aa750a5b3bf74fbd99b65cf01c0a7e6cde",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "f010b1ecf9b43f246240b8e13c34e05b37036f6febe48794e29b77dbef91cd0b",
       "note": "Independent BUG-012 QA regression: full SDK pages, resume tokens, empty and short pages, and batch counts passed; current result wording source-checked. Evidence: BUG-012 comments 20261012-223816 and 20261012-223818. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:119; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:226; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/user.py:836; BUG-026 applies; complete-page/retry path at pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:487; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -555,7 +555,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "d261baba9652275344f2fd407ee9664ec92550f7400ae4ca3bd7a90b6aebc7db",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "f010b1ecf9b43f246240b8e13c34e05b37036f6febe48794e29b77dbef91cd0b",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:127; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:227; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/user.py:891; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -564,7 +564,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "3f4e65f3834605e58b3cb217fd7da74b2d2bc97b51ef79c42071c18eb9b57f1b",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "f010b1ecf9b43f246240b8e13c34e05b37036f6febe48794e29b77dbef91cd0b",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:135; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:228; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/user.py:942; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -573,7 +573,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "2a83327bbc1688407a3e1860ce398cd80cc7d52addd7769baeae65e0f37b2e7a",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "f010b1ecf9b43f246240b8e13c34e05b37036f6febe48794e29b77dbef91cd0b",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:143; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:229; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/user.py:991; BUG-026 applies; complete-page/retry path at pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:487; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517. BUG-031 retest: SDK data flattened, 3 items over 2 pages; 1-page cursor preserved."
     },
@@ -582,7 +582,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "8e02cc11849634ad7c7d6863bd012b6b5878da8900a75fa39bd4e6efeb8ba7d9",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "fb259c30a15f817ffea0feffd1b226fed745f8ba94053b62f2815f0175d1364c",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:151; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:230; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/user_provider_info.py:216; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     },
@@ -591,7 +591,7 @@
       "reviewer": "qa-engineer",
       "reviewed_on": "2026-10-14",
       "record_sha256": "b6a0a35a4714b751c47f390e9820db41f50b7a862ab3bb026c2be3eea32ff47b",
-      "cli_sha256": "7b5b52084f9db6534885a9b6a294f01e63607fcb84f44530f8b0136b30ff16e5",
+      "cli_sha256": "b6a6bb54718fa61c2eca8d8a1c964dce8ddf7ead580da91ef16df6e57717fe7e",
       "sdk_sha256": "fb259c30a15f817ffea0feffd1b226fed745f8ba94053b62f2815f0175d1364c",
       "note": "Compared effect, inputs, result, errors, and example with Admin CLI and SDK source. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-admin/references/01-identity-auth-users.md:159; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:231; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/admin/user_provider_info.py:265; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py:517."
     }
