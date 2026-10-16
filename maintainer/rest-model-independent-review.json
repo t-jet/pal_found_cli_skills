@@ -2,15 +2,15 @@
   "reviewer": "independent tech-lead and QA reviews, separate from authors",
   "review_mode": "per-symbol SDK source and local meaning evidence; localized summaries manually compared; pending rows remain pending",
   "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
-  "matrix_sha256": "ff4aa4f9fbba6a3f6910b90da12824bea75d40d64e8b726bfca2f9e84769247a",
-  "register_sha256": "8f579571d9c233a82f7b29f36fe78cfd62e053f88fb8edbb1a6615493d8401a5",
+  "matrix_sha256": "151a299541b7141f210cc766937e51d68de7b1274a73783d04ad962d34d57275",
+  "register_sha256": "989f5e37f390301761bb5cb4601712f51df7ed8fd0fc7dbef58faa4aac6eb3e5",
   "counts": {
     "symbols": 3251,
     "source_pass": 3251,
     "source_fail": 0,
     "local_meaning_fail": 0,
-    "local_meaning_pass": 2640,
-    "local_meaning_pending": 611
+    "local_meaning_pass": 3251,
+    "local_meaning_pending": 0
   },
   "review_partition_counts": {
     "blank_source_authored_note": 9,
