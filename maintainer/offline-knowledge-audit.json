@@ -557,9 +557,9 @@
       "review_status": "failed independent QA; BUG-034",
       "owner": "DEV-STORY-061",
       "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "essential_gap": "Non-buildStatus CheckConfig and ReplaceCheckConfig fields are required but delegated to SDK model lookup.",
+      "essential_gap": null,
       "gap_owner": "DEV-STORY-048",
-      "resolution": "Pending ticketed namespace-local model contract repair and independent review.",
+      "resolution": "Resolved by the local check-config guide and 48 independently accepted model pages. BUG-034 preview review remains pending.",
       "qa_verdict": "FAIL",
       "review_evidence": {
         "reviewer": "qa-engineer",
