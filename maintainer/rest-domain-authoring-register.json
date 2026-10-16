@@ -10195,5 +10195,7 @@
       "independent_qa_status": "pending",
       "live_enrollment_status": "not exercised"
     }
-  ]
+  ],
+  "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+  "input_bundle_sha256": "2f7b369a84492b1b350cbd9c0353bd516ff458ce2a47da98adf895207d06b30c"
 }
