@@ -258,6 +258,7 @@ def check_candidate_anchor(root: Path, candidate_sha: str, report: Report) -> No
         return
     frozen_paths = (".agents/skills", "tests/fixtures/feature015_qa",
                     "tests/fixtures/offline/rest-acceptance",
+                    "tests/fixtures/offline/topic-acceptance",
                     "maintainer/rest-contract-register.json")
     changed = subprocess.run(["git", "-C", str(root), "diff", "--quiet", candidate_sha,
                               "--", *frozen_paths], capture_output=True)

@@ -53,6 +53,15 @@ def test_review_commit_can_follow_frozen_candidate(tmp_path: Path) -> None:
     check_candidate_anchor(tmp_path, candidate, changed)
     assert changed.counts["candidate_sha"] == 1
 
+    write(skill, "# Frozen candidate\n")
+    write(tmp_path / "tests/fixtures/offline/topic-acceptance/prompts.json", "[]\n")
+    git(tmp_path, "add", "-A")
+    git(tmp_path, "-c", "user.name=Test", "-c", "user.email=test@example.invalid",
+        "commit", "-qm", "Change topic QA inputs")
+    changed_qa = Report()
+    check_candidate_anchor(tmp_path, candidate, changed_qa)
+    assert changed_qa.counts["candidate_sha"] == 1
+
 
 def test_operation_gate_rejects_changed_asset_and_missing_candidate(tmp_path: Path) -> None:
     owner = tmp_path / ".agents/skills/pal-found-dev"
