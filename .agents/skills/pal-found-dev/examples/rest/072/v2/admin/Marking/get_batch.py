@@ -21,7 +21,11 @@ EXPECTED_PATH = '/api/v2/admin/markings/getBatch'
 EXPECTED_BODY = [{'markingId': 'synthetic-value'}]
 EXPECTED_QUERY = {}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'data': {}}
+SUCCESS = {'data': {'synthetic-value': {
+ 'id': 'synthetic-value',
+ 'categoryId': 'synthetic-value',
+ 'name': 'synthetic-value',
+ 'createdTime': '2026-10-07T00:00:00+00:00'}}}
 ERRORS = []
 
 def invoke(client):
