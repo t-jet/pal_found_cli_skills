@@ -223,11 +223,11 @@
       "owner": "O",
       "authored": true,
       "acceptance": "pending independent topic/source and semantic review",
-      "sha256": "5dfd575232cc3fe66d24dfa4d9660123b46008b3fcfb0b305779a5397d0ffefe",
+      "sha256": "13e6f760106f6924e9836c5863e9caa7bd7d48eba90ecd8c8ea0725fb6d80e2c",
       "lines": 81,
       "heading_matches": true,
       "source_urls": [
-        "https://www.palantir.com/docs/foundry/ontologies/object-set-service-limits",
+        "https://www.palantir.com/docs/foundry/ontologies/oss-limitations",
         "https://www.palantir.com/docs/foundry/ontology-sdk/typescript-osdk"
       ]
     },

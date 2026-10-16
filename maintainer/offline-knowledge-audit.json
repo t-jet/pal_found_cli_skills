@@ -3952,7 +3952,7 @@
       "review_status": "inventory added; independent semantic review pending",
       "owner": "DEV-STORY-064",
       "disposition": "Local page recorded; independent semantic completeness review pending.",
-      "sha256": "5dfd575232cc3fe66d24dfa4d9660123b46008b3fcfb0b305779a5397d0ffefe",
+      "sha256": "13e6f760106f6924e9836c5863e9caa7bd7d48eba90ecd8c8ea0725fb6d80e2c",
       "lines": 81,
       "qa_verdict": "UNCERTAIN",
       "review_evidence": {
@@ -3965,7 +3965,7 @@
           "reachable from owning SKILL.md"
         ],
         "url_contexts_in_current_audit": 2,
-        "pending": "Independent topic and source review against task fixtures",
+        "pending": "T13 source link corrected; independent source and semantic retest pending.",
         "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
       }
     },
@@ -8131,8 +8131,8 @@
     ]
   },
   "current_url_audit": {
-    "scanned_utc": "2026-10-11T09:04:22.938577+00:00",
-    "source_tree_sha256": "9f9b2634d01d837b52c4096675444f5f6b566c8a22c207b1059ac6f14a3b17ac",
+    "scanned_utc": "2026-10-16T12:04:51.686487+00:00",
+    "source_tree_sha256": "b7f0aa3e61e3ca60da9508ce3b41ab24f893d462a8e9851977219573c2a3754f",
     "scan_scope": "HTTP URLs in unfenced Markdown prose across every distributed skill; includes external documentation and illustrative endpoints",
     "occurrences": [
       {
@@ -9350,14 +9350,17 @@
       {
         "path": "pal-found-dev/references/ontology/queries.md",
         "line": 81,
-        "url": "https://www.palantir.com/docs/foundry/ontologies/object-set-service-limits",
-        "context": "[Object Set limitations](https://www.palantir.com/docs/foundry/ontologies/object-set-service-limits).",
+        "url": "https://www.palantir.com/docs/foundry/ontologies/oss-limitations",
+        "context": "[Object Set limitations](https://www.palantir.com/docs/foundry/ontologies/oss-limitations).",
         "skill": "pal-found-dev",
         "qa_disposition": "optional_provenance_local_page",
         "acceptance_blocking": false,
         "qa_reason": "Attribution is explicitly optional; local page supplies the task guidance. Semantic task review remains separate.",
         "qa_reviewer": "qa-engineer",
-        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence"
+        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence",
+        "source_url_verified_by": "project-manager",
+        "source_url_verified_utc": "2026-10-16T12:04:51.686487+00:00",
+        "source_url_qa_retest": "pending"
       },
       {
         "path": "pal-found-dev/references/ontology/security.md",
@@ -10587,7 +10590,8 @@
       "pal-found-third-party-applications": 1,
       "pal-found-widgets": 3
     },
-    "independent_acceptance": "pending; URL triage does not replace per-topic, per-operation or reader-task review"
+    "independent_acceptance": "pending; URL triage does not replace per-topic, per-operation or reader-task review",
+    "source_tree_hash_method": "SHA-256 of sorted path:SHA-256 lines for all pal-found Markdown files"
   },
   "independent_reviewer": "qa-engineer",
   "independent_review_counts": {
