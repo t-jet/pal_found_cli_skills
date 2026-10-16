@@ -18,10 +18,10 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'PUT'
 EXPECTED_PATH = '/api/v2/admin/groups/00000000-0000-0000-0000-000000000001/membershipExpirationPolicy'
-EXPECTED_BODY = {}
+EXPECTED_BODY = {'maximumDuration': 3600}
 EXPECTED_QUERY = {'preview': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {}
+SUCCESS = {'maximumDuration': '3600'}
 ERRORS = [{'name': 'GroupNotFound',
   'status': 404,
   'code': 'NOT_FOUND',
@@ -32,7 +32,7 @@ ERRORS = [{'name': 'GroupNotFound',
   'parameters': {'groupId': '00000000-0000-0000-0000-000000000001'}}]
 
 def invoke(client):
-    return client.with_raw_response.replace(group_id='00000000-0000-0000-0000-000000000001', request_timeout=30)
+    return client.with_raw_response.replace(group_id='00000000-0000-0000-0000-000000000001', maximum_duration=3600, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
