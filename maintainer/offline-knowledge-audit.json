@@ -554,13 +554,13 @@
       "path": "pal-found-data-health\\references\\01-check-report.md",
       "sha256": "b9208af759ad9e768f8f286b5b7064f54d6230b4d2d03270765bea24b31f95cb",
       "lines": 49,
-      "review_status": "author context review; independent semantic review pending",
+      "review_status": "failed independent QA; BUG-034",
       "owner": "DEV-STORY-061",
       "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
       "essential_gap": "Non-buildStatus CheckConfig and ReplaceCheckConfig fields are required but delegated to SDK model lookup.",
       "gap_owner": "DEV-STORY-048",
       "resolution": "Pending ticketed namespace-local model contract repair and independent review.",
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "FAIL",
       "review_evidence": {
         "reviewer": "qa-engineer",
         "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
@@ -568,21 +568,26 @@
         "checks": [
           "inventory hash and line count",
           "direct Markdown links resolved in owning skill: 4",
-          "reachable from owning SKILL.md"
+          "reachable from owning SKILL.md",
+          "Six Data Health operation declarations matched tool OP_SPECS at b9c5f8a",
+          "SDK 1.101.0 MockTransport request omitted preview query when no preview argument supplied",
+          "Official Palantir API contract requires preview=true for Check and CheckReport endpoints"
         ],
         "url_contexts_in_current_audit": 3,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+        "pending": "BUG-034 tool remediation and six-operation serialized-request retest",
+        "scope_limit": "No enrolled tenant call; documented API contract and local request serialization establish blocker.",
+        "defect_ticket": "BUG-034",
+        "source_url": "https://www.palantir.com/docs/foundry/api/v2/data-health-v2-resources/checks/get-check"
       }
     },
     {
       "path": "pal-found-data-health\\SKILL.md",
       "sha256": "a4cfb4c13d05e6abd0a52fff8f0abe7786464fdda907dce530b09d9c3413aa8a",
       "lines": 72,
-      "review_status": "author context review; independent semantic review pending",
+      "review_status": "failed independent QA; BUG-034",
       "owner": "DEV-STORY-061",
       "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "FAIL",
       "review_evidence": {
         "reviewer": "qa-engineer",
         "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
@@ -590,11 +595,16 @@
         "checks": [
           "inventory hash and line count",
           "direct Markdown links resolved in owning skill: 4",
-          "reachable from owning SKILL.md"
+          "reachable from owning SKILL.md",
+          "Six Data Health operation declarations matched tool OP_SPECS at b9c5f8a",
+          "SDK 1.101.0 MockTransport request omitted preview query when no preview argument supplied",
+          "Official Palantir API contract requires preview=true for Check and CheckReport endpoints"
         ],
         "url_contexts_in_current_audit": 2,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+        "pending": "BUG-034 tool remediation and six-operation serialized-request retest",
+        "scope_limit": "No enrolled tenant call; documented API contract and local request serialization establish blocker.",
+        "defect_ticket": "BUG-034",
+        "source_url": "https://www.palantir.com/docs/foundry/api/v2/data-health-v2-resources/checks/get-check"
       }
     },
     {
@@ -2381,12 +2391,12 @@
     },
     {
       "path": "pal-found-data-health\\references\\check-config.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-048",
       "disposition": "Local page recorded; independent semantic completeness review pending.",
       "sha256": "9d33cf2abaeaeeeb0517aad2dc282facf58a7a497ab57e46d736f2b8093b9702",
       "lines": 96,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
         "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
@@ -2394,11 +2404,14 @@
         "checks": [
           "inventory hash and line count",
           "direct Markdown links resolved in owning skill: 19",
-          "reachable from owning SKILL.md"
+          "reachable from owning SKILL.md",
+          "16 create and 16 replace discriminator variants linked to local contracts",
+          "32 SDK 1.101.0 fixture payloads parsed; wrong type, missing subject, invalid severity rejected",
+          "Five cross-field negative choices rejected by local preflight"
         ],
         "url_contexts_in_current_audit": 0,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+        "pending": null,
+        "scope_limit": "Configuration source and local authoring contract accepted; live save/evaluation and CLI execution remain separate gates."
       }
     },
     {
@@ -10595,7 +10608,8 @@
   },
   "independent_reviewer": "qa-engineer",
   "independent_review_counts": {
-    "UNCERTAIN": 144,
-    "PASS": 48
+    "UNCERTAIN": 141,
+    "FAIL": 2,
+    "PASS": 49
   }
 }
