@@ -36,6 +36,9 @@ The CLI uses the shared config loader, access control guard, retry handler,
 pagination helper, structured error serializer, output formatter, and
 SDK-native B3 tracing scope.
 
+All six Check and Check Report endpoints require `preview=true`. The CLI sends
+this selector automatically; there is no `--preview` option.
+
 ## Operation index
 
 | Part | Resource clients | Operations |
