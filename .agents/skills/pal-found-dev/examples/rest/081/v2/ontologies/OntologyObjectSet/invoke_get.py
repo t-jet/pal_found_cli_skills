@@ -19,7 +19,7 @@ from mock_transport import mock_resource
 EXPECTED_METHOD = 'GET'
 EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/objectSets/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'
 EXPECTED_BODY = None
-EXPECTED_QUERY = {'preview': None}
+EXPECTED_QUERY = {'preview': True}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
 SUCCESS = {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'type': 'methodInput'},
                                                          'link': 'synthetic-value',
@@ -35,7 +35,7 @@ SUCCESS = {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'objectSet': 
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.get(ontology='synthetic-value', object_set_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', request_timeout=30)
+    return client.with_raw_response.get(ontology='synthetic-value', object_set_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

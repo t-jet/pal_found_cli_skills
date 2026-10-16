@@ -32,7 +32,7 @@ EXPECTED_BODY = {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'object
  'links': ['synthetic-value']}
 EXPECTED_QUERY = {'branch': None,
  'executeInMemoryOnly': None,
- 'preview': None,
+ 'preview': True,
  'sdkPackageRid': None,
  'sdkVersion': None}
 EXPECTED_HEADERS = {'traceParent': None,
@@ -53,7 +53,7 @@ def invoke(client):
                'link': 'synthetic-value',
                'type': 'searchAround'},
  'link': 'synthetic-value',
- 'type': 'searchAround'}, request_timeout=30)
+ 'type': 'searchAround'}, preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

@@ -9,6 +9,8 @@ An Object Set is a definition of selected objects. Loading and aggregating evalu
 ## Prerequisites
 
 Use the frozen Foundry Python SDK 1.101.0 and an authorized Ontology, branch, resource identifier, acting identity and exact type/parameter names from the enrollment. Prepare the linked local models before a live request. Synthetic examples run offline with the prepared SDK and mock transport; real reads or writes require enrollment access, resource permissions and any listed beta enablement. An administrator or resource owner supplies missing grants and capability access.
+The beta examples pass the SDK's `preview=True` selector. The published
+`create_temporary` and `load_objects_or_interfaces` endpoints require it.
 
 ## Procedure and operation choices
 
@@ -27,6 +29,8 @@ Read [exact contract](../../contracts/v2/ontologies/OntologyObjectSet/aggregate.
 Stage: Public Beta. Required SDK arguments: `ontology`, `object_set`.
 
 Creates a temporary `ObjectSet` from the given definition. This `ObjectSet` expires after one hour.
+The published endpoint requires `preview=true`; pass `preview=True` to the SDK.
+The fixture uses a base `Asset` set and checks the returned temporary RID.
 
 Read [exact contract](../../contracts/v2/ontologies/OntologyObjectSet/create_temporary.md) for optional parameters, response modes, model fields and wire errors. [Offline SDK fixture](../../../../examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_create_temporary.py): `python -B examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_create_temporary.py` from skill root. Named failure in source text: none listed; handle transport and generic API failures.
 
@@ -67,6 +71,8 @@ Read [exact contract](../../contracts/v2/ontologies/OntologyObjectSet/load_multi
 Stage: Public Beta. Required SDK arguments: `ontology`, `object_set`, `select`.
 
 Load the ontology objects present in the `ObjectSet` from the provided object set definition. If the requested object set contains interfaces and the object can be viewed as an interface, it will contain the properties defined by the interface. If not, it will contain the properties defined by its object type. This allows directly loading all objects of an interface where all objects are viewed as the interface, for example. Note that the result object set cannot contain a mix of objects with "interface" properties and "object type" properties. See the linked contract for further limits and query details.
+The published endpoint requires `preview=true`; pass `preview=True` to the SDK.
+The fixture loads a base `Asset` set and checks object identity, selected data, and total count.
 
 Read [exact contract](../../contracts/v2/ontologies/OntologyObjectSet/load_objects_or_interfaces.md) for optional parameters, response modes, model fields and wire errors. [Offline SDK fixture](../../../../examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load_objects_or_interfaces.py): `python -B examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load_objects_or_interfaces.py` from skill root. Named failure in source text: none listed; handle transport and generic API failures.
 

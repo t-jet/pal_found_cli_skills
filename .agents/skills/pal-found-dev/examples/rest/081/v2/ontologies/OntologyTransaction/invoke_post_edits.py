@@ -22,7 +22,7 @@ EXPECTED_BODY = {'edits': [{'objectType': 'synthetic-value',
             'primaryKey': 'synthetic-value',
             'properties': {},
             'type': 'modifyObject'}]}
-EXPECTED_QUERY = {'preview': None, 'sdkPackageRid': None, 'sdkVersion': None}
+EXPECTED_QUERY = {'preview': True, 'sdkPackageRid': None, 'sdkVersion': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
 SUCCESS = {}
 ERRORS = []
@@ -31,7 +31,7 @@ def invoke(client):
     return client.with_raw_response.post_edits(ontology='synthetic-value', transaction_id='synthetic-value', edits=[{'objectType': 'synthetic-value',
   'primaryKey': 'synthetic-value',
   'properties': {},
-  'type': 'modifyObject'}], request_timeout=30)
+  'type': 'modifyObject'}], preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

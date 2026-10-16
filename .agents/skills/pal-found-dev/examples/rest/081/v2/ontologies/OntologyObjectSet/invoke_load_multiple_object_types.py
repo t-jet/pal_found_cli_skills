@@ -32,7 +32,7 @@ EXPECTED_BODY = {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'object
  'select': ['synthetic-value']}
 EXPECTED_QUERY = {'branch': None,
  'executeInMemoryOnly': None,
- 'preview': None,
+ 'preview': True,
  'scenarioRid': None,
  'sdkPackageRid': None,
  'sdkVersion': None,
@@ -58,7 +58,7 @@ def invoke(client):
                'link': 'synthetic-value',
                'type': 'searchAround'},
  'link': 'synthetic-value',
- 'type': 'searchAround'}, select=['synthetic-value'], request_timeout=30)
+ 'type': 'searchAround'}, select=['synthetic-value'], preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

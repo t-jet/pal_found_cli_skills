@@ -18,21 +18,11 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/objectSets/loadObjectsOrInterfaces'
-EXPECTED_BODY = {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'type': 'methodInput'},
-                                                                       'link': 'synthetic-value',
-                                                                       'type': 'searchAround'},
-                                                         'link': 'synthetic-value',
-                                                         'type': 'searchAround'},
-                                           'link': 'synthetic-value',
-                                           'type': 'searchAround'},
-                             'link': 'synthetic-value',
-                             'type': 'searchAround'},
-               'link': 'synthetic-value',
-               'type': 'searchAround'},
- 'select': ['synthetic-value']}
+EXPECTED_BODY = {'objectSet': {'type': 'base', 'objectType': 'Asset'},
+ 'select': ['name']}
 EXPECTED_QUERY = {'branch': None,
  'executeInMemoryOnly': None,
- 'preview': None,
+ 'preview': True,
  'scenarioRid': None,
  'sdkPackageRid': None,
  'sdkVersion': None,
@@ -41,21 +31,12 @@ EXPECTED_HEADERS = {'traceParent': None,
  'traceState': None,
  'Content-Type': 'application/json',
  'Accept': 'application/json'}
-SUCCESS = {'data': [{}], 'totalCount': '1'}
+SUCCESS = {'data': [{'$primaryKey': 'asset-1', '$objectTypeApiName': 'Asset',
+ 'name': 'Pump'}], 'totalCount': '1'}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.load_objects_or_interfaces(ontology='synthetic-value', object_set={'objectSet': {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'type': 'methodInput'},
-                                                         'link': 'synthetic-value',
-                                                         'type': 'searchAround'},
-                                           'link': 'synthetic-value',
-                                           'type': 'searchAround'},
-                             'link': 'synthetic-value',
-                             'type': 'searchAround'},
-               'link': 'synthetic-value',
-               'type': 'searchAround'},
- 'link': 'synthetic-value',
- 'type': 'searchAround'}, select=['synthetic-value'], request_timeout=30)
+    return client.with_raw_response.load_objects_or_interfaces(ontology='synthetic-value', object_set={'type': 'base', 'objectType': 'Asset'}, select=['name'], preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

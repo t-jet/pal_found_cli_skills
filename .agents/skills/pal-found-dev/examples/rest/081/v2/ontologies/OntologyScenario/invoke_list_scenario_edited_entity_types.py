@@ -19,14 +19,14 @@ from mock_transport import mock_resource
 EXPECTED_METHOD = 'GET'
 EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/scenarios/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/editedEntityTypes'
 EXPECTED_BODY = None
-EXPECTED_QUERY = {'preview': None}
+EXPECTED_QUERY = {'preview': True}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
 SUCCESS = {'objectTypes': ['synthetic-value'],
  'linkTypes': [{'objectTypeApiName': 'synthetic-value', 'linkTypes': ['synthetic-value']}]}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.list_scenario_edited_entity_types(ontology='synthetic-value', scenario_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', request_timeout=30)
+    return client.with_raw_response.list_scenario_edited_entity_types(ontology='synthetic-value', scenario_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

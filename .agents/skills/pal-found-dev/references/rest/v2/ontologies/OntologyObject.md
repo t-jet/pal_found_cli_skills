@@ -27,6 +27,8 @@ Read [exact contract](../../contracts/v2/ontologies/OntologyObject/aggregate.md)
 Stage: Private Beta. Required SDK arguments: `ontology`, `object_type`.
 
 Returns a count of the objects of the given object type.
+The fixture opts into preview and checks the decoded `count` for a concrete
+`Asset` selection. Treat a missing count as unknown, not zero.
 
 Read [exact contract](../../contracts/v2/ontologies/OntologyObject/count.md) for optional parameters, response modes, model fields and wire errors. [Offline SDK fixture](../../../../examples/rest/081/v2/ontologies/OntologyObject/invoke_count.py): `python -B examples/rest/081/v2/ontologies/OntologyObject/invoke_count.py` from skill root. Named failure in source text: none listed; handle transport and generic API failures.
 
