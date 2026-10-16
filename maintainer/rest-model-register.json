@@ -37310,7 +37310,7 @@
       "definition_sha256": "c1adfe8b9818c627208fea341b611d45670047032fb309e5c5919e8a619cb1ea",
       "dependencies": [],
       "local_definition": "references/rest/models/v2/streams/models/StreamType.md",
-      "semantic_review_status": "accepted"
+      "semantic_review_status": "unreviewed"
     },
     {
       "id": "foundry_sdk.v2.streams.models.Subscriber",

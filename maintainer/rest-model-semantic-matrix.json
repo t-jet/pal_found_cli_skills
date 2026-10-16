@@ -98581,13 +98581,13 @@
         "references/rest/models/v2/streams/models/StreamType.md"
       ],
       "local_page_sha256": [
-        "7075c9f313544b8dd4fa76df866b47932ae0804c0f2bec9fbc054c39a68dbf29"
+        "53555797b23deed77eb2f4210c9a219d5b245b6e5512b86e2711285fb771cad4"
       ],
-      "reader_prose_sha256": "8c39818bc4635e133b64d06d7b7d215043f27657504b0dd00418cdf772312f9c",
-      "reader_prose_excerpt": "`LOW_LATENCY` is the default stream type. `HIGH_THROUGHPUT` favors larger batches with some added latency. Select it after checking stream metrics for batches near their maximum or producer batch expiry in downstream jobs.",
+      "reader_prose_sha256": "541ecc4631902d35e4888553052f67ffc6c414b0f9394a90c5a64c55f8365f3c",
+      "reader_prose_excerpt": "`LOW_LATENCY` is the default and suits most streams. `HIGH_THROUGHPUT` can add latency. Choose it only when in-platform metrics show average batch size equals the SDK's stated max match size, or jobs fail because Kafka producer batches expire.",
       "unfenced_public_url_count": 0,
       "source_fidelity_review": "PASS",
-      "local_meaning_review": "PASS"
+      "local_meaning_review": "pending_independent_review"
     },
     {
       "id": "foundry_sdk.v2.streams.models.Subscriber",
