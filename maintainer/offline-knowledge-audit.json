@@ -420,8 +420,8 @@
     },
     {
       "path": "pal-found-audit\\SKILL.md",
-      "sha256": "c040dd592980bf28a93285171a541211e8871b0879b7fc83f293b3e09c5d74ba",
-      "lines": 92,
+      "sha256": "f648831f0e7ad577ec4500645f63feada5d0b3214e61ec786f6f446ef30ba1d5",
+      "lines": 101,
       "review_status": "author context review; independent semantic review pending",
       "owner": "DEV-STORY-061",
       "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
@@ -552,8 +552,8 @@
     },
     {
       "path": "pal-found-data-health\\references\\01-check-report.md",
-      "sha256": "b9208af759ad9e768f8f286b5b7064f54d6230b4d2d03270765bea24b31f95cb",
-      "lines": 49,
+      "sha256": "c76c079c0d9e9635708bddb2b15fc4990c4f5536bbeea29d450f17af12f3b838",
+      "lines": 52,
       "review_status": "failed independent QA; BUG-034",
       "owner": "DEV-STORY-061",
       "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
@@ -582,8 +582,8 @@
     },
     {
       "path": "pal-found-data-health\\SKILL.md",
-      "sha256": "a4cfb4c13d05e6abd0a52fff8f0abe7786464fdda907dce530b09d9c3413aa8a",
-      "lines": 72,
+      "sha256": "4381b29871763772829b09e3825845795c69334469a522ec709ed8d98a11f813",
+      "lines": 75,
       "review_status": "failed independent QA; BUG-034",
       "owner": "DEV-STORY-061",
       "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
