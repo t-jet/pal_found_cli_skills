@@ -1365,7 +1365,7 @@
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
-      "semantic_review_status": "pending",
+      "semantic_review_status": "accepted",
       "independent_qa_status": "pending",
       "live_enrollment_status": "not exercised"
     },
@@ -1437,7 +1437,7 @@
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
-      "semantic_review_status": "pending",
+      "semantic_review_status": "accepted",
       "independent_qa_status": "pending",
       "live_enrollment_status": "not exercised"
     },
@@ -1485,7 +1485,7 @@
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
-      "semantic_review_status": "pending",
+      "semantic_review_status": "accepted",
       "independent_qa_status": "pending",
       "live_enrollment_status": "not exercised"
     },
@@ -1533,7 +1533,7 @@
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
-      "semantic_review_status": "pending",
+      "semantic_review_status": "accepted",
       "independent_qa_status": "pending",
       "live_enrollment_status": "not exercised"
     },
@@ -1581,7 +1581,7 @@
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
-      "semantic_review_status": "pending",
+      "semantic_review_status": "accepted",
       "independent_qa_status": "pending",
       "live_enrollment_status": "not exercised"
     },
@@ -1605,7 +1605,7 @@
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
-      "semantic_review_status": "pending",
+      "semantic_review_status": "accepted",
       "independent_qa_status": "pending",
       "live_enrollment_status": "not exercised"
     },
@@ -2421,7 +2421,7 @@
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
-      "semantic_review_status": "pending",
+      "semantic_review_status": "accepted",
       "independent_qa_status": "pending",
       "live_enrollment_status": "not exercised"
     },
