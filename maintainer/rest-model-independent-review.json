@@ -20894,17 +20894,15 @@
       "reviewed_reader_prose_sha256": "54a571e27613138e746e15adb039102dc44f0b27286ce7977eb39d3424dc0871",
       "reviewed_source_definition_sha256": "cf803c0096491a71091241a5b13ff3e052cde8674141e064fef4d80e87315c18",
       "source_fidelity_review": "PASS",
-      "local_meaning_review": "pending_manual_semantic_review",
-      "semantic_review_evidence": "Per-symbol independent review: maintainer/rest-model-independent-review-data.json#foundry_sdk.v2.connectivity.models.FileImportFilter. Frozen SDK defines filter variants and discriminator, but does not establish the local claim that application order affects behavior or efficiency. Keep pending until a source is supplied or that claim is removed.",
+      "local_meaning_review": "PASS",
+      "semantic_review_evidence": "Per-symbol independent review: maintainer/rest-model-independent-review-data.json#foundry_sdk.v2.connectivity.models.FileImportFilter. The filter type declares the supported variants. Frozen SDK field descriptions on CreateFileImportRequest, FileImport, and ReplaceFileImportRequest state that filters run in defined order and changing order may optimize import; local guidance preserves both claims.",
       "source_description_placeholder": false,
       "source_description_localized": true,
       "review_partition": "localized_source_description",
       "reader_summary_word_count": 40,
       "consumer_operation_count": 4,
       "dependency_count": 9,
-      "issues": [
-        "unverified_filter_order_semantics"
-      ]
+      "issues": []
     },
     {
       "id": "foundry_sdk.v2.connectivity.models.FileImportMode",

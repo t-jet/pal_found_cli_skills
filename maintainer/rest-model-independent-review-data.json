@@ -11,16 +11,14 @@
   ],
   "denominator": 678,
   "verdict_counts": {
-    "PASS": 677,
-    "UNCERTAIN": 1
+    "PASS": 678
   },
   "domain_counts": {
     "v1.datasets": {
       "PASS": 66
     },
     "v2.connectivity": {
-      "PASS": 224,
-      "UNCERTAIN": 1
+      "PASS": 225
     },
     "v2.datasets": {
       "PASS": 164
@@ -10984,10 +10982,13 @@
     },
     {
       "id": "foundry_sdk.v2.connectivity.models.FileImportFilter",
-      "verdict": "UNCERTAIN",
-      "rationale": "Frozen SDK defines filter variants and discriminator, but does not establish the local claim that application order affects behavior or efficiency. Keep pending until a source is supplied or that claim is removed.",
+      "verdict": "PASS",
+      "rationale": "The filter type declares the supported variants. Frozen SDK field descriptions on CreateFileImportRequest, FileImport, and ReplaceFileImportRequest state that filters run in defined order and changing order may optimize import; local guidance preserves both claims.",
       "sources": [
-        "SDK 1.101.0: foundry_sdk/v2/connectivity/models.py:905"
+        "SDK 1.101.0: foundry_sdk/v2/connectivity/models.py:905",
+        "SDK 1.101.0: foundry_sdk/v2/connectivity/models.py:616-617",
+        "SDK 1.101.0: foundry_sdk/v2/connectivity/models.py:883-884",
+        "SDK 1.101.0: foundry_sdk/v2/connectivity/models.py:1335-1336"
       ],
       "source_declaration": "FileImportFilter: typing_extensions.TypeAlias = typing_extensions.Annotated[",
       "source_description": "\n[Filters](https://palantir.com/docs/foundry/data-connection/file-based-syncs/#filters) allow you to filter source files\nbefore they are imported into Foundry.\n",
