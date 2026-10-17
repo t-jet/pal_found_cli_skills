@@ -152,7 +152,8 @@ retrying.
 
 Parse classification strings into marking IDs. Inspect both parsed results and the
 errors collection: unparseable strings return human-readable errors and must not be
-silently treated as unclassified.
+silently treated as unclassified. This Public Beta endpoint requires `preview=true`;
+set `preview=True` in the SDK call.
 
 [Exact parameters, request, result and error models](../../contracts/v2/admin/Marking/parse_classifications.md).
 

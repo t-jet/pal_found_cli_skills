@@ -26,7 +26,8 @@ and reconcile through authorized reads before repeating.
 ### get
 
 Supply the proposed marking IDs, then inspect required, implied and disallowed marking
-sets. Resolve conflicts before submitting a separate resource marking change.
+sets. Resolve conflicts before submitting a separate resource marking change. This
+Public Beta endpoint requires `preview=true`; set `preview=True` in the SDK call.
 
 [Exact parameters, request, result and error models](../../contracts/v2/admin/CbacMarkingRestrictions/get.md).
 

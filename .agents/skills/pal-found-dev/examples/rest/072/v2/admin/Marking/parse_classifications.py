@@ -18,18 +18,19 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/admin/markings/parseClassifications'
-EXPECTED_BODY = {'classificationStrings': ['synthetic-value']}
-EXPECTED_QUERY = {'preview': None}
+EXPECTED_BODY = {'classificationStrings': ['synthetic-valid', 'synthetic-invalid']}
+EXPECTED_QUERY = {'preview': True}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'parsed': {}, 'errors': {}}
+SUCCESS = {'parsed': {'synthetic-valid': ['synthetic-value']},
+ 'errors': {'synthetic-invalid': 'Unrecognized synthetic classification'}}
 ERRORS = [{'name': 'CbacUnavailable', 'status': 400, 'code': 'INVALID_ARGUMENT', 'parameters': {}},
  {'name': 'ParseClassificationsPermissionDenied',
   'status': 403,
   'code': 'PERMISSION_DENIED',
-  'parameters': {'classificationStrings': ['synthetic-value']}}]
+  'parameters': {'classificationStrings': ['synthetic-valid', 'synthetic-invalid']}}]
 
 def invoke(client):
-    return client.with_raw_response.parse_classifications(classification_strings=['synthetic-value'], request_timeout=30)
+    return client.with_raw_response.parse_classifications(classification_strings=['synthetic-valid', 'synthetic-invalid'], preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

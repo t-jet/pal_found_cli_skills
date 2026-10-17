@@ -36,9 +36,10 @@ DECLASSIFY here; manage ADMINISTER through OrganizationRoleAssignment.
 python -B examples/rest/072/v2/admin/MarkingRoleAssignment/add.py
 ```
 
-The example checks the serialized HTTP method, path, query, headers and body, decodes
-the synthetic success result, and checks each source-declared named error. It uses one
-raw response with a 30-second timeout and closes that response.
+The success fixture assigns USE, which is valid for an organization marking. The
+organization-marking error fixture separately tries ADMINISTER on an organization
+marking. Both requests are checked against the serialized path and body. The example
+closes each raw response and checks every declared error.
 
 Declared failures for this operation:
 
@@ -101,9 +102,10 @@ belong to OrganizationRoleAssignment rather than this endpoint.
 python -B examples/rest/072/v2/admin/MarkingRoleAssignment/remove.py
 ```
 
-The example checks the serialized HTTP method, path, query, headers and body, decodes
-the synthetic success result, and checks each source-declared named error. It uses one
-raw response with a 30-second timeout and closes that response.
+The success fixture removes USE. Separate failure fixtures try ADMINISTER on an
+organization marking and removal of the last administrator on an ordinary marking.
+The example checks each serialized request, closes its raw response, and checks every
+declared error.
 
 Declared failures for this operation:
 

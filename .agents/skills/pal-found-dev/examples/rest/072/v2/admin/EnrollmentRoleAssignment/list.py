@@ -19,7 +19,7 @@ from mock_transport import mock_resource
 EXPECTED_METHOD = 'GET'
 EXPECTED_PATH = '/api/v2/admin/enrollments/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/roleAssignments'
 EXPECTED_BODY = None
-EXPECTED_QUERY = {'preview': None}
+EXPECTED_QUERY = {'preview': True}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
 SUCCESS = {'data': [{'principalType': 'USER',
            'principalId': '00000000-0000-0000-0000-000000000001',
@@ -34,7 +34,7 @@ ERRORS = [{'name': 'EnrollmentNotFound',
   'parameters': {'enrollmentRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}}]
 
 def invoke(client):
-    return client.with_raw_response.list(enrollment_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', request_timeout=30)
+    return client.with_raw_response.list(enrollment_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
