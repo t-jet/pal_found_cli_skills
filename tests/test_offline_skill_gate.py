@@ -7,7 +7,7 @@ never make network calls and never invoke a Foundry API.
 
 Checks:
 - 300-line leaf limit for every skill Markdown part, including pal-found-dev.
-- Exact FEATURE-011 install block in command skills; pal-found-dev is knowledge only.
+- No CLI installation prose in distributed skills, per FEATURE-015.
 - Relative local links in every SKILL.md resolve within that skill folder.
 - Every frozen operation key is documented (reachable record) in the owning
   namespace references parts, and no extra callable claim is introduced.
@@ -22,7 +22,8 @@ ROOT = Path(__file__).parent.parent
 SKILLS = ROOT / ".agents" / "skills"
 
 LEAF_LIMIT = 300
-INSTALL_STRINGS = (
+FORBIDDEN_INSTALL_STRINGS = (
+    "## Install requirement",
     "conda install -c t-jet pal_found_cli",
     "pip install pal_found_cli",
     "uv tool install pal_found_cli",
@@ -284,12 +285,11 @@ def test_leaf_files_respect_300_line_limit() -> None:
             assert count <= LEAF_LIMIT, f"{path.name} has {count} lines > {LEAF_LIMIT}"
 
 
-def test_every_skill_has_install_prerequisite_block() -> None:
-    for name in set(FROZEN_OPERATIONS) | {"pal-found"}:
-        skill = SKILLS / name / "SKILL.md"
+def test_distributed_skills_exclude_cli_install_prose() -> None:
+    for skill in SKILLS.rglob("*.md"):
         text = skill.read_text(encoding="utf-8")
-        for expected in INSTALL_STRINGS:
-            assert expected in text, f"{name} missing install string: {expected}"
+        for forbidden in FORBIDDEN_INSTALL_STRINGS:
+            assert forbidden not in text, f"{skill} contains install prose: {forbidden}"
 
 
 def test_relative_links_resolve_within_skill_folder() -> None:

@@ -56,18 +56,3 @@ shapes, and embedding text arrays.
 Every operation accepts `--timeout`, `--format json|toon|auto`, and
 `--pretty`. Inference payloads use `--messages-json`, `--tools-json`, and
 `--input-json` where help shows them.
-
-## Install requirement
-
-`pal-found-language-models` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```

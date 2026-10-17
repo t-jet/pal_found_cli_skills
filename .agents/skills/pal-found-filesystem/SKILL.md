@@ -69,18 +69,3 @@ required `--enrollment-rid`, `--parent-folder-rid`, `--template-rid`,
 `--include-inherited` as booleans. Additional scalar variants are
 `--default-role-set-id`, `--description`,
 `--resource-level-role-grants-allowed`, and `--usage-account-rid`.
-
-## Install requirement
-
-`pal-found-filesystem` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```

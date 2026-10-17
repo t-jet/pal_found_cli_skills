@@ -62,18 +62,3 @@ import mode, and `--config-json`.
 `upload_custom_jdbc_drivers` reads a bounded JDBC `.jar` file via `--file`.
 Secret values passed through `--secrets-json` are command-line arguments;
 handle them according to your shell and environment's secret-handling rules.
-
-## Install requirement
-
-`pal-found-connectivity` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```

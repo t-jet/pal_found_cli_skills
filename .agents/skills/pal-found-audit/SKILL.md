@@ -84,18 +84,3 @@ and `--end-date`, plus `--page-size`, `--page-token`, and `--batch-pages`.
 `log-file content` accepts positional `organization_rid` and `log_file_id`,
 plus `--output-filename`. This namespace has no JSON input flags; dates and
 identifiers are strings.
-
-## Install requirement
-
-`pal-found-audit` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```

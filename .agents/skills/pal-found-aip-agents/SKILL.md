@@ -65,18 +65,3 @@ Every operation accepts `--timeout`, `--format json|toon|auto`, and
 `--pretty`; paged operations add `--page-size`, `--page-token`, and
 `--batch-pages`. JSON payloads use `--parameter-inputs-json`,
 `--user-input-json`, and `--contexts-override-json` where help shows them.
-
-## Install requirement
-
-`pal-found-aip-agents` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```
