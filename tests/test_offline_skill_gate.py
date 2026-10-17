@@ -22,11 +22,10 @@ ROOT = Path(__file__).parent.parent
 SKILLS = ROOT / ".agents" / "skills"
 
 LEAF_LIMIT = 300
-FORBIDDEN_INSTALL_STRINGS = (
-    "## Install requirement",
-    "conda install -c t-jet pal_found_cli",
-    "pip install pal_found_cli",
-    "uv tool install pal_found_cli",
+FORBIDDEN_DISTRIBUTION_PROSE = (
+    r"\binstall(?:ation|ing)?\b",
+    r"(?m)^\s*(?:[`$>]\s*)?(?:(?:python(?:3)?\s+-m\s+)?pip(?:3)?|pipx|conda|mamba|micromamba|uv(?:\s+(?:pip|tool))?|poetry|pdm|npm|pnpm|yarn)\s+(?:install|add)\b",
+    r"\b(?:copy|clone|sync|move|cp|rsync|robocopy|xcopy)\b[^\n]{0,120}(?:\.agents[/\\]skills|SKILL\.md|pal_found_cli_skills|skills?\s+(?:folder|directory|bundle)|bundle\s+(?:folder|directory))\b",
 )
 
 # Frozen per-operation registers (grooming comments 20261003-1747xx-1749xx).
@@ -285,11 +284,13 @@ def test_leaf_files_respect_300_line_limit() -> None:
             assert count <= LEAF_LIMIT, f"{path.name} has {count} lines > {LEAF_LIMIT}"
 
 
-def test_distributed_skills_exclude_cli_install_prose() -> None:
+def test_distributed_skills_exclude_install_and_copy_prose() -> None:
     for skill in SKILLS.rglob("*.md"):
         text = skill.read_text(encoding="utf-8")
-        for forbidden in FORBIDDEN_INSTALL_STRINGS:
-            assert forbidden not in text, f"{skill} contains install prose: {forbidden}"
+        for pattern in FORBIDDEN_DISTRIBUTION_PROSE:
+            assert not re.search(pattern, text, re.IGNORECASE), (
+                f"{skill} contains distribution prose matching {pattern}"
+            )
 
 
 def test_relative_links_resolve_within_skill_folder() -> None:

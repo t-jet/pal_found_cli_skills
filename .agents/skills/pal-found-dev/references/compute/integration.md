@@ -16,9 +16,9 @@ Typed structs enable Function schema inference; imported schema must match the e
 The registration API here was checked against the official `python-compute-module`
 source commit `5f0850c5d10846c1dfce3f43649792379d4c60b1`. Prepare the matching
 `compute-modules` package and its optional Sources dependencies before using these
-imports. Package availability and installation are environment prerequisites.
-For Ontology work, prepare the generated Python
-OSDK package and its exported types. [Application registration](../applications/osdk.md)
+imports. These packages must already be available in the selected environment.
+For Ontology work, prepare the generated Python OSDK package and its exported types.
+[Application registration](../applications/osdk.md)
 explains binding generation. Application permissions require service-user resource
 grants and allowed OAuth scopes/restrictions. An OSDK operation must also pass
 [Ontology authorization](../ontology/security.md).
