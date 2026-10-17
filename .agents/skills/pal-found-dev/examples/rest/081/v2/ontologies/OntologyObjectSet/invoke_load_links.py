@@ -18,18 +18,8 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/objectSets/loadLinks'
-EXPECTED_BODY = {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'type': 'methodInput'},
-                                                                       'link': 'synthetic-value',
-                                                                       'type': 'searchAround'},
-                                                         'link': 'synthetic-value',
-                                                         'type': 'searchAround'},
-                                           'link': 'synthetic-value',
-                                           'type': 'searchAround'},
-                             'link': 'synthetic-value',
-                             'type': 'searchAround'},
-               'link': 'synthetic-value',
-               'type': 'searchAround'},
- 'links': ['synthetic-value']}
+ASSET = {'type': 'base', 'objectType': 'Asset'}
+EXPECTED_BODY = {'objectSet': {'type': 'base', 'objectType': 'Asset'}, 'links': ['installedAt']}
 EXPECTED_QUERY = {'branch': None,
  'executeInMemoryOnly': None,
  'preview': True,
@@ -39,21 +29,17 @@ EXPECTED_HEADERS = {'traceParent': None,
  'traceState': None,
  'Content-Type': 'application/json',
  'Accept': 'application/json'}
-SUCCESS = {'data': [{'linkedObjects': [{}]}]}
-ERRORS = []
+SUCCESS = {'data': [{'sourceObject': {'__primaryKey': 'asset-1', '__apiName': 'Asset'},
+           'linkedObjects': [{'targetObject': {'__primaryKey': 'site-1',
+                                               '__apiName': 'Site'},
+                              'linkType': 'installedAt'}]}]}
+ERRORS = [{'status': 500,
+  'name': 'LoadObjectSetLinksNotSupported',
+  'code': 'INTERNAL',
+  'parameters': {}}]
 
 def invoke(client):
-    return client.with_raw_response.load_links(ontology='synthetic-value', links=['synthetic-value'], object_set={'objectSet': {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'type': 'methodInput'},
-                                                         'link': 'synthetic-value',
-                                                         'type': 'searchAround'},
-                                           'link': 'synthetic-value',
-                                           'type': 'searchAround'},
-                             'link': 'synthetic-value',
-                             'type': 'searchAround'},
-               'link': 'synthetic-value',
-               'type': 'searchAround'},
- 'link': 'synthetic-value',
- 'type': 'searchAround'}, preview=True, request_timeout=30)
+    return client.with_raw_response.load_links(ontology='synthetic-value', object_set=ASSET, links=['installedAt'], preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -115,7 +101,8 @@ def verify():
                 raw.close()
             except PalantirRPCException as error:
                 assert error.name == error_case['name']
-                assert type(error).__name__ == error_case['name']
+                assert error.error_code == error_case['code']
+                assert type(error).__name__ == {400: 'BadRequestError', 404: 'NotFoundError', 500: 'InternalServerError'}[error_case['status']]
                 assert normalized(error.parameters) == error_case['parameters']
             else:
                 raise AssertionError('Expected ' + error_case['name'])
