@@ -18,7 +18,7 @@ Select the operation below, read its exact request/response/error model, then ad
 
 Stage: Stable. Required SDK arguments: `ontology`, `object_type`, `primary_key`, `link_type`, `linked_object_primary_key`.
 
-Get a specific linked object that originates from another object. If there is no link between the two objects, `LinkedObjectNotFound` is thrown.
+Get one target from a source object's outgoing link. The [Palantir get example](https://www.palantir.com/docs/foundry/api/ontologies-v2-resources/linked-objects/get-linked-object) uses object type API name `employee`, source key `50030`, link `directReport`, and target key `80060`. The fixture checks a matching target object. Handle `LinkedObjectNotFound` through the SDK's `NotFoundError`; the wire error can also mean the token cannot access the target.
 
 Read [exact contract](../../contracts/v2/ontologies/LinkedObject/get_linked_object.md) for optional parameters, response modes, model fields and wire errors. [Offline SDK fixture](../../../../examples/rest/081/v2/ontologies/LinkedObject/invoke_get_linked_object.py): `python -B examples/rest/081/v2/ontologies/LinkedObject/invoke_get_linked_object.py` from skill root. Named failure in source text: `LinkedObjectNotFound`.
 
@@ -26,13 +26,13 @@ Read [exact contract](../../contracts/v2/ontologies/LinkedObject/get_linked_obje
 
 Stage: Stable. Required SDK arguments: `ontology`, `object_type`, `primary_key`, `link_type`.
 
-Lists the linked objects for a specific object and the given link type. Note that this endpoint does not guarantee consistency. Changes to the data could result in missing or repeated objects in the response pages. For Object Storage V1 backed objects, this endpoint returns a maximum of 10,000 objects. After 10,000 objects have been returned and if more objects are available, attempting to load another page will result in an `ObjectsExceededLimit` error being returned. There is no limit on Object Storage V2 backed objects. Each page may be smaller or larger than the requested page size. See the linked contract for further limits and query details.
+List targets for an outgoing link. The [Palantir list example](https://www.palantir.com/docs/foundry/api/ontologies-v2-resources/linked-objects/list-linked-objects) shows `employee` key `50030` with `directReport` targets. Follow `nextPageToken` until absent. Pages can change during traversal; use `snapshot=True` when consistency matters. Object Storage V1 limits results to 10,000; `ObjectsExceededLimit` arrives as SDK `BadRequestError` with wire name `ObjectsExceededLimit` and code `INVALID_ARGUMENT`. Object Storage V2 has no such object count limit.
 
 Read [exact contract](../../contracts/v2/ontologies/LinkedObject/list_linked_objects.md) for optional parameters, response modes, model fields and wire errors. [Offline SDK fixture](../../../../examples/rest/081/v2/ontologies/LinkedObject/invoke_list_linked_objects.py): `python -B examples/rest/081/v2/ontologies/LinkedObject/invoke_list_linked_objects.py` from skill root. Named failure in source text: `ObjectsExceededLimit`.
 
 ## Worked example
 
-From an authorized `Order` key, list linked `Customer` objects with a finite page plan. Use get when one target key is known; handle `LinkedObjectNotFound` as a missing relationship or visibility condition.
+From an authorized source `Employee` key, list `directReport` targets with a bounded page size. Use get when the target key is known. Compare returned `__primaryKey` and `__apiName` with the requested target.
 
 The linked operation fixtures show actual SDK method invocation, serialized request and decoded response/error using a local mock transport. Their synthetic values are test data. Replace them with authorized identifiers and typed payloads from each linked contract; verify the live result under the intended identity before asserting a platform effect.
 

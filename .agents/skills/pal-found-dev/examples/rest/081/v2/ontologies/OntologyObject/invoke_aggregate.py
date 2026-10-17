@@ -1,7 +1,8 @@
 """v2.ontologies.OntologyObject.aggregate: SDK request, decoded result and declared error fixtures.
 
-Synthetic identifiers do not name tenant resources. Prepared SDK 1.101.0/httpx
-required. No network connections or live mutations occur.
+Identifiers and records follow Palantir's illustrative API examples.
+Source: https://www.palantir.com/docs/foundry/api/ontologies-v2-resources/ontology-objects/aggregate-objects
+Prepared SDK 1.101.0/httpx required. No network or live mutations occur.
 """
 import json
 import sys
@@ -10,23 +11,24 @@ import datetime
 from pathlib import Path
 
 import httpx
-from foundry_sdk import PalantirRPCException
+from foundry_sdk import BadRequestError, PalantirRPCException
 from foundry_sdk.v2.ontologies.ontology_object import OntologyObjectClient
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
-EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/objects/Asset/aggregate'
-EXPECTED_BODY = {'aggregation': [{'type': 'approximateDistinct'}],
- 'groupBy': [{'value': 1, 'unit': 'MILLISECONDS', 'type': 'duration'}]}
+EXPECTED_PATH = '/api/v2/ontologies/palantir/objects/employee/aggregate'
+EXPECTED_BODY = {'aggregation': [{'type': 'min', 'field': 'tenure', 'name': 'min_tenure'}],
+ 'where': {'type': 'eq', 'field': 'name', 'value': 'john'},
+ 'groupBy': [{'type': 'exact', 'field': 'city'}]}
 EXPECTED_QUERY = {'branch': None, 'sdkPackageRid': None, 'sdkVersion': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'accuracy': 'ACCURATE', 'data': [{'group': {}, 'metrics': [{'name': 'synthetic-value'}]}]}
-ERRORS = []
+SUCCESS = {'accuracy': 'ACCURATE', 'data': [{'group': {'city': 'New York City'}, 'metrics': [{'name': 'min_tenure', 'value': 1}]}]}
+ERRORS = [{'status': 400, 'name': 'AggregationGroupCountExceededLimit', 'code': 'INVALID_ARGUMENT', 'parameters': {'groupsCount': 10001, 'groupsLimit': 10000}}]
 
 def invoke(client):
-    return client.with_raw_response.aggregate(ontology='synthetic-value', object_type='Asset', aggregation=[{'type': 'approximateDistinct'}], group_by=[{'value': 1, 'unit': 'MILLISECONDS', 'type': 'duration'}], request_timeout=30)
+    return client.with_raw_response.aggregate(ontology='palantir', object_type='employee', aggregation=[{'type': 'min', 'field': 'tenure', 'name': 'min_tenure'}], group_by=[{'type': 'exact', 'field': 'city'}], where={'type': 'eq', 'field': 'name', 'value': 'john'}, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -88,7 +90,8 @@ def verify():
                 raw.close()
             except PalantirRPCException as error:
                 assert error.name == error_case['name']
-                assert type(error).__name__ == error_case['name']
+                assert type(error) is BadRequestError
+                assert error.error_code == error_case['code']
                 assert normalized(error.parameters) == error_case['parameters']
             else:
                 raise AssertionError('Expected ' + error_case['name'])

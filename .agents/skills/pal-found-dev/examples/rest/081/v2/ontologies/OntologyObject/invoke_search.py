@@ -1,7 +1,8 @@
 """v2.ontologies.OntologyObject.search: SDK request, decoded result and declared error fixtures.
 
-Synthetic identifiers do not name tenant resources. Prepared SDK 1.101.0/httpx
-required. No network connections or live mutations occur.
+Identifiers and records follow Palantir's illustrative API examples.
+Source: https://www.palantir.com/docs/foundry/api/ontologies-v2-resources/ontology-objects/search-objects
+Prepared SDK 1.101.0/httpx required. No network or live mutations occur.
 """
 import json
 import sys
@@ -10,22 +11,22 @@ import datetime
 from pathlib import Path
 
 import httpx
-from foundry_sdk import PalantirRPCException
+from foundry_sdk import BadRequestError, PalantirRPCException
 from foundry_sdk.v2.ontologies.ontology_object import OntologyObjectClient
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
-EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/objects/Asset/search'
-EXPECTED_BODY = {'select': ['synthetic-value']}
+EXPECTED_PATH = '/api/v2/ontologies/palantir/objects/employee/search'
+EXPECTED_BODY = {'select': ['employeeId', 'lastName', 'firstName', 'age'], 'where': {'type': 'eq', 'field': 'age', 'value': 21}}
 EXPECTED_QUERY = {'branch': None, 'executeInMemoryOnly': None, 'sdkPackageRid': None, 'sdkVersion': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'data': [{}], 'totalCount': '1'}
-ERRORS = []
+SUCCESS = {'data': [{'__rid': 'ri.phonograph2-objects.main.object.5b5dbc28-7f05-4e83-a33a-1e5b851ababb', '__primaryKey': 1000, '__apiName': 'Employee', 'employeeId': 1000, 'lastName': 'smith', 'firstName': 'john', 'age': 21}], 'totalCount': '1'}
+ERRORS = [{'status': 400, 'name': 'PropertiesNotSearchable', 'code': 'INVALID_ARGUMENT', 'parameters': {'properties': ['age']}}]
 
 def invoke(client):
-    return client.with_raw_response.search(ontology='synthetic-value', object_type='Asset', select=['synthetic-value'], request_timeout=30)
+    return client.with_raw_response.search(ontology='palantir', object_type='employee', select=['employeeId', 'lastName', 'firstName', 'age'], where={'type': 'eq', 'field': 'age', 'value': 21}, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -87,7 +88,8 @@ def verify():
                 raw.close()
             except PalantirRPCException as error:
                 assert error.name == error_case['name']
-                assert type(error).__name__ == error_case['name']
+                assert type(error) is BadRequestError
+                assert error.error_code == error_case['code']
                 assert normalized(error.parameters) == error_case['parameters']
             else:
                 raise AssertionError('Expected ' + error_case['name'])
