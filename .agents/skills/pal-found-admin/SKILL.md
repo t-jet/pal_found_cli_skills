@@ -86,18 +86,3 @@ across operations:
 
 Other positional IDs name the resource shown in `--help`. Use IDs returned by
 read commands rather than display names where a command asks for an ID.
-
-## Install requirement
-
-`pal-found-admin` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```

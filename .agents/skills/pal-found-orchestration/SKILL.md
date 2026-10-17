@@ -59,18 +59,3 @@ Every operation accepts `--timeout`, `--format json|toon|auto`, and
 `build create`, the target and fallback branches are required. For schedule
 create or replace, action, trigger, and scope mode are required. Read the
 operation record for the other flags and the returned status.
-
-## Install requirement
-
-`pal-found-orchestration` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```

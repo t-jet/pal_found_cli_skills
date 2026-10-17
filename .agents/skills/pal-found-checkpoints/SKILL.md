@@ -50,18 +50,3 @@ for the visibility rule: batch retrieval omits missing and inaccessible records.
 `--pretty` indents it. On search, `--page-size` requests records per page,
 `--page-token` resumes at a returned continuation token, and `--batch-pages`
 caps automatic traversal. `--sort-direction` controls creation-time order.
-
-## Install requirement
-
-`pal-found-checkpoints` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```

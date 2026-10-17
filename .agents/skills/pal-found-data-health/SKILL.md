@@ -58,18 +58,3 @@ output encoding; `--pretty` indents structured output. For check creation,
 `--config-json` defines the rule and its subject, while `--intent` records why
 it exists. For replacement, the configuration changes the existing rule but
 does not change its subject. `--limit` on `get-latest` caps returned reports.
-
-## Install requirement
-
-`pal-found-data-health` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```

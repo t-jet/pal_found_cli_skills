@@ -55,18 +55,3 @@ API names, RIDs, and JSON payload shapes.
 
 Every operation accepts `--timeout`, `--format json|toon|auto`, and
 `--pretty`. Query execution uses JSON parameter payloads.
-
-## Install requirement
-
-`pal-found-functions` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```
