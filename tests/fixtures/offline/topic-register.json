@@ -1,0 +1,592 @@
+{
+  "schema_version": 1,
+  "topics": [
+    {
+      "id": "T01",
+      "title": "Platform and developer-tool overview",
+      "root": "references/development-paths.md#platform-and-tool-selection",
+      "components": {
+        "concept": "references/development-paths.md#concept-and-lifecycle",
+        "prerequisites": "references/development-paths.md#prerequisites",
+        "procedure": "references/development-paths.md#procedure",
+        "example": "references/development-paths.md#worked-example",
+        "validation": "references/development-paths.md#expected-result-and-checks",
+        "recovery": "references/development-paths.md#failures-and-recovery",
+        "access_boundary": "references/development-paths.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T02",
+      "title": "Development environments",
+      "root": "references/development-paths.md#environments-and-connectivity",
+      "components": {
+        "concept": "references/development-paths.md#concept-and-lifecycle-1",
+        "prerequisites": "references/development-paths.md#prerequisites-1",
+        "procedure": "references/development-paths.md#procedure-1",
+        "example": "references/development-paths.md#worked-example-1",
+        "validation": "references/development-paths.md#expected-result-and-checks-1",
+        "recovery": "references/development-paths.md#failures-and-recovery-1",
+        "access_boundary": "references/development-paths.md#prerequisites-1"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T03",
+      "title": "2.1 Code Repositories: authoring, Git and SDLC",
+      "root": "references/pipelines/repositories.md#repository-authoring-and-review",
+      "components": {
+        "concept": "references/pipelines/repositories.md#concept-and-lifecycle",
+        "prerequisites": "references/pipelines/repositories.md#prerequisites",
+        "procedure": "references/pipelines/repositories.md#procedure",
+        "example": "references/pipelines/repositories.md#worked-example",
+        "validation": "references/pipelines/repositories.md#expected-result-and-checks",
+        "recovery": "references/pipelines/repositories.md#failures-and-recovery",
+        "access_boundary": "references/pipelines/repositories.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T04",
+      "title": "2.2 Python Transforms",
+      "root": "references/pipelines/python-transforms.md#python-transform-lifecycle",
+      "components": {
+        "concept": "references/pipelines/python-transforms.md#concept-and-lifecycle",
+        "prerequisites": "references/pipelines/python-transforms.md#prerequisites",
+        "procedure": "references/pipelines/python-transforms.md#procedure",
+        "example": "references/pipelines/python-transforms.md#worked-example",
+        "validation": "references/pipelines/python-transforms.md#expected-result-and-checks",
+        "recovery": "references/pipelines/python-transforms.md#failures-and-recovery",
+        "access_boundary": "references/pipelines/python-transforms.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T05",
+      "title": "2.3 Testing and data quality",
+      "root": "references/pipelines/testing.md#tests-and-expectations",
+      "components": {
+        "concept": "references/pipelines/testing.md#concept-and-lifecycle",
+        "prerequisites": "references/pipelines/testing.md#prerequisites",
+        "procedure": "references/pipelines/testing.md#procedure",
+        "example": "references/pipelines/testing.md#worked-example",
+        "validation": "references/pipelines/testing.md#expected-result-and-checks",
+        "recovery": "references/pipelines/testing.md#failures-and-recovery",
+        "access_boundary": "references/pipelines/testing.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T06",
+      "title": "2.4 Local Python / VS Code development",
+      "root": "references/pipelines/local-development.md#local-python-development",
+      "components": {
+        "concept": "references/pipelines/local-development.md#concept-and-lifecycle",
+        "prerequisites": "references/pipelines/local-development.md#prerequisites",
+        "procedure": "references/pipelines/local-development.md#procedure",
+        "example": "references/pipelines/local-development.md#worked-example",
+        "validation": "references/pipelines/local-development.md#expected-result-and-checks",
+        "recovery": "references/pipelines/local-development.md#failures-and-recovery",
+        "access_boundary": "references/pipelines/local-development.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T07",
+      "title": "2.5 SQL pipelines",
+      "root": "references/pipelines/sql.md#sql-transforms",
+      "components": {
+        "concept": "references/pipelines/sql.md#concept-and-lifecycle",
+        "prerequisites": "references/pipelines/sql.md#prerequisites",
+        "procedure": "references/pipelines/sql.md#procedure",
+        "example": "references/pipelines/sql.md#worked-example",
+        "validation": "references/pipelines/sql.md#expected-result-and-checks",
+        "recovery": "references/pipelines/sql.md#failures-and-recovery",
+        "access_boundary": "references/pipelines/sql.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T08",
+      "title": "2.6 Code Workspaces",
+      "root": "references/pipelines/workspaces.md#workspace-exploration-and-publication",
+      "components": {
+        "concept": "references/pipelines/workspaces.md#concept-and-lifecycle",
+        "prerequisites": "references/pipelines/workspaces.md#prerequisites",
+        "procedure": "references/pipelines/workspaces.md#procedure",
+        "example": "references/pipelines/workspaces.md#worked-example",
+        "validation": "references/pipelines/workspaces.md#expected-result-and-checks",
+        "recovery": "references/pipelines/workspaces.md#failures-and-recovery",
+        "access_boundary": "references/pipelines/workspaces.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T09",
+      "title": "2.7 Production SDLC and release management",
+      "root": "references/pipelines/releases.md#production-release-procedure",
+      "components": {
+        "concept": "references/pipelines/releases.md#concept-and-lifecycle",
+        "prerequisites": "references/pipelines/releases.md#prerequisites",
+        "procedure": "references/pipelines/releases.md#procedure",
+        "example": "references/pipelines/releases.md#worked-example",
+        "validation": "references/pipelines/releases.md#expected-result-and-checks",
+        "recovery": "references/pipelines/releases.md#failures-and-recovery",
+        "access_boundary": "references/pipelines/releases.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T10",
+      "title": "2.8 Dataset transactions and internal execution semantics",
+      "root": "references/pipelines/transactions.md#transactions-and-incremental-execution",
+      "components": {
+        "concept": "references/pipelines/transactions.md#concept-and-lifecycle",
+        "prerequisites": "references/pipelines/transactions.md#prerequisites",
+        "procedure": "references/pipelines/transactions.md#procedure",
+        "example": "references/pipelines/transactions.md#worked-example",
+        "validation": "references/pipelines/transactions.md#expected-result-and-checks",
+        "recovery": "references/pipelines/transactions.md#failures-and-recovery",
+        "access_boundary": "references/pipelines/transactions.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T11",
+      "title": "3.1 Ontology fundamentals and type system",
+      "root": "references/ontology/modeling.md#ontology-types-and-backing-data",
+      "components": {
+        "concept": "references/ontology/modeling.md#concept-and-lifecycle",
+        "prerequisites": "references/ontology/modeling.md#prerequisites",
+        "procedure": "references/ontology/modeling.md#procedure",
+        "example": "references/ontology/modeling.md#worked-example",
+        "validation": "references/ontology/modeling.md#expected-result-and-checks",
+        "recovery": "references/ontology/modeling.md#failures-and-recovery",
+        "access_boundary": "references/ontology/modeling.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T12",
+      "title": "3.2 Interfaces and polymorphic Ontology design",
+      "root": "references/ontology/interfaces.md#interfaces-and-implementations",
+      "components": {
+        "concept": "references/ontology/interfaces.md#concept-and-lifecycle",
+        "prerequisites": "references/ontology/interfaces.md#prerequisites",
+        "procedure": "references/ontology/interfaces.md#procedure",
+        "example": "references/ontology/interfaces.md#worked-example",
+        "validation": "references/ontology/interfaces.md#expected-result-and-checks",
+        "recovery": "references/ontology/interfaces.md#failures-and-recovery",
+        "access_boundary": "references/ontology/interfaces.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T13",
+      "title": "3.3 Object sets and querying",
+      "root": "references/ontology/queries.md#object-sets-and-query-decisions",
+      "components": {
+        "concept": "references/ontology/queries.md#concept-and-lifecycle",
+        "prerequisites": "references/ontology/queries.md#prerequisites",
+        "procedure": "references/ontology/queries.md#procedure",
+        "example": "references/ontology/queries.md#worked-example",
+        "validation": "references/ontology/queries.md#expected-result-and-checks",
+        "recovery": "references/ontology/queries.md#failures-and-recovery",
+        "access_boundary": "references/ontology/queries.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T14",
+      "title": "3.4 Actions",
+      "root": "references/ontology/actions.md#action-validation-and-writeback",
+      "components": {
+        "concept": "references/ontology/actions.md#concept-and-lifecycle",
+        "prerequisites": "references/ontology/actions.md#prerequisites",
+        "procedure": "references/ontology/actions.md#procedure",
+        "example": "references/ontology/actions.md#worked-example",
+        "validation": "references/ontology/actions.md#expected-result-and-checks",
+        "recovery": "references/ontology/actions.md#failures-and-recovery",
+        "access_boundary": "references/ontology/actions.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T15",
+      "title": "3.5 Functions",
+      "root": "references/ontology/functions.md#function-runtimes-and-publication",
+      "components": {
+        "concept": "references/ontology/functions.md#concept-and-lifecycle",
+        "prerequisites": "references/ontology/functions.md#prerequisites",
+        "procedure": "references/ontology/functions.md#procedure",
+        "example": "references/ontology/functions.md#worked-example",
+        "validation": "references/ontology/functions.md#expected-result-and-checks",
+        "recovery": "references/ontology/functions.md#failures-and-recovery",
+        "access_boundary": "references/ontology/functions.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T16",
+      "title": "3.6 Ontology security",
+      "root": "references/ontology/security.md#object-and-action-authorization",
+      "components": {
+        "concept": "references/ontology/security.md#concept-and-lifecycle",
+        "prerequisites": "references/ontology/security.md#prerequisites",
+        "procedure": "references/ontology/security.md#procedure",
+        "example": "references/ontology/security.md#worked-example",
+        "validation": "references/ontology/security.md#expected-result-and-checks",
+        "recovery": "references/ontology/security.md#failures-and-recovery",
+        "access_boundary": "references/ontology/security.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T17",
+      "title": "Compute: Fundamentals and architecture",
+      "root": "references/compute/lifecycle.md#container-configuration-and-lifecycle",
+      "components": {
+        "concept": "references/compute/lifecycle.md#concept-and-lifecycle",
+        "prerequisites": "references/compute/lifecycle.md#prerequisites",
+        "procedure": "references/compute/lifecycle.md#procedure",
+        "example": "references/compute/lifecycle.md#worked-example",
+        "validation": "references/compute/lifecycle.md#expected-result-and-checks",
+        "recovery": "references/compute/lifecycle.md#failures-and-recovery",
+        "access_boundary": "references/compute/lifecycle.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T18",
+      "title": "Compute: Execution models and transaction/provenance behavior",
+      "root": "references/compute/execution.md#execution-modes-and-provenance",
+      "components": {
+        "concept": "references/compute/execution.md#concept-and-lifecycle",
+        "prerequisites": "references/compute/execution.md#prerequisites",
+        "procedure": "references/compute/execution.md#procedure",
+        "example": "references/compute/execution.md#worked-example",
+        "validation": "references/compute/execution.md#expected-result-and-checks",
+        "recovery": "references/compute/execution.md#failures-and-recovery",
+        "access_boundary": "references/compute/execution.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T19",
+      "title": "Compute: SDK and integration references",
+      "root": "references/compute/integration.md#sdk-integration-and-sources",
+      "components": {
+        "concept": "references/compute/integration.md#concept-and-lifecycle",
+        "prerequisites": "references/compute/integration.md#prerequisites",
+        "procedure": "references/compute/integration.md#procedure",
+        "example": "references/compute/integration.md#worked-example",
+        "validation": "references/compute/integration.md#expected-result-and-checks",
+        "recovery": "references/compute/integration.md#failures-and-recovery",
+        "access_boundary": "references/compute/integration.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T20",
+      "title": "5.1 OSDK and Developer Console foundations",
+      "root": "references/applications/osdk.md#application-registration-and-generated-sdk",
+      "components": {
+        "concept": "references/applications/osdk.md#concept-and-lifecycle",
+        "prerequisites": "references/applications/osdk.md#prerequisites",
+        "procedure": "references/applications/osdk.md#procedure",
+        "example": "references/applications/osdk.md#worked-example",
+        "validation": "references/applications/osdk.md#expected-result-and-checks",
+        "recovery": "references/applications/osdk.md#failures-and-recovery",
+        "access_boundary": "references/applications/osdk.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T21",
+      "title": "5.2 React application lifecycle",
+      "root": "references/applications/react.md#react-query-and-release-lifecycle",
+      "components": {
+        "concept": "references/applications/react.md#concept-and-lifecycle",
+        "prerequisites": "references/applications/react.md#prerequisites",
+        "procedure": "references/applications/react.md#procedure",
+        "example": "references/applications/react.md#worked-example",
+        "validation": "references/applications/react.md#expected-result-and-checks",
+        "recovery": "references/applications/react.md#failures-and-recovery",
+        "access_boundary": "references/applications/react.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T22",
+      "title": "Widget lifecycle",
+      "root": "references/widgets/lifecycle.md#widget-set-creation-and-releases",
+      "components": {
+        "concept": "references/widgets/lifecycle.md#concept-and-lifecycle",
+        "prerequisites": "references/widgets/lifecycle.md#prerequisites",
+        "procedure": "references/widgets/lifecycle.md#procedure",
+        "example": "references/widgets/lifecycle.md#worked-example",
+        "validation": "references/widgets/lifecycle.md#expected-result-and-checks",
+        "recovery": "references/widgets/lifecycle.md#failures-and-recovery",
+        "access_boundary": "references/widgets/lifecycle.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T23",
+      "title": "Widget: Local development and testing",
+      "root": "references/widgets/testing.md#playground-and-workshop-previews",
+      "components": {
+        "concept": "references/widgets/testing.md#concept-and-lifecycle",
+        "prerequisites": "references/widgets/testing.md#prerequisites",
+        "procedure": "references/widgets/testing.md#procedure",
+        "example": "references/widgets/testing.md#worked-example",
+        "validation": "references/widgets/testing.md#expected-result-and-checks",
+        "recovery": "references/widgets/testing.md#failures-and-recovery",
+        "access_boundary": "references/widgets/testing.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T24",
+      "title": "Workshop \u2194 React integration",
+      "root": "references/widgets/integration.md#parameters-and-events",
+      "components": {
+        "concept": "references/widgets/integration.md#concept-and-lifecycle",
+        "prerequisites": "references/widgets/integration.md#prerequisites",
+        "procedure": "references/widgets/integration.md#procedure",
+        "example": "references/widgets/integration.md#worked-example",
+        "validation": "references/widgets/integration.md#expected-result-and-checks",
+        "recovery": "references/widgets/integration.md#failures-and-recovery",
+        "access_boundary": "references/widgets/integration.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T25",
+      "title": "Widget: Distribution",
+      "root": "references/widgets/distribution.md#widget-and-marketplace-distribution",
+      "components": {
+        "concept": "references/widgets/distribution.md#concept-and-lifecycle",
+        "prerequisites": "references/widgets/distribution.md#prerequisites",
+        "procedure": "references/widgets/distribution.md#procedure",
+        "example": "references/widgets/distribution.md#worked-example",
+        "validation": "references/widgets/distribution.md#expected-result-and-checks",
+        "recovery": "references/widgets/distribution.md#failures-and-recovery",
+        "access_boundary": "references/widgets/distribution.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T26",
+      "title": "7.1 Global Branching",
+      "root": "references/branching/global.md#global-branch-lifecycle",
+      "components": {
+        "concept": "references/branching/global.md#concept-and-lifecycle",
+        "prerequisites": "references/branching/global.md#prerequisites",
+        "procedure": "references/branching/global.md#procedure",
+        "example": "references/branching/global.md#worked-example",
+        "validation": "references/branching/global.md#expected-result-and-checks",
+        "recovery": "references/branching/global.md#failures-and-recovery",
+        "access_boundary": "references/branching/global.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T27",
+      "title": "7.2 Git / local Code Repository branches",
+      "root": "references/branching/git.md#git-review-and-branch-settings",
+      "components": {
+        "concept": "references/branching/git.md#concept-and-lifecycle",
+        "prerequisites": "references/branching/git.md#prerequisites",
+        "procedure": "references/branching/git.md#procedure",
+        "example": "references/branching/git.md#worked-example",
+        "validation": "references/branching/git.md#expected-result-and-checks",
+        "recovery": "references/branching/git.md#failures-and-recovery",
+        "access_boundary": "references/branching/git.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T28",
+      "title": "7.3 Global branch vs Git branch",
+      "root": "references/branching/contexts.md#select-and-verify-branch-contexts",
+      "components": {
+        "concept": "references/branching/contexts.md#concept-and-lifecycle",
+        "prerequisites": "references/branching/contexts.md#prerequisites",
+        "procedure": "references/branching/contexts.md#procedure",
+        "example": "references/branching/contexts.md#worked-example",
+        "validation": "references/branching/contexts.md#expected-result-and-checks",
+        "recovery": "references/branching/contexts.md#failures-and-recovery",
+        "access_boundary": "references/branching/contexts.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T29",
+      "title": "7.4 Dataset/build branches",
+      "root": "references/branching/datasets.md#dataset-branches-and-fallbacks",
+      "components": {
+        "concept": "references/branching/datasets.md#concept-and-lifecycle",
+        "prerequisites": "references/branching/datasets.md#prerequisites",
+        "procedure": "references/branching/datasets.md#procedure",
+        "example": "references/branching/datasets.md#worked-example",
+        "validation": "references/branching/datasets.md#expected-result-and-checks",
+        "recovery": "references/branching/datasets.md#failures-and-recovery",
+        "access_boundary": "references/branching/datasets.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T30",
+      "title": "7.5 Application-specific Global Branching",
+      "root": "references/branching/integrations.md#resource-integration-boundaries",
+      "components": {
+        "concept": "references/branching/integrations.md#concept-and-lifecycle",
+        "prerequisites": "references/branching/integrations.md#prerequisites",
+        "procedure": "references/branching/integrations.md#procedure",
+        "example": "references/branching/integrations.md#worked-example",
+        "validation": "references/branching/integrations.md#expected-result-and-checks",
+        "recovery": "references/branching/integrations.md#failures-and-recovery",
+        "access_boundary": "references/branching/integrations.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T31",
+      "title": "Foundry platform security",
+      "root": "references/security/platform.md#projects-and-resource-boundaries",
+      "components": {
+        "concept": "references/security/platform.md#concept-and-lifecycle",
+        "prerequisites": "references/security/platform.md#prerequisites",
+        "procedure": "references/security/platform.md#procedure",
+        "example": "references/security/platform.md#worked-example",
+        "validation": "references/security/platform.md#expected-result-and-checks",
+        "recovery": "references/security/platform.md#failures-and-recovery",
+        "access_boundary": "references/security/platform.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T32",
+      "title": "Ontology/application security",
+      "root": "references/security/applications.md#application-and-ontology-permission-checks",
+      "components": {
+        "concept": "references/security/applications.md#concept-and-lifecycle",
+        "prerequisites": "references/security/applications.md#prerequisites",
+        "procedure": "references/security/applications.md#procedure",
+        "example": "references/security/applications.md#worked-example",
+        "validation": "references/security/applications.md#expected-result-and-checks",
+        "recovery": "references/security/applications.md#failures-and-recovery",
+        "access_boundary": "references/security/applications.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T33",
+      "title": "Compute and branch security",
+      "root": "references/security/compute-branches.md#execution-identity-and-branch-authorization",
+      "components": {
+        "concept": "references/security/compute-branches.md#concept-and-lifecycle",
+        "prerequisites": "references/security/compute-branches.md#prerequisites",
+        "procedure": "references/security/compute-branches.md#procedure",
+        "example": "references/security/compute-branches.md#worked-example",
+        "validation": "references/security/compute-branches.md#expected-result-and-checks",
+        "recovery": "references/security/compute-branches.md#failures-and-recovery",
+        "access_boundary": "references/security/compute-branches.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T34",
+      "title": "Lineage",
+      "root": "references/operations/lineage.md#trace-branch-and-build-provenance",
+      "components": {
+        "concept": "references/operations/lineage.md#concept-and-lifecycle",
+        "prerequisites": "references/operations/lineage.md#prerequisites",
+        "procedure": "references/operations/lineage.md#procedure",
+        "example": "references/operations/lineage.md#worked-example",
+        "validation": "references/operations/lineage.md#expected-result-and-checks",
+        "recovery": "references/operations/lineage.md#failures-and-recovery",
+        "access_boundary": "references/operations/lineage.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T35",
+      "title": "Monitoring and alerting",
+      "root": "references/operations/monitoring.md#checks-monitoring-and-alert-ownership",
+      "components": {
+        "concept": "references/operations/monitoring.md#concept-and-lifecycle",
+        "prerequisites": "references/operations/monitoring.md#prerequisites",
+        "procedure": "references/operations/monitoring.md#procedure",
+        "example": "references/operations/monitoring.md#worked-example",
+        "validation": "references/operations/monitoring.md#expected-result-and-checks",
+        "recovery": "references/operations/monitoring.md#failures-and-recovery",
+        "access_boundary": "references/operations/monitoring.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T36",
+      "title": "Pipeline support and operations",
+      "root": "references/operations/support.md#diagnose-recover-and-verify-pipelines",
+      "components": {
+        "concept": "references/operations/support.md#concept-and-lifecycle",
+        "prerequisites": "references/operations/support.md#prerequisites",
+        "procedure": "references/operations/support.md#procedure",
+        "example": "references/operations/support.md#worked-example",
+        "validation": "references/operations/support.md#expected-result-and-checks",
+        "recovery": "references/operations/support.md#failures-and-recovery",
+        "access_boundary": "references/operations/support.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    },
+    {
+      "id": "T37",
+      "title": "Separate REST API development topic",
+      "root": "references/rest-api.md#discover-and-author-any-frozen-sdk-rest-operation",
+      "components": {
+        "concept": "references/rest-api.md#concept-and-lifecycle",
+        "prerequisites": "references/rest-api.md#prerequisites",
+        "procedure": "references/rest-api.md#procedure",
+        "example": "references/rest-api.md#worked-example",
+        "validation": "references/rest-api.md#expected-result-and-checks",
+        "recovery": "references/rest-api.md#failures-and-recovery",
+        "access_boundary": "references/rest-api.md#prerequisites"
+      },
+      "access_boundary_review": "independent QA required"
+    }
+  ],
+  "baseline": {
+    "source_revision": "bb26037813cda6dab5f51c03af9a0b08162a5f7e",
+    "operation_count": 351,
+    "operation_sha256": "9d75ac4c6e955c682e8fc10ea5991726215ecbe646a0d233c99ad9a6d97a06f8",
+    "skill_count": 20,
+    "skill_identities": [
+      "pal-found",
+      "pal-found-admin",
+      "pal-found-aip-agents",
+      "pal-found-audit",
+      "pal-found-checkpoints",
+      "pal-found-connectivity",
+      "pal-found-data-health",
+      "pal-found-datasets",
+      "pal-found-dev",
+      "pal-found-filesystem",
+      "pal-found-functions",
+      "pal-found-language-models",
+      "pal-found-media-sets",
+      "pal-found-models",
+      "pal-found-ontologies",
+      "pal-found-orchestration",
+      "pal-found-sql-queries",
+      "pal-found-streams",
+      "pal-found-third-party-applications",
+      "pal-found-widgets"
+    ],
+    "test_command": "python -m pytest -q --basetemp E:/learn/GenAI_Foundations_DA/git/foundry_cli/.ept/tmp/feature015-baseline-pytest",
+    "test_result": "33 passed in 4.72s",
+    "evidence_mode": "Read-only baseline; no live Foundry execution"
+  },
+  "semantic_acceptance": "Independent source/topic/journey review required; structural reachability is insufficient."
+}

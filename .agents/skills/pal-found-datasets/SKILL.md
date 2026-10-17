@@ -101,18 +101,3 @@ when another token exists.
 | `--view-dataset-rid` | RID of the View to inspect or change. |
 | `--backing-datasets` | JSON array of dataset RID and branch pairs feeding a View; entries may also control marking propagation. |
 | `--primary-key` | JSON key columns and duplicate-resolution rule for a View. |
-
-## Install requirement
-
-`pal-found-datasets` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```

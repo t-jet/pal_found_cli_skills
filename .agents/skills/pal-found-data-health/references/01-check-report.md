@@ -4,6 +4,9 @@ Data Health monitors individual resources with checks for status, freshness, siz
 
 The examples assume valid Foundry credentials and the required dataset or check permissions. Replace sample RIDs. A `buildStatus` rule uses a dataset RID, branch, and severity (`MODERATE` or `CRITICAL`). All 16 create/replace rule types and their recursive JSON field contracts are available in the [local configuration guide](check-config.md). Use the matching variant and nested model links before editing the JSON.
 
+The Check and Check Report API requires `preview=true` for all six operations
+below. The CLI supplies it on every request; callers do not pass a preview flag.
+
 ### check.create
 
 Create a check on a dataset. `--config-json` is a required, typed rule definition; `--intent` explains why the rule exists. The returned `Check` contains its RID and saved configuration. Creation does not mean that a report has already been produced. Invalid rule fields, a missing dataset, or insufficient write permission prevent creation.

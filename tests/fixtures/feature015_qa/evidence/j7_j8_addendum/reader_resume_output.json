@@ -1,0 +1,114 @@
+{
+  "mode": "synthetic prepared runtime only; no Foundry tenant request",
+  "networkProbe": "fetch, DNS, TCP and UDP entry points denied in this Node process",
+  "cases": {
+    "J7-4": {
+      "app": {
+        "clientKind": "public OAuth authorization-code client",
+        "callback": "http://localhost:8080/auth/callback",
+        "origin": "http://localhost:8080",
+        "scopes": [
+          "api:use-ontologies-read",
+          "api:use-ontologies-write"
+        ],
+        "ontologyBinding": "prepared generated Todo and completeTodo exports"
+      },
+      "loginFailures": {
+        "callback": "CALLBACK_MISMATCH",
+        "applicationGrant": "APPLICATION_GRANT_DENIED",
+        "missingReadScope": "READ_SCOPE_MISSING",
+        "deniedWriteScope": "SCOPE_DENIED"
+      },
+      "preQueryActionCalls": 0,
+      "bobRows": [
+        {
+          "todoId": "todo-1",
+          "status": "OPEN"
+        }
+      ],
+      "deniedAction": "ACTION_DENIED"
+    },
+    "J7-5": {
+      "initialRows": [
+        {
+          "todoId": "todo-1",
+          "status": "OPEN"
+        }
+      ],
+      "confirmed": {
+        "todoId": "todo-1",
+        "status": "DONE"
+      },
+      "afterConfirmed": [],
+      "lostReply": "RESPONSE_TIMEOUT_EFFECT_UNKNOWN",
+      "reread": [],
+      "uncertainActionCount": 1,
+      "preview": {
+        "kind": "local-preview",
+        "version": "working-tree"
+      },
+      "deployed": {
+        "kind": "website-release",
+        "version": "1.1.0",
+        "asset": "todo-app.1.1.0.js"
+      }
+    },
+    "J8-4": {
+      "host0": {
+        "version": "1.1.0",
+        "asset": "counter.1.1.0.js",
+        "reviewCounter": 0,
+        "reviewSummary": 0
+      },
+      "host5": {
+        "version": "1.1.0",
+        "asset": "counter.1.1.0.js",
+        "reviewCounter": 5,
+        "reviewSummary": 5
+      },
+      "afterEvent": {
+        "version": "1.1.0",
+        "asset": "counter.1.1.0.js",
+        "reviewCounter": 6,
+        "reviewSummary": 6
+      },
+      "rejectedType": "TypeError: invalid host count",
+      "afterRejected": {
+        "version": "1.1.0",
+        "asset": "counter.1.1.0.js",
+        "reviewCounter": 6,
+        "reviewSummary": 6
+      },
+      "traceBeforeBad": [
+        {
+          "kind": "host-parameter",
+          "count": 0
+        },
+        {
+          "kind": "host-parameter",
+          "count": 5
+        },
+        {
+          "kind": "widget-event",
+          "eventId": "countChanged",
+          "count": 6
+        }
+      ]
+    },
+    "J8-5": {
+      "rollback": {
+        "version": "1.0.0",
+        "asset": "counter.1.0.0.js",
+        "reviewCounter": 6,
+        "reviewSummary": null
+      },
+      "rollbackEvent": {
+        "version": "1.0.0",
+        "asset": "counter.1.0.0.js",
+        "reviewCounter": 7,
+        "reviewSummary": null
+      },
+      "selectedRelease": "1.0.0"
+    }
+  }
+}

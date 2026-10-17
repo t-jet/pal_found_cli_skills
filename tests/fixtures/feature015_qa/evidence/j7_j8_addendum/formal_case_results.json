@@ -1,0 +1,263 @@
+{
+  "executed_utc": "2026-10-11T14:27:20.717594+00:00",
+  "snapshot_manifest_sha256": "5cbf2fc67b3bc706262884b40942caf7a345738edb965dfc0a979e3d785b56b8",
+  "snapshot_files_verified": 4379,
+  "source_reader_evidence": [
+    "feature015_j7_j8_reader_results.md",
+    "j7_j8_addendum/reader_resume_answer.md",
+    "j7_j8_addendum/formal_run_output.json"
+  ],
+  "topic_docs": {
+    "T20": "references/applications/osdk.md",
+    "T21": "references/applications/react.md",
+    "T22": "references/widgets/lifecycle.md",
+    "T23": "references/widgets/testing.md",
+    "T24": "references/widgets/integration.md",
+    "T25": "references/widgets/distribution.md"
+  },
+  "cases": [
+    {
+      "case": "J7-1",
+      "topic": "T20/T21",
+      "consulted_local_heading": "references/applications/react.md#Worked example",
+      "reader_trace": "useOsdkObjects(Todo",
+      "test_data": {
+        "user": "permitted",
+        "page_size": 10
+      },
+      "expected": {
+        "ui_states": true,
+        "client_query_trace": true
+      },
+      "actual": {
+        "ui_states": true,
+        "client_query_trace": true
+      },
+      "status": "PASS",
+      "mode": "guarded synthetic fixture and local reader procedure; no live tenant execution"
+    },
+    {
+      "case": "J7-2",
+      "topic": "T20/T21",
+      "consulted_local_heading": "references/applications/osdk.md#Failures and recovery",
+      "reader_trace": "Action denial",
+      "test_data": {
+        "user": "bob",
+        "grant": "read only"
+      },
+      "expected": {
+        "rows": [
+          {
+            "todoId": "todo-1",
+            "status": "OPEN"
+          }
+        ],
+        "action": "ACTION_DENIED"
+      },
+      "actual": {
+        "rows": [
+          {
+            "todoId": "todo-1",
+            "status": "OPEN"
+          }
+        ],
+        "action": "ACTION_DENIED"
+      },
+      "status": "PASS",
+      "mode": "guarded synthetic fixture and local reader procedure; no live tenant execution"
+    },
+    {
+      "case": "J7-3",
+      "topic": "T21",
+      "consulted_local_heading": "references/applications/react.md#Failures and recovery",
+      "reader_trace": "fetch Todo again",
+      "test_data": {
+        "action": "reply lost",
+        "target": "todo-1"
+      },
+      "expected": {
+        "effect": "RESPONSE_TIMEOUT_EFFECT_UNKNOWN",
+        "reread": [],
+        "action_calls": 1
+      },
+      "actual": {
+        "effect": "RESPONSE_TIMEOUT_EFFECT_UNKNOWN",
+        "reread": [],
+        "action_calls": 1
+      },
+      "status": "PASS",
+      "mode": "guarded synthetic fixture and local reader procedure; no live tenant execution"
+    },
+    {
+      "case": "J8-1",
+      "topic": "T22/T25",
+      "consulted_local_heading": "references/widgets/lifecycle.md#Expected result and checks",
+      "reader_trace": "first published release",
+      "test_data": {
+        "release": "none",
+        "mode": "playground"
+      },
+      "expected": {
+        "first_release_required": true,
+        "fixture_has_no_publication": true
+      },
+      "actual": {
+        "first_release_required": true,
+        "fixture_has_no_publication": true
+      },
+      "status": "PASS",
+      "mode": "guarded synthetic fixture and local reader procedure; no live tenant execution"
+    },
+    {
+      "case": "J8-2",
+      "topic": "T23/T24",
+      "consulted_local_heading": "references/widgets/testing.md#Worked example",
+      "reader_trace": "host owns retained state",
+      "test_data": {
+        "host_count": [
+          0,
+          5
+        ],
+        "event_count": 6,
+        "bad_event": "seven"
+      },
+      "expected": {
+        "host": 6,
+        "second_widget": 6,
+        "bad_type": "TypeError: invalid host count",
+        "unchanged_host": 6
+      },
+      "actual": {
+        "host": 6,
+        "second_widget": 6,
+        "bad_type": "TypeError: invalid host count",
+        "unchanged_host": 6
+      },
+      "status": "PASS",
+      "mode": "guarded synthetic fixture and local reader procedure; no live tenant execution"
+    },
+    {
+      "case": "J8-3",
+      "topic": "T25",
+      "consulted_local_heading": "references/widgets/distribution.md#Failures and recovery",
+      "reader_trace": "pinned to `1.0.0` retain",
+      "test_data": {
+        "host": "1.0.0",
+        "new_release": "1.1.0"
+      },
+      "expected": {
+        "explicit_selection": true,
+        "prior_version_retained": true
+      },
+      "actual": {
+        "explicit_selection": true,
+        "prior_version_retained": true
+      },
+      "status": "PASS",
+      "mode": "guarded synthetic fixture and local reader procedure; no live tenant execution"
+    },
+    {
+      "case": "J7-4",
+      "topic": "T20",
+      "consulted_local_heading": "references/applications/osdk.md#Prerequisites",
+      "reader_trace": "CALLBACK_MISMATCH",
+      "test_data": {
+        "callback": "wrong",
+        "grant": "none",
+        "scopes": "missing read/write"
+      },
+      "expected": {
+        "callback": "CALLBACK_MISMATCH",
+        "grant": "APPLICATION_GRANT_DENIED",
+        "read_scope": "READ_SCOPE_MISSING",
+        "write_scope": "SCOPE_DENIED",
+        "prequery_calls": 0
+      },
+      "actual": {
+        "callback": "CALLBACK_MISMATCH",
+        "grant": "APPLICATION_GRANT_DENIED",
+        "read_scope": "READ_SCOPE_MISSING",
+        "write_scope": "SCOPE_DENIED",
+        "prequery_calls": 0
+      },
+      "status": "PASS",
+      "mode": "guarded synthetic fixture and local reader procedure; no live tenant execution"
+    },
+    {
+      "case": "J7-5",
+      "topic": "T21",
+      "consulted_local_heading": "references/applications/react.md#Expected result and checks",
+      "reader_trace": "todo-app.1.1.0.js",
+      "test_data": {
+        "initial": "OPEN",
+        "confirmed": "DONE",
+        "preview": "working-tree"
+      },
+      "expected": {
+        "refreshed": [],
+        "website_release": "1.1.0",
+        "asset": "todo-app.1.1.0.js"
+      },
+      "actual": {
+        "refreshed": [],
+        "website_release": "1.1.0",
+        "asset": "todo-app.1.1.0.js"
+      },
+      "status": "PASS",
+      "mode": "guarded synthetic fixture and local reader procedure; no live tenant execution"
+    },
+    {
+      "case": "J8-4",
+      "topic": "T24",
+      "consulted_local_heading": "references/widgets/integration.md#Procedure",
+      "reader_trace": "countChanged",
+      "test_data": {
+        "host_parameter": [
+          0,
+          5
+        ],
+        "event": 6,
+        "bad": "seven"
+      },
+      "expected": {
+        "host_0": 0,
+        "host_5": 5,
+        "after_event": 6,
+        "second_widget": 6,
+        "bad_preserved": 6
+      },
+      "actual": {
+        "host_0": 0,
+        "host_5": 5,
+        "after_event": 6,
+        "second_widget": 6,
+        "bad_preserved": 6
+      },
+      "status": "PASS",
+      "mode": "guarded synthetic fixture and local reader procedure; no live tenant execution"
+    },
+    {
+      "case": "J8-5",
+      "topic": "T25",
+      "consulted_local_heading": "references/widgets/distribution.md#Failures and recovery",
+      "reader_trace": "counter.1.0.0.js",
+      "test_data": {
+        "selected": "1.1.0",
+        "verified_prior": "1.0.0"
+      },
+      "expected": {
+        "selected_release": "1.0.0",
+        "asset": "counter.1.0.0.js",
+        "host_after_event": 7
+      },
+      "actual": {
+        "selected_release": "1.0.0",
+        "asset": "counter.1.0.0.js",
+        "host_after_event": 7
+      },
+      "status": "PASS",
+      "mode": "guarded synthetic fixture and local reader procedure; no live tenant execution"
+    }
+  ],
+  "live_tenant_tested": false
+}

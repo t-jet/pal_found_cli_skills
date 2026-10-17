@@ -1,0 +1,145 @@
+{
+  "network_probe": "PUBLIC_NETWORK_DENIED",
+  "outcomes": [
+    {
+      "namespace": "v1.datasets",
+      "example": "examples/rest/074/v1/datasets/Dataset/get.py",
+      "output": "v1.datasets.Dataset.get: serialized request, decoded result and 1 named errors passed",
+      "error": null,
+      "passed": true
+    },
+    {
+      "namespace": "v1.ontologies",
+      "example": "examples/rest/077/v1/ontologies/Attachment/get.py",
+      "output": "v1.ontologies.Attachment.get: serialized request, decoded result and 0 named errors passed",
+      "error": null,
+      "passed": true
+    },
+    {
+      "namespace": "v2.admin",
+      "example": "examples/rest/071/v2/admin/Group/get.py",
+      "output": "v2.admin.Group.get: serialized request, decoded result and 1 named errors passed",
+      "error": null,
+      "passed": true
+    },
+    {
+      "namespace": "v2.aip_agents",
+      "example": "examples/rest/087/v2/aip_agents/AgentVersion/get.py",
+      "output": "v2.aip_agents.AgentVersion.get: serialized request, decoded result and 4 named errors passed",
+      "error": null,
+      "passed": true
+    },
+    {
+      "namespace": "v2.audit",
+      "example": "examples/rest/073/v2/audit/LogFile/list.py",
+      "output": "v2.audit.LogFile.list: serialized request, decoded result and 2 named errors passed",
+      "error": null,
+      "passed": true
+    },
+    {
+      "namespace": "v2.checkpoints",
+      "example": "examples/rest/075/v2/checkpoints/Record/get.py",
+      "output": "v2.checkpoints.Record.get: serialized request, decoded result and 3 named errors passed",
+      "error": null,
+      "passed": true
+    },
+    {
+      "namespace": "v2.connectivity",
+      "example": "examples/rest/089/v2/connectivity/Connection/invoke_get.py",
+      "output": "v2.connectivity.Connection.get: serialized request, decoded result and 3 named errors passed",
+      "error": null,
+      "passed": true
+    },
+    {
+      "namespace": "v2.data_health",
+      "example": "examples/rest/075/v2/data_health/Check/get.py",
+      "output": "v2.data_health.Check.get: serialized request, decoded result and 2 named errors passed",
+      "error": null,
+      "passed": true
+    },
+    {
+      "namespace": "v2.datasets",
+      "example": "examples/rest/074/v2/datasets/Dataset/get.py",
+      "output": "v2.datasets.Dataset.get: serialized request, decoded result and 2 named errors passed",
+      "error": null,
+      "passed": true
+    },
+    {
+      "namespace": "v2.filesystem",
+      "example": "examples/rest/073/v2/filesystem/Folder/get.py",
+      "output": "v2.filesystem.Folder.get: serialized request, decoded result and 3 named errors passed",
+      "error": null,
+      "passed": true
+    },
+    {
+      "namespace": "v2.functions",
+      "example": "examples/rest/085/v2/functions/ValueType/invoke_get.py",
+      "output": "v2.functions.ValueType.get: serialized request, decoded result and 1 named errors passed",
+      "error": null,
+      "passed": true
+    },
+    {
+      "namespace": "v2.language_models",
+      "example": "examples/rest/087/v2/language_models/OpenAiModel/embeddings.py",
+      "output": "v2.language_models.OpenAiModel.embeddings: serialized request, decoded result and 1 named errors passed",
+      "error": null,
+      "passed": true
+    },
+    {
+      "namespace": "v2.media_sets",
+      "example": "examples/rest/091/v2/media_sets/MediaSet/invoke_get.py",
+      "output": "v2.media_sets.MediaSet.get: serialized request, decoded result and 0 named errors passed",
+      "error": null,
+      "passed": true
+    },
+    {
+      "namespace": "v2.models",
+      "example": "examples/rest/087/v2/models/LiveDeployment/get.py",
+      "output": "v2.models.LiveDeployment.get: serialized request, decoded result and 2 named errors passed",
+      "error": null,
+      "passed": true
+    },
+    {
+      "namespace": "v2.ontologies",
+      "example": "examples/rest/083/v2/ontologies/Attachment/invoke_get.py",
+      "output": "v2.ontologies.Attachment.get: serialized request, decoded result and 0 named errors passed",
+      "error": null,
+      "passed": true
+    },
+    {
+      "namespace": "v2.orchestration",
+      "example": "examples/rest/075/v2/orchestration/Build/get.py",
+      "output": "v2.orchestration.Build.get: serialized request, decoded result and 1 named errors passed",
+      "error": null,
+      "passed": true
+    },
+    {
+      "namespace": "v2.sql_queries",
+      "example": "examples/rest/089/v2/sql_queries/SqlQuery/invoke_cancel.py",
+      "output": "v2.sql_queries.SqlQuery.cancel: serialized request, decoded result and 7 named errors passed",
+      "error": null,
+      "passed": true
+    },
+    {
+      "namespace": "v2.streams",
+      "example": "examples/rest/089/v2/streams/Stream/invoke_get_records.py",
+      "output": "v2.streams.Stream.get_records: serialized request, decoded result and 1 named errors passed",
+      "error": null,
+      "passed": true
+    },
+    {
+      "namespace": "v2.third_party_applications",
+      "example": "examples/rest/073/v2/third_party_applications/Website/get.py",
+      "output": "v2.third_party_applications.Website.get: serialized request, decoded result and 1 named errors passed",
+      "error": null,
+      "passed": true
+    },
+    {
+      "namespace": "v2.widgets",
+      "example": "examples/rest/091/v2/widgets/Repository/invoke_get.py",
+      "output": "v2.widgets.Repository.get: serialized request, decoded result and 1 named errors passed",
+      "error": null,
+      "passed": true
+    }
+  ]
+}

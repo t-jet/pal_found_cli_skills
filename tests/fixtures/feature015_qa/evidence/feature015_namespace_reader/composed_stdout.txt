@@ -1,0 +1,24 @@
+v1.datasets: PASS client.datasets.Dataset.get
+v1.ontologies: PASS client.ontologies.Attachment.get
+v2.admin: PASS client.admin.Group.get
+v2.aip_agents: PASS client.aip_agents.Agent.AgentVersion.get
+v2.audit: PASS client.audit.Organization.LogFile.list
+v2.checkpoints: PASS client.checkpoints.Record.get
+v2.connectivity: PASS client.connectivity.Connection.get
+v2.data_health: PASS client.data_health.Check.get
+v2.datasets: PASS client.datasets.Dataset.get
+v2.filesystem: PASS client.filesystem.Folder.get
+v2.functions: PASS client.functions.ValueType.get
+v2.language_models: PASS client.language_models.OpenAiModel.embeddings
+v2.media_sets: PASS client.media_sets.MediaSet.get
+v2.models: PASS client.models.LiveDeployment.get
+v2.ontologies: PASS client.ontologies.Attachment.get
+v2.orchestration: PASS client.orchestration.Build.get
+v2.sql_queries: PASS client.sql_queries.SqlQuery.cancel
+v2.streams: PASS client.streams.Dataset.Stream.get_records
+v2.third_party_applications: PASS client.third_party_applications.ThirdPartyApplication.Website.get
+v2.widgets: PASS client.widgets.Repository.get
+v1.datasets.File.get: PASS client.datasets.Dataset.File.get
+v2.datasets.File.get: PASS client.datasets.Dataset.File.get
+v2.datasets.File.content: PASS client.datasets.Dataset.File.content
+passed=23/23

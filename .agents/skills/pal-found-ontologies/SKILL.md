@@ -94,18 +94,3 @@ switches are `--accuracy`, `--aggregate`, `--exclude-rid`,
 `--link-types`, `--load-property-securities`,
 `--object-set`, `--other-interface-types`, `--snapshot`, `--sort-order`, and
 `--stream-format`.
-
-## Install requirement
-
-`pal-found-ontologies` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```
