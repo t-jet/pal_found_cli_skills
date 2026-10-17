@@ -1,7 +1,8 @@
 """v2.ontologies.LinkedObject.get_linked_object: SDK request, decoded result and declared error fixtures.
 
-Synthetic identifiers do not name tenant resources. Prepared SDK 1.101.0/httpx
-required. No network connections or live mutations occur.
+Identifiers and records follow Palantir's illustrative API examples.
+Source: https://www.palantir.com/docs/foundry/api/ontologies-v2-resources/linked-objects/get-linked-object
+Prepared SDK 1.101.0/httpx required. No network or live mutations occur.
 """
 import json
 import sys
@@ -10,22 +11,22 @@ import datetime
 from pathlib import Path
 
 import httpx
-from foundry_sdk import PalantirRPCException
+from foundry_sdk import NotFoundError, PalantirRPCException
 from foundry_sdk.v2.ontologies.linked_object import LinkedObjectClient
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'GET'
-EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/objects/Asset/A-1/links/synthetic-value/synthetic-value'
+EXPECTED_PATH = '/api/v2/ontologies/palantir/objects/employee/50030/links/directReport/80060'
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'branch': None, 'excludeRid': None, 'sdkPackageRid': None, 'sdkVersion': None, 'select': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {}
-ERRORS = []
+SUCCESS = {'__rid': 'ri.phonograph2-objects.main.object.74f00352-8f13-4764-89ea-28e13e086136', '__primaryKey': 80060, '__apiName': 'Employee', 'id': 80060, 'firstName': 'Anna', 'lastName': 'Smith'}
+ERRORS = [{'status': 404, 'name': 'LinkedObjectNotFound', 'code': 'NOT_FOUND', 'parameters': {'linkType': 'directReport', 'linkedObjectType': 'Employee', 'linkedObjectPrimaryKey': 80060}}]
 
 def invoke(client):
-    return client.with_raw_response.get_linked_object(ontology='synthetic-value', object_type='Asset', primary_key='A-1', link_type='synthetic-value', linked_object_primary_key='synthetic-value', request_timeout=30)
+    return client.with_raw_response.get_linked_object(ontology='palantir', object_type='employee', primary_key='50030', link_type='directReport', linked_object_primary_key='80060', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -87,7 +88,8 @@ def verify():
                 raw.close()
             except PalantirRPCException as error:
                 assert error.name == error_case['name']
-                assert type(error).__name__ == error_case['name']
+                assert type(error) is NotFoundError
+                assert error.error_code == error_case['code']
                 assert normalized(error.parameters) == error_case['parameters']
             else:
                 raise AssertionError('Expected ' + error_case['name'])

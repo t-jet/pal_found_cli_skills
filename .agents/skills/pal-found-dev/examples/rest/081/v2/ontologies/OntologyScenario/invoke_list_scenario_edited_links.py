@@ -17,15 +17,17 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'GET'
-EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/scenarios/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/objects/Asset/links/synthetic-value/edited'
+EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/scenarios/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/objects/Order/links/assignedWorker/edited'
 EXPECTED_BODY = None
-EXPECTED_QUERY = {'pageSize': None, 'pageToken': None, 'preview': None}
+EXPECTED_QUERY = {'pageSize': None, 'pageToken': None, 'preview': True}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'data': [{'linkedObjects': [{}]}]}
+SUCCESS = {'data': [{'sourceObject': {'orderId': 'ORD-101', 'status': 'InReview'},
+                     'linkedObjects': [{'targetObject': {'workerId': 'WRK-7', 'displayName': 'Ada'},
+                                        'linkType': 'assignedWorker'}]}]}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.list_scenario_edited_links(ontology='synthetic-value', scenario_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', object_type='Asset', link_type='synthetic-value', request_timeout=30)
+    return client.with_raw_response.list_scenario_edited_links(ontology='synthetic-value', scenario_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', object_type='Order', link_type='assignedWorker', preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

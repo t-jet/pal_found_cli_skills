@@ -49,6 +49,8 @@ contract. Edits are applied in list order. The response model has no fields
 that prove a transaction was committed; inspect the transaction state and
 target objects through the authorized workflow before reporting a durable
 business change. Keep the same transaction ID when reconciling a timeout.
+The linked offline fixture serializes these two property changes in this order;
+its empty response is a mock acknowledgement, not evidence of a committed edit.
 
 The linked operation fixtures show actual SDK method invocation, serialized request and decoded response/error using a local mock transport. Their synthetic values are test data. Replace them with authorized identifiers and typed payloads from each linked contract; verify the live result under the intended identity before asserting a platform effect.
 

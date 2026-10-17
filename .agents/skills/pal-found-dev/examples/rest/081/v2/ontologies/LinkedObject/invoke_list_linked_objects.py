@@ -1,7 +1,8 @@
 """v2.ontologies.LinkedObject.list_linked_objects: SDK request, decoded result and declared error fixtures.
 
-Synthetic identifiers do not name tenant resources. Prepared SDK 1.101.0/httpx
-required. No network connections or live mutations occur.
+Identifiers and records follow Palantir's illustrative API examples.
+Source: https://www.palantir.com/docs/foundry/api/ontologies-v2-resources/linked-objects/list-linked-objects
+Prepared SDK 1.101.0/httpx required. No network or live mutations occur.
 """
 import json
 import sys
@@ -10,30 +11,30 @@ import datetime
 from pathlib import Path
 
 import httpx
-from foundry_sdk import PalantirRPCException
+from foundry_sdk import BadRequestError, PalantirRPCException
 from foundry_sdk.v2.ontologies.linked_object import LinkedObjectClient
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'GET'
-EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/objects/Asset/A-1/links/synthetic-value'
+EXPECTED_PATH = '/api/v2/ontologies/palantir/objects/employee/50030/links/directReport'
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'branch': None,
  'excludeRid': None,
  'orderBy': None,
- 'pageSize': None,
+ 'pageSize': 100,
  'pageToken': None,
  'sdkPackageRid': None,
  'sdkVersion': None,
  'select': None,
  'snapshot': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'data': [{}]}
-ERRORS = []
+SUCCESS = {'data': [{'__rid': 'ri.phonograph2-objects.main.object.74f00352-8f13-4764-89ea-28e13e086136', '__primaryKey': 80060, '__apiName': 'Employee', 'id': 80060, 'firstName': 'Anna', 'lastName': 'Smith'}]}
+ERRORS = [{'status': 400, 'name': 'ObjectsExceededLimit', 'code': 'INVALID_ARGUMENT', 'parameters': {}}]
 
 def invoke(client):
-    return client.with_raw_response.list_linked_objects(ontology='synthetic-value', object_type='Asset', primary_key='A-1', link_type='synthetic-value', request_timeout=30)
+    return client.with_raw_response.list_linked_objects(ontology='palantir', object_type='employee', primary_key='50030', link_type='directReport', page_size=100, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -95,7 +96,8 @@ def verify():
                 raw.close()
             except PalantirRPCException as error:
                 assert error.name == error_case['name']
-                assert type(error).__name__ == error_case['name']
+                assert type(error) is BadRequestError
+                assert error.error_code == error_case['code']
                 assert normalized(error.parameters) == error_case['parameters']
             else:
                 raise AssertionError('Expected ' + error_case['name'])

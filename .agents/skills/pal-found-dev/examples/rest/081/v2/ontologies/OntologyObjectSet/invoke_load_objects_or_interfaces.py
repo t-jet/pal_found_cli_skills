@@ -18,21 +18,14 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/objectSets/loadObjectsOrInterfaces'
-EXPECTED_BODY = {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'type': 'methodInput'},
-                                                                       'link': 'synthetic-value',
-                                                                       'type': 'searchAround'},
-                                                         'link': 'synthetic-value',
-                                                         'type': 'searchAround'},
-                                           'link': 'synthetic-value',
-                                           'type': 'searchAround'},
-                             'link': 'synthetic-value',
-                             'type': 'searchAround'},
-               'link': 'synthetic-value',
-               'type': 'searchAround'},
- 'select': ['synthetic-value']}
+ASSET = {'type': 'base', 'objectType': 'Asset'}
+EXPECTED_BODY = {'objectSet': {'type': 'base', 'objectType': 'Asset'},
+ 'select': ['name'],
+ 'pageSize': 2,
+ 'snapshot': True}
 EXPECTED_QUERY = {'branch': None,
  'executeInMemoryOnly': None,
- 'preview': None,
+ 'preview': True,
  'scenarioRid': None,
  'sdkPackageRid': None,
  'sdkVersion': None,
@@ -41,21 +34,15 @@ EXPECTED_HEADERS = {'traceParent': None,
  'traceState': None,
  'Content-Type': 'application/json',
  'Accept': 'application/json'}
-SUCCESS = {'data': [{}], 'totalCount': '1'}
-ERRORS = []
+SUCCESS = {'data': [{'$primaryKey': 'asset-1', '$apiName': 'Asset', 'name': 'Pump'}],
+ 'totalCount': '1'}
+ERRORS = [{'status': 400,
+  'name': 'ObjectsExceededLimit',
+  'code': 'INVALID_ARGUMENT',
+  'parameters': {}}]
 
 def invoke(client):
-    return client.with_raw_response.load_objects_or_interfaces(ontology='synthetic-value', object_set={'objectSet': {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'type': 'methodInput'},
-                                                         'link': 'synthetic-value',
-                                                         'type': 'searchAround'},
-                                           'link': 'synthetic-value',
-                                           'type': 'searchAround'},
-                             'link': 'synthetic-value',
-                             'type': 'searchAround'},
-               'link': 'synthetic-value',
-               'type': 'searchAround'},
- 'link': 'synthetic-value',
- 'type': 'searchAround'}, select=['synthetic-value'], request_timeout=30)
+    return client.with_raw_response.load_objects_or_interfaces(ontology='synthetic-value', object_set=ASSET, select=['name'], page_size=2, snapshot=True, preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -117,7 +104,8 @@ def verify():
                 raw.close()
             except PalantirRPCException as error:
                 assert error.name == error_case['name']
-                assert type(error).__name__ == error_case['name']
+                assert error.error_code == error_case['code']
+                assert type(error).__name__ == {400: 'BadRequestError', 404: 'NotFoundError', 500: 'InternalServerError'}[error_case['status']]
                 assert normalized(error.parameters) == error_case['parameters']
             else:
                 raise AssertionError('Expected ' + error_case['name'])
