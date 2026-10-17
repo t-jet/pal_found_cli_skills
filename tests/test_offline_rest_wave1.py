@@ -135,7 +135,8 @@ def success_transport(namespace, responses):
         namespace["check_request"](request)
         if len(responses) >= 8:
             raise AssertionError("Fixture exceeded its finite request budget")
-        success = namespace["SUCCESS"]
+        success = (namespace["EXISTING"] if request.method == "GET" and "EXISTING" in namespace
+                   else namespace["SUCCESS"])
         if isinstance(success, bytes):
             response = httpx.Response(200, content=success)
         elif success is None:
@@ -145,6 +146,21 @@ def success_transport(namespace, responses):
         responses.append(response)
         return response
     return handler
+
+
+def sync_invoke_client(namespace, client, response_mode):
+    if "EXISTING" in namespace:
+        return SimpleNamespace(get=client.get, with_raw_response=response_mode)
+    return SimpleNamespace(with_raw_response=response_mode)
+
+
+async def async_invoke_client(namespace, client, response_mode):
+    if "EXISTING" in namespace:
+        current = await client.get(group_id=namespace["EXISTING"]["id"], request_timeout=30)
+        return SimpleNamespace(get=lambda **kwargs: current, with_raw_response=response_mode)
+    return client if response_mode is client.with_raw_response else SimpleNamespace(
+        with_raw_response=response_mode
+    )
 
 
 def check_stream_bytes(namespace, content):
@@ -316,7 +332,7 @@ def test_sync_ordinary_and_streaming_modes_close_with_finite_work(row, deny_exte
     client_type = namespace[resource + "Client"]
     responses = []
     with namespace["mock_resource"](client_type, success_transport(namespace, responses)) as client:
-        ordinary = namespace["invoke"](SimpleNamespace(with_raw_response=client))
+        ordinary = namespace["invoke"](sync_invoke_client(namespace, client, client))
         if isinstance(ordinary, ResourceIterator):
             items = []
             for item in ordinary:
@@ -327,14 +343,16 @@ def test_sync_ordinary_and_streaming_modes_close_with_finite_work(row, deny_exte
             assert namespace["normalized"](ordinary) == namespace["SUCCESS"]
         streaming_supported = hasattr(client.with_streaming_response, method)
         if streaming_supported:
-            with namespace["invoke"](SimpleNamespace(with_raw_response=client.with_streaming_response)) as stream:
+            with namespace["invoke"](sync_invoke_client(
+                namespace, client, client.with_streaming_response
+            )) as stream:
                 chunks, size = [], 0
                 for number, chunk in enumerate(stream.iter_bytes(), 1):
                     size += len(chunk)
                     assert number <= 100 and size <= 100_000, "Finite stream budget exhausted"
                     chunks.append(chunk)
                 check_stream_bytes(namespace, b"".join(chunks))
-    assert len(responses) == 1 + streaming_supported
+    assert len(responses) == (1 + streaming_supported) * (2 if "EXISTING" in namespace else 1)
     assert all(response.is_closed for response in responses)
 
 
@@ -354,7 +372,9 @@ def test_actual_async_iterator_raw_and_stream_modes_close_offline(row, deny_exte
 
     async def execute():
         async with mock_async_resource(async_type, success_transport(namespace, responses)) as client:
-            result = namespace["invoke"](SimpleNamespace(with_raw_response=client))
+            result = namespace["invoke"](await async_invoke_client(
+                namespace, client, client
+            ))
             if isinstance(result, AsyncResourceIterator):
                 assert not inspect.isawaitable(result)
                 items = []
@@ -365,14 +385,18 @@ def test_actual_async_iterator_raw_and_stream_modes_close_offline(row, deny_exte
             else:
                 assert inspect.isawaitable(result)
                 assert namespace["normalized"](await result) == namespace["SUCCESS"]
-            raw = await namespace["invoke"](client)
+            raw = await namespace["invoke"](await async_invoke_client(
+                namespace, client, client.with_raw_response
+            ))
             try:
                 assert namespace["normalized"](raw.decode()) == namespace["SUCCESS"]
             finally:
                 await raw.aclose()
             streaming_supported = hasattr(client.with_streaming_response, method)
             if streaming_supported:
-                async with namespace["invoke"](SimpleNamespace(with_raw_response=client.with_streaming_response)) as stream:
+                async with namespace["invoke"](await async_invoke_client(
+                    namespace, client, client.with_streaming_response
+                )) as stream:
                     chunks, size, count = [], 0, 0
                     async for chunk in stream.aiter_bytes():
                         size += len(chunk)
@@ -380,7 +404,7 @@ def test_actual_async_iterator_raw_and_stream_modes_close_offline(row, deny_exte
                         assert count <= 100 and size <= 100_000, "Finite stream budget exhausted"
                         chunks.append(chunk)
                     check_stream_bytes(namespace, b"".join(chunks))
-        assert len(responses) == 2 + streaming_supported
+        assert len(responses) == (2 + streaming_supported) * (2 if "EXISTING" in namespace else 1)
         assert all(response.is_closed for response in responses)
 
     local_event_loop.run_until_complete(execute())
