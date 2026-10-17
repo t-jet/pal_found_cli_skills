@@ -20,7 +20,7 @@ EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/admin/enrollments/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/authenticationProviders/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/preregisterUser'
 EXPECTED_BODY = {'username': 'synthetic-value',
  'organization': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}
-EXPECTED_QUERY = {'preview': None}
+EXPECTED_QUERY = {'preview': True}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
 SUCCESS = '00000000-0000-0000-0000-000000000001'
 ERRORS = [{'name': 'AuthenticationProviderNotFound',
@@ -35,7 +35,7 @@ ERRORS = [{'name': 'AuthenticationProviderNotFound',
                  'authenticationProviderRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}}]
 
 def invoke(client):
-    return client.with_raw_response.preregister_user(enrollment_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', authentication_provider_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', organization='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', username='synthetic-value', request_timeout=30)
+    return client.with_raw_response.preregister_user(enrollment_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', authentication_provider_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', organization='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', username='synthetic-value', preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

@@ -28,6 +28,8 @@ and reconcile through authorized reads before repeating.
 Create a category using its complete request shape and retain the returned ID. Verify
 its configuration before creating markings under that category.
 
+This Public Beta endpoint requires `preview=true`; set `preview=True` in the SDK call.
+
 [Exact parameters, request, result and error models](../../contracts/v2/admin/MarkingCategory/create.md).
 
 [Executable SDK example](../../../../examples/rest/072/v2/admin/MarkingCategory/create.py):
@@ -121,6 +123,8 @@ retrying.
 Read category configuration, replace the intended fields using the full request model,
 then verify the returned category. Review the consequences for markings organized under
 it.
+
+This Public Beta endpoint requires `preview=true`; set `preview=True` in the SDK call.
 
 [Exact parameters, request, result and error models](../../contracts/v2/admin/MarkingCategory/replace.md).
 
