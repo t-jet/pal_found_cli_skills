@@ -19,7 +19,7 @@ from mock_transport import mock_resource
 EXPECTED_METHOD = 'GET'
 EXPECTED_PATH = '/api/v2/admin/cbacMarkingRestrictions'
 EXPECTED_BODY = None
-EXPECTED_QUERY = {'markingIds': ['synthetic-value'], 'preview': None}
+EXPECTED_QUERY = {'markingIds': ['synthetic-value'], 'preview': True}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
 SUCCESS = {'disallowedMarkings': ['synthetic-value'],
  'impliedMarkings': ['synthetic-value'],
@@ -37,7 +37,7 @@ ERRORS = [{'name': 'CbacMarkingRestrictionsNotFound',
   'parameters': {'markingIds': ['synthetic-value']}}]
 
 def invoke(client):
-    return client.with_raw_response.get(marking_ids=['synthetic-value'], request_timeout=30)
+    return client.with_raw_response.get(marking_ids=['synthetic-value'], preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
