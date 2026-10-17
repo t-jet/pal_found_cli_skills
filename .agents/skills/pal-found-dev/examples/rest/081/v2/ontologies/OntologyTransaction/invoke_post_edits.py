@@ -17,21 +17,28 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
-EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/transactions/synthetic-value/edits'
-EXPECTED_BODY = {'edits': [{'objectType': 'synthetic-value',
-            'primaryKey': 'synthetic-value',
-            'properties': {},
-            'type': 'modifyObject'}]}
+EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/transactions/txn-001/edits'
+EXPECTED_BODY = {'edits': [
+    {'objectType': 'Ticket', 'primaryKey': 'T-1',
+     'properties': {'priority': 'P0'}, 'type': 'modifyObject'},
+    {'objectType': 'Ticket', 'primaryKey': 'T-1',
+     'properties': {'reviewState': 'Ready'}, 'type': 'modifyObject'},
+]}
 EXPECTED_QUERY = {'preview': True, 'sdkPackageRid': None, 'sdkVersion': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
 SUCCESS = {}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.post_edits(ontology='synthetic-value', transaction_id='synthetic-value', edits=[{'objectType': 'synthetic-value',
-  'primaryKey': 'synthetic-value',
-  'properties': {},
-  'type': 'modifyObject'}], preview=True, request_timeout=30)
+    return client.with_raw_response.post_edits(
+        ontology='synthetic-value', transaction_id='txn-001',
+        edits=[
+            {'objectType': 'Ticket', 'primaryKey': 'T-1',
+             'properties': {'priority': 'P0'}, 'type': 'modifyObject'},
+            {'objectType': 'Ticket', 'primaryKey': 'T-1',
+             'properties': {'reviewState': 'Ready'}, 'type': 'modifyObject'},
+        ], preview=True, request_timeout=30,
+    )
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
