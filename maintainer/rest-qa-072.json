@@ -93,7 +93,21 @@
       "example": "examples/rest/072/v2/admin/CbacBanner/get.py",
       "example_sha256": "28e5c21593418852df1ceb12a0c550120a331fe3f4db53d4c958f0cf297d2ba8",
       "network_denied_fixture": "PASS",
-      "formal_testexec": "pending"
+      "formal_testexec": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "cc734b0cf9b46e3ba8552401a707e568dacaa2fea9692d4ed78099eacd3a8a66",
+        "behavior_sha256": "0ea746738e56aabf1866d0fc489595016f831ce739d63d04350ee70685a82b22",
+        "example_sha256": "1bdcc92085003ccac9d60ee2a0dc172476e22c7a3588092e00136e42c6e8f879",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-072-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest072_remaining_semantic_qa",
+        "formal_testexec": "pending"
+      }
     },
     {
       "id": "v2.admin.CbacMarkingRestrictions.get",
@@ -109,7 +123,21 @@
       "example": "examples/rest/072/v2/admin/CbacMarkingRestrictions/get.py",
       "example_sha256": "040c40a198f33818f0e2c385a007a60262a286d54779aa27747fcb3fe2e1dfc7",
       "network_denied_fixture": "PASS",
-      "formal_testexec": "pending"
+      "formal_testexec": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "da791f969a801b777bab021e4dbb3be04cd00d4697d7db62614c7e33d5431ef1",
+        "behavior_sha256": "8fcdf1954e0659bf139d215af011fd6f9a7c98f332b08d90afb9b483ff95a8a4",
+        "example_sha256": "5942871e72fd0ccaa3e2b312989dcf6f725a578f573c81a3091bfbc4f629b61d",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-072-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest072_remaining_semantic_qa",
+        "formal_testexec": "pending"
+      }
     },
     {
       "id": "v2.admin.Enrollment.get",
@@ -253,7 +281,21 @@
       "example": "examples/rest/072/v2/admin/Marking/get_batch.py",
       "example_sha256": "395e076783716ba0731ac5e0823f0ed27f34a1f40c45551f4bc2078f522e7d33",
       "network_denied_fixture": "PASS",
-      "formal_testexec": "pending"
+      "formal_testexec": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "ea765b5f66fa5f65560a0eaab5c0d1eef7564b2f935d726b5e4ae6ca5554b057",
+        "behavior_sha256": "6b6c17e3cfba69ce8f9f07007da521af3267f539cfbdd9c907c6e6a9c0bf2bd0",
+        "example_sha256": "cb65ff8607729e1aaa234c215552bf331036b6aa16ce63f48ce6479cf316a8ba",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-072-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest072_remaining_semantic_qa",
+        "formal_testexec": "pending"
+      }
     },
     {
       "id": "v2.admin.Marking.list",
@@ -440,7 +482,21 @@
       "example": "examples/rest/072/v2/admin/MarkingRoleAssignment/add.py",
       "example_sha256": "2c48ce255e81a6e2f6a48e5be05f7a8eba3713d5d27986902f5bcb563160d59c",
       "network_denied_fixture": "PASS",
-      "formal_testexec": "pending"
+      "formal_testexec": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "7d05bb9f00eb41d2a0975f6e0e8a75daa9d335340fa88648f4872051f0de184d",
+        "behavior_sha256": "e699e7fbb6066dde02cd265413523acf633bdcf5b9f98a7167b81a450d9cea5f",
+        "example_sha256": "2e28ad41cb098244f8a4dd5377b3c4ffe8b13690f4ef98f667864919d79199ec",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-072-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest072_remaining_semantic_qa",
+        "formal_testexec": "pending"
+      }
     },
     {
       "id": "v2.admin.MarkingRoleAssignment.list",
@@ -472,7 +528,21 @@
       "example": "examples/rest/072/v2/admin/MarkingRoleAssignment/remove.py",
       "example_sha256": "caa989ca5db8db3183c7542d951e8c0d58aa7c0335771a2b73c0ca87ccc9d2ce",
       "network_denied_fixture": "PASS",
-      "formal_testexec": "pending"
+      "formal_testexec": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "202c8ef52f3936b1cfca79278ec7ca8ba3d19967bae31ef088106c9c7cbb2843",
+        "behavior_sha256": "e699e7fbb6066dde02cd265413523acf633bdcf5b9f98a7167b81a450d9cea5f",
+        "example_sha256": "9aca7a2420bf23d1de00103bf942c7a84cfd1be2f4501f1aae8e7731a2635965",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-072-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest072_remaining_semantic_qa",
+        "formal_testexec": "pending"
+      }
     },
     {
       "id": "v2.admin.Organization.create",
@@ -664,7 +734,21 @@
       "example": "examples/rest/072/v2/admin/Role/get_batch.py",
       "example_sha256": "bb71f7369fb05914a3a3e7fcdc0e3a5b1c109fea417171d05d24a818b6890885",
       "network_denied_fixture": "PASS",
-      "formal_testexec": "pending"
+      "formal_testexec": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "d614437edcf872677d225825cab81bd22a2928fc667b4f9f3a1af4b097e6f13c",
+        "behavior_sha256": "64c4f47d6bc9544f05358e89ac00a5e985303db48204ca1bd107eca7e2b340af",
+        "example_sha256": "be0018cd31e9d345dca5bc3f59e778d083d92f89e5f18d378280039a7f39da3d",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-072-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest072_remaining_semantic_qa",
+        "formal_testexec": "pending"
+      }
     }
   ]
 }

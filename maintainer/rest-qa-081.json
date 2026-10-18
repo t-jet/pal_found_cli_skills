@@ -40,7 +40,21 @@
       "success_fixture": {},
       "declared_error_fixture_count": 0,
       "diagnostic_fixture_result": "PASS",
-      "formal_qa_status": "pending"
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "5cc21da55ac033bc784b7ccfe06b8245946512dcb0577d865e64fd45867a0a95",
+        "behavior_sha256": "c83272d5ee49a860c8f082b54191f8c7c7fa1cb34a92fd30f3e711f1d2c55545",
+        "example_sha256": "e1c90d87f5ce1a882679b72563c8c0ab8cbd8ef6cdc8c14fc4a6b0e642c9de9f",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
     },
     {
       "id": "v2.ontologies.LinkedObject.list_linked_objects",
@@ -65,7 +79,21 @@
       },
       "declared_error_fixture_count": 0,
       "diagnostic_fixture_result": "PASS",
-      "formal_qa_status": "pending"
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "4d882c60007ac3f672acfc765b15c64414c5705709ff3914b5c4291c7cf23716",
+        "behavior_sha256": "c83272d5ee49a860c8f082b54191f8c7c7fa1cb34a92fd30f3e711f1d2c55545",
+        "example_sha256": "2fc206687aac16d0ec1f424ce8212e80f8acdf4e5a47df58c4322d754fbf14bf",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
     },
     {
       "id": "v2.ontologies.OntologyObject.aggregate",
@@ -98,7 +126,21 @@
       },
       "declared_error_fixture_count": 0,
       "diagnostic_fixture_result": "PASS",
-      "formal_qa_status": "pending"
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "708cd5f1a9aebd22be9ee46c0bc5e8671b7b1d0a040b96ad1c8d62dbb14e390e",
+        "behavior_sha256": "b378e3222e4b6e859e612f54768a0a9af9094bb64a0dc6cd71abb437ad350bf2",
+        "example_sha256": "ab29779974f7cf7056e7c388c8871ce1975e9969adedc407558e2b4b78e9888b",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
     },
     {
       "id": "v2.ontologies.OntologyObject.count",
@@ -140,7 +182,21 @@
       "success_fixture": {},
       "declared_error_fixture_count": 0,
       "diagnostic_fixture_result": "PASS",
-      "formal_qa_status": "pending"
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "7553d311e1dcd82052119c50024e83b7d10786101f482947bd8984bec246ea24",
+        "behavior_sha256": "b378e3222e4b6e859e612f54768a0a9af9094bb64a0dc6cd71abb437ad350bf2",
+        "example_sha256": "19e46c42df3d4ce70630aab9b21851b1854ce1b0ed3bb1fa84d3d8a023d6a9b9",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
     },
     {
       "id": "v2.ontologies.OntologyObject.list",
@@ -166,7 +222,21 @@
       },
       "declared_error_fixture_count": 0,
       "diagnostic_fixture_result": "PASS",
-      "formal_qa_status": "pending"
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "ae0b552415aaba61709cd04c3d3432066b97c7e7668a88d1f36c24bdf203726e",
+        "behavior_sha256": "b378e3222e4b6e859e612f54768a0a9af9094bb64a0dc6cd71abb437ad350bf2",
+        "example_sha256": "6be0b60991f6f6120f4e2f54ea54d8ab421731ed2e00eaa44299cf6a6686295e",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
     },
     {
       "id": "v2.ontologies.OntologyObject.search",
@@ -192,7 +262,21 @@
       },
       "declared_error_fixture_count": 0,
       "diagnostic_fixture_result": "PASS",
-      "formal_qa_status": "pending"
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "122eacabed4fb2c0f6593014b495b1dfc8d4f042b23cac8aad4890803b5eb16a",
+        "behavior_sha256": "b378e3222e4b6e859e612f54768a0a9af9094bb64a0dc6cd71abb437ad350bf2",
+        "example_sha256": "a5dc57d367fe91589523e4307714cd932cb0b66aafb8b310673e165e8749070b",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
     },
     {
       "id": "v2.ontologies.OntologyObjectSet.aggregate",
@@ -225,7 +309,21 @@
       },
       "declared_error_fixture_count": 0,
       "diagnostic_fixture_result": "PASS",
-      "formal_qa_status": "pending"
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "4d011c151f76612b527c46d5614d4c799a3820187edb3b0fc96d6f2d8f8373a5",
+        "behavior_sha256": "6cafea7bb010543196d8400cb9b1ac273c410739fc46cdbdb611fbdafe0b2660",
+        "example_sha256": "0f828fdb703a87127b33bfefe1b8eed7d74021f1bf438e0e5e61d34e18af2c7c",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
     },
     {
       "id": "v2.ontologies.OntologyObjectSet.create_temporary",
@@ -248,7 +346,21 @@
       },
       "declared_error_fixture_count": 0,
       "diagnostic_fixture_result": "PASS",
-      "formal_qa_status": "pending"
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "544b872273d585a020d66c82e812dfd0be04acdefc1d32d838e4f91d8b77252f",
+        "behavior_sha256": "6cafea7bb010543196d8400cb9b1ac273c410739fc46cdbdb611fbdafe0b2660",
+        "example_sha256": "c97f9c4f482802a6e2b7672a7ae5fc40aa317b2eb8a678d60c5f4e798ba0fca2",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
     },
     {
       "id": "v2.ontologies.OntologyObjectSet.get",
@@ -317,7 +429,21 @@
       },
       "declared_error_fixture_count": 0,
       "diagnostic_fixture_result": "PASS",
-      "formal_qa_status": "pending"
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "1c0fb6cc431253b7af19fb3171271c9a51dd2555640e9100881ab6a68550379d",
+        "behavior_sha256": "6cafea7bb010543196d8400cb9b1ac273c410739fc46cdbdb611fbdafe0b2660",
+        "example_sha256": "9bb82ace150801989900b7ba6ddd86dbb1118c6ad5c5fce28e5f1bfcf908762e",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
     },
     {
       "id": "v2.ontologies.OntologyObjectSet.load_links",
@@ -374,7 +500,21 @@
       },
       "declared_error_fixture_count": 0,
       "diagnostic_fixture_result": "PASS",
-      "formal_qa_status": "pending"
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "f2ace6e0ee06d88b55bccb17a5728bb98f1dcf9112b42dd34efb1701f6b71b7b",
+        "behavior_sha256": "6cafea7bb010543196d8400cb9b1ac273c410739fc46cdbdb611fbdafe0b2660",
+        "example_sha256": "8fa5fe60fabce1904e615be94072f2b3e385a8ea4f62f695c56321c4fd4da8e3",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
     },
     {
       "id": "v2.ontologies.OntologyObjectSet.load_objects_or_interfaces",
@@ -400,7 +540,21 @@
       },
       "declared_error_fixture_count": 0,
       "diagnostic_fixture_result": "PASS",
-      "formal_qa_status": "pending"
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "d34ef374d6be05a8a74dcf465ac42423cf99a8f6558d7fe6de14e043ceaa5a96",
+        "behavior_sha256": "6cafea7bb010543196d8400cb9b1ac273c410739fc46cdbdb611fbdafe0b2660",
+        "example_sha256": "4322bf721c5b91db103422358d7bb0c59a2ce3efeffe605a67e36244d943460e",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
     },
     {
       "id": "v2.ontologies.OntologyScenario.create_scenario",

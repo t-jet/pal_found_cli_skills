@@ -3939,69 +3939,129 @@
     },
     {
       "path": "pal-found-dev\\references\\ontology\\interfaces.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-064",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T12 whole-page guidance independently reviewed at current hash.",
       "sha256": "4a225f29b0cef2326d0e60e3cc79857372d8791dfdf31013fe788fd2d44fadf7",
       "lines": 75,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topic_t01_review",
+        "candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
         "page_sha256": "4a225f29b0cef2326d0e60e3cc79857372d8791dfdf31013fe788fd2d44fadf7",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 7",
-          "reachable from owning SKILL.md"
+          "full page semantic and official-source review",
+          "Ontology fixture verifies required and optional interface mappings and rejects missing or incompatible required properties. Palantir sources support mappings and consumer-aware interface migration.",
+          "registered anchors and historical local links remain valid",
+          "eight structural tests passed on unchanged content"
         ],
-        "url_contexts_in_current_audit": 4,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "scope_limit": "Listed page/topic only; no live Foundry execution or release approval."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "4a225f29b0cef2326d0e60e3cc79857372d8791dfdf31013fe788fd2d44fadf7",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 7",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 4,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\ontology\\modeling.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-064",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T11 whole-page guidance independently reviewed at current hash.",
       "sha256": "d74082feb00b3cbf2029a72d5ec70f90df7999e72bc7a76530242b7392b2e577",
       "lines": 83,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topic_t01_review",
+        "candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
         "page_sha256": "d74082feb00b3cbf2029a72d5ec70f90df7999e72bc7a76530242b7392b2e577",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 6",
-          "reachable from owning SKILL.md"
+          "full page semantic and official-source review",
+          "Ontology fixture verifies stable identity and links, rename handling, duplicate and key-type rejection. Palantir sources support mapped backing data, stable unique keys and foreign-key type compatibility.",
+          "registered anchors and historical local links remain valid",
+          "eight structural tests passed on unchanged content"
         ],
-        "url_contexts_in_current_audit": 3,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "scope_limit": "Listed page/topic only; no live Foundry execution or release approval."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "d74082feb00b3cbf2029a72d5ec70f90df7999e72bc7a76530242b7392b2e577",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 6",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 3,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\ontology\\queries.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-064",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T13 whole-page guidance independently reviewed at current hash.",
       "sha256": "13e6f760106f6924e9836c5863e9caa7bd7d48eba90ecd8c8ea0725fb6d80e2c",
       "lines": 81,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "5dfd575232cc3fe66d24dfa4d9660123b46008b3fcfb0b305779a5397d0ffefe",
+        "reviewer_agent": "/root/feature015_topic_t01_review",
+        "candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "page_sha256": "13e6f760106f6924e9836c5863e9caa7bd7d48eba90ecd8c8ea0725fb6d80e2c",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 9",
-          "reachable from owning SKILL.md"
+          "full page semantic and official-source review",
+          "Node query fixture verifies exact IDs, grouped counts, null exclusion and empty selection. Palantir sources support OSDK 2.x filter, page, pivot and aggregate shapes; page limits and continuation are explicit.",
+          "registered anchors and historical local links remain valid",
+          "eight structural tests passed on unchanged content"
         ],
-        "url_contexts_in_current_audit": 2,
-        "pending": "T13 source link corrected; independent source and semantic retest pending.",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "scope_limit": "Listed page/topic only; no live Foundry execution or release approval."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "5dfd575232cc3fe66d24dfa4d9660123b46008b3fcfb0b305779a5397d0ffefe",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 9",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 2,
+            "pending": "T13 source link corrected; independent source and semantic retest pending.",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\ontology\\security.md",
@@ -4180,25 +4240,45 @@
     },
     {
       "path": "pal-found-dev\\references\\pipelines\\releases.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-062",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T09 whole-page guidance independently reviewed at current hash.",
       "sha256": "4df6112cb1460f69eb6f53e5cd4d9245aa8f7def26ecb7d212adcdba40442d2d",
       "lines": 117,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topic_t01_review",
+        "candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
         "page_sha256": "4df6112cb1460f69eb6f53e5cd4d9245aa8f7def26ecb7d212adcdba40442d2d",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 8",
-          "reachable from owning SKILL.md"
+          "full page semantic and official-source review",
+          "Illustrative release JSON parses with revision, branch, review, check, build, transaction, output and consumer evidence. Palantir sources support release ownership, branch-specific builds and repository fallback.",
+          "registered anchors and historical local links remain valid",
+          "eight structural tests passed on unchanged content"
         ],
-        "url_contexts_in_current_audit": 5,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "scope_limit": "Listed page/topic only; no live Foundry execution or release approval."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "4df6112cb1460f69eb6f53e5cd4d9245aa8f7def26ecb7d212adcdba40442d2d",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 8",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 5,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\pipelines\\repositories.md",
@@ -4245,25 +4325,45 @@
     },
     {
       "path": "pal-found-dev\\references\\pipelines\\sql.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-062",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T07 whole-page guidance independently reviewed at current hash.",
       "sha256": "4296ed77e7353a8d9ac5f523ac052d6ce3a903e1a1f20b721c7f245835fcc871",
       "lines": 99,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topic_t01_review",
+        "candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
         "page_sha256": "4296ed77e7353a8d9ac5f523ac052d6ce3a903e1a1f20b721c7f245835fcc871",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 11",
-          "reachable from owning SKILL.md"
+          "full page semantic and official-source review",
+          "SQL fixture checks NULL-to-zero totals and duplicate-key fanout; fenced SQL matches asset. Palantir sources support Spark SQL syntax, batch-only transforms, and preview/check/build boundaries.",
+          "registered anchors and historical local links remain valid",
+          "eight structural tests passed on unchanged content"
         ],
-        "url_contexts_in_current_audit": 3,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "scope_limit": "Listed page/topic only; no live Foundry execution or release approval."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "4296ed77e7353a8d9ac5f523ac052d6ce3a903e1a1f20b721c7f245835fcc871",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 11",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 3,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\pipelines\\testing.md",
@@ -4311,47 +4411,87 @@
     },
     {
       "path": "pal-found-dev\\references\\pipelines\\transactions.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-062",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T10 whole-page guidance independently reviewed at current hash.",
       "sha256": "b84dfb7cc285039527ed3c14e0bb908c1a1aa8d9ce4b98053278c9458d21d367",
       "lines": 144,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topic_t01_review",
+        "candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
         "page_sha256": "b84dfb7cc285039527ed3c14e0bb908c1a1aa8d9ce4b98053278c9458d21d367",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 9",
-          "reachable from owning SKILL.md"
+          "full page semantic and official-source review",
+          "Pipeline fixture verifies append/full equivalence, renamed references, recomputation and replay rejection. Palantir sources support transaction states/types, no dataset branch merge, incremental modes and preview limits.",
+          "registered anchors and historical local links remain valid",
+          "eight structural tests passed on unchanged content"
         ],
-        "url_contexts_in_current_audit": 4,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "scope_limit": "Listed page/topic only; no live Foundry execution or release approval."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "b84dfb7cc285039527ed3c14e0bb908c1a1aa8d9ce4b98053278c9458d21d367",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 9",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 4,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\pipelines\\workspaces.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-062",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T08 whole-page guidance independently reviewed at current hash.",
       "sha256": "2e9882799275aef6922bc3bf1733d1d64d2d35ca893b3b20f936512c2d618041",
       "lines": 116,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topic_t01_review",
+        "candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
         "page_sha256": "2e9882799275aef6922bc3bf1733d1d64d2d35ca893b3b20f936512c2d618041",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 9",
-          "reachable from owning SKILL.md"
+          "full page semantic and official-source review",
+          "Workspace pandas fixture returns the expected two totals and matches fenced logic. Palantir sources support backing repositories, workspace publishing, data access, sync/CI and managed dependency boundaries.",
+          "registered anchors and historical local links remain valid",
+          "eight structural tests passed on unchanged content"
         ],
-        "url_contexts_in_current_audit": 3,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "scope_limit": "Listed page/topic only; no live Foundry execution or release approval."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "2e9882799275aef6922bc3bf1733d1d64d2d35ca893b3b20f936512c2d618041",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 9",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 3,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\security\\applications.md",
@@ -10715,8 +10855,8 @@
   },
   "independent_reviewer": "qa-engineer",
   "independent_review_counts": {
-    "UNCERTAIN": 139,
+    "UNCERTAIN": 129,
     "FAIL": 2,
-    "PASS": 51
+    "PASS": 61
   }
 }
