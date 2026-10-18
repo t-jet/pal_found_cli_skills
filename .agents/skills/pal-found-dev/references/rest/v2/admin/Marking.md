@@ -153,7 +153,10 @@ retrying.
 Parse classification strings into marking IDs. Inspect both parsed results and the
 errors collection: unparseable strings return human-readable errors and must not be
 silently treated as unclassified. This Public Beta endpoint requires `preview=true`;
-set `preview=True` in the SDK call.
+set `preview=True` in the SDK call. Submit 1–1000 entries, counting duplicates.
+The API parses duplicate strings once, returns `MissingBatchRequest` for an empty
+list, and returns `BatchRequestSizeExceededLimit` for more than 1000 entries.
+SDK 1.101.0 sends either invalid list length to the API without local validation.
 
 [Exact parameters, request, result and error models](../../contracts/v2/admin/Marking/parse_classifications.md).
 
@@ -163,9 +166,9 @@ set `preview=True` in the SDK call.
 python -B examples/rest/072/v2/admin/Marking/parse_classifications.py
 ```
 
-The example checks the serialized HTTP method, path, query, headers and body, decodes
-the synthetic success result, and checks each source-declared named error. It uses one
-raw response with a 30-second timeout and closes that response.
+The example checks request serialization, verifies that every submitted string
+appears in exactly one result map, and checks each SDK-declared error. It uses
+one raw response with a 30-second timeout and closes that response.
 
 Declared failures for this operation:
 

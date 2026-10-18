@@ -1,7 +1,7 @@
 """v2.admin.Marking.parse_classifications: SDK request, decoded result and declared error fixtures.
 
-Synthetic identifiers do not name tenant resources. Prepared SDK 1.101.0/httpx
-required. No network connections or live mutations occur.
+Classification strings follow the published API example. Prepared SDK
+1.101.0/httpx required. No network connections or live mutations occur.
 """
 import json
 import sys
@@ -18,19 +18,19 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/admin/markings/parseClassifications'
-EXPECTED_BODY = {'classificationStrings': ['synthetic-valid', 'synthetic-invalid']}
+EXPECTED_BODY = {'classificationStrings': ['MTS//MNF', 'INVALID_MARKING']}
 EXPECTED_QUERY = {'preview': True}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'parsed': {'synthetic-valid': ['synthetic-value']},
- 'errors': {'synthetic-invalid': 'Unrecognized synthetic classification'}}
+SUCCESS = {'parsed': {'MTS//MNF': ['MNF', 'MTS']},
+ 'errors': {'INVALID_MARKING': 'Unknown marking: INVALID_MARKING'}}
 ERRORS = [{'name': 'CbacUnavailable', 'status': 400, 'code': 'INVALID_ARGUMENT', 'parameters': {}},
  {'name': 'ParseClassificationsPermissionDenied',
   'status': 403,
   'code': 'PERMISSION_DENIED',
-  'parameters': {'classificationStrings': ['synthetic-valid', 'synthetic-invalid']}}]
+  'parameters': {'classificationStrings': ['MTS//MNF', 'INVALID_MARKING']}}]
 
 def invoke(client):
-    return client.with_raw_response.parse_classifications(classification_strings=['synthetic-valid', 'synthetic-invalid'], preview=True, request_timeout=30)
+    return client.with_raw_response.parse_classifications(classification_strings=['MTS//MNF', 'INVALID_MARKING'], preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -74,7 +74,17 @@ def verify():
     with mock_resource(MarkingClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            outcome = normalized(raw.decode())
+            assert outcome == SUCCESS
+            requested = set(EXPECTED_BODY['classificationStrings'])
+            parsed = set(outcome['parsed'])
+            errors = set(outcome['errors'])
+            assert parsed == {'MTS//MNF'}
+            assert errors == {'INVALID_MARKING'}
+            assert parsed.isdisjoint(errors)
+            assert parsed | errors == requested
+            assert outcome['parsed']['MTS//MNF'] == ['MNF', 'MTS']
+            assert outcome['errors']['INVALID_MARKING']
         finally:
             raw.close()
     assert len(calls) == 1
