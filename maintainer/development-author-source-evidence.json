@@ -9,7 +9,7 @@
       "registered_heading": "Platform and tool selection",
       "owner": "N",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "3e52113a2991f83ce3d7f6547159db9292474585297a61c4fa40fb0eb348d941",
       "lines": 173,
       "heading_matches": true,
@@ -19,7 +19,8 @@
         "https://www.palantir.com/docs/foundry/dev-toolchain",
         "https://www.palantir.com/docs/foundry/developer-console/overview",
         "https://www.palantir.com/docs/foundry/vs-code/local-vs-workspace-guide"
-      ]
+      ],
+      "review_evidence": "2026-10-18 qa-engineer review at skills 691107e, T01 only: page SHA-256 3e52113a2991f83ce3d7f6547159db9292474585297a61c4fa40fb0eb348d941; heading and seven local anchors resolve; eight offline topic tests pass. Manual reader path selects Pipeline Builder for visual joins, Code Repositories for custom transforms, Developer Console/OSDK for Ontology clients, and platform REST for mutations. Access and local-preview boundaries match the five recorded Palantir sources. No live Foundry execution or T02/J1 approval claimed."
     },
     {
       "topic": "T02",
@@ -711,5 +712,6 @@
     "changed_model_contracts": {},
     "interpretation": "AST annotated fields/defaults compared for all32 root and32 recursive models. Semantic model-docstring changes and server availability are separate review obligations."
   },
-  "062_independent_readonly_architect_review": "groom_rest reports no unresolved source/content findings after exact runtime, Preview, pytest and repository-only fallback corrections; formal CODEREVIEW-063 awaits DEV-062 Resolved. Material edits invalidate that review."
+  "062_independent_readonly_architect_review": "groom_rest reports no unresolved source/content findings after exact runtime, Preview, pytest and repository-only fallback corrections; formal CODEREVIEW-063 awaits DEV-062 Resolved. Material edits invalidate that review.",
+  "independent_reviewer": "qa-engineer"
 }
