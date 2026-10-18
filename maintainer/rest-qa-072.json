@@ -285,7 +285,18 @@
       "example": "examples/rest/072/v2/admin/Marking/parse_classifications.py",
       "example_sha256": "e86f09cdfceb243331b1ac484ea3f1e47e4cc26da816508bd96953ee67113559",
       "network_denied_fixture": "PASS",
-      "formal_testexec": "pending"
+      "formal_testexec": "pending",
+      "current_retest": {
+        "reviewer": "qa-engineer",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "reviewed_fix_sha": "1dec2c160803342370bcc6b4e720ed83bfa6e9b6",
+        "verdict": "PASS",
+        "contract_sha256": "7b93c4d8dc997e9f0871555944b3f5d734aee2cc4da583eee66a0b7f8bc627c6",
+        "behavior_sha256": "6b6c17e3cfba69ce8f9f07007da521af3267f539cfbdd9c907c6e6a9c0bf2bd0",
+        "example_sha256": "b2532e2461210e5c8df72820167611863d7edef7926f9db37fb3830beeb7941e",
+        "evidence": "Official 1..1000 API bound, duplicate counting, MissingBatchRequest and BatchRequestSizeExceededLimit; mixed valid/invalid strings partition across parsed/errors; SDK 1.101.0 forwards 0 and 1001 unchanged; 520 focused tests passed.",
+        "formal_testexec": "pending"
+      }
     },
     {
       "id": "v2.admin.Marking.replace",

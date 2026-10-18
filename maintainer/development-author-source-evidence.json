@@ -49,7 +49,7 @@
       "registered_heading": "Repository authoring and review",
       "owner": "P",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "6d9b389a7d9ea72d59fad21701cde88f604ca837c69dfe56f55d7daede0be64b",
       "lines": 107,
       "heading_matches": true,
@@ -58,7 +58,8 @@
         "https://www.palantir.com/docs/foundry/code-repositories/navigation",
         "https://www.palantir.com/docs/foundry/code-repositories/preview-transforms",
         "https://www.palantir.com/docs/foundry/transforms-python/pipelines"
-      ]
+      ],
+      "review_evidence": "2026-10-18 qa-engineer review at skills c45d445, T03 only: page SHA-256 6d9b389a7d9ea72d59fad21701cde88f604ca837c69dfe56f55d7daede0be64b; repository heading and seven component anchors resolve; eight offline topic tests pass. Manual reader trace covers authoring, Pipeline.discover_transforms, preview, exact revision, checks, protected PR, release and build distinction; preview does not commit or materialize. Four recorded Palantir sources match these behaviors. No live Foundry operation, other T04 topics, journey acceptance, or release approval claimed."
     },
     {
       "topic": "T04",
