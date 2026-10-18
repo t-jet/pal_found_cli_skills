@@ -21,7 +21,7 @@ EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/scenarios/ri.synthetic.main.
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'pageSize': None, 'pageToken': None, 'preview': True}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'data': [{'orderId': 'ORD-101', 'status': 'InReview'}]}
+SUCCESS = {'data': [{'__primaryKey': 'ORD-101', '__apiName': 'Order'}]}
 ERRORS = []
 
 def invoke(client):
