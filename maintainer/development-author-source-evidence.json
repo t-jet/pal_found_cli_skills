@@ -86,7 +86,7 @@
       "registered_heading": "Tests and expectations",
       "owner": "P",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "4d1fe1911d9da0a55562211c8c307a71f992c5b10168fc744471f91b2464b64c",
       "lines": 117,
       "heading_matches": true,
@@ -94,7 +94,8 @@
         "https://www.palantir.com/docs/foundry/code-repositories/preview-transforms",
         "https://www.palantir.com/docs/foundry/transforms-python/data-expectations-getting-started",
         "https://www.palantir.com/docs/foundry/transforms-python/unit-tests"
-      ]
+      ],
+      "review_evidence": "2026-10-18 qa-engineer review at skills 07222c6, T05 only: page SHA-256 4d1fe1911d9da0a55562211c8c307a71f992c5b10168fc744471f91b2464b64c; root heading and seven component anchors resolve; eight offline topic tests pass. The adapted pytest example and python -B examples/pipelines/fixture_run.py pass. Three recorded Palantir sources support the unit-test, expectation and preview guidance. Live Foundry checks, other topics, journeys and release approval remain unverified."
     },
     {
       "topic": "T06",
