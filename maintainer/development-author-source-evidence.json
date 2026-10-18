@@ -29,7 +29,7 @@
       "registered_heading": "Environments and connectivity",
       "owner": "N",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "3e52113a2991f83ce3d7f6547159db9292474585297a61c4fa40fb0eb348d941",
       "lines": 173,
       "heading_matches": true,
@@ -39,7 +39,8 @@
         "https://www.palantir.com/docs/foundry/dev-toolchain",
         "https://www.palantir.com/docs/foundry/developer-console/overview",
         "https://www.palantir.com/docs/foundry/vs-code/local-vs-workspace-guide"
-      ]
+      ],
+      "review_evidence": "2026-10-18 qa-engineer review at skills 71edd96, T02 only: page SHA-256 3e52113a2991f83ce3d7f6547159db9292474585297a61c4fa40fb0eb348d941; environments heading and seven registered component anchors resolve; eight offline topic tests pass. Manual reader decisions cover hosted and local VS Code, Code Workspaces, Code Repositories, local fixtures, missing runtime or binding, and data-location boundaries. Local preview permissions and hosted access agree with recorded Palantir VS Code and Code Workspaces sources. No live enrollment, T03, journey, or release approval claimed."
     },
     {
       "topic": "T03",
