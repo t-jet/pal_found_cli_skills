@@ -32,7 +32,37 @@ Read [exact contract](../../contracts/v2/ontologies/LinkedObject/list_linked_obj
 
 ## Worked example
 
-From an authorized source `Employee` key, list `directReport` targets with a bounded page size. Use get when the target key is known. Compare returned `__primaryKey` and `__apiName` with the requested target.
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, list the outgoing `directReport` targets for an authorized `employee` key. Replace these illustrative values with your Ontology, source key, link API name and authorized target key. The list method normally yields an iterator; its raw wrapper exposes page tokens.
+
+```python
+links = client.ontologies.LinkedObject
+page_token = None
+target_keys = []
+while True:
+    raw = links.with_raw_response.list_linked_objects(
+        ontology="palantir", object_type="employee", primary_key="50030",
+        link_type="directReport", page_size=100, page_token=page_token,
+        snapshot=True,
+    )
+    try:
+        page = raw.decode()
+    finally:
+        raw.close()
+    target_keys.extend(obj["__primaryKey"] for obj in page.data)
+    page_token = page.next_page_token
+    if page_token is None:
+        break
+
+target = links.get_linked_object(
+    ontology="palantir", object_type="employee", primary_key="50030",
+    link_type="directReport", linked_object_primary_key="80060",
+)
+assert target["__primaryKey"] == 80060
+assert target["__apiName"] == "Employee"
+assert 80060 in target_keys
+```
+
+The local list fixture checks two raw pages, forwards `nextPageToken` as `pageToken`, and checks both target identities. The get fixture checks `LinkedObjectNotFound`; a missing or inaccessible target needs caller and link checks before retry.
 
 The linked operation fixtures show actual SDK method invocation, serialized request and decoded response/error using a local mock transport. Their synthetic values are test data. Replace them with authorized identifiers and typed payloads from each linked contract; verify the live result under the intended identity before asserting a platform effect.
 

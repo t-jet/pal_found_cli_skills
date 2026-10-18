@@ -70,10 +70,12 @@ def verify():
     with mock_resource(LinkedObjectClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
         finally:
             raw.close()
     assert len(calls) == 1
+    assert decoded['__primaryKey'] == 80060 and decoded['__apiName'] == 'Employee'
     for error_case in ERRORS:
         def failure(request):
             check_request(request)

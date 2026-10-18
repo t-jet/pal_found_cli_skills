@@ -72,10 +72,14 @@ def verify():
     with mock_resource(OntologyObjectClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
         finally:
             raw.close()
     assert len(calls) == 1
+    assert decoded['accuracy'] == 'ACCURATE'
+    assert decoded['data'][0]['group']['city'] == 'New York City'
+    assert decoded['data'][0]['metrics'] == [{'name': 'min_tenure', 'value': 1}]
     for error_case in ERRORS:
         def failure(request):
             check_request(request)

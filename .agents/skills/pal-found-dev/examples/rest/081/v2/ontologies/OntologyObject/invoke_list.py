@@ -30,13 +30,14 @@ EXPECTED_QUERY = {'branch': None,
  'select': None,
  'snapshot': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'data': [{'__rid': 'ri.phonograph2-objects.main.object.88a6fccb-f333-46d6-a07e-7725c5f18b61', '__primaryKey': 50030, '__apiName': 'Employee', 'id': 50030, 'firstName': 'John', 'lastName': 'Doe'}, {'__rid': 'ri.phonograph2-objects.main.object.dcd887d1-c757-4d7a-8619-71e6ec2c25ab', '__primaryKey': 20090, '__apiName': 'Employee', 'id': 20090, 'firstName': 'John', 'lastName': 'Haymore'}], 'totalCount': '2'}
+SUCCESS = {'data': [{'__rid': 'ri.phonograph2-objects.main.object.88a6fccb-f333-46d6-a07e-7725c5f18b61', '__primaryKey': 50030, '__apiName': 'Employee', 'id': 50030, 'firstName': 'John', 'lastName': 'Doe'}], 'nextPageToken': 'employee-page-2', 'totalCount': '2'}
+PAGE_TWO = {'data': [{'__rid': 'ri.phonograph2-objects.main.object.dcd887d1-c757-4d7a-8619-71e6ec2c25ab', '__primaryKey': 20090, '__apiName': 'Employee', 'id': 20090, 'firstName': 'John', 'lastName': 'Haymore'}], 'totalCount': '2'}
 ERRORS = [{'status': 400, 'name': 'ObjectsExceededLimit', 'code': 'INVALID_ARGUMENT', 'parameters': {}}]
 
-def invoke(client):
-    return client.with_raw_response.list(ontology='palantir', object_type='employee', page_size=100, request_timeout=30)
+def invoke(client, page_token=None):
+    return client.with_raw_response.list(ontology='palantir', object_type='employee', page_size=100, page_token=page_token, request_timeout=30)
 
-def check_request(request):
+def check_request(request, page_token=None):
     assert request.method == EXPECTED_METHOD
     assert urllib.parse.unquote(request.url.path) == EXPECTED_PATH
     assert request.headers['Authorization'] == 'Bearer offline-fixture-token'
@@ -45,7 +46,8 @@ def check_request(request):
             assert key not in request.headers
         else:
             assert request.headers[key] == str(value)
-    expected = httpx.QueryParams({key: value for key,value in EXPECTED_QUERY.items() if value is not None})
+    expected_query = {**EXPECTED_QUERY, 'pageToken': page_token}
+    expected = httpx.QueryParams({key: value for key,value in expected_query.items() if value is not None})
     assert sorted(request.url.params.multi_items()) == sorted(expected.multi_items())
     if isinstance(EXPECTED_BODY, bytes):
         assert request.content == EXPECTED_BODY
@@ -78,10 +80,27 @@ def verify():
     with mock_resource(OntologyObjectClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
         finally:
             raw.close()
     assert len(calls) == 1
+    assert decoded['data'][0]['__primaryKey'] == 50030
+    assert decoded['data'][0]['__apiName'] == 'Employee'
+    token = decoded['nextPageToken']
+    def next_page(request):
+        check_request(request, token)
+        return httpx.Response(200, json=PAGE_TWO)
+    with mock_resource(OntologyObjectClient, next_page) as client:
+        raw = invoke(client, token)
+        try:
+            decoded_second_page = normalized(raw.decode())
+            assert decoded_second_page == PAGE_TWO
+        finally:
+            raw.close()
+    assert decoded_second_page['data'][0]['__primaryKey'] == 20090
+    assert decoded_second_page['data'][0]['__apiName'] == 'Employee'
+    assert 'nextPageToken' not in decoded_second_page
     for error_case in ERRORS:
         def failure(request):
             check_request(request)

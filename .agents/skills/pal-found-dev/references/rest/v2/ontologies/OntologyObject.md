@@ -58,7 +58,49 @@ Read [exact contract](../../contracts/v2/ontologies/OntologyObject/search.md) fo
 
 ## Worked example
 
-For an authorized `Employee` type, get a known key, search by `age` with a bounded page, and aggregate the filtered set by `city`. Compare selected fields, branch, page tokens, and aggregate accuracy before reporting results.
+With a configured `foundry_sdk.v2.FoundryClient` named `client`, replace these illustrative values with an authorized Ontology, object type, key and property API names. The list method normally yields an iterator; its raw wrapper exposes page tokens.
+
+```python
+objects = client.ontologies.OntologyObject
+employee = objects.get(
+    ontology="palantir", object_type="employee", primary_key="50030",
+)
+assert employee["__primaryKey"] == 50030
+assert employee["__apiName"] == "Employee"
+
+page_token = None
+listed_keys = []
+while True:
+    raw = objects.with_raw_response.list(
+        ontology="palantir", object_type="employee", page_size=100,
+        page_token=page_token, snapshot=True,
+    )
+    try:
+        page = raw.decode()
+    finally:
+        raw.close()
+    listed_keys.extend(obj["__primaryKey"] for obj in page.data)
+    page_token = page.next_page_token
+    if page_token is None:
+        break
+assert 50030 in listed_keys
+
+matches = objects.search(
+    ontology="palantir", object_type="employee",
+    select=["employeeId", "firstName", "lastName", "age"],
+    where={"type": "eq", "field": "age", "value": 21},
+)
+assert all(obj["age"] == 21 for obj in matches.data)
+summary = objects.aggregate(
+    ontology="palantir", object_type="employee",
+    aggregation=[{"type": "min", "field": "tenure", "name": "min_tenure"}],
+    group_by=[{"type": "exact", "field": "city"}],
+    where={"type": "eq", "field": "age", "value": 21},
+)
+assert summary.accuracy == "ACCURATE"
+```
+
+The search can also return `next_page_token`; page through it before treating results as complete. `OntologyObject.count` is Private Beta and counts the given type: `objects.count(ontology="palantir", object_type="employee", preview=True).count`. Confirm beta access before calling it. Local fixtures check returned object identities, the search filter, aggregate group and metric, count, and named errors where documented.
 
 The linked operation fixtures show actual SDK method invocation, serialized request and decoded response/error using a local mock transport. Their synthetic values are test data. Replace them with authorized identifiers and typed payloads from each linked contract; verify the live result under the intended identity before asserting a platform effect.
 

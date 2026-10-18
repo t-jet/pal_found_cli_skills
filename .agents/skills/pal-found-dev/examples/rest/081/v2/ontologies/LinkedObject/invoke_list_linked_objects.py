@@ -30,13 +30,15 @@ EXPECTED_QUERY = {'branch': None,
  'select': None,
  'snapshot': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'data': [{'__rid': 'ri.phonograph2-objects.main.object.74f00352-8f13-4764-89ea-28e13e086136', '__primaryKey': 80060, '__apiName': 'Employee', 'id': 80060, 'firstName': 'Anna', 'lastName': 'Smith'}]}
+SUCCESS = {'data': [{'__rid': 'ri.phonograph2-objects.main.object.74f00352-8f13-4764-89ea-28e13e086136', '__primaryKey': 80060, '__apiName': 'Employee', 'id': 80060, 'firstName': 'Anna', 'lastName': 'Smith'}], 'nextPageToken': 'direct-report-page-2'}
+# Second record is synthetic; the first record follows Palantir's published example.
+PAGE_TWO = {'data': [{'__primaryKey': 80061, '__apiName': 'Employee', 'id': 80061, 'firstName': 'Sam', 'lastName': 'Lee'}]}
 ERRORS = [{'status': 400, 'name': 'ObjectsExceededLimit', 'code': 'INVALID_ARGUMENT', 'parameters': {}}]
 
-def invoke(client):
-    return client.with_raw_response.list_linked_objects(ontology='palantir', object_type='employee', primary_key='50030', link_type='directReport', page_size=100, request_timeout=30)
+def invoke(client, page_token=None):
+    return client.with_raw_response.list_linked_objects(ontology='palantir', object_type='employee', primary_key='50030', link_type='directReport', page_size=100, page_token=page_token, request_timeout=30)
 
-def check_request(request):
+def check_request(request, page_token=None):
     assert request.method == EXPECTED_METHOD
     assert urllib.parse.unquote(request.url.path) == EXPECTED_PATH
     assert request.headers['Authorization'] == 'Bearer offline-fixture-token'
@@ -45,7 +47,8 @@ def check_request(request):
             assert key not in request.headers
         else:
             assert request.headers[key] == str(value)
-    expected = httpx.QueryParams({key: value for key,value in EXPECTED_QUERY.items() if value is not None})
+    expected_query = {**EXPECTED_QUERY, 'pageToken': page_token}
+    expected = httpx.QueryParams({key: value for key,value in expected_query.items() if value is not None})
     assert sorted(request.url.params.multi_items()) == sorted(expected.multi_items())
     if isinstance(EXPECTED_BODY, bytes):
         assert request.content == EXPECTED_BODY
@@ -78,10 +81,27 @@ def verify():
     with mock_resource(LinkedObjectClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
         finally:
             raw.close()
     assert len(calls) == 1
+    assert decoded['data'][0]['__primaryKey'] == 80060
+    assert decoded['data'][0]['__apiName'] == 'Employee'
+    token = decoded['nextPageToken']
+    def next_page(request):
+        check_request(request, token)
+        return httpx.Response(200, json=PAGE_TWO)
+    with mock_resource(LinkedObjectClient, next_page) as client:
+        raw = invoke(client, token)
+        try:
+            decoded_second_page = normalized(raw.decode())
+            assert decoded_second_page == PAGE_TWO
+        finally:
+            raw.close()
+    assert decoded_second_page['data'][0]['__primaryKey'] == 80061
+    assert decoded_second_page['data'][0]['__apiName'] == 'Employee'
+    assert 'nextPageToken' not in decoded_second_page
     for error_case in ERRORS:
         def failure(request):
             check_request(request)

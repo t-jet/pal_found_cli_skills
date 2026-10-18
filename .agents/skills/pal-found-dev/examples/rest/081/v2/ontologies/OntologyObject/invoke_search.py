@@ -70,10 +70,15 @@ def verify():
     with mock_resource(OntologyObjectClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
         finally:
             raw.close()
     assert len(calls) == 1
+    assert decoded['data'][0]['__primaryKey'] == 1000
+    assert decoded['data'][0]['__apiName'] == 'Employee'
+    assert decoded['data'][0]['age'] == EXPECTED_BODY['where']['value']
+    assert decoded['totalCount'] == '1' and 'nextPageToken' not in decoded
     for error_case in ERRORS:
         def failure(request):
             check_request(request)
