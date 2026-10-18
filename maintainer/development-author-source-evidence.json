@@ -68,7 +68,7 @@
       "registered_heading": "Python transform lifecycle",
       "owner": "P",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "b7a7209b11a18025261caac709e5d932febf4fe53ec1da039dc0d4619179aeff",
       "lines": 108,
       "heading_matches": true,
@@ -76,7 +76,8 @@
         "https://www.palantir.com/docs/foundry/transforms-python/compute-engines",
         "https://www.palantir.com/docs/foundry/transforms-python/data-expectations-getting-started",
         "https://www.palantir.com/docs/foundry/transforms-python/transforms"
-      ]
+      ],
+      "review_evidence": "2026-10-18 qa-engineer review at skills 68d569c, T04 only: page SHA-256 b7a7209b11a18025261caac709e5d932febf4fe53ec1da039dc0d4619179aeff; root heading and seven component anchors resolve; eight offline topic tests pass. Documented python -B examples/pipelines/fixture_run.py passes joined-row, empty-input, four rejected-input, incremental-equivalence, rename, recompute and replay checks. Four linked Python examples AST-parse. Single-node and Spark choices, transform.using versions, and expectation checks match three recorded Palantir sources. No real Foundry build, other topics, journeys, or release approval claimed."
     },
     {
       "topic": "T05",

@@ -4115,25 +4115,47 @@
     },
     {
       "path": "pal-found-dev\\references\\pipelines\\python-transforms.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-062",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T04 Python transform lifecycle and offline fixture independently reviewed at current page hash.",
       "sha256": "b7a7209b11a18025261caac709e5d932febf4fe53ec1da039dc0d4619179aeff",
       "lines": 108,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "candidate_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
         "page_sha256": "b7a7209b11a18025261caac709e5d932febf4fe53ec1da039dc0d4619179aeff",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 12",
-          "reachable from owning SKILL.md"
+          "full T04 page read",
+          "three Palantir sources compared",
+          "offline pipeline fixture executed with joins, invalid rows, incremental equivalence, rename, recompute and replay checks",
+          "four linked Python examples AST-parse",
+          "eight offline topic tests passed",
+          "registered heading and seven component anchors resolve",
+          "three URL contexts have nonblocking triage"
         ],
-        "url_contexts_in_current_audit": 3,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "scope_limit": "Page/T04 only; no real Foundry build, other topics, journeys, or release approval."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "b7a7209b11a18025261caac709e5d932febf4fe53ec1da039dc0d4619179aeff",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 12",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 3,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\pipelines\\releases.md",
