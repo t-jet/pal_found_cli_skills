@@ -104,7 +104,7 @@
       "registered_heading": "Local Python development",
       "owner": "P",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "d21538f18ef0bc339d25aaf1ce74771545e92af05c52873fc411091fa6ee34c6",
       "lines": 92,
       "heading_matches": true,
@@ -112,7 +112,8 @@
         "https://www.palantir.com/docs/foundry/code-repositories/preview-transforms",
         "https://www.palantir.com/docs/foundry/transforms-python/local-development",
         "https://www.palantir.com/docs/foundry/vs-code/local-vs-workspace-guide"
-      ]
+      ],
+      "review_evidence": "2026-10-18 qa-engineer review at skills afb8ac3, T06 only: page SHA-256 d21538f18ef0bc339d25aaf1ce74771545e92af05c52873fc411091fa6ee34c6; root heading and seven component anchors resolve; eight offline topic tests and python -B examples/pipelines/fixture_run.py pass. Three recorded Palantir sources support the local development, hosted workspace and preview guidance. Live tenant execution, other topics, journeys and release approval remain unverified."
     },
     {
       "topic": "T07",
