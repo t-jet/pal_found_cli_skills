@@ -21,8 +21,8 @@ EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/scenarios/ri.synthetic.main.
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'pageSize': None, 'pageToken': None, 'preview': True}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'data': [{'sourceObject': {'orderId': 'ORD-101', 'status': 'InReview'},
-                     'linkedObjects': [{'targetObject': {'workerId': 'WRK-7', 'displayName': 'Ada'},
+SUCCESS = {'data': [{'sourceObject': {'__primaryKey': 'ORD-101', '__apiName': 'Order'},
+                     'linkedObjects': [{'targetObject': {'__primaryKey': 'WRK-7', '__apiName': 'Worker'},
                                         'linkType': 'assignedWorker'}]}]}
 ERRORS = []
 
