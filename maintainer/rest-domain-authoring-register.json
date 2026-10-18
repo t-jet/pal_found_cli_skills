@@ -8426,7 +8426,7 @@
       "example": "examples/rest/081/v2/ontologies/OntologyScenario/invoke_list_scenario_edited_links.py",
       "fixture_entrypoint": "verify",
       "behavior_sha256": "3416e019ce102464a0f3f8f20fb11aab13684f825346848e992ff281db312597",
-      "example_sha256": "62009c6487b84fd6f553ea1c5fe4101f0433bf0431e6c909e0ad14d1fe0f7bb0",
+      "example_sha256": "ccc5cc72ac695df75fb2245869f49727bbe275e69b3e062f5dcbc973f395849a",
       "source_sha256": "ca8ec3be7e1a37dc0d78bc7f6a9edfbe1681b8d935fd24c8e3dcaabd56c9f597",
       "doc_sha256": "70a625dc262009de2139dc2ef320f3fa03a63254e473576b87e5ca25bb3742f9",
       "source_sdk": "1.101.0",
@@ -8474,7 +8474,7 @@
       "example": "examples/rest/081/v2/ontologies/OntologyScenario/invoke_list_scenario_edited_objects.py",
       "fixture_entrypoint": "verify",
       "behavior_sha256": "3416e019ce102464a0f3f8f20fb11aab13684f825346848e992ff281db312597",
-      "example_sha256": "e3a45ee0b66cebfa6ddfc109c064a3e3dd88d7ffab228dc6133ba12372d08359",
+      "example_sha256": "3fac616421ccc5a41b244b777df2812afe18bcdc480738d48b41afbde87e6673",
       "source_sha256": "ca8ec3be7e1a37dc0d78bc7f6a9edfbe1681b8d935fd24c8e3dcaabd56c9f597",
       "doc_sha256": "70a625dc262009de2139dc2ef320f3fa03a63254e473576b87e5ca25bb3742f9",
       "source_sdk": "1.101.0",
@@ -10196,6 +10196,6 @@
       "live_enrollment_status": "not exercised"
     }
   ],
-  "candidate_sha": "d6e2b8e176ee37c5c1880e9cac813d0bffead20b",
-  "input_bundle_sha256": "e2573b52f13b51e56e7f2b37a655621cfc29170344d307ee12379206b1ed6952"
+  "candidate_sha": "86149ebd2639fed465325870662c0647cd0f0cc9",
+  "input_bundle_sha256": "c2a5d79d796ea33765126d46ca79e91fc3e4c22f1545d40204b3e9c0a6ed6631"
 }
