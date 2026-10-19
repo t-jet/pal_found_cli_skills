@@ -582,30 +582,46 @@
     },
     {
       "path": "pal-found-data-health\\SKILL.md",
-      "sha256": "9b3f4205875ba505008fab28a8e940361884642d4788b2ca545905cdd3ac3649",
+      "sha256": "a4da0673e75e2545d99e6a018d2dd245a80e18a70b6b921ceea0e51c6ebe4d18",
       "lines": 60,
-      "review_status": "failed independent QA; BUG-034",
+      "review_status": "correction authored; independent full-page retest pending",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "FAIL",
+      "disposition": "Removed unsupported pagination-helper claim; single-response limit guidance now matches tool source. Full-page independent retest remains pending.",
+      "qa_verdict": "UNCERTAIN",
       "review_evidence": {
-        "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "a4cfb4c13d05e6abd0a52fff8f0abe7786464fdda907dce530b09d9c3413aa8a",
-        "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 4",
-          "reachable from owning SKILL.md",
-          "Six Data Health operation declarations matched tool OP_SPECS at b9c5f8a",
-          "SDK 1.101.0 MockTransport request omitted preview query when no preview argument supplied",
-          "Official Palantir API contract requires preview=true for Check and CheckReport endpoints"
-        ],
-        "url_contexts_in_current_audit": 2,
-        "pending": "BUG-034 tool remediation and six-operation serialized-request retest",
-        "scope_limit": "No enrolled tenant call; documented API contract and local request serialization establish blocker.",
-        "defect_ticket": "BUG-034",
-        "source_url": "https://www.palantir.com/docs/foundry/api/v2/data-health-v2-resources/checks/get-check"
-      }
+        "status": "pending",
+        "author_followup": "CLI tool 0963e6e data_health/scripts/pal_found_data_health_cli.py states get_latest limit is not cursor pagination and never uses PaginationHelper. Corrected skills content commit 6205cd7.",
+        "scope_limit": "Author correction only. The interrupted reviewer did not complete acceptance of these current page bytes; historical independent evidence is retained in review_history."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-data-health\\SKILL.md",
+          "sha256": "9b3f4205875ba505008fab28a8e940361884642d4788b2ca545905cdd3ac3649",
+          "lines": 60,
+          "review_status": "failed independent QA; BUG-034",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "FAIL",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "a4cfb4c13d05e6abd0a52fff8f0abe7786464fdda907dce530b09d9c3413aa8a",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 4",
+              "reachable from owning SKILL.md",
+              "Six Data Health operation declarations matched tool OP_SPECS at b9c5f8a",
+              "SDK 1.101.0 MockTransport request omitted preview query when no preview argument supplied",
+              "Official Palantir API contract requires preview=true for Check and CheckReport endpoints"
+            ],
+            "url_contexts_in_current_audit": 2,
+            "pending": "BUG-034 tool remediation and six-operation serialized-request retest",
+            "scope_limit": "No enrolled tenant call; documented API contract and local request serialization establish blocker.",
+            "defect_ticket": "BUG-034",
+            "source_url": "https://www.palantir.com/docs/foundry/api/v2/data-health-v2-resources/checks/get-check"
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-datasets\\references\\01-dataset.md",
@@ -11424,8 +11440,8 @@
   },
   "independent_reviewer": "qa-engineer",
   "independent_review_counts": {
-    "UNCERTAIN": 106,
-    "FAIL": 2,
+    "UNCERTAIN": 107,
+    "FAIL": 1,
     "PASS": 84
   }
 }
