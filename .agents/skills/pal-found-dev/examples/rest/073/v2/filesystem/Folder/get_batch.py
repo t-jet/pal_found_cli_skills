@@ -21,7 +21,18 @@ EXPECTED_PATH = '/api/v2/filesystem/folders/getBatch'
 EXPECTED_BODY = [{'folderRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}]
 EXPECTED_QUERY = {}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'data': {}}
+SUCCESS = {'data': {'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001': {'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
+                                                                              'displayName': 'synthetic-resource',
+                                                                              'path': '/synthetic-space/synthetic-project/synthetic-resource',
+                                                                              'type': 'FOLDER',
+                                                                              'createdBy': '00000000-0000-0000-0000-000000000001',
+                                                                              'updatedBy': '00000000-0000-0000-0000-000000000001',
+                                                                              'createdTime': '2026-10-07T00:00:00+00:00',
+                                                                              'updatedTime': '2026-10-07T00:00:00+00:00',
+                                                                              'trashStatus': 'NOT_TRASHED',
+                                                                              'parentFolderRid': 'ri.synthetic.main.folder.00000000-0000-0000-0000-000000000002',
+                                                                              'projectRid': 'ri.synthetic.main.project.00000000-0000-0000-0000-000000000003',
+                                                                              'spaceRid': 'ri.synthetic.main.space.00000000-0000-0000-0000-000000000004'}}}
 ERRORS = []
 
 def invoke(client):
@@ -69,7 +80,11 @@ def verify():
     with mock_resource(FolderClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = raw.decode()
+            requested_rid = EXPECTED_BODY[0]['folderRid']
+            assert requested_rid in result.data, 'Requested RID missing from batch response'
+            assert result.data[requested_rid].rid == requested_rid, 'Returned RID differs from request'
+            assert normalized(result) == SUCCESS
         finally:
             raw.close()
     assert len(calls) == 1

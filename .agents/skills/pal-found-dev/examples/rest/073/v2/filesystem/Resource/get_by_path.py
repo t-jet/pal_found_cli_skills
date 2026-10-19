@@ -19,11 +19,11 @@ from mock_transport import mock_resource
 EXPECTED_METHOD = 'GET'
 EXPECTED_PATH = '/api/v2/filesystem/resources/getByPath'
 EXPECTED_BODY = None
-EXPECTED_QUERY = {'path': 'synthetic-value'}
+EXPECTED_QUERY = {'path': '/synthetic-space/synthetic-project/synthetic-value'}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
 SUCCESS = {'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
  'displayName': 'synthetic-value',
- 'path': 'synthetic-value',
+ 'path': '/synthetic-space/synthetic-project/synthetic-value',
  'type': 'AIP_PROFILE',
  'createdBy': '00000000-0000-0000-0000-000000000001',
  'updatedBy': '00000000-0000-0000-0000-000000000001',
@@ -48,18 +48,18 @@ ERRORS = [{'name': 'GetByPathPermissionDenied',
  {'name': 'InvalidPath',
   'status': 400,
   'code': 'INVALID_ARGUMENT',
-  'parameters': {'path': 'synthetic-value'}},
+  'parameters': {'path': '/synthetic-space/synthetic-project/synthetic-value'}},
  {'name': 'PathNotFound',
   'status': 404,
   'code': 'NOT_FOUND',
-  'parameters': {'path': 'synthetic-value'}},
+  'parameters': {'path': '/synthetic-space/synthetic-project/synthetic-value'}},
  {'name': 'ResourceNotFound',
   'status': 404,
   'code': 'NOT_FOUND',
   'parameters': {'resourceRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}}]
 
 def invoke(client):
-    return client.with_raw_response.get_by_path(path='synthetic-value', request_timeout=30)
+    return client.with_raw_response.get_by_path(path='/synthetic-space/synthetic-project/synthetic-value', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -103,7 +103,9 @@ def verify():
     with mock_resource(ResourceClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = raw.decode()
+            assert result.path == EXPECTED_QUERY['path'], 'Returned path differs from request'
+            assert normalized(result) == SUCCESS
         finally:
             raw.close()
     assert len(calls) == 1

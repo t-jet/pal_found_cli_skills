@@ -21,7 +21,7 @@ EXPECTED_PATH = '/api/v2/thirdPartyApplications/ri.synthetic.main.resource.00000
 EXPECTED_BODY = {'version': 'synthetic-value'}
 EXPECTED_QUERY = {}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'subdomains': ['synthetic-value']}
+SUCCESS = {'subdomains': ['synthetic-value'], 'deployedVersion': 'synthetic-value'}
 ERRORS = [{'name': 'DeployWebsitePermissionDenied',
   'status': 403,
   'code': 'PERMISSION_DENIED',
@@ -72,7 +72,9 @@ def verify():
     with mock_resource(WebsiteClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = raw.decode()
+            assert result.deployed_version == EXPECTED_BODY['version'], 'Deployed version differs from request'
+            assert normalized(result) == SUCCESS
         finally:
             raw.close()
     assert len(calls) == 1
