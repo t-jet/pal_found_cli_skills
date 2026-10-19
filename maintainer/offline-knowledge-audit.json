@@ -3632,223 +3632,456 @@
     },
     {
       "path": "pal-found-dev\\references\\applications\\osdk.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-066",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T20 whole-page guidance independently reviewed at current hash.",
       "sha256": "fd23a0c7addc6f0de0ff98fda1d0e7477d7e49c70f990e659e30ac70ca0d1993",
       "lines": 135,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topics19_23_independent_qa",
+        "candidate": "6591e891cce40210c0222403bc23bda115f97d28",
         "page_sha256": "fd23a0c7addc6f0de0ff98fda1d0e7477d7e49c70f990e659e30ac70ca0d1993",
-        "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 12",
-          "reachable from owning SKILL.md"
-        ],
-        "url_contexts_in_current_audit": 8,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "checks": "Whole page treats registration, generated bindings, login, scopes, resource restrictions, and user grants separately. Official docs confirm selected Ontology immutability after generation, empty scope behavior, restricted api:use-* scope namespace, OSDK2 fetch/action/query patterns, and configurable application roles. Local timeout unit and HTTP fixtures passed. Tenant-specific generated package and OAuth remain untested.",
+        "evidence_file": "maintainer/development-topic-review-19-23.json",
+        "scope_limit": "Read-only whole-page semantic and official-source review of T19-T23. No live Foundry enrollment, OAuth, React render, widget host, or publication was available."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "fd23a0c7addc6f0de0ff98fda1d0e7477d7e49c70f990e659e30ac70ca0d1993",
+          "lines": 135,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "fd23a0c7addc6f0de0ff98fda1d0e7477d7e49c70f990e659e30ac70ca0d1993",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 12",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 8,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\applications\\react.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-066",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T21 whole-page guidance independently reviewed at current hash.",
       "sha256": "ec263968f2465d6101770d2b3d611082a5838f31f1ad2e9096c48cf459558423",
       "lines": 118,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topics19_23_independent_qa",
+        "candidate": "6591e891cce40210c0222403bc23bda115f97d28",
         "page_sha256": "ec263968f2465d6101770d2b3d611082a5838f31f1ad2e9096c48cf459558423",
-        "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 16",
-          "reachable from owning SKILL.md"
-        ],
-        "url_contexts_in_current_audit": 7,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "checks": "Whole page distinguishes loading, retained-data refresh, validation, confirmed Action effects, subscriptions, and deployed website version. Primary docs support typed hooks/shared cache, subscription constraints, and hosting limits 1000 files/20 MB. Synthetic UI-state fixture passed. TypeScript declaration compile was unavailable because prepared dependencies are absent; page explicitly requires them and does not claim fixture proves hooks or tenant execution.",
+        "evidence_file": "maintainer/development-topic-review-19-23.json",
+        "scope_limit": "Read-only whole-page semantic and official-source review of T19-T23. No live Foundry enrollment, OAuth, React render, widget host, or publication was available."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "ec263968f2465d6101770d2b3d611082a5838f31f1ad2e9096c48cf459558423",
+          "lines": 118,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "ec263968f2465d6101770d2b3d611082a5838f31f1ad2e9096c48cf459558423",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 16",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 7,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\branching\\contexts.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-066",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T28 whole-page guidance independently reviewed at current hash.",
       "sha256": "a2d425841cac94c25eb4cd6366e043f30709e665bc11d90bebeb0cf328d1bf0a",
       "lines": 73,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topics24_28_independent_qa",
+        "candidate": "6591e891cce40210c0222403bc23bda115f97d28",
         "page_sha256": "a2d425841cac94c25eb4cd6366e043f30709e665bc11d90bebeb0cf328d1bf0a",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 9",
-          "reachable from owning SKILL.md"
+          "Registered title, digest, and line count match page",
+          "All local Markdown targets resolve",
+          "Git, build, dataset, and global branch contexts are distinguished; example correctly reads orders/master through fallback and writes totals/experiment; SDK/global integration boundary is explicit"
         ],
-        "url_contexts_in_current_audit": 3,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/development-topic-review-24-28.json",
+        "scope_limit": "No tenant job details, transactions, or SDK branch selection were observed."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "a2d425841cac94c25eb4cd6366e043f30709e665bc11d90bebeb0cf328d1bf0a",
+          "lines": 73,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "a2d425841cac94c25eb4cd6366e043f30709e665bc11d90bebeb0cf328d1bf0a",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 9",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 3,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\branching\\datasets.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-066",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T29 whole-page guidance independently reviewed at current hash.",
       "sha256": "c5223223ea9f6311a6389b013df0e6f7f880a19adac26caaa111ab7a01b0d981",
       "lines": 66,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topics24_28_independent_qa",
+        "candidate": "336b03105e142ba57d65c79da69b64017563b37f",
         "page_sha256": "c5223223ea9f6311a6389b013df0e6f7f880a19adac26caaa111ab7a01b0d981",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 6",
-          "reachable from owning SKILL.md"
+          "Registered heading, digest and line count match",
+          "All local Markdown link targets resolve",
+          "Dataset branch pointers, no merge operation, one open transaction per branch, fallback inputs and selected-branch outputs agree with official branching docs",
+          "Repository fallback scope and external launcher distinction agree with branch settings docs",
+          "Worked example keeps prior O1 output distinct from later O2 input and code merge distinct from data build"
         ],
-        "url_contexts_in_current_audit": 2,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/development-topic-review-29-32.json",
+        "scope_limit": "No dataset branch, transaction, or build was run; example is an illustrative context trace."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "c5223223ea9f6311a6389b013df0e6f7f880a19adac26caaa111ab7a01b0d981",
+          "lines": 66,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "c5223223ea9f6311a6389b013df0e6f7f880a19adac26caaa111ab7a01b0d981",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 6",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 2,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\branching\\git.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-066",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T27 whole-page guidance independently reviewed at current hash.",
       "sha256": "cec934138207ea7dff48c2ebb4e61e4fe7b1c07c2d325924de83541d9bf5d3f0",
       "lines": 67,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topics24_28_independent_qa",
+        "candidate": "6591e891cce40210c0222403bc23bda115f97d28",
         "page_sha256": "cec934138207ea7dff48c2ebb4e61e4fe7b1c07c2d325924de83541d9bf5d3f0",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 8",
-          "reachable from owning SKILL.md"
+          "Registered title, digest, and line count match page",
+          "All local Markdown targets resolve",
+          "Default branch, protected PR/check/review controls, merge modes, Function tag restrictions, and repository-only fallback scope match official docs"
         ],
-        "url_contexts_in_current_audit": 2,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/development-topic-review-24-28.json",
+        "scope_limit": "No repository PR, publishing check, build, or Function release was executed."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "cec934138207ea7dff48c2ebb4e61e4fe7b1c07c2d325924de83541d9bf5d3f0",
+          "lines": 67,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "cec934138207ea7dff48c2ebb4e61e4fe7b1c07c2d325924de83541d9bf5d3f0",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 8",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 2,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\branching\\global.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-066",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T26 whole-page guidance independently reviewed at current hash.",
       "sha256": "3854b2efbb6f7972059018c5e0aa819156579fdefc48f1f822dd103e4317130f",
       "lines": 89,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topics24_28_independent_qa",
+        "candidate": "6591e891cce40210c0222403bc23bda115f97d28",
         "page_sha256": "3854b2efbb6f7972059018c5e0aa819156579fdefc48f1f822dd103e4317130f",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 6",
-          "reachable from owning SKILL.md"
+          "Registered title, digest, and line count match page",
+          "All local Markdown targets resolve",
+          "Ordinary resource creation/deletion effect on main, owner proposal rights, viewer merge rights after approvals, four lifecycle states, recovery and partial merge warning match official docs"
         ],
-        "url_contexts_in_current_audit": 2,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/development-topic-review-24-28.json",
+        "scope_limit": "Illustrative Shipment walkthrough was reviewed as guidance; no tenant branch or proposal was created."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "3854b2efbb6f7972059018c5e0aa819156579fdefc48f1f822dd103e4317130f",
+          "lines": 89,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "3854b2efbb6f7972059018c5e0aa819156579fdefc48f1f822dd103e4317130f",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 6",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 2,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\branching\\integrations.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-066",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T30 whole-page guidance independently reviewed at current hash.",
       "sha256": "65854e4e747403cc56833fb6d80e5aee80ffd0d0f17c789166e0e272ac19bead",
       "lines": 71,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topics24_28_independent_qa",
+        "candidate": "336b03105e142ba57d65c79da69b64017563b37f",
         "page_sha256": "65854e4e747403cc56833fb6d80e5aee80ffd0d0f17c789166e0e272ac19bead",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 8",
-          "reachable from owning SKILL.md"
+          "Registered heading, digest and line count match",
+          "All local Markdown link targets resolve",
+          "Function template minimums, local Ontology SDK requirement, unstable preview and stable target, target conflict, and branched query Function restriction match official docs",
+          "Workshop rebase, Ontology protection migration, Pipeline Builder branch choice and external OSDK boundary align with integration sources"
         ],
-        "url_contexts_in_current_audit": 5,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/development-topic-review-29-32.json",
+        "scope_limit": "No branch-aware Function preview, proposal, rebase, or tenant merge was executed."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "65854e4e747403cc56833fb6d80e5aee80ffd0d0f17c789166e0e272ac19bead",
+          "lines": 71,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "65854e4e747403cc56833fb6d80e5aee80ffd0d0f17c789166e0e272ac19bead",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 8",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 5,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\compute\\execution.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-064",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
-      "sha256": "9ba221fbfd5293a18b745046e9ff94972d72a68674a075028818cfdb6f4717b3",
-      "lines": 113,
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "T18 whole-page guidance independently reviewed at current hash.",
+      "sha256": "31e3d68051377ae7ace0a785ff6ed03fd3578d32f18ddc2299ca4484ef40ca82",
+      "lines": 116,
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "9ba221fbfd5293a18b745046e9ff94972d72a68674a075028818cfdb6f4717b3",
+        "reviewer_agent": "/root/feature015_topic_t01_review",
+        "candidate": {
+          "integration_head_at_review": "336b031",
+          "corrected_isolated_head": "0bbf1c79be3a98bc94a4989768c5af869d71019e",
+          "correction_commits": [
+            "f77faa43790ca1e756a2fdc4f57a543e2ceed3de",
+            "0bbf1c79be3a98bc94a4989768c5af869d71019e"
+          ],
+          "note": "T14 and T18 PASS applies to corrected isolated page content; registered source/audit hashes must be synchronized after integration."
+        },
+        "page_sha256": "31e3d68051377ae7ace0a785ff6ed03fd3578d32f18ddc2299ca4484ef40ca82",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 13",
-          "reachable from owning SKILL.md"
+          "Registered root/component anchors and all page local links resolve.",
+          "Whole page distinguishes Function no-platform/application permissions, Pipeline job token/resource aliases, branch fallback, replica/concurrency behavior, stream acknowledgments, batch transaction and provenance limits.",
+          "Original page's Procedure step 5 implied explicit caller-created transaction/commit in Pipeline mode; corrected page says Pipeline build system manages output transactions and commits on successful completion, while standalone REST writes need explicit transaction flow. Failure recovery row now makes same distinction.",
+          "python -B verify_fixture.py exit 0: synthetic score/bindings/bounded stream adapter including limits and partial-timeout behavior. Stream proxy records/jsonRecord shape checked against official getting-started page."
         ],
-        "url_contexts_in_current_audit": 3,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/development-topic-review-14-18.json",
+        "scope_limit": [
+          "No live Pipeline job, mounted job token, actual dataset commit, stream deployment or lineage verification. Fixture uses fake session."
+        ]
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "9ba221fbfd5293a18b745046e9ff94972d72a68674a075028818cfdb6f4717b3",
+          "lines": 113,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "9ba221fbfd5293a18b745046e9ff94972d72a68674a075028818cfdb6f4717b3",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 13",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 3,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\compute\\integration.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-064",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T19 whole-page guidance independently reviewed at current hash.",
       "sha256": "fe1daa0c0f4403f0f2c10205ec750f4b053a89d11febe8e5db7a4f216a8a3424",
       "lines": 127,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "2aeb60671a8efbd3ba59860a78ae63e749bd3b02880c696a46fe2abac0567241",
-        "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 12",
-          "reachable from owning SKILL.md"
-        ],
-        "url_contexts_in_current_audit": 3,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "reviewer_agent": "/root/feature015_topics19_23_independent_qa",
+        "candidate": "6591e891cce40210c0222403bc23bda115f97d28",
+        "page_sha256": "fe1daa0c0f4403f0f2c10205ec750f4b053a89d11febe8e5db7a4f216a8a3424",
+        "checks": "Whole page separates Compute Module SDK, generated OSDK, platform SDK, Source network route, OAuth scope, and resource grants. Sample uses generated package placeholder with explicit schema assumption; synthetic compute fixture passed. Source credential map and restricted-app scope claims match primary docs.",
+        "evidence_file": "maintainer/development-topic-review-19-23.json",
+        "scope_limit": "Read-only whole-page semantic and official-source review of T19-T23. No live Foundry enrollment, OAuth, React render, widget host, or publication was available."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "fe1daa0c0f4403f0f2c10205ec750f4b053a89d11febe8e5db7a4f216a8a3424",
+          "lines": 127,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "2aeb60671a8efbd3ba59860a78ae63e749bd3b02880c696a46fe2abac0567241",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 12",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 3,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\compute\\lifecycle.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-064",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T17 whole-page guidance independently reviewed at current hash.",
       "sha256": "9839776cb00bbbc35530f2cfc96f9953d3432cb1477b05e5dc2f86369b1e6120",
       "lines": 108,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topic_t01_review",
+        "candidate": {
+          "integration_head_at_review": "336b031",
+          "corrected_isolated_head": "0bbf1c79be3a98bc94a4989768c5af869d71019e",
+          "correction_commits": [
+            "f77faa43790ca1e756a2fdc4f57a543e2ceed3de",
+            "0bbf1c79be3a98bc94a4989768c5af869d71019e"
+          ],
+          "note": "T14 and T18 PASS applies to corrected isolated page content; registered source/audit hashes must be synchronized after integration."
+        },
         "page_sha256": "9839776cb00bbbc35530f2cfc96f9953d3432cb1477b05e5dc2f86369b1e6120",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 15",
-          "reachable from owning SKILL.md"
+          "Registered root/component anchors and all page local links resolve.",
+          "Whole page distinguishes image, configuration, running replica, function discovery, query, readiness and liveness; prerequisites disclose prepared base image/wheels and enrollment access.",
+          "Dockerfile uses linux/amd64 and numeric non-root UID 5000; app.py add_functions/start_compute_module matches official Palantir Python SDK; score adapter uses TypedDict and validates integer/nonnegative inputs.",
+          "python -B verify_fixture.py exit 0: synthetic score, binding and stream adapter checks. Official container/probe/get-started guidance supports deployment steps."
         ],
-        "url_contexts_in_current_audit": 6,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/development-topic-review-14-18.json",
+        "scope_limit": [
+          "No Docker build, registry push, running Compute Module or live Query; prepared wheels/base image and Foundry access unavailable."
+        ]
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "9839776cb00bbbc35530f2cfc96f9953d3432cb1477b05e5dc2f86369b1e6120",
+          "lines": 108,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "9839776cb00bbbc35530f2cfc96f9953d3432cb1477b05e5dc2f86369b1e6120",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 15",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 6,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\development-paths.md",
@@ -3895,47 +4128,113 @@
     },
     {
       "path": "pal-found-dev\\references\\ontology\\actions.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-064",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
-      "sha256": "717b2fc7f2bc609709259e01e06e185a4a4b04236ea4c3c22eeba0342460f267",
-      "lines": 82,
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "T14 whole-page guidance independently reviewed at current hash.",
+      "sha256": "767503f3e6c6f82c060e752c32b60445087bf37199c0b1cef1a09b5b9209276e",
+      "lines": 88,
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "717b2fc7f2bc609709259e01e06e185a4a4b04236ea4c3c22eeba0342460f267",
+        "reviewer_agent": "/root/feature015_topic_t01_review",
+        "candidate": {
+          "integration_head_at_review": "336b031",
+          "corrected_isolated_head": "0bbf1c79be3a98bc94a4989768c5af869d71019e",
+          "correction_commits": [
+            "f77faa43790ca1e756a2fdc4f57a543e2ceed3de",
+            "0bbf1c79be3a98bc94a4989768c5af869d71019e"
+          ],
+          "note": "T14 and T18 PASS applies to corrected isolated page content; registered source/audit hashes must be synchronized after integration."
+        },
+        "page_sha256": "767503f3e6c6f82c060e752c32b60445087bf37199c0b1cef1a09b5b9209276e",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 8",
-          "reachable from owning SKILL.md"
+          "Registered root/component anchors and all page local links resolve.",
+          "Whole page separates Action configuration, submission criteria, edit state, side effects, identity, and uncertain-outcome recovery.",
+          "Original 82-line page omitted Test run external-call effects; corrected Procedure step 5 warns that writeback webhooks and result-producing functions can affect external systems after acknowledgement, while Ontology edits and post-apply effects are skipped.",
+          "python -B examples/ontology/action_fixture.py exit 0: accepted/rejected inputs, denied identity, uncertain/partial effects."
         ],
-        "url_contexts_in_current_audit": 4,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/development-topic-review-14-18.json",
+        "scope_limit": [
+          "Fixture is synthetic; no Foundry Action execution or external side-effect verification."
+        ]
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "717b2fc7f2bc609709259e01e06e185a4a4b04236ea4c3c22eeba0342460f267",
+          "lines": 82,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "717b2fc7f2bc609709259e01e06e185a4a4b04236ea4c3c22eeba0342460f267",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 8",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 4,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\ontology\\functions.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-064",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T15 whole-page guidance independently reviewed at current hash.",
       "sha256": "cfba370bb9d14be11483c49302bd34a7733be7a1f50ea9a65afadaf37897052c",
       "lines": 109,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topic_t01_review",
+        "candidate": {
+          "integration_head_at_review": "336b031",
+          "corrected_isolated_head": "0bbf1c79be3a98bc94a4989768c5af869d71019e",
+          "correction_commits": [
+            "f77faa43790ca1e756a2fdc4f57a543e2ceed3de",
+            "0bbf1c79be3a98bc94a4989768c5af869d71019e"
+          ],
+          "note": "T14 and T18 PASS applies to corrected isolated page content; registered source/audit hashes must be synchronized after integration."
+        },
         "page_sha256": "cfba370bb9d14be11483c49302bd34a7733be7a1f50ea9a65afadaf37897052c",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 9",
-          "reachable from owning SKILL.md"
+          "Registered root/component anchors and all page local links resolve.",
+          "Whole page correctly distinguishes TypeScript v1 class/decorator, TypeScript v2 same-name default export and path identity, Python decorator, source commit, release, consumer version, and edit staging.",
+          "Python fenced example parses with ast.parse; pure example 2+3=5 reviewed; runtime snippets are illustrative, with enrollment execution explicitly required.",
+          "Python edit construction, immutable primary keys, array reassignment and Action application align with official docs."
         ],
-        "url_contexts_in_current_audit": 5,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/development-topic-review-14-18.json",
+        "scope_limit": [
+          "No executable platform fixture for runtime publication; no live enrollment, TypeScript build, or release performed."
+        ]
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "cfba370bb9d14be11483c49302bd34a7733be7a1f50ea9a65afadaf37897052c",
+          "lines": 109,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "cfba370bb9d14be11483c49302bd34a7733be7a1f50ea9a65afadaf37897052c",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 9",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 5,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\ontology\\interfaces.md",
@@ -4065,91 +4364,196 @@
     },
     {
       "path": "pal-found-dev\\references\\ontology\\security.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-064",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T16 whole-page guidance independently reviewed at current hash.",
       "sha256": "12f60ae72f949ceea31d9015164526ee542eb53720a48c4b1d7f7fe20bf925a8",
       "lines": 86,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topic_t01_review",
+        "candidate": {
+          "integration_head_at_review": "336b031",
+          "corrected_isolated_head": "0bbf1c79be3a98bc94a4989768c5af869d71019e",
+          "correction_commits": [
+            "f77faa43790ca1e756a2fdc4f57a543e2ceed3de",
+            "0bbf1c79be3a98bc94a4989768c5af869d71019e"
+          ],
+          "note": "T14 and T18 PASS applies to corrected isolated page content; registered source/audit hashes must be synchronized after integration."
+        },
         "page_sha256": "12f60ae72f949ceea31d9015164526ee542eb53720a48c4b1d7f7fe20bf925a8",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 7",
-          "reachable from owning SKILL.md"
+          "Registered root/component anchors and all page local links resolve.",
+          "Whole page separates configuration, object instance, property, Action and submission permissions; NORTH/SOUTH and READY/CLOSED truth table produces expected visibility/denial paths.",
+          "Official docs confirm hidden object absent, hidden property null, read-time policies not propagated to exports, and Beta Action read/write authorizations add boundaries without granting access.",
+          "Page explicitly requires actual tenant identity tests; synthetic truth table is not represented as platform authorization proof."
         ],
-        "url_contexts_in_current_audit": 4,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/development-topic-review-14-18.json",
+        "scope_limit": [
+          "No live enrollment identities/policies or standalone executable T16 fixture; manual policy truth-table trace only."
+        ]
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "12f60ae72f949ceea31d9015164526ee542eb53720a48c4b1d7f7fe20bf925a8",
+          "lines": 86,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "12f60ae72f949ceea31d9015164526ee542eb53720a48c4b1d7f7fe20bf925a8",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 7",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 4,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\operations\\lineage.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-068",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T34 whole-page guidance independently reviewed at current hash.",
       "sha256": "6a425dde1dc0c4036f3fc4d270c924217007f4ea1ea4ee5c57bd2c0d190b3618",
       "lines": 76,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topics24_28_independent_qa",
+        "candidate": "336b03105e142ba57d65c79da69b64017563b37f",
         "page_sha256": "6a425dde1dc0c4036f3fc4d270c924217007f4ea1ea4ee5c57bd2c0d190b3618",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 8",
-          "reachable from owning SKILL.md"
+          "Registered heading, digest and line count match",
+          "All local Markdown targets resolve",
+          "Lineage graph, build timeline and job investigation steps match official navigation and build sources",
+          "Multi-output jobs update their outputs together, while a failed build may contain completed jobs with committed outputs; page directs reader to individual transactions",
+          "Illustrative O1/O2/T1 trace keeps current upstream state separate from actual prior job input"
         ],
-        "url_contexts_in_current_audit": 4,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/development-topic-review-33-36.json",
+        "scope_limit": "No tenant lineage graph or job report was inspected; walkthrough is illustrative."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "6a425dde1dc0c4036f3fc4d270c924217007f4ea1ea4ee5c57bd2c0d190b3618",
+          "lines": 76,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "6a425dde1dc0c4036f3fc4d270c924217007f4ea1ea4ee5c57bd2c0d190b3618",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 8",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 4,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\operations\\monitoring.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-068",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T35 whole-page guidance independently reviewed at current hash.",
       "sha256": "10d343b940761a4a89090deb13e5912075a621eb73f04ec5ed93230d60d9586b",
       "lines": 78,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topics24_28_independent_qa",
+        "candidate": "336b03105e142ba57d65c79da69b64017563b37f",
         "page_sha256": "10d343b940761a4a89090deb13e5912075a621eb73f04ec5ed93230d60d9586b",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 7",
-          "reachable from owning SKILL.md"
+          "Registered heading, digest and line count match",
+          "All local Markdown targets resolve",
+          "Schedule/job status distinctions and cancellation behavior match official check types",
+          "Update, data and sync freshness differ as described; empty commit refreshes update time, and the one-hour threshold example follows automatic evaluation semantics",
+          "Watch, email, issue, pause and delete behavior match official notification docs"
         ],
-        "url_contexts_in_current_audit": 5,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/development-topic-review-33-36.json",
+        "scope_limit": "No check evaluation, notification delivery, or recovery was run in an enrollment."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "10d343b940761a4a89090deb13e5912075a621eb73f04ec5ed93230d60d9586b",
+          "lines": 78,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "10d343b940761a4a89090deb13e5912075a621eb73f04ec5ed93230d60d9586b",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 7",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 5,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\operations\\support.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-068",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T36 whole-page guidance independently reviewed at current hash.",
       "sha256": "4ed70a8d3a057f3c6294dc1dbe0351df86f129c1c3c750086aa23564d672f6e4",
       "lines": 87,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topics24_28_independent_qa",
+        "candidate": "336b03105e142ba57d65c79da69b64017563b37f",
         "page_sha256": "4ed70a8d3a057f3c6294dc1dbe0351df86f129c1c3c750086aa23564d672f6e4",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 9",
-          "reachable from owning SKILL.md"
+          "Registered heading, digest and line count match",
+          "All local Markdown targets resolve",
+          "Succeeded schedule run means build launch, Ignored may mean no stale work, and pause resets trigger state per official schedule docs",
+          "Job Compare requires output transactions; save driver logs before cancel and verify actual build/output state",
+          "Project versus user schedule scope limits and support handover guidance match official docs"
         ],
-        "url_contexts_in_current_audit": 5,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/development-topic-review-33-36.json",
+        "scope_limit": "No live incident, schedule recovery, production build, or consumer check was performed."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "4ed70a8d3a057f3c6294dc1dbe0351df86f129c1c3c750086aa23564d672f6e4",
+          "lines": 87,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "4ed70a8d3a057f3c6294dc1dbe0351df86f129c1c3c750086aa23564d672f6e4",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 9",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 5,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\pipelines\\local-development.md",
@@ -4495,157 +4899,308 @@
     },
     {
       "path": "pal-found-dev\\references\\security\\applications.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-066",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T32 whole-page guidance independently reviewed at current hash.",
       "sha256": "7ac7ec0506e1c4b149c7b9423f5d886cd8082487dbac6876890dc9e471e2331d",
       "lines": 73,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topics24_28_independent_qa",
+        "candidate": "336b03105e142ba57d65c79da69b64017563b37f",
         "page_sha256": "7ac7ec0506e1c4b149c7b9423f5d886cd8082487dbac6876890dc9e471e2331d",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 7",
-          "reachable from owning SKILL.md"
+          "Registered heading, digest and line count match",
+          "All local Markdown link targets resolve",
+          "User versus service-user permissions, restricted resources and operations, public api:use-* scope mode, cross-namespace ApiUsageDenied case, and Compass versus legacy app permissions match official docs",
+          "LMS-backed Action application Viewer requirement and denied versus empty-result distinction are represented"
         ],
-        "url_contexts_in_current_audit": 2,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/development-topic-review-29-32.json",
+        "scope_limit": "No OAuth flow, query, Action, or denied identity was run against a tenant."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "7ac7ec0506e1c4b149c7b9423f5d886cd8082487dbac6876890dc9e471e2331d",
+          "lines": 73,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "7ac7ec0506e1c4b149c7b9423f5d886cd8082487dbac6876890dc9e471e2331d",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 7",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 2,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\security\\compute-branches.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-066",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T33 whole-page guidance independently reviewed at current hash.",
       "sha256": "dff393c7a4cb504c4e5bd0c66ecf818ea9083f8ccc43c04aa29a6414f9c16ee4",
       "lines": 72,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topics24_28_independent_qa",
+        "candidate": "336b03105e142ba57d65c79da69b64017563b37f",
         "page_sha256": "dff393c7a4cb504c4e5bd0c66ecf818ea9083f8ccc43c04aa29a6414f9c16ee4",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 8",
-          "reachable from owning SKILL.md"
+          "Registered heading, digest and line count match",
+          "All local Markdown targets resolve",
+          "Function service identity, pipeline scoped job token/resource aliases, Source network permission, and separate branch/resource rights match official docs",
+          "python examples/compute/verify_fixture.py exited 0: synthetic compute fixture passed; local requests dependency warning did not affect assertions"
         ],
-        "url_contexts_in_current_audit": 3,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/development-topic-review-33-36.json",
+        "scope_limit": "Fixture validates local bindings only; no module authentication, network grant, branch proposal or real read/write was tested."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "dff393c7a4cb504c4e5bd0c66ecf818ea9083f8ccc43c04aa29a6414f9c16ee4",
+          "lines": 72,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "dff393c7a4cb504c4e5bd0c66ecf818ea9083f8ccc43c04aa29a6414f9c16ee4",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 8",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 3,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\security\\platform.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-066",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T31 whole-page guidance independently reviewed at current hash.",
       "sha256": "68990679bdfb8d29d4582c003699da9f2ca26a33f29f26b56e6c05a8cb84b02b",
       "lines": 70,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topics24_28_independent_qa",
+        "candidate": "336b03105e142ba57d65c79da69b64017563b37f",
         "page_sha256": "68990679bdfb8d29d4582c003699da9f2ca26a33f29f26b56e6c05a8cb84b02b",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 4",
-          "reachable from owning SKILL.md"
+          "Registered heading, digest and line count match",
+          "All local Markdown link targets resolve",
+          "Space Editor/Owner project creation, source Viewer and destination Editor reference rule, separate upstream access, customizable role operations, and inherited mandatory controls match official docs",
+          "Worked example checks output access separately from raw source and retains controls"
         ],
-        "url_contexts_in_current_audit": 1,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/development-topic-review-29-32.json",
+        "scope_limit": "No enrollment identity or effective resource access was tested."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "68990679bdfb8d29d4582c003699da9f2ca26a33f29f26b56e6c05a8cb84b02b",
+          "lines": 70,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "68990679bdfb8d29d4582c003699da9f2ca26a33f29f26b56e6c05a8cb84b02b",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 4",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 1,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\widgets\\distribution.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-066",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T25 whole-page guidance independently reviewed at current hash.",
       "sha256": "deffcf6fe4387c7eb8af72bd048d1336bf1e7841a126256a998cde8c8d21a497",
       "lines": 86,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topics24_28_independent_qa",
+        "candidate": "6591e891cce40210c0222403bc23bda115f97d28",
         "page_sha256": "deffcf6fe4387c7eb8af72bd048d1336bf1e7841a126256a998cde8c8d21a497",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 7",
-          "reachable from owning SKILL.md"
+          "Registered title, digest, and line count match page",
+          "All local Markdown targets resolve",
+          "Archive root, version strategy, CLI/tag/manual publication routes, Marketplace API enablement and 3.1.0 plugin floor match official docs",
+          "node examples/widgets/fixture_run.mjs passed synthetic host version-selection assertions"
         ],
-        "url_contexts_in_current_audit": 2,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/development-topic-review-24-28.json",
+        "scope_limit": "No authorized upload, product deployment, host selection, or destination permission check was run."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "deffcf6fe4387c7eb8af72bd048d1336bf1e7841a126256a998cde8c8d21a497",
+          "lines": 86,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "deffcf6fe4387c7eb8af72bd048d1336bf1e7841a126256a998cde8c8d21a497",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 7",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 2,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\widgets\\integration.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-066",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T24 whole-page guidance independently reviewed at current hash.",
       "sha256": "fa601011839dbcc045d96a2266bcb9d21d5368dca76e83147ef3c97f750fee2c",
       "lines": 89,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topics24_28_independent_qa",
+        "candidate": "6591e891cce40210c0222403bc23bda115f97d28",
         "page_sha256": "fa601011839dbcc045d96a2266bcb9d21d5368dca76e83147ef3c97f750fee2c",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 11",
-          "reachable from owning SKILL.md"
+          "Registered title, digest, and line count match page",
+          "All local Markdown targets resolve",
+          "Workshop parameter and event exchange, 50/50 limit, camelCase IDs, object-set hydration, OSDK token and API enablement, and host refresh match official docs",
+          "node examples/widgets/fixture_run.mjs passed synthetic counter and rejected-update assertions"
         ],
-        "url_contexts_in_current_audit": 2,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/development-topic-review-24-28.json",
+        "scope_limit": "Offline counter fixture does not prove Workshop binding, OSDK query, or Action effects in a tenant."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "fa601011839dbcc045d96a2266bcb9d21d5368dca76e83147ef3c97f750fee2c",
+          "lines": 89,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "fa601011839dbcc045d96a2266bcb9d21d5368dca76e83147ef3c97f750fee2c",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 11",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 2,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\widgets\\lifecycle.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-066",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T22 whole-page guidance independently reviewed at current hash.",
       "sha256": "00eac073681eac1c27e8145fc075e7d277f23d672cf67c17a8f9013241c702dd",
       "lines": 80,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topics19_23_independent_qa",
+        "candidate": "6591e891cce40210c0222403bc23bda115f97d28",
         "page_sha256": "00eac073681eac1c27e8145fc075e7d277f23d672cf67c17a8f9013241c702dd",
-        "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 16",
-          "reachable from owning SKILL.md"
-        ],
-        "url_contexts_in_current_audit": 3,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "checks": "Whole page tracks source/build/published/selected versions separately. Official docs confirm one set holds multiple widgets, 50-widget limit, Vite HTML inputs, generated manifest, automatic initial In Foundry release, and first-publication requirement before Workshop selection. Synthetic host/version fixture passed.",
+        "evidence_file": "maintainer/development-topic-review-19-23.json",
+        "scope_limit": "Read-only whole-page semantic and official-source review of T19-T23. No live Foundry enrollment, OAuth, React render, widget host, or publication was available."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "00eac073681eac1c27e8145fc075e7d277f23d672cf67c17a8f9013241c702dd",
+          "lines": 80,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "00eac073681eac1c27e8145fc075e7d277f23d672cf67c17a8f9013241c702dd",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 16",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 3,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\widgets\\testing.md",
-      "review_status": "inventory added; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-066",
-      "disposition": "Local page recorded; independent semantic completeness review pending.",
+      "disposition": "T23 whole-page guidance independently reviewed at current hash.",
       "sha256": "859727a4c3cedf9269cea330c1db811b60baf95817afd77f3ec6250d4699f502",
       "lines": 72,
-      "qa_verdict": "UNCERTAIN",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/feature015_topics19_23_independent_qa",
+        "candidate": "6591e891cce40210c0222403bc23bda115f97d28",
         "page_sha256": "859727a4c3cedf9269cea330c1db811b60baf95817afd77f3ec6250d4699f502",
-        "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 5",
-          "reachable from owning SKILL.md"
-        ],
-        "url_contexts_in_current_audit": 2,
-        "pending": "Independent topic and source review against task fixtures",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "checks": "Whole page distinguishes personal dev mode, playground inputs/events, Workshop bindings, published version, and local fixture. Official docs support 24-hour expiry, reapplying after config edits, plugin >=3.34.0, restricted storage/network, worker limits, and Workshop first-release requirement. Synthetic count/event fixture passed; real host behavior untested.",
+        "evidence_file": "maintainer/development-topic-review-19-23.json",
+        "scope_limit": "Read-only whole-page semantic and official-source review of T19-T23. No live Foundry enrollment, OAuth, React render, widget host, or publication was available."
+      },
+      "review_history": [
+        {
+          "review_status": "inventory added; independent semantic review pending",
+          "qa_verdict": "UNCERTAIN",
+          "disposition": "Local page recorded; independent semantic completeness review pending.",
+          "sha256": "859727a4c3cedf9269cea330c1db811b60baf95817afd77f3ec6250d4699f502",
+          "lines": 72,
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "859727a4c3cedf9269cea330c1db811b60baf95817afd77f3ec6250d4699f502",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 5",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 2,
+            "pending": "Independent topic and source review against task fixtures",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     }
   ],
   "url_occurrences": [
@@ -9201,7 +9756,7 @@
       },
       {
         "path": "pal-found-dev/references/compute/execution.md",
-        "line": 111,
+        "line": 114,
         "url": "https://www.palantir.com/docs/foundry/compute-modules/execution-modes",
         "context": "Optional source attribution: [execution modes](https://www.palantir.com/docs/foundry/compute-modules/execution-modes),",
         "skill": "pal-found-dev",
@@ -9209,11 +9764,13 @@
         "acceptance_blocking": false,
         "qa_reason": "Attribution is explicitly optional; local page supplies the task guidance. Semantic task review remains separate.",
         "qa_reviewer": "qa-engineer",
-        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence"
+        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence",
+        "previous_line": 111,
+        "location_reconciled_for_content_sha": "824a8ae7aacd491ea1884262b600053164fc9d81"
       },
       {
         "path": "pal-found-dev/references/compute/execution.md",
-        "line": 112,
+        "line": 115,
         "url": "https://www.palantir.com/docs/foundry/compute-modules/scaling",
         "context": "[scaling](https://www.palantir.com/docs/foundry/compute-modules/scaling),",
         "skill": "pal-found-dev",
@@ -9221,11 +9778,13 @@
         "acceptance_blocking": false,
         "qa_reason": "Attribution is explicitly optional; local page supplies the task guidance. Semantic task review remains separate.",
         "qa_reviewer": "qa-engineer",
-        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence"
+        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence",
+        "previous_line": 112,
+        "location_reconciled_for_content_sha": "824a8ae7aacd491ea1884262b600053164fc9d81"
       },
       {
         "path": "pal-found-dev/references/compute/execution.md",
-        "line": 113,
+        "line": 116,
         "url": "https://www.palantir.com/docs/foundry/compute-modules/usage",
         "context": "[usage](https://www.palantir.com/docs/foundry/compute-modules/usage).",
         "skill": "pal-found-dev",
@@ -9233,7 +9792,9 @@
         "acceptance_blocking": false,
         "qa_reason": "Attribution is explicitly optional; local page supplies the task guidance. Semantic task review remains separate.",
         "qa_reviewer": "qa-engineer",
-        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence"
+        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence",
+        "previous_line": 113,
+        "location_reconciled_for_content_sha": "824a8ae7aacd491ea1884262b600053164fc9d81"
       },
       {
         "path": "pal-found-dev/references/compute/integration.md",
@@ -9405,7 +9966,7 @@
       },
       {
         "path": "pal-found-dev/references/ontology/actions.md",
-        "line": 79,
+        "line": 85,
         "url": "https://www.palantir.com/docs/foundry/action-types/getting-started",
         "context": "Optional provenance: [configuration](https://www.palantir.com/docs/foundry/action-types/getting-started),",
         "skill": "pal-found-dev",
@@ -9413,11 +9974,13 @@
         "acceptance_blocking": false,
         "qa_reason": "Attribution is explicitly optional; local page supplies the task guidance. Semantic task review remains separate.",
         "qa_reviewer": "qa-engineer",
-        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence"
+        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence",
+        "previous_line": 79,
+        "location_reconciled_for_content_sha": "824a8ae7aacd491ea1884262b600053164fc9d81"
       },
       {
         "path": "pal-found-dev/references/ontology/actions.md",
-        "line": 80,
+        "line": 86,
         "url": "https://www.palantir.com/docs/foundry/action-types/submission-criteria",
         "context": "[criteria](https://www.palantir.com/docs/foundry/action-types/submission-criteria),",
         "skill": "pal-found-dev",
@@ -9425,11 +9988,13 @@
         "acceptance_blocking": false,
         "qa_reason": "Attribution is explicitly optional; local page supplies the task guidance. Semantic task review remains separate.",
         "qa_reviewer": "qa-engineer",
-        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence"
+        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence",
+        "previous_line": 80,
+        "location_reconciled_for_content_sha": "824a8ae7aacd491ea1884262b600053164fc9d81"
       },
       {
         "path": "pal-found-dev/references/ontology/actions.md",
-        "line": 81,
+        "line": 87,
         "url": "https://www.palantir.com/docs/foundry/action-types/test-run",
         "context": "[test run](https://www.palantir.com/docs/foundry/action-types/test-run),",
         "skill": "pal-found-dev",
@@ -9437,11 +10002,13 @@
         "acceptance_blocking": false,
         "qa_reason": "Attribution is explicitly optional; local page supplies the task guidance. Semantic task review remains separate.",
         "qa_reviewer": "qa-engineer",
-        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence"
+        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence",
+        "previous_line": 81,
+        "location_reconciled_for_content_sha": "824a8ae7aacd491ea1884262b600053164fc9d81"
       },
       {
         "path": "pal-found-dev/references/ontology/actions.md",
-        "line": 82,
+        "line": 88,
         "url": "https://www.palantir.com/docs/foundry/action-types/side-effects-overview",
         "context": "[side effects](https://www.palantir.com/docs/foundry/action-types/side-effects-overview).",
         "skill": "pal-found-dev",
@@ -9449,7 +10016,9 @@
         "acceptance_blocking": false,
         "qa_reason": "Attribution is explicitly optional; local page supplies the task guidance. Semantic task review remains separate.",
         "qa_reviewer": "qa-engineer",
-        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence"
+        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence",
+        "previous_line": 82,
+        "location_reconciled_for_content_sha": "824a8ae7aacd491ea1884262b600053164fc9d81"
       },
       {
         "path": "pal-found-dev/references/ontology/functions.md",
@@ -10855,8 +11424,8 @@
   },
   "independent_reviewer": "qa-engineer",
   "independent_review_counts": {
-    "UNCERTAIN": 129,
+    "UNCERTAIN": 106,
     "FAIL": 2,
-    "PASS": 61
+    "PASS": 84
   }
 }

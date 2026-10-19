@@ -1,0 +1,85 @@
+{
+  "reviewer": "qa-engineer",
+  "candidate": "336b03105e142ba57d65c79da69b64017563b37f",
+  "content_freeze": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+  "review_date": "2026-10-18",
+  "scope": "Independent read-only full-page semantic and official-source review of topics T29-T32. Registered page hashes and line counts, headings, and local Markdown targets checked. No live Foundry branch, build, OAuth, or resource-permission operation executed. No dedicated runnable fixture is linked from these four pages; prior broad structural suite was not rerun on unchanged content.",
+  "topics": [
+    {
+      "topic": "T29",
+      "verdict": "PASS",
+      "path": "references/branching/datasets.md",
+      "sha256": "c5223223ea9f6311a6389b013df0e6f7f880a19adac26caaa111ab7a01b0d981",
+      "lines": 66,
+      "checks": [
+        "Registered heading, digest and line count match",
+        "All local Markdown link targets resolve",
+        "Dataset branch pointers, no merge operation, one open transaction per branch, fallback inputs and selected-branch outputs agree with official branching docs",
+        "Repository fallback scope and external launcher distinction agree with branch settings docs",
+        "Worked example keeps prior O1 output distinct from later O2 input and code merge distinct from data build"
+      ],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/data-integration/branching",
+        "https://www.palantir.com/docs/foundry/code-repositories/branch-settings"
+      ],
+      "limit": "No dataset branch, transaction, or build was run; example is an illustrative context trace."
+    },
+    {
+      "topic": "T30",
+      "verdict": "PASS",
+      "path": "references/branching/integrations.md",
+      "sha256": "65854e4e747403cc56833fb6d80e5aee80ffd0d0f17c789166e0e272ac19bead",
+      "lines": 71,
+      "checks": [
+        "Registered heading, digest and line count match",
+        "All local Markdown link targets resolve",
+        "Function template minimums, local Ontology SDK requirement, unstable preview and stable target, target conflict, and branched query Function restriction match official docs",
+        "Workshop rebase, Ontology protection migration, Pipeline Builder branch choice and external OSDK boundary align with integration sources"
+      ],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/functions/branching-functions",
+        "https://www.palantir.com/docs/foundry/global-branching/integrations",
+        "https://www.palantir.com/docs/foundry/ontologies/branching-ontology",
+        "https://www.palantir.com/docs/foundry/pipeline-builder/branches-overview",
+        "https://www.palantir.com/docs/foundry/workshop/branching-integration"
+      ],
+      "limit": "No branch-aware Function preview, proposal, rebase, or tenant merge was executed."
+    },
+    {
+      "topic": "T31",
+      "verdict": "PASS",
+      "path": "references/security/platform.md",
+      "sha256": "68990679bdfb8d29d4582c003699da9f2ca26a33f29f26b56e6c05a8cb84b02b",
+      "lines": 70,
+      "checks": [
+        "Registered heading, digest and line count match",
+        "All local Markdown link targets resolve",
+        "Space Editor/Owner project creation, source Viewer and destination Editor reference rule, separate upstream access, customizable role operations, and inherited mandatory controls match official docs",
+        "Worked example checks output access separately from raw source and retains controls"
+      ],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/security/projects-and-roles"
+      ],
+      "limit": "No enrollment identity or effective resource access was tested."
+    },
+    {
+      "topic": "T32",
+      "verdict": "PASS",
+      "path": "references/security/applications.md",
+      "sha256": "7ac7ec0506e1c4b149c7b9423f5d886cd8082487dbac6876890dc9e471e2331d",
+      "lines": 73,
+      "checks": [
+        "Registered heading, digest and line count match",
+        "All local Markdown link targets resolve",
+        "User versus service-user permissions, restricted resources and operations, public api:use-* scope mode, cross-namespace ApiUsageDenied case, and Compass versus legacy app permissions match official docs",
+        "LMS-backed Action application Viewer requirement and denied versus empty-result distinction are represented"
+      ],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/developer-console/application-restrictions",
+        "https://www.palantir.com/docs/foundry/developer-console/permissions"
+      ],
+      "limit": "No OAuth flow, query, Action, or denied identity was run against a tenant."
+    }
+  ],
+  "reviewer_agent": "/root/feature015_topics24_28_independent_qa"
+}

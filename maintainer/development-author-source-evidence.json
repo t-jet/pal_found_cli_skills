@@ -1,6 +1,6 @@
 {
   "author": "groom_dev_topics",
-  "status": "author evidence; independent acceptance remains pending",
+  "status": "accepted",
   "topics": [
     {
       "topic": "T01",
@@ -251,16 +251,17 @@
       "registered_heading": "Action validation and writeback",
       "owner": "O",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
-      "sha256": "717b2fc7f2bc609709259e01e06e185a4a4b04236ea4c3c22eeba0342460f267",
-      "lines": 82,
+      "acceptance": "accepted",
+      "sha256": "767503f3e6c6f82c060e752c32b60445087bf37199c0b1cef1a09b5b9209276e",
+      "lines": 88,
       "heading_matches": true,
       "source_urls": [
         "https://www.palantir.com/docs/foundry/action-types/getting-started",
         "https://www.palantir.com/docs/foundry/action-types/side-effects-overview",
         "https://www.palantir.com/docs/foundry/action-types/submission-criteria",
         "https://www.palantir.com/docs/foundry/action-types/test-run"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topic_t01_review; PASS at SHA-256 767503f3e6c6f82c060e752c32b60445087bf37199c0b1cef1a09b5b9209276e. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-14-18.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T15",
@@ -269,7 +270,7 @@
       "registered_heading": "Function runtimes and publication",
       "owner": "O",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "cfba370bb9d14be11483c49302bd34a7733be7a1f50ea9a65afadaf37897052c",
       "lines": 109,
       "heading_matches": true,
@@ -279,7 +280,8 @@
         "https://www.palantir.com/docs/foundry/functions/python-ontology-edits",
         "https://www.palantir.com/docs/foundry/functions/typescript-v1-getting-started",
         "https://www.palantir.com/docs/foundry/functions/typescript-v2-getting-started"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topic_t01_review; PASS at SHA-256 cfba370bb9d14be11483c49302bd34a7733be7a1f50ea9a65afadaf37897052c. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-14-18.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T16",
@@ -288,7 +290,7 @@
       "registered_heading": "Object and Action authorization",
       "owner": "O",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "12f60ae72f949ceea31d9015164526ee542eb53720a48c4b1d7f7fe20bf925a8",
       "lines": 86,
       "heading_matches": true,
@@ -297,7 +299,8 @@
         "https://www.palantir.com/docs/foundry/action-types/read-write-authorizations",
         "https://www.palantir.com/docs/foundry/object-permissioning/object-security-policies",
         "https://www.palantir.com/docs/foundry/object-permissioning/ontology-permissions"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topic_t01_review; PASS at SHA-256 12f60ae72f949ceea31d9015164526ee542eb53720a48c4b1d7f7fe20bf925a8. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-14-18.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T17",
@@ -306,7 +309,7 @@
       "registered_heading": "Container configuration and lifecycle",
       "owner": "C",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "9839776cb00bbbc35530f2cfc96f9953d3432cb1477b05e5dc2f86369b1e6120",
       "lines": 108,
       "heading_matches": true,
@@ -316,7 +319,8 @@
         "https://www.palantir.com/docs/foundry/compute-modules/get-started",
         "https://www.palantir.com/docs/foundry/compute-modules/overview",
         "https://www.palantir.com/docs/foundry/compute-modules/probes"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topic_t01_review; PASS at SHA-256 9839776cb00bbbc35530f2cfc96f9953d3432cb1477b05e5dc2f86369b1e6120. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-14-18.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T18",
@@ -325,15 +329,16 @@
       "registered_heading": "Execution modes and provenance",
       "owner": "C",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
-      "sha256": "9ba221fbfd5293a18b745046e9ff94972d72a68674a075028818cfdb6f4717b3",
-      "lines": 113,
+      "acceptance": "accepted",
+      "sha256": "31e3d68051377ae7ace0a785ff6ed03fd3578d32f18ddc2299ca4484ef40ca82",
+      "lines": 116,
       "heading_matches": true,
       "source_urls": [
         "https://www.palantir.com/docs/foundry/compute-modules/execution-modes",
         "https://www.palantir.com/docs/foundry/compute-modules/scaling",
         "https://www.palantir.com/docs/foundry/compute-modules/usage"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topic_t01_review; PASS at SHA-256 31e3d68051377ae7ace0a785ff6ed03fd3578d32f18ddc2299ca4484ef40ca82. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-14-18.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T19",
@@ -342,7 +347,7 @@
       "registered_heading": "SDK integration and Sources",
       "owner": "C",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "fe1daa0c0f4403f0f2c10205ec750f4b053a89d11febe8e5db7a4f216a8a3424",
       "lines": 127,
       "heading_matches": true,
@@ -350,7 +355,8 @@
         "https://www.palantir.com/docs/foundry/compute-modules/osdk-integration",
         "https://www.palantir.com/docs/foundry/compute-modules/python-sdk",
         "https://www.palantir.com/docs/foundry/compute-modules/sources"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topics19_23_independent_qa; PASS at SHA-256 fe1daa0c0f4403f0f2c10205ec750f4b053a89d11febe8e5db7a4f216a8a3424. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-19-23.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T20",
@@ -359,7 +365,7 @@
       "registered_heading": "Application registration and generated SDK",
       "owner": "A",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "fd23a0c7addc6f0de0ff98fda1d0e7477d7e49c70f990e659e30ac70ca0d1993",
       "lines": 135,
       "heading_matches": true,
@@ -370,7 +376,8 @@
         "https://www.palantir.com/docs/foundry/developer-console/permissions",
         "https://www.palantir.com/docs/foundry/ontology-sdk/typescript-osdk",
         "https://www.palantir.com/docs/foundry/ontology-sdk/typescript-osdk-migration"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topics19_23_independent_qa; PASS at SHA-256 fd23a0c7addc6f0de0ff98fda1d0e7477d7e49c70f990e659e30ac70ca0d1993. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-19-23.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T21",
@@ -379,7 +386,7 @@
       "registered_heading": "React query and release lifecycle",
       "owner": "A",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "ec263968f2465d6101770d2b3d611082a5838f31f1ad2e9096c48cf459558423",
       "lines": 118,
       "heading_matches": true,
@@ -387,7 +394,8 @@
         "https://www.palantir.com/docs/foundry/developer-console/deploy-custom-application-on-foundry",
         "https://www.palantir.com/docs/foundry/ontology-sdk-react-applications/osdk-react",
         "https://www.palantir.com/docs/foundry/ontology-sdk/typescript-subscriptions"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topics19_23_independent_qa; PASS at SHA-256 ec263968f2465d6101770d2b3d611082a5838f31f1ad2e9096c48cf459558423. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-19-23.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T22",
@@ -396,7 +404,7 @@
       "registered_heading": "Widget Set creation and releases",
       "owner": "A",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "00eac073681eac1c27e8145fc075e7d277f23d672cf67c17a8f9013241c702dd",
       "lines": 80,
       "heading_matches": true,
@@ -404,7 +412,8 @@
         "https://www.palantir.com/docs/foundry/custom-widgets/additional-widget",
         "https://www.palantir.com/docs/foundry/custom-widgets/core-concepts",
         "https://www.palantir.com/docs/foundry/custom-widgets/create"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topics19_23_independent_qa; PASS at SHA-256 00eac073681eac1c27e8145fc075e7d277f23d672cf67c17a8f9013241c702dd. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-19-23.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T23",
@@ -413,14 +422,15 @@
       "registered_heading": "Playground and Workshop previews",
       "owner": "A",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "859727a4c3cedf9269cea330c1db811b60baf95817afd77f3ec6250d4699f502",
       "lines": 72,
       "heading_matches": true,
       "source_urls": [
         "https://www.palantir.com/docs/foundry/custom-widgets/development",
         "https://www.palantir.com/docs/foundry/custom-widgets/embedding-in-workshop"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topics19_23_independent_qa; PASS at SHA-256 859727a4c3cedf9269cea330c1db811b60baf95817afd77f3ec6250d4699f502. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-19-23.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T24",
@@ -429,14 +439,15 @@
       "registered_heading": "Parameters and events",
       "owner": "A",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "fa601011839dbcc045d96a2266bcb9d21d5368dca76e83147ef3c97f750fee2c",
       "lines": 89,
       "heading_matches": true,
       "source_urls": [
         "https://www.palantir.com/docs/foundry/custom-widgets/parameters-and-events",
         "https://www.palantir.com/docs/foundry/custom-widgets/use-osdk"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topics24_28_independent_qa; PASS at SHA-256 fa601011839dbcc045d96a2266bcb9d21d5368dca76e83147ef3c97f750fee2c. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-24-28.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T25",
@@ -445,14 +456,15 @@
       "registered_heading": "Widget and Marketplace distribution",
       "owner": "A",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "deffcf6fe4387c7eb8af72bd048d1336bf1e7841a126256a998cde8c8d21a497",
       "lines": 86,
       "heading_matches": true,
       "source_urls": [
         "https://www.palantir.com/docs/foundry/custom-widgets/marketplace",
         "https://www.palantir.com/docs/foundry/custom-widgets/publish"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topics24_28_independent_qa; PASS at SHA-256 deffcf6fe4387c7eb8af72bd048d1336bf1e7841a126256a998cde8c8d21a497. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-24-28.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T26",
@@ -461,14 +473,15 @@
       "registered_heading": "Global branch lifecycle",
       "owner": "B",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "3854b2efbb6f7972059018c5e0aa819156579fdefc48f1f822dd103e4317130f",
       "lines": 89,
       "heading_matches": true,
       "source_urls": [
         "https://www.palantir.com/docs/foundry/global-branching/branch-security",
         "https://www.palantir.com/docs/foundry/global-branching/core-concepts"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topics24_28_independent_qa; PASS at SHA-256 3854b2efbb6f7972059018c5e0aa819156579fdefc48f1f822dd103e4317130f. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-24-28.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T27",
@@ -477,14 +490,15 @@
       "registered_heading": "Git review and branch settings",
       "owner": "B",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "cec934138207ea7dff48c2ebb4e61e4fe7b1c07c2d325924de83541d9bf5d3f0",
       "lines": 67,
       "heading_matches": true,
       "source_urls": [
         "https://www.palantir.com/docs/foundry/code-repositories/branch-settings",
         "https://www.palantir.com/docs/foundry/code-repositories/navigation"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topics24_28_independent_qa; PASS at SHA-256 cec934138207ea7dff48c2ebb4e61e4fe7b1c07c2d325924de83541d9bf5d3f0. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-24-28.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T28",
@@ -493,7 +507,7 @@
       "registered_heading": "Select and verify branch contexts",
       "owner": "B",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "a2d425841cac94c25eb4cd6366e043f30709e665bc11d90bebeb0cf328d1bf0a",
       "lines": 73,
       "heading_matches": true,
@@ -501,7 +515,8 @@
         "https://www.palantir.com/docs/foundry/data-integration/branching",
         "https://www.palantir.com/docs/foundry/global-branching/integrations",
         "https://www.palantir.com/docs/foundry/pipeline-builder/branches-overview"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topics24_28_independent_qa; PASS at SHA-256 a2d425841cac94c25eb4cd6366e043f30709e665bc11d90bebeb0cf328d1bf0a. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-24-28.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T29",
@@ -510,14 +525,15 @@
       "registered_heading": "Dataset branches and fallbacks",
       "owner": "B",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "c5223223ea9f6311a6389b013df0e6f7f880a19adac26caaa111ab7a01b0d981",
       "lines": 66,
       "heading_matches": true,
       "source_urls": [
         "https://www.palantir.com/docs/foundry/code-repositories/branch-settings",
         "https://www.palantir.com/docs/foundry/data-integration/branching"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topics24_28_independent_qa; PASS at SHA-256 c5223223ea9f6311a6389b013df0e6f7f880a19adac26caaa111ab7a01b0d981. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-29-32.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T30",
@@ -526,7 +542,7 @@
       "registered_heading": "Resource integration boundaries",
       "owner": "B",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "65854e4e747403cc56833fb6d80e5aee80ffd0d0f17c789166e0e272ac19bead",
       "lines": 71,
       "heading_matches": true,
@@ -536,7 +552,8 @@
         "https://www.palantir.com/docs/foundry/ontologies/branching-ontology",
         "https://www.palantir.com/docs/foundry/pipeline-builder/branches-overview",
         "https://www.palantir.com/docs/foundry/workshop/branching-integration"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topics24_28_independent_qa; PASS at SHA-256 65854e4e747403cc56833fb6d80e5aee80ffd0d0f17c789166e0e272ac19bead. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-29-32.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T31",
@@ -545,13 +562,14 @@
       "registered_heading": "Projects and resource boundaries",
       "owner": "B",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "68990679bdfb8d29d4582c003699da9f2ca26a33f29f26b56e6c05a8cb84b02b",
       "lines": 70,
       "heading_matches": true,
       "source_urls": [
         "https://www.palantir.com/docs/foundry/security/projects-and-roles"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topics24_28_independent_qa; PASS at SHA-256 68990679bdfb8d29d4582c003699da9f2ca26a33f29f26b56e6c05a8cb84b02b. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-29-32.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T32",
@@ -560,14 +578,15 @@
       "registered_heading": "Application and Ontology permission checks",
       "owner": "B",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "7ac7ec0506e1c4b149c7b9423f5d886cd8082487dbac6876890dc9e471e2331d",
       "lines": 73,
       "heading_matches": true,
       "source_urls": [
         "https://www.palantir.com/docs/foundry/developer-console/application-restrictions",
         "https://www.palantir.com/docs/foundry/developer-console/permissions"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topics24_28_independent_qa; PASS at SHA-256 7ac7ec0506e1c4b149c7b9423f5d886cd8082487dbac6876890dc9e471e2331d. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-29-32.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T33",
@@ -576,7 +595,7 @@
       "registered_heading": "Execution identity and branch authorization",
       "owner": "B",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "dff393c7a4cb504c4e5bd0c66ecf818ea9083f8ccc43c04aa29a6414f9c16ee4",
       "lines": 72,
       "heading_matches": true,
@@ -584,7 +603,8 @@
         "https://www.palantir.com/docs/foundry/compute-modules/execution-modes",
         "https://www.palantir.com/docs/foundry/compute-modules/sources",
         "https://www.palantir.com/docs/foundry/global-branching/branch-security"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topics24_28_independent_qa; PASS at SHA-256 dff393c7a4cb504c4e5bd0c66ecf818ea9083f8ccc43c04aa29a6414f9c16ee4. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-33-36.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T34",
@@ -593,7 +613,7 @@
       "registered_heading": "Trace branch and build provenance",
       "owner": "M",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "6a425dde1dc0c4036f3fc4d270c924217007f4ea1ea4ee5c57bd2c0d190b3618",
       "lines": 76,
       "heading_matches": true,
@@ -602,7 +622,8 @@
         "https://www.palantir.com/docs/foundry/data-lineage/build-timeline",
         "https://www.palantir.com/docs/foundry/data-lineage/navigation",
         "https://www.palantir.com/docs/foundry/data-lineage/overview"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topics24_28_independent_qa; PASS at SHA-256 6a425dde1dc0c4036f3fc4d270c924217007f4ea1ea4ee5c57bd2c0d190b3618. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-33-36.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T35",
@@ -611,7 +632,7 @@
       "registered_heading": "Checks, monitoring and alert ownership",
       "owner": "M",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "10d343b940761a4a89090deb13e5912075a621eb73f04ec5ed93230d60d9586b",
       "lines": 78,
       "heading_matches": true,
@@ -621,7 +642,8 @@
         "https://www.palantir.com/docs/foundry/health-checks/notifications",
         "https://www.palantir.com/docs/foundry/health-checks/overview",
         "https://www.palantir.com/docs/foundry/health-checks/watching-checks"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topics24_28_independent_qa; PASS at SHA-256 10d343b940761a4a89090deb13e5912075a621eb73f04ec5ed93230d60d9586b. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-33-36.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     },
     {
       "topic": "T36",
@@ -630,7 +652,7 @@
       "registered_heading": "Diagnose, recover and verify pipelines",
       "owner": "M",
       "authored": true,
-      "acceptance": "pending independent topic/source and semantic review",
+      "acceptance": "accepted",
       "sha256": "4ed70a8d3a057f3c6294dc1dbe0351df86f129c1c3c750086aa23564d672f6e4",
       "lines": 87,
       "heading_matches": true,
@@ -640,7 +662,8 @@
         "https://www.palantir.com/docs/foundry/maintaining-pipelines/support-processes",
         "https://www.palantir.com/docs/foundry/optimizing-pipelines/debug-job",
         "https://www.palantir.com/docs/foundry/optimizing-pipelines/debug-pipeline"
-      ]
+      ],
+      "review_evidence": "Independent whole-page source/semantic review by /root/feature015_topics24_28_independent_qa; PASS at SHA-256 4ed70a8d3a057f3c6294dc1dbe0351df86f129c1c3c750086aa23564d672f6e4. Per-page checks, reviewed candidate, official sources and limits: maintainer/development-topic-review-33-36.json. Current integrated page bytes match the independently reviewed bytes. No live tenant execution or release approval."
     }
   ],
   "assets": [
@@ -725,5 +748,13 @@
     "interpretation": "AST annotated fields/defaults compared for all32 root and32 recursive models. Semantic model-docstring changes and server availability are separate review obligations."
   },
   "062_independent_readonly_architect_review": "groom_rest reports no unresolved source/content findings after exact runtime, Preview, pytest and repository-only fallback corrections; formal CODEREVIEW-063 awaits DEV-062 Resolved. Material edits invalidate that review.",
-  "independent_reviewer": "qa-engineer"
+  "independent_reviewer": "qa-engineer",
+  "independent_review_evidence": {
+    "reviewer_agent": "/root/feature015_topics24_28_independent_qa",
+    "reviewed_content_sha": "824a8ae7aacd491ea1884262b600053164fc9d81",
+    "verdict": "PASS",
+    "tests": "9 passed",
+    "evidence_file": "maintainer/development-topic-ledger-independent-review.json",
+    "scope_limit": "Offline T01-T36 semantic/source/topic review; excludes T37 REST, journeys, other skill pages, live Foundry and release acceptance."
+  }
 }
