@@ -42,11 +42,14 @@ Never treat the caller's successful manual read as proof of module identity acce
    replica; `replicas × concurrency` is simultaneous capacity, not a latency promise.
    Load thresholds and delays govern autoscaling. Pipeline modules receive no queries
    and can scale to zero; use minimum one when continuous processing must remain active.
-5. Observe workload completion and output state. Batch dataset writes through REST
-   require explicit transaction creation, file upload and commit using the
-   [local REST contracts](../rest-api.md). Verify the transaction reports `COMMITTED`
-   before accepting downstream batch consumption. Container readiness, process exit
-   and stream acknowledgments establish no global dataset transaction guarantee.
+5. Observe workload completion and output state. In Pipeline mode, the build
+   system opens and manages output dataset transactions and commits them when the
+   pipeline completes successfully. Inspect the build outcome and output transaction
+   state before accepting downstream batch consumption. For standalone batch dataset
+   writes through REST outside that managed flow, create a transaction, upload files
+   and commit using the [local REST contracts](../rest-api.md); verify `COMMITTED`.
+   Container readiness and stream acknowledgments do not establish transaction
+   completion.
 
 ## Worked example
 
@@ -105,7 +108,7 @@ Use the enrollment's contractual rates for budgeting, not a hardcoded public pri
 | Binding missing | Fix configured input/output alias and redeploy; never guess the RID. |
 | Network denied despite resource grant | Inspect Source network policy in [integration](integration.md). |
 | Continuous processor stopped | Inspect replica minimum and logs before resuming from a reconciled position. |
-| Output still uncommitted | Inspect the explicit dataset transaction and commit result; preserve the previous committed output until the intended transaction is COMMITTED. |
+| Output still uncommitted | For Pipeline mode, inspect the build outcome and its managed output transaction. For standalone REST writes, inspect the caller-managed transaction and commit result. Preserve the previous committed output until the intended transaction is COMMITTED. |
 | Unknown write outcome | Reconcile records/transaction before replay; duplicates are possible without durable protection. |
 
 Optional source attribution: [execution modes](https://www.palantir.com/docs/foundry/compute-modules/execution-modes),
