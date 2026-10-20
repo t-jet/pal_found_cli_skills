@@ -18,15 +18,14 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/datasets/views/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/removeBackingDatasets'
-EXPECTED_BODY = {'backingDatasets': [{'datasetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
+EXPECTED_BODY = {'branch': 'master', 'backingDatasets': [{'datasetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000002',
                       'stopPropagatingMarkingIds': ['synthetic-value']}]}
 EXPECTED_QUERY = {}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
 SUCCESS = {'viewName': 'synthetic-value',
  'datasetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
  'parentFolderRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
- 'backingDatasets': [{'datasetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
-                      'stopPropagatingMarkingIds': ['synthetic-value']}]}
+ 'backingDatasets': []}
 ERRORS = [{'name': 'InputBackingDatasetNotInOutputViewProject',
   'status': 400,
   'code': 'INVALID_ARGUMENT',
@@ -47,8 +46,8 @@ ERRORS = [{'name': 'InputBackingDatasetNotInOutputViewProject',
                  'branch': 'synthetic-value'}}]
 
 def invoke(client):
-    return client.with_raw_response.remove_backing_datasets(view_dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', backing_datasets=[{'datasetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
-  'stopPropagatingMarkingIds': ['synthetic-value']}], request_timeout=30)
+    return client.with_raw_response.remove_backing_datasets(view_dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', backing_datasets=[{'datasetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000002',
+  'stopPropagatingMarkingIds': ['synthetic-value']}], branch='master', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -79,11 +78,21 @@ def normalized(value):
         return value.model_dump(mode='json', by_alias=True, exclude_none=True)
     return value
 
+def check_result(result, request):
+    body = json.loads(request.content)
+    view_branch = body['branch']
+    def identity(backing):
+        return backing['datasetRid'], backing.get('branch', view_branch)
+    removed = {identity(backing) for backing in body['backingDatasets']}
+    remaining = {identity(backing) for backing in result['backingDatasets']}
+    assert removed.isdisjoint(remaining), 'Removed backing dataset remains in result'
+
+
 def verify():
     calls = []
     def success(request):
         check_request(request)
-        calls.append(True)
+        calls.append(request)
         if isinstance(SUCCESS, bytes):
             return httpx.Response(200, content=SUCCESS)
         if SUCCESS is None:
@@ -92,7 +101,9 @@ def verify():
     with mock_resource(ViewClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = normalized(raw.decode())
+            assert result == SUCCESS
+            check_result(result, calls[0])
         finally:
             raw.close()
     assert len(calls) == 1
