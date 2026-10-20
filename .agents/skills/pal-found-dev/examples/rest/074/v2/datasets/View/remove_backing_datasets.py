@@ -25,7 +25,9 @@ EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/j
 SUCCESS = {'viewName': 'synthetic-value',
  'datasetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
  'parentFolderRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
- 'backingDatasets': []}
+ 'backingDatasets': [{'datasetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000003',
+                      'branch': 'master',
+                      'stopPropagatingMarkingIds': ['synthetic-value']}]}
 ERRORS = [{'name': 'InputBackingDatasetNotInOutputViewProject',
   'status': 400,
   'code': 'INVALID_ARGUMENT',

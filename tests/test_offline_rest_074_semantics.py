@@ -82,7 +82,7 @@ def test_remove_rejects_removed_pair_with_implicit_or_explicit_branch(branch):
     backing = copy.deepcopy(example["EXPECTED_BODY"]["backingDatasets"][0])
     if branch is not None:
         backing["branch"] = branch
-    example["SUCCESS"]["backingDatasets"] = [backing]
+    example["SUCCESS"]["backingDatasets"].append(backing)
     with pytest.raises(AssertionError, match="Removed backing dataset remains in result"):
         example["verify"]()
 
@@ -113,10 +113,10 @@ def test_result_guards_use_actual_serialized_request(relative_path, monkeypatch)
         else:
             survivor = copy.deepcopy(body["backingDatasets"][0])
             survivor["branch"] = "feature"
-            result["backingDatasets"] = [survivor]
+            result["backingDatasets"].append(survivor)
             check_result(result, request)
             body["branch"] = "feature"
-            replacement = ("backingDatasets", [])
+            replacement = ("backingDatasets", copy.deepcopy(example["SUCCESS"]["backingDatasets"]))
         changed = httpx.Request(request.method, request.url, json=body)
 
     with pytest.raises(AssertionError):
@@ -130,3 +130,22 @@ def test_put_schema_rejects_different_returned_schema():
     example["SUCCESS"]["schema"]["fieldSchemaList"][0]["name"] = "other-column"
     with pytest.raises(AssertionError, match="Returned schema differs from request"):
         example["verify"]()
+
+
+def test_remove_retains_declared_survivor_and_accepts_other_backings(monkeypatch):
+    example = load_example(REMOVE)
+    request, check_result = capture_success_request(example, monkeypatch)
+    body = json.loads(request.content)
+    removed = {(backing["datasetRid"], backing.get("branch", body["branch"]))
+               for backing in body["backingDatasets"]}
+    returned = {(backing["datasetRid"], backing.get("branch", body["branch"]))
+                for backing in example["SUCCESS"]["backingDatasets"]}
+    expected_survivor = ("ri.synthetic.main.resource.00000000-0000-0000-0000-000000000003", "master")
+    assert expected_survivor in returned
+    assert removed.isdisjoint(returned)
+
+    result = copy.deepcopy(example["SUCCESS"])
+    other = copy.deepcopy(result["backingDatasets"][0])
+    other["datasetRid"] = "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000004"
+    result["backingDatasets"].append(other)
+    check_result(result, request)
