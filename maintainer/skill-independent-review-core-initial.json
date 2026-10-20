@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "reviewer": "qa-engineer independent subagent /root/feature015_topic_t01_review",
+  "review_date": "2026-10-19",
+  "batch": "SKILL-BATCH-01",
+  "scope": "Read-only whole-page review of five pal-found core pages; local tool/parser/runtime probes only; no Foundry network request",
+  "skills_candidate": {
+    "head": "cb096d1",
+    "content_base": "6205cd7",
+    "tool_head": "0963e6e",
+    "page_hash_source": "SHA-256 of page bytes in .ept/tmp/feature015_integration/.agents/skills/pal-found",
+    "dirty_note": "Integration worktree had an unrelated dirty pal-found-data-health page during a broad link test. Five reviewed pal-found page bytes matched SKILL-BATCH-01 register and were clean at cb096d1."
+  },
+  "summary": {
+    "PASS": 2,
+    "FAIL": 3,
+    "UNCERTAIN": 0,
+    "batch_verdict": "FAIL: three reader-facing pages need correction or matching tool fixes"
+  },
+  "checks": {
+    "scoped_core_local_links": "PASS: all links within five pal-found pages resolve inside pal-found",
+    "operation_counts": "PASS: test_summary_counts_match_frozen_register",
+    "operation_examples": "PASS: test_every_operation_example_parses_with_its_namespace_cli",
+    "broader_link_test": "FAIL in unrelated dirty pal-found-data-health page; parent removed that uncommitted cross-skill link; does not alter five core page verdicts",
+    "runtime_probe": ".ept/tmp/feature015_batch01_probe.py; synthetic mocked SDK, no network"
+  },
+  "pages": [
+    {
+      "path": "pal-found/references/01-platform-concepts.md",
+      "sha256": "691cbf26374dfc6c773838706e691725ab28fa3fd400e9974263f085e2912402",
+      "lines": 107,
+      "verdict": "PASS",
+      "checks": [
+        "Whole page resource map and cross-capability workflow reviewed against 18 installed namespace surfaces.",
+        "Dataset branch/transaction/master/no-merge semantics align with Palantir branching docs; Ontology object/action separation aligns with platform docs.",
+        "Local links resolve; no live tenant result claimed."
+      ],
+      "findings": [],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/platform-overview/overview",
+        "https://www.palantir.com/docs/foundry/data-integration/overview",
+        "https://www.palantir.com/docs/foundry/data-integration/branching",
+        "https://www.palantir.com/docs/foundry/ontology/overview"
+      ],
+      "local_sources": [
+        "pal_found_cli_tool/pyproject.toml",
+        "tests/test_offline_skill_gate.py"
+      ],
+      "limitations": [
+        "Conceptual primer only; no enrollment resource tested."
+      ]
+    },
+    {
+      "path": "pal-found/references/02-identifiers-auth-access.md",
+      "sha256": "a163e118f994a506a1f1951cd1042f289eab97c22306b7351a69b4151dad9f4a",
+      "lines": 100,
+      "verdict": "FAIL",
+      "checks": [
+        "Full identifiers, .env lookup, ACL precedence and auth boundary read against pinned tool source.",
+        "Documented setup example parsed using actual filesystem CLI parser without network."
+      ],
+      "findings": [
+        {
+          "severity": "High",
+          "location": "line 47",
+          "claim": "pal-found-filesystem project get --project-rid ri.project.main.project.xxx is a read-only setup check",
+          "actual": "Filesystem parser defines project get project_rid as positional. Documented flag is rejected by argparse before network; probe recorded parse exit 2 and stderr unrecognized arguments: --project-rid. Use pal-found-filesystem project get <PROJECT_RID>."
+        },
+        {
+          "severity": "Medium",
+          "location": "line 13",
+          "claim": "Generic RID form ri.<type>.main.resource.<key>",
+          "actual": "Form conflicts with its example and official dataset RID ri.foundry.main.dataset.<id>; identify service/namespace and resource type in the correct segments or avoid a generic template."
+        },
+        {
+          "severity": "High",
+          "location": "lines 57-76",
+          "claim": "Eight-step ACL table describes guard precedence",
+          "actual": "Pinned guard also has absolute global ENABLED=false gate before listed steps; namespace READONLY=false overrides a global readonly parent; namespace METADATA_ONLY=false overrides global metadata mode. Missing branches change operator expectations of what calls are blocked."
+        }
+      ],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/api/datasets-v2-resources/datasets/get-dataset"
+      ],
+      "local_sources": [
+        "pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py",
+        "pal_found_cli_tool/src/pal_found_cli/common/access_control_guard.py",
+        "pal_found_cli_tool/src/pal_found_cli/common/config_loader.py"
+      ],
+      "limitations": [
+        "ACL behavior checked in source; no live authorization test."
+      ]
+    },
+    {
+      "path": "pal-found/references/03-output-success-failure.md",
+      "sha256": "78cf60ce830ef2e64dcf0dc821b77cac03a4e17f0c425d99d7564f2cb6593a9b",
+      "lines": 93,
+      "verdict": "FAIL",
+      "checks": [
+        "Whole output, exit, retry, paging and completion guidance compared with pinned formatter/serializer/retry implementation.",
+        "Mocked filesystem CLI returned homogeneous list; env DEFAULT_FORMAT=json still yielded table; explicit --format json yielded JSON.",
+        "Timeout AsyncMock probe yielded five calls with default retry setting 4; no network."
+      ],
+      "findings": [
+        {
+          "severity": "High",
+          "location": "lines 9-20",
+          "claim": "FOUNDRY_AGENTIC_CLI_DEFAULT_FORMAT controls default CLI format and TOON uses toon-python",
+          "actual": "Namespace parser supplies --format default auto to OutputFormatter, masking env DEFAULT_FORMAT. With env json and no flag, mocked CLI stdout was v\\n-\\n1\\n2; explicit --format json returned JSON. Formatter uses custom aligned text, not toon-python; no toon-python dependency/import found."
+        },
+        {
+          "severity": "Medium",
+          "location": "lines 31, 40, 72",
+          "claim": "Missing token/hostname is code 2; all failures emit JSON stdout",
+          "actual": "Factory raises ConfigurationError (code 9) for absent token/hostname, as page itself says at line 72. Argparse syntax errors exit 2 with usage on stderr and no JSON stdout; serializer only covers handled runtime exceptions."
+        },
+        {
+          "severity": "High",
+          "location": "line 44",
+          "claim": "Maximum four total attempts, one plus three retries",
+          "actual": "RetryHandler DEFAULT_MAX_ATTEMPTS=4 is used as max_retries and execute iterates range(max_retries+1). Bounded AsyncMock TimeoutError probe observed five calls."
+        }
+      ],
+      "source_urls": [],
+      "local_sources": [
+        "pal_found_cli_tool/src/pal_found_cli/common/output_formatter.py",
+        "pal_found_cli_tool/src/pal_found_cli/common/error_serializer.py",
+        "pal_found_cli_tool/src/pal_found_cli/common/retry.py",
+        "pal_found_cli_tool/src/pal_found_cli/common/async_client_factory.py",
+        "pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py"
+      ],
+      "limitations": [
+        "Mocked output and retries; no Foundry response or live async completion tested."
+      ]
+    },
+    {
+      "path": "pal-found/references/04-shared-options.md",
+      "sha256": "f4c199d79600e0cfbaf5e3aaaf426d82e35dbd8d117a0ca395bd4c82c5af780b",
+      "lines": 57,
+      "verdict": "FAIL",
+      "checks": [
+        "Whole options/positionals/paging/format prose checked against namespace parsers and runtime.",
+        "Mocked CLI --timeout 120 under FOUNDRY_AGENTIC_CLI_TIMEOUT_S=3 passed request_timeout=120 to SDK adapter while RetryHandler outer timeout remained 3.0.",
+        "Filesystem project get --page-size 5 parses even though operation is not paginated; truly unknown --project-rid exits argparse 2."
+      ],
+      "findings": [
+        {
+          "severity": "High",
+          "location": "line 12",
+          "claim": "--timeout fully overrides 30-second per-call default",
+          "actual": "For filesystem CLI, --timeout reaches SDK request_timeout but RetryHandler() independently reads env default for asyncio.wait_for. Probe found request_timeout=120 and outer timeout=3 with env set to 3; effective wrapper can end sooner than requested flag."
+        },
+        {
+          "severity": "Medium",
+          "location": "line 13",
+          "claim": "No --format flag uses FOUNDRY_AGENTIC_CLI_DEFAULT_FORMAT",
+          "actual": "Parser default auto masks env setting. Env json produced table output until explicit --format json was supplied."
+        },
+        {
+          "severity": "Medium",
+          "location": "lines 20-27, 53-56",
+          "claim": "Only listed operation flags parse and absent flags return exit 1",
+          "actual": "Filesystem common parser accepts --page-size for nonpaged project get but does not use it; unknown --project-rid is an argparse syntax error with exit 2 and stderr, not structured code 1."
+        }
+      ],
+      "source_urls": [],
+      "local_sources": [
+        "pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py",
+        "pal_found_cli_tool/src/pal_found_cli/common/retry.py",
+        "pal_found_cli_tool/src/pal_found_cli/common/output_formatter.py"
+      ],
+      "limitations": [
+        "Timeout outcome inferred from verified wrapper/request settings; no 3-second network wait performed."
+      ]
+    },
+    {
+      "path": "pal-found/SKILL.md",
+      "sha256": "acae914e698d413d8df7c7e04451e8906721952763a2375141d4bcc83b75f33d",
+      "lines": 98,
+      "verdict": "PASS",
+      "checks": [
+        "Full platform overview, routing map, operation counts and task-to-resource sequence reviewed.",
+        "All four local foundational links resolve; 351 operations/18 namespaces match frozen register and tool entry points; examples test passed.",
+        "Page says namespace records govern actions and distinguishes API acceptance from downstream completion."
+      ],
+      "findings": [],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/platform-overview/overview",
+        "https://www.palantir.com/docs/foundry/data-integration/overview"
+      ],
+      "local_sources": [
+        "pal_found_cli_tool/pyproject.toml",
+        "tests/test_offline_skill_gate.py",
+        "tests/test_documented_examples.py"
+      ],
+      "limitations": [
+        "PASS covers routing page text; linked 02-04 pages remain FAIL and require separate correction before full core skill is accepted."
+      ]
+    }
+  ],
+  "requirement_alignment": {
+    "source": ".ept/docs/deliverables/business_analysis/SRS-001-foundry-cli.md",
+    "explicit_tool_requirements": [
+      "FR-OUT-6 line 189: FOUNDRY_AGENTIC_CLI_DEFAULT_FORMAT SHALL set default format; pinned parser masks it",
+      "SRS line 142 and C-2 line 516: toon-python >=0.9,<1.0 required; pinned formatter uses custom table and pyproject lacks dependency",
+      "FR-ERR-1 line 247: all user/auth/permission/system/timeout errors SHALL serialize JSON stdout; argparse errors bypass serializer",
+      "FR-ASYNC-3 line 221: asyncio.wait_for per-call timeout; --timeout request value and outer timeout differ",
+      "OI-3 line 532: four attempts expected, but SRS env table line 422 says maximum retry attempts; interpretation needs BA/owner clarification"
+    ],
+    "assessment": "Docs-only edits can describe frozen CLI accurately, but cannot satisfy these explicit SRS tool-behavior requirements. Keep tool/spec alignment as separate release risk until resolved."
+  }
+}

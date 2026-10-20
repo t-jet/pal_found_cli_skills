@@ -1,0 +1,1329 @@
+{
+  "story": "DEV-STORY-073",
+  "reviewer": "qa-engineer /root/rest073_independent_semantic_review",
+  "candidate_sha": "cb096d1c3eb67d4b82c9a9bcff148f92844b4aeb",
+  "sdk_release": "1.101.0",
+  "review_kind": "independent semantic review; offline only",
+  "operations": [
+    {
+      "id": "v2.audit.LogFile.content",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/audit/LogFile.md",
+      "example_path": "examples/rest/073/v2/audit/LogFile/content.py",
+      "contract_path": "references/rest/contracts/v2/audit/LogFile/content.md",
+      "behavior_sha256": "730814608331a807cc1d898812024516102c94fdc23499a69fe370d6fd9a1538",
+      "example_sha256": "14d9ff5f487555742bda371ebfb8228288374f50340135b6ad91a18594b90a45",
+      "contract_sha256": "ce968a9268bd725df68b4cde4d5a6047269027412090ac26c5f0e406b7960e9f",
+      "source_sha256": "e1d7f069854638f47c24ff0ff517fdeca6f5880501feee9a66c7dcaf9533a93e",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "bd16acfc02ae945dc1ac410a49f1383713779179808d68714334f4477fa793a4",
+      "source_description": "",
+      "source_contract_sha256": "e1d7f069854638f47c24ff0ff517fdeca6f5880501feee9a66c7dcaf9533a93e",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.audit.log_file.LogFileClient.content",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.audit.LogFile.content: serialized request, decoded result and 1 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.audit.LogFile.list",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/audit/LogFile.md",
+      "example_path": "examples/rest/073/v2/audit/LogFile/list.py",
+      "contract_path": "references/rest/contracts/v2/audit/LogFile/list.md",
+      "behavior_sha256": "730814608331a807cc1d898812024516102c94fdc23499a69fe370d6fd9a1538",
+      "example_sha256": "5b89b366bb605b557fee0f8ef4bb994c251826f8114dd1fd08d207a6642a56a8",
+      "contract_sha256": "d0f026918960a72905c2584ae25ac7aa388b95fef6ea29e568a0ceaa72a3b2e5",
+      "source_sha256": "e1d7f069854638f47c24ff0ff517fdeca6f5880501feee9a66c7dcaf9533a93e",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "5eb672903fa4b844d8a9dae00bea9f99c880fdb95aee005ad4f84bb22495c5d4",
+      "source_description": "Lists all LogFiles.  This is a paged endpoint. Each page may be smaller or larger than the requested page size. However, it is guaranteed that if there are more results available, the `nextPageToken` field will be populated. To get the next page, make the same request again, but set the value of the `pageToken` query parameter to be value of the `nextPageToken` value of the previous response. If there is no `nextPageToken` field in the response, you are on the last page.",
+      "source_contract_sha256": "e1d7f069854638f47c24ff0ff517fdeca6f5880501feee9a66c7dcaf9533a93e",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.audit.log_file.LogFileClient.list",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.audit.LogFile.list: serialized request, decoded result and 2 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Folder.children",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Folder.md",
+      "example_path": "examples/rest/073/folders.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Folder/children.md",
+      "behavior_sha256": "7e5da5472df6bf00b21b14c852bf3c77ef9469b0d8f09aec6cf68d1f7d20355d",
+      "example_sha256": "e16f8f3366feffd8d3faf4afd3b1393588081409f6f53fec6921c4dc8a91f0c8",
+      "contract_sha256": "f2ab5be6ef622dd4ba60dc1ed6c4ea699abd9f4995b9f73486dd20b5f8fda8ea",
+      "source_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "609babd43e75e5fca11ffc90be56a3ecbda61cce9fc09055307a44caeadf8f19",
+      "source_description": "List all child resources of the Folder.  This is a paged endpoint. The page size will be limited to 2,000 results per page. If no page size is provided, this page size will also be used as the default.",
+      "source_contract_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.folder.FolderClient.children",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "Folder create/get/children request, result and error fixtures passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Folder.create",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Folder.md",
+      "example_path": "examples/rest/073/folders.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Folder/create.md",
+      "behavior_sha256": "7e5da5472df6bf00b21b14c852bf3c77ef9469b0d8f09aec6cf68d1f7d20355d",
+      "example_sha256": "e16f8f3366feffd8d3faf4afd3b1393588081409f6f53fec6921c4dc8a91f0c8",
+      "contract_sha256": "61b2dd3e06335c09acc2ae982aed0513c2338b6464bfe47a1db7b17fcc475d49",
+      "source_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "3f89f0c4cd5e97067a2b5c429da138660565baa3026ba02083362b8185d506cb",
+      "source_description": "Creates a new Folder.",
+      "source_contract_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.folder.FolderClient.create",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "Folder create/get/children request, result and error fixtures passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Folder.get",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Folder.md",
+      "example_path": "examples/rest/073/folders.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Folder/get.md",
+      "behavior_sha256": "7e5da5472df6bf00b21b14c852bf3c77ef9469b0d8f09aec6cf68d1f7d20355d",
+      "example_sha256": "e16f8f3366feffd8d3faf4afd3b1393588081409f6f53fec6921c4dc8a91f0c8",
+      "contract_sha256": "8864467c273d5bf1cdd63048f13842a2d64f4133dfe6cd0d69e86d9209b164a6",
+      "source_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "66fc93d3e1b35a9ec7af48fdff35d38b0a30588a72d77bd7148911f44eac1f82",
+      "source_description": "Get the Folder with the specified rid.",
+      "source_contract_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.folder.FolderClient.get",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "Folder create/get/children request, result and error fixtures passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Folder.get_batch",
+      "verdict": "FAIL",
+      "behavior_path": "references/rest/v2/filesystem/Folder.md",
+      "example_path": "examples/rest/073/v2/filesystem/Folder/get_batch.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Folder/get_batch.md",
+      "behavior_sha256": "7e5da5472df6bf00b21b14c852bf3c77ef9469b0d8f09aec6cf68d1f7d20355d",
+      "example_sha256": "c9caa9e5e20a794004800cde2a677e697791287ef943ba9c02feee72e9cbab63",
+      "contract_sha256": "d1e6ec6d8d2b5629a243566c073104de78cdbb844b81f28f85bba31549a31027",
+      "source_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "10f1768e2290088a850bce77a292fe36e5bc2ba89a1c495714ca7f02482623ed",
+      "source_description": "Fetches multiple folders in a single request.   The maximum batch size for this endpoint is 1000.",
+      "source_contract_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.folder.FolderClient.get_batch",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed",
+        "Source response model data is Dict[FolderRid, Folder]; inspect SUCCESS and EXPECTED_BODY constants."
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Folder.get_batch: serialized request, decoded result and 0 named errors passed",
+        "stderr": ""
+      },
+      "findings": [
+        "Success fixture requests one folder RID but responds with {\"data\":{}}; no requested identity is returned or checked. It proves an absent-folder case only, while guide says fetch known folder RIDs together."
+      ]
+    },
+    {
+      "id": "v2.filesystem.Folder.replace",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Folder.md",
+      "example_path": "examples/rest/073/v2/filesystem/Folder/replace.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Folder/replace.md",
+      "behavior_sha256": "7e5da5472df6bf00b21b14c852bf3c77ef9469b0d8f09aec6cf68d1f7d20355d",
+      "example_sha256": "dffdf2c15ada93ba0f5e7772e3473a78cb5b8717659924fbd4cebdf65ace1163",
+      "contract_sha256": "d3bb1231dc3b08810c29f546d6e5ce8c9e67e7f8eb5dc6739d569cdcf68ecb39",
+      "source_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "0488da094b29d2338f710b68f21fa0551bb100610e96c344847be71daadcf123",
+      "source_description": "Replace the Folder with the specified rid.",
+      "source_contract_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.folder.FolderClient.replace",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Folder.replace: serialized request, decoded result and 9 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Project.add_organizations",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Project.md",
+      "example_path": "examples/rest/073/v2/filesystem/Project/add_organizations.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Project/add_organizations.md",
+      "behavior_sha256": "a0d28796c91d543f13e4ff612fd408f62deff63f9ff5a0e17fc1f462a0750928",
+      "example_sha256": "f6d8e1a5a774f8d99a88ffaa283dc1f2b9cfd5e3f54559d1363de46fb17cc94e",
+      "contract_sha256": "8cd339f9b7759291f7f983d7b84d811a6d5df376fd90d810a8c0b46cd18db004",
+      "source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "41ec75193f49d504831b9dabf650fadd7ee300b016867e2751c822b3deb61fa0",
+      "source_description": "Adds a list of Organizations to a Project.",
+      "source_contract_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.project.ProjectClient.add_organizations",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Project.add_organizations: serialized request, decoded result and 4 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Project.create",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Project.md",
+      "example_path": "examples/rest/073/v2/filesystem/Project/invoke_create.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Project/create.md",
+      "behavior_sha256": "a0d28796c91d543f13e4ff612fd408f62deff63f9ff5a0e17fc1f462a0750928",
+      "example_sha256": "53510050761273c1d904675729a11184135bd385fddc36c7e78325a05bacf514",
+      "contract_sha256": "7cde53e69ed5817b2e106d289d17c5858dc0ea0bc6952df412f81342afd99dff",
+      "source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "1abc2b4a35603b2dc1b416a2ddaf31ebf19a5c4e9baec8e70f64589ececa77db",
+      "source_description": "Creates a new Project.  Note that third-party applications using this endpoint via OAuth2 cannot be associated with an Ontology SDK as this will reduce the scope of operations to only those within specified projects. When creating the application, select \"No, I won't use an Ontology SDK\" on the Resources page.",
+      "source_contract_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.project.ProjectClient.create",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Project.create: serialized request, decoded result and 10 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Project.create_from_template",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Project.md",
+      "example_path": "examples/rest/073/v2/filesystem/Project/create_from_template.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Project/create_from_template.md",
+      "behavior_sha256": "a0d28796c91d543f13e4ff612fd408f62deff63f9ff5a0e17fc1f462a0750928",
+      "example_sha256": "ec09ce68ad2c69a404785815470aa22755cc527d7719dc55bd4c16027db46751",
+      "contract_sha256": "231e616260de572556f8508741d2053beb86e73a35637545dcaaf463ae9d28f4",
+      "source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "e2a386900782b89f66090f14d99406ee7032943dff3aca2087e8d1dd810d4664",
+      "source_description": "Creates a project from a project template.",
+      "source_contract_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.project.ProjectClient.create_from_template",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Project.create_from_template: serialized request, decoded result and 19 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Project.get",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Project.md",
+      "example_path": "examples/rest/073/v2/filesystem/Project/get.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Project/get.md",
+      "behavior_sha256": "a0d28796c91d543f13e4ff612fd408f62deff63f9ff5a0e17fc1f462a0750928",
+      "example_sha256": "9bba5c47c6b1e3772c9058d68edd2a6c5dca9fa6da87dcc17dea850d865c7667",
+      "contract_sha256": "c20fb6b79b027e9ccc568246db6df0067660817a9bcaac41df4d53a66133480e",
+      "source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "9a8df6919ee78508be56b73c0ca0f4e9a201f1f547af231ec9f98efee5041099",
+      "source_description": "Get the Project with the specified rid.",
+      "source_contract_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.project.ProjectClient.get",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Project.get: serialized request, decoded result and 1 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Project.organizations",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Project.md",
+      "example_path": "examples/rest/073/v2/filesystem/Project/organizations.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Project/organizations.md",
+      "behavior_sha256": "a0d28796c91d543f13e4ff612fd408f62deff63f9ff5a0e17fc1f462a0750928",
+      "example_sha256": "68c5c0395ca94ad6181fc1550d592b7903aa370126701f8df3872f680758b41e",
+      "contract_sha256": "f334b35da3c6672832f5b3062339a0f71655671583540987544703622a0a4e9e",
+      "source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "b3978cfc6d66fbfd1be47403456da64fec4542d82fecea23057f8964e194fa1a",
+      "source_description": "List of Organizations directly applied to a Project. The number of Organizations on a Project is typically small so the `pageSize` and `pageToken` parameters are not required.",
+      "source_contract_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.project.ProjectClient.organizations",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Project.organizations: serialized request, decoded result and 1 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Project.remove_organizations",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Project.md",
+      "example_path": "examples/rest/073/v2/filesystem/Project/remove_organizations.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Project/remove_organizations.md",
+      "behavior_sha256": "a0d28796c91d543f13e4ff612fd408f62deff63f9ff5a0e17fc1f462a0750928",
+      "example_sha256": "7ccef22bab7e33e4d8deb461a2332977f3cbb722726938256204623dfd866c82",
+      "contract_sha256": "fbe68bac0b80924011faca1a2da612d2c93d80252602d45293f437f080ed1b9e",
+      "source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "fe2b6be5191f1fe0512338bfa075f7e938a36c8fcb1f11ae64330db3ad779ee8",
+      "source_description": "Removes Organizations from a Project.",
+      "source_contract_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.project.ProjectClient.remove_organizations",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Project.remove_organizations: serialized request, decoded result and 5 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Project.replace",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Project.md",
+      "example_path": "examples/rest/073/v2/filesystem/Project/replace.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Project/replace.md",
+      "behavior_sha256": "a0d28796c91d543f13e4ff612fd408f62deff63f9ff5a0e17fc1f462a0750928",
+      "example_sha256": "1c9b279deeab34e13f8230cdfa9d04c575b7b562259e06aa35587cffe580c299",
+      "contract_sha256": "0b30822db0b7e699b7cfcc20b54837fe80c4847f5eeb14d33f5c3aa0e9623b4f",
+      "source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "3e736bdb30021bb9474228c25f6e6664114f893775d1e5e64ea462635f0ed650",
+      "source_description": "Replace the Project with the specified rid.",
+      "source_contract_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.project.ProjectClient.replace",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Project.replace: serialized request, decoded result and 4 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.ProjectResourceReference.add",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/ProjectResourceReference.md",
+      "example_path": "examples/rest/073/v2/filesystem/ProjectResourceReference/add.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/ProjectResourceReference/add.md",
+      "behavior_sha256": "255c7b146b0ab72fb8a889d81fbb7f936336ebd1ab49309bd962c3ecae9809bb",
+      "example_sha256": "42e4819fb9090cd09a7a1b0ba0ff21f06aedeb35eee8d2733684f2419781f4b8",
+      "contract_sha256": "80c9ce431946e234a3ad968cf34204d50678e874672f3f96db5942755a345e1b",
+      "source_sha256": "0c267f65d32a266ec83c33d04a992e51af8481791062bbafee9d1e90cc1c258d",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "50c8638b8f9c06d4279726e88810f10e83badf74d7480e14a76425ee5c8b4374",
+      "source_description": "Add references to the given project",
+      "source_contract_sha256": "0c267f65d32a266ec83c33d04a992e51af8481791062bbafee9d1e90cc1c258d",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.project_resource_reference.ProjectResourceReferenceClient.add",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.ProjectResourceReference.add: serialized request, decoded result and 5 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.ProjectResourceReference.list",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/ProjectResourceReference.md",
+      "example_path": "examples/rest/073/v2/filesystem/ProjectResourceReference/list.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/ProjectResourceReference/list.md",
+      "behavior_sha256": "255c7b146b0ab72fb8a889d81fbb7f936336ebd1ab49309bd962c3ecae9809bb",
+      "example_sha256": "ee2e328f03f8b0c1481f330da62001c16a2338529d1c7ad1ad17f23fda80126a",
+      "contract_sha256": "eb122ab0fd520c7d264144d7d4a2cae70bdb21d4415691175d97f928ef7b156f",
+      "source_sha256": "0c267f65d32a266ec83c33d04a992e51af8481791062bbafee9d1e90cc1c258d",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "a4c43871ad5e200ea4be381b74f42bf1a01cf81e9bafe3e39a881f845c290de9",
+      "source_description": "List all references in the given project",
+      "source_contract_sha256": "0c267f65d32a266ec83c33d04a992e51af8481791062bbafee9d1e90cc1c258d",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.project_resource_reference.ProjectResourceReferenceClient.list",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.ProjectResourceReference.list: serialized request, decoded result and 1 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.ProjectResourceReference.remove",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/ProjectResourceReference.md",
+      "example_path": "examples/rest/073/v2/filesystem/ProjectResourceReference/remove.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/ProjectResourceReference/remove.md",
+      "behavior_sha256": "255c7b146b0ab72fb8a889d81fbb7f936336ebd1ab49309bd962c3ecae9809bb",
+      "example_sha256": "1cc2d29fc566968e2d1565a96b80f26ef4fb8187702fcc194d14cc5f7c2c131d",
+      "contract_sha256": "2c864e8d076145ea672c0f8a4ca10a48bcf525624f57a8d2a3211eb71862fe4d",
+      "source_sha256": "0c267f65d32a266ec83c33d04a992e51af8481791062bbafee9d1e90cc1c258d",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "9bd7039eb23400de8fc9b143b88adfd1c0733004171a727e9770f395dd286e11",
+      "source_description": "Remove references from the given project",
+      "source_contract_sha256": "0c267f65d32a266ec83c33d04a992e51af8481791062bbafee9d1e90cc1c258d",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.project_resource_reference.ProjectResourceReferenceClient.remove",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.ProjectResourceReference.remove: serialized request, decoded result and 5 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Resource.add_markings",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Resource.md",
+      "example_path": "examples/rest/073/v2/filesystem/Resource/add_markings.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Resource/add_markings.md",
+      "behavior_sha256": "ee27107cd0ff6b46477029274680e4fc6cb2209908b8b36dde9527ecee651826",
+      "example_sha256": "2714eaedc5e37851efa1d4a780f06340e38b5b78343c3d747b542380dcc9e2f8",
+      "contract_sha256": "d47fd4bde253082b19e98a36335b816e4df8f991f571eae0bc81eb12940d63f6",
+      "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "6c80e0b0e1fe189acc1305d98347402cd671147b51cf93b80a9baf0afedda8ad",
+      "source_description": "Adds a list of Markings to a resource.",
+      "source_contract_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.resource.ResourceClient.add_markings",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Resource.add_markings: serialized request, decoded result and 6 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Resource.delete",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Resource.md",
+      "example_path": "examples/rest/073/v2/filesystem/Resource/delete.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Resource/delete.md",
+      "behavior_sha256": "ee27107cd0ff6b46477029274680e4fc6cb2209908b8b36dde9527ecee651826",
+      "example_sha256": "e569c236ca5c6f744363bc002d9b7242a1d2b631b9d45b90202a54fbea38f6cd",
+      "contract_sha256": "cfe7790a4c3eafa805748c1db367e74e6181a8dd8eac8103e2a8956d1e88c647",
+      "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "e03208d40435a582ec6a290658a95fe950cc4a5c5b42409504d28373373ba8b7",
+      "source_description": "Move the given resource to the trash. Following this operation, the resource can be restored, using the `restore` operation, or permanently deleted using the `permanentlyDelete` operation.",
+      "source_contract_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.resource.ResourceClient.delete",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Resource.delete: serialized request, decoded result and 5 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Resource.get",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Resource.md",
+      "example_path": "examples/rest/073/v2/filesystem/Resource/get.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Resource/get.md",
+      "behavior_sha256": "ee27107cd0ff6b46477029274680e4fc6cb2209908b8b36dde9527ecee651826",
+      "example_sha256": "df9dc31732ddb357add81d6501c9035ff4c12faf700b91c3b2a0592958093833",
+      "contract_sha256": "a188bd442fe7b0359840f5d83139309a50ca50bc168ba6c6f97bb6147876061e",
+      "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "3b222e73de7a5680e61235fcd7d8917c018fbc51d370ac08ffec9b0b607034d3",
+      "source_description": "Get the Resource with the specified rid.",
+      "source_contract_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.resource.ResourceClient.get",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Resource.get: serialized request, decoded result and 3 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Resource.get_access_requirements",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Resource.md",
+      "example_path": "examples/rest/073/v2/filesystem/Resource/get_access_requirements.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Resource/get_access_requirements.md",
+      "behavior_sha256": "ee27107cd0ff6b46477029274680e4fc6cb2209908b8b36dde9527ecee651826",
+      "example_sha256": "42651b1fb0c560737027aefd5610b3c99487b95f153da02b08e9fd36fd980c75",
+      "contract_sha256": "ef0cc19007ae00411593382ffe46aaf76356cfdc3594449dbc7848c73a395230",
+      "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "3de5bd260bdb7f2bdfa306352076182682b38f5d2ff86ade57e4647540ba12a2",
+      "source_description": "Returns a list of access requirements a user needs in order to view a resource. Access requirements are composed of Organizations and Markings, and can either be applied directly to the resource or inherited.",
+      "source_contract_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.resource.ResourceClient.get_access_requirements",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Resource.get_access_requirements: serialized request, decoded result and 2 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Resource.get_batch",
+      "verdict": "FAIL",
+      "behavior_path": "references/rest/v2/filesystem/Resource.md",
+      "example_path": "examples/rest/073/v2/filesystem/Resource/get_batch.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Resource/get_batch.md",
+      "behavior_sha256": "ee27107cd0ff6b46477029274680e4fc6cb2209908b8b36dde9527ecee651826",
+      "example_sha256": "d463ec49fbfad4220d12aa27327f7528e703f7c82b1253436432b264236576d0",
+      "contract_sha256": "d4945712ad30edf3fc33767779d844e3dc468661ddc14dfa73f9bb779f72988f",
+      "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "5133dd8d66741e12a23d529a70f2d284c81aece90aa6ad1cc69c674a59cdb825",
+      "source_description": "Fetches multiple resources in a single request. Returns a map from RID to the corresponding resource. If a resource does not exist, or if it is a root folder or space, its RID will not be included in the map. At most 1,000 resources should be requested at once.   The maximum batch size for this endpoint is 1000.",
+      "source_contract_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.resource.ResourceClient.get_batch",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed",
+        "Frozen SDK get_batch docstring says response is RID-to-resource map; inspect SUCCESS and EXPECTED_BODY constants."
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Resource.get_batch: serialized request, decoded result and 0 named errors passed",
+        "stderr": ""
+      },
+      "findings": [
+        "Success fixture requests one resource RID but responds with {\"data\":{}}; no requested identity is returned or checked. It proves omission only."
+      ]
+    },
+    {
+      "id": "v2.filesystem.Resource.get_by_path",
+      "verdict": "FAIL",
+      "behavior_path": "references/rest/v2/filesystem/Resource.md",
+      "example_path": "examples/rest/073/v2/filesystem/Resource/get_by_path.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Resource/get_by_path.md",
+      "behavior_sha256": "ee27107cd0ff6b46477029274680e4fc6cb2209908b8b36dde9527ecee651826",
+      "example_sha256": "608446fdadc8890b97d2abb918b88bab8b0e486daf27a56936bba1b4400599c9",
+      "contract_sha256": "777699eae593925b1830ec1d5f3d713e68dc8cca6bb5b0f86453b0599d17fa0a",
+      "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "02b5798d07acaba4411f99ced64cc17089d7e5cd43ed365243c7539ec932ef98",
+      "source_description": "Get a resource by its absolute path.",
+      "source_contract_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.resource.ResourceClient.get_by_path",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed",
+        "Frozen SDK method docstring: absolute path; inspect EXPECTED_QUERY or EXPECTED_BODY."
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Resource.get_by_path: serialized request, decoded result and 6 named errors passed",
+        "stderr": ""
+      },
+      "findings": [
+        "Success fixture requests path synthetic-value, which has no absolute path hierarchy; frozen SDK says operation resolves an absolute path."
+      ]
+    },
+    {
+      "id": "v2.filesystem.Resource.get_by_path_batch",
+      "verdict": "FAIL",
+      "behavior_path": "references/rest/v2/filesystem/Resource.md",
+      "example_path": "examples/rest/073/v2/filesystem/Resource/get_by_path_batch.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Resource/get_by_path_batch.md",
+      "behavior_sha256": "ee27107cd0ff6b46477029274680e4fc6cb2209908b8b36dde9527ecee651826",
+      "example_sha256": "83ac88adbb19617de0a226c222fe188161757206988f037467c95f17b1c2aef5",
+      "contract_sha256": "ef21b6928b95361b2de7c867a70545be59268ee82197e13700329f36bb0f48d5",
+      "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "d2d449bce7da2e6e186573af772f1b9f7c4c4c2c43e7058ebf461f559164da7d",
+      "source_description": "Gets multiple resources by their absolute paths. Returns a list of resources. If a path does not exist, is inaccessible, or refers to a root folder or space, it will not be included in the response. At most 1,000 paths should be requested at once.   The maximum batch size for this endpoint is 1000.",
+      "source_contract_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.resource.ResourceClient.get_by_path_batch",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed",
+        "Frozen SDK method docstring: absolute path; inspect EXPECTED_QUERY or EXPECTED_BODY."
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Resource.get_by_path_batch: serialized request, decoded result and 0 named errors passed",
+        "stderr": ""
+      },
+      "findings": [
+        "Success fixture requests path synthetic-value, which has no absolute path hierarchy; frozen SDK says operation resolves an absolute path."
+      ]
+    },
+    {
+      "id": "v2.filesystem.Resource.markings",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Resource.md",
+      "example_path": "examples/rest/073/v2/filesystem/Resource/markings.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Resource/markings.md",
+      "behavior_sha256": "ee27107cd0ff6b46477029274680e4fc6cb2209908b8b36dde9527ecee651826",
+      "example_sha256": "c1521d2b288f03f98e02cfe8cd93400b0ecbe8162ffa20e7b83ca0ecae1e6a12",
+      "contract_sha256": "e0105710b6df19f8c9423d37bc77c7c75515cf1f6ac3fd2c6ce7d7c62a52ea18",
+      "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "e95b2f4b90535b0853457f8e852a40ba73ba278a10819d16779ae07a8c82cf29",
+      "source_description": "List of Markings directly applied to a resource. The number of Markings on a resource is typically small so the `pageSize` and `pageToken` parameters are not required.",
+      "source_contract_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.resource.ResourceClient.markings",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Resource.markings: serialized request, decoded result and 1 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Resource.permanently_delete",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Resource.md",
+      "example_path": "examples/rest/073/v2/filesystem/Resource/permanently_delete.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Resource/permanently_delete.md",
+      "behavior_sha256": "ee27107cd0ff6b46477029274680e4fc6cb2209908b8b36dde9527ecee651826",
+      "example_sha256": "78817614ac1b0cb6421972a612e22b121064d600a841a848312e150e84c6c876",
+      "contract_sha256": "e8f5d2db5d6513535994c386e84ea217aa439cc85de922560a7fafe9b2be5ef5",
+      "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "6bf50535d717990118190372af5cce04e8ca67aa8baf1014252e3b07575ca312",
+      "source_description": "Permanently delete the given resource from the trash. If the resource is not directly trashed, a `ResourceNotTrashed` error will be thrown.",
+      "source_contract_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.resource.ResourceClient.permanently_delete",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Resource.permanently_delete: serialized request, decoded result and 3 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Resource.remove_markings",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Resource.md",
+      "example_path": "examples/rest/073/v2/filesystem/Resource/remove_markings.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Resource/remove_markings.md",
+      "behavior_sha256": "ee27107cd0ff6b46477029274680e4fc6cb2209908b8b36dde9527ecee651826",
+      "example_sha256": "55d46b7867fa7a9cc09ad61dd1900d2c8898e3f002ca534c9c62537ff145dd4d",
+      "contract_sha256": "75028cc297ca421c083b60ffffd5ad3d63fcca9298d2f1e8634868a59ac1ff9a",
+      "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "695f61bb9b9f5929b0d9f593aa2277a713e969bb288d131be1b0faa399aac1fb",
+      "source_description": "Removes Markings from a resource.",
+      "source_contract_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.resource.ResourceClient.remove_markings",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Resource.remove_markings: serialized request, decoded result and 6 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Resource.restore",
+      "verdict": "UNCERTAIN",
+      "behavior_path": "references/rest/v2/filesystem/Resource.md",
+      "example_path": "examples/rest/073/v2/filesystem/Resource/restore.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Resource/restore.md",
+      "behavior_sha256": "ee27107cd0ff6b46477029274680e4fc6cb2209908b8b36dde9527ecee651826",
+      "example_sha256": "69b7f77e99b817e482bf71f7c5f00df853780ee75b2cb0d806f7ce37fb7266c7",
+      "contract_sha256": "77c9735849d0d196d0640f2eb567e4b5ea4a2a9a946a0334a115a8e01c01f2cf",
+      "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "cf0d06d2a8be0cdcf27c88a289da385dffc5a6bdbd7326de17800ccf55994020",
+      "source_description": "Restore the given resource and any directly trashed ancestors from the trash. If the resource is not trashed, this operation will be ignored.",
+      "source_contract_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.resource.ResourceClient.restore",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed",
+        "Read frozen SDK ResourceClient.restore docstring and declared error list."
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Resource.restore: serialized request, decoded result and 3 named errors passed",
+        "stderr": ""
+      },
+      "findings": [
+        "Frozen SDK docstring says an active resource is ignored, yet same method declares ResourceNotDirectlyTrashed. Local guide repeats ignore behavior; source gives conflicting evidence, so active-resource outcome needs authoritative confirmation."
+      ]
+    },
+    {
+      "id": "v2.filesystem.ResourceRole.add",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/ResourceRole.md",
+      "example_path": "examples/rest/073/v2/filesystem/ResourceRole/add.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/ResourceRole/add.md",
+      "behavior_sha256": "b45dfc8f364fbce5efdbce42c2ed58410157c8f2c9160092df7b1880c42e8bb9",
+      "example_sha256": "9d1e54396ceb8a61dac8d2c0b9f2ddfb54aa9aa98767615427530f3479fecfeb",
+      "contract_sha256": "9946322c7884aa92a96cf288ffe08ac79bb889aba08cbbb4b6f58e7c594f048a",
+      "source_sha256": "71c9a83326cc70948e2935ae9e980eec333dd9ccc7cc40da838e823802194486",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "0a7384fa08238a32ebaef5a959b099493875973fac2600b8b6e0c44c33351ec4",
+      "source_description": "",
+      "source_contract_sha256": "71c9a83326cc70948e2935ae9e980eec333dd9ccc7cc40da838e823802194486",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.resource_role.ResourceRoleClient.add",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.ResourceRole.add: serialized request, decoded result and 4 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.ResourceRole.list",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/ResourceRole.md",
+      "example_path": "examples/rest/073/v2/filesystem/ResourceRole/list.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/ResourceRole/list.md",
+      "behavior_sha256": "b45dfc8f364fbce5efdbce42c2ed58410157c8f2c9160092df7b1880c42e8bb9",
+      "example_sha256": "ac8399d7f91fe6fcc32b3d2a3bdda0315de301b90bec4d1cc56a78350c35cac6",
+      "contract_sha256": "7c845b5bb53372ea2c07d84af27ca53e6ad49a5a7dd39e7a48fdddf80ba8baa9",
+      "source_sha256": "71c9a83326cc70948e2935ae9e980eec333dd9ccc7cc40da838e823802194486",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "809a0e07987a9c1f356b0e3495aa677324f8892227441a955c6ba0d90e478e2b",
+      "source_description": "List the roles on a resource.",
+      "source_contract_sha256": "71c9a83326cc70948e2935ae9e980eec333dd9ccc7cc40da838e823802194486",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.resource_role.ResourceRoleClient.list",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.ResourceRole.list: serialized request, decoded result and 1 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.ResourceRole.remove",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/ResourceRole.md",
+      "example_path": "examples/rest/073/v2/filesystem/ResourceRole/remove.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/ResourceRole/remove.md",
+      "behavior_sha256": "b45dfc8f364fbce5efdbce42c2ed58410157c8f2c9160092df7b1880c42e8bb9",
+      "example_sha256": "79645b132c539b20bade745ef6732349652f061b9e6061828dc58553664a30c4",
+      "contract_sha256": "bb2ef04c620aa7ce76fd27c360c4d6397a73b27390241d2eab846fe541963850",
+      "source_sha256": "71c9a83326cc70948e2935ae9e980eec333dd9ccc7cc40da838e823802194486",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "37714812698031739afeadb563160d57a830a3c3a9313665e5108f0d840d67eb",
+      "source_description": "",
+      "source_contract_sha256": "71c9a83326cc70948e2935ae9e980eec333dd9ccc7cc40da838e823802194486",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.resource_role.ResourceRoleClient.remove",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.ResourceRole.remove: serialized request, decoded result and 4 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.ResourceTag.add",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/ResourceTag.md",
+      "example_path": "examples/rest/073/v2/filesystem/ResourceTag/add.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/ResourceTag/add.md",
+      "behavior_sha256": "6d9bd12aae99ae441d50e7fab008a52d74ab6b1e5cf7f734908ac9dfa406dcf2",
+      "example_sha256": "dadec4c56365e09899c2b1fe1f20ce7e3722eb923e71af5625974e99b889cb80",
+      "contract_sha256": "27d947eaae2c4a3814e285d64549f0dc16e5a0a63cb54947f74dedf6dd2cdcda",
+      "source_sha256": "2d85f9e0eb8bec58caa49088038b0b8558731c59cc749a8960693245eac67ff1",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "cc0396683334874771ca1e83d8514d05ac45afd5353b18bec89634cc53aa0ff4",
+      "source_description": "Apply tags to a resource.",
+      "source_contract_sha256": "2d85f9e0eb8bec58caa49088038b0b8558731c59cc749a8960693245eac67ff1",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.resource_tag.ResourceTagClient.add",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.ResourceTag.add: serialized request, decoded result and 5 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.ResourceTag.list",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/ResourceTag.md",
+      "example_path": "examples/rest/073/v2/filesystem/ResourceTag/list.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/ResourceTag/list.md",
+      "behavior_sha256": "6d9bd12aae99ae441d50e7fab008a52d74ab6b1e5cf7f734908ac9dfa406dcf2",
+      "example_sha256": "91f4119c9a12c74b876275dd3944fa6bd1e91a8de97010f5ee085c7def31ab94",
+      "contract_sha256": "96d11b47ce03497982eb5d4c2414ecdc44ced4a879da92e1cf15b7d3aecc7437",
+      "source_sha256": "2d85f9e0eb8bec58caa49088038b0b8558731c59cc749a8960693245eac67ff1",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "6d0f048712dbd9bbe5f28148196065966d47c4cc4bf82de7374ec7edc1a50814",
+      "source_description": "List the tags applied to a resource.",
+      "source_contract_sha256": "2d85f9e0eb8bec58caa49088038b0b8558731c59cc749a8960693245eac67ff1",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.resource_tag.ResourceTagClient.list",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.ResourceTag.list: serialized request, decoded result and 1 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.ResourceTag.remove",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/ResourceTag.md",
+      "example_path": "examples/rest/073/v2/filesystem/ResourceTag/remove.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/ResourceTag/remove.md",
+      "behavior_sha256": "6d9bd12aae99ae441d50e7fab008a52d74ab6b1e5cf7f734908ac9dfa406dcf2",
+      "example_sha256": "9147988cb8c0d64d83d0f848ba392a58437aa1b1ce639f2dc97ecf76fd6b516e",
+      "contract_sha256": "4a9b5039cb51cebc6d52ee2433f8d6685bbb9d93bd6e4ea7721002d2f786c874",
+      "source_sha256": "2d85f9e0eb8bec58caa49088038b0b8558731c59cc749a8960693245eac67ff1",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "140d041ff6cf03870152e13e6c99a3ce0118432b315c0fdf4b51c20b10d5ac7b",
+      "source_description": "Remove tags from a resource.",
+      "source_contract_sha256": "2d85f9e0eb8bec58caa49088038b0b8558731c59cc749a8960693245eac67ff1",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.resource_tag.ResourceTagClient.remove",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.ResourceTag.remove: serialized request, decoded result and 5 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Space.create",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Space.md",
+      "example_path": "examples/rest/073/v2/filesystem/Space/create.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Space/create.md",
+      "behavior_sha256": "032e8eee57ef40b9a87f4b4627a13a76112b06c835960eb64efcc73ce9d5c293",
+      "example_sha256": "337fb2a5172ee4ac06e750735e4461078ab2fc6ee3751a5b82f587175005dcae",
+      "contract_sha256": "5702914a537e015a11593a618b3dc2f5ff447b73d8a2052d57ee196b6597f0d6",
+      "source_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "75bd1830e6e6e431261f3c43324bd06c453e93d3711473a0dd135aa157d5beb1",
+      "source_description": "Creates a new Space.",
+      "source_contract_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.space.SpaceClient.create",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Space.create: serialized request, decoded result and 9 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Space.delete",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Space.md",
+      "example_path": "examples/rest/073/v2/filesystem/Space/delete.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Space/delete.md",
+      "behavior_sha256": "032e8eee57ef40b9a87f4b4627a13a76112b06c835960eb64efcc73ce9d5c293",
+      "example_sha256": "5b95b7349c1c788def8dc7f3cd495234751f0cfe19ef4aeca1852af914867c19",
+      "contract_sha256": "67af99a8c06f46a0d86571ce9571e5ecd70cb7d3a39122b46aaf5ada9e15e90e",
+      "source_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "d1e766d89b5a88caf7f8ae15fcc31fb477a36455d04b08027eb823b74e070a18",
+      "source_description": "Delete the space. This will only work if the Space is empty, meaning any Projects or resources have been deleted first.",
+      "source_contract_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.space.SpaceClient.delete",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Space.delete: serialized request, decoded result and 3 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Space.get",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Space.md",
+      "example_path": "examples/rest/073/v2/filesystem/Space/get.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Space/get.md",
+      "behavior_sha256": "032e8eee57ef40b9a87f4b4627a13a76112b06c835960eb64efcc73ce9d5c293",
+      "example_sha256": "5f9f889b66ffab58088043e872cd5defd6fab3ddb4ce2a42bb11a8f52840eaea",
+      "contract_sha256": "e91d495d7600589790739c5bda2ee460db06fc3e55ed1cb3d5020d977455e69f",
+      "source_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "a3562a9da53f9bf4370834611f4c6e0b2f6d0930c4241c5cbc5a27d56fe51fe3",
+      "source_description": "Get the Space with the specified rid.",
+      "source_contract_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.space.SpaceClient.get",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Space.get: serialized request, decoded result and 1 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Space.list",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Space.md",
+      "example_path": "examples/rest/073/v2/filesystem/Space/list.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Space/list.md",
+      "behavior_sha256": "032e8eee57ef40b9a87f4b4627a13a76112b06c835960eb64efcc73ce9d5c293",
+      "example_sha256": "e0432124cd1def39bef85a3ca04f15d08bec0be2e228c0192b2a674f43cfe216",
+      "contract_sha256": "c97edfa1c38cb8d947c99df2b1b06b4c6de78c113df5500bfd0b9f43f3588d3b",
+      "source_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "3c159e2bf2a55a8e4b333c83a4f425641c812ba429390e7572bb1ca815565530",
+      "source_description": "Lists all Spaces.  This is a paged endpoint. Each page may be smaller or larger than the requested page size. However, it is guaranteed that if there are more results available, the `nextPageToken` field will be populated. To get the next page, make the same request again, but set the value of the `pageToken` query parameter to be value of the `nextPageToken` value of the previous response. If there is no `nextPageToken` field in the response, you are on the last page.",
+      "source_contract_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.space.SpaceClient.list",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Space.list: serialized request, decoded result and 0 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.filesystem.Space.replace",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/filesystem/Space.md",
+      "example_path": "examples/rest/073/v2/filesystem/Space/replace.py",
+      "contract_path": "references/rest/contracts/v2/filesystem/Space/replace.md",
+      "behavior_sha256": "032e8eee57ef40b9a87f4b4627a13a76112b06c835960eb64efcc73ce9d5c293",
+      "example_sha256": "51b02b7ce5f5dc9ccb5c9b26483682c64781e00b13abf0289fdb7f66385b3dae",
+      "contract_sha256": "923f6905d7e4ca6c4884e7f4d69555d8c93b45baf80534d8b8acabfa7740fcf0",
+      "source_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "ead21230514b2afb7d3963c44adb7eec6366f756f8bb8ea517490abecfc05d64",
+      "source_description": "Replace the Space with the specified rid.",
+      "source_contract_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.filesystem.space.SpaceClient.replace",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Space.replace: serialized request, decoded result and 6 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.third_party_applications.ThirdPartyApplication.get",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/third_party_applications/ThirdPartyApplication.md",
+      "example_path": "examples/rest/073/v2/third_party_applications/ThirdPartyApplication/get.py",
+      "contract_path": "references/rest/contracts/v2/third_party_applications/ThirdPartyApplication/get.md",
+      "behavior_sha256": "0447d9e00397870bff2c8d66032d072ba372b4532dd47b3cc0e6a5bf531fb854",
+      "example_sha256": "0f0db45723d4fbc18958e8b7380d219810a972e88bf42eedab48eff175eb61df",
+      "contract_sha256": "a363dcc00beaaf4a4112ed25d32c0fcf7751e4ffb5621ce46da511e5722c7716",
+      "source_sha256": "73fa294649bb5f2af81991107a5f3ff495055490cefa909f8cd14bed5d3fa6df",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "4b6cb6fc15020f6fb791c8577a1aeb13e1e5d180d54f4d2cfd2953839cc6c6a4",
+      "source_description": "Get the ThirdPartyApplication with the specified rid.",
+      "source_contract_sha256": "73fa294649bb5f2af81991107a5f3ff495055490cefa909f8cd14bed5d3fa6df",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.third_party_applications.third_party_application.ThirdPartyApplicationClient.get",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.third_party_applications.ThirdPartyApplication.get: serialized request, decoded result and 1 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.third_party_applications.Version.delete",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/third_party_applications/Version.md",
+      "example_path": "examples/rest/073/v2/third_party_applications/Version/delete.py",
+      "contract_path": "references/rest/contracts/v2/third_party_applications/Version/delete.md",
+      "behavior_sha256": "2abe8d1bbeeb8f7020c99d25591caa325102276bb224f4125dbed8ab83a46bd5",
+      "example_sha256": "64e940f830ebbb6a8a9ec720f202c33a4f255690ffab6b9ae4623f52251e4d68",
+      "contract_sha256": "773c352fb4312bd3644d444def34b49d4e990e6dc31fbc0bdb67e61a2325b8b5",
+      "source_sha256": "81a26d8e4ce0876f3b98323657ee99a97883c3b146f5a741521e7f871803ba73",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "78ea8eefa389e36203d48c18ed00c4e1447441152ecaf76b1913f2b6b4071ff9",
+      "source_description": "Delete the Version with the specified version.",
+      "source_contract_sha256": "81a26d8e4ce0876f3b98323657ee99a97883c3b146f5a741521e7f871803ba73",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.third_party_applications.version.VersionClient.delete",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.third_party_applications.Version.delete: serialized request, decoded result and 1 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.third_party_applications.Version.get",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/third_party_applications/Version.md",
+      "example_path": "examples/rest/073/v2/third_party_applications/Version/get.py",
+      "contract_path": "references/rest/contracts/v2/third_party_applications/Version/get.md",
+      "behavior_sha256": "2abe8d1bbeeb8f7020c99d25591caa325102276bb224f4125dbed8ab83a46bd5",
+      "example_sha256": "a96574a680182f83645e6e4f98ff1494b489949ac757063cf8336c01f56b83d4",
+      "contract_sha256": "3ee504608f1222f92e5fd9eaf0bfe6463d17c369ef128c52ec18a9be2f682b6f",
+      "source_sha256": "81a26d8e4ce0876f3b98323657ee99a97883c3b146f5a741521e7f871803ba73",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "480629d0454ab199dbda6ddf7922e5908604d9d4a0d5f405c6197a332c6f934d",
+      "source_description": "Get the Version with the specified version.",
+      "source_contract_sha256": "81a26d8e4ce0876f3b98323657ee99a97883c3b146f5a741521e7f871803ba73",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.third_party_applications.version.VersionClient.get",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.third_party_applications.Version.get: serialized request, decoded result and 1 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.third_party_applications.Version.list",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/third_party_applications/Version.md",
+      "example_path": "examples/rest/073/v2/third_party_applications/Version/list.py",
+      "contract_path": "references/rest/contracts/v2/third_party_applications/Version/list.md",
+      "behavior_sha256": "2abe8d1bbeeb8f7020c99d25591caa325102276bb224f4125dbed8ab83a46bd5",
+      "example_sha256": "9b6b5e23c68da6f649ed3600f94db02598cb2a4c29001e052afcfb6a053addfc",
+      "contract_sha256": "140f9fd6dd4a2a418953351b05a816754b4d5c55018f45926369f5e1b639a8bd",
+      "source_sha256": "81a26d8e4ce0876f3b98323657ee99a97883c3b146f5a741521e7f871803ba73",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "56ebf1ffeee34c59f4ae884d5a8aa247d6c2894d855784b0fc335f24009778c3",
+      "source_description": "Lists all Versions.  This is a paged endpoint. Each page may be smaller or larger than the requested page size. However, it is guaranteed that if there are more results available, the `nextPageToken` field will be populated. To get the next page, make the same request again, but set the value of the `pageToken` query parameter to be value of the `nextPageToken` value of the previous response. If there is no `nextPageToken` field in the response, you are on the last page.",
+      "source_contract_sha256": "81a26d8e4ce0876f3b98323657ee99a97883c3b146f5a741521e7f871803ba73",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.third_party_applications.version.VersionClient.list",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.third_party_applications.Version.list: serialized request, decoded result and 0 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.third_party_applications.Version.upload",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/third_party_applications/Version.md",
+      "example_path": "examples/rest/073/v2/third_party_applications/Version/upload.py",
+      "contract_path": "references/rest/contracts/v2/third_party_applications/Version/upload.md",
+      "behavior_sha256": "2abe8d1bbeeb8f7020c99d25591caa325102276bb224f4125dbed8ab83a46bd5",
+      "example_sha256": "5270b315c5aee3d0622f1aff72e1f961b286b7c0fcbdeb0b3edac7833d481931",
+      "contract_sha256": "63d4e1672187fc4bab1bed57c0a79c50a2730a174f991e88716882222bc0358d",
+      "source_sha256": "81a26d8e4ce0876f3b98323657ee99a97883c3b146f5a741521e7f871803ba73",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "bd4600a15e0d4751efc1b0d55e0fa774a71c4d958319983228eebbbf9e0ad454",
+      "source_description": "Upload a new version of the Website.",
+      "source_contract_sha256": "81a26d8e4ce0876f3b98323657ee99a97883c3b146f5a741521e7f871803ba73",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.third_party_applications.version.VersionClient.upload",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.third_party_applications.Version.upload: serialized request, decoded result and 1 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.third_party_applications.Version.upload_snapshot",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/third_party_applications/Version.md",
+      "example_path": "examples/rest/073/v2/third_party_applications/Version/upload_snapshot.py",
+      "contract_path": "references/rest/contracts/v2/third_party_applications/Version/upload_snapshot.md",
+      "behavior_sha256": "2abe8d1bbeeb8f7020c99d25591caa325102276bb224f4125dbed8ab83a46bd5",
+      "example_sha256": "70fc8677b0d0f29aeda9b4891ce2421ef25759b5c321bbd32c710fd25e2b0122",
+      "contract_sha256": "6769717cb977ca86064f3916be886e8458fd43ec5ced6effbf6b4563ca49cdb7",
+      "source_sha256": "81a26d8e4ce0876f3b98323657ee99a97883c3b146f5a741521e7f871803ba73",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "b673b529f8ef5a2f3a29536238de0104dbe6e498a1228b881449fee5f6af71c9",
+      "source_description": "Upload a snapshot version of the Website. Snapshot versions are automatically deleted after two days.",
+      "source_contract_sha256": "81a26d8e4ce0876f3b98323657ee99a97883c3b146f5a741521e7f871803ba73",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.third_party_applications.version.VersionClient.upload_snapshot",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.third_party_applications.Version.upload_snapshot: serialized request, decoded result and 1 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.third_party_applications.Website.deploy",
+      "verdict": "FAIL",
+      "behavior_path": "references/rest/v2/third_party_applications/Website.md",
+      "example_path": "examples/rest/073/v2/third_party_applications/Website/deploy.py",
+      "contract_path": "references/rest/contracts/v2/third_party_applications/Website/deploy.md",
+      "behavior_sha256": "8aaf17a2966f0fb05c900aa084dfd11bf1c6ed75db0ff7798dc70e3ab19a13af",
+      "example_sha256": "bbde13fe9ebe90c7e59035510de75b721e89279fb73db324632221ea97320fa3",
+      "contract_sha256": "6fdc6a00d441e0832480e67604a69939de3bc5a05a179bcb92390097e303a072",
+      "source_sha256": "2a78443d6b01bb6f612ae6bd2fb4713d9282c98171f2fd25a9f94b30570c5815",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "0a9f3eb0794d275f82d622bff86f6006f41fc36dd8d28a4f7eba79f8ebc0333c",
+      "source_description": "Deploy a version of the Website.",
+      "source_contract_sha256": "2a78443d6b01bb6f612ae6bd2fb4713d9282c98171f2fd25a9f94b30570c5815",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.third_party_applications.website.WebsiteClient.deploy",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed",
+        "Frozen SDK Website model includes deployed_version/deployedVersion; inspect SUCCESS and EXPECTED_BODY."
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.third_party_applications.Website.deploy: serialized request, decoded result and 1 named errors passed",
+        "stderr": ""
+      },
+      "findings": [
+        "Success fixture requests version synthetic-value but response contains only subdomains; deployedVersion is omitted. Fixture cannot confirm requested version was deployed, as guide instructs."
+      ]
+    },
+    {
+      "id": "v2.third_party_applications.Website.get",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/third_party_applications/Website.md",
+      "example_path": "examples/rest/073/v2/third_party_applications/Website/get.py",
+      "contract_path": "references/rest/contracts/v2/third_party_applications/Website/get.md",
+      "behavior_sha256": "8aaf17a2966f0fb05c900aa084dfd11bf1c6ed75db0ff7798dc70e3ab19a13af",
+      "example_sha256": "b124d411ee71f4f9b2b1855878b4d8e5dbed35ae6561f02c63a63482293def81",
+      "contract_sha256": "882141025d79bdf95725404b5651657461cf94e7adf9e0e3c9c44ee7f44b9dd2",
+      "source_sha256": "2a78443d6b01bb6f612ae6bd2fb4713d9282c98171f2fd25a9f94b30570c5815",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "16dc24ed96a5911770c6ce815e436f3b5994dd16898da4f6efff383fd5371567",
+      "source_description": "Get the Website.",
+      "source_contract_sha256": "2a78443d6b01bb6f612ae6bd2fb4713d9282c98171f2fd25a9f94b30570c5815",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.third_party_applications.website.WebsiteClient.get",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.third_party_applications.Website.get: serialized request, decoded result and 1 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.third_party_applications.Website.undeploy",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/third_party_applications/Website.md",
+      "example_path": "examples/rest/073/v2/third_party_applications/Website/undeploy.py",
+      "contract_path": "references/rest/contracts/v2/third_party_applications/Website/undeploy.md",
+      "behavior_sha256": "8aaf17a2966f0fb05c900aa084dfd11bf1c6ed75db0ff7798dc70e3ab19a13af",
+      "example_sha256": "3aa7d88fba67ec7f39fc8bc644f7ee5df284af035f218ebbce66f91954149d36",
+      "contract_sha256": "86036fc980c70b06543206e1337866b59d906e3accb5c0a020d11781ea471001",
+      "source_sha256": "2a78443d6b01bb6f612ae6bd2fb4713d9282c98171f2fd25a9f94b30570c5815",
+      "source_method_file": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "ab35abb0c5fcc92da5634b942eb8cf05afb7df96d41947d5165432c0ba95b34b",
+      "source_description": "Remove the currently deployed version of the Website.",
+      "source_contract_sha256": "2a78443d6b01bb6f612ae6bd2fb4713d9282c98171f2fd25a9f94b30570c5815",
+      "assertions": [
+        "Frozen installed SDK method exists: foundry_sdk.v2.third_party_applications.website.WebsiteClient.undeploy",
+        "Contract signature and wire expressions matched frozen SDK AST",
+        "Real SDK MockTransport fixture passed"
+      ],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.third_party_applications.Website.undeploy: serialized request, decoded result and 1 named errors passed",
+        "stderr": ""
+      },
+      "findings": []
+    }
+  ],
+  "scope_note": "Offline semantic review of documented behavior against installed SDK 1.101.0, source AST, models, and real SDK MockTransport fixtures. PASS means source-aligned offline evidence; no live tenant behavior claimed. FAIL denotes material fixture semantic gap, not a proven live service defect.",
+  "summary": {
+    "PASS": 42,
+    "FAIL": 5,
+    "UNCERTAIN": 1
+  }
+}
