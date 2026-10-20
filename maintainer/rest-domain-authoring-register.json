@@ -5490,12 +5490,12 @@
       "author_agent": "/root/feature015_manager_resume/osdk_timeout_author",
       "independent_reviewer": "/root/feature015_rest_review_audit",
       "reviewer_agent": "/root/feature015_rest_review_audit",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal085_finish/case085_approve_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; author fixture passed. Independent source check reported no P1/P2; semantic QA pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -5514,12 +5514,12 @@
       "author_agent": "/root/feature015_manager_resume/osdk_timeout_author",
       "independent_reviewer": "/root/feature015_rest_review_audit",
       "reviewer_agent": "/root/feature015_rest_review_audit",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal085_finish/case085_approve_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; author fixture passed. Independent source check reported no P1/P2; semantic QA pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -5538,12 +5538,12 @@
       "author_agent": "/root/offline_implementation_manager/groom_rest",
       "independent_reviewer": "/root/feature015_rest_review_audit",
       "reviewer_agent": "/root/feature015_rest_review_audit",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal085_finish/case085_approve_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; author fixture passed. Independent source check reported no P1/P2; semantic QA pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -5562,12 +5562,12 @@
       "author_agent": "/root/offline_implementation_manager/groom_rest",
       "independent_reviewer": "/root/feature015_rest_review_audit",
       "reviewer_agent": "/root/feature015_rest_review_audit",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal085_finish/case085_approve_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; author fixture passed. Independent source check reported no P1/P2; semantic QA pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -5586,12 +5586,12 @@
       "author_agent": "/root/offline_implementation_manager/groom_rest",
       "independent_reviewer": "/root/feature015_rest_review_audit",
       "reviewer_agent": "/root/feature015_rest_review_audit",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal085_finish/case085_approve_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; author fixture passed. Independent source check reported no P1/P2; semantic QA pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -5610,12 +5610,12 @@
       "author_agent": "/root/offline_implementation_manager/groom_rest",
       "independent_reviewer": "/root/feature015_rest_review_audit",
       "reviewer_agent": "/root/feature015_rest_review_audit",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal085_finish/case085_approve_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; author fixture passed. Independent source check reported no P1/P2; semantic QA pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -5634,12 +5634,12 @@
       "author_agent": "/root/offline_implementation_manager/groom_rest",
       "independent_reviewer": "/root/feature015_rest_review_audit",
       "reviewer_agent": "/root/feature015_rest_review_audit",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal085_finish/case085_approve_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; author fixture passed. Independent source check reported no P1/P2; semantic QA pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -5658,12 +5658,12 @@
       "author_agent": "/root/offline_implementation_manager/groom_rest",
       "independent_reviewer": "/root/feature015_rest_review_audit",
       "reviewer_agent": "/root/feature015_rest_review_audit",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal085_finish/case085_approve_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; author fixture passed. Independent source check reported no P1/P2; semantic QA pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -5682,12 +5682,12 @@
       "author_agent": "/root/offline_implementation_manager/groom_rest",
       "independent_reviewer": "/root/feature015_rest_review_audit",
       "reviewer_agent": "/root/feature015_rest_review_audit",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal085_finish/case085_approve_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; author fixture passed. Independent source check reported no P1/P2; semantic QA pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -5706,12 +5706,12 @@
       "author_agent": "/root/feature015_manager_resume/osdk_timeout_author",
       "independent_reviewer": "/root/feature015_rest_review_audit",
       "reviewer_agent": "/root/feature015_rest_review_audit",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal085_finish/case085_approve_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; author fixture passed. Independent source check reported no P1/P2; semantic QA pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -5730,12 +5730,12 @@
       "author_agent": "/root/feature015_manager_resume/osdk_timeout_author",
       "independent_reviewer": "/root/feature015_rest_review_audit",
       "reviewer_agent": "/root/feature015_rest_review_audit",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal085_finish/case085_approve_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; author fixture passed. Independent source check reported no P1/P2; semantic QA pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
