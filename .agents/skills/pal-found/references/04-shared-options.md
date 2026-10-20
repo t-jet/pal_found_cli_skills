@@ -9,9 +9,17 @@ flag works everywhere.
 
 | Option | Meaning |
 | --- | --- |
-| `--timeout <seconds>` | Per-call timeout for the request. Overrides the `FOUNDRY_AGENTIC_CLI_TIMEOUT_S` default (30 s, range 1–3600). |
-| `--format json\|toon\|auto` | Output format. Overrides `FOUNDRY_AGENTIC_CLI_DEFAULT_FORMAT` (default `auto`). |
+| `--timeout <seconds>` | SDK request timeout; a namespace's outer retry timeout can remain separate. See the caveat below. |
+| `--format json\|toon\|auto` | Explicit output format. Use this flag when deterministic selection is required. |
 | `--pretty` | Pretty-print JSON output when JSON is selected. |
+
+In the pinned Filesystem CLI, `--timeout` changes the SDK request timeout while
+the outer `RetryHandler` still uses `FOUNDRY_AGENTIC_CLI_TIMEOUT_S` (default 30 s).
+For example, an environment timeout of 3 s still bounds a request given
+`--timeout 120`. Set both values consistently for that namespace; a larger SDK
+timeout alone does not extend the outer budget. Its parser also supplies
+`--format auto` by default, masking `FOUNDRY_AGENTIC_CLI_DEFAULT_FORMAT` unless
+an explicit format is passed. Verify other namespace parsers independently.
 
 ## Paging options
 
@@ -52,6 +60,9 @@ exact names are per namespace.
 
 ## When a flag is absent
 
-If a record does not list a flag you expect, the parser does not accept it. Do
-not pass it: exit code 1 (user input error) is returned for unknown arguments.
-Prefer reading the namespace operation record over guessing a flag name.
+Use the operation record to select meaningful options. A common parser can
+accept a flag that an operation ignores: Filesystem `project get` accepts
+`--page-size` even though it is not paginated. A truly unknown flag can fail
+before runtime serialization; Filesystem uses argparse exit 2 with stderr
+usage, while Data Health reports invalid input as exit 1 JSON. Do not infer
+operation support from parser acceptance alone.

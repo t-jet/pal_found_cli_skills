@@ -6,8 +6,11 @@ interpret the result of any command.
 
 ## Output format: TOON vs JSON
 
-`--format` accepts `json`, `toon`, or `auto`; `FOUNDRY_AGENTIC_CLI_DEFAULT_FORMAT`
-(default `auto`) sets the same choice. Under `auto`:
+`--format` accepts `json`, `toon`, or `auto`. The shared formatter reads
+`FOUNDRY_AGENTIC_CLI_DEFAULT_FORMAT` when no format setting is supplied to it.
+Some namespace parsers, including Filesystem, pass their default `auto` even
+when the flag is omitted, masking that environment setting. Pass `--format`
+explicitly when the selected output format matters. Under `auto`:
 
 - **TOON** is used only when the top-level result is a list **and** every item
   is a dict with the identical field set.
@@ -15,9 +18,11 @@ interpret the result of any command.
   mixed-type arrays, heterogeneous-field arrays, binary download envelopes,
   and pagination metadata.
 
-Data goes to stdout. Metadata (pagination, retry info) goes to stderr,
-preceded by the separator line `# ---metadata-start---`. TOON rendering uses
-`toon-python`; data is on stdout, metadata on stderr.
+Data goes to stdout. Pagination metadata goes to stderr, preceded by the
+separator line `# ---metadata-start---`. Retry events are separate NDJSON logs
+on stderr and do not use that separator. The pinned CLI renders
+`toon` with its own aligned-column table formatter, not the `toon-python` codec.
+Use JSON when a machine consumer requires a defined JSON representation.
 
 JSON formatting has no connection to a Foundry state change. The output shape
 only reflects what the API returned and how the CLI rendered it.
@@ -28,21 +33,26 @@ only reflects what the API returned and how the CLI rendered it.
 | --- | --- | --- |
 | 0 | Success | — |
 | 1 | User input error (bad args, validation) | Fix the command line |
-| 2 | Authentication error (missing/invalid token or hostname) | Check `FOUNDRY_TOKEN`/`FOUNDRY_HOSTNAME` |
+| 2 | Runtime authentication error; some namespace parsers also use 2 for usage errors | Inspect JSON error or stderr usage, then fix credentials or arguments |
 | 3 | Permission denied (API 403) | Request access in Foundry |
 | 4 | Not found (API 404) | Check RIDs/paths |
 | 5 | Timeout (`asyncio.wait_for` exceeded) | Raise `FOUNDRY_AGENTIC_CLI_TIMEOUT_S` |
-| 6 | Server error (API 5xx, excluding retried 503) | Retry later |
+| 6 | Server error (API 5xx, including 503 after retries) | Retry later |
 | 7 | Rate limit exhausted (HTTP 429 after retries) | Back off, reduce concurrency |
 | 8 | Access control block (readonly/metadata-only/disabled) | Adjust ACL env vars |
 | 9 | Configuration error (missing env var, bad `.env` path) | Fix configuration |
 
-All failures also emit a JSON error object on stdout.
+Handled runtime failures emit a JSON error object on stdout. Parser behavior
+differs: Filesystem's argparse usage failures exit 2 with usage on stderr and
+no JSON stdout; Data Health converts invalid input to exit 1 with JSON.
 
 ## Retries and timeouts
 
-Exponential backoff with jitter, max 4 total attempts (1 + 3 retries), per-call
-timeout 30 s by default (`FOUNDRY_AGENTIC_CLI_TIMEOUT_S`, range 1–3600). The
+Exponential backoff uses jitter. The pinned default `RetryHandler` value 4 is
+used as four retries after the initial call, allowing five calls in total.
+The default outer per-call timeout is 30 s. `RetryHandler` reads
+`FOUNDRY_AGENTIC_CLI_TIMEOUT_S` directly as a float without clamping;
+`ConfigLoader` separately bounds the SDK configuration timeout to 1–3600 s. The
 Streams namespace uses `FOUNDRY_AGENTIC_CLI_STREAMS_TIMEOUT_S` (default 120 s)
 for long-lived record connections.
 
@@ -74,7 +84,7 @@ matched the scope.
 | Exit 8 on a write in read-only mode | `READONLY=true` active | Set `_READONLY=false` or remove the global flag |
 | Exit 8 in metadata-only mode | Operation blocked by allow-list | Disable metadata-only or use a permitted operation |
 | Binary download fails | Over 1.5 MiB bound (`FOUNDRY_AGENTIC_CLI_MAX_DOWNLOAD_BYTES`) | Stream the content outside the CLI |
-| Binary upload fails | Over 16 MiB bound | Split or transfer large media outside the CLI |
+| Binary upload fails in a namespace with an upload cap | Local upload cap, often 16 MiB; check the namespace record | Split the payload or use another supported transfer method |
 | Exit 7 under load | HTTP 429 after retries | Back off and retry later |
 | Exit 1 on a `-json` flag | Invalid JSON argument | Validate the JSON locally and re-run |
 
@@ -86,8 +96,8 @@ matched the scope.
    that no records matched the scope.
 3. A page token means more results may exist; continue paging or note the
    partial view.
-4. A nonzero exit has a specific meaning from the table above. Read the JSON
-   error body for the server-provided detail.
+4. A nonzero exit has a meaning from the table above. Read the JSON error body
+   when present; parser usage failures may instead provide stderr usage.
 5. For operations that start asynchronous work (a run, a build, a session, a
    transform), a zero exit confirms the request was accepted, not that the
    work finished. Check status before claiming completion.

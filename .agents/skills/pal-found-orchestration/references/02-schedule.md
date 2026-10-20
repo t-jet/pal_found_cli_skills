@@ -10,6 +10,11 @@ documentation](https://www.palantir.com/docs/foundry/data-integration/schedules)
 describes the installed CLI commands. Replace
 example identifiers and configuration values with values from your Foundry enrollment.
 
+After a timeout, transport failure, or exhausted retries on a write, inspect the
+schedule, its recent runs, and any resulting build before replaying the request.
+The mutation may already have taken effect; retrying creation or `run` can start
+duplicate work. Reconcile the intended target and current state first.
+
 ## Operation records
 
 ### schedule.create
@@ -75,7 +80,8 @@ example identifiers and configuration values with values from your Foundry enrol
 ### schedule.pause
 
 - **Behavior:** Pauses the schedule's trigger so future automatic runs are not started until it is
-  unpaused.
+  unpaused. Pausing resets trigger state and forgets observed events; those events
+  are not queued for replay when the schedule resumes.
 - **Before use:** The schedule must exist and be accessible; state-changing calls also require
   schedule management permission.
 - **Inputs:** positional `schedule_rid`; required none; optional none.
@@ -131,6 +137,7 @@ example identifiers and configuration values with values from your Foundry enrol
 ### schedule.unpause
 
 - **Behavior:** Resumes a paused schedule so its trigger can start future automatic runs again.
+  It does not replay events forgotten when the schedule was paused.
 - **Before use:** The schedule must exist and be accessible; state-changing calls also require
   schedule management permission.
 - **Inputs:** positional `schedule_rid`; required none; optional none.
@@ -140,6 +147,11 @@ example identifiers and configuration values with values from your Foundry enrol
 - **Example:** `pal-found-orchestration schedule unpause SCHEDULE_RID`
 
 ### schedule_version.get
+
+Current API documentation requires `preview=true` for both schedule-version read
+operations. Pinned CLI exposes no `--preview` option and forwards no preview value.
+Examples show locally valid syntax; server acceptance is unverified. Use an
+approved SDK or REST request with `preview=true` when required.
 
 - **Behavior:** Get the ScheduleVersion with the specified rid.
 - **Before use:** The schedule version must exist and be readable.
@@ -152,8 +164,8 @@ example identifiers and configuration values with values from your Foundry enrol
 
 ### schedule_version.schedule
 
-- **Behavior:** Looks up the Schedule associated with this ScheduleVersion. The response may be
-  empty if the version is no longer linked to an accessible schedule.
+- **Behavior:** Looks up the Schedule associated with this ScheduleVersion. The SDK declares
+  `Optional[Schedule]`; handle an empty result without inferring its cause.
 - **Before use:** The schedule version must exist and be readable.
 - **Inputs:** positional `schedule_version_rid`; required none; optional none.
   `schedule_version_rid`: The RID of a schedule version

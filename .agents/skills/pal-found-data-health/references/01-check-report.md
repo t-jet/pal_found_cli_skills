@@ -4,6 +4,15 @@ Data Health monitors individual resources with checks for status, freshness, siz
 
 The examples assume valid Foundry credentials and the required dataset or check permissions. Replace sample RIDs. A `buildStatus` rule uses a dataset RID, branch, and severity (`MODERATE` or `CRITICAL`). All 16 create/replace rule types and their recursive JSON field contracts are available in the [local configuration guide](check-config.md). Use the matching variant and nested model links before editing the JSON.
 
+Local CLI policy is checked before client creation. Active read-only mode blocks
+`check.create`, `check.delete`, and `check.replace`. Metadata-only mode permits
+`check.get` and both report reads, and blocks those three writes. A local policy
+block exits with code 8 before any API request; valid Foundry credentials do not
+override it. These restrictions assume no explicit scoped policy override.
+An operation or namespace `READONLY=false` can permit a write before metadata-only
+evaluation; namespace `METADATA_ONLY=false` overrides global metadata-only mode.
+Global, namespace, and operation `ENABLED=false` gates are checked first.
+
 The Check and Check Report API requires `preview=true` for all six operations
 below. The CLI supplies it on every request; callers do not pass a preview flag.
 
@@ -50,3 +59,21 @@ Read recent reports for one check in reverse chronological order. `--limit` defa
 **Example:** `pal-found-data-health check-report get-latest ri.data-health.main.check.8e27b13a-e21b-4232-ae1b-76ccf5ff42b3 --limit 5`
 
 An invalid limit, unknown check, or insufficient read permission fails. Reading reports does not run a check.
+
+## Failure recovery
+
+A local policy block requires an allowed operation or an authorized policy
+change. An API permission failure requires the relevant Foundry grant. After a
+write timeout or uncertain response, inspect the check and reconcile its current
+configuration before retrying; the write may already have been applied. Retrying
+creation can produce an additional check. Preserve the intended rule and target
+when reconciling an unknown outcome.
+
+Runtime exit codes distinguish authentication (2), permission denial (3), missing
+resources (4), timeout (5), server failure (6), exhausted rate limiting (7), local
+policy (8), and configuration (9). Authentication errors require a valid token;
+missing configuration must be supplied before a request can run. A 429 or 503
+response, or a transient transport failure, may trigger bounded retries. An
+exhausted retry or server error does not prove that an earlier write was unapplied;
+reconcile the target before replaying it. The Data Health parser reports invalid
+command input as exit 1 with a JSON error; no client is created.

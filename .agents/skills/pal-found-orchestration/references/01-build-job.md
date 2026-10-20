@@ -10,6 +10,11 @@ documentation](https://www.palantir.com/docs/foundry/data-integration/schedules)
 describes the installed CLI commands. Replace
 example identifiers and configuration values with values from your Foundry enrollment.
 
+After a timeout, transport failure, or exhausted retries on a write, inspect the
+build and its jobs before replaying the request. Creation or cancellation may
+already have taken effect; a client failure does not establish the build state.
+Reconcile the intended targets and current status to avoid duplicate work.
+
 ## Operation records
 
 ### build.cancel
@@ -93,10 +98,10 @@ example identifiers and configuration values with values from your Foundry enrol
 ### build.search
 
 - **Behavior:** Searches builds visible to the caller. `--where-json` limits matches and
-  `--order-by-json` controls their order; without filters, results are paginated across visible
-  builds.
-- **Before use:** The caller can search only builds visible to its identity; filters are optional.
-- **Inputs:** positional none; required none; optional `--where-json`, `--order-by-json`,
+  `--order-by-json` controls their order; results are paginated.
+- **Before use:** The caller can search only builds visible to its identity. Supply a filter:
+  the CLI parser permits omission, but SDK 1.101.0 requires `where` and rejects an unfiltered call.
+- **Inputs:** positional none; required for SDK invocation `--where-json`; optional `--order-by-json`,
   `--page-size`, `--page-token`, `--all`, `--max-pages`. Use `--page-token` to resume from the
   `next_page_token` reported by a previous call; `--all` or `--max-pages` fetches more than one
   page in one invocation.
@@ -108,9 +113,14 @@ example identifiers and configuration values with values from your Foundry enrol
   `next_page_token` appear separately in stderr metadata.
 - **Failure or follow-up:** An empty item list does not prove there are no more builds. If stderr
   metadata contains `next_page_token`, pass it as `--page-token` to continue.
-- **Example:** `pal-found-orchestration build search`
+- **Example:** `pal-found-orchestration build search --where-json '{"type":"eq","field":"STATUS","value":"RUNNING"}'`
 
 ### job.get
+
+Current API documentation requires `preview=true` for both job read operations.
+Pinned CLI exposes no `--preview` option and forwards no preview value. Examples
+show locally valid syntax; server acceptance is unverified. Use an approved SDK
+or REST request with `preview=true` when required.
 
 - **Behavior:** Reads one job's status and details by RID. Use it after `build jobs` to diagnose a
   build's progress or failure. The SDK documents four requests per second and 25 concurrent

@@ -29,6 +29,12 @@ and [schedule concepts](https://www.palantir.com/docs/foundry/data-integration/s
 
 20 Foundry Orchestration API v2 operations are available through the installed `pal-found-orchestration` command.
 
+Current API documentation requires `preview=true` for `job.get`, `job.get_batch`,
+`schedule_version.get`, and `schedule_version.schedule`. Pinned CLI exposes no
+`--preview` option and forwards no preview value. Local command validation does
+not prove server acceptance for these operations. Use an approved SDK or REST
+request with `preview=true` when required.
+
 ## Usage
 
 ```bash

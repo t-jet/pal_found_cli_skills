@@ -4,6 +4,11 @@ A checkpoint interrupts a sensitive Foundry interaction and asks its user for a 
 
 Examples use replaceable identifiers. The CLI requires Foundry credentials and permission to view the records.
 
+Current API documentation requires `preview=true` for `record.get`, `record.get_batch`,
+and `record.search`. Pinned CLI exposes no `--preview` option and forwards no preview
+value. Examples below pass local parser and SDK input validation; they do not prove
+server acceptance. Use an approved SDK or REST request with `preview=true` when required.
+
 ### record.get
 
 Retrieve one checkpoint record by RID when an investigation already has its identifier. The response is a `Record` containing the justification and interaction context. No state changes. An unknown or inaccessible RID cannot yield a readable record.
