@@ -232,69 +232,147 @@
     },
     {
       "path": "pal-found-admin\\references\\01-identity-auth-users.md",
-      "sha256": "c7bfb33917ec7361aec6046bca2bf91f2bc1a106ae08decce85bb5d28d69dc10",
-      "lines": 167,
-      "review_status": "author context review; independent semantic review pending",
+      "sha256": "37b85bfef36f77858723b839766aaa55e9f9d32ea36924d96e91aed450fd0096",
+      "lines": 169,
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "c7bfb33917ec7361aec6046bca2bf91f2bc1a106ae08decce85bb5d28d69dc10",
+        "reviewer_agent": "/root/core_and_schedule_final_qa",
+        "review_date": "2026-10-20",
+        "page_sha256": "37b85bfef36f77858723b839766aaa55e9f9d32ea36924d96e91aed450fd0096",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 2",
-          "reachable from owning SKILL.md"
+          "Whole conceptual opening and every operation record read against pinned parser, adapter, SDK signatures, return types, and SDK semantics.",
+          "Every published operation example passes parser and SDK input validation; this does not prove API preconditions.",
+          "Fresh full-page retest after root-owned corrections; exact current bytes hashed.",
+          "Uncertain-write recovery requires inspection/reconciliation before replay; successful API request distinguished from inferred access state.",
+          "Authentication-provider and enrollment-role lists now correctly described as nonpaged data-only responses; user list/search retain genuine continuation guidance. Preregistration, status selection, revocation, provider mapping, batch limit500, profile byte-count behavior, and role assignment limit100 match pinned sources."
         ],
-        "url_contexts_in_current_audit": 2,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-admin.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-admin\\references\\01-identity-auth-users.md",
+          "sha256": "c7bfb33917ec7361aec6046bca2bf91f2bc1a106ae08decce85bb5d28d69dc10",
+          "lines": 167,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "c7bfb33917ec7361aec6046bca2bf91f2bc1a106ae08decce85bb5d28d69dc10",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 2",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 2,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-admin\\references\\02-identity-groups-roles.md",
-      "sha256": "d7690f0d49f1654b6e64572ef9af8ff1de55f529a9846e1abd33c65c3fc1c0ca",
-      "lines": 151,
-      "review_status": "author context review; independent semantic review pending",
+      "sha256": "5622e7de5b992e077d03b5aa175d02c4a2e6edda8cc7ef09e57da2e121f4fd86",
+      "lines": 159,
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "d7690f0d49f1654b6e64572ef9af8ff1de55f529a9846e1abd33c65c3fc1c0ca",
+        "reviewer_agent": "/root/core_and_schedule_final_qa",
+        "review_date": "2026-10-20",
+        "page_sha256": "5622e7de5b992e077d03b5aa175d02c4a2e6edda8cc7ef09e57da2e121f4fd86",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 2",
-          "reachable from owning SKILL.md"
+          "Whole conceptual opening and every operation record read against pinned parser, adapter, SDK signatures, return types, and SDK semantics.",
+          "Every published operation example passes parser and SDK input validation; this does not prove API preconditions.",
+          "Fresh full-page retest after root-owned corrections; exact current bytes hashed.",
+          "Uncertain-write recovery requires inspection/reconciliation before replay; successful API request distinguished from inferred access state.",
+          "Three required-preview examples now emit SDK query preview=True. Group replacement preserves multipass attributes; direct/transitive membership, mutually exclusive expiration flags, policy units, provider mapping uniqueness, prefix search, and role result semantics match SDK/official sources."
         ],
-        "url_contexts_in_current_audit": 2,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-admin.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-admin\\references\\02-identity-groups-roles.md",
+          "sha256": "d7690f0d49f1654b6e64572ef9af8ff1de55f529a9846e1abd33c65c3fc1c0ca",
+          "lines": 151,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "d7690f0d49f1654b6e64572ef9af8ff1de55f529a9846e1abd33c65c3fc1c0ca",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 2",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 2,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-admin\\references\\03-governance.md",
-      "sha256": "b6b6248e6c86de0c082df1f3ebecef6c726cc0395ce58e9d281e4c7bd6aa0cc7",
-      "lines": 103,
-      "review_status": "author context review; independent semantic review pending",
+      "sha256": "421133d88b624146138ff90029582a367f1a1ae0784ab4306521a801d3121a57",
+      "lines": 111,
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "b6b6248e6c86de0c082df1f3ebecef6c726cc0395ce58e9d281e4c7bd6aa0cc7",
+        "reviewer_agent": "/root/core_and_schedule_final_qa",
+        "review_date": "2026-10-20",
+        "page_sha256": "421133d88b624146138ff90029582a367f1a1ae0784ab4306521a801d3121a57",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 3",
-          "reachable from owning SKILL.md"
+          "Whole conceptual opening and every operation record read against pinned parser, adapter, SDK signatures, return types, and SDK semantics.",
+          "Every published operation example passes parser and SDK input validation; this does not prove API preconditions.",
+          "Fresh full-page retest after root-owned corrections; exact current bytes hashed.",
+          "Uncertain-write recovery requires inspection/reconciliation before replay; successful API request distinguished from inferred access state.",
+          "Host list and marking category create/replace examples now emit SDK query preview=True. CBAC banner now explains ignored unknown IDs and deduplication. Mandatory marking/CBAC distinction, limit500 batches, limit100 marking/category pages, initial administrator requirements, and metadata-only replacement semantics match sources."
         ],
-        "url_contexts_in_current_audit": 3,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-admin.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-admin\\references\\03-governance.md",
+          "sha256": "b6b6248e6c86de0c082df1f3ebecef6c726cc0395ce58e9d281e4c7bd6aa0cc7",
+          "lines": 103,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "b6b6248e6c86de0c082df1f3ebecef6c726cc0395ce58e9d281e4c7bd6aa0cc7",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 3",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 3,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-admin\\references\\04-governance-access.md",
@@ -5598,9 +5676,9 @@
     },
     {
       "path": "pal-found-admin\\references\\01-identity-auth-users.md",
-      "line": 3,
+      "line": 169,
       "url": "https://www.palantir.com/docs/foundry/administration/overview",
-      "context": "# Identity: authentication, enrollment, users\n\nAuthentication verifies users through configured providers. Enrollment roles delegate broad administrative powers; organization, group, and marking controls still affect access. User provider records map external identities to Foundry users. See [administration overview](https://www.palantir.com/docs/foundry/administration/overview) and [users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups). Commands here use the installed Admin CLI. Example identifiers and names are illustrative; replace them with values from your enrollment.\n\n## Operation records\n",
+      "context": "Optional sources: [Foundry users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups), [administration overview](https://www.palantir.com/docs/foundry/administration/overview).",
       "classification": "optional platform provenance",
       "owner": "DEV-STORY-061",
       "reviewer": "pending independent reviewer",
@@ -5610,13 +5688,20 @@
       "qa_reviewer": "qa-engineer",
       "qa_current_dispositions": [
         "optional_provenance_local_page"
-      ]
+      ],
+      "location_history": [
+        {
+          "line": 3,
+          "context": "# Identity: authentication, enrollment, users\n\nAuthentication verifies users through configured providers. Enrollment roles delegate broad administrative powers; organization, group, and marking controls still affect access. User provider records map external identities to Foundry users. See [administration overview](https://www.palantir.com/docs/foundry/administration/overview) and [users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups). Commands here use the installed Admin CLI. Example identifiers and names are illustrative; replace them with values from your enrollment.\n\n## Operation records\n"
+        }
+      ],
+      "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
     },
     {
       "path": "pal-found-admin\\references\\01-identity-auth-users.md",
-      "line": 3,
+      "line": 169,
       "url": "https://www.palantir.com/docs/foundry/security/users-and-groups",
-      "context": "# Identity: authentication, enrollment, users\n\nAuthentication verifies users through configured providers. Enrollment roles delegate broad administrative powers; organization, group, and marking controls still affect access. User provider records map external identities to Foundry users. See [administration overview](https://www.palantir.com/docs/foundry/administration/overview) and [users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups). Commands here use the installed Admin CLI. Example identifiers and names are illustrative; replace them with values from your enrollment.\n\n## Operation records\n",
+      "context": "Optional sources: [Foundry users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups), [administration overview](https://www.palantir.com/docs/foundry/administration/overview).",
       "classification": "optional platform provenance",
       "owner": "DEV-STORY-061",
       "reviewer": "pending independent reviewer",
@@ -5626,13 +5711,20 @@
       "qa_reviewer": "qa-engineer",
       "qa_current_dispositions": [
         "optional_provenance_local_page"
-      ]
+      ],
+      "location_history": [
+        {
+          "line": 3,
+          "context": "# Identity: authentication, enrollment, users\n\nAuthentication verifies users through configured providers. Enrollment roles delegate broad administrative powers; organization, group, and marking controls still affect access. User provider records map external identities to Foundry users. See [administration overview](https://www.palantir.com/docs/foundry/administration/overview) and [users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups). Commands here use the installed Admin CLI. Example identifiers and names are illustrative; replace them with values from your enrollment.\n\n## Operation records\n"
+        }
+      ],
+      "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
     },
     {
       "path": "pal-found-admin\\references\\02-identity-groups-roles.md",
-      "line": 3,
+      "line": 159,
       "url": "https://www.palantir.com/docs/foundry/security/users-and-groups",
-      "context": "# Identity: groups and roles\n\nGroups gather principals so access can be granted consistently. Group membership can convey roles, while expiration policy limits its lifetime. A role is a set of permissions, and mandatory organization and marking requirements still apply. See [users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups) and [projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles). Examples use the installed Admin CLI. Replace sample identifiers before running.\n\n## Operation records\n",
+      "context": "Optional sources: [Foundry users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups), [projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles).",
       "classification": "optional platform provenance",
       "owner": "DEV-STORY-061",
       "reviewer": "pending independent reviewer",
@@ -5642,13 +5734,20 @@
       "qa_reviewer": "qa-engineer",
       "qa_current_dispositions": [
         "optional_provenance_local_page"
-      ]
+      ],
+      "location_history": [
+        {
+          "line": 3,
+          "context": "# Identity: groups and roles\n\nGroups gather principals so access can be granted consistently. Group membership can convey roles, while expiration policy limits its lifetime. A role is a set of permissions, and mandatory organization and marking requirements still apply. See [users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups) and [projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles). Examples use the installed Admin CLI. Replace sample identifiers before running.\n\n## Operation records\n"
+        }
+      ],
+      "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
     },
     {
       "path": "pal-found-admin\\references\\02-identity-groups-roles.md",
-      "line": 3,
+      "line": 159,
       "url": "https://www.palantir.com/docs/foundry/security/projects-and-roles",
-      "context": "# Identity: groups and roles\n\nGroups gather principals so access can be granted consistently. Group membership can convey roles, while expiration policy limits its lifetime. A role is a set of permissions, and mandatory organization and marking requirements still apply. See [users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups) and [projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles). Examples use the installed Admin CLI. Replace sample identifiers before running.\n\n## Operation records\n",
+      "context": "Optional sources: [Foundry users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups), [projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles).",
       "classification": "optional platform provenance",
       "owner": "DEV-STORY-061",
       "reviewer": "pending independent reviewer",
@@ -5658,13 +5757,20 @@
       "qa_reviewer": "qa-engineer",
       "qa_current_dispositions": [
         "optional_provenance_local_page"
-      ]
+      ],
+      "location_history": [
+        {
+          "line": 3,
+          "context": "# Identity: groups and roles\n\nGroups gather principals so access can be granted consistently. Group membership can convey roles, while expiration policy limits its lifetime. A role is a set of permissions, and mandatory organization and marking requirements still apply. See [users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups) and [projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles). Examples use the installed Admin CLI. Replace sample identifiers before running.\n\n## Operation records\n"
+        }
+      ],
+      "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
     },
     {
       "path": "pal-found-admin\\references\\03-governance.md",
-      "line": 3,
+      "line": 111,
       "url": "https://www.palantir.com/docs/foundry/security/overview",
-      "context": "# Governance: classifications, markings, and categories\n\nFoundry uses markings, classification-based controls, and organizations as mandatory access requirements. They apply alongside project roles and can propagate with derived data. A marking category groups markings and controls discoverability. See [security overview](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), and [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings). Examples use the installed Admin CLI. Replace sample identifiers before running.\n\n## Operation records\n",
+      "context": "Optional sources: [Foundry security model](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings).",
       "classification": "optional platform provenance",
       "owner": "DEV-STORY-061",
       "reviewer": "pending independent reviewer",
@@ -5674,13 +5780,20 @@
       "qa_reviewer": "qa-engineer",
       "qa_current_dispositions": [
         "optional_provenance_local_page"
-      ]
+      ],
+      "location_history": [
+        {
+          "line": 3,
+          "context": "# Governance: classifications, markings, and categories\n\nFoundry uses markings, classification-based controls, and organizations as mandatory access requirements. They apply alongside project roles and can propagate with derived data. A marking category groups markings and controls discoverability. See [security overview](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), and [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings). Examples use the installed Admin CLI. Replace sample identifiers before running.\n\n## Operation records\n"
+        }
+      ],
+      "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
     },
     {
       "path": "pal-found-admin\\references\\03-governance.md",
-      "line": 3,
+      "line": 111,
       "url": "https://www.palantir.com/docs/foundry/security/classification-based-access-controls",
-      "context": "# Governance: classifications, markings, and categories\n\nFoundry uses markings, classification-based controls, and organizations as mandatory access requirements. They apply alongside project roles and can propagate with derived data. A marking category groups markings and controls discoverability. See [security overview](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), and [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings). Examples use the installed Admin CLI. Replace sample identifiers before running.\n\n## Operation records\n",
+      "context": "Optional sources: [Foundry security model](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings).",
       "classification": "optional platform provenance",
       "owner": "DEV-STORY-061",
       "reviewer": "pending independent reviewer",
@@ -5690,13 +5803,20 @@
       "qa_reviewer": "qa-engineer",
       "qa_current_dispositions": [
         "optional_provenance_local_page"
-      ]
+      ],
+      "location_history": [
+        {
+          "line": 3,
+          "context": "# Governance: classifications, markings, and categories\n\nFoundry uses markings, classification-based controls, and organizations as mandatory access requirements. They apply alongside project roles and can propagate with derived data. A marking category groups markings and controls discoverability. See [security overview](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), and [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings). Examples use the installed Admin CLI. Replace sample identifiers before running.\n\n## Operation records\n"
+        }
+      ],
+      "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
     },
     {
       "path": "pal-found-admin\\references\\03-governance.md",
-      "line": 3,
+      "line": 111,
       "url": "https://www.palantir.com/docs/foundry/platform-security-management/manage-markings",
-      "context": "# Governance: classifications, markings, and categories\n\nFoundry uses markings, classification-based controls, and organizations as mandatory access requirements. They apply alongside project roles and can propagate with derived data. A marking category groups markings and controls discoverability. See [security overview](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), and [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings). Examples use the installed Admin CLI. Replace sample identifiers before running.\n\n## Operation records\n",
+      "context": "Optional sources: [Foundry security model](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings).",
       "classification": "optional platform provenance",
       "owner": "DEV-STORY-061",
       "reviewer": "pending independent reviewer",
@@ -5706,7 +5826,14 @@
       "qa_reviewer": "qa-engineer",
       "qa_current_dispositions": [
         "optional_provenance_local_page"
-      ]
+      ],
+      "location_history": [
+        {
+          "line": 3,
+          "context": "# Governance: classifications, markings, and categories\n\nFoundry uses markings, classification-based controls, and organizations as mandatory access requirements. They apply alongside project roles and can propagate with derived data. A marking category groups markings and controls discoverability. See [security overview](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), and [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings). Examples use the installed Admin CLI. Replace sample identifiers before running.\n\n## Operation records\n"
+        }
+      ],
+      "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
     },
     {
       "path": "pal-found-admin\\references\\04-governance-access.md",
@@ -9335,7 +9462,7 @@
       },
       {
         "path": "pal-found-admin/references/01-identity-auth-users.md",
-        "line": 167,
+        "line": 169,
         "url": "https://www.palantir.com/docs/foundry/security/users-and-groups",
         "context": "Optional sources: [Foundry users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups), [administration overview](https://www.palantir.com/docs/foundry/administration/overview).",
         "skill": "pal-found-admin",
@@ -9343,11 +9470,18 @@
         "acceptance_blocking": false,
         "qa_reason": "Attribution is explicitly optional; local page supplies the task guidance. Semantic task review remains separate.",
         "qa_reviewer": "qa-engineer",
-        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence"
+        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence",
+        "location_history": [
+          {
+            "line": 167,
+            "context": "Optional sources: [Foundry users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups), [administration overview](https://www.palantir.com/docs/foundry/administration/overview)."
+          }
+        ],
+        "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
       },
       {
         "path": "pal-found-admin/references/01-identity-auth-users.md",
-        "line": 167,
+        "line": 169,
         "url": "https://www.palantir.com/docs/foundry/administration/overview",
         "context": "Optional sources: [Foundry users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups), [administration overview](https://www.palantir.com/docs/foundry/administration/overview).",
         "skill": "pal-found-admin",
@@ -9355,11 +9489,18 @@
         "acceptance_blocking": false,
         "qa_reason": "Attribution is explicitly optional; local page supplies the task guidance. Semantic task review remains separate.",
         "qa_reviewer": "qa-engineer",
-        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence"
+        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence",
+        "location_history": [
+          {
+            "line": 167,
+            "context": "Optional sources: [Foundry users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups), [administration overview](https://www.palantir.com/docs/foundry/administration/overview)."
+          }
+        ],
+        "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
       },
       {
         "path": "pal-found-admin/references/02-identity-groups-roles.md",
-        "line": 151,
+        "line": 159,
         "url": "https://www.palantir.com/docs/foundry/security/users-and-groups",
         "context": "Optional sources: [Foundry users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups), [projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles).",
         "skill": "pal-found-admin",
@@ -9367,11 +9508,18 @@
         "acceptance_blocking": false,
         "qa_reason": "Attribution is explicitly optional; local page supplies the task guidance. Semantic task review remains separate.",
         "qa_reviewer": "qa-engineer",
-        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence"
+        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence",
+        "location_history": [
+          {
+            "line": 151,
+            "context": "Optional sources: [Foundry users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups), [projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles)."
+          }
+        ],
+        "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
       },
       {
         "path": "pal-found-admin/references/02-identity-groups-roles.md",
-        "line": 151,
+        "line": 159,
         "url": "https://www.palantir.com/docs/foundry/security/projects-and-roles",
         "context": "Optional sources: [Foundry users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups), [projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles).",
         "skill": "pal-found-admin",
@@ -9379,11 +9527,18 @@
         "acceptance_blocking": false,
         "qa_reason": "Attribution is explicitly optional; local page supplies the task guidance. Semantic task review remains separate.",
         "qa_reviewer": "qa-engineer",
-        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence"
+        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence",
+        "location_history": [
+          {
+            "line": 151,
+            "context": "Optional sources: [Foundry users and groups](https://www.palantir.com/docs/foundry/security/users-and-groups), [projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles)."
+          }
+        ],
+        "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
       },
       {
         "path": "pal-found-admin/references/03-governance.md",
-        "line": 103,
+        "line": 111,
         "url": "https://www.palantir.com/docs/foundry/security/overview",
         "context": "Optional sources: [Foundry security model](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings).",
         "skill": "pal-found-admin",
@@ -9391,11 +9546,18 @@
         "acceptance_blocking": false,
         "qa_reason": "Attribution is explicitly optional; local page supplies the task guidance. Semantic task review remains separate.",
         "qa_reviewer": "qa-engineer",
-        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence"
+        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence",
+        "location_history": [
+          {
+            "line": 103,
+            "context": "Optional sources: [Foundry security model](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings)."
+          }
+        ],
+        "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
       },
       {
         "path": "pal-found-admin/references/03-governance.md",
-        "line": 103,
+        "line": 111,
         "url": "https://www.palantir.com/docs/foundry/security/classification-based-access-controls",
         "context": "Optional sources: [Foundry security model](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings).",
         "skill": "pal-found-admin",
@@ -9403,11 +9565,18 @@
         "acceptance_blocking": false,
         "qa_reason": "Attribution is explicitly optional; local page supplies the task guidance. Semantic task review remains separate.",
         "qa_reviewer": "qa-engineer",
-        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence"
+        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence",
+        "location_history": [
+          {
+            "line": 103,
+            "context": "Optional sources: [Foundry security model](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings)."
+          }
+        ],
+        "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
       },
       {
         "path": "pal-found-admin/references/03-governance.md",
-        "line": 103,
+        "line": 111,
         "url": "https://www.palantir.com/docs/foundry/platform-security-management/manage-markings",
         "context": "Optional sources: [Foundry security model](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings).",
         "skill": "pal-found-admin",
@@ -9415,7 +9584,14 @@
         "acceptance_blocking": false,
         "qa_reason": "Attribution is explicitly optional; local page supplies the task guidance. Semantic task review remains separate.",
         "qa_reviewer": "qa-engineer",
-        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence"
+        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence",
+        "location_history": [
+          {
+            "line": 103,
+            "context": "Optional sources: [Foundry security model](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings)."
+          }
+        ],
+        "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
       },
       {
         "path": "pal-found-admin/references/04-governance-access.md",
@@ -11759,7 +11935,7 @@
   },
   "independent_reviewer": "qa-engineer",
   "independent_review_counts": {
-    "PASS": 96,
-    "UNCERTAIN": 96
+    "PASS": 99,
+    "UNCERTAIN": 93
   }
 }
