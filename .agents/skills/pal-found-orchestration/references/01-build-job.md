@@ -99,9 +99,9 @@ Reconcile the intended targets and current status to avoid duplicate work.
 
 - **Behavior:** Searches builds visible to the caller. `--where-json` limits matches and
   `--order-by-json` controls their order; results are paginated.
-- **Before use:** The caller can search only builds visible to its identity. Supply a filter:
-  the CLI parser permits omission, but SDK 1.101.0 requires `where` and rejects an unfiltered call.
-- **Inputs:** positional none; required for SDK invocation `--where-json`; optional `--order-by-json`,
+- **Before use:** The caller can search only builds visible to its identity. Supply a filter;
+  the CLI requires `--where-json` before configuration or SDK invocation.
+- **Inputs:** positional none; required `--where-json`; optional `--order-by-json`,
   `--page-size`, `--page-token`, `--all`, `--max-pages`. Use `--page-token` to resume from the
   `next_page_token` reported by a previous call; `--all` or `--max-pages` fetches more than one
   page in one invocation.
@@ -117,10 +117,10 @@ Reconcile the intended targets and current status to avoid duplicate work.
 
 ### job.get
 
-Current API documentation requires `preview=true` for both job read operations.
-Pinned CLI exposes no `--preview` option and forwards no preview value. Examples
-show locally valid syntax; server acceptance is unverified. Use an approved SDK
-or REST request with `preview=true` when required.
+The CLI sends the required `preview=true` query selector internally for both
+job read operations. There is no `--preview` flag; do not add it or attempt to
+disable the selector. API availability and normal authorization still apply;
+the examples do not prove server access.
 
 - **Behavior:** Reads one job's status and details by RID. Use it after `build jobs` to diagnose a
   build's progress or failure. The SDK documents four requests per second and 25 concurrent

@@ -148,10 +148,10 @@ duplicate work. Reconcile the intended target and current state first.
 
 ### schedule_version.get
 
-Current API documentation requires `preview=true` for both schedule-version read
-operations. Pinned CLI exposes no `--preview` option and forwards no preview value.
-Examples show locally valid syntax; server acceptance is unverified. Use an
-approved SDK or REST request with `preview=true` when required.
+The CLI sends the required `preview=true` query selector internally for both
+schedule-version read operations. There is no `--preview` flag; do not add it
+or attempt to disable the selector. API availability and normal authorization
+still apply; the examples do not prove server access.
 
 - **Behavior:** Get the ScheduleVersion with the specified rid.
 - **Before use:** The schedule version must exist and be readable.

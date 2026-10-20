@@ -19,10 +19,10 @@ Source: the [Palantir Checkpoints overview](https://www.palantir.com/docs/foundr
 
 3 Foundry Checkpoints API v2 operations are available through the installed `pal-found-checkpoints` command.
 
-Current API documentation requires `preview=true` for all three record operations.
-Pinned CLI exposes no `--preview` option and forwards no preview value. Its command
-examples show accepted local syntax; server acceptance is unverified. Use an
-approved SDK or REST request with `preview=true` when this API requirement applies.
+All three record operations send SDK `preview=True` internally, serializing
+`preview=true` in the query, including every search page. The CLI has no
+`--preview` option; do not add it or attempt to pass false. API availability
+and normal authorization still apply; local validation does not prove access.
 
 ## Usage
 
