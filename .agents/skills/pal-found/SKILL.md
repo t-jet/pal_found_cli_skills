@@ -96,18 +96,3 @@ installed runtime and are documented as unsupported, never callable.
 No namespace is callable unless it has a reachable, documented operation
 record. If the namespace skill does not describe the operation you need,
 stop and ask rather than guessing a command.
-
-## Install requirement
-
-`pal-found-*` commands are provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```

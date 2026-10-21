@@ -1,0 +1,57 @@
+{
+  "executed_utc": "2026-10-11T09:06:45.962717+00:00",
+  "snapshot_manifest_sha256": "5cbf2fc67b3bc706262884b40942caf7a345738edb965dfc0a979e3d785b56b8",
+  "snapshot_files_verified": 4379,
+  "mode": "synthetic Node fixtures with cooperative public network and child-process denial",
+  "live_tenant_tested": false,
+  "runs": [
+    {
+      "case": "J7 local UI states",
+      "command": [
+        "node",
+        "--require",
+        "pal_found_cli_skills/tests/fixtures/feature015_qa/evidence/feature015-j1j10-gate/deny_public.cjs",
+        "examples/applications/fixture_run.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "UI fixtures passed: loading, denied, empty, retained-data refresh and pending submission\nNo React hook, OAuth grant, Action or website deployment executed",
+      "stderr": ""
+    },
+    {
+      "case": "J7 timeout and recovery",
+      "command": [
+        "node",
+        "--require",
+        "pal_found_cli_skills/tests/fixtures/feature015_qa/evidence/feature015-j1j10-gate/deny_public.cjs",
+        "examples/applications/timeout_unit_fixture.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS network-free timeout, caller abort, transport error, timer cleanup and recovery",
+      "stderr": ""
+    },
+    {
+      "case": "J8 widget event and selection",
+      "command": [
+        "node",
+        "--require",
+        "pal_found_cli_skills/tests/fixtures/feature015_qa/evidence/feature015-j1j10-gate/deny_public.cjs",
+        "examples/widgets/fixture_run.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: synthetic bidirectional counter, rejected updates, explicit host release selection",
+      "stderr": ""
+    },
+    {
+      "case": "J7/J8 independent addendum",
+      "command": [
+        "node",
+        "--require",
+        "pal_found_cli_skills/tests/fixtures/feature015_qa/evidence/feature015-j1j10-gate/deny_public.cjs",
+        "pal_found_cli_skills/tests/fixtures/feature015_qa/evidence/j7_j8_addendum/reader_resume.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"mode\": \"synthetic prepared runtime only; no Foundry tenant request\",\n  \"networkProbe\": \"fetch, DNS, TCP and UDP entry points denied in this Node process\",\n  \"cases\": {\n    \"J7-4\": {\n      \"app\": {\n        \"clientKind\": \"public OAuth authorization-code client\",\n        \"callback\": \"http://localhost:8080/auth/callback\",\n        \"origin\": \"http://localhost:8080\",\n        \"scopes\": [\n          \"api:use-ontologies-read\",\n          \"api:use-ontologies-write\"\n        ],\n        \"ontologyBinding\": \"prepared generated Todo and completeTodo exports\"\n      },\n      \"loginFailures\": {\n        \"callback\": \"CALLBACK_MISMATCH\",\n        \"applicationGrant\": \"APPLICATION_GRANT_DENIED\",\n        \"missingReadScope\": \"READ_SCOPE_MISSING\",\n        \"deniedWriteScope\": \"SCOPE_DENIED\"\n      },\n      \"preQueryActionCalls\": 0,\n      \"bobRows\": [\n        {\n          \"todoId\": \"todo-1\",\n          \"status\": \"OPEN\"\n        }\n      ],\n      \"deniedAction\": \"ACTION_DENIED\"\n    },\n    \"J7-5\": {\n      \"initialRows\": [\n        {\n          \"todoId\": \"todo-1\",\n          \"status\": \"OPEN\"\n        }\n      ],\n      \"confirmed\": {\n        \"todoId\": \"todo-1\",\n        \"status\": \"DONE\"\n      },\n      \"afterConfirmed\": [],\n      \"lostReply\": \"RESPONSE_TIMEOUT_EFFECT_UNKNOWN\",\n      \"reread\": [],\n      \"uncertainActionCount\": 1,\n      \"preview\": {\n        \"kind\": \"local-preview\",\n        \"version\": \"working-tree\"\n      },\n      \"deployed\": {\n        \"kind\": \"website-release\",\n        \"version\": \"1.1.0\",\n        \"asset\": \"todo-app.1.1.0.js\"\n      }\n    },\n    \"J8-4\": {\n      \"host0\": {\n        \"version\": \"1.1.0\",\n        \"asset\": \"counter.1.1.0.js\",\n        \"reviewCounter\": 0,\n        \"reviewSummary\": 0\n      },\n      \"host5\": {\n        \"version\": \"1.1.0\",\n        \"asset\": \"counter.1.1.0.js\",\n        \"reviewCounter\": 5,\n        \"reviewSummary\": 5\n      },\n      \"afterEvent\": {\n        \"version\": \"1.1.0\",\n        \"asset\": \"counter.1.1.0.js\",\n        \"reviewCounter\": 6,\n        \"reviewSummary\": 6\n      },\n      \"rejectedType\": \"TypeError: invalid host count\",\n      \"afterRejected\": {\n        \"version\": \"1.1.0\",\n        \"asset\": \"counter.1.1.0.js\",\n        \"reviewCounter\": 6,\n        \"reviewSummary\": 6\n      },\n      \"traceBeforeBad\": [\n        {\n          \"kind\": \"host-parameter\",\n          \"count\": 0\n        },\n        {\n          \"kind\": \"host-parameter\",\n          \"count\": 5\n        },\n        {\n          \"kind\": \"widget-event\",\n          \"eventId\": \"countChanged\",\n          \"count\": 6\n        }\n      ]\n    },\n    \"J8-5\": {\n      \"rollback\": {\n        \"version\": \"1.0.0\",\n        \"asset\": \"counter.1.0.0.js\",\n        \"reviewCounter\": 6,\n        \"reviewSummary\": null\n      },\n      \"rollbackEvent\": {\n        \"version\": \"1.0.0\",\n        \"asset\": \"counter.1.0.0.js\",\n        \"reviewCounter\": 7,\n        \"reviewSummary\": null\n      },\n      \"selectedRelease\": \"1.0.0\"\n    }\n  }\n}",
+      "stderr": ""
+    }
+  ]
+}

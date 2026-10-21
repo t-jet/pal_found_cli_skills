@@ -10,7 +10,7 @@ The CLI distinguishes several kinds of identifier. Do not confuse them:
 
 | Kind | Form | Example | Used by |
 | --- | --- | --- | --- |
-| Resource RID | `ri.<type>.main.resource.<key>` | `ri.foundry.main.dataset.abc123` | Most operations identify a dataset, branch, ontology object, schedule, etc. by RID. |
+| Resource RID | `ri.<service>.<instance>.<resource-type>.<locator>` | `ri.foundry.main.dataset.abc123` | RID-addressed resources such as datasets, folders and projects; branch names and object primary keys are separate identifiers. |
 | Path | A `/`-separated route to a folder or resource | `/my-project/folder` | Filesystem `resource get-by-path` style operations. |
 | Name | A human-friendly label, not globally unique | `My View`, `release-1.0` | Creation and display operations. |
 | Branch name | A named line of dataset history | `main` | Datasets branch operations and schema reads. |
@@ -34,8 +34,8 @@ Set them in the shell, or in a `.env` file. The CLI loads configuration in this 
 1. **Explicit override**: if `FOUNDRY_AGENTIC_CLI_ENV_FILE` is set, load exactly
    that file; if it is missing, fail with exit code 9 (ConfigurationError).
 2. **Git-root `.env`**: walk up to the first directory containing `.git` and
-   load `.env` there; if no `.git` is found, load `.env` from the current
-   directory.
+   try `.env` there. If that file is absent or no `.git` is found, try `.env`
+   in the current directory.
 3. **Environment variables only**: if no `.env` exists, use the shell
    environment. No error.
 
@@ -44,7 +44,8 @@ The home directory is never searched. `python-dotenv` loads with
 
 Setup steps: copy `.env.example` to `.env`, fill in the two variables, then run
 a read-only command such as
-`pal-found-filesystem project get --project-rid ri.project.main.project.xxx`.
+`pal-found-filesystem project get ri.compass.main.folder.00000000-0000-0000-0000-000000000001`.
+Replace this synthetic RID with a project you can read; `project_rid` is positional.
 A successful result confirms auth works. Keep `.env` out of version control.
 
 The CLI never prints tokens or secrets. It reports whether a request was
@@ -57,14 +58,19 @@ The guard applies these checks in order:
 
 | Step | Check | If true |
 | --- | --- | --- |
+| 0 | Global `FOUNDRY_AGENTIC_CLI_ENABLED=false` | block; narrower settings cannot re-enable it |
 | 1 | Operation `_ENABLED` | `false` → block |
 | 2 | Namespace `_ENABLED` | `false` → block |
-| 3 | Operation `_READONLY=false` | overrides a parent READONLY=true → permit write |
-| 4 | Namespace `_READONLY` | `true` → block writes |
+| 3 | Write with inherited read-only active: operation `_READONLY=false` | permit write immediately |
+| 4 | Write with inherited read-only active: namespace `_READONLY` | `false` → permit immediately; otherwise `true` → block |
 | 5 | Global `FOUNDRY_AGENTIC_CLI_READONLY` | `true` → block writes |
-| 6 | Namespace `_METADATA_ONLY` | `true` → metadata-only policy applies |
-| 7 | Global `FOUNDRY_AGENTIC_CLI_METADATA_ONLY` | `true` → metadata-only policy applies |
+| 6 | Namespace `_METADATA_ONLY=false` with global metadata-only active | override global metadata-only and permit |
+| 7 | Namespace or inherited global `_METADATA_ONLY=true` | block writes and require reads to be on the namespace allow-list |
 | 8 | Permit | default |
+
+The explicit write permits in steps 3 and 4 return before metadata-only checks.
+They apply when inherited read-only mode is active; do not assume the same
+override changes metadata-only behavior when read-only mode is off.
 
 Control variables use these names:
 
@@ -78,6 +84,8 @@ Control suffixes: `_ENABLED` (`true`/`false`), `_READONLY` (override only,
 `false` grants write), `_METADATA_ONLY` (`true`/`false`).
 Operation-level `_READONLY=true` is not supported as an independent setting;
 to block a single write operation, set its `_ENABLED=false`.
+Operation-level `_METADATA_ONLY` is not evaluated; configure metadata-only at
+namespace or global scope.
 
 Metadata-only mode permits only listed operations: only the operations on
 each namespace's `metadata-allow-list.md` are permitted. A blocked operation

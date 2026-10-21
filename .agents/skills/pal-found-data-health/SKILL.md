@@ -33,8 +33,11 @@ pal-found-data-health <resource> <operation> [options]
 Common options: `--timeout`, `--format json|toon|auto`, `--pretty`.
 
 The CLI uses the shared config loader, access control guard, retry handler,
-pagination helper, structured error serializer, output formatter, and
-SDK-native B3 tracing scope.
+structured error serializer, output formatter, and SDK-native B3 tracing scope.
+`get-latest --limit` bounds one response; it does not use cursor pagination.
+
+All six Check and Check Report endpoints require `preview=true`. The CLI sends
+this selector automatically; there is no `--preview` option.
 
 ## Operation index
 
@@ -55,18 +58,3 @@ output encoding; `--pretty` indents structured output. For check creation,
 `--config-json` defines the rule and its subject, while `--intent` records why
 it exists. For replacement, the configuration changes the existing rule but
 does not change its subject. `--limit` on `get-latest` caps returned reports.
-
-## Install requirement
-
-`pal-found-data-health` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```

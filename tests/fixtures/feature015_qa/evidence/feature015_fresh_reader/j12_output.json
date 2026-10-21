@@ -1,0 +1,76 @@
+{
+  "result": "PASS",
+  "cases": [
+    {
+      "case": "SUCCEEDED",
+      "status": "SUCCEEDED",
+      "build_reads": 2,
+      "calls": 11,
+      "mutations": [
+        "create",
+        "upload",
+        "commit"
+      ]
+    },
+    {
+      "case": "FAILED",
+      "status": "FAILED",
+      "build_reads": 2,
+      "calls": 11,
+      "mutations": [
+        "create",
+        "upload",
+        "commit"
+      ]
+    },
+    {
+      "case": "CANCELED",
+      "status": "CANCELED",
+      "build_reads": 2,
+      "calls": 11,
+      "mutations": [
+        "create",
+        "upload",
+        "commit"
+      ]
+    },
+    {
+      "case": "RUNNING",
+      "status": "pending-budget",
+      "build_reads": 2,
+      "calls": 11,
+      "mutations": [
+        "create",
+        "upload",
+        "commit"
+      ]
+    },
+    {
+      "case": "upload",
+      "status": "SUCCEEDED",
+      "build_reads": 2,
+      "calls": 13,
+      "mutations": [
+        "create",
+        "upload",
+        "commit"
+      ]
+    },
+    {
+      "case": "commit",
+      "status": "SUCCEEDED",
+      "build_reads": 2,
+      "calls": 12,
+      "mutations": [
+        "create",
+        "upload",
+        "commit"
+      ]
+    },
+    {
+      "case": "abort",
+      "status": "ABORTED",
+      "calls": 7
+    }
+  ]
+}

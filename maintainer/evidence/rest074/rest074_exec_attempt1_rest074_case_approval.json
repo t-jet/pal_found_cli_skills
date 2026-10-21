@@ -1,0 +1,55 @@
+{
+  "story": "DEV-STORY-074",
+  "testcase": "TESTCASE-076",
+  "reviewer_identity": "/root/formal074_prepare/independent_review",
+  "author_identity": "/root/formal074_prepare/source_cases",
+  "verdict": "APPROVED",
+  "completed_utc": "2026-10-21T12:40:15.907697+00:00",
+  "manifest": {
+    "path": ".ept\\tmp\\rest074_formal_cases.json",
+    "sha256": "599ee752c7c375d5afca7b12620527f74734f9e053f4e4c0060f3b6ecdfb6632"
+  },
+  "harness": {
+    "path": ".ept\\tmp\\rest074_formal_execute.py",
+    "sha256": "24602d30f2212bc4fde6640d287fe4bc944f02ea0c545b9021e2b5ac0697d842"
+  },
+  "source_case_review": {
+    "path": ".ept\\tmp\\rest074_review_cases.json",
+    "sha256": "00c7279f3676c1a7d7f12c0abdf850787e03d311123fd50c3483528521811005"
+  },
+  "candidate_code_review": {
+    "path": ".ept\\tmp\\rest074_independent_codereview.json",
+    "sha256": "c4a44304597169f21d212feeb2b3aabbd7dd13381e02f8d94d50ffb9b519da7f"
+  },
+  "counts": {
+    "operations": 52,
+    "declared_errors": 288,
+    "additional_cases": 114
+  },
+  "review_method": "Independently parsed original SDK AST and annotations; compared all source and asset hashes, stored wire literals, argument/result/error schemas, concrete payloads and status/code/class expectations. Reviewed concrete request/result semantics and harness source. Did not run clients or formal execution.",
+  "semantic_changes_verified": [
+    "CSV header matches requested inspection_id/status columns and row limit.",
+    "File.list finite pages preserve requested inspections-independent/ prefix.",
+    "Resource RID roles distinguish dataset, transaction, build, job, check and schedule.",
+    "Error target parameters bind serialized path/query/body values.",
+    "Primary key exactly equals requested columns/resolution; removal retains distinct backing survivor."
+  ],
+  "harness_review": [
+    "Sync and async ordinary iterator continuation is finite, carries returned token, preserves filters, consumes two distinct nonempty pages and stops at terminal token.",
+    "Sync and async typed, raw and streaming success compare returned values with frozen manifest literals; wrappers and httpx clients close.",
+    "Bytes are decoded from manifest hex before calls and compared after response consumption.",
+    "Named errors compare exact SDK classes, names, parameters and instance identifiers; network denied and retries disabled.",
+    "Required argument and 0/1001 batch cases reject before transport; malformed JSON and timeout paths remain explicit."
+  ],
+  "formal_execution": "NOT_RUN",
+  "execution_preconditions": [
+    "Coordinator confirms actual TESTCASE-076 Closed state.",
+    "Coordinator grants formal execution after readiness evidence.",
+    "Execute only this manifest and harness hash, or obtain fresh review after changes."
+  ],
+  "limits": [
+    "Mock transport verifies client requests, decoding and bounded control flow. It does not prove tenant grants, actual data lifecycle effects or server validation.",
+    "Historical manual evidence belongs to prior reviewers and is not reported as this identity's execution."
+  ],
+  "post_prerequisite_recheck_utc": "2026-10-21T12:43:00.743654+00:00"
+}

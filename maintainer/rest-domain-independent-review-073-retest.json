@@ -1,0 +1,132 @@
+{
+  "candidate_sha": "3e7146b0b1fba03538de3b24164294612ab2f7c3",
+  "sdk_release": "1.101.0",
+  "reviewer": "qa-engineer /root/rest073_independent_semantic_review",
+  "scope": "Read-only semantic retest of five corrected DEV-STORY-073 fixtures",
+  "regression": {
+    "command": "python -m pytest -q .ept/tmp/feature015_integration/tests/test_offline_rest_073_semantics.py",
+    "result": "13 passed"
+  },
+  "operations": [
+    {
+      "id": "v2.filesystem.Folder.get_batch",
+      "verdict": "PASS",
+      "assertions": [
+        "Requested RID is returned as map key and resource.rid",
+        "Real SDK MockTransport request, decoded result and named errors passed",
+        "Prior behavior, contract and installed SDK source hashes unchanged"
+      ],
+      "failures": [],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Folder.get_batch: serialized request, decoded result and 0 named errors passed",
+        "stderr": ""
+      },
+      "behavior_sha256": "7e5da5472df6bf00b21b14c852bf3c77ef9469b0d8f09aec6cf68d1f7d20355d",
+      "contract_sha256": "d1e6ec6d8d2b5629a243566c073104de78cdbb844b81f28f85bba31549a31027",
+      "example_sha256": "1e23a9f088a76fe6a371a119a563edc64b3c4e9c7a14bf19550adc64bbb54610",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "10f1768e2290088a850bce77a292fe36e5bc2ba89a1c495714ca7f02482623ed",
+      "source_author_register_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0",
+      "behavior_path": "references/rest/v2/filesystem/Folder.md",
+      "contract_path": "references/rest/contracts/v2/filesystem/Folder/get_batch.md",
+      "example_path": "examples/rest/073/v2/filesystem/Folder/get_batch.py"
+    },
+    {
+      "id": "v2.filesystem.Resource.get_batch",
+      "verdict": "PASS",
+      "assertions": [
+        "Requested RID is returned as map key and resource.rid",
+        "Real SDK MockTransport request, decoded result and named errors passed",
+        "Prior behavior, contract and installed SDK source hashes unchanged"
+      ],
+      "failures": [],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Resource.get_batch: serialized request, decoded result and 0 named errors passed",
+        "stderr": ""
+      },
+      "behavior_sha256": "ee27107cd0ff6b46477029274680e4fc6cb2209908b8b36dde9527ecee651826",
+      "contract_sha256": "d4945712ad30edf3fc33767779d844e3dc468661ddc14dfa73f9bb779f72988f",
+      "example_sha256": "c8ec071a4c21a35de613f5bc7d19a69c7d98191aaffb286d7353d97f3761e210",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "5133dd8d66741e12a23d529a70f2d284c81aece90aa6ad1cc69c674a59cdb825",
+      "source_author_register_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "behavior_path": "references/rest/v2/filesystem/Resource.md",
+      "contract_path": "references/rest/contracts/v2/filesystem/Resource/get_batch.md",
+      "example_path": "examples/rest/073/v2/filesystem/Resource/get_batch.py"
+    },
+    {
+      "id": "v2.filesystem.Resource.get_by_path",
+      "verdict": "PASS",
+      "assertions": [
+        "Full hierarchy path resolves to same returned path",
+        "Real SDK MockTransport request, decoded result and named errors passed",
+        "Prior behavior, contract and installed SDK source hashes unchanged"
+      ],
+      "failures": [],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Resource.get_by_path: serialized request, decoded result and 6 named errors passed",
+        "stderr": ""
+      },
+      "behavior_sha256": "ee27107cd0ff6b46477029274680e4fc6cb2209908b8b36dde9527ecee651826",
+      "contract_sha256": "777699eae593925b1830ec1d5f3d713e68dc8cca6bb5b0f86453b0599d17fa0a",
+      "example_sha256": "816d9454c678e2b7c36dc8655f5ff8f6183b3985fb013f6a0a7fa994e49f7f2c",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "02b5798d07acaba4411f99ced64cc17089d7e5cd43ed365243c7539ec932ef98",
+      "source_author_register_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "behavior_path": "references/rest/v2/filesystem/Resource.md",
+      "contract_path": "references/rest/contracts/v2/filesystem/Resource/get_by_path.md",
+      "example_path": "examples/rest/073/v2/filesystem/Resource/get_by_path.py"
+    },
+    {
+      "id": "v2.filesystem.Resource.get_by_path_batch",
+      "verdict": "PASS",
+      "assertions": [
+        "Full hierarchy paths match decoded returned resource paths",
+        "Real SDK MockTransport request, decoded result and named errors passed",
+        "Prior behavior, contract and installed SDK source hashes unchanged"
+      ],
+      "failures": [],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.filesystem.Resource.get_by_path_batch: serialized request, decoded result and 0 named errors passed",
+        "stderr": ""
+      },
+      "behavior_sha256": "ee27107cd0ff6b46477029274680e4fc6cb2209908b8b36dde9527ecee651826",
+      "contract_sha256": "ef21b6928b95361b2de7c867a70545be59268ee82197e13700329f36bb0f48d5",
+      "example_sha256": "c8504c976eac1a1191acd0138569bb53daaa72a22878746b547fcfd98ae060e2",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "d2d449bce7da2e6e186573af772f1b9f7c4c4c2c43e7058ebf461f559164da7d",
+      "source_author_register_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "behavior_path": "references/rest/v2/filesystem/Resource.md",
+      "contract_path": "references/rest/contracts/v2/filesystem/Resource/get_by_path_batch.md",
+      "example_path": "examples/rest/073/v2/filesystem/Resource/get_by_path_batch.py"
+    },
+    {
+      "id": "v2.third_party_applications.Website.deploy",
+      "verdict": "PASS",
+      "assertions": [
+        "Requested version matches Website.deployedVersion wire field",
+        "Real SDK MockTransport request, decoded result and named errors passed",
+        "Prior behavior, contract and installed SDK source hashes unchanged"
+      ],
+      "failures": [],
+      "fixture": {
+        "exit_code": 0,
+        "stdout": "v2.third_party_applications.Website.deploy: serialized request, decoded result and 1 named errors passed",
+        "stderr": ""
+      },
+      "behavior_sha256": "8aaf17a2966f0fb05c900aa084dfd11bf1c6ed75db0ff7798dc70e3ab19a13af",
+      "contract_sha256": "6fdc6a00d441e0832480e67604a69939de3bc5a05a179bcb92390097e303a072",
+      "example_sha256": "a4579a641300fb0fbace2b0247e1aa44a0a344277aed55aebcc95293755c2753",
+      "source_file_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_method_sha256": "0a9f3eb0794d275f82d622bff86f6006f41fc36dd8d28a4f7eba79f8ebc0333c",
+      "source_author_register_sha256": "2a78443d6b01bb6f612ae6bd2fb4713d9282c98171f2fd25a9f94b30570c5815",
+      "behavior_path": "references/rest/v2/third_party_applications/Website.md",
+      "contract_path": "references/rest/contracts/v2/third_party_applications/Website/deploy.md",
+      "example_path": "examples/rest/073/v2/third_party_applications/Website/deploy.py"
+    }
+  ]
+}

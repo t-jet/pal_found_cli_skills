@@ -1,0 +1,1689 @@
+{
+  "story": "DEV-STORY-072",
+  "candidate_sha": "6042d1e8f9dc66b6dbda9cccdd711c0afbeb176d",
+  "sdk_release": "1.101.0",
+  "case_author": "/root/formal072_workflow_completion/review072",
+  "reviewer": "/root/formal072_resume/independent072",
+  "case_manifest_sha256": "99cf3b938c7b7525bde7b9ffab42607128d1ca6e18cee183ee38e464bcc9d62c",
+  "testcase_status": "Closed",
+  "testexec_status": "Closed",
+  "formal_execution": "PASS",
+  "operations": [
+    {
+      "id": "v2.admin.AuthenticationProvider.get",
+      "case_id": "F072-01",
+      "verdict": "PASS",
+      "checks": 13,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/AuthenticationProvider/get.md",
+          "sha256": "40c2c125d4032e817669395a67d0ebb2cd08f113e7201ef2eedff82f3fd0a509"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/AuthenticationProvider.md",
+          "sha256": "838f8a24c48bec02351d13d197ff8270b0b1e4e58187b87219738ede56b036f5"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/AuthenticationProvider/get.py",
+          "sha256": "944ea599630a9ead24022bd865f5f6bcf77277e92f8a87d1b1e4559301395558"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.authentication_provider",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\authentication_provider.py",
+        "sha256": "94cfcc9e02dea2e16fe07ee4558b8788ae9c6d1cfa3ce38270a382cef8d33e05",
+        "method_source_sha256": "cd1884485170ff745938bdd2421dff5235e7fee22adee15df8c59e15da145b79",
+        "line": 60,
+        "docstring": "Get the AuthenticationProvider with the specified rid.\n:param enrollment_rid:\n:type enrollment_rid: EnrollmentRid\n:param authentication_provider_rid:\n:type authentication_provider_rid: AuthenticationProviderRid\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.AuthenticationProvider\n\n:raises AuthenticationProviderNotFound: The given AuthenticationProvider could not be found.",
+        "request_expressions": {
+          "method": "'GET'",
+          "resource_path": "'/v2/admin/enrollments/{enrollmentRid}/authenticationProviders/{authenticationProviderRid}'",
+          "query_params": "{'preview': preview}",
+          "path_params": "{'enrollmentRid': enrollment_rid, 'authenticationProviderRid': authentication_provider_rid}",
+          "header_params": "{'Accept': 'application/json'}",
+          "body": "None",
+          "response_type": "admin_models.AuthenticationProvider",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'AuthenticationProviderNotFound': admin_errors.AuthenticationProviderNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.AuthenticationProvider.list",
+      "case_id": "F072-02",
+      "verdict": "PASS",
+      "checks": 12,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/AuthenticationProvider/list.md",
+          "sha256": "7500ada8199377c1091b4ceaebaf845a9aa9a7860021b6e6a1e0f1ee330d1f8c"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/AuthenticationProvider.md",
+          "sha256": "838f8a24c48bec02351d13d197ff8270b0b1e4e58187b87219738ede56b036f5"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/AuthenticationProvider/list.py",
+          "sha256": "bf370cf4005d065ddaa168af10d254ba5c3544f718320b5a2b18804fb26f27d4"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.authentication_provider",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\authentication_provider.py",
+        "sha256": "94cfcc9e02dea2e16fe07ee4558b8788ae9c6d1cfa3ce38270a382cef8d33e05",
+        "method_source_sha256": "4a14ba031335bd33dbb25fdd7851a8453ce2661767d588560fd09283236912d6",
+        "line": 112,
+        "docstring": "Lists all AuthenticationProviders.\n\n\n:param enrollment_rid:\n:type enrollment_rid: EnrollmentRid\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.ListAuthenticationProvidersResponse\n\n:raises EnrollmentNotFound: The given Enrollment could not be found.",
+        "request_expressions": {
+          "method": "'GET'",
+          "resource_path": "'/v2/admin/enrollments/{enrollmentRid}/authenticationProviders'",
+          "query_params": "{'preview': preview}",
+          "path_params": "{'enrollmentRid': enrollment_rid}",
+          "header_params": "{'Accept': 'application/json'}",
+          "body": "None",
+          "response_type": "admin_models.ListAuthenticationProvidersResponse",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'EnrollmentNotFound': admin_errors.EnrollmentNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.AuthenticationProvider.preregister_group",
+      "case_id": "F072-03",
+      "verdict": "PASS",
+      "checks": 16,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/AuthenticationProvider/preregister_group.md",
+          "sha256": "958977b79310f65ef04294e140da04042e4644ed2aad73e549ec36aeb6c4bcbb"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/AuthenticationProvider.md",
+          "sha256": "838f8a24c48bec02351d13d197ff8270b0b1e4e58187b87219738ede56b036f5"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/AuthenticationProvider/preregister_group.py",
+          "sha256": "3a9caba1bc0a4f931e4130998bb80380cd8b9fb101b79e59085fef73a6add49a"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.authentication_provider",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\authentication_provider.py",
+        "sha256": "94cfcc9e02dea2e16fe07ee4558b8788ae9c6d1cfa3ce38270a382cef8d33e05",
+        "method_source_sha256": "11c653a04cc88c62ffe14170d5eecb9131467bf2523344cabf5d34beb545d648",
+        "line": 162,
+        "docstring": "Register a Group with a given name before any users with this group log in through this Authentication Provider.\nPreregistered groups can be used anywhere other groups are used in the platform.\n\n:param enrollment_rid:\n:type enrollment_rid: EnrollmentRid\n:param authentication_provider_rid:\n:type authentication_provider_rid: AuthenticationProviderRid\n:param name:\n:type name: GroupName\n:param organizations: The RIDs of the Organizations that can view this group.\n:type organizations: List[OrganizationRid]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core_models.PrincipalId\n\n:raises AuthenticationProviderNotFound: The given AuthenticationProvider could not be found.\n:raises PreregisterGroupPermissionDenied: Could not preregisterGroup the AuthenticationProvider.",
+        "request_expressions": {
+          "method": "'POST'",
+          "resource_path": "'/v2/admin/enrollments/{enrollmentRid}/authenticationProviders/{authenticationProviderRid}/preregisterGroup'",
+          "query_params": "{'preview': preview}",
+          "path_params": "{'enrollmentRid': enrollment_rid, 'authenticationProviderRid': authentication_provider_rid}",
+          "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+          "body": "admin_models.PreregisterGroupRequest(name=name, organizations=organizations)",
+          "response_type": "core_models.PrincipalId",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'AuthenticationProviderNotFound': admin_errors.AuthenticationProviderNotFound, 'PreregisterGroupPermissionDenied': admin_errors.PreregisterGroupPermissionDenied}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.AuthenticationProvider.preregister_user",
+      "case_id": "F072-04",
+      "verdict": "PASS",
+      "checks": 16,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/AuthenticationProvider/preregister_user.md",
+          "sha256": "4ae83bfa33e9c9ad751d81a45f57b2f9451fc334e79b4c978b31bdc10c6bcad9"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/AuthenticationProvider.md",
+          "sha256": "838f8a24c48bec02351d13d197ff8270b0b1e4e58187b87219738ede56b036f5"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/AuthenticationProvider/preregister_user.py",
+          "sha256": "9625a1037d8d1a95086ee8502d8f3983a1b2575ef0ede4a59ad5bee65d5da5b9"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.authentication_provider",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\authentication_provider.py",
+        "sha256": "94cfcc9e02dea2e16fe07ee4558b8788ae9c6d1cfa3ce38270a382cef8d33e05",
+        "method_source_sha256": "14abeb680f03d72ab13ee9da819151ddc4bee194ba62e0ed8a7898a8e472486c",
+        "line": 228,
+        "docstring": "Register a User with a given username before they log in to the platform for the first time through this\nAuthentication Provider. Preregistered users can be assigned to groups and roles prior to first login.\n\n:param enrollment_rid:\n:type enrollment_rid: EnrollmentRid\n:param authentication_provider_rid:\n:type authentication_provider_rid: AuthenticationProviderRid\n:param organization: The RID of the user's primary Organization. This may be changed when the user logs in for the first time depending on any configured Organization assignment rules.\n:type organization: OrganizationRid\n:param username: The new user's username. This must match one of the provider's supported username patterns.\n:type username: UserUsername\n:param attributes:\n:type attributes: Optional[Dict[AttributeName, AttributeValues]]\n:param email:\n:type email: Optional[str]\n:param family_name:\n:type family_name: Optional[str]\n:param given_name:\n:type given_name: Optional[str]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core_models.PrincipalId\n\n:raises AuthenticationProviderNotFound: The given AuthenticationProvider could not be found.\n:raises PreregisterUserPermissionDenied: Could not preregisterUser the AuthenticationProvider.",
+        "request_expressions": {
+          "method": "'POST'",
+          "resource_path": "'/v2/admin/enrollments/{enrollmentRid}/authenticationProviders/{authenticationProviderRid}/preregisterUser'",
+          "query_params": "{'preview': preview}",
+          "path_params": "{'enrollmentRid': enrollment_rid, 'authenticationProviderRid': authentication_provider_rid}",
+          "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+          "body": "admin_models.PreregisterUserRequest(username=username, organization=organization, given_name=given_name, family_name=family_name, email=email, attributes=attributes)",
+          "response_type": "core_models.PrincipalId",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'AuthenticationProviderNotFound': admin_errors.AuthenticationProviderNotFound, 'PreregisterUserPermissionDenied': admin_errors.PreregisterUserPermissionDenied}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.CbacBanner.get",
+      "case_id": "F072-05",
+      "verdict": "PASS",
+      "checks": 14,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/CbacBanner/get.md",
+          "sha256": "cc734b0cf9b46e3ba8552401a707e568dacaa2fea9692d4ed78099eacd3a8a66"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/CbacBanner.md",
+          "sha256": "0ea746738e56aabf1866d0fc489595016f831ce739d63d04350ee70685a82b22"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/CbacBanner/get.py",
+          "sha256": "1bdcc92085003ccac9d60ee2a0dc172476e22c7a3588092e00136e42c6e8f879"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.cbac_banner",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\cbac_banner.py",
+        "sha256": "f99758e5947f1768787d924a8207abc9afaf76096372796ed1086bca19f7bdb0",
+        "method_source_sha256": "ddc5372c7cee44419db82058bf8473185a617a316a42a956eb1f4a96cb686108",
+        "line": 60,
+        "docstring": "Returns a classification banner string and colors for the given set of marking IDs.\n:param display_type: The display type of the banner. Defaults to PORTION_MARKING. BANNER_LINE is the long classification string used in the header of a document; PORTION_MARKING is a short classification string used for individual paragraphs\n:type display_type: Optional[ClassificationBannerDisplayType]\n:param marking_ids: The marking IDs for which to generate a banner.\n:type marking_ids: Optional[List[MarkingId]]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.CbacBanner\n\n:raises CbacBannerNotFound: The given CbacBanner could not be found.\n:raises CbacUnavailable: CBAC is not available.\n:raises GetCbacBannerPermissionDenied: The provided token does not have permission to get the CBAC banner for the markings.\n:raises UnknownClassificationBannerDisplayType: The provided classification banner display type is not recognized.",
+        "request_expressions": {
+          "method": "'GET'",
+          "resource_path": "'/v2/admin/cbacBanner'",
+          "query_params": "{'displayType': display_type, 'markingIds': marking_ids, 'preview': preview}",
+          "path_params": "{}",
+          "header_params": "{'Accept': 'application/json'}",
+          "body": "None",
+          "response_type": "admin_models.CbacBanner",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'CbacBannerNotFound': admin_errors.CbacBannerNotFound, 'CbacUnavailable': admin_errors.CbacUnavailable, 'GetCbacBannerPermissionDenied': admin_errors.GetCbacBannerPermissionDenied, 'UnknownClassificationBannerDisplayType': admin_errors.UnknownClassificationBannerDisplayType}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.CbacMarkingRestrictions.get",
+      "case_id": "F072-06",
+      "verdict": "PASS",
+      "checks": 13,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/CbacMarkingRestrictions/get.md",
+          "sha256": "da791f969a801b777bab021e4dbb3be04cd00d4697d7db62614c7e33d5431ef1"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/CbacMarkingRestrictions.md",
+          "sha256": "8fcdf1954e0659bf139d215af011fd6f9a7c98f332b08d90afb9b483ff95a8a4"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/CbacMarkingRestrictions/get.py",
+          "sha256": "5942871e72fd0ccaa3e2b312989dcf6f725a578f573c81a3091bfbc4f629b61d"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.cbac_marking_restrictions",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\cbac_marking_restrictions.py",
+        "sha256": "cdf4b214ec9d0570c06c5fdf8d6c8b74bbc9c8081d67c9825cadf72222cb53e1",
+        "method_source_sha256": "f76add91b761643917beb520c746f8035fbff6a85e1ab9dc16bc09290e41835d",
+        "line": 60,
+        "docstring": "Returns disallowed, implied, and required markings for the given set of marking IDs.\n:param marking_ids: The marking IDs for which to get restrictions.\n:type marking_ids: Optional[List[MarkingId]]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.CbacMarkingRestrictions\n\n:raises CbacMarkingRestrictionsNotFound: The given CbacMarkingRestrictions could not be found.\n:raises CbacUnavailable: CBAC is not available.\n:raises GetCbacMarkingRestrictionInfoPermissionDenied: The provided token does not have permission to get the CBAC marking restrictions for the markings.",
+        "request_expressions": {
+          "method": "'GET'",
+          "resource_path": "'/v2/admin/cbacMarkingRestrictions'",
+          "query_params": "{'markingIds': marking_ids, 'preview': preview}",
+          "path_params": "{}",
+          "header_params": "{'Accept': 'application/json'}",
+          "body": "None",
+          "response_type": "admin_models.CbacMarkingRestrictions",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'CbacMarkingRestrictionsNotFound': admin_errors.CbacMarkingRestrictionsNotFound, 'CbacUnavailable': admin_errors.CbacUnavailable, 'GetCbacMarkingRestrictionInfoPermissionDenied': admin_errors.GetCbacMarkingRestrictionInfoPermissionDenied}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.Enrollment.get",
+      "case_id": "F072-07",
+      "verdict": "PASS",
+      "checks": 12,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/Enrollment/get.md",
+          "sha256": "9751b63ffb27f2cbbdac256e6f9c372fba9de0ece81ffb080296592b5aff6c38"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/Enrollment.md",
+          "sha256": "2be3202bab61d97f7b5e4285e2c0da793834ddc5ec9c23eb9236022cc6717740"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/Enrollment/get.py",
+          "sha256": "0cbf0a87e6de52fa46df0fa2f7987891362a8e7f8abe29fa76dc5256e5ce065f"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.enrollment",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\enrollment.py",
+        "sha256": "96e8edb9e8ec0b4307019f805cd15f728215fc295da602d18cfdeaa011a4a1d4",
+        "method_source_sha256": "0e6a1a9e9d047abf40ec955e56883ed3dfea4392c78ee3b8e82897401b5d0c0a",
+        "line": 95,
+        "docstring": "Get the Enrollment with the specified rid.\n:param enrollment_rid:\n:type enrollment_rid: EnrollmentRid\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.Enrollment\n\n:raises EnrollmentNotFound: The given Enrollment could not be found.",
+        "request_expressions": {
+          "method": "'GET'",
+          "resource_path": "'/v2/admin/enrollments/{enrollmentRid}'",
+          "query_params": "{'preview': preview}",
+          "path_params": "{'enrollmentRid': enrollment_rid}",
+          "header_params": "{'Accept': 'application/json'}",
+          "body": "None",
+          "response_type": "admin_models.Enrollment",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'EnrollmentNotFound': admin_errors.EnrollmentNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.Enrollment.get_current",
+      "case_id": "F072-08",
+      "verdict": "PASS",
+      "checks": 12,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/Enrollment/get_current.md",
+          "sha256": "5c80387a9b4518015aaa474d4f57dc03880475c1369e2ce6736441fef3b2f68d"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/Enrollment.md",
+          "sha256": "2be3202bab61d97f7b5e4285e2c0da793834ddc5ec9c23eb9236022cc6717740"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/Enrollment/get_current.py",
+          "sha256": "dd554963cc1ca0be99ea823180576645c33922ed1f886a903616115e0d722959"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.enrollment",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\enrollment.py",
+        "sha256": "96e8edb9e8ec0b4307019f805cd15f728215fc295da602d18cfdeaa011a4a1d4",
+        "method_source_sha256": "3d18e2ceffd48d7f65bbdbdbdfb5c365eb14ffd26fe18b6e7e76b6e6c59016de",
+        "line": 143,
+        "docstring": "Returns the Enrollment associated with the current User's primary organization.\n\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.Enrollment\n\n:raises EnrollmentNotFound: The given Enrollment could not be found.\n:raises GetCurrentEnrollmentPermissionDenied: Could not getCurrent the Enrollment.",
+        "request_expressions": {
+          "method": "'GET'",
+          "resource_path": "'/v2/admin/enrollments/getCurrent'",
+          "query_params": "{'preview': preview}",
+          "path_params": "{}",
+          "header_params": "{'Accept': 'application/json'}",
+          "body": "None",
+          "response_type": "admin_models.Enrollment",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'EnrollmentNotFound': admin_errors.EnrollmentNotFound, 'GetCurrentEnrollmentPermissionDenied': admin_errors.GetCurrentEnrollmentPermissionDenied}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.EnrollmentRoleAssignment.add",
+      "case_id": "F072-09",
+      "verdict": "PASS",
+      "checks": 17,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/EnrollmentRoleAssignment/add.md",
+          "sha256": "390438ebcadbf61f8f66e085c298536bbe9afccf690d8525460787c89506ce4f"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/EnrollmentRoleAssignment.md",
+          "sha256": "0ef51fee2eda4b32eddee10176887638a2f383fb94982dcf92ce269983e960aa"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/EnrollmentRoleAssignment/add.py",
+          "sha256": "5f0871fc086cffca77e9afde0a8197f3309fd0bf4dc108e21a137a2a81310e75"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.enrollment_role_assignment",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\enrollment_role_assignment.py",
+        "sha256": "f1f2bb8d4ec6a737737315d664a1e0fdccaddf73693f542753c79b2e0b1e893a",
+        "method_source_sha256": "bc849217f1ab92f32da07551489eb996bbaa9f322feecd5b313b63ffb7d3060a",
+        "line": 60,
+        "docstring": "Assign roles to principals for the given Enrollment. At most 100 role assignments can be added in a single request.\n\n:param enrollment_rid:\n:type enrollment_rid: EnrollmentRid\n:param role_assignments:\n:type role_assignments: List[RoleAssignmentUpdate]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: None\n\n:raises AddEnrollmentRoleAssignmentsPermissionDenied: Could not add the EnrollmentRoleAssignment.\n:raises EnrollmentNotFound: The given Enrollment could not be found.\n:raises EnrollmentRoleNotFound: One of the provided role IDs was not found.\n:raises PrincipalNotFound: A principal (User or Group) with the given PrincipalId could not be found",
+        "request_expressions": {
+          "method": "'POST'",
+          "resource_path": "'/v2/admin/enrollments/{enrollmentRid}/roleAssignments/add'",
+          "query_params": "{'preview': preview}",
+          "path_params": "{'enrollmentRid': enrollment_rid}",
+          "header_params": "{'Content-Type': 'application/json'}",
+          "body": "admin_models.AddEnrollmentRoleAssignmentsRequest(role_assignments=role_assignments)",
+          "response_type": "None",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'AddEnrollmentRoleAssignmentsPermissionDenied': admin_errors.AddEnrollmentRoleAssignmentsPermissionDenied, 'EnrollmentNotFound': admin_errors.EnrollmentNotFound, 'EnrollmentRoleNotFound': admin_errors.EnrollmentRoleNotFound, 'PrincipalNotFound': admin_errors.PrincipalNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.EnrollmentRoleAssignment.list",
+      "case_id": "F072-10",
+      "verdict": "PASS",
+      "checks": 13,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/EnrollmentRoleAssignment/list.md",
+          "sha256": "38ca5b3f68d4cbb7875eaf51824a9347e2dce2b331807072855d7364eb406e61"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/EnrollmentRoleAssignment.md",
+          "sha256": "0ef51fee2eda4b32eddee10176887638a2f383fb94982dcf92ce269983e960aa"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/EnrollmentRoleAssignment/list.py",
+          "sha256": "5e8efd4a2e7c40905c423568e7721d53b4d0e288177c9f2ee8ae6b976bc63e45"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.enrollment_role_assignment",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\enrollment_role_assignment.py",
+        "sha256": "f1f2bb8d4ec6a737737315d664a1e0fdccaddf73693f542753c79b2e0b1e893a",
+        "method_source_sha256": "ce2bb38117708fe68a1c874f764e925432c72ddc19197444eff4483be0c4bf41",
+        "line": 120,
+        "docstring": "List all principals who are assigned a role for the given Enrollment.\n\n:param enrollment_rid:\n:type enrollment_rid: EnrollmentRid\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.ListEnrollmentRoleAssignmentsResponse\n\n:raises EnrollmentNotFound: The given Enrollment could not be found.\n:raises ListEnrollmentRoleAssignmentsPermissionDenied: The provided token does not have permission to list assigned roles for this enrollment.",
+        "request_expressions": {
+          "method": "'GET'",
+          "resource_path": "'/v2/admin/enrollments/{enrollmentRid}/roleAssignments'",
+          "query_params": "{'preview': preview}",
+          "path_params": "{'enrollmentRid': enrollment_rid}",
+          "header_params": "{'Accept': 'application/json'}",
+          "body": "None",
+          "response_type": "admin_models.ListEnrollmentRoleAssignmentsResponse",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'EnrollmentNotFound': admin_errors.EnrollmentNotFound, 'ListEnrollmentRoleAssignmentsPermissionDenied': admin_errors.ListEnrollmentRoleAssignmentsPermissionDenied}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.EnrollmentRoleAssignment.remove",
+      "case_id": "F072-11",
+      "verdict": "PASS",
+      "checks": 17,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/EnrollmentRoleAssignment/remove.md",
+          "sha256": "1fe478b401700cba098b5b10b8b817777f789f7702bd17baa1b43a9bd917e652"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/EnrollmentRoleAssignment.md",
+          "sha256": "0ef51fee2eda4b32eddee10176887638a2f383fb94982dcf92ce269983e960aa"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/EnrollmentRoleAssignment/remove.py",
+          "sha256": "eef597f4effa3455dd6840f94e0be29ef1928444ac1a1a9a3c2f472b110a8553"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.enrollment_role_assignment",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\enrollment_role_assignment.py",
+        "sha256": "f1f2bb8d4ec6a737737315d664a1e0fdccaddf73693f542753c79b2e0b1e893a",
+        "method_source_sha256": "49f8a4367a1f0f05701ebab15817d8c8fa5e0949d1f2879e3ac72dd02e529c4a",
+        "line": 171,
+        "docstring": "Remove roles from principals for the given Enrollment. At most 100 role assignments can be removed in a single request.\n\n:param enrollment_rid:\n:type enrollment_rid: EnrollmentRid\n:param role_assignments:\n:type role_assignments: List[RoleAssignmentUpdate]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: None\n\n:raises EnrollmentNotFound: The given Enrollment could not be found.\n:raises EnrollmentRoleNotFound: One of the provided role IDs was not found.\n:raises PrincipalNotFound: A principal (User or Group) with the given PrincipalId could not be found\n:raises RemoveEnrollmentRoleAssignmentsPermissionDenied: Could not remove the EnrollmentRoleAssignment.",
+        "request_expressions": {
+          "method": "'POST'",
+          "resource_path": "'/v2/admin/enrollments/{enrollmentRid}/roleAssignments/remove'",
+          "query_params": "{'preview': preview}",
+          "path_params": "{'enrollmentRid': enrollment_rid}",
+          "header_params": "{'Content-Type': 'application/json'}",
+          "body": "admin_models.RemoveEnrollmentRoleAssignmentsRequest(role_assignments=role_assignments)",
+          "response_type": "None",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'EnrollmentNotFound': admin_errors.EnrollmentNotFound, 'EnrollmentRoleNotFound': admin_errors.EnrollmentRoleNotFound, 'PrincipalNotFound': admin_errors.PrincipalNotFound, 'RemoveEnrollmentRoleAssignmentsPermissionDenied': admin_errors.RemoveEnrollmentRoleAssignmentsPermissionDenied}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.Host.list",
+      "case_id": "F072-12",
+      "verdict": "PASS",
+      "checks": 17,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/Host/list.md",
+          "sha256": "fd6542d1d5f7a3482a36652fafd752018f2aaca773cc9c47c377e970a3e8e1a5"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/Host.md",
+          "sha256": "757fca5414a3d5654a6b7509a5a12676904d889e0e2c4e533777ce9ad0e38ccd"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/Host/list.py",
+          "sha256": "ba39fb83b1a24b5b6074ac3d05cd908c87769db7dcfab9d8c17989be90f8ce69"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.host",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\host.py",
+        "sha256": "b6c091d2cd50b949efba3ed6321f445ffdfdb299af6e079f5316adf573f2b48c",
+        "method_source_sha256": "7e465072c3b586d7f6b9c98c41cf57477b2f05310c4a77b9b7eaf6e0ccc82682",
+        "line": 61,
+        "docstring": "Lists all Hosts.\n\nThis is a paged endpoint. Each page may be smaller or larger than the requested page size. However, it is guaranteed that if there are more results available, the `nextPageToken` field will be populated. To get the next page, make the same request again, but set the value of the `pageToken` query parameter to be value of the `nextPageToken` value of the previous response. If there is no `nextPageToken` field in the response, you are on the last page.\n:param enrollment_rid:\n:type enrollment_rid: EnrollmentRid\n:param page_size: The page size to use for the endpoint.\n:type page_size: Optional[PageSize]\n:param page_token: The page token indicates where to start paging. This should be omitted from the first page's request. To fetch the next page, clients should take the value from the `nextPageToken` field of the previous response and use it to populate the `pageToken` field of the next request.\n:type page_token: Optional[PageToken]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core.ResourceIterator[admin_models.Host]\n\n:raises EnrollmentNotFound: The given Enrollment could not be found.\n:raises InvalidPageSize: The provided page size was zero or negative. Page sizes must be greater than zero.\n:raises ListHostsPermissionDenied: You do not have permission to list hosts for this enrollment",
+        "request_expressions": {
+          "method": "'GET'",
+          "resource_path": "'/v2/admin/enrollments/{enrollmentRid}/hosts'",
+          "query_params": "{'pageSize': page_size, 'pageToken': page_token, 'preview': preview}",
+          "path_params": "{'enrollmentRid': enrollment_rid}",
+          "header_params": "{'Accept': 'application/json'}",
+          "body": "None",
+          "response_type": "admin_models.ListHostsResponse",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'EnrollmentNotFound': admin_errors.EnrollmentNotFound, 'InvalidPageSize': core_errors.InvalidPageSize, 'ListHostsPermissionDenied': admin_errors.ListHostsPermissionDenied}",
+          "response_mode": "_sdk_internal.get('response_mode', 'ITERATOR')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.Marking.create",
+      "case_id": "F072-13",
+      "verdict": "PASS",
+      "checks": 21,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/Marking/create.md",
+          "sha256": "aeb6dda6e61b5a6ba3389c374ec7a2b6fa8565c2867a67c91ddb4cffbcdc2084"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/Marking.md",
+          "sha256": "6b6c17e3cfba69ce8f9f07007da521af3267f539cfbdd9c907c6e6a9c0bf2bd0"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/Marking/create.py",
+          "sha256": "6153a67c8dbc39e1d0d1a140c8878b5cef2bacea5dfa9e7a94625b887ab8c50c"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.marking",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking.py",
+        "sha256": "fe6f205fa99922940d7a8e96387c664376ad18fe3f22794e6dea4bcfa686d6d7",
+        "method_source_sha256": "769d92309d39cbbadfc9d7c539ada3be9a2980dbbd3991aa5d6288dec99ea0d5",
+        "line": 83,
+        "docstring": "Creates a new Marking.\n:param category_id:\n:type category_id: MarkingCategoryId\n:param initial_members: Users and Groups that will be able to view resources protected by this Marking. This can be changed later through the MarkingMember operations.\n:type initial_members: List[PrincipalId]\n:param initial_role_assignments: The initial roles that will be assigned when the Marking is created. At least one ADMINISTER role must be provided. This can be changed later through the MarkingRoleAssignment operations.  WARNING: If you do not include your own principal ID or the ID of a Group that you are a member of, you will create a Marking that you cannot administer.\n:type initial_role_assignments: List[MarkingRoleUpdate]\n:param name:\n:type name: MarkingName\n:param description:\n:type description: Optional[str]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.Marking\n\n:raises CreateMarkingMissingInitialAdminRole: At least one ADMINISTER role assignment must be provided when creating a marking.\n:raises CreateMarkingPermissionDenied: Could not create the Marking.\n:raises GetMarkingCategoryPermissionDenied: The provided token does not have permission to view the marking category.\n:raises MarkingCategoryNotFound: The given MarkingCategory could not be found.\n:raises MarkingNameInCategoryAlreadyExists: A marking with the same name already exists in the category.\n:raises MarkingNameIsEmpty: The marking name is empty.\n:raises PrincipalNotFound: A principal (User or Group) with the given PrincipalId could not be found",
+        "request_expressions": {
+          "method": "'POST'",
+          "resource_path": "'/v2/admin/markings'",
+          "query_params": "{}",
+          "path_params": "{}",
+          "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+          "body": "admin_models.CreateMarkingRequest(initial_role_assignments=initial_role_assignments, initial_members=initial_members, name=name, description=description, category_id=category_id)",
+          "response_type": "admin_models.Marking",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'CreateMarkingMissingInitialAdminRole': admin_errors.CreateMarkingMissingInitialAdminRole, 'CreateMarkingPermissionDenied': admin_errors.CreateMarkingPermissionDenied, 'GetMarkingCategoryPermissionDenied': admin_errors.GetMarkingCategoryPermissionDenied, 'MarkingCategoryNotFound': admin_errors.MarkingCategoryNotFound, 'MarkingNameInCategoryAlreadyExists': admin_errors.MarkingNameInCategoryAlreadyExists, 'MarkingNameIsEmpty': admin_errors.MarkingNameIsEmpty, 'PrincipalNotFound': admin_errors.PrincipalNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.Marking.get",
+      "case_id": "F072-14",
+      "verdict": "PASS",
+      "checks": 13,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/Marking/get.md",
+          "sha256": "bb743491dc443116cbf62e318ea2303422c01b5caee23e425703e55f29f957a8"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/Marking.md",
+          "sha256": "6b6c17e3cfba69ce8f9f07007da521af3267f539cfbdd9c907c6e6a9c0bf2bd0"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/Marking/get.py",
+          "sha256": "494cadb617ca981f7db59089038d34e3c158e0a35ae65d7b79085e71ccd3fd70"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.marking",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking.py",
+        "sha256": "fe6f205fa99922940d7a8e96387c664376ad18fe3f22794e6dea4bcfa686d6d7",
+        "method_source_sha256": "d5654e02aa665adbbb8640abf3069ef0dea0d661ec989f5b0fdda022177a1d94",
+        "line": 155,
+        "docstring": "Get the Marking with the specified id.\n:param marking_id:\n:type marking_id: MarkingId\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.Marking\n\n:raises GetMarkingPermissionDenied: The provided token does not have permission to view the marking.\n:raises MarkingNotFound: The given Marking could not be found.",
+        "request_expressions": {
+          "method": "'GET'",
+          "resource_path": "'/v2/admin/markings/{markingId}'",
+          "query_params": "{}",
+          "path_params": "{'markingId': marking_id}",
+          "header_params": "{'Accept': 'application/json'}",
+          "body": "None",
+          "response_type": "admin_models.Marking",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'GetMarkingPermissionDenied': admin_errors.GetMarkingPermissionDenied, 'MarkingNotFound': admin_errors.MarkingNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.Marking.get_batch",
+      "case_id": "F072-15",
+      "verdict": "PASS",
+      "checks": 15,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/Marking/get_batch.md",
+          "sha256": "ea765b5f66fa5f65560a0eaab5c0d1eef7564b2f935d726b5e4ae6ca5554b057"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/Marking.md",
+          "sha256": "6b6c17e3cfba69ce8f9f07007da521af3267f539cfbdd9c907c6e6a9c0bf2bd0"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/Marking/get_batch.py",
+          "sha256": "cb65ff8607729e1aaa234c215552bf331036b6aa16ce63f48ce6479cf316a8ba"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.marking",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking.py",
+        "sha256": "fe6f205fa99922940d7a8e96387c664376ad18fe3f22794e6dea4bcfa686d6d7",
+        "method_source_sha256": "2e9d0fd8564c18ba28691ad8dd88f050d0871923b700e05a456aa8fd5fbca0dd",
+        "line": 200,
+        "docstring": "Execute multiple get requests on Marking.\n\nThe maximum batch size for this endpoint is 500.\n:param body: Body of the request\n:type body: List[GetMarkingsBatchRequestElement]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.GetMarkingsBatchResponse",
+        "request_expressions": {
+          "method": "'POST'",
+          "resource_path": "'/v2/admin/markings/getBatch'",
+          "query_params": "{}",
+          "path_params": "{}",
+          "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+          "body": "body",
+          "response_type": "admin_models.GetMarkingsBatchResponse",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.Marking.list",
+      "case_id": "F072-16",
+      "verdict": "PASS",
+      "checks": 14,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/Marking/list.md",
+          "sha256": "25c4617e74477ad800791dfe568c34e862b60beaa60805920587b5c034a14773"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/Marking.md",
+          "sha256": "6b6c17e3cfba69ce8f9f07007da521af3267f539cfbdd9c907c6e6a9c0bf2bd0"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/Marking/list.py",
+          "sha256": "8cc2f65b675d9c47112cd9c0ca437b566557c9091b0f9ef3561e4f33fff30ce2"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.marking",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking.py",
+        "sha256": "fe6f205fa99922940d7a8e96387c664376ad18fe3f22794e6dea4bcfa686d6d7",
+        "method_source_sha256": "0703b0c3896931b03867157f0213a2a512e4b2582ef0ea1233ea399ce01ff701",
+        "line": 243,
+        "docstring": "Maximum page size 100.\n:param page_size: The page size to use for the endpoint.\n:type page_size: Optional[PageSize]\n:param page_token: The page token indicates where to start paging. This should be omitted from the first page's request. To fetch the next page, clients should take the value from the `nextPageToken` field of the previous response and use it to populate the `pageToken` field of the next request.\n:type page_token: Optional[PageToken]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core.ResourceIterator[admin_models.Marking]\n\n:raises InvalidPageSize: The provided page size was zero or negative. Page sizes must be greater than zero.",
+        "request_expressions": {
+          "method": "'GET'",
+          "resource_path": "'/v2/admin/markings'",
+          "query_params": "{'pageSize': page_size, 'pageToken': page_token}",
+          "path_params": "{}",
+          "header_params": "{'Accept': 'application/json'}",
+          "body": "None",
+          "response_type": "admin_models.ListMarkingsResponse",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'InvalidPageSize': core_errors.InvalidPageSize}",
+          "response_mode": "_sdk_internal.get('response_mode', 'ITERATOR')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.Marking.parse_classifications",
+      "case_id": "F072-17",
+      "verdict": "PASS",
+      "checks": 17,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/Marking/parse_classifications.md",
+          "sha256": "7b93c4d8dc997e9f0871555944b3f5d734aee2cc4da583eee66a0b7f8bc627c6"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/Marking.md",
+          "sha256": "6b6c17e3cfba69ce8f9f07007da521af3267f539cfbdd9c907c6e6a9c0bf2bd0"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/Marking/parse_classifications.py",
+          "sha256": "b2532e2461210e5c8df72820167611863d7edef7926f9db37fb3830beeb7941e"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.marking",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking.py",
+        "sha256": "fe6f205fa99922940d7a8e96387c664376ad18fe3f22794e6dea4bcfa686d6d7",
+        "method_source_sha256": "81e4855ef87343789ad7c748ac6570279bb904293175d4978529f94881170332",
+        "line": 290,
+        "docstring": "Parses classification marking strings (e.g. 'S//NF') into their component marking IDs. Strings that cannot be parsed are returned in 'errors' with a human-readable message.\n:param classification_strings: The classification strings to parse, e.g. 'S//NF'. Duplicate entries are ignored. At most 1000 entries are accepted.\n:type classification_strings: List[str]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.ParseClassificationsResponse\n\n:raises CbacUnavailable: CBAC is not available.\n:raises ParseClassificationsPermissionDenied: The provided token does not have permission to parse the given classification strings.",
+        "request_expressions": {
+          "method": "'POST'",
+          "resource_path": "'/v2/admin/markings/parseClassifications'",
+          "query_params": "{'preview': preview}",
+          "path_params": "{}",
+          "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+          "body": "admin_models.ParseClassificationsRequest(classification_strings=classification_strings)",
+          "response_type": "admin_models.ParseClassificationsResponse",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'CbacUnavailable': admin_errors.CbacUnavailable, 'ParseClassificationsPermissionDenied': admin_errors.ParseClassificationsPermissionDenied}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.Marking.replace",
+      "case_id": "F072-18",
+      "verdict": "PASS",
+      "checks": 18,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/Marking/replace.md",
+          "sha256": "d745ab4b3b950963401866ad0a282d1757c26efd2db385a654e7ea5896b6df51"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/Marking.md",
+          "sha256": "6b6c17e3cfba69ce8f9f07007da521af3267f539cfbdd9c907c6e6a9c0bf2bd0"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/Marking/replace.py",
+          "sha256": "e7863dc3338f7956b8324587d320f579c25010a6d36c75ce98b21672f03d9912"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.marking",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking.py",
+        "sha256": "fe6f205fa99922940d7a8e96387c664376ad18fe3f22794e6dea4bcfa686d6d7",
+        "method_source_sha256": "a6e7ff80f4c80f770ee340fdbf4330ad2f7fefa5922160e7e267b3e4f0869a60",
+        "line": 341,
+        "docstring": "Replace the Marking with the specified id.\n:param marking_id:\n:type marking_id: MarkingId\n:param name:\n:type name: MarkingName\n:param description:\n:type description: Optional[str]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.Marking\n\n:raises GetMarkingCategoryPermissionDenied: The provided token does not have permission to view the marking category.\n:raises GetMarkingPermissionDenied: The provided token does not have permission to view the marking.\n:raises MarkingNameInCategoryAlreadyExists: A marking with the same name already exists in the category.\n:raises MarkingNameIsEmpty: The marking name is empty.\n:raises MarkingNotFound: The given Marking could not be found.\n:raises ReplaceMarkingPermissionDenied: Could not replace the Marking.",
+        "request_expressions": {
+          "method": "'PUT'",
+          "resource_path": "'/v2/admin/markings/{markingId}'",
+          "query_params": "{}",
+          "path_params": "{'markingId': marking_id}",
+          "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+          "body": "admin_models.ReplaceMarkingRequest(name=name, description=description)",
+          "response_type": "admin_models.Marking",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'GetMarkingCategoryPermissionDenied': admin_errors.GetMarkingCategoryPermissionDenied, 'GetMarkingPermissionDenied': admin_errors.GetMarkingPermissionDenied, 'MarkingNameInCategoryAlreadyExists': admin_errors.MarkingNameInCategoryAlreadyExists, 'MarkingNameIsEmpty': admin_errors.MarkingNameIsEmpty, 'MarkingNotFound': admin_errors.MarkingNotFound, 'ReplaceMarkingPermissionDenied': admin_errors.ReplaceMarkingPermissionDenied}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.MarkingCategory.create",
+      "case_id": "F072-19",
+      "verdict": "PASS",
+      "checks": 17,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/MarkingCategory/create.md",
+          "sha256": "f814a6579d9f89618113fa12fbd38ab39d9c39f7f00233c777ddb4531f13c881"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/MarkingCategory.md",
+          "sha256": "8ab25d3e979028415d580311200611ff04786fa526ca57d527ff89d12d491005"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/MarkingCategory/create.py",
+          "sha256": "d8bb419eb9cf75cdb8967590e6d2ac768c916352ba78e3cb3b35c96bfbe9c4a2"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.marking_category",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking_category.py",
+        "sha256": "c00cdd6eb8cd2a2d6ecee921ed40df2206069f95ad5edec483d81baed1a6ebba",
+        "method_source_sha256": "4346aa0afa4630f280d4e63a08ef79f9883aeb0d1d2c249a6931b157d3494930",
+        "line": 61,
+        "docstring": "Creates a new MarkingCategory.\n:param description:\n:type description: MarkingCategoryDescription\n:param initial_permissions: The initial permissions for the Marking Category. This can be changed later through MarkingCategoryPermission operations. The provided permissions must include at least one ADMINISTER role assignment.  WARNING: If you do not list your own principal ID or the ID of a Group that you are a member of as an ADMINISTER, you will create a Marking Category that you cannot administer.\n:type initial_permissions: MarkingCategoryPermissions\n:param name:\n:type name: MarkingCategoryName\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.MarkingCategory\n\n:raises CreateMarkingCategoryMissingInitialAdminRole: At least one ADMINISTER role assignment must be provided when creating a marking category.\n:raises CreateMarkingCategoryMissingOrganization: At least one organization must be provided when creating a marking category.\n:raises CreateMarkingCategoryPermissionDenied: Could not create the MarkingCategory.\n:raises PrincipalNotFound: A principal (User or Group) with the given PrincipalId could not be found",
+        "request_expressions": {
+          "method": "'POST'",
+          "resource_path": "'/v2/admin/markingCategories'",
+          "query_params": "{'preview': preview}",
+          "path_params": "{}",
+          "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+          "body": "admin_models.CreateMarkingCategoryRequest(initial_permissions=initial_permissions, name=name, description=description)",
+          "response_type": "admin_models.MarkingCategory",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'CreateMarkingCategoryMissingInitialAdminRole': admin_errors.CreateMarkingCategoryMissingInitialAdminRole, 'CreateMarkingCategoryMissingOrganization': admin_errors.CreateMarkingCategoryMissingOrganization, 'CreateMarkingCategoryPermissionDenied': admin_errors.CreateMarkingCategoryPermissionDenied, 'PrincipalNotFound': admin_errors.PrincipalNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.MarkingCategory.get",
+      "case_id": "F072-20",
+      "verdict": "PASS",
+      "checks": 13,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/MarkingCategory/get.md",
+          "sha256": "84e2da5e48e9615508c341f5172d44667b9f8dc145a921d3e41c06c63889fed8"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/MarkingCategory.md",
+          "sha256": "8ab25d3e979028415d580311200611ff04786fa526ca57d527ff89d12d491005"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/MarkingCategory/get.py",
+          "sha256": "f22515528dea8f29d1e17958de27f86fb59ad709daeec86621ee7d88bd908a32"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.marking_category",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking_category.py",
+        "sha256": "c00cdd6eb8cd2a2d6ecee921ed40df2206069f95ad5edec483d81baed1a6ebba",
+        "method_source_sha256": "a3a3b9149a39aa1af55822749a6225225ed87af65c30b37d6498e0e2b9cd551c",
+        "line": 124,
+        "docstring": "Get the MarkingCategory with the specified id.\n:param marking_category_id:\n:type marking_category_id: MarkingCategoryId\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.MarkingCategory\n\n:raises GetMarkingCategoryPermissionDenied: The provided token does not have permission to view the marking category.\n:raises MarkingCategoryNotFound: The given MarkingCategory could not be found.",
+        "request_expressions": {
+          "method": "'GET'",
+          "resource_path": "'/v2/admin/markingCategories/{markingCategoryId}'",
+          "query_params": "{}",
+          "path_params": "{'markingCategoryId': marking_category_id}",
+          "header_params": "{'Accept': 'application/json'}",
+          "body": "None",
+          "response_type": "admin_models.MarkingCategory",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'GetMarkingCategoryPermissionDenied': admin_errors.GetMarkingCategoryPermissionDenied, 'MarkingCategoryNotFound': admin_errors.MarkingCategoryNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.MarkingCategory.list",
+      "case_id": "F072-21",
+      "verdict": "PASS",
+      "checks": 14,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/MarkingCategory/list.md",
+          "sha256": "7f6cecb53b66d8ef7a16a30b6c27801cec67726df22dca968ff884ab3d6441b9"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/MarkingCategory.md",
+          "sha256": "8ab25d3e979028415d580311200611ff04786fa526ca57d527ff89d12d491005"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/MarkingCategory/list.py",
+          "sha256": "e3f43d7a03f016aeec084c5e420ae8268e56edc5a10a99f9bc8897033be5631a"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.marking_category",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking_category.py",
+        "sha256": "c00cdd6eb8cd2a2d6ecee921ed40df2206069f95ad5edec483d81baed1a6ebba",
+        "method_source_sha256": "9b57b180f3d25e768ecfe8bd6689fab71e807e4b27df22fbd4941d1d87703230",
+        "line": 169,
+        "docstring": "Maximum page size 100.\n:param page_size: The page size to use for the endpoint.\n:type page_size: Optional[PageSize]\n:param page_token: The page token indicates where to start paging. This should be omitted from the first page's request. To fetch the next page, clients should take the value from the `nextPageToken` field of the previous response and use it to populate the `pageToken` field of the next request.\n:type page_token: Optional[PageToken]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core.ResourceIterator[admin_models.MarkingCategory]\n\n:raises InvalidPageSize: The provided page size was zero or negative. Page sizes must be greater than zero.",
+        "request_expressions": {
+          "method": "'GET'",
+          "resource_path": "'/v2/admin/markingCategories'",
+          "query_params": "{'pageSize': page_size, 'pageToken': page_token}",
+          "path_params": "{}",
+          "header_params": "{'Accept': 'application/json'}",
+          "body": "None",
+          "response_type": "admin_models.ListMarkingCategoriesResponse",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'InvalidPageSize': core_errors.InvalidPageSize}",
+          "response_mode": "_sdk_internal.get('response_mode', 'ITERATOR')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.MarkingCategory.replace",
+      "case_id": "F072-22",
+      "verdict": "PASS",
+      "checks": 16,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/MarkingCategory/replace.md",
+          "sha256": "43e671cc5f1e85d7a2deeb24eaf7790c72e18593b31c6de44bdbe35bba853fde"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/MarkingCategory.md",
+          "sha256": "8ab25d3e979028415d580311200611ff04786fa526ca57d527ff89d12d491005"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/MarkingCategory/replace.py",
+          "sha256": "8ccdb064497e00bcf70c967873f8cc215db7f48e77f3279799bbe871678ab35e"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.marking_category",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking_category.py",
+        "sha256": "c00cdd6eb8cd2a2d6ecee921ed40df2206069f95ad5edec483d81baed1a6ebba",
+        "method_source_sha256": "c9fbc7a2c5b8427c38c5114b98f479cd045b00c931b6faccaa3b925b67b14a9e",
+        "line": 216,
+        "docstring": "Replace the MarkingCategory with the specified id.\n:param marking_category_id:\n:type marking_category_id: MarkingCategoryId\n:param description:\n:type description: MarkingCategoryDescription\n:param name:\n:type name: MarkingCategoryName\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.MarkingCategory\n\n:raises GetMarkingCategoryPermissionDenied: The provided token does not have permission to view the marking category.\n:raises MarkingCategoryNotFound: The given MarkingCategory could not be found.\n:raises ReplaceMarkingCategoryPermissionDenied: Could not replace the MarkingCategory.",
+        "request_expressions": {
+          "method": "'PUT'",
+          "resource_path": "'/v2/admin/markingCategories/{markingCategoryId}'",
+          "query_params": "{'preview': preview}",
+          "path_params": "{'markingCategoryId': marking_category_id}",
+          "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+          "body": "admin_models.ReplaceMarkingCategoryRequest(name=name, description=description)",
+          "response_type": "admin_models.MarkingCategory",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'GetMarkingCategoryPermissionDenied': admin_errors.GetMarkingCategoryPermissionDenied, 'MarkingCategoryNotFound': admin_errors.MarkingCategoryNotFound, 'ReplaceMarkingCategoryPermissionDenied': admin_errors.ReplaceMarkingCategoryPermissionDenied}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.MarkingMember.add",
+      "case_id": "F072-23",
+      "verdict": "PASS",
+      "checks": 15,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/MarkingMember/add.md",
+          "sha256": "47f0f24ce7026bacade106ffe3878beaa5839c3f78ac34de1624dc7cca79a8db"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/MarkingMember.md",
+          "sha256": "b90f1e5ba9710cb2f379989eb106e736d929855a3f319064eba9f53a7678993c"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/MarkingMember/add.py",
+          "sha256": "36d78dafb1b1c511af8427d5025abc8704a0c71e9fc71c2b2f8d7365a275c640"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.marking_member",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking_member.py",
+        "sha256": "91221537f59ff65d3d204f5695bfb6626bba1c57c531a4a62eb7ef2bf32eb1a1",
+        "method_source_sha256": "4d0172d714c4dedd06b8ecef0727ffc779269b32281b95dd840ff4f771a305c0",
+        "line": 60,
+        "docstring": ":param marking_id:\n:type marking_id: MarkingId\n:param principal_ids:\n:type principal_ids: List[PrincipalId]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: None\n\n:raises AddMarkingMembersPermissionDenied: Could not add the MarkingMember.\n:raises GetMarkingPermissionDenied: The provided token does not have permission to view the marking.\n:raises MarkingNotFound: The given Marking could not be found.\n:raises PrincipalNotFound: A principal (User or Group) with the given PrincipalId could not be found",
+        "request_expressions": {
+          "method": "'POST'",
+          "resource_path": "'/v2/admin/markings/{markingId}/markingMembers/add'",
+          "query_params": "{}",
+          "path_params": "{'markingId': marking_id}",
+          "header_params": "{'Content-Type': 'application/json'}",
+          "body": "admin_models.AddMarkingMembersRequest(principal_ids=principal_ids)",
+          "response_type": "None",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'AddMarkingMembersPermissionDenied': admin_errors.AddMarkingMembersPermissionDenied, 'GetMarkingPermissionDenied': admin_errors.GetMarkingPermissionDenied, 'MarkingNotFound': admin_errors.MarkingNotFound, 'PrincipalNotFound': admin_errors.PrincipalNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.MarkingMember.list",
+      "case_id": "F072-24",
+      "verdict": "PASS",
+      "checks": 17,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/MarkingMember/list.md",
+          "sha256": "c33aae12ad2abc6cd3902d6b1744b32aae3a61ccd964f5171b67059539b499d1"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/MarkingMember.md",
+          "sha256": "b90f1e5ba9710cb2f379989eb106e736d929855a3f319064eba9f53a7678993c"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/MarkingMember/list.py",
+          "sha256": "ec1d9841bc0614b80b8d1bfd27b7f32492711213e1d1b1202edfaaa4010f10b6"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.marking_member",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking_member.py",
+        "sha256": "91221537f59ff65d3d204f5695bfb6626bba1c57c531a4a62eb7ef2bf32eb1a1",
+        "method_source_sha256": "9a44e0228662c71c5dd58a7a38bb333b19117b128d0f15a819fd6f9e40ea3c6a",
+        "line": 114,
+        "docstring": "Lists all principals who can view resources protected by the given Marking. Ignores the `pageSize` parameter.\nRequires `api:admin-write` because only marking administrators can view marking members.\n\n:param marking_id:\n:type marking_id: MarkingId\n:param page_size: The page size to use for the endpoint.\n:type page_size: Optional[PageSize]\n:param page_token: The page token indicates where to start paging. This should be omitted from the first page's request. To fetch the next page, clients should take the value from the `nextPageToken` field of the previous response and use it to populate the `pageToken` field of the next request.\n:type page_token: Optional[PageToken]\n:param transitive: When true, includes the transitive members of groups contained within groups that are members of this  Marking. For example, say the Marking has member Group A, and Group A has member User B. If  `transitive=false` only Group A will be returned, but if `transitive=true` then Group A and User B  will be returned. This will recursively resolve Groups through all layers of nesting.  Defaults to false.\n:type transitive: Optional[bool]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core.ResourceIterator[admin_models.MarkingMember]\n\n:raises GetMarkingPermissionDenied: The provided token does not have permission to view the marking.\n:raises ListMarkingMembersPermissionDenied: The provided token does not have permission to list the members of this marking.\n:raises MarkingNotFound: The given Marking could not be found.",
+        "request_expressions": {
+          "method": "'GET'",
+          "resource_path": "'/v2/admin/markings/{markingId}/markingMembers'",
+          "query_params": "{'pageSize': page_size, 'pageToken': page_token, 'transitive': transitive}",
+          "path_params": "{'markingId': marking_id}",
+          "header_params": "{'Accept': 'application/json'}",
+          "body": "None",
+          "response_type": "admin_models.ListMarkingMembersResponse",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'GetMarkingPermissionDenied': admin_errors.GetMarkingPermissionDenied, 'ListMarkingMembersPermissionDenied': admin_errors.ListMarkingMembersPermissionDenied, 'MarkingNotFound': admin_errors.MarkingNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode', 'ITERATOR')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.MarkingMember.remove",
+      "case_id": "F072-25",
+      "verdict": "PASS",
+      "checks": 15,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/MarkingMember/remove.md",
+          "sha256": "5f36b32e6f70c29fb53a386de74b1f43c2986974e6aea8d44a75e8aadcec01f0"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/MarkingMember.md",
+          "sha256": "b90f1e5ba9710cb2f379989eb106e736d929855a3f319064eba9f53a7678993c"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/MarkingMember/remove.py",
+          "sha256": "d3139e52809d5787fa5412239d49a1a695c5e0e3d5957f902d0b0a96c74f39ab"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.marking_member",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking_member.py",
+        "sha256": "91221537f59ff65d3d204f5695bfb6626bba1c57c531a4a62eb7ef2bf32eb1a1",
+        "method_source_sha256": "c4de0d24baf1358886604ef556657c491e79eff139cfed16b4e0da6589ad0389",
+        "line": 176,
+        "docstring": ":param marking_id:\n:type marking_id: MarkingId\n:param principal_ids:\n:type principal_ids: List[PrincipalId]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: None\n\n:raises GetMarkingPermissionDenied: The provided token does not have permission to view the marking.\n:raises MarkingNotFound: The given Marking could not be found.\n:raises PrincipalNotFound: A principal (User or Group) with the given PrincipalId could not be found\n:raises RemoveMarkingMembersPermissionDenied: Could not remove the MarkingMember.",
+        "request_expressions": {
+          "method": "'POST'",
+          "resource_path": "'/v2/admin/markings/{markingId}/markingMembers/remove'",
+          "query_params": "{}",
+          "path_params": "{'markingId': marking_id}",
+          "header_params": "{'Content-Type': 'application/json'}",
+          "body": "admin_models.RemoveMarkingMembersRequest(principal_ids=principal_ids)",
+          "response_type": "None",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'GetMarkingPermissionDenied': admin_errors.GetMarkingPermissionDenied, 'MarkingNotFound': admin_errors.MarkingNotFound, 'PrincipalNotFound': admin_errors.PrincipalNotFound, 'RemoveMarkingMembersPermissionDenied': admin_errors.RemoveMarkingMembersPermissionDenied}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.MarkingRoleAssignment.add",
+      "case_id": "F072-26",
+      "verdict": "PASS",
+      "checks": 19,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/MarkingRoleAssignment/add.md",
+          "sha256": "7d05bb9f00eb41d2a0975f6e0e8a75daa9d335340fa88648f4872051f0de184d"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/MarkingRoleAssignment.md",
+          "sha256": "e699e7fbb6066dde02cd265413523acf633bdcf5b9f98a7167b81a450d9cea5f"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/MarkingRoleAssignment/add.py",
+          "sha256": "2e28ad41cb098244f8a4dd5377b3c4ffe8b13690f4ef98f667864919d79199ec"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.marking_role_assignment",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking_role_assignment.py",
+        "sha256": "7134a249a96e059a6ee2d4c5a57a78950c5afc38bf3bf2fe873abfa8cd4f8f8f",
+        "method_source_sha256": "186cf5f135da3ada4ebfe01de0f14cca914b43540d4ffa37712388db999fe46b",
+        "line": 60,
+        "docstring": "Adds role assignments for the given Marking. For Organization markings, only the USE and DECLASSIFY\nroles are supported; the ADMINISTER role must be managed via the Organization Role Assignment endpoints.\n\n:param marking_id:\n:type marking_id: MarkingId\n:param role_assignments:\n:type role_assignments: List[MarkingRoleUpdate]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: None\n\n:raises AddMarkingRoleAssignmentsPermissionDenied: Could not add the MarkingRoleAssignment.\n:raises GetMarkingPermissionDenied: The provided token does not have permission to view the marking.\n:raises MarkingNotFound: The given Marking could not be found.\n:raises OrganizationMarkingAdministerRoleNotSupported: The ADMINISTER role on Organization markings cannot be managed through the Marking Role Assignments endpoints. To manage administrator roles for an Organization, use the Organization Role Assignment endpoints instead.\n:raises PrincipalNotFound: A principal (User or Group) with the given PrincipalId could not be found",
+        "request_expressions": {
+          "method": "'POST'",
+          "resource_path": "'/v2/admin/markings/{markingId}/roleAssignments/add'",
+          "query_params": "{}",
+          "path_params": "{'markingId': marking_id}",
+          "header_params": "{'Content-Type': 'application/json'}",
+          "body": "admin_models.AddMarkingRoleAssignmentsRequest(role_assignments=role_assignments)",
+          "response_type": "None",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'AddMarkingRoleAssignmentsPermissionDenied': admin_errors.AddMarkingRoleAssignmentsPermissionDenied, 'GetMarkingPermissionDenied': admin_errors.GetMarkingPermissionDenied, 'MarkingNotFound': admin_errors.MarkingNotFound, 'OrganizationMarkingAdministerRoleNotSupported': admin_errors.OrganizationMarkingAdministerRoleNotSupported, 'PrincipalNotFound': admin_errors.PrincipalNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.MarkingRoleAssignment.list",
+      "case_id": "F072-27",
+      "verdict": "PASS",
+      "checks": 16,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/MarkingRoleAssignment/list.md",
+          "sha256": "350a23ac5fb2901dad97cf8b023fb0c54ae1f1c812a3a8f9d634a0db45969b4e"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/MarkingRoleAssignment.md",
+          "sha256": "e699e7fbb6066dde02cd265413523acf633bdcf5b9f98a7167b81a450d9cea5f"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/MarkingRoleAssignment/list.py",
+          "sha256": "3cd30db500e7696d79edd867f02e6ab8b0ebd3f99a3e18d126dd2e710b73d08c"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.marking_role_assignment",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking_role_assignment.py",
+        "sha256": "7134a249a96e059a6ee2d4c5a57a78950c5afc38bf3bf2fe873abfa8cd4f8f8f",
+        "method_source_sha256": "02aeedc7c3bf6d085d87401d97e252eb62cc9e15c99304a7415632b58dc30e43",
+        "line": 118,
+        "docstring": "List all principals who are assigned a role for the given Marking. Ignores the `pageSize` parameter.\n\n:param marking_id:\n:type marking_id: MarkingId\n:param page_size: The page size to use for the endpoint.\n:type page_size: Optional[PageSize]\n:param page_token: The page token indicates where to start paging. This should be omitted from the first page's request. To fetch the next page, clients should take the value from the `nextPageToken` field of the previous response and use it to populate the `pageToken` field of the next request.\n:type page_token: Optional[PageToken]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core.ResourceIterator[admin_models.MarkingRoleAssignment]\n\n:raises ListMarkingRoleAssignmentsPermissionDenied: The provided token does not have permission to list assigned roles for this marking.\n:raises MarkingNotFound: The given Marking could not be found.",
+        "request_expressions": {
+          "method": "'GET'",
+          "resource_path": "'/v2/admin/markings/{markingId}/roleAssignments'",
+          "query_params": "{'pageSize': page_size, 'pageToken': page_token}",
+          "path_params": "{'markingId': marking_id}",
+          "header_params": "{'Accept': 'application/json'}",
+          "body": "None",
+          "response_type": "admin_models.ListMarkingRoleAssignmentsResponse",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'ListMarkingRoleAssignmentsPermissionDenied': admin_errors.ListMarkingRoleAssignmentsPermissionDenied, 'MarkingNotFound': admin_errors.MarkingNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode', 'ITERATOR')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.MarkingRoleAssignment.remove",
+      "case_id": "F072-28",
+      "verdict": "PASS",
+      "checks": 22,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/MarkingRoleAssignment/remove.md",
+          "sha256": "202c8ef52f3936b1cfca79278ec7ca8ba3d19967bae31ef088106c9c7cbb2843"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/MarkingRoleAssignment.md",
+          "sha256": "e699e7fbb6066dde02cd265413523acf633bdcf5b9f98a7167b81a450d9cea5f"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/MarkingRoleAssignment/remove.py",
+          "sha256": "9aca7a2420bf23d1de00103bf942c7a84cfd1be2f4501f1aae8e7731a2635965"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.marking_role_assignment",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking_role_assignment.py",
+        "sha256": "7134a249a96e059a6ee2d4c5a57a78950c5afc38bf3bf2fe873abfa8cd4f8f8f",
+        "method_source_sha256": "0521449ec77099e4fd921b6f41d9e95c1bd648b5d6bf926f30d066705365e5e0",
+        "line": 173,
+        "docstring": "Removes role assignments for the given Marking. For Organization markings, only the USE and DECLASSIFY\nroles are supported; the ADMINISTER role must be managed via the Organization Role Assignment endpoints.\n\n:param marking_id:\n:type marking_id: MarkingId\n:param role_assignments:\n:type role_assignments: List[MarkingRoleUpdate]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: None\n\n:raises GetMarkingPermissionDenied: The provided token does not have permission to view the marking.\n:raises ListMarkingRoleAssignmentsPermissionDenied: The provided token does not have permission to list assigned roles for this marking.\n:raises MarkingNotFound: The given Marking could not be found.\n:raises OrganizationMarkingAdministerRoleNotSupported: The ADMINISTER role on Organization markings cannot be managed through the Marking Role Assignments endpoints. To manage administrator roles for an Organization, use the Organization Role Assignment endpoints instead.\n:raises PrincipalNotFound: A principal (User or Group) with the given PrincipalId could not be found\n:raises RemoveMarkingMembersPermissionDenied: Could not remove the MarkingMember.\n:raises RemoveMarkingRoleAssignmentsPermissionDenied: Could not remove the MarkingRoleAssignment.\n:raises RemoveMarkingRoleAssignmentsRemoveAllAdministratorsNotAllowed: You cannot remove all administrators from a marking.",
+        "request_expressions": {
+          "method": "'POST'",
+          "resource_path": "'/v2/admin/markings/{markingId}/roleAssignments/remove'",
+          "query_params": "{}",
+          "path_params": "{'markingId': marking_id}",
+          "header_params": "{'Content-Type': 'application/json'}",
+          "body": "admin_models.RemoveMarkingRoleAssignmentsRequest(role_assignments=role_assignments)",
+          "response_type": "None",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'GetMarkingPermissionDenied': admin_errors.GetMarkingPermissionDenied, 'ListMarkingRoleAssignmentsPermissionDenied': admin_errors.ListMarkingRoleAssignmentsPermissionDenied, 'MarkingNotFound': admin_errors.MarkingNotFound, 'OrganizationMarkingAdministerRoleNotSupported': admin_errors.OrganizationMarkingAdministerRoleNotSupported, 'PrincipalNotFound': admin_errors.PrincipalNotFound, 'RemoveMarkingMembersPermissionDenied': admin_errors.RemoveMarkingMembersPermissionDenied, 'RemoveMarkingRoleAssignmentsPermissionDenied': admin_errors.RemoveMarkingRoleAssignmentsPermissionDenied, 'RemoveMarkingRoleAssignmentsRemoveAllAdministratorsNotAllowed': admin_errors.RemoveMarkingRoleAssignmentsRemoveAllAdministratorsNotAllowed}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.Organization.create",
+      "case_id": "F072-29",
+      "verdict": "PASS",
+      "checks": 19,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/Organization/create.md",
+          "sha256": "6e3f401574ecff8865473bbf081d5b0bf2ef656070a9db43f87ea6b770e01265"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/Organization.md",
+          "sha256": "a30e43120caaca01bbf8ec8ed95c4b1f0039d166e6174bd95ee6e6924b49ac5f"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/Organization/create.py",
+          "sha256": "939f7cc853f80703ebedaef8c808d77d32f53252c9045cf3e4daa74fc022521c"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.organization",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\organization.py",
+        "sha256": "d4d3c63cb1d22a69e71f5810359213fc1d7e3b338e0c21d16d81ec14eaf11246",
+        "method_source_sha256": "0f94d286be3a03e08ea55123c1acb235fbe3ec61d76318014cd0d3a267cc5919",
+        "line": 85,
+        "docstring": "Creates a new Organization.\n:param administrators: The initial administrators of the Organization. At least one principal must be provided.\n:type administrators: List[PrincipalId]\n:param enrollment_rid: The RID of the Enrollment that this Organization belongs to. This must be provided.\n:type enrollment_rid: EnrollmentRid\n:param name:\n:type name: OrganizationName\n:param description:\n:type description: Optional[str]\n:param host: The primary host name of the Organization. This should be used when constructing URLs for users of this Organization.\n:type host: Optional[HostName]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.Organization\n\n:raises CreateOrganizationMissingInitialAdminRole: At least one organization:administrator role grant must be provided when creating a organization.\n:raises CreateOrganizationPermissionDenied: Could not create the Organization.\n:raises EnrollmentNotFound: The given Enrollment could not be found.\n:raises OrganizationNameAlreadyExists: An organization with the same name already exists.\n:raises OrganizationNotFound: The given Organization could not be found.\n:raises PrincipalNotFound: A principal (User or Group) with the given PrincipalId could not be found",
+        "request_expressions": {
+          "method": "'POST'",
+          "resource_path": "'/v2/admin/organizations'",
+          "query_params": "{'preview': preview}",
+          "path_params": "{}",
+          "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+          "body": "admin_models.CreateOrganizationRequest(administrators=administrators, enrollment_rid=enrollment_rid, name=name, host=host, description=description)",
+          "response_type": "admin_models.Organization",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'CreateOrganizationMissingInitialAdminRole': admin_errors.CreateOrganizationMissingInitialAdminRole, 'CreateOrganizationPermissionDenied': admin_errors.CreateOrganizationPermissionDenied, 'EnrollmentNotFound': admin_errors.EnrollmentNotFound, 'OrganizationNameAlreadyExists': admin_errors.OrganizationNameAlreadyExists, 'OrganizationNotFound': admin_errors.OrganizationNotFound, 'PrincipalNotFound': admin_errors.PrincipalNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.Organization.get",
+      "case_id": "F072-30",
+      "verdict": "PASS",
+      "checks": 12,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/Organization/get.md",
+          "sha256": "331c45099692ac0a1d4352edbb4d1fbfab7db4b14db8e614ba80f0beff9dc35a"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/Organization.md",
+          "sha256": "a30e43120caaca01bbf8ec8ed95c4b1f0039d166e6174bd95ee6e6924b49ac5f"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/Organization/get.py",
+          "sha256": "242b54009f78dddb3bdd4a3948e1513292d06a80fbb1a1085676c007903e599d"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.organization",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\organization.py",
+        "sha256": "d4d3c63cb1d22a69e71f5810359213fc1d7e3b338e0c21d16d81ec14eaf11246",
+        "method_source_sha256": "fe34f1a95c801f4db87f4edf7d044c6ebcee6bdc38b3ca93fe96ff935a781155",
+        "line": 160,
+        "docstring": "Get the Organization with the specified rid.\n:param organization_rid:\n:type organization_rid: OrganizationRid\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.Organization\n\n:raises OrganizationNotFound: The given Organization could not be found.",
+        "request_expressions": {
+          "method": "'GET'",
+          "resource_path": "'/v2/admin/organizations/{organizationRid}'",
+          "query_params": "{}",
+          "path_params": "{'organizationRid': organization_rid}",
+          "header_params": "{'Accept': 'application/json'}",
+          "body": "None",
+          "response_type": "admin_models.Organization",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'OrganizationNotFound': admin_errors.OrganizationNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.Organization.list_available_roles",
+      "case_id": "F072-31",
+      "verdict": "PASS",
+      "checks": 13,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/Organization/list_available_roles.md",
+          "sha256": "658c9345f9a776c171d4dcf51f4b3061297deb67c096127df4a6e86507d89a5a"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/Organization.md",
+          "sha256": "a30e43120caaca01bbf8ec8ed95c4b1f0039d166e6174bd95ee6e6924b49ac5f"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/Organization/list_available_roles.py",
+          "sha256": "68fbd6409bab14e14ae55fd14400bdd3acdb98bae74b99de5506a65337ddaf82"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.organization",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\organization.py",
+        "sha256": "d4d3c63cb1d22a69e71f5810359213fc1d7e3b338e0c21d16d81ec14eaf11246",
+        "method_source_sha256": "edec04d2628729fd99a6e1b5647d3807679e2f7772a1ae3c47c18307a039828f",
+        "line": 203,
+        "docstring": "List all roles that can be assigned to a principal for the given Organization.\n\n:param organization_rid:\n:type organization_rid: OrganizationRid\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.ListAvailableOrganizationRolesResponse\n\n:raises ListAvailableRolesOrganizationPermissionDenied: Could not listAvailableRoles the Organization.\n:raises OrganizationNotFound: The given Organization could not be found.",
+        "request_expressions": {
+          "method": "'GET'",
+          "resource_path": "'/v2/admin/organizations/{organizationRid}/listAvailableRoles'",
+          "query_params": "{}",
+          "path_params": "{'organizationRid': organization_rid}",
+          "header_params": "{'Accept': 'application/json'}",
+          "body": "None",
+          "response_type": "admin_models.ListAvailableOrganizationRolesResponse",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'ListAvailableRolesOrganizationPermissionDenied': admin_errors.ListAvailableRolesOrganizationPermissionDenied, 'OrganizationNotFound': admin_errors.OrganizationNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.Organization.replace",
+      "case_id": "F072-32",
+      "verdict": "PASS",
+      "checks": 16,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/Organization/replace.md",
+          "sha256": "bd1806d4531dbf05d1f35ef854b1ee4b66433af5996b15c6fef21525105c4420"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/Organization.md",
+          "sha256": "a30e43120caaca01bbf8ec8ed95c4b1f0039d166e6174bd95ee6e6924b49ac5f"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/Organization/replace.py",
+          "sha256": "ca8c53224ed412455dc09f3bc3bbba2c037f494f9b00e784c850fbb0bd341fcb"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.organization",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\organization.py",
+        "sha256": "d4d3c63cb1d22a69e71f5810359213fc1d7e3b338e0c21d16d81ec14eaf11246",
+        "method_source_sha256": "2b6b31b2ce4a271348eb0415ad33d7d3451d9513d7dffd1ac640efc102c4cd73",
+        "line": 249,
+        "docstring": "Replace the Organization with the specified rid.\n:param organization_rid:\n:type organization_rid: OrganizationRid\n:param name:\n:type name: OrganizationName\n:param description:\n:type description: Optional[str]\n:param host: The primary host name of the Organization. This should be used when constructing URLs for users of this Organization.\n:type host: Optional[HostName]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.Organization\n\n:raises InvalidHostName: The provided hostname must be a valid domain name. The only allowed characters are letters, numbers, periods, and hyphens.\n:raises OrganizationNameAlreadyExists: An organization with the same name already exists.\n:raises OrganizationNotFound: The given Organization could not be found.\n:raises ReplaceOrganizationPermissionDenied: Could not replace the Organization.",
+        "request_expressions": {
+          "method": "'PUT'",
+          "resource_path": "'/v2/admin/organizations/{organizationRid}'",
+          "query_params": "{}",
+          "path_params": "{'organizationRid': organization_rid}",
+          "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+          "body": "admin_models.ReplaceOrganizationRequest(name=name, host=host, description=description)",
+          "response_type": "admin_models.Organization",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'InvalidHostName': admin_errors.InvalidHostName, 'OrganizationNameAlreadyExists': admin_errors.OrganizationNameAlreadyExists, 'OrganizationNotFound': admin_errors.OrganizationNotFound, 'ReplaceOrganizationPermissionDenied': admin_errors.ReplaceOrganizationPermissionDenied}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.OrganizationGuestMember.add",
+      "case_id": "F072-33",
+      "verdict": "PASS",
+      "checks": 16,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/OrganizationGuestMember/add.md",
+          "sha256": "90e75d450a860eb052c29cb71b4f0df4cacda1cdd401135d55f2ddcae0aaac9c"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/OrganizationGuestMember.md",
+          "sha256": "bb8918091fd8f6eaa828bb8897c5aa629c4a1e1b52fd4464ad67792ad2621fc3"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/OrganizationGuestMember/add.py",
+          "sha256": "6882d77ec001cac5816fe01e52e5f8d9ec3fd798dba2ed76e81c1ed30a28c41a"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.organization_guest_member",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\organization_guest_member.py",
+        "sha256": "5c86c45850a967e5d907b6b1e7ab3bf88b8291989f65a2231cacccb74174a62b",
+        "method_source_sha256": "a8af0cc245e188a8cc468861d40aecf325ec4af68fe5c37ffb84dab17c717697",
+        "line": 60,
+        "docstring": "Adds principals as guest members of an Organization. Attempting to add a primary member through this endpoint will not add the principal as a guest, but will still return a successful response.\n\n:param organization_rid:\n:type organization_rid: OrganizationRid\n:param principal_ids:\n:type principal_ids: List[PrincipalId]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: None\n\n:raises AddOrganizationGuestMembersPermissionDenied: Could not add the OrganizationGuestMember.\n:raises OrganizationNotFound: The given Organization could not be found.\n:raises PrincipalNotFound: A principal (User or Group) with the given PrincipalId could not be found",
+        "request_expressions": {
+          "method": "'POST'",
+          "resource_path": "'/v2/admin/organizations/{organizationRid}/guestMembers/add'",
+          "query_params": "{'preview': preview}",
+          "path_params": "{'organizationRid': organization_rid}",
+          "header_params": "{'Content-Type': 'application/json'}",
+          "body": "admin_models.AddOrganizationGuestMembersRequest(principal_ids=principal_ids)",
+          "response_type": "None",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'AddOrganizationGuestMembersPermissionDenied': admin_errors.AddOrganizationGuestMembersPermissionDenied, 'OrganizationNotFound': admin_errors.OrganizationNotFound, 'PrincipalNotFound': admin_errors.PrincipalNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.OrganizationGuestMember.list",
+      "case_id": "F072-34",
+      "verdict": "PASS",
+      "checks": 13,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/OrganizationGuestMember/list.md",
+          "sha256": "440b53f31fba25015fb5b797b054615c717490b5fe8c3ea502edaa16f4993b65"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/OrganizationGuestMember.md",
+          "sha256": "bb8918091fd8f6eaa828bb8897c5aa629c4a1e1b52fd4464ad67792ad2621fc3"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/OrganizationGuestMember/list.py",
+          "sha256": "75e5132573a66e09882514bbd9f2c8f338ede720b933526a0dc39d8e7fa5c33e"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.organization_guest_member",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\organization_guest_member.py",
+        "sha256": "5c86c45850a967e5d907b6b1e7ab3bf88b8291989f65a2231cacccb74174a62b",
+        "method_source_sha256": "87d9ba16801ab121de9eb7f1bbf1e77aa9b4f7676a741be35b9582381a6550f6",
+        "line": 118,
+        "docstring": "Lists all guest members of an Organization.\n\n:param organization_rid:\n:type organization_rid: OrganizationRid\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.ListOrganizationGuestMembersResponse\n\n:raises ListOrganizationGuestMembersPermissionDenied: The provided token does not have permission to list guest members for this organization.\n:raises OrganizationNotFound: The given Organization could not be found.",
+        "request_expressions": {
+          "method": "'GET'",
+          "resource_path": "'/v2/admin/organizations/{organizationRid}/guestMembers'",
+          "query_params": "{'preview': preview}",
+          "path_params": "{'organizationRid': organization_rid}",
+          "header_params": "{'Accept': 'application/json'}",
+          "body": "None",
+          "response_type": "admin_models.ListOrganizationGuestMembersResponse",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'ListOrganizationGuestMembersPermissionDenied': admin_errors.ListOrganizationGuestMembersPermissionDenied, 'OrganizationNotFound': admin_errors.OrganizationNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.OrganizationGuestMember.remove",
+      "case_id": "F072-35",
+      "verdict": "PASS",
+      "checks": 16,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/OrganizationGuestMember/remove.md",
+          "sha256": "e07d01e9a8f83680397602d43725ee2bf14998790d724877fe8fc6167efa1d2d"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/OrganizationGuestMember.md",
+          "sha256": "bb8918091fd8f6eaa828bb8897c5aa629c4a1e1b52fd4464ad67792ad2621fc3"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/OrganizationGuestMember/remove.py",
+          "sha256": "27cca346204aa491f848a2322a81a2684ec34982dfe28849f0a51e7cd605ca45"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.organization_guest_member",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\organization_guest_member.py",
+        "sha256": "5c86c45850a967e5d907b6b1e7ab3bf88b8291989f65a2231cacccb74174a62b",
+        "method_source_sha256": "a112860daeeada16213019cb973851f621d08c6803084391654a6fdf0b2c2632",
+        "line": 169,
+        "docstring": "Removes principals from being guest members of an Organization. Attempting to remove a primary member through this endpoint will not remove the primary member, but will still return a successful response.\n\n:param organization_rid:\n:type organization_rid: OrganizationRid\n:param principal_ids:\n:type principal_ids: List[PrincipalId]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: None\n\n:raises OrganizationNotFound: The given Organization could not be found.\n:raises PrincipalNotFound: A principal (User or Group) with the given PrincipalId could not be found\n:raises RemoveOrganizationGuestMembersPermissionDenied: Could not remove the OrganizationGuestMember.",
+        "request_expressions": {
+          "method": "'POST'",
+          "resource_path": "'/v2/admin/organizations/{organizationRid}/guestMembers/remove'",
+          "query_params": "{'preview': preview}",
+          "path_params": "{'organizationRid': organization_rid}",
+          "header_params": "{'Content-Type': 'application/json'}",
+          "body": "admin_models.RemoveOrganizationGuestMembersRequest(principal_ids=principal_ids)",
+          "response_type": "None",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'OrganizationNotFound': admin_errors.OrganizationNotFound, 'PrincipalNotFound': admin_errors.PrincipalNotFound, 'RemoveOrganizationGuestMembersPermissionDenied': admin_errors.RemoveOrganizationGuestMembersPermissionDenied}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.OrganizationRoleAssignment.add",
+      "case_id": "F072-36",
+      "verdict": "PASS",
+      "checks": 16,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/OrganizationRoleAssignment/add.md",
+          "sha256": "95c0426577761f90b82322e48153ef383338f2295dd938dfad3bab8bb1ec6229"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/OrganizationRoleAssignment.md",
+          "sha256": "37108371c51878f94764c8ab95338196ac40dfb506ce4029b61a5712d794a33f"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/OrganizationRoleAssignment/add.py",
+          "sha256": "6f366622c0c3c49ba07bdb45a821fd17e3b87001e1d8c003ee2b7978febd9301"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.organization_role_assignment",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\organization_role_assignment.py",
+        "sha256": "84a5413ae5c2deda602aad02c48312ce175e0cdf9740c1d7563a1009c6e9ac48",
+        "method_source_sha256": "0a3041bf5a8366f16d579d17cb7ddf9fc072c7685e027b23cbcf7cec7456ed0c",
+        "line": 60,
+        "docstring": "Assign roles to principals for the given Organization. At most 100 role assignments can be added in a single request.\n\n:param organization_rid:\n:type organization_rid: OrganizationRid\n:param role_assignments:\n:type role_assignments: List[RoleAssignmentUpdate]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: None\n\n:raises AddOrganizationRoleAssignmentsPermissionDenied: Could not add the OrganizationRoleAssignment.\n:raises OrganizationNotFound: The given Organization could not be found.\n:raises PrincipalNotFound: A principal (User or Group) with the given PrincipalId could not be found",
+        "request_expressions": {
+          "method": "'POST'",
+          "resource_path": "'/v2/admin/organizations/{organizationRid}/roleAssignments/add'",
+          "query_params": "{}",
+          "path_params": "{'organizationRid': organization_rid}",
+          "header_params": "{'Content-Type': 'application/json'}",
+          "body": "admin_models.AddOrganizationRoleAssignmentsRequest(role_assignments=role_assignments)",
+          "response_type": "None",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'AddOrganizationRoleAssignmentsPermissionDenied': admin_errors.AddOrganizationRoleAssignmentsPermissionDenied, 'OrganizationNotFound': admin_errors.OrganizationNotFound, 'PrincipalNotFound': admin_errors.PrincipalNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.OrganizationRoleAssignment.list",
+      "case_id": "F072-37",
+      "verdict": "PASS",
+      "checks": 13,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/OrganizationRoleAssignment/list.md",
+          "sha256": "772eb61129a97bf4e6637615c1ad25688153ba60c2c56952b68d96ae2200eafd"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/OrganizationRoleAssignment.md",
+          "sha256": "37108371c51878f94764c8ab95338196ac40dfb506ce4029b61a5712d794a33f"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/OrganizationRoleAssignment/list.py",
+          "sha256": "be85ae5089cc69e48c1e2801ead81ada57e24e549107a361156d5d08e8c3ce33"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.organization_role_assignment",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\organization_role_assignment.py",
+        "sha256": "84a5413ae5c2deda602aad02c48312ce175e0cdf9740c1d7563a1009c6e9ac48",
+        "method_source_sha256": "10233313299d17424535ef3977bf06b973667a44207c70ecaa5a9abbf316620a",
+        "line": 113,
+        "docstring": "List all principals who are assigned a role for the given Organization.\n\n:param organization_rid:\n:type organization_rid: OrganizationRid\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.ListOrganizationRoleAssignmentsResponse\n\n:raises ListOrganizationRoleAssignmentsPermissionDenied: The provided token does not have permission to list assigned roles for this organization.\n:raises OrganizationNotFound: The given Organization could not be found.",
+        "request_expressions": {
+          "method": "'GET'",
+          "resource_path": "'/v2/admin/organizations/{organizationRid}/roleAssignments'",
+          "query_params": "{}",
+          "path_params": "{'organizationRid': organization_rid}",
+          "header_params": "{'Accept': 'application/json'}",
+          "body": "None",
+          "response_type": "admin_models.ListOrganizationRoleAssignmentsResponse",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'ListOrganizationRoleAssignmentsPermissionDenied': admin_errors.ListOrganizationRoleAssignmentsPermissionDenied, 'OrganizationNotFound': admin_errors.OrganizationNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.OrganizationRoleAssignment.remove",
+      "case_id": "F072-38",
+      "verdict": "PASS",
+      "checks": 16,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/OrganizationRoleAssignment/remove.md",
+          "sha256": "4d1ad20cfb45211276b3607af26b0140441632f48d5f8bdac054a1e5377e31b7"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/OrganizationRoleAssignment.md",
+          "sha256": "37108371c51878f94764c8ab95338196ac40dfb506ce4029b61a5712d794a33f"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/OrganizationRoleAssignment/remove.py",
+          "sha256": "f7d833faaecc5e972b60bebf65fc272a0e0960b7a68a8628f421253c6edb6d41"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.organization_role_assignment",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\organization_role_assignment.py",
+        "sha256": "84a5413ae5c2deda602aad02c48312ce175e0cdf9740c1d7563a1009c6e9ac48",
+        "method_source_sha256": "d6123b5544bec09ea6b3faa6b97d660c424a413481f84d6c2517ba105d129061",
+        "line": 159,
+        "docstring": "Remove roles from principals for the given Organization. At most 100 role assignments can be removed in a single request.\n\n:param organization_rid:\n:type organization_rid: OrganizationRid\n:param role_assignments:\n:type role_assignments: List[RoleAssignmentUpdate]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: None\n\n:raises OrganizationNotFound: The given Organization could not be found.\n:raises PrincipalNotFound: A principal (User or Group) with the given PrincipalId could not be found\n:raises RemoveOrganizationRoleAssignmentsPermissionDenied: Could not remove the OrganizationRoleAssignment.",
+        "request_expressions": {
+          "method": "'POST'",
+          "resource_path": "'/v2/admin/organizations/{organizationRid}/roleAssignments/remove'",
+          "query_params": "{}",
+          "path_params": "{'organizationRid': organization_rid}",
+          "header_params": "{'Content-Type': 'application/json'}",
+          "body": "admin_models.RemoveOrganizationRoleAssignmentsRequest(role_assignments=role_assignments)",
+          "response_type": "None",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'OrganizationNotFound': admin_errors.OrganizationNotFound, 'PrincipalNotFound': admin_errors.PrincipalNotFound, 'RemoveOrganizationRoleAssignmentsPermissionDenied': admin_errors.RemoveOrganizationRoleAssignmentsPermissionDenied}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.Role.get",
+      "case_id": "F072-39",
+      "verdict": "PASS",
+      "checks": 12,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/Role/get.md",
+          "sha256": "5b28b902c3e6656a09ab69141be221fcce68a16b15fa8028d27d48f1dc0a8ffa"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/Role.md",
+          "sha256": "64c4f47d6bc9544f05358e89ac00a5e985303db48204ca1bd107eca7e2b340af"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/Role/get.py",
+          "sha256": "8e94720a3f4f0baf227437e79d29a4252d268baa09c2e5d5322059ae1d85b61a"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.role",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\role.py",
+        "sha256": "5b4fdf66507b417128f6c605ebb9725ae319bd0e2b4f6729ec684787e884f65f",
+        "method_source_sha256": "42f37b88af61abbde5505330ba73791131963dc782fffc68707e3c67a99d3d87",
+        "line": 61,
+        "docstring": "Get the Role with the specified id.\n:param role_id:\n:type role_id: RoleId\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.Role\n\n:raises RoleNotFound: The given Role could not be found.",
+        "request_expressions": {
+          "method": "'GET'",
+          "resource_path": "'/v2/admin/roles/{roleId}'",
+          "query_params": "{'preview': preview}",
+          "path_params": "{'roleId': role_id}",
+          "header_params": "{'Accept': 'application/json'}",
+          "body": "None",
+          "response_type": "admin_models.Role",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{'RoleNotFound': admin_errors.RoleNotFound}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    },
+    {
+      "id": "v2.admin.Role.get_batch",
+      "case_id": "F072-40",
+      "verdict": "PASS",
+      "checks": 15,
+      "assets": {
+        "contract": {
+          "path": "references/rest/contracts/v2/admin/Role/get_batch.md",
+          "sha256": "d614437edcf872677d225825cab81bd22a2928fc667b4f9f3a1af4b097e6f13c"
+        },
+        "behavior": {
+          "path": "references/rest/v2/admin/Role.md",
+          "sha256": "64c4f47d6bc9544f05358e89ac00a5e985303db48204ca1bd107eca7e2b340af"
+        },
+        "example": {
+          "path": "examples/rest/072/v2/admin/Role/get_batch.py",
+          "sha256": "be0018cd31e9d345dca5bc3f59e778d083d92f89e5f18d378280039a7f39da3d"
+        }
+      },
+      "source": {
+        "module": "foundry_sdk.v2.admin.role",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\role.py",
+        "sha256": "5b4fdf66507b417128f6c605ebb9725ae319bd0e2b4f6729ec684787e884f65f",
+        "method_source_sha256": "0883160fc5005314cd75113926171c805fe27193f744d43da8b95b15c0b4236e",
+        "line": 109,
+        "docstring": "Execute multiple get requests on Role.\n\nThe maximum batch size for this endpoint is 500.\n:param body: Body of the request\n:type body: List[GetRolesBatchRequestElement]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: admin_models.GetRolesBatchResponse",
+        "request_expressions": {
+          "method": "'POST'",
+          "resource_path": "'/v2/admin/roles/getBatch'",
+          "query_params": "{'preview': preview}",
+          "path_params": "{}",
+          "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+          "body": "body",
+          "response_type": "admin_models.GetRolesBatchResponse",
+          "request_timeout": "request_timeout",
+          "throwable_errors": "{}",
+          "response_mode": "_sdk_internal.get('response_mode')"
+        }
+      }
+    }
+  ],
+  "execution_summary": {
+    "executor": "/root/formal072_resume/independent072",
+    "operations": 40,
+    "declared_errors": 113,
+    "check_records": 612,
+    "final_exit_code": 0,
+    "final_runtime_seconds": 1.0086286999999174,
+    "prior_harness_attempts": [
+      {
+        "runner": "rest072_resume_attempt1_formal_runner.json",
+        "exit_code": 1,
+        "elapsed_seconds": 0.6838460999997551,
+        "sha256": "14ac0d041500f5a10cb95b12802b2c058b440ad589040ac2054d993c9156e1fa",
+        "failure": "AttributeError(\"'AuthenticationProviderNotFound' object has no attribute 'error_code'\")"
+      },
+      {
+        "runner": "rest072_resume_attempt2_formal_runner.json",
+        "exit_code": 1,
+        "elapsed_seconds": 0.6437832999999955,
+        "sha256": "34704a85e0dab7a01836a42f9f689d6b1ac4145edd5dcba9f87431f2bcdb3d76",
+        "failure": "SDKInternalError('Expecting property name enclosed in double quotes: line 1 column 2 (char 1)')"
+      },
+      {
+        "runner": "rest072_resume_attempt3_formal_runner.json",
+        "exit_code": 1,
+        "elapsed_seconds": 0.7034911000000648,
+        "sha256": "03eff17366f53d981101a53afe9e65c618eda48693bb4a4b76c6812ff5953c4a",
+        "failure": "AssertionError(('v2.admin.Host.list', <foundry_sdk._core.resource_iterator.ResourceIterator object at 0x0000023C6A967490>, {'data': [{'hostName': 'qa-review-072'}], 'nextPageToken': 'qa-review-072'}))"
+      },
+      {
+        "runner": "rest072_resume_attempt4_formal_runner.json",
+        "exit_code": 0,
+        "elapsed_seconds": 0.9948214000000917,
+        "sha256": "5719e370a7c8ed2168b15b49b0b43938b6d0908e0e8431e9eefbbe28dfe2b0c9",
+        "failure": null
+      }
+    ],
+    "total_measured_execution_seconds": 4.0345705999998245,
+    "boundary": "Offline SDK serialization, typed results, errors and bounded lifecycle assertions only; no live enrollment/deployment verification."
+  },
+  "evidence": {
+    "rest072_formal_cases.json": {
+      "path": "rest072_formal_cases.json",
+      "sha256": "99cf3b938c7b7525bde7b9ffab42607128d1ca6e18cee183ee38e464bcc9d62c"
+    },
+    "rest072_resume_case_approval.json": {
+      "path": "rest072_resume_case_approval.json",
+      "sha256": "85f0cbb2a88c5b1ea5d37422773e288077bb15948fc6c5321f95a70dea5bc569"
+    },
+    "rest072_resume_codereview_approval.json": {
+      "path": "rest072_resume_codereview_approval.json",
+      "sha256": "4a940c2ccb402e2e4cc966fdbd221157bd76925f0627b87b072d380b94de45fc"
+    },
+    "rest072_resume_independent_inspection.json": {
+      "path": "rest072_resume_independent_inspection.json",
+      "sha256": "8ec27f0c0412e5947fdf05538429368581d38a5e9a0a9629a3f1499c38505cfe"
+    },
+    "rest072_resume_formal_execute.py": {
+      "path": "rest072_resume_formal_execute.py",
+      "sha256": "e5d4cf98b03770f644fb36b4b7a71c44564c75836ec71b8832ebd0fe589873f0"
+    },
+    "rest072_resume_formal_execute.log": {
+      "path": "rest072_resume_formal_execute.log",
+      "sha256": "5f7bdd95f67818d91c6bdef464a8ecbe11d0112ecec7fd72b307df24de9aff4d"
+    },
+    "rest072_resume_formal_execution.json": {
+      "path": "rest072_resume_formal_execution.json",
+      "sha256": "ed4cd99b60f914d11c38a4e6f5392f12f55dc0ab680da271a3324a80a7841518"
+    },
+    "rest072_resume_formal_runner.json": {
+      "path": "rest072_resume_formal_runner.json",
+      "sha256": "c4f8898f32dd6fbb1c373b23c944d8bb944a1752c2d27e86f481990f947d57d2"
+    }
+  },
+  "boundary": "Offline SDK serialization, typed results, errors and bounded lifecycle assertions only; no live enrollment/deployment verification.",
+  "durable_archive_required": true
+}

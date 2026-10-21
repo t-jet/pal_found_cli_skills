@@ -1,0 +1,17 @@
+{
+  "purpose": "Prepared dependency contract for example API checks",
+  "checked": "2026-10-07",
+  "node": "24.12.0",
+  "typescript": "7.0.2",
+  "react": "19.3.0",
+  "react-dom": "19.3.0",
+  "@osdk/api": "2.76.0",
+  "@osdk/client": "2.76.0",
+  "@osdk/react": "2.76.0",
+  "@osdk/oauth": "1.14.0",
+  "@osdk/widget.client": "3.76.0",
+  "@osdk/widget.client-react": "3.76.0",
+  "@osdk/widget.vite-plugin": "3.76.0",
+  "vite": "7.3.7",
+  "generatedBinding": "@my/osdk is a placeholder; schema-fixture.d.ts is hand-authored synthetic metadata"
+}

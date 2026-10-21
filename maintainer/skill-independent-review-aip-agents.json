@@ -1,0 +1,379 @@
+{
+  "reviewer_agent": "/root/aip_agents_review_resume",
+  "reviewed_at_utc": "2026-10-21T20:45:26.998292+00:00",
+  "review_status": "PASS",
+  "initial_pages": [
+    {
+      "path": ".agents/skills/pal-found-aip-agents/references/01-agents-sessions.md",
+      "absolute_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-aip-agents\\references\\01-agents-sessions.md",
+      "sha256": "01d68a838bd8e69247a76f2c26c376c7ed85b45f383718182eb04fa1691e3c39",
+      "status": "PASS",
+      "scope": "Whole page prose, identifiers, operation count/routing, CLI syntax/required and optional inputs, outputs/errors and lifecycle/security where applicable."
+    },
+    {
+      "path": ".agents/skills/pal-found-aip-agents/references/02-content-trace.md",
+      "absolute_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-aip-agents\\references\\02-content-trace.md",
+      "sha256": "0f94ab38f6ad12d1fae7c9fff08755ae71adda11b0b92d68a7685781027630dd",
+      "status": "PASS",
+      "scope": "Whole page prose, identifiers, operation count/routing, CLI syntax/required and optional inputs, outputs/errors and lifecycle/security where applicable."
+    },
+    {
+      "path": ".agents/skills/pal-found-aip-agents/references/agent-version.md",
+      "absolute_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-aip-agents\\references\\agent-version.md",
+      "sha256": "3215b062099aba2f29c27a1167a24d0a1677f04a870d1f81153f83f41ddc95e5",
+      "status": "PASS",
+      "scope": "Whole page prose, identifiers, operation count/routing, CLI syntax/required and optional inputs, outputs/errors and lifecycle/security where applicable."
+    },
+    {
+      "path": ".agents/skills/pal-found-aip-agents/references/agent.md",
+      "absolute_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-aip-agents\\references\\agent.md",
+      "sha256": "9d4c944432fe250122bc0a6aa288be37418cd7725ba26b7e0522a6dec5949bcb",
+      "status": "PASS",
+      "scope": "Whole page prose, identifiers, operation count/routing, CLI syntax/required and optional inputs, outputs/errors and lifecycle/security where applicable."
+    },
+    {
+      "path": ".agents/skills/pal-found-aip-agents/references/content.md",
+      "absolute_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-aip-agents\\references\\content.md",
+      "sha256": "12a914ea7ee3945a87513a0ad1a5934db5dbb6c5d634661f8d2de47eb109f61a",
+      "status": "PASS",
+      "scope": "Whole page prose, identifiers, operation count/routing, CLI syntax/required and optional inputs, outputs/errors and lifecycle/security where applicable."
+    },
+    {
+      "path": ".agents/skills/pal-found-aip-agents/references/inputs.md",
+      "absolute_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-aip-agents\\references\\inputs.md",
+      "sha256": "60b99aa0c820423d21c0ff09080955769bf4379bbf5cd4d0f4e46fac77ddced9",
+      "status": "PASS",
+      "scope": "Whole page prose, identifiers, operation count/routing, CLI syntax/required and optional inputs, outputs/errors and lifecycle/security where applicable."
+    },
+    {
+      "path": ".agents/skills/pal-found-aip-agents/references/session-trace.md",
+      "absolute_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-aip-agents\\references\\session-trace.md",
+      "sha256": "4c9610fde48e82ba09dd48a70d91418ac074ce3b056259d3e434890bb9400127",
+      "status": "PASS",
+      "scope": "Whole page prose, identifiers, operation count/routing, CLI syntax/required and optional inputs, outputs/errors and lifecycle/security where applicable."
+    },
+    {
+      "path": ".agents/skills/pal-found-aip-agents/references/session.md",
+      "absolute_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-aip-agents\\references\\session.md",
+      "sha256": "0163ee97390a97dd9512a283529d7973c3e62a063db6751401ca7cf24fcceeef",
+      "status": "PASS",
+      "scope": "Whole page prose, identifiers, operation count/routing, CLI syntax/required and optional inputs, outputs/errors and lifecycle/security where applicable."
+    },
+    {
+      "path": ".agents/skills/pal-found-aip-agents/SKILL.md",
+      "absolute_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-aip-agents\\SKILL.md",
+      "sha256": "a3679944c093fc5acf8294ff01424f5db9052b95d7379c59130b73f39e593153",
+      "status": "FAIL",
+      "scope": "Whole page prose, identifiers, operation count/routing, CLI syntax/required and optional inputs, outputs/errors and lifecycle/security where applicable."
+    }
+  ],
+  "pages": [
+    {
+      "path": ".agents/skills/pal-found-aip-agents/references/01-agents-sessions.md",
+      "absolute_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-aip-agents\\references\\01-agents-sessions.md",
+      "sha256": "01d68a838bd8e69247a76f2c26c376c7ed85b45f383718182eb04fa1691e3c39",
+      "status": "PASS",
+      "scope": "Whole page prose, identifiers, operation count/routing, CLI syntax/required and optional inputs, outputs/errors and lifecycle/security where applicable."
+    },
+    {
+      "path": ".agents/skills/pal-found-aip-agents/references/02-content-trace.md",
+      "absolute_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-aip-agents\\references\\02-content-trace.md",
+      "sha256": "0f94ab38f6ad12d1fae7c9fff08755ae71adda11b0b92d68a7685781027630dd",
+      "status": "PASS",
+      "scope": "Whole page prose, identifiers, operation count/routing, CLI syntax/required and optional inputs, outputs/errors and lifecycle/security where applicable."
+    },
+    {
+      "path": ".agents/skills/pal-found-aip-agents/references/agent-version.md",
+      "absolute_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-aip-agents\\references\\agent-version.md",
+      "sha256": "3215b062099aba2f29c27a1167a24d0a1677f04a870d1f81153f83f41ddc95e5",
+      "status": "PASS",
+      "scope": "Whole page prose, identifiers, operation count/routing, CLI syntax/required and optional inputs, outputs/errors and lifecycle/security where applicable."
+    },
+    {
+      "path": ".agents/skills/pal-found-aip-agents/references/agent.md",
+      "absolute_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-aip-agents\\references\\agent.md",
+      "sha256": "9d4c944432fe250122bc0a6aa288be37418cd7725ba26b7e0522a6dec5949bcb",
+      "status": "PASS",
+      "scope": "Whole page prose, identifiers, operation count/routing, CLI syntax/required and optional inputs, outputs/errors and lifecycle/security where applicable."
+    },
+    {
+      "path": ".agents/skills/pal-found-aip-agents/references/content.md",
+      "absolute_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-aip-agents\\references\\content.md",
+      "sha256": "12a914ea7ee3945a87513a0ad1a5934db5dbb6c5d634661f8d2de47eb109f61a",
+      "status": "PASS",
+      "scope": "Whole page prose, identifiers, operation count/routing, CLI syntax/required and optional inputs, outputs/errors and lifecycle/security where applicable."
+    },
+    {
+      "path": ".agents/skills/pal-found-aip-agents/references/inputs.md",
+      "absolute_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-aip-agents\\references\\inputs.md",
+      "sha256": "60b99aa0c820423d21c0ff09080955769bf4379bbf5cd4d0f4e46fac77ddced9",
+      "status": "PASS",
+      "scope": "Whole page prose, identifiers, operation count/routing, CLI syntax/required and optional inputs, outputs/errors and lifecycle/security where applicable."
+    },
+    {
+      "path": ".agents/skills/pal-found-aip-agents/references/session-trace.md",
+      "absolute_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-aip-agents\\references\\session-trace.md",
+      "sha256": "4c9610fde48e82ba09dd48a70d91418ac074ce3b056259d3e434890bb9400127",
+      "status": "PASS",
+      "scope": "Whole page prose, identifiers, operation count/routing, CLI syntax/required and optional inputs, outputs/errors and lifecycle/security where applicable."
+    },
+    {
+      "path": ".agents/skills/pal-found-aip-agents/references/session.md",
+      "absolute_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-aip-agents\\references\\session.md",
+      "sha256": "0163ee97390a97dd9512a283529d7973c3e62a063db6751401ca7cf24fcceeef",
+      "status": "PASS",
+      "scope": "Whole page prose, identifiers, operation count/routing, CLI syntax/required and optional inputs, outputs/errors and lifecycle/security where applicable."
+    },
+    {
+      "path": ".agents/skills/pal-found-aip-agents/SKILL.md",
+      "absolute_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-aip-agents\\SKILL.md",
+      "sha256": "854484c1aebcd0243e19f5f507ed08e1f18a357c17a07e129e9ece92ef6f827d",
+      "status": "PASS",
+      "scope": "Whole page prose, identifiers, operation count/routing, CLI syntax/required and optional inputs, outputs/errors and lifecycle/security where applicable."
+    }
+  ],
+  "initial_findings": [
+    {
+      "id": "AIP-01",
+      "severity": "minor",
+      "status": "OPEN_PENDING_AUTHOR_CORRECTION",
+      "page": ".agents/skills/pal-found-aip-agents/SKILL.md",
+      "initial_sha256": "a3679944c093fc5acf8294ff01424f5db9052b95d7379c59130b73f39e593153",
+      "claim": "--format selects JSON, TOON, or automatic structured output; every operation accepts this option.",
+      "actual": "streaming-continue forces JSON envelope regardless of --format. Session reference states this correctly.",
+      "evidence": "Real cli.main with --format toon exited0; stdout parsed as JSON download envelope. Source force_json branch independently confirms.",
+      "recommended_correction": "State streaming-continue always emits JSON download metadata."
+    }
+  ],
+  "findings": [
+    {
+      "id": "AIP-01",
+      "severity": "minor",
+      "status": "RESOLVED_AFTER_AUTHOR_CORRECTION_AND_INDEPENDENT_RETEST",
+      "page": ".agents/skills/pal-found-aip-agents/SKILL.md",
+      "initial_sha256": "a3679944c093fc5acf8294ff01424f5db9052b95d7379c59130b73f39e593153",
+      "claim": "--format selects JSON, TOON, or automatic structured output; every operation accepts this option.",
+      "actual": "streaming-continue forces JSON envelope regardless of --format. Session reference states this correctly.",
+      "evidence": "Real cli.main with --format toon exited0; stdout parsed as JSON download envelope. Source force_json branch independently confirms.",
+      "recommended_correction": "State streaming-continue always emits JSON download metadata."
+    }
+  ],
+  "reviewed_checkout": {
+    "pages_head": "a921fb278ca5f43379bc3feda3b95482d056d0d8",
+    "tool_head": "066970098011c90269aa975d14d7ac713106bbe5",
+    "sdk": "foundry-platform-sdk 1.101.0",
+    "interpreter": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_qa_env\\Scripts\\python.exe"
+  },
+  "sources": [
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\tests\\fixtures\\offline\\rest-acceptance\\source-oracle.json",
+      "sha256": "5b6926046cb5c50663f4900747353bc743b2d5799829187e481abe333e6330d1"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\aip_agents\\scripts\\pal_found_aip_agents_cli.py",
+      "sha256": "ba5e20290917f5b7845abbf2822c3fa1668d891b62694aa2324e99b506a89ccb"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\session_manager.py",
+      "sha256": "bbc255c436c0f01e4ff29e61301475346c5766ee137afb39868513b0e7dc7f32"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\async_client_factory.py",
+      "sha256": "6ca5c512a625ca019ff6070f8b4d9808db8946aa3dd18cce0268d0d3a62cd6b4"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\pagination_helper.py",
+      "sha256": "b831ea4c2d64b48e5ed5a9558da2a19f4933d27d4290922d266030db1796e5db"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\binary_download_handler.py",
+      "sha256": "60918187fad8f0a195fab73f1dc61b5ff4df124f2a8f697822f7ac39e84ffcab"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\error_serializer.py",
+      "sha256": "8ef68e5e0065411c297d7119d40ee0898693062c2f7df02d2318c679151ac02b"
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\models.py",
+      "sha256": "4532f998cbfbcc5d5979e377734e098e66b1612116af1bb57c6a82ec8fa5eb74"
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\errors.py",
+      "sha256": "e66acca9ecbf01f88ee23c429084b8db06599475ccfb2c4fc9032c8681bc5ab5"
+    }
+  ],
+  "sdk_source_oracle_checks": [
+    {
+      "operation": "v2.aip_agents.Agent.all_sessions",
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\agent.py",
+      "sha256": "a4e8a02cd5e824228a83dd06134389f32876403cff75c5b2bc0317efd0140162",
+      "oracle_sha256": "a4e8a02cd5e824228a83dd06134389f32876403cff75c5b2bc0317efd0140162",
+      "match": true
+    },
+    {
+      "operation": "v2.aip_agents.Agent.get",
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\agent.py",
+      "sha256": "a4e8a02cd5e824228a83dd06134389f32876403cff75c5b2bc0317efd0140162",
+      "oracle_sha256": "a4e8a02cd5e824228a83dd06134389f32876403cff75c5b2bc0317efd0140162",
+      "match": true
+    },
+    {
+      "operation": "v2.aip_agents.AgentVersion.get",
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\agent_version.py",
+      "sha256": "800b64e68d4a3c104e76b792e3ac02d400d13a667186cfb002465417c965c3d8",
+      "oracle_sha256": "800b64e68d4a3c104e76b792e3ac02d400d13a667186cfb002465417c965c3d8",
+      "match": true
+    },
+    {
+      "operation": "v2.aip_agents.AgentVersion.list",
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\agent_version.py",
+      "sha256": "800b64e68d4a3c104e76b792e3ac02d400d13a667186cfb002465417c965c3d8",
+      "oracle_sha256": "800b64e68d4a3c104e76b792e3ac02d400d13a667186cfb002465417c965c3d8",
+      "match": true
+    },
+    {
+      "operation": "v2.aip_agents.Content.get",
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\content.py",
+      "sha256": "d7b4c970889956f860350a5794736869405dc81b4ac00999e91595ade4c6e0a1",
+      "oracle_sha256": "d7b4c970889956f860350a5794736869405dc81b4ac00999e91595ade4c6e0a1",
+      "match": true
+    },
+    {
+      "operation": "v2.aip_agents.Session.blocking_continue",
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py",
+      "sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "oracle_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "match": true
+    },
+    {
+      "operation": "v2.aip_agents.Session.cancel",
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py",
+      "sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "oracle_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "match": true
+    },
+    {
+      "operation": "v2.aip_agents.Session.create",
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py",
+      "sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "oracle_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "match": true
+    },
+    {
+      "operation": "v2.aip_agents.Session.delete",
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py",
+      "sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "oracle_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "match": true
+    },
+    {
+      "operation": "v2.aip_agents.Session.get",
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py",
+      "sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "oracle_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "match": true
+    },
+    {
+      "operation": "v2.aip_agents.Session.list",
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py",
+      "sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "oracle_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "match": true
+    },
+    {
+      "operation": "v2.aip_agents.Session.rag_context",
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py",
+      "sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "oracle_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "match": true
+    },
+    {
+      "operation": "v2.aip_agents.Session.streaming_continue",
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py",
+      "sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "oracle_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "match": true
+    },
+    {
+      "operation": "v2.aip_agents.Session.update_title",
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py",
+      "sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "oracle_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "match": true
+    },
+    {
+      "operation": "v2.aip_agents.SessionTrace.get",
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session_trace.py",
+      "sha256": "24dbb5a1290eb00d8024c12fc2ad50afed584fccc042bd7773a924a4d378df29",
+      "oracle_sha256": "24dbb5a1290eb00d8024c12fc2ad50afed584fccc042bd7773a924a4d378df29",
+      "match": true
+    }
+  ],
+  "commands": [
+    {
+      "command": "& .ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe .ept/tmp/feature015_aip_agents_probe.py",
+      "exit_code": 0,
+      "result": "21 probes:15 examples actual HTTP serialization+SDK model decoding;3 paged examples used2HTTP pages; optional selectors/contexts/message-id/trace-id/filename/response;404AgentNotFound decoded; UserTextInput missing text rejected before HTTP.",
+      "artifact": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_aip_agents_probe_results.json"
+    },
+    {
+      "command": "& .ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe .ept/tmp/feature015_aip_agents_main_probe.py",
+      "exit_code": 0,
+      "result": "Real main SDK bytes + alias state + JSON formatter verified; format toon emits JSON.",
+      "artifact": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_aip_agents_main_probe_results.json"
+    },
+    {
+      "command": "python -m pytest tests/test_pal_found_aip_agents_cli.py tests/test_session_manager.py tests/test_pagination_helper.py -q --basetemp=E:/learn/GenAI_Foundations_DA/git/foundry_cli/.ept/tmp/feature015_aip_agents_pytest",
+      "cwd": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes",
+      "exit_code": 0,
+      "result": "102 passed in 0.69s. Supplementary mocked unit tests cover lifecycle, guard, output and errors; they are not HTTP decoder proof."
+    }
+  ],
+  "probes": [
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_aip_agents_probe.py",
+      "sha256": "fa7537160155d8fa6cdceeabac8be159f6e0c58dccfefd0fa148d4c7894fccca"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_aip_agents_probe_results.json",
+      "sha256": "582ec3e209f9808495b13d0bccec44e2bedce2f6d793a23e0ab0c23dd61eb67a"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_aip_agents_main_probe.py",
+      "sha256": "b7ce9fc86dcdc22105629bcb048ceca839b07ec527c26e4266bf67e8a436d3d3"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_aip_agents_main_probe_results.json",
+      "sha256": "55c2d452d2abb4416d6f3ff170dd0a97528c61f6020f5a40fdbcbf23b08a7197"
+    }
+  ],
+  "limitations": [
+    "Offline MockTransport only; socket.connect patched to deny network. No live Foundry permissions, configured data retrieval, model generation, concurrent server behavior, cancellation or recovery assertions.",
+    "RequestInfo-only capture not used as decoder proof:15 examples completed actual SDK HTTP request serialization and typed response decoding from synthetic response bodies.",
+    "Main probe patches config/log setup and access guard permit; SDK client factory, request serialization/decoder, SessionManager and OutputFormatter remain real.",
+    "Local lifecycle/expiry/alias conflict/compensation/error handling assessed from source and102supplementary unit tests; no service recovery guarantee. Session creation timeout can leave ambiguous remote state; page advises inspect state, and replay safety is not claimed.",
+    "SSE is not AIP streaming_continue mode inSDK1.101: response_type bytes and Accept application/octet-stream; compatible path confirmed with real HTTP decoder.",
+    "Conceptual Palantir documentation links were reviewed as references; this review validates frozen SDK/CLI contracts, not current remote documentation or release readiness.",
+    "No source/page/ledger/tracker edits by reviewer. Author correction and independent retest recorded separately."
+  ],
+  "author_corrections": [
+    {
+      "author_agent": "/root/aip_format_guidance_fix",
+      "finding_id": "AIP-01",
+      "path": ".agents/skills/pal-found-aip-agents/SKILL.md",
+      "sha256": "854484c1aebcd0243e19f5f507ed08e1f18a357c17a07e129e9ece92ef6f827d",
+      "change": "Added explicit streaming-continue JSON envelope exception in common --format prose.",
+      "independent_retest": {
+        "reviewer_agent": "/root/aip_agents_review_resume",
+        "reviewed_at_utc": "2026-10-21T20:45:26.998292+00:00",
+        "result": "PASS",
+        "checks": [
+          "Reread entire modified SKILL.md and diff; no additional change outside common format paragraph.",
+          "Reran real cli.main with --format toon through MockTransport and SDK HTTP decoder; exited 0 and emitted JSON download envelope.",
+          "git diff --check passed.",
+          "Rehashed all nine reviewed pages; eight unchanged pages retain original PASS and hashes."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "rubric_dimensions": [
+    "capability_and_lifecycle_choice",
+    "prerequisites_version_identity_and_access_boundary",
+    "ordered_procedure_or_configuration",
+    "adaptable_example_inputs_and_results",
+    "observable_success_checks",
+    "bounded_failure_and_recovery"
+  ],
+  "rubric_rule": "Each dimension needs a local heading and observable artifact. Fail any dimension when an essential fact requires public documentation, source oracle, or author assistance. Fixture results do not establish live tenant success.",
+  "journey_topic_map": {
+    "J1": ["T01", "T02", "T03", "T04", "T05", "T06", "T09", "T31"],
+    "J2": ["T04", "T10", "T29"],
+    "J3": ["T07", "T08"],
+    "J4": ["T11", "T12", "T13", "T16"],
+    "J5": ["T14", "T15", "T16"],
+    "J6": ["T17", "T18", "T19", "T33"],
+    "J7": ["T20", "T21", "T24", "T32"],
+    "J8": ["T22", "T23", "T24", "T25"],
+    "J9": ["T26", "T27", "T28", "T29", "T30", "T31", "T32", "T33"],
+    "J10": ["T34", "T35", "T36"],
+    "J11": ["T37"],
+    "J12": ["T37"],
+    "J13": ["T37"],
+    "J14": ["T37"]
+  },
+  "rest_namespace_cases": "../offline/rest-acceptance/prompts.json",
+  "rest_namespace_count": 20,
+  "topic_count": 37,
+  "journey_count": 14
+}

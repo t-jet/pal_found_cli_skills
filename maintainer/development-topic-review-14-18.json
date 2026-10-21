@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "reviewer": "qa-engineer independent subagent /root/feature015_topic_t01_review",
+  "review_date": "2026-10-19",
+  "scope": "FEATURE-015 independent read-only whole-page semantic and official-source review; no live Foundry enrollment, image build, or deployment",
+  "candidate": {
+    "integration_head_at_review": "336b031",
+    "corrected_isolated_head": "0bbf1c79be3a98bc94a4989768c5af869d71019e",
+    "correction_commits": [
+      "f77faa43790ca1e756a2fdc4f57a543e2ceed3de",
+      "0bbf1c79be3a98bc94a4989768c5af869d71019e"
+    ],
+    "note": "T14 and T18 PASS applies to corrected isolated page content; registered source/audit hashes must be synchronized after integration."
+  },
+  "topics": [
+    {
+      "id": "T14",
+      "path": "references/ontology/actions.md",
+      "heading": "Action validation and writeback",
+      "sha256": "767503f3e6c6f82c060e752c32b60445087bf37199c0b1cef1a09b5b9209276e",
+      "lines": 88,
+      "verdict": "PASS",
+      "page_acceptance_recommendation": "accept corrected page after integration and source/audit hash sync",
+      "checks": [
+        "Registered root/component anchors and all page local links resolve.",
+        "Whole page separates Action configuration, submission criteria, edit state, side effects, identity, and uncertain-outcome recovery.",
+        "Original 82-line page omitted Test run external-call effects; corrected Procedure step 5 warns that writeback webhooks and result-producing functions can affect external systems after acknowledgement, while Ontology edits and post-apply effects are skipped.",
+        "python -B examples/ontology/action_fixture.py exit 0: accepted/rejected inputs, denied identity, uncertain/partial effects."
+      ],
+      "official_sources": [
+        "https://www.palantir.com/docs/foundry/action-types/getting-started",
+        "https://www.palantir.com/docs/foundry/action-types/submission-criteria",
+        "https://www.palantir.com/docs/foundry/action-types/test-run",
+        "https://www.palantir.com/docs/foundry/action-types/side-effects-overview"
+      ],
+      "limitations": [
+        "Fixture is synthetic; no Foundry Action execution or external side-effect verification."
+      ]
+    },
+    {
+      "id": "T15",
+      "path": "references/ontology/functions.md",
+      "heading": "Function runtimes and publication",
+      "sha256": "cfba370bb9d14be11483c49302bd34a7733be7a1f50ea9a65afadaf37897052c",
+      "lines": 109,
+      "verdict": "PASS",
+      "page_acceptance_recommendation": "accept unchanged page",
+      "checks": [
+        "Registered root/component anchors and all page local links resolve.",
+        "Whole page correctly distinguishes TypeScript v1 class/decorator, TypeScript v2 same-name default export and path identity, Python decorator, source commit, release, consumer version, and edit staging.",
+        "Python fenced example parses with ast.parse; pure example 2+3=5 reviewed; runtime snippets are illustrative, with enrollment execution explicitly required.",
+        "Python edit construction, immutable primary keys, array reassignment and Action application align with official docs."
+      ],
+      "official_sources": [
+        "https://www.palantir.com/docs/foundry/functions/language-feature-support",
+        "https://www.palantir.com/docs/foundry/functions/python-getting-started",
+        "https://www.palantir.com/docs/foundry/functions/python-ontology-edits",
+        "https://www.palantir.com/docs/foundry/functions/typescript-v1-getting-started",
+        "https://www.palantir.com/docs/foundry/functions/typescript-v2-getting-started"
+      ],
+      "limitations": [
+        "No executable platform fixture for runtime publication; no live enrollment, TypeScript build, or release performed."
+      ]
+    },
+    {
+      "id": "T16",
+      "path": "references/ontology/security.md",
+      "heading": "Object and Action authorization",
+      "sha256": "12f60ae72f949ceea31d9015164526ee542eb53720a48c4b1d7f7fe20bf925a8",
+      "lines": 86,
+      "verdict": "PASS",
+      "page_acceptance_recommendation": "accept unchanged page",
+      "checks": [
+        "Registered root/component anchors and all page local links resolve.",
+        "Whole page separates configuration, object instance, property, Action and submission permissions; NORTH/SOUTH and READY/CLOSED truth table produces expected visibility/denial paths.",
+        "Official docs confirm hidden object absent, hidden property null, read-time policies not propagated to exports, and Beta Action read/write authorizations add boundaries without granting access.",
+        "Page explicitly requires actual tenant identity tests; synthetic truth table is not represented as platform authorization proof."
+      ],
+      "official_sources": [
+        "https://www.palantir.com/docs/foundry/object-permissioning/ontology-permissions",
+        "https://www.palantir.com/docs/foundry/object-permissioning/object-security-policies",
+        "https://www.palantir.com/docs/foundry/action-types/permissions",
+        "https://www.palantir.com/docs/foundry/action-types/read-write-authorizations"
+      ],
+      "limitations": [
+        "No live enrollment identities/policies or standalone executable T16 fixture; manual policy truth-table trace only."
+      ]
+    },
+    {
+      "id": "T17",
+      "path": "references/compute/lifecycle.md",
+      "heading": "Container configuration and lifecycle",
+      "sha256": "9839776cb00bbbc35530f2cfc96f9953d3432cb1477b05e5dc2f86369b1e6120",
+      "lines": 108,
+      "verdict": "PASS",
+      "page_acceptance_recommendation": "accept unchanged page",
+      "checks": [
+        "Registered root/component anchors and all page local links resolve.",
+        "Whole page distinguishes image, configuration, running replica, function discovery, query, readiness and liveness; prerequisites disclose prepared base image/wheels and enrollment access.",
+        "Dockerfile uses linux/amd64 and numeric non-root UID 5000; app.py add_functions/start_compute_module matches official Palantir Python SDK; score adapter uses TypedDict and validates integer/nonnegative inputs.",
+        "python -B verify_fixture.py exit 0: synthetic score, binding and stream adapter checks. Official container/probe/get-started guidance supports deployment steps."
+      ],
+      "official_sources": [
+        "https://www.palantir.com/docs/foundry/compute-modules/overview",
+        "https://www.palantir.com/docs/foundry/compute-modules/get-started",
+        "https://www.palantir.com/docs/foundry/compute-modules/containers",
+        "https://www.palantir.com/docs/foundry/compute-modules/probes",
+        "https://www.palantir.com/docs/foundry/compute-modules/functions",
+        "https://github.com/palantir/python-compute-module"
+      ],
+      "limitations": [
+        "No Docker build, registry push, running Compute Module or live Query; prepared wheels/base image and Foundry access unavailable."
+      ]
+    },
+    {
+      "id": "T18",
+      "path": "references/compute/execution.md",
+      "heading": "Execution modes and provenance",
+      "sha256": "31e3d68051377ae7ace0a785ff6ed03fd3578d32f18ddc2299ca4484ef40ca82",
+      "lines": 116,
+      "verdict": "PASS",
+      "page_acceptance_recommendation": "accept corrected page after integration and source/audit hash sync",
+      "checks": [
+        "Registered root/component anchors and all page local links resolve.",
+        "Whole page distinguishes Function no-platform/application permissions, Pipeline job token/resource aliases, branch fallback, replica/concurrency behavior, stream acknowledgments, batch transaction and provenance limits.",
+        "Original page's Procedure step 5 implied explicit caller-created transaction/commit in Pipeline mode; corrected page says Pipeline build system manages output transactions and commits on successful completion, while standalone REST writes need explicit transaction flow. Failure recovery row now makes same distinction.",
+        "python -B verify_fixture.py exit 0: synthetic score/bindings/bounded stream adapter including limits and partial-timeout behavior. Stream proxy records/jsonRecord shape checked against official getting-started page."
+      ],
+      "official_sources": [
+        "https://www.palantir.com/docs/foundry/compute-modules/execution-modes",
+        "https://www.palantir.com/docs/foundry/compute-modules/scaling",
+        "https://www.palantir.com/docs/foundry/compute-modules/usage",
+        "https://www.palantir.com/docs/foundry/compute-modules/get-started"
+      ],
+      "limitations": [
+        "No live Pipeline job, mounted job token, actual dataset commit, stream deployment or lineage verification. Fixture uses fake session."
+      ]
+    }
+  ],
+  "reviewer_agent": "/root/feature015_topic_t01_review"
+}

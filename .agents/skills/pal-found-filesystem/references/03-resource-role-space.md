@@ -31,7 +31,8 @@ enrollment.
 
 - **Behavior:** Lists principal-to-role assignments on the resource. Add
   `--include-inherited` to include assignments inherited from its containers;
-  without it, the response covers direct assignments.
+  omitting it leaves `includeInherited` unspecified. SDK 1.101.0 does not document
+  the server default, so omission does not establish that results contain only direct assignments.
 - **Before use:** The resource or container must be accessible to the requesting identity.
 - **Inputs:** positional `resource_rid`; required none; optional `--include-inherited`,
   `--page-size`, `--page-token`, and `--batch-pages`.
@@ -58,15 +59,15 @@ enrollment.
 ### space.create
 
 - **Behavior:** Creates a space in an enrollment to contain projects. Its organization list sets
-  space visibility. The deletion-policy organization list sets the Last Out policy: removing the
-  last listed organization can delete the space and its projects.
+  space visibility. The deletion-policy organization list sets the Last Out policy: the space
+  and its projects are deleted when the last listed organization is deleted.
 - **Before use:** The enrollment and organizations must exist, and the caller must have
   space-management authority.
 - **Inputs:** positional none; required `--deletion-policy-organizations`, `--display-name`,
   `--enrollment-rid`, `--organizations`; optional `--default-role-set-id`, `--description`,
   `--file-system-id`, `--preview`, `--usage-account-rid`. The organization list controls who can
   access the space. The deletion-policy list controls when the space and its projects are deleted
-  after those organizations are removed; both lists must refer to the enrollment.
+  when the last listed organization is deleted; both lists must refer to the enrollment.
 - **Parameter notes:** `--default-role-set-id` chooses the role set projects in the space must use; `--description` is space summary text; `--file-system-id` sets its filesystem identifier; `--usage-account-rid` associates a usage account; `--preview` opts into preview API behavior.
 - **Result:** `Space`.
 - **Failure or follow-up:** An invalid configuration or insufficient permission rejects space

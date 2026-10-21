@@ -1,0 +1,388 @@
+{
+  "network_probe": "PUBLIC_NETWORK_DENIED",
+  "isolated_skill": "<WORKSPACE>\\.ept\\tmp\\feature015_namespace_reader\\isolated-pal-found-dev",
+  "files_read": [
+    "examples/rest/071/v2/admin/Group/get.py",
+    "examples/rest/073/v2/audit/LogFile/list.py",
+    "examples/rest/073/v2/filesystem/Folder/get.py",
+    "examples/rest/073/v2/third_party_applications/Website/get.py",
+    "examples/rest/074/v1/datasets/Dataset/get.py",
+    "examples/rest/074/v1/datasets/File/get.py",
+    "examples/rest/074/v2/datasets/Dataset/get.py",
+    "examples/rest/074/v2/datasets/File/content.py",
+    "examples/rest/074/v2/datasets/File/get.py",
+    "examples/rest/075/v2/checkpoints/Record/get.py",
+    "examples/rest/075/v2/data_health/Check/get.py",
+    "examples/rest/075/v2/orchestration/Build/get.py",
+    "examples/rest/077/v1/ontologies/Attachment/get.py",
+    "examples/rest/083/v2/ontologies/Attachment/invoke_get.py",
+    "examples/rest/085/v2/functions/ValueType/invoke_get.py",
+    "examples/rest/087/v2/aip_agents/AgentVersion/get.py",
+    "examples/rest/087/v2/language_models/OpenAiModel/embeddings.py",
+    "examples/rest/087/v2/models/LiveDeployment/get.py",
+    "examples/rest/089/v2/connectivity/Connection/invoke_get.py",
+    "examples/rest/089/v2/sql_queries/SqlQuery/invoke_cancel.py",
+    "examples/rest/089/v2/streams/Stream/invoke_get_records.py",
+    "examples/rest/091/v2/media_sets/MediaSet/invoke_get.py",
+    "examples/rest/091/v2/widgets/Repository/invoke_get.py",
+    "references/rest/contracts/v1/datasets/Dataset/get.md",
+    "references/rest/contracts/v1/datasets/File/get.md",
+    "references/rest/contracts/v1/ontologies/Attachment/get.md",
+    "references/rest/contracts/v2/admin/Group/get.md",
+    "references/rest/contracts/v2/aip_agents/AgentVersion/get.md",
+    "references/rest/contracts/v2/audit/LogFile/list.md",
+    "references/rest/contracts/v2/checkpoints/Record/get.md",
+    "references/rest/contracts/v2/connectivity/Connection/get.md",
+    "references/rest/contracts/v2/data_health/Check/get.md",
+    "references/rest/contracts/v2/datasets/Dataset/get.md",
+    "references/rest/contracts/v2/datasets/File/content.md",
+    "references/rest/contracts/v2/datasets/File/get.md",
+    "references/rest/contracts/v2/filesystem/Folder/get.md",
+    "references/rest/contracts/v2/functions/ValueType/get.md",
+    "references/rest/contracts/v2/language_models/OpenAiModel/embeddings.md",
+    "references/rest/contracts/v2/media_sets/MediaSet/get.md",
+    "references/rest/contracts/v2/models/LiveDeployment/get.md",
+    "references/rest/contracts/v2/ontologies/Attachment/get.md",
+    "references/rest/contracts/v2/orchestration/Build/get.md",
+    "references/rest/contracts/v2/sql_queries/SqlQuery/cancel.md",
+    "references/rest/contracts/v2/streams/Stream/get_records.md",
+    "references/rest/contracts/v2/third_party_applications/Website/get.md",
+    "references/rest/contracts/v2/widgets/Repository/get.md"
+  ],
+  "localhost_socket_exception": "none; httpx.MockTransport is in-process",
+  "outcomes": [
+    {
+      "namespace": "v1.datasets",
+      "example": "examples/rest/074/v1/datasets/Dataset/get.py",
+      "contract": "references/rest/contracts/v1/datasets/Dataset/get.md",
+      "route": "client.datasets.Dataset.get",
+      "method": "GET",
+      "path": "/api/v1/datasets/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+      "named_errors": [
+        "DatasetNotFound"
+      ],
+      "calls": 2,
+      "passed": true
+    },
+    {
+      "namespace": "v1.ontologies",
+      "example": "examples/rest/077/v1/ontologies/Attachment/get.py",
+      "contract": "references/rest/contracts/v1/ontologies/Attachment/get.md",
+      "route": "client.ontologies.Attachment.get",
+      "method": "GET",
+      "path": "/api/v1/attachments/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+      "named_errors": [],
+      "calls": 1,
+      "passed": true
+    },
+    {
+      "namespace": "v2.admin",
+      "example": "examples/rest/071/v2/admin/Group/get.py",
+      "contract": "references/rest/contracts/v2/admin/Group/get.md",
+      "route": "client.admin.Group.get",
+      "method": "GET",
+      "path": "/api/v2/admin/groups/00000000-0000-0000-0000-000000000001",
+      "named_errors": [
+        "GroupNotFound"
+      ],
+      "calls": 2,
+      "passed": true
+    },
+    {
+      "namespace": "v2.aip_agents",
+      "example": "examples/rest/087/v2/aip_agents/AgentVersion/get.py",
+      "contract": "references/rest/contracts/v2/aip_agents/AgentVersion/get.md",
+      "route": "client.aip_agents.Agent.AgentVersion.get",
+      "method": "GET",
+      "path": "/api/v2/aipAgents/agents/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/agentVersions/synthetic-value",
+      "named_errors": [
+        "AgentNotFound",
+        "AgentVersionNotFound",
+        "InvalidAgentVersion",
+        "NoPublishedAgentVersion"
+      ],
+      "calls": 5,
+      "passed": true
+    },
+    {
+      "namespace": "v2.audit",
+      "example": "examples/rest/073/v2/audit/LogFile/list.py",
+      "contract": "references/rest/contracts/v2/audit/LogFile/list.md",
+      "route": "client.audit.Organization.LogFile.list",
+      "method": "GET",
+      "path": "/api/v2/audit/organizations/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/logFiles",
+      "named_errors": [
+        "ListLogFilesPermissionDenied",
+        "MissingStartDate"
+      ],
+      "calls": 3,
+      "passed": true
+    },
+    {
+      "namespace": "v2.checkpoints",
+      "example": "examples/rest/075/v2/checkpoints/Record/get.py",
+      "contract": "references/rest/contracts/v2/checkpoints/Record/get.md",
+      "route": "client.checkpoints.Record.get",
+      "method": "GET",
+      "path": "/api/v2/checkpoints/records/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+      "named_errors": [
+        "CheckpointRecordNotFound",
+        "CheckpointRecordPermissionDenied",
+        "RecordNotFound"
+      ],
+      "calls": 4,
+      "passed": true
+    },
+    {
+      "namespace": "v2.connectivity",
+      "example": "examples/rest/089/v2/connectivity/Connection/invoke_get.py",
+      "contract": "references/rest/contracts/v2/connectivity/Connection/get.md",
+      "route": "client.connectivity.Connection.get",
+      "method": "GET",
+      "path": "/api/v2/connectivity/connections/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+      "named_errors": [
+        "ConnectionNotFound",
+        "ConnectionTypeNotSupported",
+        "ParentFolderNotFoundForConnection"
+      ],
+      "calls": 4,
+      "passed": true
+    },
+    {
+      "namespace": "v2.data_health",
+      "example": "examples/rest/075/v2/data_health/Check/get.py",
+      "contract": "references/rest/contracts/v2/data_health/Check/get.md",
+      "route": "client.data_health.Check.get",
+      "method": "GET",
+      "path": "/api/v2/dataHealth/checks/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+      "named_errors": [
+        "CheckNotFound",
+        "CheckTypeNotSupported"
+      ],
+      "calls": 3,
+      "passed": true
+    },
+    {
+      "namespace": "v2.datasets",
+      "example": "examples/rest/074/v2/datasets/Dataset/get.py",
+      "contract": "references/rest/contracts/v2/datasets/Dataset/get.md",
+      "route": "client.datasets.Dataset.get",
+      "method": "GET",
+      "path": "/api/v2/datasets/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+      "named_errors": [
+        "DatasetNotFound",
+        "ResourceNameAlreadyExists"
+      ],
+      "calls": 3,
+      "passed": true
+    },
+    {
+      "namespace": "v2.filesystem",
+      "example": "examples/rest/073/v2/filesystem/Folder/get.py",
+      "contract": "references/rest/contracts/v2/filesystem/Folder/get.md",
+      "route": "client.filesystem.Folder.get",
+      "method": "GET",
+      "path": "/api/v2/filesystem/folders/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+      "named_errors": [
+        "FolderNotFound",
+        "GetRootFolderNotSupported",
+        "InvalidFolder"
+      ],
+      "calls": 4,
+      "passed": true
+    },
+    {
+      "namespace": "v2.functions",
+      "example": "examples/rest/085/v2/functions/ValueType/invoke_get.py",
+      "contract": "references/rest/contracts/v2/functions/ValueType/get.md",
+      "route": "client.functions.ValueType.get",
+      "method": "GET",
+      "path": "/api/v2/functions/valueTypes/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+      "named_errors": [
+        "ValueTypeNotFound"
+      ],
+      "calls": 2,
+      "passed": true
+    },
+    {
+      "namespace": "v2.language_models",
+      "example": "examples/rest/087/v2/language_models/OpenAiModel/embeddings.py",
+      "contract": "references/rest/contracts/v2/language_models/OpenAiModel/embeddings.md",
+      "route": "client.language_models.OpenAiModel.embeddings",
+      "method": "POST",
+      "path": "/api/v2/languageModels/openAi/synthetic-value/embeddings",
+      "named_errors": [
+        "OpenAiEmbeddingsPermissionDenied"
+      ],
+      "calls": 2,
+      "passed": true
+    },
+    {
+      "namespace": "v2.media_sets",
+      "example": "examples/rest/091/v2/media_sets/MediaSet/invoke_get.py",
+      "contract": "references/rest/contracts/v2/media_sets/MediaSet/get.md",
+      "route": "client.media_sets.MediaSet.get",
+      "method": "GET",
+      "path": "/api/v2/mediasets/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+      "named_errors": [],
+      "calls": 1,
+      "passed": true
+    },
+    {
+      "namespace": "v2.models",
+      "example": "examples/rest/087/v2/models/LiveDeployment/get.py",
+      "contract": "references/rest/contracts/v2/models/LiveDeployment/get.md",
+      "route": "client.models.LiveDeployment.get",
+      "method": "GET",
+      "path": "/api/v2/models/liveDeployments/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+      "named_errors": [
+        "LiveDeploymentNotFound",
+        "UnsupportedLiveDeployment"
+      ],
+      "calls": 3,
+      "passed": true
+    },
+    {
+      "namespace": "v2.ontologies",
+      "example": "examples/rest/083/v2/ontologies/Attachment/invoke_get.py",
+      "contract": "references/rest/contracts/v2/ontologies/Attachment/get.md",
+      "route": "client.ontologies.Attachment.get",
+      "method": "GET",
+      "path": "/api/v2/ontologies/attachments/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+      "named_errors": [],
+      "calls": 1,
+      "passed": true
+    },
+    {
+      "namespace": "v2.orchestration",
+      "example": "examples/rest/075/v2/orchestration/Build/get.py",
+      "contract": "references/rest/contracts/v2/orchestration/Build/get.md",
+      "route": "client.orchestration.Build.get",
+      "method": "GET",
+      "path": "/api/v2/orchestration/builds/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+      "named_errors": [
+        "BuildNotFound"
+      ],
+      "calls": 2,
+      "passed": true
+    },
+    {
+      "namespace": "v2.sql_queries",
+      "example": "examples/rest/089/v2/sql_queries/SqlQuery/invoke_cancel.py",
+      "contract": "references/rest/contracts/v2/sql_queries/SqlQuery/cancel.md",
+      "route": "client.sql_queries.SqlQuery.cancel",
+      "method": "POST",
+      "path": "/api/v2/sqlQueries/synthetic-value/cancel",
+      "named_errors": [
+        "CancelSqlQueryPermissionDenied",
+        "QueryCanceled",
+        "QueryFailed",
+        "QueryParseError",
+        "QueryPermissionDenied",
+        "QueryRunning",
+        "ReadQueryInputsPermissionDenied"
+      ],
+      "calls": 8,
+      "passed": true
+    },
+    {
+      "namespace": "v2.streams",
+      "example": "examples/rest/089/v2/streams/Stream/invoke_get_records.py",
+      "contract": "references/rest/contracts/v2/streams/Stream/get_records.md",
+      "route": "client.streams.Dataset.Stream.get_records",
+      "method": "GET",
+      "path": "/api/v2/highScale/streams/datasets/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/streams/synthetic-value/getRecords",
+      "named_errors": [
+        "GetRecordsFromStreamPermissionDenied"
+      ],
+      "calls": 2,
+      "passed": true
+    },
+    {
+      "namespace": "v2.third_party_applications",
+      "example": "examples/rest/073/v2/third_party_applications/Website/get.py",
+      "contract": "references/rest/contracts/v2/third_party_applications/Website/get.md",
+      "route": "client.third_party_applications.ThirdPartyApplication.Website.get",
+      "method": "GET",
+      "path": "/api/v2/thirdPartyApplications/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/website",
+      "named_errors": [
+        "WebsiteNotFound"
+      ],
+      "calls": 2,
+      "passed": true
+    },
+    {
+      "namespace": "v2.widgets",
+      "example": "examples/rest/091/v2/widgets/Repository/invoke_get.py",
+      "contract": "references/rest/contracts/v2/widgets/Repository/get.md",
+      "route": "client.widgets.Repository.get",
+      "method": "GET",
+      "path": "/api/v2/widgets/repositories/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+      "named_errors": [
+        "RepositoryNotFound"
+      ],
+      "calls": 2,
+      "passed": true
+    },
+    {
+      "namespace": "v1.datasets.File.get",
+      "example": "examples/rest/074/v1/datasets/File/get.py",
+      "contract": "references/rest/contracts/v1/datasets/File/get.md",
+      "route": "client.datasets.Dataset.File.get",
+      "method": "GET",
+      "path": "/api/v1/datasets/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/files/inspections/status.csv",
+      "named_errors": [
+        "BranchNotFound",
+        "DatasetNotFound",
+        "FileNotFoundOnBranch",
+        "FileNotFoundOnTransactionRange",
+        "InvalidBranchId",
+        "InvalidParameterCombination",
+        "TransactionNotFound"
+      ],
+      "calls": 8,
+      "passed": true
+    },
+    {
+      "namespace": "v2.datasets.File.get",
+      "example": "examples/rest/074/v2/datasets/File/get.py",
+      "contract": "references/rest/contracts/v2/datasets/File/get.md",
+      "route": "client.datasets.Dataset.File.get",
+      "method": "GET",
+      "path": "/api/v2/datasets/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/files/inspections/status.csv",
+      "named_errors": [
+        "BranchNotFound",
+        "DatasetNotFound",
+        "FileNotFound",
+        "FileNotFoundOnBranch",
+        "FileNotFoundOnTransactionRange",
+        "InvalidBranchName",
+        "InvalidParameterCombination",
+        "TransactionNotFound"
+      ],
+      "calls": 9,
+      "passed": true
+    },
+    {
+      "namespace": "v2.datasets.File.content",
+      "example": "examples/rest/074/v2/datasets/File/content.py",
+      "contract": "references/rest/contracts/v2/datasets/File/content.md",
+      "route": "client.datasets.Dataset.File.content",
+      "method": "GET",
+      "path": "/api/v2/datasets/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/files/inspections/status.csv/content",
+      "named_errors": [
+        "BranchNotFound",
+        "DatasetNotFound",
+        "FileNotFoundOnBranch",
+        "FileNotFoundOnTransactionRange",
+        "FileSizeLimitExceeded",
+        "GetFileContentPermissionDenied",
+        "InvalidBranchName",
+        "InvalidParameterCombination",
+        "TransactionNotFound"
+      ],
+      "calls": 10,
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "result": "PASS",
+  "pages": 2,
+  "repeated_token": "repeated-token",
+  "binary_bytes": 6,
+  "named_errors": [
+    401,
+    403,
+    404,
+    429,
+    503
+  ],
+  "requests": [
+    [
+      "GET",
+      "/api/v2/filesystem/folders/ri.compass.main.folder.00000000-0000-0000-0000-000000000001/children",
+      {
+        "pageSize": "2"
+      }
+    ],
+    [
+      "GET",
+      "/api/v2/filesystem/folders/ri.compass.main.folder.00000000-0000-0000-0000-000000000001/children",
+      {
+        "pageSize": "2",
+        "pageToken": "next"
+      }
+    ],
+    [
+      "GET",
+      "/api/v2/datasets/ri.foundry.main.dataset.00000000-0000-0000-0000-000000000004",
+      {}
+    ],
+    [
+      "GET",
+      "/api/v2/datasets/ri.foundry.main.dataset.00000000-0000-0000-0000-000000000004/files/reads/sample.bin/content",
+      {
+        "branchName": "master"
+      }
+    ],
+    [
+      "GET",
+      "/api/v2/filesystem/folders/ri.compass.main.folder.00000000-0000-0000-0000-000000000001/children",
+      {
+        "pageSize": "2"
+      }
+    ],
+    [
+      "GET",
+      "/api/v2/filesystem/folders/ri.compass.main.folder.00000000-0000-0000-0000-000000000001/children",
+      {
+        "pageSize": "2",
+        "pageToken": "next"
+      }
+    ],
+    [
+      "GET",
+      "/api/v2/datasets/ri.foundry.main.dataset.00000000-0000-0000-0000-000000000004/files/reads/sample.bin/content",
+      {
+        "branchName": "master"
+      }
+    ],
+    [
+      "GET",
+      "/api/v2/datasets/ri.foundry.main.dataset.00000000-0000-0000-0000-000000000004/files/reads/sample.bin/content",
+      {
+        "branchName": "master"
+      }
+    ],
+    [
+      "GET",
+      "/api/v2/datasets/ri.foundry.main.dataset.00000000-0000-0000-0000-000000000004/files/reads/sample.bin/content",
+      {
+        "branchName": "master"
+      }
+    ],
+    [
+      "GET",
+      "/api/v2/datasets/ri.foundry.main.dataset.00000000-0000-0000-0000-000000000004/files/reads/sample.bin/content",
+      {
+        "branchName": "master"
+      }
+    ],
+    [
+      "GET",
+      "/api/v2/datasets/ri.foundry.main.dataset.00000000-0000-0000-0000-000000000004/files/reads/sample.bin/content",
+      {
+        "branchName": "master"
+      }
+    ],
+    [
+      "GET",
+      "/api/v2/datasets/ri.foundry.main.dataset.00000000-0000-0000-0000-000000000004/files/reads/sample.bin/content",
+      {
+        "branchName": "master"
+      }
+    ]
+  ]
+}

@@ -1,0 +1,1081 @@
+{
+  "sdk_version": "1.101.0",
+  "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+  "authored_commit": "ce413e14f6d2bcd5aa2524067cbdd6ef778d4443",
+  "status": "authored; independent semantic review and QA pending",
+  "resources": [
+    "v2.admin.Group",
+    "v2.admin.GroupMember",
+    "v2.admin.GroupMembership",
+    "v2.admin.GroupMembershipExpirationPolicy",
+    "v2.admin.GroupProviderInfo",
+    "v2.admin.User",
+    "v2.admin.UserProviderInfo",
+    "v2.admin.AuthenticationProvider",
+    "v2.admin.CbacBanner",
+    "v2.admin.CbacMarkingRestrictions",
+    "v2.admin.Enrollment",
+    "v2.admin.EnrollmentRoleAssignment",
+    "v2.admin.Host",
+    "v2.admin.Marking",
+    "v2.admin.MarkingCategory",
+    "v2.admin.MarkingMember",
+    "v2.admin.MarkingRoleAssignment",
+    "v2.admin.Organization",
+    "v2.admin.OrganizationGuestMember",
+    "v2.admin.OrganizationRoleAssignment",
+    "v2.admin.Role",
+    "v1.datasets.Branch",
+    "v1.datasets.Dataset",
+    "v1.datasets.File",
+    "v1.datasets.Transaction",
+    "v2.datasets.Branch",
+    "v2.datasets.Dataset",
+    "v2.datasets.File",
+    "v2.datasets.Transaction",
+    "v2.datasets.View",
+    "v2.checkpoints.Record",
+    "v2.data_health.Check",
+    "v2.data_health.CheckReport",
+    "v2.orchestration.Build",
+    "v2.orchestration.Job",
+    "v2.orchestration.Schedule",
+    "v2.orchestration.ScheduleVersion",
+    "v1.ontologies.Action",
+    "v1.ontologies.ActionType",
+    "v1.ontologies.Attachment",
+    "v1.ontologies.ObjectType",
+    "v1.ontologies.Ontology",
+    "v1.ontologies.OntologyObject",
+    "v1.ontologies.Query",
+    "v1.ontologies.QueryType"
+  ],
+  "operations": [
+    {
+      "id": "v2.admin.Group.create",
+      "behavior": "references/rest/v2/admin/Group.md",
+      "example": "examples/rest/071/v2/admin/Group/create.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Group.delete",
+      "behavior": "references/rest/v2/admin/Group.md",
+      "example": "examples/rest/071/v2/admin/Group/delete.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Group.get",
+      "behavior": "references/rest/v2/admin/Group.md",
+      "example": "examples/rest/071/v2/admin/Group/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Group.get_batch",
+      "behavior": "references/rest/v2/admin/Group.md",
+      "example": "examples/rest/071/v2/admin/Group/get_batch.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Group.list",
+      "behavior": "references/rest/v2/admin/Group.md",
+      "example": "examples/rest/071/v2/admin/Group/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Group.list_current",
+      "behavior": "references/rest/v2/admin/Group.md",
+      "example": "examples/rest/071/v2/admin/Group/list_current.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Group.replace",
+      "behavior": "references/rest/v2/admin/Group.md",
+      "example": "examples/rest/071/v2/admin/Group/replace.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Group.search",
+      "behavior": "references/rest/v2/admin/Group-2.md",
+      "example": "examples/rest/071/v2/admin/Group/search.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.GroupMember.add",
+      "behavior": "references/rest/v2/admin/GroupMember.md",
+      "example": "examples/rest/071/v2/admin/GroupMember/add.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.GroupMember.list",
+      "behavior": "references/rest/v2/admin/GroupMember.md",
+      "example": "examples/rest/071/v2/admin/GroupMember/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.GroupMember.remove",
+      "behavior": "references/rest/v2/admin/GroupMember.md",
+      "example": "examples/rest/071/v2/admin/GroupMember/remove.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.GroupMembership.list",
+      "behavior": "references/rest/v2/admin/GroupMembership.md",
+      "example": "examples/rest/071/v2/admin/GroupMembership/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.GroupMembershipExpirationPolicy.get",
+      "behavior": "references/rest/v2/admin/GroupMembershipExpirationPolicy.md",
+      "example": "examples/rest/071/v2/admin/GroupMembershipExpirationPolicy/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.GroupMembershipExpirationPolicy.replace",
+      "behavior": "references/rest/v2/admin/GroupMembershipExpirationPolicy.md",
+      "example": "examples/rest/071/v2/admin/GroupMembershipExpirationPolicy/replace.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.GroupProviderInfo.get",
+      "behavior": "references/rest/v2/admin/GroupProviderInfo.md",
+      "example": "examples/rest/071/v2/admin/GroupProviderInfo/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.GroupProviderInfo.replace",
+      "behavior": "references/rest/v2/admin/GroupProviderInfo.md",
+      "example": "examples/rest/071/v2/admin/GroupProviderInfo/replace.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.User.delete",
+      "behavior": "references/rest/v2/admin/User.md",
+      "example": "examples/rest/071/v2/admin/User/delete.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.User.get",
+      "behavior": "references/rest/v2/admin/User.md",
+      "example": "examples/rest/071/v2/admin/User/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.User.get_batch",
+      "behavior": "references/rest/v2/admin/User.md",
+      "example": "examples/rest/071/v2/admin/User/get_batch.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.User.get_current",
+      "behavior": "references/rest/v2/admin/User.md",
+      "example": "examples/rest/071/v2/admin/User/get_current.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.User.get_markings",
+      "behavior": "references/rest/v2/admin/User.md",
+      "example": "examples/rest/071/v2/admin/User/get_markings.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.User.list",
+      "behavior": "references/rest/v2/admin/User.md",
+      "example": "examples/rest/071/v2/admin/User/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.User.profile_picture",
+      "behavior": "references/rest/v2/admin/User.md",
+      "example": "examples/rest/071/v2/admin/User/profile_picture.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.User.revoke_all_tokens",
+      "behavior": "references/rest/v2/admin/User-2.md",
+      "example": "examples/rest/071/v2/admin/User/revoke_all_tokens.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.User.search",
+      "behavior": "references/rest/v2/admin/User-2.md",
+      "example": "examples/rest/071/v2/admin/User/search.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.UserProviderInfo.get",
+      "behavior": "references/rest/v2/admin/UserProviderInfo.md",
+      "example": "examples/rest/071/v2/admin/UserProviderInfo/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.UserProviderInfo.replace",
+      "behavior": "references/rest/v2/admin/UserProviderInfo.md",
+      "example": "examples/rest/071/v2/admin/UserProviderInfo/replace.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.AuthenticationProvider.get",
+      "behavior": "references/rest/v2/admin/AuthenticationProvider.md",
+      "example": "examples/rest/072/v2/admin/AuthenticationProvider/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.AuthenticationProvider.list",
+      "behavior": "references/rest/v2/admin/AuthenticationProvider.md",
+      "example": "examples/rest/072/v2/admin/AuthenticationProvider/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.AuthenticationProvider.preregister_group",
+      "behavior": "references/rest/v2/admin/AuthenticationProvider.md",
+      "example": "examples/rest/072/v2/admin/AuthenticationProvider/preregister_group.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.AuthenticationProvider.preregister_user",
+      "behavior": "references/rest/v2/admin/AuthenticationProvider.md",
+      "example": "examples/rest/072/v2/admin/AuthenticationProvider/preregister_user.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.CbacBanner.get",
+      "behavior": "references/rest/v2/admin/CbacBanner.md",
+      "example": "examples/rest/072/v2/admin/CbacBanner/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.CbacMarkingRestrictions.get",
+      "behavior": "references/rest/v2/admin/CbacMarkingRestrictions.md",
+      "example": "examples/rest/072/v2/admin/CbacMarkingRestrictions/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Enrollment.get",
+      "behavior": "references/rest/v2/admin/Enrollment.md",
+      "example": "examples/rest/072/v2/admin/Enrollment/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Enrollment.get_current",
+      "behavior": "references/rest/v2/admin/Enrollment.md",
+      "example": "examples/rest/072/v2/admin/Enrollment/get_current.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.EnrollmentRoleAssignment.add",
+      "behavior": "references/rest/v2/admin/EnrollmentRoleAssignment.md",
+      "example": "examples/rest/072/v2/admin/EnrollmentRoleAssignment/add.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.EnrollmentRoleAssignment.list",
+      "behavior": "references/rest/v2/admin/EnrollmentRoleAssignment.md",
+      "example": "examples/rest/072/v2/admin/EnrollmentRoleAssignment/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.EnrollmentRoleAssignment.remove",
+      "behavior": "references/rest/v2/admin/EnrollmentRoleAssignment.md",
+      "example": "examples/rest/072/v2/admin/EnrollmentRoleAssignment/remove.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Host.list",
+      "behavior": "references/rest/v2/admin/Host.md",
+      "example": "examples/rest/072/v2/admin/Host/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Marking.create",
+      "behavior": "references/rest/v2/admin/Marking.md",
+      "example": "examples/rest/072/v2/admin/Marking/create.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Marking.get",
+      "behavior": "references/rest/v2/admin/Marking.md",
+      "example": "examples/rest/072/v2/admin/Marking/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Marking.get_batch",
+      "behavior": "references/rest/v2/admin/Marking.md",
+      "example": "examples/rest/072/v2/admin/Marking/get_batch.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Marking.list",
+      "behavior": "references/rest/v2/admin/Marking.md",
+      "example": "examples/rest/072/v2/admin/Marking/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Marking.parse_classifications",
+      "behavior": "references/rest/v2/admin/Marking.md",
+      "example": "examples/rest/072/v2/admin/Marking/parse_classifications.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Marking.replace",
+      "behavior": "references/rest/v2/admin/Marking.md",
+      "example": "examples/rest/072/v2/admin/Marking/replace.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.MarkingCategory.create",
+      "behavior": "references/rest/v2/admin/MarkingCategory.md",
+      "example": "examples/rest/072/v2/admin/MarkingCategory/create.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.MarkingCategory.get",
+      "behavior": "references/rest/v2/admin/MarkingCategory.md",
+      "example": "examples/rest/072/v2/admin/MarkingCategory/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.MarkingCategory.list",
+      "behavior": "references/rest/v2/admin/MarkingCategory.md",
+      "example": "examples/rest/072/v2/admin/MarkingCategory/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.MarkingCategory.replace",
+      "behavior": "references/rest/v2/admin/MarkingCategory.md",
+      "example": "examples/rest/072/v2/admin/MarkingCategory/replace.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.MarkingMember.add",
+      "behavior": "references/rest/v2/admin/MarkingMember.md",
+      "example": "examples/rest/072/v2/admin/MarkingMember/add.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.MarkingMember.list",
+      "behavior": "references/rest/v2/admin/MarkingMember.md",
+      "example": "examples/rest/072/v2/admin/MarkingMember/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.MarkingMember.remove",
+      "behavior": "references/rest/v2/admin/MarkingMember.md",
+      "example": "examples/rest/072/v2/admin/MarkingMember/remove.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.MarkingRoleAssignment.add",
+      "behavior": "references/rest/v2/admin/MarkingRoleAssignment.md",
+      "example": "examples/rest/072/v2/admin/MarkingRoleAssignment/add.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.MarkingRoleAssignment.list",
+      "behavior": "references/rest/v2/admin/MarkingRoleAssignment.md",
+      "example": "examples/rest/072/v2/admin/MarkingRoleAssignment/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.MarkingRoleAssignment.remove",
+      "behavior": "references/rest/v2/admin/MarkingRoleAssignment.md",
+      "example": "examples/rest/072/v2/admin/MarkingRoleAssignment/remove.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Organization.create",
+      "behavior": "references/rest/v2/admin/Organization.md",
+      "example": "examples/rest/072/v2/admin/Organization/create.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Organization.get",
+      "behavior": "references/rest/v2/admin/Organization.md",
+      "example": "examples/rest/072/v2/admin/Organization/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Organization.list_available_roles",
+      "behavior": "references/rest/v2/admin/Organization.md",
+      "example": "examples/rest/072/v2/admin/Organization/list_available_roles.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Organization.replace",
+      "behavior": "references/rest/v2/admin/Organization.md",
+      "example": "examples/rest/072/v2/admin/Organization/replace.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.OrganizationGuestMember.add",
+      "behavior": "references/rest/v2/admin/OrganizationGuestMember.md",
+      "example": "examples/rest/072/v2/admin/OrganizationGuestMember/add.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.OrganizationGuestMember.list",
+      "behavior": "references/rest/v2/admin/OrganizationGuestMember.md",
+      "example": "examples/rest/072/v2/admin/OrganizationGuestMember/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.OrganizationGuestMember.remove",
+      "behavior": "references/rest/v2/admin/OrganizationGuestMember.md",
+      "example": "examples/rest/072/v2/admin/OrganizationGuestMember/remove.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.OrganizationRoleAssignment.add",
+      "behavior": "references/rest/v2/admin/OrganizationRoleAssignment.md",
+      "example": "examples/rest/072/v2/admin/OrganizationRoleAssignment/add.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.OrganizationRoleAssignment.list",
+      "behavior": "references/rest/v2/admin/OrganizationRoleAssignment.md",
+      "example": "examples/rest/072/v2/admin/OrganizationRoleAssignment/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.OrganizationRoleAssignment.remove",
+      "behavior": "references/rest/v2/admin/OrganizationRoleAssignment.md",
+      "example": "examples/rest/072/v2/admin/OrganizationRoleAssignment/remove.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Role.get",
+      "behavior": "references/rest/v2/admin/Role.md",
+      "example": "examples/rest/072/v2/admin/Role/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.admin.Role.get_batch",
+      "behavior": "references/rest/v2/admin/Role.md",
+      "example": "examples/rest/072/v2/admin/Role/get_batch.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.datasets.Branch.create",
+      "behavior": "references/rest/v1/datasets/Branch.md",
+      "example": "examples/rest/074/v1/datasets/Branch/create.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.datasets.Branch.delete",
+      "behavior": "references/rest/v1/datasets/Branch.md",
+      "example": "examples/rest/074/v1/datasets/Branch/delete.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.datasets.Branch.get",
+      "behavior": "references/rest/v1/datasets/Branch.md",
+      "example": "examples/rest/074/v1/datasets/Branch/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.datasets.Branch.list",
+      "behavior": "references/rest/v1/datasets/Branch.md",
+      "example": "examples/rest/074/v1/datasets/Branch/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.datasets.Dataset.create",
+      "behavior": "references/rest/v1/datasets/Dataset.md",
+      "example": "examples/rest/074/v1/datasets/Dataset/create.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.datasets.Dataset.delete_schema",
+      "behavior": "references/rest/v1/datasets/Dataset.md",
+      "example": "examples/rest/074/v1/datasets/Dataset/delete_schema.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.datasets.Dataset.get",
+      "behavior": "references/rest/v1/datasets/Dataset.md",
+      "example": "examples/rest/074/v1/datasets/Dataset/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.datasets.Dataset.get_schema",
+      "behavior": "references/rest/v1/datasets/Dataset.md",
+      "example": "examples/rest/074/v1/datasets/Dataset/get_schema.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.datasets.Dataset.read",
+      "behavior": "references/rest/v1/datasets/Dataset.md",
+      "example": "examples/rest/074/v1/datasets/Dataset/read.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.datasets.Dataset.replace_schema",
+      "behavior": "references/rest/v1/datasets/Dataset.md",
+      "example": "examples/rest/074/v1/datasets/Dataset/replace_schema.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.datasets.File.delete",
+      "behavior": "references/rest/v1/datasets/File.md",
+      "example": "examples/rest/074/v1/datasets/File/delete.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.datasets.File.get",
+      "behavior": "references/rest/v1/datasets/File.md",
+      "example": "examples/rest/074/v1/datasets/File/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.datasets.File.list",
+      "behavior": "references/rest/v1/datasets/File.md",
+      "example": "examples/rest/074/v1/datasets/File/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.datasets.File.read",
+      "behavior": "references/rest/v1/datasets/File.md",
+      "example": "examples/rest/074/v1/datasets/File/read.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.datasets.File.upload",
+      "behavior": "references/rest/v1/datasets/File.md",
+      "example": "examples/rest/074/v1/datasets/File/upload.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.datasets.Transaction.abort",
+      "behavior": "references/rest/v1/datasets/Transaction.md",
+      "example": "examples/rest/074/v1/datasets/Transaction/abort.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.datasets.Transaction.commit",
+      "behavior": "references/rest/v1/datasets/Transaction.md",
+      "example": "examples/rest/074/v1/datasets/Transaction/commit.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.datasets.Transaction.create",
+      "behavior": "references/rest/v1/datasets/Transaction.md",
+      "example": "examples/rest/074/v1/datasets/Transaction/create.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.datasets.Transaction.get",
+      "behavior": "references/rest/v1/datasets/Transaction.md",
+      "example": "examples/rest/074/v1/datasets/Transaction/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Branch.create",
+      "behavior": "references/rest/v2/datasets/Branch.md",
+      "example": "examples/rest/074/v2/datasets/Branch/create.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Branch.delete",
+      "behavior": "references/rest/v2/datasets/Branch.md",
+      "example": "examples/rest/074/v2/datasets/Branch/delete.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Branch.get",
+      "behavior": "references/rest/v2/datasets/Branch.md",
+      "example": "examples/rest/074/v2/datasets/Branch/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Branch.list",
+      "behavior": "references/rest/v2/datasets/Branch.md",
+      "example": "examples/rest/074/v2/datasets/Branch/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Branch.transactions",
+      "behavior": "references/rest/v2/datasets/Branch.md",
+      "example": "examples/rest/074/v2/datasets/Branch/transactions.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Dataset.create",
+      "behavior": "references/rest/v2/datasets/Dataset.md",
+      "example": "examples/rest/074/v2/datasets/Dataset/create.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Dataset.get",
+      "behavior": "references/rest/v2/datasets/Dataset.md",
+      "example": "examples/rest/074/v2/datasets/Dataset/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Dataset.get_health_check_reports",
+      "behavior": "references/rest/v2/datasets/Dataset.md",
+      "example": "examples/rest/074/v2/datasets/Dataset/get_health_check_reports.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Dataset.get_health_checks",
+      "behavior": "references/rest/v2/datasets/Dataset.md",
+      "example": "examples/rest/074/v2/datasets/Dataset/get_health_checks.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Dataset.get_schedules",
+      "behavior": "references/rest/v2/datasets/Dataset.md",
+      "example": "examples/rest/074/v2/datasets/Dataset/get_schedules.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Dataset.get_schema",
+      "behavior": "references/rest/v2/datasets/Dataset.md",
+      "example": "examples/rest/074/v2/datasets/Dataset/get_schema.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Dataset.get_schema_batch",
+      "behavior": "references/rest/v2/datasets/Dataset.md",
+      "example": "examples/rest/074/v2/datasets/Dataset/get_schema_batch.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Dataset.jobs",
+      "behavior": "references/rest/v2/datasets/Dataset-2.md",
+      "example": "examples/rest/074/v2/datasets/Dataset/jobs.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Dataset.put_schema",
+      "behavior": "references/rest/v2/datasets/Dataset-2.md",
+      "example": "examples/rest/074/v2/datasets/Dataset/put_schema.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Dataset.read_table",
+      "behavior": "references/rest/v2/datasets/Dataset-2.md",
+      "example": "examples/rest/074/v2/datasets/Dataset/read_table.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Dataset.transactions",
+      "behavior": "references/rest/v2/datasets/Dataset-2.md",
+      "example": "examples/rest/074/v2/datasets/Dataset/transactions.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.File.content",
+      "behavior": "references/rest/v2/datasets/File.md",
+      "example": "examples/rest/074/v2/datasets/File/content.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.File.delete",
+      "behavior": "references/rest/v2/datasets/File.md",
+      "example": "examples/rest/074/v2/datasets/File/delete.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.File.get",
+      "behavior": "references/rest/v2/datasets/File.md",
+      "example": "examples/rest/074/v2/datasets/File/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.File.list",
+      "behavior": "references/rest/v2/datasets/File.md",
+      "example": "examples/rest/074/v2/datasets/File/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.File.upload",
+      "behavior": "references/rest/v2/datasets/File.md",
+      "example": "examples/rest/074/v2/datasets/File/upload.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Transaction.abort",
+      "behavior": "references/rest/v2/datasets/Transaction.md",
+      "example": "examples/rest/074/v2/datasets/Transaction/abort.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Transaction.build",
+      "behavior": "references/rest/v2/datasets/Transaction.md",
+      "example": "examples/rest/074/v2/datasets/Transaction/build.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Transaction.commit",
+      "behavior": "references/rest/v2/datasets/Transaction.md",
+      "example": "examples/rest/074/v2/datasets/Transaction/commit.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Transaction.create",
+      "behavior": "references/rest/v2/datasets/Transaction.md",
+      "example": "examples/rest/074/v2/datasets/Transaction/create.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Transaction.get",
+      "behavior": "references/rest/v2/datasets/Transaction.md",
+      "example": "examples/rest/074/v2/datasets/Transaction/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.Transaction.job",
+      "behavior": "references/rest/v2/datasets/Transaction.md",
+      "example": "examples/rest/074/v2/datasets/Transaction/job.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.View.add_backing_datasets",
+      "behavior": "references/rest/v2/datasets/View.md",
+      "example": "examples/rest/074/v2/datasets/View/add_backing_datasets.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.View.add_primary_key",
+      "behavior": "references/rest/v2/datasets/View.md",
+      "example": "examples/rest/074/v2/datasets/View/add_primary_key.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.View.create",
+      "behavior": "references/rest/v2/datasets/View.md",
+      "example": "examples/rest/074/v2/datasets/View/create.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.View.get",
+      "behavior": "references/rest/v2/datasets/View.md",
+      "example": "examples/rest/074/v2/datasets/View/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.View.remove_backing_datasets",
+      "behavior": "references/rest/v2/datasets/View.md",
+      "example": "examples/rest/074/v2/datasets/View/remove_backing_datasets.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.datasets.View.replace_backing_datasets",
+      "behavior": "references/rest/v2/datasets/View.md",
+      "example": "examples/rest/074/v2/datasets/View/replace_backing_datasets.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.checkpoints.Record.get",
+      "behavior": "references/rest/v2/checkpoints/Record.md",
+      "example": "examples/rest/075/v2/checkpoints/Record/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.checkpoints.Record.get_batch",
+      "behavior": "references/rest/v2/checkpoints/Record.md",
+      "example": "examples/rest/075/v2/checkpoints/Record/get_batch.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.checkpoints.Record.search",
+      "behavior": "references/rest/v2/checkpoints/Record.md",
+      "example": "examples/rest/075/v2/checkpoints/Record/search.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.data_health.Check.create",
+      "behavior": "references/rest/v2/data_health/Check.md",
+      "example": "examples/rest/075/v2/data_health/Check/create.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.data_health.Check.delete",
+      "behavior": "references/rest/v2/data_health/Check.md",
+      "example": "examples/rest/075/v2/data_health/Check/delete.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.data_health.Check.get",
+      "behavior": "references/rest/v2/data_health/Check.md",
+      "example": "examples/rest/075/v2/data_health/Check/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.data_health.Check.replace",
+      "behavior": "references/rest/v2/data_health/Check.md",
+      "example": "examples/rest/075/v2/data_health/Check/replace.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.data_health.CheckReport.get",
+      "behavior": "references/rest/v2/data_health/CheckReport.md",
+      "example": "examples/rest/075/v2/data_health/CheckReport/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.data_health.CheckReport.get_latest",
+      "behavior": "references/rest/v2/data_health/CheckReport.md",
+      "example": "examples/rest/075/v2/data_health/CheckReport/get_latest.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.Build.cancel",
+      "behavior": "references/rest/v2/orchestration/Build.md",
+      "example": "examples/rest/075/v2/orchestration/Build/cancel.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.Build.create",
+      "behavior": "references/rest/v2/orchestration/Build.md",
+      "example": "examples/rest/075/v2/orchestration/Build/create.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.Build.get",
+      "behavior": "references/rest/v2/orchestration/Build.md",
+      "example": "examples/rest/075/v2/orchestration/Build/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.Build.get_batch",
+      "behavior": "references/rest/v2/orchestration/Build.md",
+      "example": "examples/rest/075/v2/orchestration/Build/get_batch.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.Build.jobs",
+      "behavior": "references/rest/v2/orchestration/Build.md",
+      "example": "examples/rest/075/v2/orchestration/Build/jobs.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.Build.search",
+      "behavior": "references/rest/v2/orchestration/Build.md",
+      "example": "examples/rest/075/v2/orchestration/Build/search.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.Job.get",
+      "behavior": "references/rest/v2/orchestration/Job.md",
+      "example": "examples/rest/075/v2/orchestration/Job/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.Job.get_batch",
+      "behavior": "references/rest/v2/orchestration/Job.md",
+      "example": "examples/rest/075/v2/orchestration/Job/get_batch.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.Schedule.create",
+      "behavior": "references/rest/v2/orchestration/Schedule.md",
+      "example": "examples/rest/075/v2/orchestration/Schedule/create.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.Schedule.delete",
+      "behavior": "references/rest/v2/orchestration/Schedule.md",
+      "example": "examples/rest/075/v2/orchestration/Schedule/delete.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.Schedule.get",
+      "behavior": "references/rest/v2/orchestration/Schedule.md",
+      "example": "examples/rest/075/v2/orchestration/Schedule/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.Schedule.get_affected_resources",
+      "behavior": "references/rest/v2/orchestration/Schedule.md",
+      "example": "examples/rest/075/v2/orchestration/Schedule/get_affected_resources.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.Schedule.get_batch",
+      "behavior": "references/rest/v2/orchestration/Schedule.md",
+      "example": "examples/rest/075/v2/orchestration/Schedule/get_batch.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.Schedule.pause",
+      "behavior": "references/rest/v2/orchestration/Schedule.md",
+      "example": "examples/rest/075/v2/orchestration/Schedule/pause.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.Schedule.replace",
+      "behavior": "references/rest/v2/orchestration/Schedule.md",
+      "example": "examples/rest/075/v2/orchestration/Schedule/replace.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.Schedule.run",
+      "behavior": "references/rest/v2/orchestration/Schedule.md",
+      "example": "examples/rest/075/v2/orchestration/Schedule/run.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.Schedule.runs",
+      "behavior": "references/rest/v2/orchestration/Schedule-2.md",
+      "example": "examples/rest/075/v2/orchestration/Schedule/runs.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.Schedule.unpause",
+      "behavior": "references/rest/v2/orchestration/Schedule-2.md",
+      "example": "examples/rest/075/v2/orchestration/Schedule/unpause.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.ScheduleVersion.get",
+      "behavior": "references/rest/v2/orchestration/ScheduleVersion.md",
+      "example": "examples/rest/075/v2/orchestration/ScheduleVersion/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v2.orchestration.ScheduleVersion.schedule",
+      "behavior": "references/rest/v2/orchestration/ScheduleVersion.md",
+      "example": "examples/rest/075/v2/orchestration/ScheduleVersion/schedule.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.Action.apply",
+      "behavior": "references/rest/v1/ontologies/Action.md",
+      "example": "examples/rest/077/v1/ontologies/Action/apply.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.Action.apply_batch",
+      "behavior": "references/rest/v1/ontologies/Action.md",
+      "example": "examples/rest/077/v1/ontologies/Action/apply_batch.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.Action.validate",
+      "behavior": "references/rest/v1/ontologies/Action.md",
+      "example": "examples/rest/077/v1/ontologies/Action/validate.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.ActionType.get",
+      "behavior": "references/rest/v1/ontologies/ActionType.md",
+      "example": "examples/rest/077/v1/ontologies/ActionType/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.ActionType.list",
+      "behavior": "references/rest/v1/ontologies/ActionType.md",
+      "example": "examples/rest/077/v1/ontologies/ActionType/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.Attachment.get",
+      "behavior": "references/rest/v1/ontologies/Attachment.md",
+      "example": "examples/rest/077/v1/ontologies/Attachment/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.Attachment.read",
+      "behavior": "references/rest/v1/ontologies/Attachment.md",
+      "example": "examples/rest/077/v1/ontologies/Attachment/read.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.Attachment.upload",
+      "behavior": "references/rest/v1/ontologies/Attachment.md",
+      "example": "examples/rest/077/v1/ontologies/Attachment/upload.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.ObjectType.get",
+      "behavior": "references/rest/v1/ontologies/ObjectType.md",
+      "example": "examples/rest/077/v1/ontologies/ObjectType/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.ObjectType.get_outgoing_link_type",
+      "behavior": "references/rest/v1/ontologies/ObjectType.md",
+      "example": "examples/rest/077/v1/ontologies/ObjectType/get_outgoing_link_type.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.ObjectType.list",
+      "behavior": "references/rest/v1/ontologies/ObjectType.md",
+      "example": "examples/rest/077/v1/ontologies/ObjectType/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.ObjectType.list_outgoing_link_types",
+      "behavior": "references/rest/v1/ontologies/ObjectType.md",
+      "example": "examples/rest/077/v1/ontologies/ObjectType/list_outgoing_link_types.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.Ontology.get",
+      "behavior": "references/rest/v1/ontologies/Ontology.md",
+      "example": "examples/rest/077/v1/ontologies/Ontology/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.Ontology.list",
+      "behavior": "references/rest/v1/ontologies/Ontology.md",
+      "example": "examples/rest/077/v1/ontologies/Ontology/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.OntologyObject.aggregate",
+      "behavior": "references/rest/v1/ontologies/OntologyObject.md",
+      "example": "examples/rest/077/v1/ontologies/OntologyObject/aggregate.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.OntologyObject.get",
+      "behavior": "references/rest/v1/ontologies/OntologyObject.md",
+      "example": "examples/rest/077/v1/ontologies/OntologyObject/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.OntologyObject.get_linked_object",
+      "behavior": "references/rest/v1/ontologies/OntologyObject.md",
+      "example": "examples/rest/077/v1/ontologies/OntologyObject/get_linked_object.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.OntologyObject.list",
+      "behavior": "references/rest/v1/ontologies/OntologyObject.md",
+      "example": "examples/rest/077/v1/ontologies/OntologyObject/list.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.OntologyObject.list_linked_objects",
+      "behavior": "references/rest/v1/ontologies/OntologyObject.md",
+      "example": "examples/rest/077/v1/ontologies/OntologyObject/list_linked_objects.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.OntologyObject.search",
+      "behavior": "references/rest/v1/ontologies/OntologyObject.md",
+      "example": "examples/rest/077/v1/ontologies/OntologyObject/search.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.Query.execute",
+      "behavior": "references/rest/v1/ontologies/Query.md",
+      "example": "examples/rest/077/v1/ontologies/Query/execute.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.QueryType.get",
+      "behavior": "references/rest/v1/ontologies/QueryType.md",
+      "example": "examples/rest/077/v1/ontologies/QueryType/get.py",
+      "review_status": "pending independent review"
+    },
+    {
+      "id": "v1.ontologies.QueryType.list",
+      "behavior": "references/rest/v1/ontologies/QueryType.md",
+      "example": "examples/rest/077/v1/ontologies/QueryType/list.py",
+      "review_status": "pending independent review"
+    }
+  ]
+}

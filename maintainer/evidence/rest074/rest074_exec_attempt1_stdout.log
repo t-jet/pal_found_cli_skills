@@ -1,0 +1,216 @@
+{"case_id": "REST074", "check": "socket_traps_active", "result": "PASS"}
+{"case_id": "F074-01", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-01", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-01", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-01", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-01", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-01", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-01", "check": "error_BranchAlreadyExists", "result": "PASS", "status": 409, "requests": 1}
+{"case_id": "F074-01", "check": "error_CreateBranchPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-01", "check": "error_DatasetNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-01", "check": "error_InvalidBranchId", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F074-01", "check": "error_TransactionNotCommitted", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F074-01", "check": "error_TransactionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-01", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F074-01", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-01", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F074-01", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F074-01", "check": "missing_required_dataset_rid", "result": "PASS", "requests": 0}
+{"case_id": "F074-01", "check": "missing_required_branch_id", "result": "PASS", "requests": 0}
+{"case_id": "F074-01", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-01", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-01", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F074-02", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-02", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-02", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-02", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-02", "check": "error_BranchNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-02", "check": "error_DatasetNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-02", "check": "error_DeleteBranchPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-02", "check": "error_InvalidBranchId", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F074-02", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F074-02", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-02", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F074-02", "check": "missing_required_dataset_rid", "result": "PASS", "requests": 0}
+{"case_id": "F074-02", "check": "missing_required_branch_id", "result": "PASS", "requests": 0}
+{"case_id": "F074-02", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-02", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-02", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F074-03", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-03", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-03", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-03", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-03", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-03", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-03", "check": "error_BranchNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-03", "check": "error_DatasetNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-03", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F074-03", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-03", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F074-03", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F074-03", "check": "missing_required_dataset_rid", "result": "PASS", "requests": 0}
+{"case_id": "F074-03", "check": "missing_required_branch_id", "result": "PASS", "requests": 0}
+{"case_id": "F074-03", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-03", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-03", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F074-04", "check": "ordinary_sync_iterator_terminal_closed", "result": "PASS", "requests": 2, "items": [{"branchId": "independent-pageA074"}, {"branchId": "independent-pageB074"}]}
+{"case_id": "F074-04", "check": "ordinary_async_iterator_terminal_closed", "result": "PASS", "requests": 2, "items": [{"branchId": "independent-pageA074"}, {"branchId": "independent-pageB074"}]}
+{"case_id": "F074-04", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-04", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-04", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-04", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-04", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-04", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-04", "check": "error_DatasetNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-04", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F074-04", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-04", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F074-04", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F074-04", "check": "missing_required_dataset_rid", "result": "PASS", "requests": 0}
+{"case_id": "F074-04", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-04", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-04", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F074-04", "check": "finite continuation", "result": "PASS", "requests": 2, "items": [{"branchId": "independent-pageA074"}, {"branchId": "independent-pageB074"}]}
+{"case_id": "F074-05", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-05", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-05", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-05", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-05", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-05", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-05", "check": "error_BranchAlreadyExists", "result": "PASS", "status": 409, "requests": 1}
+{"case_id": "F074-05", "check": "error_CreateBranchPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-05", "check": "error_CreateDatasetPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-05", "check": "error_DatasetNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-05", "check": "error_FolderNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-05", "check": "error_InvalidBranchId", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F074-05", "check": "error_ResourceNameAlreadyExists", "result": "PASS", "status": 409, "requests": 1}
+{"case_id": "F074-05", "check": "error_TransactionNotCommitted", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F074-05", "check": "error_TransactionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-05", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F074-05", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-05", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F074-05", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F074-05", "check": "missing_required_name", "result": "PASS", "requests": 0}
+{"case_id": "F074-05", "check": "missing_required_parent_folder_rid", "result": "PASS", "requests": 0}
+{"case_id": "F074-05", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-05", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-05", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F074-06", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-06", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-06", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-06", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-06", "check": "error_BranchNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-06", "check": "error_DatasetNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-06", "check": "error_DeleteSchemaPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-06", "check": "error_InvalidBranchId", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F074-06", "check": "error_SchemaNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-06", "check": "error_TransactionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-06", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F074-06", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-06", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F074-06", "check": "missing_required_dataset_rid", "result": "PASS", "requests": 0}
+{"case_id": "F074-06", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-06", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-06", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F074-07", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-07", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-07", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-07", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-07", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-07", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-07", "check": "error_DatasetNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-07", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F074-07", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-07", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F074-07", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F074-07", "check": "missing_required_dataset_rid", "result": "PASS", "requests": 0}
+{"case_id": "F074-07", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-07", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-07", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F074-08", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-08", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-08", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-08", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-08", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-08", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-08", "check": "error_BranchNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-08", "check": "error_DatasetNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-08", "check": "error_InvalidBranchId", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F074-08", "check": "error_TransactionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-08", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F074-08", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-08", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F074-08", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F074-08", "check": "missing_required_dataset_rid", "result": "PASS", "requests": 0}
+{"case_id": "F074-08", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-08", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-08", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F074-09", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-09", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-09", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-09", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-09", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-09", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-09", "check": "error_ColumnTypesNotSupported", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F074-09", "check": "error_DatasetReadNotSupported", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F074-09", "check": "error_InvalidParameterCombination", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F074-09", "check": "error_ReadTablePermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-09", "check": "error_SchemaNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-09", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F074-09", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-09", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F074-09", "check": "missing_required_dataset_rid", "result": "PASS", "requests": 0}
+{"case_id": "F074-09", "check": "missing_required_format", "result": "PASS", "requests": 0}
+{"case_id": "F074-09", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-09", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-09", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F074-10", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-10", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-10", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-10", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-10", "check": "error_AbortTransactionPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-10", "check": "error_BranchNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-10", "check": "error_CommitTransactionPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-10", "check": "error_CreateTransactionPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-10", "check": "error_DatasetNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-10", "check": "error_FileNotFoundOnTransactionRange", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-10", "check": "error_InvalidBranchId", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F074-10", "check": "error_InvalidTransactionType", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F074-10", "check": "error_OpenTransactionAlreadyExists", "result": "PASS", "status": 409, "requests": 1}
+{"case_id": "F074-10", "check": "error_PutSchemaPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-10", "check": "error_TransactionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-10", "check": "error_TransactionNotOpen", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F074-10", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F074-10", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-10", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F074-10", "check": "missing_required_dataset_rid", "result": "PASS", "requests": 0}
+{"case_id": "F074-10", "check": "missing_required_body", "result": "PASS", "requests": 0}
+{"case_id": "F074-10", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-10", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-10", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F074-11", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-11", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-11", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-11", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-11", "check": "error_AbortTransactionPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-11", "check": "error_BranchNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-11", "check": "error_CommitTransactionPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-11", "check": "error_CreateTransactionPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-11", "check": "error_DatasetNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-11", "check": "error_FileNotFoundOnBranch", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-11", "check": "error_FileNotFoundOnTransactionRange", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-11", "check": "error_InvalidBranchId", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F074-11", "check": "error_InvalidParameterCombination", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F074-11", "check": "error_InvalidTransactionType", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F074-11", "check": "error_OpenTransactionAlreadyExists", "result": "PASS", "status": 409, "requests": 1}
+{"case_id": "F074-11", "check": "error_PutSchemaPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-11", "check": "error_TransactionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F074-11", "check": "error_TransactionNotOpen", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F074-11", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F074-11", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F074-11", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F074-11", "check": "missing_required_dataset_rid", "result": "PASS", "requests": 0}
+{"case_id": "F074-11", "check": "missing_required_file_path", "result": "PASS", "requests": 0}
+{"case_id": "F074-11", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F074-11", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F074-11", "check": "required argument omitted", "result": "PASS", "requests": 0}

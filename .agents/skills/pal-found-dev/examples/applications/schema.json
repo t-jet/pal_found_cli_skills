@@ -1,0 +1,15 @@
+{
+  "purpose": "Synthetic example contract for the separately prepared generated SDK; not a serialized platform schema",
+  "generatedPackagePlaceholder": "@my/osdk",
+  "objectType": "Todo",
+  "primaryKey": "todoId",
+  "properties": {
+    "todoId": "string",
+    "title": "string",
+    "isComplete": "boolean",
+    "createdAt": "timestamp"
+  },
+  "action": "completeTodo",
+  "actionParameters": {"todo": "Todo object", "isComplete": "boolean"},
+  "sample": {"todoId": "t1", "title": "Check orders", "isComplete": false, "createdAt": "2026-10-07T08:00:00Z"}
+}

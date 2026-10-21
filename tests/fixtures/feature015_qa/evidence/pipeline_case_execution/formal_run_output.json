@@ -1,0 +1,333 @@
+{
+  "executed_utc": "2026-10-11T14:28:46.965485+00:00",
+  "snapshot_manifest_sha256": "5cbf2fc67b3bc706262884b40942caf7a345738edb965dfc0a979e3d785b56b8",
+  "snapshot_files_verified": 4379,
+  "python_version": "3.11.9",
+  "live_tenant_tested": false,
+  "network_boundary": "cooperative Python DNS/socket denial for fixture and probe; pytest journey tests patch DNS/socket",
+  "cases": [
+    {
+      "case": "CASE062-1",
+      "consulted_local_heading": "references/pipelines/releases.md#Procedure",
+      "test_data": {
+        "proposed_revision": "commit-a",
+        "checks_revision": "commit-old"
+      },
+      "expected": [
+        "run_checks_for_revision",
+        "build_production_context"
+      ],
+      "actual": [
+        "run_checks_for_revision",
+        "build_production_context"
+      ],
+      "status": "PASS",
+      "mode": "synthetic recorded state or local procedure; no Foundry tenant execution"
+    },
+    {
+      "case": "CASE062-2",
+      "consulted_local_heading": "references/pipelines/python-transforms.md#Worked example",
+      "test_data": {
+        "orders": [
+          {
+            "order_id": "o1",
+            "customer_id": "c1",
+            "total_cents": 1200
+          }
+        ],
+        "customers": [
+          {
+            "customer_id": "c1",
+            "customer_name": "Ada"
+          }
+        ],
+        "empty_orders": []
+      },
+      "expected": {
+        "joined": [
+          {
+            "order_id": "o1",
+            "customer_id": "c1",
+            "total_cents": 1200,
+            "customer_name": "Ada"
+          }
+        ],
+        "empty": []
+      },
+      "actual": {
+        "joined": [
+          {
+            "order_id": "o1",
+            "customer_id": "c1",
+            "customer_name": "Ada",
+            "total_cents": 1200
+          }
+        ],
+        "empty": []
+      },
+      "status": "PASS",
+      "mode": "synthetic recorded state or local procedure; no Foundry tenant execution"
+    },
+    {
+      "case": "CASE062-3",
+      "consulted_local_heading": "references/pipelines/testing.md#Failures and recovery",
+      "test_data": {
+        "bad_inputs": "duplicate order/customer, null customer, negative cents"
+      },
+      "expected": [
+        "duplicate order_id",
+        "duplicate customer_id",
+        "customer_id does not identify a customer",
+        "total_cents must be a nonnegative integer",
+        "repair_expectation_and_rebuild"
+      ],
+      "actual": [
+        "duplicate order_id",
+        "duplicate customer_id",
+        "customer_id does not identify a customer",
+        "total_cents must be a nonnegative integer",
+        "repair_expectation_and_rebuild"
+      ],
+      "status": "PASS",
+      "mode": "synthetic recorded state or local procedure; no Foundry tenant execution"
+    },
+    {
+      "case": "CASE062-4",
+      "consulted_local_heading": "references/pipelines/local-development.md#Expected result and checks",
+      "test_data": {
+        "fixture": "examples/pipelines/fixture_run.py",
+        "public_probe": "example.invalid:443"
+      },
+      "expected": [
+        "PUBLIC_NETWORK_DENIED",
+        "business fixtures passed",
+        "incremental fixtures passed"
+      ],
+      "actual": [
+        "PUBLIC_NETWORK_DENIED",
+        "business fixtures passed",
+        "incremental fixtures passed"
+      ],
+      "status": "PASS",
+      "mode": "synthetic recorded state or local procedure; no Foundry tenant execution"
+    },
+    {
+      "case": "CASE062-5",
+      "consulted_local_heading": "references/pipelines/transactions.md#Worked example",
+      "test_data": {
+        "previous": [
+          {
+            "order_id": "o1",
+            "customer_id": "c1",
+            "customer_name": "Ada",
+            "total_cents": 1200
+          }
+        ],
+        "added": [
+          {
+            "order_id": "o2",
+            "customer_id": "c1",
+            "total_cents": 500
+          }
+        ],
+        "customers": [
+          {
+            "customer_id": "c1",
+            "customer_name": "Grace"
+          }
+        ]
+      },
+      "expected": {
+        "choice": "incremental_candidate",
+        "rows": [
+          {
+            "order_id": "o1",
+            "customer_id": "c1",
+            "customer_name": "Grace",
+            "total_cents": 1200
+          },
+          {
+            "order_id": "o2",
+            "customer_id": "c1",
+            "customer_name": "Grace",
+            "total_cents": 500
+          }
+        ],
+        "update": "plan_snapshot_recompute",
+        "schema": "plan_snapshot_recompute",
+        "missing_prior": "snapshot_initialization",
+        "fallback": "inspect_branch_and_fallback"
+      },
+      "actual": {
+        "choice": "incremental_candidate",
+        "rows": [
+          {
+            "order_id": "o1",
+            "customer_id": "c1",
+            "customer_name": "Grace",
+            "total_cents": 1200
+          },
+          {
+            "order_id": "o2",
+            "customer_id": "c1",
+            "customer_name": "Grace",
+            "total_cents": 500
+          }
+        ],
+        "update": "plan_snapshot_recompute",
+        "schema": "plan_snapshot_recompute",
+        "missing_prior": "snapshot_initialization",
+        "fallback": "inspect_branch_and_fallback"
+      },
+      "status": "PASS",
+      "mode": "synthetic recorded state or local procedure; no Foundry tenant execution"
+    },
+    {
+      "case": "CASE062-6",
+      "consulted_local_heading": "references/pipelines.md#Follow the output through delivery",
+      "test_data": {
+        "revision": "commit-a",
+        "varied_gate": [
+          "tests",
+          "checks",
+          "review",
+          "release",
+          "build",
+          "transaction",
+          "output",
+          "complete"
+        ]
+      },
+      "expected": {
+        "tests": "repair_or_run_tests",
+        "checks": "run_checks_for_revision",
+        "review": "obtain_review_for_revision",
+        "release": "release_reviewed_revision",
+        "build": "build_production_context",
+        "transaction": "reconcile_output_transaction",
+        "output": "verify_output_and_consumers",
+        "complete": "delivery_verified"
+      },
+      "actual": {
+        "tests": "repair_or_run_tests",
+        "checks": "run_checks_for_revision",
+        "review": "obtain_review_for_revision",
+        "release": "release_reviewed_revision",
+        "build": "build_production_context",
+        "transaction": "reconcile_output_transaction",
+        "output": "verify_output_and_consumers",
+        "complete": "delivery_verified"
+      },
+      "status": "PASS",
+      "mode": "synthetic recorded state or local procedure; no Foundry tenant execution"
+    },
+    {
+      "case": "CASE062-7",
+      "consulted_local_heading": "references/pipelines/transactions.md#Failures and recovery",
+      "test_data": {
+        "transactions": [
+          [
+            null,
+            null,
+            2
+          ],
+          [
+            "tx-1",
+            "OPEN",
+            2
+          ],
+          [
+            "tx-1",
+            "OPEN",
+            0
+          ],
+          [
+            "tx-1",
+            "COMMITTED",
+            2
+          ],
+          [
+            "tx-1",
+            "ABORTED",
+            2
+          ],
+          [
+            "tx-1",
+            "FAILED",
+            2
+          ]
+        ]
+      },
+      "expected": [
+        "locate_write_identity_before_retry",
+        "read_known_transaction_again",
+        "stop_and_escalate_uncertain_write",
+        "verify_visible_files_and_build",
+        "repair_before_new_write",
+        "repair_before_new_write"
+      ],
+      "actual": [
+        "locate_write_identity_before_retry",
+        "read_known_transaction_again",
+        "stop_and_escalate_uncertain_write",
+        "verify_visible_files_and_build",
+        "repair_before_new_write",
+        "repair_before_new_write"
+      ],
+      "status": "PASS",
+      "mode": "synthetic recorded state or local procedure; no Foundry tenant execution"
+    },
+    {
+      "case": "CASE062-8",
+      "consulted_local_heading": "references/pipelines/transactions.md#Expected result and checks",
+      "test_data": {
+        "direct_write": "tx-1 COMMITTED",
+        "transform_build": "not succeeded"
+      },
+      "expected": [
+        "verify_visible_files_and_build",
+        "build_production_context"
+      ],
+      "actual": [
+        "verify_visible_files_and_build",
+        "build_production_context"
+      ],
+      "status": "PASS",
+      "mode": "synthetic recorded state or local procedure; no Foundry tenant execution"
+    },
+    {
+      "case": "CASE062-9",
+      "consulted_local_heading": "references/pipelines/repositories.md#Failures and recovery",
+      "test_data": {
+        "condition": "repository access denied or remote runtime unavailable"
+      },
+      "expected": {
+        "guide_names_permission": true,
+        "reader_names_identity": true,
+        "network_denied": true
+      },
+      "actual": {
+        "guide_names_permission": true,
+        "reader_names_identity": true,
+        "network_denied": true
+      },
+      "status": "PASS",
+      "mode": "synthetic recorded state or local procedure; no Foundry tenant execution"
+    }
+  ],
+  "pytest": {
+    "command": [
+      "python",
+      "-B",
+      "-m",
+      "pytest",
+      "-vv",
+      "examples/pipelines/test_order_rules.py",
+      "examples/pipelines/test_journey_decisions.py",
+      "examples/pipelines/test_transform_entrypoints.py"
+    ],
+    "exit_code": 0,
+    "stdout": "============================= test session starts =============================\nplatform win32 -- Python 3.11.9, pytest-8.3.5, pluggy-1.6.0 -- <PYTHON>\ncachedir: .pytest_cache\nrootdir: <FROZEN_SNAPSHOT>\nplugins: anyio-4.8.0, langsmith-0.3.11, asyncio-1.3.0, cov-7.0.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 38 items\n\nexamples/pipelines/test_order_rules.py::test_full_join_and_empty_schema_contract <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_order_rules.py PASSED [  2%]\nexamples/pipelines/test_order_rules.py::test_invalid_order_contract[order_id-None-order_id must be a nonempty string] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_order_rules.py PASSED [  5%]\nexamples/pipelines/test_order_rules.py::test_invalid_order_contract[order_id--order_id must be a nonempty string] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_order_rules.py PASSED [  7%]\nexamples/pipelines/test_order_rules.py::test_invalid_order_contract[customer_id-None-customer_id does not identify a customer] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_order_rules.py PASSED [ 10%]\nexamples/pipelines/test_order_rules.py::test_invalid_order_contract[customer_id-unknown-customer_id does not identify a customer] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_order_rules.py PASSED [ 13%]\nexamples/pipelines/test_order_rules.py::test_invalid_order_contract[total_cents-None-total_cents must be a nonnegative integer] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_order_rules.py PASSED [ 15%]\nexamples/pipelines/test_order_rules.py::test_invalid_order_contract[total_cents-True-total_cents must be a nonnegative integer] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_order_rules.py PASSED [ 18%]\nexamples/pipelines/test_order_rules.py::test_invalid_order_contract[total_cents-1.5-total_cents must be a nonnegative integer] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_order_rules.py PASSED [ 21%]\nexamples/pipelines/test_order_rules.py::test_invalid_order_contract[total_cents--1-total_cents must be a nonnegative integer] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_order_rules.py PASSED [ 23%]\nexamples/pipelines/test_order_rules.py::test_duplicate_order_and_customer_keys <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_order_rules.py PASSED [ 26%]\nexamples/pipelines/test_order_rules.py::test_reference_name_must_be_nonempty <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_order_rules.py PASSED [ 28%]\nexamples/pipelines/test_order_rules.py::test_incremental_append_matches_full_result_and_updates_old_reference <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_order_rules.py PASSED [ 31%]\nexamples/pipelines/test_order_rules.py::test_incremental_replay_and_removed_reference_are_rejected <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_order_rules.py PASSED [ 34%]\nexamples/pipelines/test_journey_decisions.py::test_network_denial_probe <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 36%]\nexamples/pipelines/test_journey_decisions.py::test_preview_sample_does_not_clear_failed_expectation_or_release <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 39%]\nexamples/pipelines/test_journey_decisions.py::test_revision_and_data_visibility_gates[change0-run_checks_for_revision] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 42%]\nexamples/pipelines/test_journey_decisions.py::test_revision_and_data_visibility_gates[change1-obtain_review_for_revision] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 44%]\nexamples/pipelines/test_journey_decisions.py::test_revision_and_data_visibility_gates[change2-release_reviewed_revision] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 47%]\nexamples/pipelines/test_journey_decisions.py::test_revision_and_data_visibility_gates[change3-build_production_context] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 50%]\nexamples/pipelines/test_journey_decisions.py::test_revision_and_data_visibility_gates[change4-reconcile_output_transaction] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 52%]\nexamples/pipelines/test_journey_decisions.py::test_revision_and_data_visibility_gates[change5-verify_output_and_consumers] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 55%]\nexamples/pipelines/test_journey_decisions.py::test_release_does_not_imply_completed_build <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 57%]\nexamples/pipelines/test_journey_decisions.py::test_append_matches_snapshot_and_changed_reference_rejoins_old_rows <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 60%]\nexamples/pipelines/test_journey_decisions.py::test_initial_state_unsupported_history_schema_and_fallback[conditions0-snapshot_initialization] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 63%]\nexamples/pipelines/test_journey_decisions.py::test_initial_state_unsupported_history_schema_and_fallback[conditions1-plan_snapshot_recompute] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 65%]\nexamples/pipelines/test_journey_decisions.py::test_initial_state_unsupported_history_schema_and_fallback[conditions2-plan_snapshot_recompute] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 68%]\nexamples/pipelines/test_journey_decisions.py::test_initial_state_unsupported_history_schema_and_fallback[conditions3-inspect_branch_and_fallback] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 71%]\nexamples/pipelines/test_journey_decisions.py::test_initial_state_unsupported_history_schema_and_fallback[conditions4-fail_and_plan_recompute] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 73%]\nexamples/pipelines/test_journey_decisions.py::test_uncertain_write_uses_known_transaction_before_replay[None-None-locate_write_identity_before_retry] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 76%]\nexamples/pipelines/test_journey_decisions.py::test_uncertain_write_uses_known_transaction_before_replay[tx-1-None-read_known_transaction_again] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 78%]\nexamples/pipelines/test_journey_decisions.py::test_uncertain_write_uses_known_transaction_before_replay[tx-1-OPEN-read_known_transaction_again] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 81%]\nexamples/pipelines/test_journey_decisions.py::test_uncertain_write_uses_known_transaction_before_replay[tx-1-COMMITTED-verify_visible_files_and_build] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 84%]\nexamples/pipelines/test_journey_decisions.py::test_uncertain_write_uses_known_transaction_before_replay[tx-1-ABORTED-repair_before_new_write] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 86%]\nexamples/pipelines/test_journey_decisions.py::test_uncertain_write_uses_known_transaction_before_replay[tx-1-FAILED-repair_before_new_write] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 89%]\nexamples/pipelines/test_journey_decisions.py::test_uncertain_transaction_stops_after_read_budget <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_journey_decisions.py PASSED [ 92%]\nexamples/pipelines/test_transform_entrypoints.py::test_single_node_entrypoint_writes_complete_result_and_rejects_duplicate <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_transform_entrypoints.py PASSED [ 94%]\nexamples/pipelines/test_transform_entrypoints.py::test_incremental_entrypoint_uses_previous_only_when_selected[False-Ada] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_transform_entrypoints.py PASSED [ 97%]\nexamples/pipelines/test_transform_entrypoints.py::test_incremental_entrypoint_uses_previous_only_when_selected[True-Grace] <- ..\\..\\..\\pal_found_cli_skills\\.agents\\skills\\pal-found-dev\\examples\\pipelines\\test_transform_entrypoints.py PASSED [100%]\n\n============================= 38 passed in 12.57s =============================\n",
+    "stderr": "D:\\app\\Python\\Lib\\site-packages\\requests\\__init__.py:113: RequestsDependencyWarning: urllib3 (2.3.0) or chardet (7.4.0.post2)/charset_normalizer (3.4.1) doesn't match a supported version!\n  warnings.warn(\nD:\\app\\Python\\Lib\\site-packages\\pytest_asyncio\\plugin.py:247: PytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\nThe event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n"
+  }
+}

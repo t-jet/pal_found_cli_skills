@@ -1,0 +1,92 @@
+{
+  "reviewer": "qa-engineer independent topic/source reviewer",
+  "candidate_commit": "6591e891cce40210c0222403bc23bda115f97d28",
+  "content_freeze": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+  "scope": "Read-only whole-page semantic and official-source review of T19-T23. No live Foundry enrollment, OAuth, React render, widget host, or publication was available.",
+  "shared_checks": {
+    "registered_sha256_lines_and_h1": "PASS: all five match maintainer/development-author-source-evidence.json",
+    "local_links": "PASS: every relative link in five pages resolves",
+    "fixtures": [
+      "PASS: python examples/compute/verify_fixture.py (synthetic; exit 0)",
+      "PASS: node examples/applications/fixture_run.mjs (synthetic UI states; exit 0)",
+      "PASS: node examples/applications/timeout_unit_fixture.mjs (exit 0)",
+      "PASS: node examples/applications/timeout_fixture.mjs (local HTTP; exit 0)",
+      "PASS: node examples/widgets/fixture_run.mjs (synthetic host/version; exit 0)"
+    ],
+    "typescript_compile": "UNCERTAIN: npx tsc -p examples/applications/api-check.tsconfig.json --noEmit failed because prepared TypeScript dependencies are absent; npx fetched unrelated tsc@2.0.4. This is a harness prerequisite, not product evidence."
+  },
+  "topics": [
+    {
+      "topic": "T19",
+      "verdict": "PASS",
+      "path": "references/compute/integration.md",
+      "sha256": "fe1daa0c0f4403f0f2c10205ec750f4b053a89d11febe8e5db7a4f216a8a3424",
+      "lines": 127,
+      "checks": "Whole page separates Compute Module SDK, generated OSDK, platform SDK, Source network route, OAuth scope, and resource grants. Sample uses generated package placeholder with explicit schema assumption; synthetic compute fixture passed. Source credential map and restricted-app scope claims match primary docs.",
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/compute-modules/osdk-integration",
+        "https://www.palantir.com/docs/foundry/compute-modules/python-sdk",
+        "https://www.palantir.com/docs/foundry/compute-modules/sources",
+        "https://www.palantir.com/docs/foundry/developer-console/application-restrictions"
+      ]
+    },
+    {
+      "topic": "T20",
+      "verdict": "PASS",
+      "path": "references/applications/osdk.md",
+      "sha256": "fd23a0c7addc6f0de0ff98fda1d0e7477d7e49c70f990e659e30ac70ca0d1993",
+      "lines": 135,
+      "checks": "Whole page treats registration, generated bindings, login, scopes, resource restrictions, and user grants separately. Official docs confirm selected Ontology immutability after generation, empty scope behavior, restricted api:use-* scope namespace, OSDK2 fetch/action/query patterns, and configurable application roles. Local timeout unit and HTTP fixtures passed. Tenant-specific generated package and OAuth remain untested.",
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/developer-console/create-application",
+        "https://www.palantir.com/docs/foundry/developer-console/application-restrictions",
+        "https://www.palantir.com/docs/foundry/developer-console/permissions",
+        "https://www.palantir.com/docs/foundry/ontology-sdk/typescript-osdk",
+        "https://www.palantir.com/docs/foundry/ontology-sdk/typescript-osdk-migration"
+      ]
+    },
+    {
+      "topic": "T21",
+      "verdict": "PASS",
+      "path": "references/applications/react.md",
+      "sha256": "ec263968f2465d6101770d2b3d611082a5838f31f1ad2e9096c48cf459558423",
+      "lines": 118,
+      "checks": "Whole page distinguishes loading, retained-data refresh, validation, confirmed Action effects, subscriptions, and deployed website version. Primary docs support typed hooks/shared cache, subscription constraints, and hosting limits 1000 files/20 MB. Synthetic UI-state fixture passed. TypeScript declaration compile was unavailable because prepared dependencies are absent; page explicitly requires them and does not claim fixture proves hooks or tenant execution.",
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/ontology-sdk-react-applications/osdk-react",
+        "https://www.palantir.com/docs/foundry/ontology-sdk/typescript-subscriptions",
+        "https://www.palantir.com/docs/foundry/developer-console/deploy-custom-application-on-foundry",
+        "https://palantir.github.io/osdk-ts/react/getting-started/"
+      ]
+    },
+    {
+      "topic": "T22",
+      "verdict": "PASS",
+      "path": "references/widgets/lifecycle.md",
+      "sha256": "00eac073681eac1c27e8145fc075e7d277f23d672cf67c17a8f9013241c702dd",
+      "lines": 80,
+      "checks": "Whole page tracks source/build/published/selected versions separately. Official docs confirm one set holds multiple widgets, 50-widget limit, Vite HTML inputs, generated manifest, automatic initial In Foundry release, and first-publication requirement before Workshop selection. Synthetic host/version fixture passed.",
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/custom-widgets/core-concepts",
+        "https://www.palantir.com/docs/foundry/custom-widgets/create",
+        "https://www.palantir.com/docs/foundry/custom-widgets/additional-widget",
+        "https://www.palantir.com/docs/foundry/custom-widgets/embedding-in-workshop"
+      ]
+    },
+    {
+      "topic": "T23",
+      "verdict": "PASS",
+      "path": "references/widgets/testing.md",
+      "sha256": "859727a4c3cedf9269cea330c1db811b60baf95817afd77f3ec6250d4699f502",
+      "lines": 72,
+      "checks": "Whole page distinguishes personal dev mode, playground inputs/events, Workshop bindings, published version, and local fixture. Official docs support 24-hour expiry, reapplying after config edits, plugin >=3.34.0, restricted storage/network, worker limits, and Workshop first-release requirement. Synthetic count/event fixture passed; real host behavior untested.",
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/custom-widgets/development",
+        "https://www.palantir.com/docs/foundry/custom-widgets/embedding-in-workshop"
+      ]
+    }
+  ],
+  "reviewer_agent": "/root/feature015_topics19_23_independent_qa",
+  "followup_evidence_file": "maintainer/development-typescript-compile-review.json",
+  "followup_result": "PASS: actual TypeScript7.0.2 compiler, pinned prepared dependencies, 29 byte-identical source copies, zero diagnostics; synthetic schema only."
+}

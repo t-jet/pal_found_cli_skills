@@ -1,0 +1,242 @@
+[
+  {
+    "case_id": "F072-01",
+    "operation": "v2.admin.AuthenticationProvider.get",
+    "verdict": "PASS",
+    "checks": 13
+  },
+  {
+    "case_id": "F072-02",
+    "operation": "v2.admin.AuthenticationProvider.list",
+    "verdict": "PASS",
+    "checks": 12
+  },
+  {
+    "case_id": "F072-03",
+    "operation": "v2.admin.AuthenticationProvider.preregister_group",
+    "verdict": "PASS",
+    "checks": 16
+  },
+  {
+    "case_id": "F072-04",
+    "operation": "v2.admin.AuthenticationProvider.preregister_user",
+    "verdict": "PASS",
+    "checks": 16
+  },
+  {
+    "case_id": "F072-05",
+    "operation": "v2.admin.CbacBanner.get",
+    "verdict": "PASS",
+    "checks": 14
+  },
+  {
+    "case_id": "F072-06",
+    "operation": "v2.admin.CbacMarkingRestrictions.get",
+    "verdict": "PASS",
+    "checks": 13
+  },
+  {
+    "case_id": "F072-07",
+    "operation": "v2.admin.Enrollment.get",
+    "verdict": "PASS",
+    "checks": 12
+  },
+  {
+    "case_id": "F072-08",
+    "operation": "v2.admin.Enrollment.get_current",
+    "verdict": "PASS",
+    "checks": 12
+  },
+  {
+    "case_id": "F072-09",
+    "operation": "v2.admin.EnrollmentRoleAssignment.add",
+    "verdict": "PASS",
+    "checks": 17
+  },
+  {
+    "case_id": "F072-10",
+    "operation": "v2.admin.EnrollmentRoleAssignment.list",
+    "verdict": "PASS",
+    "checks": 13
+  },
+  {
+    "case_id": "F072-11",
+    "operation": "v2.admin.EnrollmentRoleAssignment.remove",
+    "verdict": "PASS",
+    "checks": 17
+  },
+  {
+    "case_id": "F072-12",
+    "operation": "v2.admin.Host.list",
+    "verdict": "PASS",
+    "checks": 17
+  },
+  {
+    "case_id": "F072-13",
+    "operation": "v2.admin.Marking.create",
+    "verdict": "PASS",
+    "checks": 21
+  },
+  {
+    "case_id": "F072-14",
+    "operation": "v2.admin.Marking.get",
+    "verdict": "PASS",
+    "checks": 13
+  },
+  {
+    "case_id": "F072-15",
+    "operation": "v2.admin.Marking.get_batch",
+    "verdict": "PASS",
+    "checks": 15
+  },
+  {
+    "case_id": "F072-16",
+    "operation": "v2.admin.Marking.list",
+    "verdict": "PASS",
+    "checks": 14
+  },
+  {
+    "case_id": "F072-17",
+    "operation": "v2.admin.Marking.parse_classifications",
+    "verdict": "PASS",
+    "checks": 17
+  },
+  {
+    "case_id": "F072-18",
+    "operation": "v2.admin.Marking.replace",
+    "verdict": "PASS",
+    "checks": 18
+  },
+  {
+    "case_id": "F072-19",
+    "operation": "v2.admin.MarkingCategory.create",
+    "verdict": "PASS",
+    "checks": 17
+  },
+  {
+    "case_id": "F072-20",
+    "operation": "v2.admin.MarkingCategory.get",
+    "verdict": "PASS",
+    "checks": 13
+  },
+  {
+    "case_id": "F072-21",
+    "operation": "v2.admin.MarkingCategory.list",
+    "verdict": "PASS",
+    "checks": 14
+  },
+  {
+    "case_id": "F072-22",
+    "operation": "v2.admin.MarkingCategory.replace",
+    "verdict": "PASS",
+    "checks": 16
+  },
+  {
+    "case_id": "F072-23",
+    "operation": "v2.admin.MarkingMember.add",
+    "verdict": "PASS",
+    "checks": 15
+  },
+  {
+    "case_id": "F072-24",
+    "operation": "v2.admin.MarkingMember.list",
+    "verdict": "PASS",
+    "checks": 17
+  },
+  {
+    "case_id": "F072-25",
+    "operation": "v2.admin.MarkingMember.remove",
+    "verdict": "PASS",
+    "checks": 15
+  },
+  {
+    "case_id": "F072-26",
+    "operation": "v2.admin.MarkingRoleAssignment.add",
+    "verdict": "PASS",
+    "checks": 19
+  },
+  {
+    "case_id": "F072-27",
+    "operation": "v2.admin.MarkingRoleAssignment.list",
+    "verdict": "PASS",
+    "checks": 16
+  },
+  {
+    "case_id": "F072-28",
+    "operation": "v2.admin.MarkingRoleAssignment.remove",
+    "verdict": "PASS",
+    "checks": 22
+  },
+  {
+    "case_id": "F072-29",
+    "operation": "v2.admin.Organization.create",
+    "verdict": "PASS",
+    "checks": 19
+  },
+  {
+    "case_id": "F072-30",
+    "operation": "v2.admin.Organization.get",
+    "verdict": "PASS",
+    "checks": 12
+  },
+  {
+    "case_id": "F072-31",
+    "operation": "v2.admin.Organization.list_available_roles",
+    "verdict": "PASS",
+    "checks": 13
+  },
+  {
+    "case_id": "F072-32",
+    "operation": "v2.admin.Organization.replace",
+    "verdict": "PASS",
+    "checks": 16
+  },
+  {
+    "case_id": "F072-33",
+    "operation": "v2.admin.OrganizationGuestMember.add",
+    "verdict": "PASS",
+    "checks": 16
+  },
+  {
+    "case_id": "F072-34",
+    "operation": "v2.admin.OrganizationGuestMember.list",
+    "verdict": "PASS",
+    "checks": 13
+  },
+  {
+    "case_id": "F072-35",
+    "operation": "v2.admin.OrganizationGuestMember.remove",
+    "verdict": "PASS",
+    "checks": 16
+  },
+  {
+    "case_id": "F072-36",
+    "operation": "v2.admin.OrganizationRoleAssignment.add",
+    "verdict": "PASS",
+    "checks": 16
+  },
+  {
+    "case_id": "F072-37",
+    "operation": "v2.admin.OrganizationRoleAssignment.list",
+    "verdict": "PASS",
+    "checks": 13
+  },
+  {
+    "case_id": "F072-38",
+    "operation": "v2.admin.OrganizationRoleAssignment.remove",
+    "verdict": "PASS",
+    "checks": 16
+  },
+  {
+    "case_id": "F072-39",
+    "operation": "v2.admin.Role.get",
+    "verdict": "PASS",
+    "checks": 12
+  },
+  {
+    "case_id": "F072-40",
+    "operation": "v2.admin.Role.get_batch",
+    "verdict": "PASS",
+    "checks": 15
+  }
+]

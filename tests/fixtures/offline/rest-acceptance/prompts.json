@@ -1,0 +1,146 @@
+{
+  "frozen_decision_origin": "DESIGN062 frozen independent fixture decisions,20261006-220347-qa-engineer; pre-authoring namespace selection",
+  "sdk_release": "1.101.0",
+  "cases": [
+    {
+      "id": "v1.datasets",
+      "task": "Read one dataset and retain its returned metadata.",
+      "api_version": "v1",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    },
+    {
+      "id": "v1.ontologies",
+      "task": "Read an Ontology attachment and handle its lifetime correctly.",
+      "api_version": "v1",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    },
+    {
+      "id": "v2.admin",
+      "task": "Read one identity group without changing membership.",
+      "api_version": "v2",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    },
+    {
+      "id": "v2.aip_agents",
+      "task": "Read a specific published AIP Agent version.",
+      "api_version": "v2",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    },
+    {
+      "id": "v2.audit",
+      "task": "Enumerate available audit log files within a finite result budget.",
+      "api_version": "v2",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    },
+    {
+      "id": "v2.checkpoints",
+      "task": "Read a checkpoint record and distinguish missing state from completion.",
+      "api_version": "v2",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    },
+    {
+      "id": "v2.connectivity",
+      "task": "Read one connectivity connection without revealing or changing credentials.",
+      "api_version": "v2",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    },
+    {
+      "id": "v2.data_health",
+      "task": "Read a saved health rule without evaluating the dataset.",
+      "api_version": "v2",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    },
+    {
+      "id": "v2.datasets",
+      "task": "Read one dataset using the requested newer API version.",
+      "api_version": "v2",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    },
+    {
+      "id": "v2.filesystem",
+      "task": "Read a folder and distinguish its parent/project/space identities.",
+      "api_version": "v2",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    },
+    {
+      "id": "v2.functions",
+      "task": "Read a registered Function value type.",
+      "api_version": "v2",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    },
+    {
+      "id": "v2.language_models",
+      "task": "Produce embeddings through an accessible configured model.",
+      "api_version": "v2",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    },
+    {
+      "id": "v2.media_sets",
+      "task": "Read one media set and retain its identity.",
+      "api_version": "v2",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    },
+    {
+      "id": "v2.models",
+      "task": "Read a live model deployment without treating metadata as invocation.",
+      "api_version": "v2",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    },
+    {
+      "id": "v2.ontologies",
+      "task": "Read an Ontology attachment using the requested newer API version.",
+      "api_version": "v2",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    },
+    {
+      "id": "v2.orchestration",
+      "task": "Read a build and distinguish observed state from committed downstream output.",
+      "api_version": "v2",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    },
+    {
+      "id": "v2.sql_queries",
+      "task": "Cancel a SQL query through the supported operation.",
+      "api_version": "v2",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    },
+    {
+      "id": "v2.streams",
+      "task": "Read a stream without inventing a transactional dataset operation.",
+      "api_version": "v2",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    },
+    {
+      "id": "v2.third_party_applications",
+      "task": "Read a registered third-party website.",
+      "api_version": "v2",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    },
+    {
+      "id": "v2.widgets",
+      "task": "Read a widget repository without assuming a release exists.",
+      "api_version": "v2",
+      "prepared": "Python with SDK1.101.0 and synthetic authorized transport; identifiers and necessary tenant fixtures supplied. Only the staged owning skill provides development knowledge.",
+      "required_output": "Adaptable code, exact arguments and serialization, finite response/lifetime handling, success/error assertions, prerequisites and bounded recovery."
+    }
+  ]
+}

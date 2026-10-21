@@ -136,12 +136,15 @@ enrollment.
 
 ### resource.restore
 
-- **Behavior:** Restore the given resource and any directly trashed ancestors from the trash. If the
-  resource is not trashed, this operation will be ignored.
+- **Behavior:** Restore the given resource and any directly trashed ancestors from the trash.
+  Behavior for an active resource is uncertain: SDK 1.101.0 describes an ignored operation
+  but also declares `ResourceNotDirectlyTrashed` for a resource that is not directly trashed.
 - **Before use:** The resource must exist and the caller must have the required deletion or restore
   authority.
 - **Inputs:** positional `resource_rid`; required none; optional none.
 - **Result:** `None`.
-- **Failure or follow-up:** Invalid input or insufficient access to the resource is returned through
-  the CLI error envelope.
+- **Failure or follow-up:** Invalid input or insufficient access is returned through the CLI error
+  envelope. If `ResourceNotDirectlyTrashed` is returned, inspect the resource with
+  `resource get` and reconcile its trash state before deciding on another action. Do not retry
+  restore blindly or assume an active resource always succeeds without a change.
 - **Example:** `pal-found-filesystem resource restore RESOURCE_RID`

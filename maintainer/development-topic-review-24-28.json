@@ -1,0 +1,98 @@
+{
+  "reviewer": "qa-engineer",
+  "candidate": "6591e891cce40210c0222403bc23bda115f97d28",
+  "content_freeze": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+  "review_date": "2026-10-18",
+  "scope": "Independent read-only semantic and source review of topics T24-T28. Five registered pages, all local Markdown link targets, official Palantir sources, and the widget offline fixture were checked. No Foundry tenant execution, host publication, or live branch merge was performed.",
+  "topics": [
+    {
+      "topic": "T24",
+      "verdict": "PASS",
+      "path": "references/widgets/integration.md",
+      "sha256": "fa601011839dbcc045d96a2266bcb9d21d5368dca76e83147ef3c97f750fee2c",
+      "lines": 89,
+      "checks": [
+        "Registered title, digest, and line count match page",
+        "All local Markdown targets resolve",
+        "Workshop parameter and event exchange, 50/50 limit, camelCase IDs, object-set hydration, OSDK token and API enablement, and host refresh match official docs",
+        "node examples/widgets/fixture_run.mjs passed synthetic counter and rejected-update assertions"
+      ],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/custom-widgets/parameters-and-events",
+        "https://www.palantir.com/docs/foundry/custom-widgets/use-osdk"
+      ],
+      "limit": "Offline counter fixture does not prove Workshop binding, OSDK query, or Action effects in a tenant."
+    },
+    {
+      "topic": "T25",
+      "verdict": "PASS",
+      "path": "references/widgets/distribution.md",
+      "sha256": "deffcf6fe4387c7eb8af72bd048d1336bf1e7841a126256a998cde8c8d21a497",
+      "lines": 86,
+      "checks": [
+        "Registered title, digest, and line count match page",
+        "All local Markdown targets resolve",
+        "Archive root, version strategy, CLI/tag/manual publication routes, Marketplace API enablement and 3.1.0 plugin floor match official docs",
+        "node examples/widgets/fixture_run.mjs passed synthetic host version-selection assertions"
+      ],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/custom-widgets/publish",
+        "https://www.palantir.com/docs/foundry/custom-widgets/marketplace"
+      ],
+      "limit": "No authorized upload, product deployment, host selection, or destination permission check was run."
+    },
+    {
+      "topic": "T26",
+      "verdict": "PASS",
+      "path": "references/branching/global.md",
+      "sha256": "3854b2efbb6f7972059018c5e0aa819156579fdefc48f1f822dd103e4317130f",
+      "lines": 89,
+      "checks": [
+        "Registered title, digest, and line count match page",
+        "All local Markdown targets resolve",
+        "Ordinary resource creation/deletion effect on main, owner proposal rights, viewer merge rights after approvals, four lifecycle states, recovery and partial merge warning match official docs"
+      ],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/global-branching/core-concepts",
+        "https://www.palantir.com/docs/foundry/global-branching/branch-security"
+      ],
+      "limit": "Illustrative Shipment walkthrough was reviewed as guidance; no tenant branch or proposal was created."
+    },
+    {
+      "topic": "T27",
+      "verdict": "PASS",
+      "path": "references/branching/git.md",
+      "sha256": "cec934138207ea7dff48c2ebb4e61e4fe7b1c07c2d325924de83541d9bf5d3f0",
+      "lines": 67,
+      "checks": [
+        "Registered title, digest, and line count match page",
+        "All local Markdown targets resolve",
+        "Default branch, protected PR/check/review controls, merge modes, Function tag restrictions, and repository-only fallback scope match official docs"
+      ],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/code-repositories/branch-settings",
+        "https://www.palantir.com/docs/foundry/code-repositories/navigation"
+      ],
+      "limit": "No repository PR, publishing check, build, or Function release was executed."
+    },
+    {
+      "topic": "T28",
+      "verdict": "PASS",
+      "path": "references/branching/contexts.md",
+      "sha256": "a2d425841cac94c25eb4cd6366e043f30709e665bc11d90bebeb0cf328d1bf0a",
+      "lines": 73,
+      "checks": [
+        "Registered title, digest, and line count match page",
+        "All local Markdown targets resolve",
+        "Git, build, dataset, and global branch contexts are distinguished; example correctly reads orders/master through fallback and writes totals/experiment; SDK/global integration boundary is explicit"
+      ],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/data-integration/branching",
+        "https://www.palantir.com/docs/foundry/global-branching/integrations",
+        "https://www.palantir.com/docs/foundry/pipeline-builder/branches-overview"
+      ],
+      "limit": "No tenant job details, transactions, or SDK branch selection were observed."
+    }
+  ],
+  "reviewer_agent": "/root/feature015_topics24_28_independent_qa"
+}

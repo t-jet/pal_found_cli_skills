@@ -2,127 +2,74 @@
 
 [Foundry development guide](../SKILL.md) | [Production operations](operations.md)
 
-## From source data to a pipeline output
+A pipeline turns source data into datasets or Ontology inputs consumed by
+applications. Its contract includes input schemas, transformations, output
+schemas, freshness, permissions and recovery. A successful code check or preview
+is separate from a production build and its committed output.
 
-A pipeline reads source data, applies transformations, and delivers datasets
-or Ontology outputs for later workflows. Batch processing runs on selected
-input snapshots. Incremental processing updates an output from changes since
-earlier runs when the inputs and transform support it. Streaming pipelines
-process arriving data continuously and require a latency and throughput design
-across every stage. Choose the mode from freshness needs, input behavior, and
-operating cost. See [building pipelines](https://www.palantir.com/docs/foundry/building-pipelines/overview),
+## Choose the pipeline and development tool
+
+Batch computation reads selected input state and computes an output. Incremental
+computation uses supported changes and prior state; it needs a valid initial
+build, compatible input histories and a deliberate recompute strategy.
+Streaming continuously processes arrivals and requires end-to-end latency,
+throughput and state management. A batch schedule provides periodic refresh;
+it does not turn a batch algorithm into a streaming pipeline.
+
+Pipeline Builder expresses inputs, transformations, expectations and outputs
+as a graph. Inspect intermediate results and validate a join's keys, nulls and
+cardinality before delivering output. Its supported computation modes and
+operations govern whether an algorithm is batch, incremental or streaming.
+Code Repositories gives developers source control, transform registration,
+dependency declarations, tests, checks and review. Choose it for custom Python
+or SQL logic and libraries that need those controls. A Code Workspace provides
+an interactive notebook/editor environment; reproducible publication needs
+declared inputs, outputs and dependencies rather than hidden notebook state.
+
+## Local development procedures
+
+| Task | Local procedure and examples |
+| --- | --- |
+| Author a SQL transform and validate its output | [SQL transforms](pipelines/sql.md) |
+| Explore notebook data and publish an output | [Workspace exploration and publication](pipelines/workspaces.md) |
+| Navigate and register a repository pipeline | [Repository lifecycle](pipelines/repositories.md) |
+| Author a typed Python transform and join | [Python transforms](pipelines/python-transforms.md) |
+| Exercise logic, Preview and failing expectations | [Testing and data checks](pipelines/testing.md) |
+| Distinguish local VS Code, hosted tools and real data access | [Local development](pipelines/local-development.md) |
+| Protect branches, review/release code and verify production output | [Release and production design](pipelines/releases.md) |
+| Choose snapshot/incremental execution and verify committed state | [Transactions and incremental execution](pipelines/transactions.md) |
+
+## Follow the output through delivery
+
+1. Identify source datasets, branches, schemas, freshness and permitted
+   identities. Locate the owning project and production output.
+2. Declare inputs/outputs and register the transform. Make source changes on
+   the intended Git branch; declare libraries in the repository environment.
+3. Run representative fixtures and inspect Preview. Exercise duplicate/null
+   inputs and expected failures, then configure production expectations.
+4. Run repository checks and review the exact commit. Merge or release using
+   the configured branch protection and production selection rules.
+5. Build selected production datasets. Verify resolved upstream branches,
+   job/build status, committed transactions, output contents and downstream
+   consumer health before treating the change as delivered.
+
+Prepared local fixtures validate deterministic logic without public access.
+Preview against enrollment data, repository checks, builds and committed writes
+require authorized platform connectivity. Missing access is an explicit
+prerequisite failure; a locally complete procedure can report that boundary
+without retrieving additional public documentation.
+
+Dataset branches track transaction histories and may resolve missing data
+through fallback. Git branches track code. A Git merge does not combine dataset
+contents. Transform output transactions commit when the job succeeds, while a
+multi-job pipeline build has several output histories. Inspect actual data;
+swallowed write errors or skipped writes can leave an unintended empty snapshot.
+
+For exact version-specific direct-write inputs and statuses, use the
+[local REST SDK contracts](rest-api.md). Keep transaction identities for bounded
+commit/abort reconciliation. Repeating a timed-out write without inspecting its
+known transaction can duplicate effects.
+
+Optional provenance: [pipeline types](https://www.palantir.com/docs/foundry/building-pipelines/types-of-pipelines),
 [Pipeline Builder concepts](https://www.palantir.com/docs/foundry/pipeline-builder/core-concepts),
-and [pipeline types](https://www.palantir.com/docs/foundry/building-pipelines/types-of-pipelines).
-
-Pipeline Builder connects input datasets, expressions, table transforms,
-expectations, and outputs in a graph. Preview intermediate results before
-delivery; then build the outputs. A transform expression produces a column,
-while a table transform such as filter, join, or pivot changes a table.
-Outputs can include datasets and Ontology components. Branch work lets authors
-test a change before its production release. See [Pipeline Builder overview](https://www.palantir.com/docs/foundry/pipeline-builder/overview),
-[transforms](https://www.palantir.com/docs/foundry/pipeline-builder/transforms-overview),
-and [core concepts](https://www.palantir.com/docs/foundry/pipeline-builder/core-concepts).
-
-Code Repositories suits transforms requiring custom libraries, external API calls,
-specialized logic, or a code review workflow. Python transform repositories
-support batch and incremental pipelines, expectations, reusable libraries, and
-different compute engines. SQL transform repositories use Spark SQL for batch
-transforms. Foundry SQL transforms do not support incremental execution;
-choose a supported Python transform when the design requires incremental
-semantics. Sources: [Code Repositories](https://www.palantir.com/docs/foundry/code-repositories/overview),
-[Python transforms](https://www.palantir.com/docs/foundry/transforms-python/overview),
-[SQL transforms](https://www.palantir.com/docs/foundry/transforms-sql/overview).
-
-## Author Python transforms
-
-A Python transform declares its inputs and outputs, then implements logic in a
-function. Foundry registers that function in a pipeline; a build resolves the
-inputs and executes the transform. Choose PySpark or a single-node engine from
-the data size and library needs. Treat schemas, null behavior, and output
-contracts as part of the interface consumed by downstream datasets. Start with
-[transform definitions](https://www.palantir.com/docs/foundry/transforms-python/transforms),
-[pipeline registration](https://www.palantir.com/docs/foundry/transforms-python/pipelines),
-and [compute engines](https://www.palantir.com/docs/foundry/transforms-python/compute-engines).
-
-An incremental transform can process added or modified input relative to prior
-successful output. Its behavior depends on input transactions and whether a
-full recompute is required. Plan the first build, backfills, schema changes,
-and fallback to full computation; an input change is not automatically a usable
-incremental update. See [incremental transforms](https://www.palantir.com/docs/foundry/transforms-python/incremental-usage)
-and [incremental pipeline guidance](https://www.palantir.com/docs/foundry/building-pipelines/incremental-pipelines-overview).
-
-Keep shared code in a supported Python library and declare dependencies in
-the repository instead of relying on a developer's local environment.
-[Using Python libraries](https://www.palantir.com/docs/foundry/transforms-python/use-python-libraries)
-explains the supported packaging path. Consult the [Python transforms library
-API](https://www.palantir.com/docs/foundry/api-reference/transforms-python-library/api-overview)
-for decorator and I/O details.
-
-## Author SQL transforms
-
-Use a SQL transform when a table can be produced with a maintainable Spark SQL
-query. Declare inputs and output in its repository configuration; reference
-datasets using the syntax documented by Foundry rather than assuming a normal
-database connection or dialect. Check the query with a preview and validate
-column names and types before publishing. For syntax and supported operations,
-read [SQL transforms](https://www.palantir.com/docs/foundry/transforms-sql/overview)
-and the [Spark SQL reference](https://www.palantir.com/docs/foundry/transforms-sql/spark-reference).
-
-## Develop, test, and release
-
-1. Create a repository branch and make a small transform change. Code
-   Repositories exposes files, branches, tags, pull requests, and checks.
-2. Preview the transform against representative input on the intended branch.
-   A preview helps inspect logic before a full build but does not establish
-   production correctness.
-3. Test code-level behavior with repository or Python unit tests. Add data
-   expectations for output properties such as key uniqueness, row count, or
-   required values. A failed expectation can fail a build.
-4. Commit, run checks, review the pull request, then merge using repository
-   branch rules. Tag or release when the repository workflow requires it.
-5. Build target datasets on the production branch and inspect build and job
-   status, output data, and downstream health before treating the change as
-   delivered. A merged code change alone does not refresh a dataset.
-
-See [repository navigation](https://www.palantir.com/docs/foundry/code-repositories/navigation),
-[transform preview](https://www.palantir.com/docs/foundry/code-repositories/preview-transforms),
-[repository tests](https://www.palantir.com/docs/foundry/code-repositories/unit-tests),
-[Python unit tests](https://www.palantir.com/docs/foundry/transforms-python/unit-tests),
-[data expectations](https://www.palantir.com/docs/foundry/transforms-python/data-expectations-getting-started),
-and [branch settings](https://www.palantir.com/docs/foundry/code-repositories/branch-settings).
-For a complete release design, read [branching and release process](https://www.palantir.com/docs/foundry/building-pipelines/branching-release-process),
-[recommended project structure](https://www.palantir.com/docs/foundry/building-pipelines/recommended-project-structure),
-and [building a production pipeline](https://www.palantir.com/docs/foundry/building-pipelines/building-production-pipeline).
-
-In local VS Code development, configure the supported Foundry tooling and
-authentication, then use local preview and tests before committing. The local
-environment and the Foundry build environment can differ, especially in
-compute size, secrets, and data access. Follow [Python local development](https://www.palantir.com/docs/foundry/transforms-python/local-development),
-[local preview](https://www.palantir.com/docs/foundry/transforms-common/local-preview),
-and the [local versus hosted VS Code guide](https://www.palantir.com/docs/foundry/vs-code/local-vs-workspace-guide).
-Code Workspaces provide JupyterLab, RStudio, and VS Code workflows backed by
-repositories. Publish workspace-backed transforms through the workspace's
-publication workflow. See [Code Workspaces getting started](https://www.palantir.com/docs/foundry/code-workspaces/getting-started/index.html)
-and [working with data](https://www.palantir.com/docs/foundry/code-workspaces/data).
-
-## Understand builds, dataset branches, and transactions
-
-A dataset stores snapshots produced by committed transactions. A dataset branch
-points to a transaction; builds resolve which upstream data and transform
-logic to use, then execute jobs for required outputs. Dataset branches and
-Git branches have different lifecycles. A branch can fall back to another
-branch for missing data; inspect the resolved branch when a build reads an
-unexpected snapshot. See [datasets](https://www.palantir.com/docs/foundry/data-integration/datasets),
-[data branching](https://www.palantir.com/docs/foundry/data-integration/branching),
-and [builds](https://www.palantir.com/docs/foundry/data-integration/builds).
-
-For Python transforms, Foundry opens transactions on outputs and commits them
-when the job succeeds. If a transform swallows a write error or never writes
-an output, the job can still succeed and commit an empty snapshot. Test output
-contents and expectations, not only job success. See [Python transform
-transactionality](https://www.palantir.com/docs/foundry/transforms-python/transforms).
-For direct dataset writes through an API, create a transaction, upload or
-change data within it, then commit or abort it. Transaction creation is not
-equivalent to a completed build. See [create](https://www.palantir.com/docs/foundry/api/datasets-resources/transactions/create-transaction),
-[commit](https://www.palantir.com/docs/foundry/api/datasets-resources/transactions/commit-transaction/),
-and [abort](https://www.palantir.com/docs/foundry/api/datasets-v2-resources/transactions/abort-transaction).
+[tool comparison](https://www.palantir.com/docs/foundry/building-pipelines/considerations-pb-cr).

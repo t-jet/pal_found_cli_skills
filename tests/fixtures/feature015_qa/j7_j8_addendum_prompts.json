@@ -1,0 +1,22 @@
+{
+  "instruction": "Use only the isolated pal-found-dev skill, this prepared runtime, and the pinned local Node toolchain. Author J7/J8 application and widget decisions, code/configuration, observable results, and bounded recovery with exact local headings. Public documentation and QA expected answers are unavailable. Explain which effects require enrolled tenant access.",
+  "prepared_runtime": "tests/fixtures/feature015_qa/j7_j8_prepared_runtime.mjs",
+  "cases": [
+    {
+      "id": "J7-4",
+      "task": "Prepare a public OSDK Todo application with callback, origin, and read/write scopes. Exercise the supplied denied identity, callback, and scope paths before the first query or Action. Identify who can repair registration and grants."
+    },
+    {
+      "id": "J7-5",
+      "task": "Complete Todo and update its visible list after a confirmed result. Handle a lost Action reply by authorized reread before any replay. Explain normalized cache or subscription refresh, then distinguish local preview from a selected website release for both permitted and denied users."
+    },
+    {
+      "id": "J8-4",
+      "task": "In Workshop, send count 0 then 5 into reviewCounter, emit countChanged from that widget, and show host and reviewSummary receiving the result. Reject a wrong-type payload without changing host state."
+    },
+    {
+      "id": "J8-5",
+      "task": "A host is pinned to release 1.1.0 and regresses. Select the previously verified 1.0.0 release, then check selected version, assets, parameter/event binding and rendered behavior. Explain what the rollback cannot undo."
+    }
+  ]
+}

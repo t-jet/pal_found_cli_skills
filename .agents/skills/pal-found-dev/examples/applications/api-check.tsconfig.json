@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "ES2022", "module": "ESNext", "moduleResolution": "bundler",
+    "jsx": "react-jsx", "strict": true, "skipLibCheck": true, "noEmit": true,
+    "allowJs": true,
+    "paths": { "@my/osdk": ["./schema-fixture.d.ts"] }
+  },
+  "include": ["*.ts", "*.tsx", "*.mjs", "*.mts", "../widgets/*.ts", "../widgets/*.tsx"]
+}

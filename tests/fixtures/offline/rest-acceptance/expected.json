@@ -1,0 +1,786 @@
+{
+  "frozen_decision_origin": "DESIGN062 frozen independent fixture decisions,20261006-220347-qa-engineer; pre-authoring namespace selection",
+  "sdk_release": "1.101.0",
+  "cases": [
+    {
+      "id": "v1.datasets",
+      "operation_id": "v1.datasets.Dataset.get",
+      "source_module": "foundry_sdk.v1.datasets.dataset",
+      "stage": "Stable",
+      "modes": {
+        "ordinary": {
+          "signature": "self, dataset_rid: datasets_models.DatasetRid, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "datasets_models.Dataset",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, dataset_rid: datasets_models.DatasetRid, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "typing.Awaitable[datasets_models.Dataset]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'GET'",
+        "resource_path": "'/v1/datasets/{datasetRid}'",
+        "query_params": "{}",
+        "path_params": "{'datasetRid': dataset_rid}",
+        "header_params": "{'Accept': 'application/json'}",
+        "body": "None",
+        "response_type": "datasets_models.Dataset",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{'DatasetNotFound': datasets_errors.DatasetNotFound}",
+        "response_mode": "_sdk_internal.get('response_mode')"
+      },
+      "source_sha256": "c0992d99d6c978b5e62827cb3de67e9a4f69f2b903826189d3ae9d86c23a1a2b",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    },
+    {
+      "id": "v1.ontologies",
+      "operation_id": "v1.ontologies.Attachment.get",
+      "source_module": "foundry_sdk.v1.ontologies.attachment",
+      "stage": "Stable",
+      "modes": {
+        "ordinary": {
+          "signature": "self, attachment_rid: ontologies_models.AttachmentRid, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "ontologies_models.Attachment",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, attachment_rid: ontologies_models.AttachmentRid, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "typing.Awaitable[ontologies_models.Attachment]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'GET'",
+        "resource_path": "'/v1/attachments/{attachmentRid}'",
+        "query_params": "{}",
+        "path_params": "{'attachmentRid': attachment_rid}",
+        "header_params": "{'Accept': 'application/json'}",
+        "body": "None",
+        "response_type": "ontologies_models.Attachment",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{}",
+        "response_mode": "_sdk_internal.get('response_mode')"
+      },
+      "source_sha256": "9606789cb634d59d99886e7ffcd6c2e5aeaab099496c3771979a6c05ba5d2357",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    },
+    {
+      "id": "v2.admin",
+      "operation_id": "v2.admin.Group.get",
+      "source_module": "foundry_sdk.v2.admin.group",
+      "stage": "Stable",
+      "modes": {
+        "ordinary": {
+          "signature": "self, group_id: core_models.GroupId, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "admin_models.Group",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, group_id: core_models.GroupId, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "typing.Awaitable[admin_models.Group]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'GET'",
+        "resource_path": "'/v2/admin/groups/{groupId}'",
+        "query_params": "{}",
+        "path_params": "{'groupId': group_id}",
+        "header_params": "{'Accept': 'application/json'}",
+        "body": "None",
+        "response_type": "admin_models.Group",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{'GroupNotFound': admin_errors.GroupNotFound}",
+        "response_mode": "_sdk_internal.get('response_mode')"
+      },
+      "source_sha256": "60010cfe82e39f188d0599c63d28e42d0a0b32d1b28c0565948442471c9c0176",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    },
+    {
+      "id": "v2.aip_agents",
+      "operation_id": "v2.aip_agents.AgentVersion.get",
+      "source_module": "foundry_sdk.v2.aip_agents.agent_version",
+      "stage": "Public Beta",
+      "modes": {
+        "ordinary": {
+          "signature": "self, agent_rid: aip_agents_models.AgentRid, agent_version_string: aip_agents_models.AgentVersionString, *, preview: typing.Optional[core_models.PreviewMode]=None, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "aip_agents_models.AgentVersion",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, agent_rid: aip_agents_models.AgentRid, agent_version_string: aip_agents_models.AgentVersionString, *, preview: typing.Optional[core_models.PreviewMode]=None, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "typing.Awaitable[aip_agents_models.AgentVersion]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'GET'",
+        "resource_path": "'/v2/aipAgents/agents/{agentRid}/agentVersions/{agentVersionString}'",
+        "query_params": "{'preview': preview}",
+        "path_params": "{'agentRid': agent_rid, 'agentVersionString': agent_version_string}",
+        "header_params": "{'Accept': 'application/json'}",
+        "body": "None",
+        "response_type": "aip_agents_models.AgentVersion",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{'AgentNotFound': aip_agents_errors.AgentNotFound, 'AgentVersionNotFound': aip_agents_errors.AgentVersionNotFound, 'InvalidAgentVersion': aip_agents_errors.InvalidAgentVersion, 'NoPublishedAgentVersion': aip_agents_errors.NoPublishedAgentVersion}",
+        "response_mode": "_sdk_internal.get('response_mode')"
+      },
+      "source_sha256": "800b64e68d4a3c104e76b792e3ac02d400d13a667186cfb002465417c965c3d8",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    },
+    {
+      "id": "v2.audit",
+      "operation_id": "v2.audit.LogFile.list",
+      "source_module": "foundry_sdk.v2.audit.log_file",
+      "stage": "Stable",
+      "modes": {
+        "ordinary": {
+          "signature": "self, organization_rid: core_models.OrganizationRid, *, end_date: typing.Optional[date]=None, page_size: typing.Optional[core_models.PageSize]=None, page_token: typing.Optional[core_models.PageToken]=None, start_date: typing.Optional[date]=None, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "core.ResourceIterator[audit_models.LogFile]",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, organization_rid: core_models.OrganizationRid, *, end_date: typing.Optional[date]=None, page_size: typing.Optional[core_models.PageSize]=None, page_token: typing.Optional[core_models.PageToken]=None, start_date: typing.Optional[date]=None, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "core.AsyncResourceIterator[audit_models.LogFile]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'GET'",
+        "resource_path": "'/v2/audit/organizations/{organizationRid}/logFiles'",
+        "query_params": "{'endDate': end_date, 'pageSize': page_size, 'pageToken': page_token, 'startDate': start_date}",
+        "path_params": "{'organizationRid': organization_rid}",
+        "header_params": "{'Accept': 'application/json'}",
+        "body": "None",
+        "response_type": "audit_models.ListLogFilesResponse",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{'ListLogFilesPermissionDenied': audit_errors.ListLogFilesPermissionDenied, 'MissingStartDate': audit_errors.MissingStartDate}",
+        "response_mode": "_sdk_internal.get('response_mode', 'ITERATOR')"
+      },
+      "source_sha256": "e1d7f069854638f47c24ff0ff517fdeca6f5880501feee9a66c7dcaf9533a93e",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    },
+    {
+      "id": "v2.checkpoints",
+      "operation_id": "v2.checkpoints.Record.get",
+      "source_module": "foundry_sdk.v2.checkpoints.record",
+      "stage": "Public Beta",
+      "modes": {
+        "ordinary": {
+          "signature": "self, record_rid: checkpoints_models.RecordRid, *, preview: typing.Optional[core_models.PreviewMode]=None, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "checkpoints_models.Record",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, record_rid: checkpoints_models.RecordRid, *, preview: typing.Optional[core_models.PreviewMode]=None, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "typing.Awaitable[checkpoints_models.Record]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'GET'",
+        "resource_path": "'/v2/checkpoints/records/{recordRid}'",
+        "query_params": "{'preview': preview}",
+        "path_params": "{'recordRid': record_rid}",
+        "header_params": "{'Accept': 'application/json'}",
+        "body": "None",
+        "response_type": "checkpoints_models.Record",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{'CheckpointRecordNotFound': checkpoints_errors.CheckpointRecordNotFound, 'CheckpointRecordPermissionDenied': checkpoints_errors.CheckpointRecordPermissionDenied, 'RecordNotFound': checkpoints_errors.RecordNotFound}",
+        "response_mode": "_sdk_internal.get('response_mode')"
+      },
+      "source_sha256": "7e24a42aeca2358ee592164dee243ff1c7b362453d98a85e10e150cf876bee48",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    },
+    {
+      "id": "v2.connectivity",
+      "operation_id": "v2.connectivity.Connection.get",
+      "source_module": "foundry_sdk.v2.connectivity.connection",
+      "stage": "Stable",
+      "modes": {
+        "ordinary": {
+          "signature": "self, connection_rid: connectivity_models.ConnectionRid, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "connectivity_models.Connection",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, connection_rid: connectivity_models.ConnectionRid, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "typing.Awaitable[connectivity_models.Connection]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'GET'",
+        "resource_path": "'/v2/connectivity/connections/{connectionRid}'",
+        "query_params": "{}",
+        "path_params": "{'connectionRid': connection_rid}",
+        "header_params": "{'Accept': 'application/json'}",
+        "body": "None",
+        "response_type": "connectivity_models.Connection",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{'ConnectionNotFound': connectivity_errors.ConnectionNotFound, 'ConnectionTypeNotSupported': connectivity_errors.ConnectionTypeNotSupported, 'ParentFolderNotFoundForConnection': connectivity_errors.ParentFolderNotFoundForConnection}",
+        "response_mode": "_sdk_internal.get('response_mode')"
+      },
+      "source_sha256": "8500b89d6d94e9254d0bffc7faba12df6b47888a770329c16584f2484393a71a",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    },
+    {
+      "id": "v2.data_health",
+      "operation_id": "v2.data_health.Check.get",
+      "source_module": "foundry_sdk.v2.data_health.check",
+      "stage": "Public Beta",
+      "modes": {
+        "ordinary": {
+          "signature": "self, check_rid: core_models.CheckRid, *, preview: typing.Optional[core_models.PreviewMode]=None, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "data_health_models.Check",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, check_rid: core_models.CheckRid, *, preview: typing.Optional[core_models.PreviewMode]=None, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "typing.Awaitable[data_health_models.Check]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'GET'",
+        "resource_path": "'/v2/dataHealth/checks/{checkRid}'",
+        "query_params": "{'preview': preview}",
+        "path_params": "{'checkRid': check_rid}",
+        "header_params": "{'Accept': 'application/json'}",
+        "body": "None",
+        "response_type": "data_health_models.Check",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{'CheckNotFound': data_health_errors.CheckNotFound, 'CheckTypeNotSupported': data_health_errors.CheckTypeNotSupported}",
+        "response_mode": "_sdk_internal.get('response_mode')"
+      },
+      "source_sha256": "e85ad6bedee89d011cb03d78412d6d0056787efa0a2fdae6df8f648e1c07aca9",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    },
+    {
+      "id": "v2.datasets",
+      "operation_id": "v2.datasets.Dataset.get",
+      "source_module": "foundry_sdk.v2.datasets.dataset",
+      "stage": "Stable",
+      "modes": {
+        "ordinary": {
+          "signature": "self, dataset_rid: core_models.DatasetRid, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "datasets_models.Dataset",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, dataset_rid: core_models.DatasetRid, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "typing.Awaitable[datasets_models.Dataset]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'GET'",
+        "resource_path": "'/v2/datasets/{datasetRid}'",
+        "query_params": "{}",
+        "path_params": "{'datasetRid': dataset_rid}",
+        "header_params": "{'Accept': 'application/json'}",
+        "body": "None",
+        "response_type": "datasets_models.Dataset",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{'DatasetNotFound': datasets_errors.DatasetNotFound, 'ResourceNameAlreadyExists': filesystem_errors.ResourceNameAlreadyExists}",
+        "response_mode": "_sdk_internal.get('response_mode')"
+      },
+      "source_sha256": "2d677e8f1c5720a2788be353c005ebadccc0bb4c75306e896dd0de6d797a6001",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    },
+    {
+      "id": "v2.filesystem",
+      "operation_id": "v2.filesystem.Folder.get",
+      "source_module": "foundry_sdk.v2.filesystem.folder",
+      "stage": "Stable",
+      "modes": {
+        "ordinary": {
+          "signature": "self, folder_rid: filesystem_models.FolderRid, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "filesystem_models.Folder",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, folder_rid: filesystem_models.FolderRid, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "typing.Awaitable[filesystem_models.Folder]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'GET'",
+        "resource_path": "'/v2/filesystem/folders/{folderRid}'",
+        "query_params": "{}",
+        "path_params": "{'folderRid': folder_rid}",
+        "header_params": "{'Accept': 'application/json'}",
+        "body": "None",
+        "response_type": "filesystem_models.Folder",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{'FolderNotFound': filesystem_errors.FolderNotFound, 'GetRootFolderNotSupported': filesystem_errors.GetRootFolderNotSupported, 'InvalidFolder': filesystem_errors.InvalidFolder}",
+        "response_mode": "_sdk_internal.get('response_mode')"
+      },
+      "source_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    },
+    {
+      "id": "v2.functions",
+      "operation_id": "v2.functions.ValueType.get",
+      "source_module": "foundry_sdk.v2.functions.value_type",
+      "stage": "Private Beta",
+      "modes": {
+        "ordinary": {
+          "signature": "self, value_type_rid: functions_models.ValueTypeRid, *, preview: typing.Optional[core_models.PreviewMode]=None, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "functions_models.ValueType",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, value_type_rid: functions_models.ValueTypeRid, *, preview: typing.Optional[core_models.PreviewMode]=None, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "typing.Awaitable[functions_models.ValueType]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'GET'",
+        "resource_path": "'/v2/functions/valueTypes/{valueTypeRid}'",
+        "query_params": "{'preview': preview}",
+        "path_params": "{'valueTypeRid': value_type_rid}",
+        "header_params": "{'Accept': 'application/json'}",
+        "body": "None",
+        "response_type": "functions_models.ValueType",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{'ValueTypeNotFound': functions_errors.ValueTypeNotFound}",
+        "response_mode": "_sdk_internal.get('response_mode')"
+      },
+      "source_sha256": "780378bcab6eba283c8d17b36d725ebdd7cd2492e8a9d39126a43da2e18966d8",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    },
+    {
+      "id": "v2.language_models",
+      "operation_id": "v2.language_models.OpenAiModel.embeddings",
+      "source_module": "foundry_sdk.v2.language_models.open_ai_model",
+      "stage": "Private Beta",
+      "modes": {
+        "ordinary": {
+          "signature": "self, open_ai_model_model_id: language_models_models.LanguageModelApiName, *, input: language_models_models.OpenAiEmbeddingInput, attribution: typing.Optional[core_models.Attribution]=None, dimensions: typing.Optional[int]=None, encoding_format: typing.Optional[language_models_models.OpenAiEncodingFormat]=None, preview: typing.Optional[core_models.PreviewMode]=None, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "language_models_models.OpenAiEmbeddingsResponse",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, open_ai_model_model_id: language_models_models.LanguageModelApiName, *, input: language_models_models.OpenAiEmbeddingInput, attribution: typing.Optional[core_models.Attribution]=None, dimensions: typing.Optional[int]=None, encoding_format: typing.Optional[language_models_models.OpenAiEncodingFormat]=None, preview: typing.Optional[core_models.PreviewMode]=None, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "typing.Awaitable[language_models_models.OpenAiEmbeddingsResponse]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'POST'",
+        "resource_path": "'/v2/languageModels/openAi/{openAiModelModelId}/embeddings'",
+        "query_params": "{'preview': preview}",
+        "path_params": "{'openAiModelModelId': open_ai_model_model_id}",
+        "header_params": "{'attribution': attribution, 'Content-Type': 'application/json', 'Accept': 'application/json'}",
+        "body": "language_models_models.OpenAiEmbeddingsRequest(input=input, dimensions=dimensions, encoding_format=encoding_format)",
+        "response_type": "language_models_models.OpenAiEmbeddingsResponse",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{'OpenAiEmbeddingsPermissionDenied': language_models_errors.OpenAiEmbeddingsPermissionDenied}",
+        "response_mode": "_sdk_internal.get('response_mode')"
+      },
+      "source_sha256": "f0de3feb8825b82a89ae8442176daf1f8e664d49ec0e4bdaf7c5d9fd3d869550",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    },
+    {
+      "id": "v2.media_sets",
+      "operation_id": "v2.media_sets.MediaSet.get",
+      "source_module": "foundry_sdk.v2.media_sets.media_set",
+      "stage": "Public Beta",
+      "modes": {
+        "ordinary": {
+          "signature": "self, media_set_rid: core_models.MediaSetRid, *, preview: typing.Optional[core_models.PreviewMode]=None, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "media_sets_models.GetMediaSetResponse",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, media_set_rid: core_models.MediaSetRid, *, preview: typing.Optional[core_models.PreviewMode]=None, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "typing.Awaitable[media_sets_models.GetMediaSetResponse]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'GET'",
+        "resource_path": "'/v2/mediasets/{mediaSetRid}'",
+        "query_params": "{'preview': preview}",
+        "path_params": "{'mediaSetRid': media_set_rid}",
+        "header_params": "{'Accept': 'application/json'}",
+        "body": "None",
+        "response_type": "media_sets_models.GetMediaSetResponse",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{}",
+        "response_mode": "_sdk_internal.get('response_mode')"
+      },
+      "source_sha256": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    },
+    {
+      "id": "v2.models",
+      "operation_id": "v2.models.LiveDeployment.get",
+      "source_module": "foundry_sdk.v2.models.live_deployment",
+      "stage": "Public Beta",
+      "modes": {
+        "ordinary": {
+          "signature": "self, live_deployment_rid: models_models.LiveDeploymentRid, *, preview: typing.Optional[core_models.PreviewMode]=None, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "models_models.LiveDeployment",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, live_deployment_rid: models_models.LiveDeploymentRid, *, preview: typing.Optional[core_models.PreviewMode]=None, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "typing.Awaitable[models_models.LiveDeployment]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'GET'",
+        "resource_path": "'/v2/models/liveDeployments/{liveDeploymentRid}'",
+        "query_params": "{'preview': preview}",
+        "path_params": "{'liveDeploymentRid': live_deployment_rid}",
+        "header_params": "{'Accept': 'application/json'}",
+        "body": "None",
+        "response_type": "models_models.LiveDeployment",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{'LiveDeploymentNotFound': models_errors.LiveDeploymentNotFound, 'UnsupportedLiveDeployment': models_errors.UnsupportedLiveDeployment}",
+        "response_mode": "_sdk_internal.get('response_mode')"
+      },
+      "source_sha256": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    },
+    {
+      "id": "v2.ontologies",
+      "operation_id": "v2.ontologies.Attachment.get",
+      "source_module": "foundry_sdk.v2.ontologies.attachment",
+      "stage": "Stable",
+      "modes": {
+        "ordinary": {
+          "signature": "self, attachment_rid: ontologies_models.AttachmentRid, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "ontologies_models.AttachmentV2",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, attachment_rid: ontologies_models.AttachmentRid, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "typing.Awaitable[ontologies_models.AttachmentV2]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'GET'",
+        "resource_path": "'/v2/ontologies/attachments/{attachmentRid}'",
+        "query_params": "{}",
+        "path_params": "{'attachmentRid': attachment_rid}",
+        "header_params": "{'Accept': 'application/json'}",
+        "body": "None",
+        "response_type": "ontologies_models.AttachmentV2",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{}",
+        "response_mode": "_sdk_internal.get('response_mode')"
+      },
+      "source_sha256": "9e98375a9a5c81554e08b0ba84ee5a19443a05a987d288aded730b315ae72902",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    },
+    {
+      "id": "v2.orchestration",
+      "operation_id": "v2.orchestration.Build.get",
+      "source_module": "foundry_sdk.v2.orchestration.build",
+      "stage": "Stable",
+      "modes": {
+        "ordinary": {
+          "signature": "self, build_rid: core_models.BuildRid, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "orchestration_models.Build",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, build_rid: core_models.BuildRid, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "typing.Awaitable[orchestration_models.Build]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'GET'",
+        "resource_path": "'/v2/orchestration/builds/{buildRid}'",
+        "query_params": "{}",
+        "path_params": "{'buildRid': build_rid}",
+        "header_params": "{'Accept': 'application/json'}",
+        "body": "None",
+        "response_type": "orchestration_models.Build",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{'BuildNotFound': orchestration_errors.BuildNotFound}",
+        "response_mode": "_sdk_internal.get('response_mode')"
+      },
+      "source_sha256": "61407c978e0e5913e13514df30c625db79a3d0b05e5bf100694aea8df3d0873d",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    },
+    {
+      "id": "v2.sql_queries",
+      "operation_id": "v2.sql_queries.SqlQuery.cancel",
+      "source_module": "foundry_sdk.v2.sql_queries.sql_query",
+      "stage": "Stable",
+      "modes": {
+        "ordinary": {
+          "signature": "self, sql_query_id: sql_queries_models.SqlQueryId, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "None",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, sql_query_id: sql_queries_models.SqlQueryId, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "typing.Awaitable[None]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'POST'",
+        "resource_path": "'/v2/sqlQueries/{sqlQueryId}/cancel'",
+        "query_params": "{}",
+        "path_params": "{'sqlQueryId': sql_query_id}",
+        "header_params": "{}",
+        "body": "None",
+        "response_type": "None",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{'CancelSqlQueryPermissionDenied': sql_queries_errors.CancelSqlQueryPermissionDenied, 'QueryCanceled': sql_queries_errors.QueryCanceled, 'QueryFailed': sql_queries_errors.QueryFailed, 'QueryParseError': sql_queries_errors.QueryParseError, 'QueryPermissionDenied': sql_queries_errors.QueryPermissionDenied, 'QueryRunning': sql_queries_errors.QueryRunning, 'ReadQueryInputsPermissionDenied': sql_queries_errors.ReadQueryInputsPermissionDenied}",
+        "response_mode": "_sdk_internal.get('response_mode')"
+      },
+      "source_sha256": "6ebab8c71790c0dccaadf8e5a0faaace31ef79be8d5532b43018638e56b43515",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    },
+    {
+      "id": "v2.streams",
+      "operation_id": "v2.streams.Stream.get",
+      "source_module": "foundry_sdk.v2.streams.stream",
+      "stage": "Stable",
+      "modes": {
+        "ordinary": {
+          "signature": "self, dataset_rid: core_models.DatasetRid, stream_branch_name: core_models.BranchName, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "streams_models.Stream",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, dataset_rid: core_models.DatasetRid, stream_branch_name: core_models.BranchName, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "typing.Awaitable[streams_models.Stream]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'GET'",
+        "resource_path": "'/v2/streams/datasets/{datasetRid}/streams/{streamBranchName}'",
+        "query_params": "{}",
+        "path_params": "{'datasetRid': dataset_rid, 'streamBranchName': stream_branch_name}",
+        "header_params": "{'Accept': 'application/json'}",
+        "body": "None",
+        "response_type": "streams_models.Stream",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{'InvalidFieldSchema': core_errors.InvalidFieldSchema, 'InvalidStreamNoSchema': streams_errors.InvalidStreamNoSchema, 'InvalidStreamType': streams_errors.InvalidStreamType, 'StreamNotFound': streams_errors.StreamNotFound}",
+        "response_mode": "_sdk_internal.get('response_mode')"
+      },
+      "source_sha256": "4b8369ca5fee3c2e028a6805cd021e36cf47faf5e19b40996337cb122309c2aa",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    },
+    {
+      "id": "v2.third_party_applications",
+      "operation_id": "v2.third_party_applications.Website.get",
+      "source_module": "foundry_sdk.v2.third_party_applications.website",
+      "stage": "Stable",
+      "modes": {
+        "ordinary": {
+          "signature": "self, third_party_application_rid: third_party_applications_models.ThirdPartyApplicationRid, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "third_party_applications_models.Website",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, third_party_application_rid: third_party_applications_models.ThirdPartyApplicationRid, *, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "typing.Awaitable[third_party_applications_models.Website]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'GET'",
+        "resource_path": "'/v2/thirdPartyApplications/{thirdPartyApplicationRid}/website'",
+        "query_params": "{}",
+        "path_params": "{'thirdPartyApplicationRid': third_party_application_rid}",
+        "header_params": "{'Accept': 'application/json'}",
+        "body": "None",
+        "response_type": "third_party_applications_models.Website",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{'WebsiteNotFound': third_party_applications_errors.WebsiteNotFound}",
+        "response_mode": "_sdk_internal.get('response_mode')"
+      },
+      "source_sha256": "2a78443d6b01bb6f612ae6bd2fb4713d9282c98171f2fd25a9f94b30570c5815",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    },
+    {
+      "id": "v2.widgets",
+      "operation_id": "v2.widgets.Repository.get",
+      "source_module": "foundry_sdk.v2.widgets.repository",
+      "stage": "Private Beta",
+      "modes": {
+        "ordinary": {
+          "signature": "self, repository_rid: widgets_models.RepositoryRid, *, preview: typing.Optional[core_models.PreviewMode]=None, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "widgets_models.Repository",
+          "coroutine_definition": false
+        },
+        "async": {
+          "signature": "self, repository_rid: widgets_models.RepositoryRid, *, preview: typing.Optional[core_models.PreviewMode]=None, request_timeout: typing.Optional[core.Timeout]=None, _sdk_internal: core.SdkInternal={}",
+          "return": "typing.Awaitable[widgets_models.Repository]",
+          "coroutine_definition": false
+        }
+      },
+      "wire": {
+        "method": "'GET'",
+        "resource_path": "'/v2/widgets/repositories/{repositoryRid}'",
+        "query_params": "{'preview': preview}",
+        "path_params": "{'repositoryRid': repository_rid}",
+        "header_params": "{'Accept': 'application/json'}",
+        "body": "None",
+        "response_type": "widgets_models.Repository",
+        "request_timeout": "request_timeout",
+        "throwable_errors": "{'RepositoryNotFound': widgets_errors.RepositoryNotFound}",
+        "response_mode": "_sdk_internal.get('response_mode')"
+      },
+      "source_sha256": "ad776bb646ece75bddbd4c50ece6b2692fdfc9b1948fdd745c2361c5ea932e75",
+      "scoring": [
+        "exact local source references",
+        "actual SDK request/result/error assertions",
+        "requiredness and constraints",
+        "correct response lifetime",
+        "explicit live capability/authorization boundary",
+        "no expert gap filling"
+      ]
+    }
+  ]
+}

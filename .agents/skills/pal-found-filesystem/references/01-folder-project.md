@@ -17,7 +17,8 @@ enrollment.
 ### folder.children
 
 - **Behavior:** List child resources of the folder in pages. The endpoint caps a page at 2,000
-  results; the CLI requests 100 results when `--page-size` is omitted.
+  results. When `--page-size` is omitted, the CLI uses
+  `FOUNDRY_AGENTIC_CLI_DEFAULT_PAGE_SIZE`, which defaults to 100.
 - **Before use:** The resource or container must be accessible to the requesting identity.
 - **Inputs:** positional `folder_rid`; required none; optional `--page-size`,
   `--page-token`, and `--batch-pages`.
@@ -99,7 +100,10 @@ enrollment.
   `--role-grants`, `--space-rid`; optional `--description`, `--resource-level-role-grants-allowed`.
   `resource_level_role_grants_allowed`: Whether role grants should be allowed on individual
   resources within the Project. When not specified, defaults to true.
-- **Parameter notes:** `--description` stores project summary text. `--resource-level-role-grants-allowed` controls whether individual resources in the project can have role grants; its default is true.
+- **Parameter notes:** `--description` stores project summary text.
+  `--resource-level-role-grants-allowed` sends true to allow individual resource
+  grants. Omitting it leaves the value unspecified; the SDK documents a server
+  default of true. This CLI flag cannot send false.
 - **Result:** `Project`.
 - **Failure or follow-up:** An invalid configuration or insufficient permission rejects project
   creation; use the returned RID for later calls.

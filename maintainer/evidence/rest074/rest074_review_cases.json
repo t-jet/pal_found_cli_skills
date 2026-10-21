@@ -1,0 +1,895 @@
+{
+  "reviewer": "/root/formal074_prepare/independent_review",
+  "manifest_sha256": "599ee752c7c375d5afca7b12620527f74734f9e053f4e4c0060f3b6ecdfb6632",
+  "operations": [
+    {
+      "id": "v1.datasets.Branch.create",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "e0c7a6af855219a20b7babf2886b17f40c0394599c6b5f710882d2b71ba05c04"
+    },
+    {
+      "id": "v1.datasets.Branch.delete",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "8bb88d6d596930ba1d0d322e7583b9f1c90d03b9a8ffd7600e0831b523a6bd49"
+    },
+    {
+      "id": "v1.datasets.Branch.get",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "3c982a07d3850bf2b4f76515ec2adf0976b82a5c1e4abca1d1c3e78d64958d17"
+    },
+    {
+      "id": "v1.datasets.Branch.list",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "a7092acca7749f92f45256168feb92aac2fdbc40ee484b4c9c363983816f87e0"
+    },
+    {
+      "id": "v1.datasets.Dataset.create",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "7aa6696fa4892c4dbe37aa150c73ce2a798456dc7798188a8364c741623a3c15"
+    },
+    {
+      "id": "v1.datasets.Dataset.delete_schema",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "134753e9f2ec76f2503537b836de12a35f80bf16b203dc6e3eac00bf861b061e"
+    },
+    {
+      "id": "v1.datasets.Dataset.get",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "51bd09b25ab74d4c8f9cac21a07928ce60db12a84b56da64a91e8566e05d176c"
+    },
+    {
+      "id": "v1.datasets.Dataset.get_schema",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "25bf6eaf69cf56fc543b64b7e828f115790a28d316063e2546c6d5e871ef7d3b"
+    },
+    {
+      "id": "v1.datasets.Dataset.read",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "f8076e71b5efb0809257b8c3e449aedaffe1ba9e10812260f8df175db10c013b"
+    },
+    {
+      "id": "v1.datasets.Dataset.replace_schema",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "851bb30fad22c1055c442958f49d5e36ef87af9a73b475e5f8d906cc1852f606"
+    },
+    {
+      "id": "v1.datasets.File.delete",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "96f30ae761d9b61d2cfdd1f04f708268b79a9c0ee85cb7c6daf6a8c3ee0e09b3"
+    },
+    {
+      "id": "v1.datasets.File.get",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "c3956b126ae5a03ae693ff56abff55d416c199fb31753baedf370037e821a290"
+    },
+    {
+      "id": "v1.datasets.File.list",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "09eb4e7e64040b93dd07242ce46c5d145f2ed0671eb1557a46c520a7f89ff7cc"
+    },
+    {
+      "id": "v1.datasets.File.read",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "39881e642c1584788fe0401afefa2d78f1a681e6e7362b47daef73210ac76d33"
+    },
+    {
+      "id": "v1.datasets.File.upload",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "923bad7f7f80c848c625478216297ff1e0b9cc14a8b6f292f7153c4f66d2ff73"
+    },
+    {
+      "id": "v1.datasets.Transaction.abort",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "9cad2c58fb553d725bd3e36679ff015f19c98ab6defd301bdd7a95d697667f90"
+    },
+    {
+      "id": "v1.datasets.Transaction.commit",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "20b5267aa70496617434ebd75150a778f724058c6e589fc1a15a75a30e99dce0"
+    },
+    {
+      "id": "v1.datasets.Transaction.create",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "f12f855a1d6ea7338870a7b2af727bb43be760989ab8b93ade247331571795ae"
+    },
+    {
+      "id": "v1.datasets.Transaction.get",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "218ebf726bf178d62da80cfa22b76366d370bbbc9458b102f981703b2b8fa34a"
+    },
+    {
+      "id": "v2.datasets.Branch.create",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "42f589aa90fd5a71728f8f8bf0674cc74b5bb7d5a9f17ea61fee453a9f1a76f0"
+    },
+    {
+      "id": "v2.datasets.Branch.delete",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "0b4ff7688b5551822b54ef03ee4008d7ef3561a131b475b6834d3cb5a68c0978"
+    },
+    {
+      "id": "v2.datasets.Branch.get",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "2a285ca7c9d85b6fc95ff320fc062109693b798eea29f7abe50cc760ead40d66"
+    },
+    {
+      "id": "v2.datasets.Branch.list",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "601eb705d1166150ff4571a62122a35440b1db8cccfd97a6c0f89aa1b58b0e50"
+    },
+    {
+      "id": "v2.datasets.Branch.transactions",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "25ab2177ac69dcb63ae7873eef9f5f1daa31c4f382534a1ee0111d4cf3df9317"
+    },
+    {
+      "id": "v2.datasets.Dataset.create",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "d42e391fe65f44f8c13450dfe1968a0e75f26aa53d0f339a932e0c4a38d43a75"
+    },
+    {
+      "id": "v2.datasets.Dataset.get",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "e73b813eadfed07bb68d3b3fe85529b36e4c7a250b0a5de5405a00691fdc2383"
+    },
+    {
+      "id": "v2.datasets.Dataset.get_health_check_reports",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "68bc5c667a74fa427ce9bec9470759c40586a32d1804f10e7932acaf3bf8e3f3"
+    },
+    {
+      "id": "v2.datasets.Dataset.get_health_checks",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "b7ae648662bb7180ee237a0952670f3051f6cc0ddc62a975459e92bec18ecb02"
+    },
+    {
+      "id": "v2.datasets.Dataset.get_schedules",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "39f57c3f932f10a3b4e53c103d93f3d15a7265e5b332a2b9480b24bbbac64eee"
+    },
+    {
+      "id": "v2.datasets.Dataset.get_schema",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "54e1d9d6dca80ae1a78c1a2109280f252dcd6d180474600606a1169a00fd696f"
+    },
+    {
+      "id": "v2.datasets.Dataset.get_schema_batch",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "b18a549a2752e4c09986892b834cb6241f991ea1d810735ca4d68462e3446518"
+    },
+    {
+      "id": "v2.datasets.Dataset.jobs",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "0bedafb157e11b5215a1042c79ddd0f5ffa4e671579079611f39238ad2e7407e"
+    },
+    {
+      "id": "v2.datasets.Dataset.put_schema",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "2c64c02e1d9abfb5c919578db16612cd8cce2afa66b68693a572d6fc443edf51"
+    },
+    {
+      "id": "v2.datasets.Dataset.read_table",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "e448f5b94e7f62a921a6fc3b07d86ac2c3604a819243c4e547d8be6e7ec1e4d5"
+    },
+    {
+      "id": "v2.datasets.Dataset.transactions",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "cc16440d48c11e064e252e6c4f3755c134f9bf9fc765d61a2448d76ea5ff6e30"
+    },
+    {
+      "id": "v2.datasets.File.content",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "c4e1a62fcefecf94323f2d08c8a35c58ec05b1b392e80a6e0414c1d5a9732b5c"
+    },
+    {
+      "id": "v2.datasets.File.delete",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "14e3f25d7a7760a4fde61f650480e8bec64e8a5b9640f3a9a5581b7a99f96905"
+    },
+    {
+      "id": "v2.datasets.File.get",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "ef76df5b6999cdac28a16865386a001b081ef65caa355fb704be80fd9b20f374"
+    },
+    {
+      "id": "v2.datasets.File.list",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "5d637c744909ce957ff11615f3853de58781c37679ca5989de4b368b9872df29"
+    },
+    {
+      "id": "v2.datasets.File.upload",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "80d425b98d55b2d1d1dfe19dc52e3dc2cac79f8ba90b23a250ff465628fc02de"
+    },
+    {
+      "id": "v2.datasets.Transaction.abort",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "3ae4e712e6f5c8aa3eafa07791b43786fc40907190133c1fc26dfd0d13ae93c4"
+    },
+    {
+      "id": "v2.datasets.Transaction.build",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "8a0d9712a1525d061caa98dd18189d54d563ae184d723ea492f5993e43857f05"
+    },
+    {
+      "id": "v2.datasets.Transaction.commit",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "22c4aa68896335d98926681b18bd6aa294c70558573bd51a13a5f636b1b15654"
+    },
+    {
+      "id": "v2.datasets.Transaction.create",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "a4f2b03c2aa83ae3c15ea5a1e6d54c9f348a994768c4d69767e0b1aa9160644a"
+    },
+    {
+      "id": "v2.datasets.Transaction.get",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "c2b974e00753e18fbc716b95e33573ea3cbe3c863cd8ecc9bf35ecc73ef01748"
+    },
+    {
+      "id": "v2.datasets.Transaction.job",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "a398e5c7daf1759880cb631621601f75868af8f03b60d00738bea734a5c49a26"
+    },
+    {
+      "id": "v2.datasets.View.add_backing_datasets",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "cc95333b8f2d8dbb2438c1d52f5d620218cf4fc5a1ccfde7833ecb5450bfc38f"
+    },
+    {
+      "id": "v2.datasets.View.add_primary_key",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "ac1d9ec6b0481b93b702befa09866aa39bb64b563d6aa9471077c865d57cb77b"
+    },
+    {
+      "id": "v2.datasets.View.create",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "24c697a1451e6b4c7bc17ec2a01760a79a48496a4643cf9096ee96970fb50073"
+    },
+    {
+      "id": "v2.datasets.View.get",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "f86bc9a2bc87b4badb1a14430ad2a90394faf97a925f3e5536e935331dba2b82"
+    },
+    {
+      "id": "v2.datasets.View.remove_backing_datasets",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "1afd2e299d7b907d506ec1a3ed0c6f6d94b89b30b7423732bcf12f7b1d6f6c9e"
+    },
+    {
+      "id": "v2.datasets.View.replace_backing_datasets",
+      "checks": {
+        "source_hash": true,
+        "method_hash": true,
+        "wire_ast": true,
+        "assets": true,
+        "request_literal_wire": true,
+        "request_argument_schemas": true,
+        "success_schema": true,
+        "success_literal_model": true,
+        "error_names": true,
+        "error_classes_hashes_schemas_envelopes_status_codes": true,
+        "additional_request_wires_paging_schemas": true
+      },
+      "case_sha256": "deb3e262bf8502f684f2ce97d08610e597dcfbddbaae8a86a1732cdd7682c840"
+    }
+  ],
+  "failed_checks": {},
+  "operation_count": 52,
+  "error_count": 288,
+  "additional_case_count": 114,
+  "execution": "No client calls or formal test execution."
+}

@@ -29,6 +29,12 @@ and [schedule concepts](https://www.palantir.com/docs/foundry/data-integration/s
 
 20 Foundry Orchestration API v2 operations are available through the installed `pal-found-orchestration` command.
 
+The CLI sends the required `preview=true` query selector internally for `job.get`,
+`job.get_batch`, `schedule_version.get`, and `schedule_version.schedule`. There is
+no `--preview` flag; do not add it or attempt to disable the selector. API
+availability and normal authorization still apply; local command validation
+does not prove server access.
+
 ## Usage
 
 ```bash
@@ -59,18 +65,3 @@ Every operation accepts `--timeout`, `--format json|toon|auto`, and
 `build create`, the target and fallback branches are required. For schedule
 create or replace, action, trigger, and scope mode are required. Read the
 operation record for the other flags and the returned status.
-
-## Install requirement
-
-`pal-found-orchestration` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```

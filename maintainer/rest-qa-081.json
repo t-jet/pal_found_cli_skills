@@ -1,0 +1,769 @@
+{
+  "story": "DEV-STORY-081",
+  "review_role": "qa-engineer",
+  "review_agent": "/root/feature015_rest_more_review",
+  "reviewed_candidate_sha": "4ab4e6f464488f2aa8773b437f24da52d3cc7770",
+  "content_candidate_sha": "408ad8c0a737683a99824f9ab978ede56f8bff48",
+  "reviewed_on": "2026-10-16",
+  "sdk_release": "1.101.0",
+  "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+  "scope": "All 22 v2 Ontology object, object set, linked object, scenario and transaction operations. Diagnostic semantic review only.",
+  "method": "Frozen SDK source, local contract/behavior/example hashes, official beta API reference, and no-network SDK MockTransport fixtures.",
+  "official_references": [
+    "https://www.palantir.com/docs/foundry/api/v2/ontologies-v2-resources/ontology-object-sets/create-temporary-object-set",
+    "https://www.palantir.com/docs/foundry/api/v2/ontologies-v2-resources/ontology-object-sets/load-object-set-objects-or-interfaces"
+  ],
+  "fixture_results": "22/22 passed, but these checks accept absent preview and placeholder responses.",
+  "formal_qa_boundary": "TESTCASE-080 and TESTEXEC-080 Open. No QA sign-off or live enrollment claim.",
+  "counts": {
+    "PASS": 0,
+    "FAIL": 9,
+    "UNCERTAIN": 13
+  },
+  "operations": [
+    {
+      "id": "v2.ontologies.LinkedObject.get_linked_object",
+      "stage": "Stable",
+      "verdict": "FAIL",
+      "reason": "Guide has no executable worked call. Fixture accepts an empty object with no linked target identity and never tests documented LinkedObjectNotFound.",
+      "defect": "BUG-SUB-033",
+      "source_module": "foundry_sdk.v2.ontologies.linked_object",
+      "source_sha256": "2c53da05a712af7aba36ecbd2615bfd508fb61c908dd9bed93def0195566b02a",
+      "source_doc_sha256": "db5bd4fa5dfbd738b2c325f9bdc37d66c75b3c1f94c67fe2205ac8c1f38383c6",
+      "contract": "references/rest/contracts/v2/ontologies/LinkedObject/get_linked_object.md",
+      "contract_sha256": "5cc21da55ac033bc784b7ccfe06b8245946512dcb0577d865e64fd45867a0a95",
+      "behavior": "references/rest/v2/ontologies/LinkedObject.md",
+      "behavior_sha256": "74cd7862a7bea72f62185d191eeae43372a4fd195c2840735d5a61f497b47697",
+      "example": "examples/rest/081/v2/ontologies/LinkedObject/invoke_get_linked_object.py",
+      "example_sha256": "804a51f6f5098fdf8745b2eae968e0b9d1eb0214afcb7da356fb302325e9092c",
+      "preview_query": null,
+      "success_fixture": {},
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "5cc21da55ac033bc784b7ccfe06b8245946512dcb0577d865e64fd45867a0a95",
+        "behavior_sha256": "c83272d5ee49a860c8f082b54191f8c7c7fa1cb34a92fd30f3e711f1d2c55545",
+        "example_sha256": "e1c90d87f5ce1a882679b72563c8c0ab8cbd8ef6cdc8c14fc4a6b0e642c9de9f",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
+    },
+    {
+      "id": "v2.ontologies.LinkedObject.list_linked_objects",
+      "stage": "Stable",
+      "verdict": "FAIL",
+      "reason": "Guide has no executable worked call. Fixture accepts data=[{}] without linked target identity or a next-page assertion and never tests documented ObjectsExceededLimit.",
+      "defect": "BUG-SUB-033",
+      "source_module": "foundry_sdk.v2.ontologies.linked_object",
+      "source_sha256": "2c53da05a712af7aba36ecbd2615bfd508fb61c908dd9bed93def0195566b02a",
+      "source_doc_sha256": "db5bd4fa5dfbd738b2c325f9bdc37d66c75b3c1f94c67fe2205ac8c1f38383c6",
+      "contract": "references/rest/contracts/v2/ontologies/LinkedObject/list_linked_objects.md",
+      "contract_sha256": "4d882c60007ac3f672acfc765b15c64414c5705709ff3914b5c4291c7cf23716",
+      "behavior": "references/rest/v2/ontologies/LinkedObject.md",
+      "behavior_sha256": "74cd7862a7bea72f62185d191eeae43372a4fd195c2840735d5a61f497b47697",
+      "example": "examples/rest/081/v2/ontologies/LinkedObject/invoke_list_linked_objects.py",
+      "example_sha256": "86e968ec1a4f18f71a3721e1892ee00022153bcd3415d471fdcb0957847755f5",
+      "preview_query": null,
+      "success_fixture": {
+        "data": [
+          {}
+        ]
+      },
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "4d882c60007ac3f672acfc765b15c64414c5705709ff3914b5c4291c7cf23716",
+        "behavior_sha256": "c83272d5ee49a860c8f082b54191f8c7c7fa1cb34a92fd30f3e711f1d2c55545",
+        "example_sha256": "2fc206687aac16d0ec1f424ce8212e80f8acdf4e5a47df58c4322d754fbf14bf",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
+    },
+    {
+      "id": "v2.ontologies.OntologyObject.aggregate",
+      "stage": "Stable",
+      "verdict": "FAIL",
+      "reason": "Guide has no executable aggregate call. Fixture uses an approximateDistinct request with no concrete field and accepts a metric name without a value, so it does not prove a useful aggregate result.",
+      "defect": "BUG-SUB-033",
+      "source_module": "foundry_sdk.v2.ontologies.ontology_object",
+      "source_sha256": "2cc7b91d2c6c3fe264196220adf23e05a5f4c314452db57458523abc58721efe",
+      "source_doc_sha256": "cb599cd54f2d969c79a724e39d848450bab2bdcbbae05d87b7f00d5998a2ed49",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyObject/aggregate.md",
+      "contract_sha256": "708cd5f1a9aebd22be9ee46c0bc5e8671b7b1d0a040b96ad1c8d62dbb14e390e",
+      "behavior": "references/rest/v2/ontologies/OntologyObject.md",
+      "behavior_sha256": "3251fba18e5a7e388ecfa7ef02509e8f8bb06deb3cf15fbd218da2a88a5b7b75",
+      "example": "examples/rest/081/v2/ontologies/OntologyObject/invoke_aggregate.py",
+      "example_sha256": "2773a55ed86b7a06a63f641c13ff38f01823dc30d7900b461889a97eb401a6a0",
+      "preview_query": null,
+      "success_fixture": {
+        "accuracy": "ACCURATE",
+        "data": [
+          {
+            "group": {},
+            "metrics": [
+              {
+                "name": "synthetic-value"
+              }
+            ]
+          }
+        ]
+      },
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "708cd5f1a9aebd22be9ee46c0bc5e8671b7b1d0a040b96ad1c8d62dbb14e390e",
+        "behavior_sha256": "b378e3222e4b6e859e612f54768a0a9af9094bb64a0dc6cd71abb437ad350bf2",
+        "example_sha256": "ab29779974f7cf7056e7c388c8871ce1975e9969adedc407558e2b4b78e9888b",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
+    },
+    {
+      "id": "v2.ontologies.OntologyObject.count",
+      "stage": "Private Beta",
+      "verdict": "FAIL",
+      "reason": "Count fixture accepts an empty response with count=None and asserts no count value. Preview is also absent; exact endpoint preview requirement remains to be confirmed.",
+      "defect": "BUG-SUB-033",
+      "source_module": "foundry_sdk.v2.ontologies.ontology_object",
+      "source_sha256": "2cc7b91d2c6c3fe264196220adf23e05a5f4c314452db57458523abc58721efe",
+      "source_doc_sha256": "cb599cd54f2d969c79a724e39d848450bab2bdcbbae05d87b7f00d5998a2ed49",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyObject/count.md",
+      "contract_sha256": "555a31965aa48ddd92adaa56b501d54e7c9fb1222e7f0baadcb4249a89d70bab",
+      "behavior": "references/rest/v2/ontologies/OntologyObject.md",
+      "behavior_sha256": "3251fba18e5a7e388ecfa7ef02509e8f8bb06deb3cf15fbd218da2a88a5b7b75",
+      "example": "examples/rest/081/v2/ontologies/OntologyObject/invoke_count.py",
+      "example_sha256": "618100839098219a834bb7bbbc282074637e712fc13bc88cd0d1c6f159591a89",
+      "preview_query": null,
+      "success_fixture": {},
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending"
+    },
+    {
+      "id": "v2.ontologies.OntologyObject.get",
+      "stage": "Stable",
+      "verdict": "FAIL",
+      "reason": "Guide has no executable worked call. Fixture accepts an empty object and never checks that the decoded object has the requested primary key or selected properties.",
+      "defect": "BUG-SUB-033",
+      "source_module": "foundry_sdk.v2.ontologies.ontology_object",
+      "source_sha256": "2cc7b91d2c6c3fe264196220adf23e05a5f4c314452db57458523abc58721efe",
+      "source_doc_sha256": "cb599cd54f2d969c79a724e39d848450bab2bdcbbae05d87b7f00d5998a2ed49",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyObject/get.md",
+      "contract_sha256": "7553d311e1dcd82052119c50024e83b7d10786101f482947bd8984bec246ea24",
+      "behavior": "references/rest/v2/ontologies/OntologyObject.md",
+      "behavior_sha256": "3251fba18e5a7e388ecfa7ef02509e8f8bb06deb3cf15fbd218da2a88a5b7b75",
+      "example": "examples/rest/081/v2/ontologies/OntologyObject/invoke_get.py",
+      "example_sha256": "fc51b8cb48c650b7a369555ca253785229dbcf3c71d74b7f115cc435c3ed4ef1",
+      "preview_query": null,
+      "success_fixture": {},
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "7553d311e1dcd82052119c50024e83b7d10786101f482947bd8984bec246ea24",
+        "behavior_sha256": "b378e3222e4b6e859e612f54768a0a9af9094bb64a0dc6cd71abb437ad350bf2",
+        "example_sha256": "19e46c42df3d4ce70630aab9b21851b1854ce1b0ed3bb1fa84d3d8a023d6a9b9",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
+    },
+    {
+      "id": "v2.ontologies.OntologyObject.list",
+      "stage": "Stable",
+      "verdict": "FAIL",
+      "reason": "Guide has no executable worked call. Fixture accepts data=[{}] without object identity or page continuation and never tests documented ObjectsExceededLimit.",
+      "defect": "BUG-SUB-033",
+      "source_module": "foundry_sdk.v2.ontologies.ontology_object",
+      "source_sha256": "2cc7b91d2c6c3fe264196220adf23e05a5f4c314452db57458523abc58721efe",
+      "source_doc_sha256": "cb599cd54f2d969c79a724e39d848450bab2bdcbbae05d87b7f00d5998a2ed49",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyObject/list.md",
+      "contract_sha256": "ae0b552415aaba61709cd04c3d3432066b97c7e7668a88d1f36c24bdf203726e",
+      "behavior": "references/rest/v2/ontologies/OntologyObject.md",
+      "behavior_sha256": "3251fba18e5a7e388ecfa7ef02509e8f8bb06deb3cf15fbd218da2a88a5b7b75",
+      "example": "examples/rest/081/v2/ontologies/OntologyObject/invoke_list.py",
+      "example_sha256": "22c1ca9d3ec3481d96bb03eae79f1003a3d0eaabae9513493f69e3250697e82a",
+      "preview_query": null,
+      "success_fixture": {
+        "data": [
+          {}
+        ],
+        "totalCount": "1"
+      },
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "ae0b552415aaba61709cd04c3d3432066b97c7e7668a88d1f36c24bdf203726e",
+        "behavior_sha256": "b378e3222e4b6e859e612f54768a0a9af9094bb64a0dc6cd71abb437ad350bf2",
+        "example_sha256": "6be0b60991f6f6120f4e2f54ea54d8ab421731ed2e00eaa44299cf6a6686295e",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
+    },
+    {
+      "id": "v2.ontologies.OntologyObject.search",
+      "stage": "Stable",
+      "verdict": "FAIL",
+      "reason": "Guide has no executable worked search call. Fixture sends only select with no filter and accepts data=[{}], so it does not check query semantics or returned object identity.",
+      "defect": "BUG-SUB-033",
+      "source_module": "foundry_sdk.v2.ontologies.ontology_object",
+      "source_sha256": "2cc7b91d2c6c3fe264196220adf23e05a5f4c314452db57458523abc58721efe",
+      "source_doc_sha256": "cb599cd54f2d969c79a724e39d848450bab2bdcbbae05d87b7f00d5998a2ed49",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyObject/search.md",
+      "contract_sha256": "122eacabed4fb2c0f6593014b495b1dfc8d4f042b23cac8aad4890803b5eb16a",
+      "behavior": "references/rest/v2/ontologies/OntologyObject.md",
+      "behavior_sha256": "3251fba18e5a7e388ecfa7ef02509e8f8bb06deb3cf15fbd218da2a88a5b7b75",
+      "example": "examples/rest/081/v2/ontologies/OntologyObject/invoke_search.py",
+      "example_sha256": "10b35f61df1e6f79af48e4758fb4a7525e4f4419781fca12981740d5023f6317",
+      "preview_query": null,
+      "success_fixture": {
+        "data": [
+          {}
+        ],
+        "totalCount": "1"
+      },
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "122eacabed4fb2c0f6593014b495b1dfc8d4f042b23cac8aad4890803b5eb16a",
+        "behavior_sha256": "b378e3222e4b6e859e612f54768a0a9af9094bb64a0dc6cd71abb437ad350bf2",
+        "example_sha256": "a5dc57d367fe91589523e4307714cd932cb0b66aafb8b310673e165e8749070b",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
+    },
+    {
+      "id": "v2.ontologies.OntologyObjectSet.aggregate",
+      "stage": "Stable",
+      "verdict": "UNCERTAIN",
+      "reason": "SDK transport fixture passes, but the generated Object Set input and placeholder result do not establish a service-valid aggregate/load scenario. Requires a source-backed concrete payload and result retest.",
+      "defect": null,
+      "source_module": "foundry_sdk.v2.ontologies.ontology_object_set",
+      "source_sha256": "fa35bfb2c50f00e18c97c8f0e1deb11a6fe7710b994ca2e022fdab7b29710aee",
+      "source_doc_sha256": "e61233205630040c8593b0ff227bee89dd45c8846fe6623dbb93b7382b2dfb4b",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyObjectSet/aggregate.md",
+      "contract_sha256": "4d011c151f76612b527c46d5614d4c799a3820187edb3b0fc96d6f2d8f8373a5",
+      "behavior": "references/rest/v2/ontologies/OntologyObjectSet.md",
+      "behavior_sha256": "7e1761bdc66c31092b9dd62b2c5795d50a9a6a70c6684cbd952f50146a948ea6",
+      "example": "examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_aggregate.py",
+      "example_sha256": "27883b4e29c0c295924f4b4daeb487ff9b73a4b3d594341d7bfa85fef3cada5a",
+      "preview_query": null,
+      "success_fixture": {
+        "accuracy": "ACCURATE",
+        "data": [
+          {
+            "group": {},
+            "metrics": [
+              {
+                "name": "synthetic-value"
+              }
+            ]
+          }
+        ]
+      },
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "4d011c151f76612b527c46d5614d4c799a3820187edb3b0fc96d6f2d8f8373a5",
+        "behavior_sha256": "6cafea7bb010543196d8400cb9b1ac273c410739fc46cdbdb611fbdafe0b2660",
+        "example_sha256": "0f828fdb703a87127b33bfefe1b8eed7d74021f1bf438e0e5e61d34e18af2c7c",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
+    },
+    {
+      "id": "v2.ontologies.OntologyObjectSet.create_temporary",
+      "stage": "Public Beta",
+      "verdict": "FAIL",
+      "reason": "Beta fixture omits preview=true and asserts its absence. The official endpoint reference directly requires preview=true.",
+      "defect": "BUG-SUB-032",
+      "source_module": "foundry_sdk.v2.ontologies.ontology_object_set",
+      "source_sha256": "fa35bfb2c50f00e18c97c8f0e1deb11a6fe7710b994ca2e022fdab7b29710aee",
+      "source_doc_sha256": "e61233205630040c8593b0ff227bee89dd45c8846fe6623dbb93b7382b2dfb4b",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyObjectSet/create_temporary.md",
+      "contract_sha256": "544b872273d585a020d66c82e812dfd0be04acdefc1d32d838e4f91d8b77252f",
+      "behavior": "references/rest/v2/ontologies/OntologyObjectSet.md",
+      "behavior_sha256": "7e1761bdc66c31092b9dd62b2c5795d50a9a6a70c6684cbd952f50146a948ea6",
+      "example": "examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_create_temporary.py",
+      "example_sha256": "2ca048a4b6c57cbb54d8730dce137aba763fe3b5970e35987c49d0ec47d37a7e",
+      "preview_query": null,
+      "success_fixture": {
+        "objectSetRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+      },
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "544b872273d585a020d66c82e812dfd0be04acdefc1d32d838e4f91d8b77252f",
+        "behavior_sha256": "6cafea7bb010543196d8400cb9b1ac273c410739fc46cdbdb611fbdafe0b2660",
+        "example_sha256": "c97f9c4f482802a6e2b7672a7ae5fc40aa317b2eb8a678d60c5f4e798ba0fca2",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
+    },
+    {
+      "id": "v2.ontologies.OntologyObjectSet.get",
+      "stage": "Private Beta",
+      "verdict": "UNCERTAIN",
+      "reason": "Beta fixture omits preview=true and asserts its absence. Official endpoint-specific requirement was not accessible; preview requirement is inferred from beta stage, preview-capable SDK signature, and comparable official Object Set references.",
+      "defect": "BUG-SUB-032",
+      "source_module": "foundry_sdk.v2.ontologies.ontology_object_set",
+      "source_sha256": "fa35bfb2c50f00e18c97c8f0e1deb11a6fe7710b994ca2e022fdab7b29710aee",
+      "source_doc_sha256": "e61233205630040c8593b0ff227bee89dd45c8846fe6623dbb93b7382b2dfb4b",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyObjectSet/get.md",
+      "contract_sha256": "18a6b6b592c139b369fa7585668c2a6a21b48d5f1d6f30a295311aefafbb6356",
+      "behavior": "references/rest/v2/ontologies/OntologyObjectSet.md",
+      "behavior_sha256": "7e1761bdc66c31092b9dd62b2c5795d50a9a6a70c6684cbd952f50146a948ea6",
+      "example": "examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_get.py",
+      "example_sha256": "3e7e6d794a344d06aa7f65efe7fc387163735529b50f10ac4328359bd9c56257",
+      "preview_query": null,
+      "success_fixture": {
+        "objectSet": {
+          "objectSet": {
+            "objectSet": {
+              "objectSet": {
+                "objectSet": {
+                  "type": "methodInput"
+                },
+                "link": "synthetic-value",
+                "type": "searchAround"
+              },
+              "link": "synthetic-value",
+              "type": "searchAround"
+            },
+            "link": "synthetic-value",
+            "type": "searchAround"
+          },
+          "link": "synthetic-value",
+          "type": "searchAround"
+        },
+        "link": "synthetic-value",
+        "type": "searchAround"
+      },
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending"
+    },
+    {
+      "id": "v2.ontologies.OntologyObjectSet.load",
+      "stage": "Stable",
+      "verdict": "UNCERTAIN",
+      "reason": "SDK transport fixture passes, but the generated Object Set input and placeholder result do not establish a service-valid aggregate/load scenario. Requires a source-backed concrete payload and result retest.",
+      "defect": null,
+      "source_module": "foundry_sdk.v2.ontologies.ontology_object_set",
+      "source_sha256": "fa35bfb2c50f00e18c97c8f0e1deb11a6fe7710b994ca2e022fdab7b29710aee",
+      "source_doc_sha256": "e61233205630040c8593b0ff227bee89dd45c8846fe6623dbb93b7382b2dfb4b",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyObjectSet/load.md",
+      "contract_sha256": "1c0fb6cc431253b7af19fb3171271c9a51dd2555640e9100881ab6a68550379d",
+      "behavior": "references/rest/v2/ontologies/OntologyObjectSet.md",
+      "behavior_sha256": "7e1761bdc66c31092b9dd62b2c5795d50a9a6a70c6684cbd952f50146a948ea6",
+      "example": "examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load.py",
+      "example_sha256": "02ee80a229f8c072c8d75cf5d055fc33f81bf9055c6b525b86f753caaefa5716",
+      "preview_query": null,
+      "success_fixture": {
+        "data": [
+          {}
+        ],
+        "totalCount": "1"
+      },
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "1c0fb6cc431253b7af19fb3171271c9a51dd2555640e9100881ab6a68550379d",
+        "behavior_sha256": "6cafea7bb010543196d8400cb9b1ac273c410739fc46cdbdb611fbdafe0b2660",
+        "example_sha256": "9bb82ace150801989900b7ba6ddd86dbb1118c6ad5c5fce28e5f1bfcf908762e",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
+    },
+    {
+      "id": "v2.ontologies.OntologyObjectSet.load_links",
+      "stage": "Private Beta",
+      "verdict": "UNCERTAIN",
+      "reason": "Beta fixture omits preview=true and asserts its absence. Official endpoint-specific requirement was not accessible; preview requirement is inferred from beta stage, preview-capable SDK signature, and comparable official Object Set references.",
+      "defect": "BUG-SUB-032",
+      "source_module": "foundry_sdk.v2.ontologies.ontology_object_set",
+      "source_sha256": "fa35bfb2c50f00e18c97c8f0e1deb11a6fe7710b994ca2e022fdab7b29710aee",
+      "source_doc_sha256": "e61233205630040c8593b0ff227bee89dd45c8846fe6623dbb93b7382b2dfb4b",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyObjectSet/load_links.md",
+      "contract_sha256": "13a322c2979ff701b769f5f7d67186dfe9055bdd46d7b935624e24e4c6475254",
+      "behavior": "references/rest/v2/ontologies/OntologyObjectSet.md",
+      "behavior_sha256": "7e1761bdc66c31092b9dd62b2c5795d50a9a6a70c6684cbd952f50146a948ea6",
+      "example": "examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load_links.py",
+      "example_sha256": "424b9f4edf00e49dbfb795a4743b6b7fb2fffa3c5da9056a67b33c6cd6ee4997",
+      "preview_query": null,
+      "success_fixture": {
+        "data": [
+          {
+            "linkedObjects": [
+              {}
+            ]
+          }
+        ]
+      },
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending"
+    },
+    {
+      "id": "v2.ontologies.OntologyObjectSet.load_multiple_object_types",
+      "stage": "Public Beta",
+      "verdict": "UNCERTAIN",
+      "reason": "Beta fixture omits preview=true and asserts its absence. Official endpoint-specific requirement was not accessible; preview requirement is inferred from beta stage, preview-capable SDK signature, and comparable official Object Set references.",
+      "defect": "BUG-SUB-032",
+      "source_module": "foundry_sdk.v2.ontologies.ontology_object_set",
+      "source_sha256": "fa35bfb2c50f00e18c97c8f0e1deb11a6fe7710b994ca2e022fdab7b29710aee",
+      "source_doc_sha256": "e61233205630040c8593b0ff227bee89dd45c8846fe6623dbb93b7382b2dfb4b",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyObjectSet/load_multiple_object_types.md",
+      "contract_sha256": "f2ace6e0ee06d88b55bccb17a5728bb98f1dcf9112b42dd34efb1701f6b71b7b",
+      "behavior": "references/rest/v2/ontologies/OntologyObjectSet.md",
+      "behavior_sha256": "7e1761bdc66c31092b9dd62b2c5795d50a9a6a70c6684cbd952f50146a948ea6",
+      "example": "examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load_multiple_object_types.py",
+      "example_sha256": "eb41c425e2a6af957b06481ab515b047e0a2d798b7b2254781edd4815c77734e",
+      "preview_query": null,
+      "success_fixture": {
+        "data": [
+          {}
+        ],
+        "totalCount": "1",
+        "interfaceToObjectTypeMappings": {},
+        "interfaceToObjectTypeMappingsV2": {}
+      },
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "f2ace6e0ee06d88b55bccb17a5728bb98f1dcf9112b42dd34efb1701f6b71b7b",
+        "behavior_sha256": "6cafea7bb010543196d8400cb9b1ac273c410739fc46cdbdb611fbdafe0b2660",
+        "example_sha256": "8fa5fe60fabce1904e615be94072f2b3e385a8ea4f62f695c56321c4fd4da8e3",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
+    },
+    {
+      "id": "v2.ontologies.OntologyObjectSet.load_objects_or_interfaces",
+      "stage": "Public Beta",
+      "verdict": "FAIL",
+      "reason": "Beta fixture omits preview=true and asserts its absence. The official endpoint reference directly requires preview=true.",
+      "defect": "BUG-SUB-032",
+      "source_module": "foundry_sdk.v2.ontologies.ontology_object_set",
+      "source_sha256": "fa35bfb2c50f00e18c97c8f0e1deb11a6fe7710b994ca2e022fdab7b29710aee",
+      "source_doc_sha256": "e61233205630040c8593b0ff227bee89dd45c8846fe6623dbb93b7382b2dfb4b",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyObjectSet/load_objects_or_interfaces.md",
+      "contract_sha256": "d34ef374d6be05a8a74dcf465ac42423cf99a8f6558d7fe6de14e043ceaa5a96",
+      "behavior": "references/rest/v2/ontologies/OntologyObjectSet.md",
+      "behavior_sha256": "7e1761bdc66c31092b9dd62b2c5795d50a9a6a70c6684cbd952f50146a948ea6",
+      "example": "examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load_objects_or_interfaces.py",
+      "example_sha256": "a277f4607136dbbb2634bfba5d0f3bc5e86c9fa00235eb6ca949d8375c0a551d",
+      "preview_query": null,
+      "success_fixture": {
+        "data": [
+          {}
+        ],
+        "totalCount": "1"
+      },
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending",
+      "current_retest": {
+        "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+        "reviewed_content_sha": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+        "contract_sha256": "d34ef374d6be05a8a74dcf465ac42423cf99a8f6558d7fe6de14e043ceaa5a96",
+        "behavior_sha256": "6cafea7bb010543196d8400cb9b1ac273c410739fc46cdbdb611fbdafe0b2660",
+        "example_sha256": "4322bf721c5b91db103422358d7bb0c59a2ce3efeffe605a67e36244d943460e",
+        "source_sdk": "1.101.0",
+        "verdict": "PASS",
+        "evidence_file": "maintainer/rest-domain-independent-review-081-current.json",
+        "scope_limit": "Independent offline semantic review; formal TESTCASE/TESTEXEC and live tenant validation remain pending.",
+        "reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest081_formal_qa_gap_review",
+        "formal_testexec": "pending"
+      }
+    },
+    {
+      "id": "v2.ontologies.OntologyScenario.create_scenario",
+      "stage": "Private Beta",
+      "verdict": "UNCERTAIN",
+      "reason": "Beta fixture omits preview=true and asserts its absence. Official endpoint-specific requirement was not accessible; preview requirement is inferred from beta stage, preview-capable SDK signature, and comparable official Object Set references.",
+      "defect": "BUG-SUB-032",
+      "source_module": "foundry_sdk.v2.ontologies.ontology_scenario",
+      "source_sha256": "ca8ec3be7e1a37dc0d78bc7f6a9edfbe1681b8d935fd24c8e3dcaabd56c9f597",
+      "source_doc_sha256": "70a625dc262009de2139dc2ef320f3fa03a63254e473576b87e5ca25bb3742f9",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyScenario/create_scenario.md",
+      "contract_sha256": "35773e336f9b4332d038d47318f0fc9bc4798aab3ba556eb8793226c282d6d3f",
+      "behavior": "references/rest/v2/ontologies/OntologyScenario.md",
+      "behavior_sha256": "e16aa0bd30dda05cb40ae3c79466c97b2cd5ee948deef61d66ea842ec97e5ca4",
+      "example": "examples/rest/081/v2/ontologies/OntologyScenario/invoke_create_scenario.py",
+      "example_sha256": "173046bf0eef15a9a14e8eaaf75a7230b057211a756480ed084a5b1521874662",
+      "preview_query": null,
+      "success_fixture": {
+        "scenarioRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+      },
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending"
+    },
+    {
+      "id": "v2.ontologies.OntologyScenario.list_scenario_conflicting_objects",
+      "stage": "Private Beta",
+      "verdict": "UNCERTAIN",
+      "reason": "Beta fixture omits preview=true and asserts its absence. Official endpoint-specific requirement was not accessible; preview requirement is inferred from beta stage, preview-capable SDK signature, and comparable official Object Set references.",
+      "defect": "BUG-SUB-032",
+      "source_module": "foundry_sdk.v2.ontologies.ontology_scenario",
+      "source_sha256": "ca8ec3be7e1a37dc0d78bc7f6a9edfbe1681b8d935fd24c8e3dcaabd56c9f597",
+      "source_doc_sha256": "70a625dc262009de2139dc2ef320f3fa03a63254e473576b87e5ca25bb3742f9",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyScenario/list_scenario_conflicting_objects.md",
+      "contract_sha256": "d37c5d11ce720a110547856a8765789c23f14e4aa8779ef7b59308b73616df6d",
+      "behavior": "references/rest/v2/ontologies/OntologyScenario.md",
+      "behavior_sha256": "e16aa0bd30dda05cb40ae3c79466c97b2cd5ee948deef61d66ea842ec97e5ca4",
+      "example": "examples/rest/081/v2/ontologies/OntologyScenario/invoke_list_scenario_conflicting_objects.py",
+      "example_sha256": "9d02b1515c13d148d813847e1ed830ade403130d9fe673544d2d1461a39a9472",
+      "preview_query": null,
+      "success_fixture": {
+        "data": [
+          {
+            "objectTypeApiName": "synthetic-value",
+            "primaryKeyValue": "synthetic-value"
+          }
+        ]
+      },
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending"
+    },
+    {
+      "id": "v2.ontologies.OntologyScenario.list_scenario_edited_entity_types",
+      "stage": "Private Beta",
+      "verdict": "UNCERTAIN",
+      "reason": "Beta fixture omits preview=true and asserts its absence. Official endpoint-specific requirement was not accessible; preview requirement is inferred from beta stage, preview-capable SDK signature, and comparable official Object Set references.",
+      "defect": "BUG-SUB-032",
+      "source_module": "foundry_sdk.v2.ontologies.ontology_scenario",
+      "source_sha256": "ca8ec3be7e1a37dc0d78bc7f6a9edfbe1681b8d935fd24c8e3dcaabd56c9f597",
+      "source_doc_sha256": "70a625dc262009de2139dc2ef320f3fa03a63254e473576b87e5ca25bb3742f9",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyScenario/list_scenario_edited_entity_types.md",
+      "contract_sha256": "470a903226bebad7a099353cff5b8ca99f1716115b2977d269b376560465c5e4",
+      "behavior": "references/rest/v2/ontologies/OntologyScenario.md",
+      "behavior_sha256": "e16aa0bd30dda05cb40ae3c79466c97b2cd5ee948deef61d66ea842ec97e5ca4",
+      "example": "examples/rest/081/v2/ontologies/OntologyScenario/invoke_list_scenario_edited_entity_types.py",
+      "example_sha256": "c0991a7e4399e58c4549faba95c62f963fd3c733d3b226e38f5b920aa0ef5f4d",
+      "preview_query": null,
+      "success_fixture": {
+        "objectTypes": [
+          "synthetic-value"
+        ],
+        "linkTypes": [
+          {
+            "objectTypeApiName": "synthetic-value",
+            "linkTypes": [
+              "synthetic-value"
+            ]
+          }
+        ]
+      },
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending"
+    },
+    {
+      "id": "v2.ontologies.OntologyScenario.list_scenario_edited_link_types",
+      "stage": "Private Beta",
+      "verdict": "UNCERTAIN",
+      "reason": "Beta fixture omits preview=true and asserts its absence. Official endpoint-specific requirement was not accessible; preview requirement is inferred from beta stage, preview-capable SDK signature, and comparable official Object Set references.",
+      "defect": "BUG-SUB-032",
+      "source_module": "foundry_sdk.v2.ontologies.ontology_scenario",
+      "source_sha256": "ca8ec3be7e1a37dc0d78bc7f6a9edfbe1681b8d935fd24c8e3dcaabd56c9f597",
+      "source_doc_sha256": "70a625dc262009de2139dc2ef320f3fa03a63254e473576b87e5ca25bb3742f9",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyScenario/list_scenario_edited_link_types.md",
+      "contract_sha256": "5e02d26e8cdf1c0e0e49123c599732892ed039b881569bae17988129b015e01d",
+      "behavior": "references/rest/v2/ontologies/OntologyScenario.md",
+      "behavior_sha256": "e16aa0bd30dda05cb40ae3c79466c97b2cd5ee948deef61d66ea842ec97e5ca4",
+      "example": "examples/rest/081/v2/ontologies/OntologyScenario/invoke_list_scenario_edited_link_types.py",
+      "example_sha256": "5b86a9715cdc17f6c6e9ff4099fbf9426705365d4b995eacdf4a33e86d536019",
+      "preview_query": null,
+      "success_fixture": {
+        "data": [
+          "synthetic-value"
+        ]
+      },
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending"
+    },
+    {
+      "id": "v2.ontologies.OntologyScenario.list_scenario_edited_links",
+      "stage": "Private Beta",
+      "verdict": "UNCERTAIN",
+      "reason": "Beta fixture omits preview=true and asserts its absence. Official endpoint-specific requirement was not accessible; preview requirement is inferred from beta stage, preview-capable SDK signature, and comparable official Object Set references.",
+      "defect": "BUG-SUB-032",
+      "source_module": "foundry_sdk.v2.ontologies.ontology_scenario",
+      "source_sha256": "ca8ec3be7e1a37dc0d78bc7f6a9edfbe1681b8d935fd24c8e3dcaabd56c9f597",
+      "source_doc_sha256": "70a625dc262009de2139dc2ef320f3fa03a63254e473576b87e5ca25bb3742f9",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyScenario/list_scenario_edited_links.md",
+      "contract_sha256": "152c2eb06a13b6b2e62230556ae8d647381d616d5a018c4ec77e5d5dd4e79ff8",
+      "behavior": "references/rest/v2/ontologies/OntologyScenario.md",
+      "behavior_sha256": "e16aa0bd30dda05cb40ae3c79466c97b2cd5ee948deef61d66ea842ec97e5ca4",
+      "example": "examples/rest/081/v2/ontologies/OntologyScenario/invoke_list_scenario_edited_links.py",
+      "example_sha256": "0c1f5f92731cc1cdbc75f2bb326ff667f2643f4f74b130ebfaa29ffaf91831c7",
+      "preview_query": null,
+      "success_fixture": {
+        "data": [
+          {
+            "linkedObjects": [
+              {}
+            ]
+          }
+        ]
+      },
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending"
+    },
+    {
+      "id": "v2.ontologies.OntologyScenario.list_scenario_edited_object_types",
+      "stage": "Private Beta",
+      "verdict": "UNCERTAIN",
+      "reason": "Beta fixture omits preview=true and asserts its absence. Official endpoint-specific requirement was not accessible; preview requirement is inferred from beta stage, preview-capable SDK signature, and comparable official Object Set references.",
+      "defect": "BUG-SUB-032",
+      "source_module": "foundry_sdk.v2.ontologies.ontology_scenario",
+      "source_sha256": "ca8ec3be7e1a37dc0d78bc7f6a9edfbe1681b8d935fd24c8e3dcaabd56c9f597",
+      "source_doc_sha256": "70a625dc262009de2139dc2ef320f3fa03a63254e473576b87e5ca25bb3742f9",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyScenario/list_scenario_edited_object_types.md",
+      "contract_sha256": "27f633b222a8f6a1cdb3bb900e9da6df6dd519ff0dd9c68fc77dfab103ab717e",
+      "behavior": "references/rest/v2/ontologies/OntologyScenario.md",
+      "behavior_sha256": "e16aa0bd30dda05cb40ae3c79466c97b2cd5ee948deef61d66ea842ec97e5ca4",
+      "example": "examples/rest/081/v2/ontologies/OntologyScenario/invoke_list_scenario_edited_object_types.py",
+      "example_sha256": "f9761a157ecfa95aa1eb082e3bb16dc3e12f6c0221193f7279908d1161d79591",
+      "preview_query": null,
+      "success_fixture": {
+        "data": [
+          "synthetic-value"
+        ]
+      },
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending"
+    },
+    {
+      "id": "v2.ontologies.OntologyScenario.list_scenario_edited_objects",
+      "stage": "Private Beta",
+      "verdict": "UNCERTAIN",
+      "reason": "Beta fixture omits preview=true and asserts its absence. Official endpoint-specific requirement was not accessible; preview requirement is inferred from beta stage, preview-capable SDK signature, and comparable official Object Set references.",
+      "defect": "BUG-SUB-032",
+      "source_module": "foundry_sdk.v2.ontologies.ontology_scenario",
+      "source_sha256": "ca8ec3be7e1a37dc0d78bc7f6a9edfbe1681b8d935fd24c8e3dcaabd56c9f597",
+      "source_doc_sha256": "70a625dc262009de2139dc2ef320f3fa03a63254e473576b87e5ca25bb3742f9",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyScenario/list_scenario_edited_objects.md",
+      "contract_sha256": "dd543ccca828a25f57aa0390130b69d30ab694c809ab53c3233df98d32f69d0b",
+      "behavior": "references/rest/v2/ontologies/OntologyScenario.md",
+      "behavior_sha256": "e16aa0bd30dda05cb40ae3c79466c97b2cd5ee948deef61d66ea842ec97e5ca4",
+      "example": "examples/rest/081/v2/ontologies/OntologyScenario/invoke_list_scenario_edited_objects.py",
+      "example_sha256": "88488175355fed990ab000e80aa8a9dc6e799edc651146b23f7c9ce24d856a1e",
+      "preview_query": null,
+      "success_fixture": {
+        "data": [
+          {}
+        ]
+      },
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending"
+    },
+    {
+      "id": "v2.ontologies.OntologyTransaction.post_edits",
+      "stage": "Private Beta",
+      "verdict": "UNCERTAIN",
+      "reason": "Beta fixture omits preview=true and asserts its absence. Official endpoint-specific requirement was not accessible; preview requirement is inferred from beta stage, preview-capable SDK signature, and comparable official Object Set references.",
+      "defect": "BUG-SUB-032",
+      "source_module": "foundry_sdk.v2.ontologies.ontology_transaction",
+      "source_sha256": "ef9f2803ab81a39b45a1b3391877f48a0c66228c263ae0f291eb5e54a9dcb20f",
+      "source_doc_sha256": "3bfc3b009ed5d12909760271198923e50eacd36e90dd0f3c4e534c9fc4705425",
+      "contract": "references/rest/contracts/v2/ontologies/OntologyTransaction/post_edits.md",
+      "contract_sha256": "909cfe2aa6ccf4abcc09b52e04eeb07a62d98cf9dd0169daaec7a778d3936c48",
+      "behavior": "references/rest/v2/ontologies/OntologyTransaction.md",
+      "behavior_sha256": "fc6caa735a867842b251e312df3d95b829a1ac0965380797cace0540facfdfb5",
+      "example": "examples/rest/081/v2/ontologies/OntologyTransaction/invoke_post_edits.py",
+      "example_sha256": "a5bd128a3ef7adfee0e6f50e585834e1482d064fd3254ef57c0818103dcafec3",
+      "preview_query": null,
+      "success_fixture": {},
+      "declared_error_fixture_count": 0,
+      "diagnostic_fixture_result": "PASS",
+      "formal_qa_status": "pending"
+    }
+  ]
+}
