@@ -10,7 +10,7 @@ description: Run SELECT queries over Foundry datasets, query Ontology data, insp
 Foundry SQL Queries lets authorized users analyze datasets with SELECT-only
 Spark SQL. Dataset queries run asynchronously: submission returns status and
 an ID, status can be polled, and results are downloaded as Apache Arrow.
-Ontology SQL is a separate private-beta path that returns Arrow bytes
+Ontology SQL is a separate Public Beta path that returns Arrow bytes
 synchronously. The CLI exposes both paths through five `query` operations.
 
 Source: [Palantir SQL access to Foundry datasets](https://www.palantir.com/docs/foundry/analytics-connectivity/odbc-jdbc-drivers/#use-sql-to-query-foundry-datasets).
