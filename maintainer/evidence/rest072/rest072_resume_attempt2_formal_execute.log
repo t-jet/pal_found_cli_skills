@@ -1,0 +1,9 @@
+{"case_id": "REST072", "check": "socket_traps_active", "result": "PASS"}
+{"case_id": "F072-01", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F072-01", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F072-01", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F072-01", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F072-01", "check": "error_AuthenticationProviderNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F072-01", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F072-01", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F072-01", "check": "timeout_no_retry", "result": "PASS", "requests": 1}

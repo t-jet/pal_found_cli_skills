@@ -1,0 +1,213 @@
+{
+  "agent": "/root/formal072_resume",
+  "candidate_commit": "a8695c8356a5f42e2e8cf6945753bdaaeaae0071",
+  "started_at": "2026-10-21T06:50:00.392109+00:00",
+  "finished_at": "2026-10-21T06:50:00.462617+00:00",
+  "elapsed_seconds": 0.07799999999997453,
+  "activity": "Current source asset identities and example compilation; excludes historical author effort.",
+  "case_manifest_sha256": "99cf3b938c7b7525bde7b9ffab42607128d1ca6e18cee183ee38e464bcc9d62c",
+  "compiled": [
+    {
+      "operation": "v2.admin.AuthenticationProvider.get",
+      "path": "examples/rest/072/v2/admin/AuthenticationProvider/get.py",
+      "sha256": "944ea599630a9ead24022bd865f5f6bcf77277e92f8a87d1b1e4559301395558"
+    },
+    {
+      "operation": "v2.admin.AuthenticationProvider.list",
+      "path": "examples/rest/072/v2/admin/AuthenticationProvider/list.py",
+      "sha256": "bf370cf4005d065ddaa168af10d254ba5c3544f718320b5a2b18804fb26f27d4"
+    },
+    {
+      "operation": "v2.admin.AuthenticationProvider.preregister_group",
+      "path": "examples/rest/072/v2/admin/AuthenticationProvider/preregister_group.py",
+      "sha256": "3a9caba1bc0a4f931e4130998bb80380cd8b9fb101b79e59085fef73a6add49a"
+    },
+    {
+      "operation": "v2.admin.AuthenticationProvider.preregister_user",
+      "path": "examples/rest/072/v2/admin/AuthenticationProvider/preregister_user.py",
+      "sha256": "9625a1037d8d1a95086ee8502d8f3983a1b2575ef0ede4a59ad5bee65d5da5b9"
+    },
+    {
+      "operation": "v2.admin.CbacBanner.get",
+      "path": "examples/rest/072/v2/admin/CbacBanner/get.py",
+      "sha256": "1bdcc92085003ccac9d60ee2a0dc172476e22c7a3588092e00136e42c6e8f879"
+    },
+    {
+      "operation": "v2.admin.CbacMarkingRestrictions.get",
+      "path": "examples/rest/072/v2/admin/CbacMarkingRestrictions/get.py",
+      "sha256": "5942871e72fd0ccaa3e2b312989dcf6f725a578f573c81a3091bfbc4f629b61d"
+    },
+    {
+      "operation": "v2.admin.Enrollment.get",
+      "path": "examples/rest/072/v2/admin/Enrollment/get.py",
+      "sha256": "0cbf0a87e6de52fa46df0fa2f7987891362a8e7f8abe29fa76dc5256e5ce065f"
+    },
+    {
+      "operation": "v2.admin.Enrollment.get_current",
+      "path": "examples/rest/072/v2/admin/Enrollment/get_current.py",
+      "sha256": "dd554963cc1ca0be99ea823180576645c33922ed1f886a903616115e0d722959"
+    },
+    {
+      "operation": "v2.admin.EnrollmentRoleAssignment.add",
+      "path": "examples/rest/072/v2/admin/EnrollmentRoleAssignment/add.py",
+      "sha256": "5f0871fc086cffca77e9afde0a8197f3309fd0bf4dc108e21a137a2a81310e75"
+    },
+    {
+      "operation": "v2.admin.EnrollmentRoleAssignment.list",
+      "path": "examples/rest/072/v2/admin/EnrollmentRoleAssignment/list.py",
+      "sha256": "5e8efd4a2e7c40905c423568e7721d53b4d0e288177c9f2ee8ae6b976bc63e45"
+    },
+    {
+      "operation": "v2.admin.EnrollmentRoleAssignment.remove",
+      "path": "examples/rest/072/v2/admin/EnrollmentRoleAssignment/remove.py",
+      "sha256": "eef597f4effa3455dd6840f94e0be29ef1928444ac1a1a9a3c2f472b110a8553"
+    },
+    {
+      "operation": "v2.admin.Host.list",
+      "path": "examples/rest/072/v2/admin/Host/list.py",
+      "sha256": "ba39fb83b1a24b5b6074ac3d05cd908c87769db7dcfab9d8c17989be90f8ce69"
+    },
+    {
+      "operation": "v2.admin.Marking.create",
+      "path": "examples/rest/072/v2/admin/Marking/create.py",
+      "sha256": "6153a67c8dbc39e1d0d1a140c8878b5cef2bacea5dfa9e7a94625b887ab8c50c"
+    },
+    {
+      "operation": "v2.admin.Marking.get",
+      "path": "examples/rest/072/v2/admin/Marking/get.py",
+      "sha256": "494cadb617ca981f7db59089038d34e3c158e0a35ae65d7b79085e71ccd3fd70"
+    },
+    {
+      "operation": "v2.admin.Marking.get_batch",
+      "path": "examples/rest/072/v2/admin/Marking/get_batch.py",
+      "sha256": "cb65ff8607729e1aaa234c215552bf331036b6aa16ce63f48ce6479cf316a8ba"
+    },
+    {
+      "operation": "v2.admin.Marking.list",
+      "path": "examples/rest/072/v2/admin/Marking/list.py",
+      "sha256": "8cc2f65b675d9c47112cd9c0ca437b566557c9091b0f9ef3561e4f33fff30ce2"
+    },
+    {
+      "operation": "v2.admin.Marking.parse_classifications",
+      "path": "examples/rest/072/v2/admin/Marking/parse_classifications.py",
+      "sha256": "b2532e2461210e5c8df72820167611863d7edef7926f9db37fb3830beeb7941e"
+    },
+    {
+      "operation": "v2.admin.Marking.replace",
+      "path": "examples/rest/072/v2/admin/Marking/replace.py",
+      "sha256": "e7863dc3338f7956b8324587d320f579c25010a6d36c75ce98b21672f03d9912"
+    },
+    {
+      "operation": "v2.admin.MarkingCategory.create",
+      "path": "examples/rest/072/v2/admin/MarkingCategory/create.py",
+      "sha256": "d8bb419eb9cf75cdb8967590e6d2ac768c916352ba78e3cb3b35c96bfbe9c4a2"
+    },
+    {
+      "operation": "v2.admin.MarkingCategory.get",
+      "path": "examples/rest/072/v2/admin/MarkingCategory/get.py",
+      "sha256": "f22515528dea8f29d1e17958de27f86fb59ad709daeec86621ee7d88bd908a32"
+    },
+    {
+      "operation": "v2.admin.MarkingCategory.list",
+      "path": "examples/rest/072/v2/admin/MarkingCategory/list.py",
+      "sha256": "e3f43d7a03f016aeec084c5e420ae8268e56edc5a10a99f9bc8897033be5631a"
+    },
+    {
+      "operation": "v2.admin.MarkingCategory.replace",
+      "path": "examples/rest/072/v2/admin/MarkingCategory/replace.py",
+      "sha256": "8ccdb064497e00bcf70c967873f8cc215db7f48e77f3279799bbe871678ab35e"
+    },
+    {
+      "operation": "v2.admin.MarkingMember.add",
+      "path": "examples/rest/072/v2/admin/MarkingMember/add.py",
+      "sha256": "36d78dafb1b1c511af8427d5025abc8704a0c71e9fc71c2b2f8d7365a275c640"
+    },
+    {
+      "operation": "v2.admin.MarkingMember.list",
+      "path": "examples/rest/072/v2/admin/MarkingMember/list.py",
+      "sha256": "ec1d9841bc0614b80b8d1bfd27b7f32492711213e1d1b1202edfaaa4010f10b6"
+    },
+    {
+      "operation": "v2.admin.MarkingMember.remove",
+      "path": "examples/rest/072/v2/admin/MarkingMember/remove.py",
+      "sha256": "d3139e52809d5787fa5412239d49a1a695c5e0e3d5957f902d0b0a96c74f39ab"
+    },
+    {
+      "operation": "v2.admin.MarkingRoleAssignment.add",
+      "path": "examples/rest/072/v2/admin/MarkingRoleAssignment/add.py",
+      "sha256": "2e28ad41cb098244f8a4dd5377b3c4ffe8b13690f4ef98f667864919d79199ec"
+    },
+    {
+      "operation": "v2.admin.MarkingRoleAssignment.list",
+      "path": "examples/rest/072/v2/admin/MarkingRoleAssignment/list.py",
+      "sha256": "3cd30db500e7696d79edd867f02e6ab8b0ebd3f99a3e18d126dd2e710b73d08c"
+    },
+    {
+      "operation": "v2.admin.MarkingRoleAssignment.remove",
+      "path": "examples/rest/072/v2/admin/MarkingRoleAssignment/remove.py",
+      "sha256": "9aca7a2420bf23d1de00103bf942c7a84cfd1be2f4501f1aae8e7731a2635965"
+    },
+    {
+      "operation": "v2.admin.Organization.create",
+      "path": "examples/rest/072/v2/admin/Organization/create.py",
+      "sha256": "939f7cc853f80703ebedaef8c808d77d32f53252c9045cf3e4daa74fc022521c"
+    },
+    {
+      "operation": "v2.admin.Organization.get",
+      "path": "examples/rest/072/v2/admin/Organization/get.py",
+      "sha256": "242b54009f78dddb3bdd4a3948e1513292d06a80fbb1a1085676c007903e599d"
+    },
+    {
+      "operation": "v2.admin.Organization.list_available_roles",
+      "path": "examples/rest/072/v2/admin/Organization/list_available_roles.py",
+      "sha256": "68fbd6409bab14e14ae55fd14400bdd3acdb98bae74b99de5506a65337ddaf82"
+    },
+    {
+      "operation": "v2.admin.Organization.replace",
+      "path": "examples/rest/072/v2/admin/Organization/replace.py",
+      "sha256": "ca8c53224ed412455dc09f3bc3bbba2c037f494f9b00e784c850fbb0bd341fcb"
+    },
+    {
+      "operation": "v2.admin.OrganizationGuestMember.add",
+      "path": "examples/rest/072/v2/admin/OrganizationGuestMember/add.py",
+      "sha256": "6882d77ec001cac5816fe01e52e5f8d9ec3fd798dba2ed76e81c1ed30a28c41a"
+    },
+    {
+      "operation": "v2.admin.OrganizationGuestMember.list",
+      "path": "examples/rest/072/v2/admin/OrganizationGuestMember/list.py",
+      "sha256": "75e5132573a66e09882514bbd9f2c8f338ede720b933526a0dc39d8e7fa5c33e"
+    },
+    {
+      "operation": "v2.admin.OrganizationGuestMember.remove",
+      "path": "examples/rest/072/v2/admin/OrganizationGuestMember/remove.py",
+      "sha256": "27cca346204aa491f848a2322a81a2684ec34982dfe28849f0a51e7cd605ca45"
+    },
+    {
+      "operation": "v2.admin.OrganizationRoleAssignment.add",
+      "path": "examples/rest/072/v2/admin/OrganizationRoleAssignment/add.py",
+      "sha256": "6f366622c0c3c49ba07bdb45a821fd17e3b87001e1d8c003ee2b7978febd9301"
+    },
+    {
+      "operation": "v2.admin.OrganizationRoleAssignment.list",
+      "path": "examples/rest/072/v2/admin/OrganizationRoleAssignment/list.py",
+      "sha256": "be85ae5089cc69e48c1e2801ead81ada57e24e549107a361156d5d08e8c3ce33"
+    },
+    {
+      "operation": "v2.admin.OrganizationRoleAssignment.remove",
+      "path": "examples/rest/072/v2/admin/OrganizationRoleAssignment/remove.py",
+      "sha256": "f7d833faaecc5e972b60bebf65fc272a0e0960b7a68a8628f421253c6edb6d41"
+    },
+    {
+      "operation": "v2.admin.Role.get",
+      "path": "examples/rest/072/v2/admin/Role/get.py",
+      "sha256": "8e94720a3f4f0baf227437e79d29a4252d268baa09c2e5d5322059ae1d85b61a"
+    },
+    {
+      "operation": "v2.admin.Role.get_batch",
+      "path": "examples/rest/072/v2/admin/Role/get_batch.py",
+      "sha256": "be0018cd31e9d345dca5bc3f59e778d083d92f89e5f18d378280039a7f39da3d"
+    }
+  ],
+  "dedicated_test_sha256": "a2ae464d8a780d3c59bf548c15aee0f6c7c7340c45471bda8c9a96be149c2010",
+  "result": "PASS"
+}

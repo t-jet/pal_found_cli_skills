@@ -438,45 +438,103 @@
       "path": "pal-found-admin\\references\\04-governance-access.md",
       "sha256": "d92e884a4d56b84b7121705934a61684e5d87a3463fd7c19f1e76aed29605cbb",
       "lines": 135,
-      "review_status": "author context review; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/remaining_admin_audit_pages",
+        "review_date": "2026-10-21",
         "page_sha256": "d92e884a4d56b84b7121705934a61684e5d87a3463fd7c19f1e76aed29605cbb",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 2",
-          "reachable from owning SKILL.md"
+          "Read every paragraph and all 16 operation records, including recovery and mutation scope.",
+          "Compared every required/optional CLI input and SDK return type to operation catalog and installed SDK 1.101.0.",
+          "All 16 examples parsed and serialized into one SDK HTTP request each, intercepted by MockTransport.",
+          "Confirmed marking member pageSize ignored, api:admin-write required, transitive membership, iterator result and stderr pagination metadata.",
+          "Confirmed marking roles and organization marking ADMINISTER restriction; principalId/role wire pairs.",
+          "Confirmed organization create/get/list_available_roles/replace inputs, returned Organization and host semantics.",
+          "Confirmed guest primary-member no-op behavior. Guest and organization role response models permit nextPageToken while SDK methods and CLI lack continuation inputs.",
+          "Confirmed organization role assignment maximum 100 and roleId/principalId wire schema.",
+          "Official organization and propagation docs support primary/guest membership, space inheritance and mandatory control prose."
         ],
-        "url_contexts_in_current_audit": 2,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-admin-governance-audit.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-admin\\references\\04-governance-access.md",
+          "sha256": "d92e884a4d56b84b7121705934a61684e5d87a3463fd7c19f1e76aed29605cbb",
+          "lines": 135,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "d92e884a4d56b84b7121705934a61684e5d87a3463fd7c19f1e76aed29605cbb",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 2",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 2,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-admin\\SKILL.md",
       "sha256": "ca195891ff4c2abda9a79e337f25a9aef20241fd06dbcec6d40f169e308a3e79",
       "lines": 88,
-      "review_status": "author context review; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "53cd873912088658d19e9535266195945532bdb26b9060463eadd45218593daf",
+        "reviewer_agent": "/root/remaining_admin_audit_pages",
+        "review_date": "2026-10-21",
+        "page_sha256": "ca195891ff4c2abda9a79e337f25a9aef20241fd06dbcec6d40f169e308a3e79",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 6",
-          "reachable from owning SKILL.md"
+          "Read whole capability, usage, operation index and parameter table.",
+          "Catalog and tests establish 66 unique Admin operations; groups total 20+18+12+16.",
+          "Common parser supports timeout/format/pretty. Paged operations support page-size/page-token/batch-pages; helper preserves short/empty-page cursors and emits stderr metadata.",
+          "Checked every parameter-table row against SDK models/descriptions: reserved multipass attributes, display types, JSON structures, user status/include, expiry and transitive/include-expirations exclusion.",
+          "queryString JSON filter matches SDK PrincipalFilterType and UserSearchFilter shape.",
+          "Verified shared config, ADMIN guard, retry, error serializer, formatter and invocation B3 scope by code and tests.",
+          "Official administration/security docs support identity, role delegation and mandatory-control descriptions."
         ],
-        "url_contexts_in_current_audit": 2,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-admin-governance-audit.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-admin\\SKILL.md",
+          "sha256": "ca195891ff4c2abda9a79e337f25a9aef20241fd06dbcec6d40f169e308a3e79",
+          "lines": 88,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "53cd873912088658d19e9535266195945532bdb26b9060463eadd45218593daf",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 6",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 2,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-aip-agents\\references\\01-agents-sessions.md",
@@ -680,23 +738,52 @@
       "path": "pal-found-audit\\SKILL.md",
       "sha256": "90f95b408320c92cf389d03f648785cde7ed623dedd7d268087bbc5b40b9ae4d",
       "lines": 86,
-      "review_status": "author context review; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "c040dd592980bf28a93285171a541211e8871b0879b7fc83f293b3e09c5d74ba",
+        "reviewer_agent": "/root/remaining_admin_audit_pages",
+        "review_date": "2026-10-21",
+        "page_sha256": "90f95b408320c92cf389d03f648785cde7ed623dedd7d268087bbc5b40b9ae4d",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 1",
-          "reachable from owning SKILL.md"
+          "Read whole capability, access prerequisites, command table, operations, workflow, shared behavior, exit taxonomy and parameters.",
+          "Official audit docs confirm organization workflow role, generated service user, audit-read application access and OAuth scope; role and scope are separate grants.",
+          "Both examples parsed and serialized with SDK 1.101.0 under MockTransport.",
+          "Confirmed strict date parser, initial start-date requirement, inclusive end date, continuation without start date and empty-page polling cursor handling.",
+          "Verified raw response decoding, default one actual page, stderr metadata and 40-page hard cap.",
+          "Verified bounded streaming download, filename handling, JSON metadata even with toon and no audit-content stdout/logging in supported paths.",
+          "AUDIT guard precedes client construction and download filesystem access; metadata-only allows list and blocks content.",
+          "Checked timeout/retry/cancellation, structured exits 1-9, output, B3 propagation and no W3C additions using code and offline tests."
         ],
-        "url_contexts_in_current_audit": 1,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-admin-governance-audit.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-audit\\SKILL.md",
+          "sha256": "90f95b408320c92cf389d03f648785cde7ed623dedd7d268087bbc5b40b9ae4d",
+          "lines": 86,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "c040dd592980bf28a93285171a541211e8871b0879b7fc83f293b3e09c5d74ba",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 1",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 1,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-checkpoints\\references\\01-record.md",
@@ -1025,135 +1112,292 @@
     },
     {
       "path": "pal-found-datasets\\references\\01-dataset.md",
-      "sha256": "bcbcbe31773a4e16f847d111ae87419e73d303d711f3c814a6fd3417230b1298",
-      "lines": 165,
-      "review_status": "author context review; independent semantic review pending",
+      "sha256": "62baab65a723feedd60bfe19b3f8e8db7aaf10d2eb914ef804179343f829cb86",
+      "lines": 169,
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "bcbcbe31773a4e16f847d111ae87419e73d303d711f3c814a6fd3417230b1298",
+        "reviewer_agent": "/root/datasets_pages_review",
+        "review_date": "2026-10-21",
+        "page_sha256": "62baab65a723feedd60bfe19b3f8e8db7aaf10d2eb914ef804179343f829cb86",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 0",
-          "reachable from owning SKILL.md"
+          "All 11 operation records and examples reviewed; real parser and actual SDK request construction pass.",
+          "Metadata/read split, health-check/report scope, stale schedules warning, default job order and cross-branch transaction listing checked.",
+          "get_schema SDK accepts end transaction and schema version ID; CLI exposes branch only. Page correctly limits installed CLI and does not advertise unsupported --version-id.",
+          "Batch schema array of datasetRid objects and max1000, structured schema payload, absent/inaccessible omission reviewed.",
+          "Table binary format, columns, row limit, branch and start/end selectors match source; View table-read exclusion matches frozen SDK.",
+          "get_schedules/jobs/transactions paging probes follow empty page and preserve cursor after two-page cap.",
+          "Table6-byte mock yields4-byte saved prefix/truncated true; retry under100-byte limit saves all6/truncated false; docs now explain completion checks."
         ],
-        "url_contexts_in_current_audit": 1,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-datasets.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-datasets\\references\\01-dataset.md",
+          "sha256": "bcbcbe31773a4e16f847d111ae87419e73d303d711f3c814a6fd3417230b1298",
+          "lines": 165,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "bcbcbe31773a4e16f847d111ae87419e73d303d711f3c814a6fd3417230b1298",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 0",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 1,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-datasets\\references\\02-branch.md",
-      "sha256": "44e64e2becbdf9d09bc9dea23d2472e0736bd2135367b1314d65770b01e27263",
-      "lines": 76,
-      "review_status": "author context review; independent semantic review pending",
+      "sha256": "d9509b1a947c35104c41ec98e3be39be8c4a8cd09d330ae0e7196c1d29e1df4e",
+      "lines": 81,
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "44e64e2becbdf9d09bc9dea23d2472e0736bd2135367b1314d65770b01e27263",
+        "reviewer_agent": "/root/datasets_pages_review",
+        "review_date": "2026-10-21",
+        "page_sha256": "d9509b1a947c35104c41ec98e3be39be8c4a8cd09d330ae0e7196c1d29e1df4e",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 0",
-          "reachable from owning SKILL.md"
+          "All5 operation records reviewed; branch create optional committed transaction head and branch delete pointer semantics match SDK.",
+          "Corrected get/transactions examples explicitly supply master; actual SDK validation and RequestInfo construction now pass.",
+          "Page accurately notes current parser accepts omitted branch_name but SDK rejects None; omission no longer claimed to select default.",
+          "branch list/transactions paging probes follow empty first page and retain remaining cursor with bounded fetch."
         ],
-        "url_contexts_in_current_audit": 1,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-datasets.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-datasets\\references\\02-branch.md",
+          "sha256": "44e64e2becbdf9d09bc9dea23d2472e0736bd2135367b1314d65770b01e27263",
+          "lines": 76,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "44e64e2becbdf9d09bc9dea23d2472e0736bd2135367b1314d65770b01e27263",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 0",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 1,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-datasets\\references\\03-file.md",
-      "sha256": "45c90ff539ce4fc74c8afc82056e29396401fc0a92e5766751c9ef355cdb0aef",
-      "lines": 94,
-      "review_status": "author context review; independent semantic review pending",
+      "sha256": "2f2de0d6487a28197d1667062ae8d95fdf7d139d5ef5011ba153dc2fe1295c4f",
+      "lines": 98,
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "45c90ff539ce4fc74c8afc82056e29396401fc0a92e5766751c9ef355cdb0aef",
+        "reviewer_agent": "/root/datasets_pages_review",
+        "review_date": "2026-10-21",
+        "page_sha256": "2f2de0d6487a28197d1667062ae8d95fdf7d139d5ef5011ba153dc2fe1295c4f",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 0",
-          "reachable from owning SKILL.md"
+          "All5 records reviewed; file content versus metadata, historical transaction selectors, path prefix and branch selectors match SDK/CLI.",
+          "File upload reads local file at --file-path and sends identical remote dataset path; local file bytes and supplied transaction RID forwarding checked.",
+          "Default upload auto transaction/commit, open manual transaction commit/abort follow-up and overwrite visibility match SDK docstring.",
+          "Delete leaves historical view, auto commits default transaction, manual DELETE transaction required; manual RID forwarded.",
+          "File list empty-page continuation checked. Binary content prefix then larger-limit complete retry checked; output basename/metadata guidance now correct."
         ],
-        "url_contexts_in_current_audit": 1,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-datasets.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-datasets\\references\\03-file.md",
+          "sha256": "45c90ff539ce4fc74c8afc82056e29396401fc0a92e5766751c9ef355cdb0aef",
+          "lines": 94,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "45c90ff539ce4fc74c8afc82056e29396401fc0a92e5766751c9ef355cdb0aef",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 0",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 1,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-datasets\\references\\04-transaction.md",
       "sha256": "614942c70d7b346d01bb82c6430328962f173e3b8b2cdb040ceaff7301b5a17e",
       "lines": 82,
-      "review_status": "author context review; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/datasets_pages_review",
+        "review_date": "2026-10-21",
         "page_sha256": "614942c70d7b346d01bb82c6430328962f173e3b8b2cdb040ceaff7301b5a17e",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 0",
-          "reachable from owning SKILL.md"
+          "All6 records and examples reviewed with real parser and SDK request construction.",
+          "abort discards modifications without branch update; commit preserves changes and moves branch pointer; open state and dataset membership conditions checked.",
+          "build/job are optional associations and reads; neither starts a build or job.",
+          "create requires explicit SNAPSHOT/APPEND/UPDATE/DELETE; optional branch and single open transaction precondition match SDK. RID flags, not positional transaction IDs, verified."
         ],
-        "url_contexts_in_current_audit": 1,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-datasets.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-datasets\\references\\04-transaction.md",
+          "sha256": "614942c70d7b346d01bb82c6430328962f173e3b8b2cdb040ceaff7301b5a17e",
+          "lines": 82,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "614942c70d7b346d01bb82c6430328962f173e3b8b2cdb040ceaff7301b5a17e",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 0",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 1,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-datasets\\references\\05-view.md",
       "sha256": "b36e13838fd86862cdfa935292c014dbe56bd16aa10af0a75531c8393900509e",
       "lines": 96,
-      "review_status": "author context review; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/datasets_pages_review",
+        "review_date": "2026-10-21",
         "page_sha256": "b36e13838fd86862cdfa935292c014dbe56bd16aa10af0a75531c8393900509e",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 0",
-          "reachable from owning SKILL.md"
+          "All6 records/examples reviewed; JSON backing datasets/primary key payloads pass actual SDK model validation and request construction.",
+          "View union/backing dataset semantics distinguished from historical dataset view. Schema and project reference conditions checked against SDK errors and official concepts.",
+          "add ignores duplicate RID/branch pair, remove ignores absent pair and removal triggers SNAPSHOT on next update, replace changes full list checked against SDK descriptions.",
+          "Branch flag addresses View branch; backing dataset branch remains inside each payload entry.",
+          "add_primary_key requires absent existing key and creator uniqueness guarantees. Accepted corrected fixture includes requested returned key.",
+          "Accepted removal fixture preserves distinct surviving backing dataset rather than using ambiguous empty composition; no live graph/lifecycle success inferred."
         ],
-        "url_contexts_in_current_audit": 1,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-datasets.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-datasets\\references\\05-view.md",
+          "sha256": "b36e13838fd86862cdfa935292c014dbe56bd16aa10af0a75531c8393900509e",
+          "lines": 96,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "b36e13838fd86862cdfa935292c014dbe56bd16aa10af0a75531c8393900509e",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 0",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 1,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-datasets\\SKILL.md",
-      "sha256": "6e961527607773344e6a263182a8e3621b9044740168a1d23210077918af32b8",
-      "lines": 103,
-      "review_status": "author context review; independent semantic review pending",
+      "sha256": "fddbc4cad7c23c471aa2c46dd95c20e8cec4f5f572f4899693fb30a0ec916f21",
+      "lines": 113,
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "b5c3b5e0f275e42805b57d66d0fb6a94381e6a1c104fb192e348f4320cb42a26",
+        "reviewer_agent": "/root/datasets_pages_review",
+        "review_date": "2026-10-21",
+        "page_sha256": "fddbc4cad7c23c471aa2c46dd95c20e8cec4f5f572f4899693fb30a0ec916f21",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 12",
-          "reachable from owning SKILL.md"
+          "Whole page: dataset/file/schema distinction, branch pointer/history, four transaction types and downstream incremental effect checked against SDK and official concepts.",
+          "33-operation index and reference links checked; 11 dataset +5 branch +5 file +6 transaction +6 View.",
+          "Parameter descriptions match pinned CLI, including required transaction type, JSON arrays, local upload path reused remotely, basename downloads, explicit branch get/transactions/delete selectors.",
+          "Download success can contain prefix; default 1572864, truncated flag, stored-byte checksums, positive limit env and table projection/row-limit recovery verified.",
+          "Dataset view versus View resource, no dataset branch merge, transform input/output limits checked against official concepts."
         ],
-        "url_contexts_in_current_audit": 3,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-datasets.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-datasets\\SKILL.md",
+          "sha256": "6e961527607773344e6a263182a8e3621b9044740168a1d23210077918af32b8",
+          "lines": 103,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "b5c3b5e0f275e42805b57d66d0fb6a94381e6a1c104fb192e348f4320cb42a26",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 12",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 3,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-dev\\references\\applications-branching-security.md",
@@ -6333,9 +6577,9 @@
     },
     {
       "path": "pal-found-datasets\\references\\02-branch.md",
-      "line": 9,
+      "line": 10,
       "url": "https://www.palantir.com/docs/foundry/data-integration/datasets",
-      "context": "default branch, but omit the branch flag to use the enrollment default.\n\nPlatform context: [Palantir\ndocumentation](https://www.palantir.com/docs/foundry/data-integration/datasets). The behavior below\ndescribes the installed CLI commands. Replace\nexample identifiers and configuration values with values from your Foundry enrollment.\n",
+      "context": "documentation](https://www.palantir.com/docs/foundry/data-integration/datasets). The behavior below",
       "classification": "optional platform provenance",
       "owner": "DEV-STORY-061",
       "reviewer": "pending independent reviewer",
@@ -6345,7 +6589,14 @@
       "qa_reviewer": "qa-engineer",
       "qa_current_dispositions": [
         "optional_provenance_local_page"
-      ]
+      ],
+      "location_history": [
+        {
+          "line": 9,
+          "context": "default branch, but omit the branch flag to use the enrollment default.\n\nPlatform context: [Palantir\ndocumentation](https://www.palantir.com/docs/foundry/data-integration/datasets). The behavior below\ndescribes the installed CLI commands. Replace\nexample identifiers and configuration values with values from your Foundry enrollment.\n"
+        }
+      ],
+      "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
     },
     {
       "path": "pal-found-datasets\\references\\03-file.md",
@@ -6397,9 +6648,9 @@
     },
     {
       "path": "pal-found-datasets\\SKILL.md",
-      "line": 23,
+      "line": 31,
       "url": "https://www.palantir.com/docs/foundry/data-integration/datasets",
-      "context": "that stores no files of its own. It can deduplicate on a primary key and can\nbe used as a transform input, but not as a transform output.\n\nRead [dataset concepts](https://www.palantir.com/docs/foundry/data-integration/datasets),\n[branching](https://www.palantir.com/docs/foundry/data-integration/branching),\nand [Views](https://www.palantir.com/docs/foundry/data-integration/views)\nfor platform behavior. The 33 CLI operations below cover dataset metadata,",
+      "context": "Optional sources: [dataset concepts](https://www.palantir.com/docs/foundry/data-integration/datasets),",
       "classification": "external-reading redirect repaired locally",
       "owner": "DEV-STORY-061",
       "reviewer": "pending independent reviewer",
@@ -6409,13 +6660,20 @@
       "qa_reviewer": "qa-engineer",
       "qa_current_dispositions": [
         "optional_provenance_local_page"
-      ]
+      ],
+      "location_history": [
+        {
+          "line": 23,
+          "context": "that stores no files of its own. It can deduplicate on a primary key and can\nbe used as a transform input, but not as a transform output.\n\nRead [dataset concepts](https://www.palantir.com/docs/foundry/data-integration/datasets),\n[branching](https://www.palantir.com/docs/foundry/data-integration/branching),\nand [Views](https://www.palantir.com/docs/foundry/data-integration/views)\nfor platform behavior. The 33 CLI operations below cover dataset metadata,"
+        }
+      ],
+      "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
     },
     {
       "path": "pal-found-datasets\\SKILL.md",
-      "line": 24,
+      "line": 32,
       "url": "https://www.palantir.com/docs/foundry/data-integration/branching",
-      "context": "be used as a transform input, but not as a transform output.\n\nRead [dataset concepts](https://www.palantir.com/docs/foundry/data-integration/datasets),\n[branching](https://www.palantir.com/docs/foundry/data-integration/branching),\nand [Views](https://www.palantir.com/docs/foundry/data-integration/views)\nfor platform behavior. The 33 CLI operations below cover dataset metadata,\nschemas, table reads, branch and file access, transactions, and Views.",
+      "context": "[branching](https://www.palantir.com/docs/foundry/data-integration/branching),",
       "classification": "external-reading redirect repaired locally",
       "owner": "DEV-STORY-061",
       "reviewer": "pending independent reviewer",
@@ -6425,13 +6683,20 @@
       "qa_reviewer": "qa-engineer",
       "qa_current_dispositions": [
         "optional_provenance_local_page"
-      ]
+      ],
+      "location_history": [
+        {
+          "line": 24,
+          "context": "be used as a transform input, but not as a transform output.\n\nRead [dataset concepts](https://www.palantir.com/docs/foundry/data-integration/datasets),\n[branching](https://www.palantir.com/docs/foundry/data-integration/branching),\nand [Views](https://www.palantir.com/docs/foundry/data-integration/views)\nfor platform behavior. The 33 CLI operations below cover dataset metadata,\nschemas, table reads, branch and file access, transactions, and Views."
+        }
+      ],
+      "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
     },
     {
       "path": "pal-found-datasets\\SKILL.md",
-      "line": 25,
+      "line": 33,
       "url": "https://www.palantir.com/docs/foundry/data-integration/views",
-      "context": "\nRead [dataset concepts](https://www.palantir.com/docs/foundry/data-integration/datasets),\n[branching](https://www.palantir.com/docs/foundry/data-integration/branching),\nand [Views](https://www.palantir.com/docs/foundry/data-integration/views)\nfor platform behavior. The 33 CLI operations below cover dataset metadata,\nschemas, table reads, branch and file access, transactions, and Views.\n",
+      "context": "and [Views](https://www.palantir.com/docs/foundry/data-integration/views).",
       "classification": "external-reading redirect repaired locally",
       "owner": "DEV-STORY-061",
       "reviewer": "pending independent reviewer",
@@ -6441,13 +6706,20 @@
       "qa_reviewer": "qa-engineer",
       "qa_current_dispositions": [
         "optional_provenance_local_page"
-      ]
+      ],
+      "location_history": [
+        {
+          "line": 25,
+          "context": "\nRead [dataset concepts](https://www.palantir.com/docs/foundry/data-integration/datasets),\n[branching](https://www.palantir.com/docs/foundry/data-integration/branching),\nand [Views](https://www.palantir.com/docs/foundry/data-integration/views)\nfor platform behavior. The 33 CLI operations below cover dataset metadata,\nschemas, table reads, branch and file access, transactions, and Views.\n"
+        }
+      ],
+      "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
     },
     {
       "path": "pal-found-datasets\\SKILL.md",
-      "line": 29,
+      "line": 31,
       "url": "https://www.palantir.com/docs/foundry/data-integration/datasets",
-      "context": "for platform behavior. The 33 CLI operations below cover dataset metadata,\nschemas, table reads, branch and file access, transactions, and Views.\n\nSource: [Palantir dataset concepts](https://www.palantir.com/docs/foundry/data-integration/datasets).\n\n33 Foundry Datasets API v2 operations are available through the installed `pal-found-datasets` command.\n",
+      "context": "Optional sources: [dataset concepts](https://www.palantir.com/docs/foundry/data-integration/datasets),",
       "classification": "external-reading redirect repaired locally",
       "owner": "DEV-STORY-061",
       "reviewer": "pending independent reviewer",
@@ -6457,7 +6729,14 @@
       "qa_reviewer": "qa-engineer",
       "qa_current_dispositions": [
         "optional_provenance_local_page"
-      ]
+      ],
+      "location_history": [
+        {
+          "line": 29,
+          "context": "for platform behavior. The 33 CLI operations below cover dataset metadata,\nschemas, table reads, branch and file access, transactions, and Views.\n\nSource: [Palantir dataset concepts](https://www.palantir.com/docs/foundry/data-integration/datasets).\n\n33 Foundry Datasets API v2 operations are available through the installed `pal-found-datasets` command.\n"
+        }
+      ],
+      "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
     },
     {
       "path": "pal-found-dev\\references\\applications-branching-security.md",
@@ -9995,7 +10274,7 @@
       },
       {
         "path": "pal-found-datasets/references/02-branch.md",
-        "line": 9,
+        "line": 10,
         "url": "https://www.palantir.com/docs/foundry/data-integration/datasets",
         "context": "documentation](https://www.palantir.com/docs/foundry/data-integration/datasets). The behavior below",
         "skill": "pal-found-datasets",
@@ -10003,7 +10282,14 @@
         "acceptance_blocking": false,
         "qa_reason": "Attribution is explicitly optional; local page supplies the task guidance. Semantic task review remains separate.",
         "qa_reviewer": "qa-engineer",
-        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence"
+        "review_scope": "URL dependency triage only; source and reader-task semantics require separate evidence",
+        "location_history": [
+          {
+            "line": 9,
+            "context": "documentation](https://www.palantir.com/docs/foundry/data-integration/datasets). The behavior below"
+          }
+        ],
+        "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
       },
       {
         "path": "pal-found-datasets/references/03-file.md",
@@ -12095,7 +12381,7 @@
   },
   "independent_reviewer": "qa-engineer",
   "independent_review_counts": {
-    "PASS": 99,
-    "UNCERTAIN": 93
+    "PASS": 108,
+    "UNCERTAIN": 84
   }
 }

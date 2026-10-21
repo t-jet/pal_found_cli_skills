@@ -1,0 +1,43 @@
+{
+  "story": "DEV-STORY-072",
+  "testcase": "TESTCASE-075",
+  "executor_identity": "/root/formal072_resume/independent072",
+  "harness_sha256": "5964005abd127681e0bdce9cdd2e9328b9709f09a0df1186f2e7bba9f0f7982d",
+  "cases_sha256": "99cf3b938c7b7525bde7b9ffab42607128d1ca6e18cee183ee38e464bcc9d62c",
+  "operations": 40,
+  "declared_errors": 113,
+  "execution": "FAIL",
+  "created_at": "2026-10-21T06:54:20.153267+00:00",
+  "results": [
+    {
+      "case_id": "REST072",
+      "check": "socket_traps_active",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F072-01",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-01",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-01",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-01",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    }
+  ],
+  "failure": "AttributeError(\"'AuthenticationProviderNotFound' object has no attribute 'error_code'\")"
+}

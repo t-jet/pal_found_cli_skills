@@ -1,0 +1,210 @@
+{
+  "reviewer": "/root/formal072_workflow_completion",
+  "case_author": "/root/formal072_workflow_completion/review072",
+  "case_manifest_sha256": "99cf3b938c7b7525bde7b9ffab42607128d1ca6e18cee183ee38e464bcc9d62c",
+  "reviewed_at": "2026-10-20T20:16:00.327722+00:00",
+  "verdict": "APPROVED",
+  "method": "All 40 primary SDK RequestInfo ASTs independently evaluated for baseline plus all113 negative-case request wires. Source and all asset hashes match. Gherkin target/functions and expected results verified; parse/batch/Organization-role correlations explicitly checked. Additional cases reviewed for finite pages,500 boundary,missing input and source silence. No formal execution claim.",
+  "operations": [
+    {
+      "id": "v2.admin.AuthenticationProvider.get",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 2
+    },
+    {
+      "id": "v2.admin.AuthenticationProvider.list",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 2
+    },
+    {
+      "id": "v2.admin.AuthenticationProvider.preregister_group",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 3
+    },
+    {
+      "id": "v2.admin.AuthenticationProvider.preregister_user",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 3
+    },
+    {
+      "id": "v2.admin.CbacBanner.get",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 5
+    },
+    {
+      "id": "v2.admin.CbacMarkingRestrictions.get",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 4
+    },
+    {
+      "id": "v2.admin.Enrollment.get",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 2
+    },
+    {
+      "id": "v2.admin.Enrollment.get_current",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 3
+    },
+    {
+      "id": "v2.admin.EnrollmentRoleAssignment.add",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 5
+    },
+    {
+      "id": "v2.admin.EnrollmentRoleAssignment.list",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 3
+    },
+    {
+      "id": "v2.admin.EnrollmentRoleAssignment.remove",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 5
+    },
+    {
+      "id": "v2.admin.Host.list",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 4
+    },
+    {
+      "id": "v2.admin.Marking.create",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 8
+    },
+    {
+      "id": "v2.admin.Marking.get",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 3
+    },
+    {
+      "id": "v2.admin.Marking.get_batch",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 1
+    },
+    {
+      "id": "v2.admin.Marking.list",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 2
+    },
+    {
+      "id": "v2.admin.Marking.parse_classifications",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 3
+    },
+    {
+      "id": "v2.admin.Marking.replace",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 7
+    },
+    {
+      "id": "v2.admin.MarkingCategory.create",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 5
+    },
+    {
+      "id": "v2.admin.MarkingCategory.get",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 3
+    },
+    {
+      "id": "v2.admin.MarkingCategory.list",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 2
+    },
+    {
+      "id": "v2.admin.MarkingCategory.replace",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 4
+    },
+    {
+      "id": "v2.admin.MarkingMember.add",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 5
+    },
+    {
+      "id": "v2.admin.MarkingMember.list",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 4
+    },
+    {
+      "id": "v2.admin.MarkingMember.remove",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 5
+    },
+    {
+      "id": "v2.admin.MarkingRoleAssignment.add",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 6
+    },
+    {
+      "id": "v2.admin.MarkingRoleAssignment.list",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 3
+    },
+    {
+      "id": "v2.admin.MarkingRoleAssignment.remove",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 9
+    },
+    {
+      "id": "v2.admin.Organization.create",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 7
+    },
+    {
+      "id": "v2.admin.Organization.get",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 2
+    },
+    {
+      "id": "v2.admin.Organization.list_available_roles",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 3
+    },
+    {
+      "id": "v2.admin.Organization.replace",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 5
+    },
+    {
+      "id": "v2.admin.OrganizationGuestMember.add",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 4
+    },
+    {
+      "id": "v2.admin.OrganizationGuestMember.list",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 3
+    },
+    {
+      "id": "v2.admin.OrganizationGuestMember.remove",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 4
+    },
+    {
+      "id": "v2.admin.OrganizationRoleAssignment.add",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 4
+    },
+    {
+      "id": "v2.admin.OrganizationRoleAssignment.list",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 3
+    },
+    {
+      "id": "v2.admin.OrganizationRoleAssignment.remove",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 4
+    },
+    {
+      "id": "v2.admin.Role.get",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 2
+    },
+    {
+      "id": "v2.admin.Role.get_batch",
+      "verdict": "PASS",
+      "source_wire_and_error_cases": 1
+    }
+  ]
+}

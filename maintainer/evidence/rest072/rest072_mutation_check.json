@@ -1,0 +1,37 @@
+[
+  {
+    "operation": "Marking.get_batch",
+    "mutation": "empty batch result",
+    "result": "REJECTED"
+  },
+  {
+    "operation": "Role.get_batch",
+    "mutation": "empty batch result",
+    "result": "REJECTED"
+  },
+  {
+    "operation": "CbacBanner.get",
+    "mutation": "missing marking IDs",
+    "result": "REJECTED"
+  },
+  {
+    "operation": "CbacMarkingRestrictions.get",
+    "mutation": "missing marking IDs",
+    "result": "REJECTED"
+  },
+  {
+    "operation": "Marking.parse_classifications",
+    "mutation": "unaccounted classification inputs",
+    "result": "REJECTED"
+  },
+  {
+    "operation": "MarkingRoleAssignment.add",
+    "mutation": "ADMINISTER success without target distinction",
+    "result": "REJECTED"
+  },
+  {
+    "operation": "MarkingRoleAssignment.remove",
+    "mutation": "ADMINISTER success without target distinction",
+    "result": "REJECTED"
+  }
+]
