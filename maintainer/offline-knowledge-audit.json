@@ -3415,47 +3415,113 @@
     },
     {
       "path": "pal-found-sql-queries\\references\\01-query.md",
-      "sha256": "add2447ba4bd5e212b3910e5265e2b1e003c62582848042b50eba3ef579e3491",
+      "sha256": "30c7ff573463a7a93faba72b8a2a7d7967a64458bb75b1b710cb2f7a95ffdccd",
       "lines": 47,
-      "review_status": "author context review; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "add2447ba4bd5e212b3910e5265e2b1e003c62582848042b50eba3ef579e3491",
-        "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 1",
-          "reachable from owning SKILL.md"
-        ],
-        "url_contexts_in_current_audit": 1,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "reviewer_agent": "/root/tracker_capture_qa_21",
+        "review_date": "2026-10-21T20:58:24.946255+00:00",
+        "page_sha256": "30c7ff573463a7a93faba72b8a2a7d7967a64458bb75b1b710cb2f7a95ffdccd",
+        "checks": {
+          "SELECT_only": "SDK execute docstring",
+          "branch_resolution": "SDK execute fallback_branch_ids docstring",
+          "owner_and_default_million_rows": "SDK execute docstring",
+          "one_minute_long_poll": "SDK get_results docstring",
+          "cancel_noop_and_none": "SDK cancel docstring and real typed 204",
+          "stage": {
+            "method": "POST",
+            "resource_path": "/v2/sqlQueries/executeOntology",
+            "stage": "Public Beta",
+            "doc_sha256": "641d3d6ed444ca13e5afb4922e9708822aedc9aa08e5b541445d7770a472d788"
+          },
+          "synchronous_ontology_arrow": "SDK execute_ontology docstring and real streamed HTTP probe"
+        },
+        "evidence_file": "maintainer/skill-independent-review-sql-queries.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-sql-queries\\references\\01-query.md",
+          "sha256": "add2447ba4bd5e212b3910e5265e2b1e003c62582848042b50eba3ef579e3491",
+          "lines": 47,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "add2447ba4bd5e212b3910e5265e2b1e003c62582848042b50eba3ef579e3491",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 1",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 1,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-sql-queries\\SKILL.md",
-      "sha256": "53d6e71a4091fe28b86b6a017d40ee6a7dcd7cebf218a57497c92591a1ad389b",
+      "sha256": "4929491a6e9e5cffcb7987a8e606253515eea6d5292ae9107af643e4999f9bde",
       "lines": 52,
-      "review_status": "author context review; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "a097abcf259fea5a7d4a0041cf2a4194c559fde72db7e352478445328d2470c7",
-        "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 2",
-          "reachable from owning SKILL.md"
-        ],
-        "url_contexts_in_current_audit": 1,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "reviewer_agent": "/root/tracker_capture_qa_21",
+        "review_date": "2026-10-21T20:58:24.946255+00:00",
+        "page_sha256": "4929491a6e9e5cffcb7987a8e606253515eea6d5292ae9107af643e4999f9bde",
+        "checks": {
+          "SELECT_only": "SDK execute docstring",
+          "branch_resolution": "SDK execute fallback_branch_ids docstring",
+          "owner_and_default_million_rows": "SDK execute docstring",
+          "one_minute_long_poll": "SDK get_results docstring",
+          "cancel_noop_and_none": "SDK cancel docstring and real typed 204",
+          "stage": {
+            "method": "POST",
+            "resource_path": "/v2/sqlQueries/executeOntology",
+            "stage": "Public Beta",
+            "doc_sha256": "641d3d6ed444ca13e5afb4922e9708822aedc9aa08e5b541445d7770a472d788"
+          },
+          "synchronous_ontology_arrow": "SDK execute_ontology docstring and real streamed HTTP probe"
+        },
+        "evidence_file": "maintainer/skill-independent-review-sql-queries.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-sql-queries\\SKILL.md",
+          "sha256": "53d6e71a4091fe28b86b6a017d40ee6a7dcd7cebf218a57497c92591a1ad389b",
+          "lines": 52,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "a097abcf259fea5a7d4a0041cf2a4194c559fde72db7e352478445328d2470c7",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 2",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 1,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-streams\\references\\01-stream.md",
@@ -10171,9 +10237,9 @@
     },
     {
       "path": "pal-found-sql-queries\\references\\01-query.md",
-      "line": 3,
+      "line": 47,
       "url": "https://www.palantir.com/docs/foundry/analytics-connectivity/odbc-jdbc-drivers/#use-sql-to-query-foundry-datasets",
-      "context": "# SQL query operations\n\nDataset SQL supports SELECT queries in Spark SQL over Foundry datasets referenced by path or RID. Submission returns a query status and ID; results are Apache Arrow. Ontology SQL returns Arrow bytes synchronously. Examples require read access to the referenced data. See [querying datasets with SQL](https://www.palantir.com/docs/foundry/analytics-connectivity/odbc-jdbc-drivers/#use-sql-to-query-foundry-datasets).\n\n### sql_query.execute\n",
+      "context": "Optional source: [Foundry dataset SQL and identifier syntax](https://www.palantir.com/docs/foundry/analytics-connectivity/odbc-jdbc-drivers/#use-sql-to-query-foundry-datasets).",
       "classification": "optional platform provenance",
       "owner": "DEV-STORY-061",
       "reviewer": "pending independent reviewer",
@@ -10183,7 +10249,14 @@
       "qa_reviewer": "qa-engineer",
       "qa_current_dispositions": [
         "optional_provenance_local_page"
-      ]
+      ],
+      "location_history": [
+        {
+          "line": 3,
+          "context": "# SQL query operations\n\nDataset SQL supports SELECT queries in Spark SQL over Foundry datasets referenced by path or RID. Submission returns a query status and ID; results are Apache Arrow. Ontology SQL returns Arrow bytes synchronously. Examples require read access to the referenced data. See [querying datasets with SQL](https://www.palantir.com/docs/foundry/analytics-connectivity/odbc-jdbc-drivers/#use-sql-to-query-foundry-datasets).\n\n### sql_query.execute\n"
+        }
+      ],
+      "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
     },
     {
       "path": "pal-found-sql-queries\\SKILL.md",
@@ -12835,7 +12908,7 @@
   },
   "independent_reviewer": "qa-engineer",
   "independent_review_counts": {
-    "PASS": 127,
-    "UNCERTAIN": 65
+    "PASS": 129,
+    "UNCERTAIN": 63
   }
 }
