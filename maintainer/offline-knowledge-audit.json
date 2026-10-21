@@ -1533,91 +1533,187 @@
     },
     {
       "path": "pal-found-filesystem\\references\\01-folder-project.md",
-      "sha256": "b3a30694e8da237251993c428ca8f755c5b9ac4a12d8a27a03bf44482fbc0eba",
-      "lines": 169,
-      "review_status": "author context review; independent semantic review pending",
+      "sha256": "769eca6cd1b64b7c95b9cb5f2cd618ea29902b3fbaab0ea670fe599f98b45924",
+      "lines": 173,
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "b3a30694e8da237251993c428ca8f755c5b9ac4a12d8a27a03bf44482fbc0eba",
+        "reviewer_agent": "/root/filesystem_pages_review",
+        "review_date": "2026-10-21",
+        "page_sha256": "769eca6cd1b64b7c95b9cb5f2cd618ea29902b3fbaab0ea670fe599f98b45924",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 0",
-          "reachable from owning SKILL.md"
+          "Read whole page including introduction, links, parameters, result and every operation record.",
+          "Compared required/optional inputs, effects, response types, limits and declared failures to SDK1.101 and current CLI parser/invoke.",
+          "Reviewed role/marking/organization access caveats, deletion/restore, paging/recovery instructions and prose clarity."
         ],
-        "url_contexts_in_current_audit": 1,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-filesystem.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-filesystem\\references\\01-folder-project.md",
+          "sha256": "b3a30694e8da237251993c428ca8f755c5b9ac4a12d8a27a03bf44482fbc0eba",
+          "lines": 169,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "b3a30694e8da237251993c428ca8f755c5b9ac4a12d8a27a03bf44482fbc0eba",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 0",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 1,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-filesystem\\references\\02-resource.md",
-      "sha256": "3b026accb42fb2bb4ca3c31d73b2e6be411dde7f1a6be743e4d1431a94037665",
-      "lines": 147,
-      "review_status": "author context review; independent semantic review pending",
+      "sha256": "050690d2c859c9529a6f0dba3fd0672ffd21494fbff71f3fd4168669cf367529",
+      "lines": 150,
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "3b026accb42fb2bb4ca3c31d73b2e6be411dde7f1a6be743e4d1431a94037665",
+        "reviewer_agent": "/root/filesystem_pages_review",
+        "review_date": "2026-10-21",
+        "page_sha256": "050690d2c859c9529a6f0dba3fd0672ffd21494fbff71f3fd4168669cf367529",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 0",
-          "reachable from owning SKILL.md"
+          "Read whole page including introduction, links, parameters, result and every operation record.",
+          "Compared required/optional inputs, effects, response types, limits and declared failures to SDK1.101 and current CLI parser/invoke.",
+          "Reviewed role/marking/organization access caveats, deletion/restore, paging/recovery instructions and prose clarity."
         ],
-        "url_contexts_in_current_audit": 1,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-filesystem.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-filesystem\\references\\02-resource.md",
+          "sha256": "3b026accb42fb2bb4ca3c31d73b2e6be411dde7f1a6be743e4d1431a94037665",
+          "lines": 147,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "3b026accb42fb2bb4ca3c31d73b2e6be411dde7f1a6be743e4d1431a94037665",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 0",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 1,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-filesystem\\references\\03-resource-role-space.md",
-      "sha256": "33685b7d7ed258d81fcaa9ea469df43dbafda37ea2411b6052daffe27b66a3c2",
-      "lines": 131,
-      "review_status": "author context review; independent semantic review pending",
+      "sha256": "a3b6d4b3809798c4d7540c8d933d5f99fdcce74a50bd475e478fa7b0c468c97f",
+      "lines": 132,
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "33685b7d7ed258d81fcaa9ea469df43dbafda37ea2411b6052daffe27b66a3c2",
+        "reviewer_agent": "/root/filesystem_pages_review",
+        "review_date": "2026-10-21",
+        "page_sha256": "a3b6d4b3809798c4d7540c8d933d5f99fdcce74a50bd475e478fa7b0c468c97f",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 0",
-          "reachable from owning SKILL.md"
+          "Read whole page including introduction, links, parameters, result and every operation record.",
+          "Compared required/optional inputs, effects, response types, limits and declared failures to SDK1.101 and current CLI parser/invoke.",
+          "Reviewed role/marking/organization access caveats, deletion/restore, paging/recovery instructions and prose clarity."
         ],
-        "url_contexts_in_current_audit": 1,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-filesystem.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-filesystem\\references\\03-resource-role-space.md",
+          "sha256": "33685b7d7ed258d81fcaa9ea469df43dbafda37ea2411b6052daffe27b66a3c2",
+          "lines": 131,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "33685b7d7ed258d81fcaa9ea469df43dbafda37ea2411b6052daffe27b66a3c2",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 0",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 1,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-filesystem\\SKILL.md",
-      "sha256": "39598fa638dbb67f0050d938e29ae42f71995f7436088fe7bbf5361e9da6eb25",
-      "lines": 71,
-      "review_status": "author context review; independent semantic review pending",
+      "sha256": "6eae9cf6b0c526cdc61432484e3184499e9da8332bcb3a10a8e45ae22b232355",
+      "lines": 72,
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "1a07ac71f2af4718740e6af18f59644ae699aaa4cf3f23a4390ad7144985d2a7",
+        "reviewer_agent": "/root/filesystem_pages_review",
+        "review_date": "2026-10-21",
+        "page_sha256": "6eae9cf6b0c526cdc61432484e3184499e9da8332bcb3a10a8e45ae22b232355",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 9",
-          "reachable from owning SKILL.md"
+          "Read whole page including introduction, links, parameters, result and every operation record.",
+          "Compared required/optional inputs, effects, response types, limits and declared failures to SDK1.101 and current CLI parser/invoke.",
+          "Reviewed role/marking/organization access caveats, deletion/restore, paging/recovery instructions and prose clarity."
         ],
-        "url_contexts_in_current_audit": 3,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-filesystem.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-filesystem\\SKILL.md",
+          "sha256": "39598fa638dbb67f0050d938e29ae42f71995f7436088fe7bbf5361e9da6eb25",
+          "lines": 71,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "1a07ac71f2af4718740e6af18f59644ae699aaa4cf3f23a4390ad7144985d2a7",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 9",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 3,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-functions\\references\\01-query.md",
@@ -9508,9 +9604,9 @@
     },
     {
       "path": "pal-found-filesystem\\SKILL.md",
-      "line": 21,
+      "line": 28,
       "url": "https://www.palantir.com/docs/foundry/getting-started/projects-and-resources",
-      "context": "resolve paths, inspect markings, and manage deletion, `resource-role` to\ninspect or change explicit roles, and `space` for the enclosing scope. A\ntrashed resource can be restored; permanent deletion is a separate operation\nwith a different effect. Read [projects and resources](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources),\n[projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles),\nand [spaces](https://www.palantir.com/docs/foundry/platform-security-management/manage-orgs-and-spaces)\nfor platform behavior. The CLI exposes 31 Filesystem operations.",
+      "context": "Optional sources: [projects and resources](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources),",
       "classification": "external-reading redirect repaired locally",
       "owner": "DEV-STORY-061",
       "reviewer": "pending independent reviewer",
@@ -9520,13 +9616,20 @@
       "qa_reviewer": "qa-engineer",
       "qa_current_dispositions": [
         "optional_provenance_local_page"
-      ]
+      ],
+      "location_history": [
+        {
+          "line": 21,
+          "context": "resolve paths, inspect markings, and manage deletion, `resource-role` to\ninspect or change explicit roles, and `space` for the enclosing scope. A\ntrashed resource can be restored; permanent deletion is a separate operation\nwith a different effect. Read [projects and resources](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources),\n[projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles),\nand [spaces](https://www.palantir.com/docs/foundry/platform-security-management/manage-orgs-and-spaces)\nfor platform behavior. The CLI exposes 31 Filesystem operations."
+        }
+      ],
+      "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
     },
     {
       "path": "pal-found-filesystem\\SKILL.md",
-      "line": 22,
+      "line": 29,
       "url": "https://www.palantir.com/docs/foundry/security/projects-and-roles",
-      "context": "inspect or change explicit roles, and `space` for the enclosing scope. A\ntrashed resource can be restored; permanent deletion is a separate operation\nwith a different effect. Read [projects and resources](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources),\n[projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles),\nand [spaces](https://www.palantir.com/docs/foundry/platform-security-management/manage-orgs-and-spaces)\nfor platform behavior. The CLI exposes 31 Filesystem operations.\n",
+      "context": "[projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles),",
       "classification": "external-reading redirect repaired locally",
       "owner": "DEV-STORY-061",
       "reviewer": "pending independent reviewer",
@@ -9536,13 +9639,20 @@
       "qa_reviewer": "qa-engineer",
       "qa_current_dispositions": [
         "optional_provenance_local_page"
-      ]
+      ],
+      "location_history": [
+        {
+          "line": 22,
+          "context": "inspect or change explicit roles, and `space` for the enclosing scope. A\ntrashed resource can be restored; permanent deletion is a separate operation\nwith a different effect. Read [projects and resources](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources),\n[projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles),\nand [spaces](https://www.palantir.com/docs/foundry/platform-security-management/manage-orgs-and-spaces)\nfor platform behavior. The CLI exposes 31 Filesystem operations.\n"
+        }
+      ],
+      "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
     },
     {
       "path": "pal-found-filesystem\\SKILL.md",
-      "line": 23,
+      "line": 30,
       "url": "https://www.palantir.com/docs/foundry/platform-security-management/manage-orgs-and-spaces",
-      "context": "trashed resource can be restored; permanent deletion is a separate operation\nwith a different effect. Read [projects and resources](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources),\n[projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles),\nand [spaces](https://www.palantir.com/docs/foundry/platform-security-management/manage-orgs-and-spaces)\nfor platform behavior. The CLI exposes 31 Filesystem operations.\n\nSource: [Palantir projects and resources](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources).",
+      "context": "and [spaces](https://www.palantir.com/docs/foundry/platform-security-management/manage-orgs-and-spaces).",
       "classification": "external-reading redirect repaired locally",
       "owner": "DEV-STORY-061",
       "reviewer": "pending independent reviewer",
@@ -9552,13 +9662,20 @@
       "qa_reviewer": "qa-engineer",
       "qa_current_dispositions": [
         "optional_provenance_local_page"
-      ]
+      ],
+      "location_history": [
+        {
+          "line": 23,
+          "context": "trashed resource can be restored; permanent deletion is a separate operation\nwith a different effect. Read [projects and resources](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources),\n[projects and roles](https://www.palantir.com/docs/foundry/security/projects-and-roles),\nand [spaces](https://www.palantir.com/docs/foundry/platform-security-management/manage-orgs-and-spaces)\nfor platform behavior. The CLI exposes 31 Filesystem operations.\n\nSource: [Palantir projects and resources](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources)."
+        }
+      ],
+      "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
     },
     {
       "path": "pal-found-filesystem\\SKILL.md",
-      "line": 26,
+      "line": 28,
       "url": "https://www.palantir.com/docs/foundry/getting-started/projects-and-resources",
-      "context": "and [spaces](https://www.palantir.com/docs/foundry/platform-security-management/manage-orgs-and-spaces)\nfor platform behavior. The CLI exposes 31 Filesystem operations.\n\nSource: [Palantir projects and resources](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources).\n\n31 Foundry Filesystem API v2 operations are available through the installed `pal-found-filesystem` command.\n",
+      "context": "Optional sources: [projects and resources](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources),",
       "classification": "external-reading redirect repaired locally",
       "owner": "DEV-STORY-061",
       "reviewer": "pending independent reviewer",
@@ -9568,7 +9685,14 @@
       "qa_reviewer": "qa-engineer",
       "qa_current_dispositions": [
         "optional_provenance_local_page"
-      ]
+      ],
+      "location_history": [
+        {
+          "line": 26,
+          "context": "and [spaces](https://www.palantir.com/docs/foundry/platform-security-management/manage-orgs-and-spaces)\nfor platform behavior. The CLI exposes 31 Filesystem operations.\n\nSource: [Palantir projects and resources](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources).\n\n31 Foundry Filesystem API v2 operations are available through the installed `pal-found-filesystem` command.\n"
+        }
+      ],
+      "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
     },
     {
       "path": "pal-found-functions\\SKILL.md",
@@ -12513,7 +12637,7 @@
   },
   "independent_reviewer": "qa-engineer",
   "independent_review_counts": {
-    "PASS": 114,
-    "UNCERTAIN": 78
+    "PASS": 118,
+    "UNCERTAIN": 74
   }
 }
