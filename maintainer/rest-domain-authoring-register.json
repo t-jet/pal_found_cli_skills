@@ -17,12 +17,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -41,12 +41,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -65,12 +65,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -89,12 +89,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -113,12 +113,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -137,12 +137,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -161,12 +161,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -185,12 +185,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -209,12 +209,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -233,12 +233,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -257,12 +257,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -281,12 +281,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -305,12 +305,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -329,12 +329,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -353,12 +353,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -377,12 +377,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -401,12 +401,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -425,12 +425,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -449,12 +449,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -3813,12 +3813,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -3837,12 +3837,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -3861,12 +3861,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -3885,12 +3885,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -3909,12 +3909,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -3933,12 +3933,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -3957,12 +3957,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -3981,12 +3981,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4005,12 +4005,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4029,12 +4029,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4053,12 +4053,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4077,12 +4077,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4101,12 +4101,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4125,12 +4125,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4149,12 +4149,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4173,12 +4173,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4197,12 +4197,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4221,12 +4221,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4245,12 +4245,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4269,12 +4269,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4293,12 +4293,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4317,12 +4317,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4341,12 +4341,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4365,12 +4365,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4389,12 +4389,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4413,12 +4413,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4437,12 +4437,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4461,12 +4461,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4485,12 +4485,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4509,12 +4509,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4533,12 +4533,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4557,12 +4557,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -4581,12 +4581,12 @@
       "author_agent": "/root/offline_implementation_manager/author_rest_wave1_015",
       "independent_reviewer": "independent semantic reviewer",
       "reviewer_agent": "/root/rest074_semantic_completion",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/formal074_prepare/independent_execute",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -10396,6 +10396,6 @@
       "live_enrollment_status": "not exercised"
     }
   ],
-  "candidate_sha": "98edadf80689a9b4916a02986b8e88b24a2eade6",
+  "candidate_sha": "de9b2a3215918b75cebc8abea20b1f294caf5a6d",
   "input_bundle_sha256": "3663e8994f2a98e7bd27a43fa987c2d3b1d10feb104ea7a5867a880d47363fdb"
 }

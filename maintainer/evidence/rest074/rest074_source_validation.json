@@ -1,0 +1,12 @@
+{
+  "manifest_sha256": "599ee752c7c375d5afca7b12620527f74734f9e053f4e4c0060f3b6ecdfb6632",
+  "validation_kind": "Source schema preflight only; operation clients and examples were not invoked. This is not case approval or formal execution.",
+  "counts": {
+    "operations": 52,
+    "request_arguments": 184,
+    "success_payloads": 112,
+    "error_parameters": 288,
+    "asset_hashes": 156
+  },
+  "issues": []
+}

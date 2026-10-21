@@ -1,0 +1,53 @@
+{
+  "repaired_at": "2026-10-21T20:46:02.977222+00:00",
+  "recorder": "/root/formal074_finish_closure",
+  "raw_transcript": {
+    "path": "rest074_closure_cli_original_bytes.log",
+    "sha256": "c2c63586011b340a85259f68b32848be799a6de2b674bf72121200fd86111a85"
+  },
+  "valid_records_retained": 372,
+  "malformed_lines": [
+    {
+      "line": 122,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "characters": 977
+    },
+    {
+      "line": 142,
+      "error": "Extra data: line 1 column 642 (char 641)",
+      "characters": 656
+    },
+    {
+      "line": 157,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "characters": 1582
+    },
+    {
+      "line": 201,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "characters": 547
+    },
+    {
+      "line": 205,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "characters": 738
+    },
+    {
+      "line": 246,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "characters": 318
+    },
+    {
+      "line": 333,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "characters": 293
+    }
+  ],
+  "reason": "Four concurrent read-only subprocess log appends interleaved bytes. All serialized mutation records are valid and retained. Complete comment responses remain in rest074_tracker_comment_exports.json; raw bytes retained unchanged. Canonical transcript contains only original parseable records; no inferred command, timestamp or approval added. Transcript writes now use a thread lock.",
+  "all_52_outcome_mutations_preserved": true,
+  "closed_mutation_preserved": true,
+  "complete_comment_exports": {
+    "path": "rest074_tracker_comment_exports.json",
+    "sha256": "a048d50705e32777a19e626433cdb0e6b8b8f1ecdc55f9e9199f42b91219f70c"
+  }
+}
