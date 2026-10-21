@@ -1623,133 +1623,265 @@
       "path": "pal-found-functions\\references\\01-query.md",
       "sha256": "30d882f6b46ed7e839f235c4c060f1d9ae4279ba007a946aef0265978c03857d",
       "lines": 7,
-      "review_status": "author context review; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/functions_sse_independent_retest",
+        "review_date": "2026-10-21",
         "page_sha256": "30d882f6b46ed7e839f235c4c060f1d9ae4279ba007a946aef0265978c03857d",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 3",
-          "reachable from owning SKILL.md"
+          "Read complete index. Three local links resolve to query, value-type and version-id operation records covering seven operations."
         ],
-        "url_contexts_in_current_audit": 0,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-functions.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-functions\\references\\01-query.md",
+          "sha256": "30d882f6b46ed7e839f235c4c060f1d9ae4279ba007a946aef0265978c03857d",
+          "lines": 7,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "30d882f6b46ed7e839f235c4c060f1d9ae4279ba007a946aef0265978c03857d",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 3",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 0,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-functions\\references\\inputs.md",
-      "sha256": "d4a3ec95cca0ac17ffd1d92160794ce8c67e97c86d73a52ca06c6d723a4f8221",
-      "lines": 19,
-      "review_status": "author context review; independent semantic review pending",
+      "sha256": "dbe0fb68e0e3c67fedc3da7891479486d3a1d7a501028b675eea5a703de8c95a",
+      "lines": 27,
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "d4a3ec95cca0ac17ffd1d92160794ce8c67e97c86d73a52ca06c6d723a4f8221",
+        "reviewer_agent": "/root/functions_sse_independent_retest",
+        "review_date": "2026-10-21",
+        "page_sha256": "dbe0fb68e0e3c67fedc3da7891479486d3a1d7a501028b675eea5a703de8c95a",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 0",
-          "reachable from owning SKILL.md"
+          "Read complete identifier, parameters, attribution, branch/version/prerelease, transaction, ontology and stream guidance. JSON object parameters/plain attribution, max100/filtering, global versus ontology scope, transaction read semantics and delayed NDJSON match frozen SDK and actual candidate."
         ],
-        "url_contexts_in_current_audit": 0,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-functions.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-functions\\references\\inputs.md",
+          "sha256": "d4a3ec95cca0ac17ffd1d92160794ce8c67e97c86d73a52ca06c6d723a4f8221",
+          "lines": 19,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "d4a3ec95cca0ac17ffd1d92160794ce8c67e97c86d73a52ca06c6d723a4f8221",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 0",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 0,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-functions\\references\\query.md",
-      "sha256": "7a0156e14058d6fd750833b23c0eb9fae7edab712e65208b33a52dd5bdfe0a27",
+      "sha256": "5efbd2d76c17620f5ec5dc0bf70de0dec5a48a0084b4c146f90ce050750bbaef",
       "lines": 58,
-      "review_status": "author context review; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "7a0156e14058d6fd750833b23c0eb9fae7edab712e65208b33a52dd5bdfe0a27",
+        "reviewer_agent": "/root/functions_sse_independent_retest",
+        "review_date": "2026-10-21",
+        "page_sha256": "5efbd2d76c17620f5ec5dc0bf70de0dec5a48a0084b4c146f90ce050750bbaef",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 5",
-          "reachable from owning SKILL.md"
+          "Read all five whole operation records including purpose, every input, preconditions, result, failure and example. All five examples parse and serialize through real frozen SDK. Stream example consumes typed SSE data/error and returns complete UTF-8 NDJSON. SDK confirms branch/default/prerelease/RID/batch semantics. Timeout, cancellation and transport failure suppress partial stdout; retried attempts do not duplicate data."
         ],
-        "url_contexts_in_current_audit": 0,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-functions.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-functions\\references\\query.md",
+          "sha256": "7a0156e14058d6fd750833b23c0eb9fae7edab712e65208b33a52dd5bdfe0a27",
+          "lines": 58,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "7a0156e14058d6fd750833b23c0eb9fae7edab712e65208b33a52dd5bdfe0a27",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 5",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 0,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-functions\\references\\value-type.md",
       "sha256": "5693968867b57e5944f490ae188c349047b2750fd73ab9af795ca339e78b0f50",
       "lines": 14,
-      "review_status": "author context review; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/functions_sse_independent_retest",
+        "review_date": "2026-10-21",
         "page_sha256": "5693968867b57e5944f490ae188c349047b2750fd73ab9af795ca339e78b0f50",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 1",
-          "reachable from owning SKILL.md"
+          "Read complete record. Required RID, preview, latest metadata result, no execution and errors match frozen SDK. Example parses and reaches real SDK HTTP serialization."
         ],
-        "url_contexts_in_current_audit": 0,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-functions.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-functions\\references\\value-type.md",
+          "sha256": "5693968867b57e5944f490ae188c349047b2750fd73ab9af795ca339e78b0f50",
+          "lines": 14,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "5693968867b57e5944f490ae188c349047b2750fd73ab9af795ca339e78b0f50",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 1",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 0,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-functions\\references\\version-id.md",
-      "sha256": "d32c1de65fc7a869a7cac2d06d10ece1e4d8ba69db73a6add9503211cfe8f6fd",
+      "sha256": "5f360b171586827a480162f4cdd56cae4c2620c502165bd9058244ca6a3cbbf4",
       "lines": 14,
-      "review_status": "author context review; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "d32c1de65fc7a869a7cac2d06d10ece1e4d8ba69db73a6add9503211cfe8f6fd",
+        "reviewer_agent": "/root/functions_sse_independent_retest",
+        "review_date": "2026-10-21",
+        "page_sha256": "5f360b171586827a480162f4cdd56cae4c2620c502165bd9058244ca6a3cbbf4",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 1",
-          "reachable from owning SKILL.md"
+          "Read complete record. Required RID and UUID version ID dispatch through ValueType.VersionId; versionId source is latest value-type metadata or known UUID. Corrected UUID example parses and reaches real SDK HTTP serialization."
         ],
-        "url_contexts_in_current_audit": 0,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-functions.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-functions\\references\\version-id.md",
+          "sha256": "d32c1de65fc7a869a7cac2d06d10ece1e4d8ba69db73a6add9503211cfe8f6fd",
+          "lines": 14,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "d32c1de65fc7a869a7cac2d06d10ece1e4d8ba69db73a6add9503211cfe8f6fd",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 1",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 0,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-functions\\SKILL.md",
-      "sha256": "019e4acd4207b71650d36ff4acfe5a3061cd8646d63e52f49f87553a855230ca",
-      "lines": 57,
-      "review_status": "author context review; independent semantic review pending",
+      "sha256": "7c2471233bcecedec912e4b7bb90cfaa74657899e9688fbdc7bd04aba89ddec7",
+      "lines": 61,
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "012eb1c8c39f017ec2a4d62b65621a4847f6ca2329cd50af224056674d92760a",
+        "reviewer_agent": "/root/functions_sse_independent_retest",
+        "review_date": "2026-10-21",
+        "page_sha256": "7c2471233bcecedec912e4b7bb90cfaa74657899e9688fbdc7bd04aba89ddec7",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 4",
-          "reachable from owning SKILL.md"
+          "Read complete capability, API-name/RID guidance, execution/version/ontology scope, SSE buffering/error/timeout contract, usage/common options, index and parameter guidance. Seven operations match candidate OP_SPECS. Removed obsolete execute status; SSE is SDK protocol and NDJSON is buffered CLI output."
         ],
-        "url_contexts_in_current_audit": 2,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-functions.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-functions\\SKILL.md",
+          "sha256": "019e4acd4207b71650d36ff4acfe5a3061cd8646d63e52f49f87553a855230ca",
+          "lines": 57,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "012eb1c8c39f017ec2a4d62b65621a4847f6ca2329cd50af224056674d92760a",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 4",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 2,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-language-models\\references\\01-inference.md",
@@ -12381,7 +12513,7 @@
   },
   "independent_reviewer": "qa-engineer",
   "independent_review_counts": {
-    "PASS": 108,
-    "UNCERTAIN": 84
+    "PASS": 114,
+    "UNCERTAIN": 78
   }
 }
