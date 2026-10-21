@@ -1,0 +1,1350 @@
+{
+  "story": "DEV-STORY-074",
+  "reviewer": "/root/rest074_semantic_completion",
+  "sdk_release": "1.101.0",
+  "author_fix_commit": "2d66ead",
+  "integrated_head": "0fe43fad2765839f5046acd6ddea5675b79f5530",
+  "prior_review_path": ".ept\\tmp\\feature015_rest074_current_semantic_review.json",
+  "prior_review_sha256": "a27e9f189dca575cd7d1a4fda56b53c8bc706701c2878897bb3b7d40ae885df2",
+  "completed_utc": "2026-10-20T20:12:05.093960+00:00",
+  "network_guard": {
+    "connect_connect_ex_create_connection_getaddrinfo": "denied",
+    "guard_test_passed": true
+  },
+  "operations": [
+    {
+      "id": "v1.datasets.File.get",
+      "verdict": "PASS",
+      "prior_verdict": "FAIL",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\datasets\\file.py",
+      "source_module_sha256": "3e04ac16c68bed203fbe1fae2b7725297eaea112874524956a77081e1e07d351",
+      "source_method_sha256": "ef95c3637d0ed3501f77bd410649f697ddeb4e8a3cc594913fd05b6f6523354a",
+      "source_method_lines": [
+        155,
+        244
+      ],
+      "contract_path": "references/rest/contracts/v1/datasets/File/get.md",
+      "contract_sha256": "1bb37c2df7a98875ed49d3ea0fa80c24772b662cfba33f5ca7e42e0deb3a734c",
+      "behavior_path": "references/rest/v1/datasets/File.md",
+      "behavior_sha256": "005c574e16326d2cb760b7abec840222cd3c879ee3946cf68c68623bb9809b67",
+      "example_path": "examples/rest/074/v1/datasets/File/get.py",
+      "old_example_sha256": "2f27819fc6d280b2c1629a9292a8a0fcaaac355b61b2b2907a2044ddf3ba59ae",
+      "example_sha256": "309c095e5610817e7a94b13419accbe29b4ae670412d6f328be3c23ed0e4d536",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": false
+      },
+      "fixture_retest": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "semantic_evidence": "Returned path is inspections/status.csv, matching actual request filePath query (v1 upload) or decoded /files/ path (get and v2 upload). Guard reads the captured SDK httpx.Request; wrong returned identity and changed actual request are rejected.",
+      "actual_request_result_guard_source": "def check_result(result, request):\n    requested_path = urllib.parse.unquote(request.url.path).split('/files/', 1)[1]\n    assert result['path'] == requested_path, 'Returned file path differs from request'\n",
+      "invocation_source": "def invoke(client):\n    return client.with_raw_response.get(dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', file_path='inspections/status.csv', request_timeout=30, branch_id='master')\n",
+      "success": {
+        "path": "inspections/status.csv",
+        "transactionRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "updatedTime": "2026-10-07T00:00:00+00:00"
+      },
+      "findings": []
+    },
+    {
+      "id": "v1.datasets.File.upload",
+      "verdict": "PASS",
+      "prior_verdict": "FAIL",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\datasets\\file.py",
+      "source_module_sha256": "3e04ac16c68bed203fbe1fae2b7725297eaea112874524956a77081e1e07d351",
+      "source_method_sha256": "26f688b87c31fab52723e2d17efc929878a8fe0f22a09834a2e2ad35e17114fc",
+      "source_method_lines": [
+        444,
+        545
+      ],
+      "contract_path": "references/rest/contracts/v1/datasets/File/upload.md",
+      "contract_sha256": "e6ecf23c082e94614ce82f883335ae80db94b88c7d4118ddb9223b64834572bf",
+      "behavior_path": "references/rest/v1/datasets/File.md",
+      "behavior_sha256": "005c574e16326d2cb760b7abec840222cd3c879ee3946cf68c68623bb9809b67",
+      "example_path": "examples/rest/074/v1/datasets/File/upload.py",
+      "old_example_sha256": "058b67c71e4a00b5dcf10a5c5b26a7c427734df0a042df8b7aa4d4809498f9d8",
+      "example_sha256": "1bdbfd68a31db4ca2c6bb24b382e6012a799c5973798ccb24a1e3608686380e0",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": false
+      },
+      "fixture_retest": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "semantic_evidence": "Returned path is inspections/status.csv, matching actual request filePath query (v1 upload) or decoded /files/ path (get and v2 upload). Guard reads the captured SDK httpx.Request; wrong returned identity and changed actual request are rejected.",
+      "actual_request_result_guard_source": "def check_result(result, request):\n    requested_path = request.url.params['filePath']\n    assert result['path'] == requested_path, 'Returned file path differs from request'\n",
+      "invocation_source": "def invoke(client):\n    return client.with_raw_response.upload(dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', body=b'asset_id,status\\nA-1,ready\\n', file_path='inspections/status.csv', request_timeout=30, branch_id='master')\n",
+      "success": {
+        "path": "inspections/status.csv",
+        "transactionRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "updatedTime": "2026-10-07T00:00:00+00:00"
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.datasets.Dataset.get_schema",
+      "verdict": "PASS",
+      "prior_verdict": "FAIL",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\dataset.py",
+      "source_module_sha256": "2d677e8f1c5720a2788be353c005ebadccc0bb4c75306e896dd0de6d797a6001",
+      "source_method_sha256": "0641820bd13ba179f728681d4c7234bd9c3564281e8f8a1fe046183d666c72e4",
+      "source_method_lines": [
+        395,
+        457
+      ],
+      "contract_path": "references/rest/contracts/v2/datasets/Dataset/get_schema.md",
+      "contract_sha256": "9668e4288d07cad2765348f8b6b62f87b53afdd17b0db8339f0043275efb703d",
+      "behavior_path": "references/rest/v2/datasets/Dataset.md",
+      "behavior_sha256": "c8896fac6c97cd01d174b2ef67ccfc49798ca02e64761f5ce487d2e28f8ff6ec",
+      "example_path": "examples/rest/074/v2/datasets/Dataset/get_schema.py",
+      "old_example_sha256": "bb91cd3a02b4900448c81c2bf6fb53958c15722dbf759ab92b55fb9d99b05cac",
+      "example_sha256": "94255699c49ecfafd1e1222da6e0f3f798f7d2535ed8b04306422a6fc15bde79",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": false
+      },
+      "fixture_retest": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "semantic_evidence": "Returned branchName master matches selected branch from actual query (get_schema) or serialized body (put_schema). put_schema also compares complete returned schema with submitted schema. Guards use captured SDK httpx.Request and reject altered branch/schema.",
+      "actual_request_result_guard_source": "def check_result(result, request):\n    requested_branch = request.url.params['branchName']\n    assert result['branchName'] == requested_branch, 'Returned schema branch differs from request'\n",
+      "invocation_source": "def invoke(client):\n    return client.with_raw_response.get_schema(dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', request_timeout=30, branch_name='master')\n",
+      "success": {
+        "branchName": "master",
+        "endTransactionRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "schema": {
+          "fieldSchemaList": [
+            {
+              "name": "id",
+              "type": "LONG",
+              "nullable": false
+            },
+            {
+              "name": "tags",
+              "type": "ARRAY",
+              "nullable": true,
+              "arraySubtype": {
+                "type": "STRING",
+                "nullable": false
+              }
+            }
+          ]
+        },
+        "versionId": "00000000-0000-0000-0000-000000000001"
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.datasets.Dataset.put_schema",
+      "verdict": "PASS",
+      "prior_verdict": "FAIL",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\dataset.py",
+      "source_module_sha256": "2d677e8f1c5720a2788be353c005ebadccc0bb4c75306e896dd0de6d797a6001",
+      "source_method_sha256": "6edf6639e41c194e0317305676d3bba586838d310d1623d98dc53793aec31219",
+      "source_method_lines": [
+        582,
+        647
+      ],
+      "contract_path": "references/rest/contracts/v2/datasets/Dataset/put_schema.md",
+      "contract_sha256": "b92cf78332f5488e89624808bccf640c5277e544865ef7d8f6b2caa927417d26",
+      "behavior_path": "references/rest/v2/datasets/Dataset-2.md",
+      "behavior_sha256": "6a00baa27861eb0cf4a3b0bfb7f620088de693e31ea691e637f487e79fd98e21",
+      "example_path": "examples/rest/074/v2/datasets/Dataset/put_schema.py",
+      "old_example_sha256": "cbdf3ca4379f155bc7e5dd8a6adfbbc5779e97b2f5bdc444420301d9b997f9f2",
+      "example_sha256": "3c2dd258157b171501151023bb1d1f15b8f62c898fd2d7bc828e0cd4e4d364d0",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": false
+      },
+      "fixture_retest": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "semantic_evidence": "Returned branchName master matches selected branch from actual query (get_schema) or serialized body (put_schema). put_schema also compares complete returned schema with submitted schema. Guards use captured SDK httpx.Request and reject altered branch/schema.",
+      "actual_request_result_guard_source": "def check_result(result, request):\n    requested_branch = json.loads(request.content)['branchName']\n    assert result['branchName'] == requested_branch, 'Returned schema branch differs from request'\n    assert result['schema'] == json.loads(request.content)['schema'], 'Returned schema differs from request'\n",
+      "invocation_source": "def invoke(client):\n    return client.with_raw_response.put_schema(dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', schema=EXPECTED_BODY['schema'], request_timeout=30, branch_name='master')\n",
+      "success": {
+        "branchName": "master",
+        "endTransactionRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "schema": {
+          "fieldSchemaList": [
+            {
+              "name": "id",
+              "type": "LONG",
+              "nullable": false
+            },
+            {
+              "name": "tags",
+              "type": "ARRAY",
+              "nullable": true,
+              "arraySubtype": {
+                "type": "STRING",
+                "nullable": false
+              }
+            }
+          ]
+        },
+        "versionId": "00000000-0000-0000-0000-000000000001"
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.datasets.File.get",
+      "verdict": "PASS",
+      "prior_verdict": "FAIL",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\file.py",
+      "source_module_sha256": "b28a169423b605704265b12763fe8dffcfe1af5ec30a428c30aef3fcfac9a9d6",
+      "source_method_sha256": "e398fa4609f3b88f8e2ba27a88cf8a7431133acb96956a86067120190d49a7bf",
+      "source_method_lines": [
+        244,
+        329
+      ],
+      "contract_path": "references/rest/contracts/v2/datasets/File/get.md",
+      "contract_sha256": "c73dab3b9b26c60673295ab7166383504ef487d0fae4fabdb6d46c5065fced43",
+      "behavior_path": "references/rest/v2/datasets/File.md",
+      "behavior_sha256": "7a0bf6c4a67c5024a7ecd11184d584a2c02271d4d997fef8b99f0be71204fee0",
+      "example_path": "examples/rest/074/v2/datasets/File/get.py",
+      "old_example_sha256": "1b03f359da73329b0eefb6b70251b2a7fc2a74594ae148b53ec54572d38bf16f",
+      "example_sha256": "636b1fc4358e15ed2748e01730521a98929fcabda3dad4c2090f2f39ea30577a",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": false
+      },
+      "fixture_retest": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "semantic_evidence": "Returned path is inspections/status.csv, matching actual request filePath query (v1 upload) or decoded /files/ path (get and v2 upload). Guard reads the captured SDK httpx.Request; wrong returned identity and changed actual request are rejected.",
+      "actual_request_result_guard_source": "def check_result(result, request):\n    requested_path = urllib.parse.unquote(request.url.path).split('/files/', 1)[1]\n    assert result['path'] == requested_path, 'Returned file path differs from request'\n",
+      "invocation_source": "def invoke(client):\n    return client.with_raw_response.get(dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', file_path='inspections/status.csv', request_timeout=30, branch_name='master')\n",
+      "success": {
+        "path": "inspections/status.csv",
+        "transactionRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "updatedTime": "2026-10-07T00:00:00+00:00"
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.datasets.File.upload",
+      "verdict": "PASS",
+      "prior_verdict": "FAIL",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\file.py",
+      "source_module_sha256": "b28a169423b605704265b12763fe8dffcfe1af5ec30a428c30aef3fcfac9a9d6",
+      "source_method_sha256": "80ed0439b2cd6801d7a66adb06accf71b0c484406202d41d86bd2fce2137c47d",
+      "source_method_lines": [
+        432,
+        528
+      ],
+      "contract_path": "references/rest/contracts/v2/datasets/File/upload.md",
+      "contract_sha256": "4df6acf02e7f13927225887cb6cf5a067707b421ad469e91fe0ede5fd3437e22",
+      "behavior_path": "references/rest/v2/datasets/File.md",
+      "behavior_sha256": "7a0bf6c4a67c5024a7ecd11184d584a2c02271d4d997fef8b99f0be71204fee0",
+      "example_path": "examples/rest/074/v2/datasets/File/upload.py",
+      "old_example_sha256": "0f0830060a26ffa631c1194602e027992a370bb1b9fedac5bcce12fa80eb6971",
+      "example_sha256": "3d9d634a94728a790058303772058c22941d6106d445ee8cb8372d2fcf670f3c",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": false
+      },
+      "fixture_retest": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "semantic_evidence": "Returned path is inspections/status.csv, matching actual request filePath query (v1 upload) or decoded /files/ path (get and v2 upload). Guard reads the captured SDK httpx.Request; wrong returned identity and changed actual request are rejected.",
+      "actual_request_result_guard_source": "def check_result(result, request):\n    requested_path = urllib.parse.unquote(request.url.path).split('/files/', 1)[1].removesuffix('/upload')\n    assert result['path'] == requested_path, 'Returned file path differs from request'\n",
+      "invocation_source": "def invoke(client):\n    return client.with_raw_response.upload(dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', file_path='inspections/status.csv', body=b'asset_id,status\\nA-1,ready\\n', request_timeout=30, branch_name='master')\n",
+      "success": {
+        "path": "inspections/status.csv",
+        "transactionRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "updatedTime": "2026-10-07T00:00:00+00:00"
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.datasets.View.add_primary_key",
+      "verdict": "PASS",
+      "prior_verdict": "FAIL",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\view.py",
+      "source_module_sha256": "4ac9900ae485757aa146cdc0b39dc91ba7e4cf5ede225701f5acfcb08fef1e8f",
+      "source_method_sha256": "d08f947f7b9371190e2b2801a39a18e6d606e1ccf27660135c6ce5dc70ba556f",
+      "source_method_lines": [
+        126,
+        192
+      ],
+      "contract_path": "references/rest/contracts/v2/datasets/View/add_primary_key.md",
+      "contract_sha256": "59b886fff6c1d8a7f68ad14ddd65ad39ba73a1c6b6bff6b5811c7fe37d73a010",
+      "behavior_path": "references/rest/v2/datasets/View.md",
+      "behavior_sha256": "a6910db30741017c3ec5733ea9746091b9f5c5153bf48e12688629f439b27831",
+      "example_path": "examples/rest/074/v2/datasets/View/add_primary_key.py",
+      "old_example_sha256": "f6b0c672edff2215fab11613b23f88598463d10661bc72c0344ca542b04a94a0",
+      "example_sha256": "878e10fa7ffac25e172a798e709d9fafc8efbefa03e2cbdd5f4a7df195baab7d",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": false
+      },
+      "fixture_retest": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "semantic_evidence": "Returned primaryKey matches captured serialized request key, including columns and resolution unique. Distinct backing dataset ...0002 and view ...0001 remove earlier identity ambiguity. Missing key, wrong columns, wrong resolution and changed actual request are rejected.",
+      "actual_request_result_guard_source": "def check_result(result, request):\n    requested_key = json.loads(request.content)['primaryKey']\n    assert result.get('primaryKey') == requested_key, 'Returned primary key differs from request'\n",
+      "invocation_source": "def invoke(client):\n    return client.with_raw_response.add_primary_key(view_dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', primary_key={'columns': ['synthetic-value'], 'resolution': {'type': 'unique'}}, request_timeout=30)\n",
+      "success": {
+        "viewName": "synthetic-value",
+        "datasetRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "parentFolderRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "primaryKey": {
+          "columns": [
+            "synthetic-value"
+          ],
+          "resolution": {
+            "type": "unique"
+          }
+        },
+        "backingDatasets": [
+          {
+            "datasetRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000002",
+            "stopPropagatingMarkingIds": [
+              "synthetic-value"
+            ]
+          }
+        ]
+      },
+      "findings": []
+    },
+    {
+      "id": "v2.datasets.View.remove_backing_datasets",
+      "verdict": "UNCERTAIN",
+      "prior_verdict": "FAIL",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\view.py",
+      "source_module_sha256": "4ac9900ae485757aa146cdc0b39dc91ba7e4cf5ede225701f5acfcb08fef1e8f",
+      "source_method_sha256": "bb0ae4d506391ed30ba621c8393ae412934cadd9e74e8a6f830348d6f195e835",
+      "source_method_lines": [
+        335,
+        392
+      ],
+      "contract_path": "references/rest/contracts/v2/datasets/View/remove_backing_datasets.md",
+      "contract_sha256": "e4f4475bc0a37f8e305b51eaa96546e7b44c6863e07861fdd48cb49c8794f28f",
+      "behavior_path": "references/rest/v2/datasets/View.md",
+      "behavior_sha256": "a6910db30741017c3ec5733ea9746091b9f5c5153bf48e12688629f439b27831",
+      "example_path": "examples/rest/074/v2/datasets/View/remove_backing_datasets.py",
+      "old_example_sha256": "60bab0fb84abfdd4196fd98e43b4e566dc0c9a89dfacd7c5e6971305a68400e7",
+      "example_sha256": "4ebc3f3faf8f58efb96dc41aa5f7359b5f5100b77e8129e778b558e67453dd38",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": false
+      },
+      "fixture_retest": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "semantic_evidence": "Requested pair is backing dataset ...0002 at master (implicit backing branch inherits explicit view branch master), distinct from view ...0001. Returned empty backingDatasets excludes pair; guard compares effective RID/branch and rejects pair reintroduced implicitly or explicitly. Empty final composition is semantically unresolved under official one-or-more backing prerequisite.",
+      "actual_request_result_guard_source": "def check_result(result, request):\n    body = json.loads(request.content)\n    view_branch = body['branch']\n    def identity(backing):\n        return backing['datasetRid'], backing.get('branch', view_branch)\n    removed = {identity(backing) for backing in body['backingDatasets']}\n    remaining = {identity(backing) for backing in result['backingDatasets']}\n    assert removed.isdisjoint(remaining), 'Removed backing dataset remains in result'\n",
+      "invocation_source": "def invoke(client):\n    return client.with_raw_response.remove_backing_datasets(view_dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', backing_datasets=[{'datasetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000002',\n  'stopPropagatingMarkingIds': ['synthetic-value']}], branch='master', request_timeout=30)\n",
+      "success": {
+        "viewName": "synthetic-value",
+        "datasetRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "parentFolderRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "backingDatasets": []
+      },
+      "findings": [
+        {
+          "code": "EMPTY_VIEW_POSTCONDITION_UNRESOLVED",
+          "evidence": "Official Views core concepts Select backing datasets requires one or more backing datasets to construct a View. remove endpoint has no explicit last-backing constraint, and SDK permits empty List[ViewBackingDataset]. These establish shape acceptance, not service permission to remove final backing. No live API confirmation exists.",
+          "correction": "Use a distinct surviving backing dataset ...0003 in SUCCESS.backingDatasets, with stopPropagatingMarkingIds empty and branch master. Keep removed dataset ...0002 absent. This models removal from a nonempty composition without requiring an undocumented empty-View state."
+        }
+      ]
+    }
+  ],
+  "original_pass_continuity": [
+    {
+      "id": "v1.datasets.Branch.create",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v1/datasets/Branch/create.md",
+      "contract_sha256": "3fa50a119fc090a7992f0993383be10ead4fa2fbee2a4e8258a7898df1048795",
+      "behavior_path": "references/rest/v1/datasets/Branch.md",
+      "behavior_sha256": "1e83108112ce99de3c7a0e6186ec8eef9f33d4e88745123fe3e670d3ca37f49c",
+      "example_path": "examples/rest/074/v1/datasets/Branch/create.py",
+      "example_sha256": "782a751c30a6db4dd3c517c160c9ab0dc0a5900dd14a498d52de3c909490dbcc",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\datasets\\branch.py",
+      "source_module_sha256": "cc07683936d10b32ee484da422395db6b64dd60ce4952dc2181e4afd6563c7a8",
+      "source_method_sha256": "7a05573fe2a52ec6d70b0d51a4399345505e7e79e3e3df73ad2c5023ad36be45"
+    },
+    {
+      "id": "v1.datasets.Branch.delete",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v1/datasets/Branch/delete.md",
+      "contract_sha256": "fe807bfd99c4e8ea214f7db7b612e7d73ee454354881e42b08fd98cfd4087db8",
+      "behavior_path": "references/rest/v1/datasets/Branch.md",
+      "behavior_sha256": "1e83108112ce99de3c7a0e6186ec8eef9f33d4e88745123fe3e670d3ca37f49c",
+      "example_path": "examples/rest/074/v1/datasets/Branch/delete.py",
+      "example_sha256": "1d537beb26bab6c164d4cf404b5ef3f4f857b69d083235caa6380d5fff055a96",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\datasets\\branch.py",
+      "source_module_sha256": "cc07683936d10b32ee484da422395db6b64dd60ce4952dc2181e4afd6563c7a8",
+      "source_method_sha256": "1fbfa85afb7f66467aec3283622ff9dcec118eb54a018e6fae897ad2306a457a"
+    },
+    {
+      "id": "v1.datasets.Branch.get",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v1/datasets/Branch/get.md",
+      "contract_sha256": "a7787f87dda1693b4163b6c2c752ffe1b0af43a5a35ba20f3a555b32867a6d07",
+      "behavior_path": "references/rest/v1/datasets/Branch.md",
+      "behavior_sha256": "1e83108112ce99de3c7a0e6186ec8eef9f33d4e88745123fe3e670d3ca37f49c",
+      "example_path": "examples/rest/074/v1/datasets/Branch/get.py",
+      "example_sha256": "6b33da63243164031f18e0085e0d0faaa7913d89eea113e662dbcf12ce8f5235",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\datasets\\branch.py",
+      "source_module_sha256": "cc07683936d10b32ee484da422395db6b64dd60ce4952dc2181e4afd6563c7a8",
+      "source_method_sha256": "d52321abde3de966343e5e43411fc61b892809f41638ee24d2398ea6429bcd2a"
+    },
+    {
+      "id": "v1.datasets.Branch.list",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v1/datasets/Branch/list.md",
+      "contract_sha256": "c79686afb7340d5d70f95ad76cf624b27db6e9b2657e78c28c9ea5a3e0508a28",
+      "behavior_path": "references/rest/v1/datasets/Branch.md",
+      "behavior_sha256": "1e83108112ce99de3c7a0e6186ec8eef9f33d4e88745123fe3e670d3ca37f49c",
+      "example_path": "examples/rest/074/v1/datasets/Branch/list.py",
+      "example_sha256": "097381ab7c78d2cb64d1761efef90314a91d858bf4a95adf92ee13916cec1c98",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\datasets\\branch.py",
+      "source_module_sha256": "cc07683936d10b32ee484da422395db6b64dd60ce4952dc2181e4afd6563c7a8",
+      "source_method_sha256": "0d94c62546dab501e9d703b4e60ee950545683f611a1dd72e815ec70b558b73d"
+    },
+    {
+      "id": "v1.datasets.Dataset.create",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v1/datasets/Dataset/create.md",
+      "contract_sha256": "7e5aacf2a32d56dc895a0a2ce0e7d400e7dec09699dc6b171fc455d5536d88da",
+      "behavior_path": "references/rest/v1/datasets/Dataset.md",
+      "behavior_sha256": "3a0ada9932bd0b06b615df992f8a2cd95898bec036fdfd416f4302396a509d45",
+      "example_path": "examples/rest/074/v1/datasets/Dataset/create.py",
+      "example_sha256": "939085c7e7ffa8a0420784585c87f0a23eed9de0f48a52f342dbba916daa0506",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\datasets\\dataset.py",
+      "source_module_sha256": "c0992d99d6c978b5e62827cb3de67e9a4f69f2b903826189d3ae9d86c23a1a2b",
+      "source_method_sha256": "637a3412124a8c5c7486df98aba1642e5cb2ff159a2d1fe364ed5e932848b6bd"
+    },
+    {
+      "id": "v1.datasets.Dataset.delete_schema",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v1/datasets/Dataset/delete_schema.md",
+      "contract_sha256": "e5fd2eadcb4dbbc74625949f489f263206b4ec26dfb889b6b8414dd2e7c9c9a8",
+      "behavior_path": "references/rest/v1/datasets/Dataset.md",
+      "behavior_sha256": "3a0ada9932bd0b06b615df992f8a2cd95898bec036fdfd416f4302396a509d45",
+      "example_path": "examples/rest/074/v1/datasets/Dataset/delete_schema.py",
+      "example_sha256": "a1594bba67a075d8b6c66b78a984fb3d32831ea91cad875c3f59104a539957ef",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\datasets\\dataset.py",
+      "source_module_sha256": "c0992d99d6c978b5e62827cb3de67e9a4f69f2b903826189d3ae9d86c23a1a2b",
+      "source_method_sha256": "65723f0f43d58eaf2a70501a032b8b265419fcca8e3db6a7fc44e56a274021a8"
+    },
+    {
+      "id": "v1.datasets.Dataset.get",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v1/datasets/Dataset/get.md",
+      "contract_sha256": "7828c0344b04a874838464f3ae9f6daca6e8309b524aafe2c1403b7e5a14f6ab",
+      "behavior_path": "references/rest/v1/datasets/Dataset.md",
+      "behavior_sha256": "3a0ada9932bd0b06b615df992f8a2cd95898bec036fdfd416f4302396a509d45",
+      "example_path": "examples/rest/074/v1/datasets/Dataset/get.py",
+      "example_sha256": "57c84e472a3b9b5f582c591accf7ddb98f8c49cffcda3fe050276d7cc2abb82c",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\datasets\\dataset.py",
+      "source_module_sha256": "c0992d99d6c978b5e62827cb3de67e9a4f69f2b903826189d3ae9d86c23a1a2b",
+      "source_method_sha256": "f8ef4194eb34ac19742b547dfa2a693b45922dd696632db32395a2e11b29fdb7"
+    },
+    {
+      "id": "v1.datasets.Dataset.get_schema",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v1/datasets/Dataset/get_schema.md",
+      "contract_sha256": "a5e1d6b89d4a416838daf9ee31ba466161cb987e4adbba5a0db6db7c5c4a7443",
+      "behavior_path": "references/rest/v1/datasets/Dataset.md",
+      "behavior_sha256": "3a0ada9932bd0b06b615df992f8a2cd95898bec036fdfd416f4302396a509d45",
+      "example_path": "examples/rest/074/v1/datasets/Dataset/get_schema.py",
+      "example_sha256": "383a7ec8bc71f755e6e054bd1010e1179c73f807350c77e02d42a5923d1dbed2",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\datasets\\dataset.py",
+      "source_module_sha256": "c0992d99d6c978b5e62827cb3de67e9a4f69f2b903826189d3ae9d86c23a1a2b",
+      "source_method_sha256": "abad5ccfd5aa9dd21b99b6f1e3d8be6075d1678d45bc2c79e8b613824c3fa2a6"
+    },
+    {
+      "id": "v1.datasets.Dataset.read",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v1/datasets/Dataset/read.md",
+      "contract_sha256": "87f6520a03234821c674b96d8b08e42c22ebf0e96bc85cea9a0271afbb19c5f1",
+      "behavior_path": "references/rest/v1/datasets/Dataset.md",
+      "behavior_sha256": "3a0ada9932bd0b06b615df992f8a2cd95898bec036fdfd416f4302396a509d45",
+      "example_path": "examples/rest/074/v1/datasets/Dataset/read.py",
+      "example_sha256": "a9cd6a4c72c50d5f2f50f5f8c85158c3549f6f4361cfdc4366819811cac8d92e",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\datasets\\dataset.py",
+      "source_module_sha256": "c0992d99d6c978b5e62827cb3de67e9a4f69f2b903826189d3ae9d86c23a1a2b",
+      "source_method_sha256": "1160e6b45c32d6806c2b5be23ede1921b3aebbd7d9ab029bac85c81201d7b606"
+    },
+    {
+      "id": "v1.datasets.Dataset.replace_schema",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v1/datasets/Dataset/replace_schema.md",
+      "contract_sha256": "a59cfb46fa789864c1b382e071a20b25d786060be860680c4032b7904c79d5f1",
+      "behavior_path": "references/rest/v1/datasets/Dataset.md",
+      "behavior_sha256": "3a0ada9932bd0b06b615df992f8a2cd95898bec036fdfd416f4302396a509d45",
+      "example_path": "examples/rest/074/v1/datasets/Dataset/replace_schema.py",
+      "example_sha256": "727ea58f48c027f80e8057448135972674a684eeb990d48bf1e1d4cee6b748c6",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\datasets\\dataset.py",
+      "source_module_sha256": "c0992d99d6c978b5e62827cb3de67e9a4f69f2b903826189d3ae9d86c23a1a2b",
+      "source_method_sha256": "e7a9fbe31958856ebf056ce7720362015faa58762fc876cf23348c3de99f8624"
+    },
+    {
+      "id": "v1.datasets.File.delete",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v1/datasets/File/delete.md",
+      "contract_sha256": "6fdda5a6b308c971d079033853dc70647bfd3903c2d5d88fca57efa17d54c788",
+      "behavior_path": "references/rest/v1/datasets/File.md",
+      "behavior_sha256": "005c574e16326d2cb760b7abec840222cd3c879ee3946cf68c68623bb9809b67",
+      "example_path": "examples/rest/074/v1/datasets/File/delete.py",
+      "example_sha256": "cfc4db2fbfe75a68a61b3c416934add8e403b0c4b192df7914e44bba18b0a992",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\datasets\\file.py",
+      "source_module_sha256": "3e04ac16c68bed203fbe1fae2b7725297eaea112874524956a77081e1e07d351",
+      "source_method_sha256": "6118f8ca5009431116aea7b15233fae6a89ce96d7de201f8da31449353fa7ae3"
+    },
+    {
+      "id": "v1.datasets.File.list",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v1/datasets/File/list.md",
+      "contract_sha256": "0fd89619b8d66bba36eb780c01f4ed3c5f3230223442a4d8ada8443f04e5a3af",
+      "behavior_path": "references/rest/v1/datasets/File.md",
+      "behavior_sha256": "005c574e16326d2cb760b7abec840222cd3c879ee3946cf68c68623bb9809b67",
+      "example_path": "examples/rest/074/v1/datasets/File/list.py",
+      "example_sha256": "1bf7a21712501c612da7d5ebeaa9512078e547838e2bf327a00fa84edd3939d6",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\datasets\\file.py",
+      "source_module_sha256": "3e04ac16c68bed203fbe1fae2b7725297eaea112874524956a77081e1e07d351",
+      "source_method_sha256": "ffe26d73da6647e80e63d4acd1595e1b95a505bbed46367d19a5cf28a46d280d"
+    },
+    {
+      "id": "v1.datasets.File.read",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v1/datasets/File/read.md",
+      "contract_sha256": "c8eb48b7ad3e5da9eddf9a80d5d7d61a565d9748a733b3d1d803f39a038cb3dd",
+      "behavior_path": "references/rest/v1/datasets/File.md",
+      "behavior_sha256": "005c574e16326d2cb760b7abec840222cd3c879ee3946cf68c68623bb9809b67",
+      "example_path": "examples/rest/074/v1/datasets/File/read.py",
+      "example_sha256": "f7b13d6ad21dc46e97e6140c2140fe60889e5595b4fb1dcfe4d4392c9daf6034",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\datasets\\file.py",
+      "source_module_sha256": "3e04ac16c68bed203fbe1fae2b7725297eaea112874524956a77081e1e07d351",
+      "source_method_sha256": "bb1879f2ce44b006ae65cab03a4cfc2ba16c16dfd17ce33d718603e12675c35c"
+    },
+    {
+      "id": "v1.datasets.Transaction.abort",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v1/datasets/Transaction/abort.md",
+      "contract_sha256": "1efe502a0a132f369cf16746acf5a43b8e05f840d0fd3b591803e43fc751df44",
+      "behavior_path": "references/rest/v1/datasets/Transaction.md",
+      "behavior_sha256": "5c77e19095a5cd10388035f010c958b00158dbb0b0397421303bb00c37e07a29",
+      "example_path": "examples/rest/074/v1/datasets/Transaction/abort.py",
+      "example_sha256": "4713ff1b1c1afc70820d027573537fd6fe950841f1bb796a6ebf044ec87d4434",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\datasets\\transaction.py",
+      "source_module_sha256": "2dbcc05b81922d66ea74d76602be5c2e3b8b6507b9aa336945d458d4e83f1c99",
+      "source_method_sha256": "5c33814fc911bfb26d298600f4341842a94aed3642b4369519ed0f469bb41d0c"
+    },
+    {
+      "id": "v1.datasets.Transaction.commit",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v1/datasets/Transaction/commit.md",
+      "contract_sha256": "4714419dbd559389f50b912abf5e9382985ed252ebd369f74e44097d127bdb9b",
+      "behavior_path": "references/rest/v1/datasets/Transaction.md",
+      "behavior_sha256": "5c77e19095a5cd10388035f010c958b00158dbb0b0397421303bb00c37e07a29",
+      "example_path": "examples/rest/074/v1/datasets/Transaction/commit.py",
+      "example_sha256": "c4f3e96546b74ecae7cc953762b0aafb8cafced631397f5b23bd3e272bbfc4d7",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\datasets\\transaction.py",
+      "source_module_sha256": "2dbcc05b81922d66ea74d76602be5c2e3b8b6507b9aa336945d458d4e83f1c99",
+      "source_method_sha256": "2bf27b46649867ed412461b031386af095d7eaf3d25130ef17cddc807ae8f9c7"
+    },
+    {
+      "id": "v1.datasets.Transaction.create",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v1/datasets/Transaction/create.md",
+      "contract_sha256": "37ac70e9e68a8954f0ae5a6e9ceae8bf69274b3af20e0bf8e4bb0e0cd92e9212",
+      "behavior_path": "references/rest/v1/datasets/Transaction.md",
+      "behavior_sha256": "5c77e19095a5cd10388035f010c958b00158dbb0b0397421303bb00c37e07a29",
+      "example_path": "examples/rest/074/v1/datasets/Transaction/create.py",
+      "example_sha256": "0c16c5cc2cf429d1f25ede661387a8b9e9a4add37770a266f47ab829efa9494b",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\datasets\\transaction.py",
+      "source_module_sha256": "2dbcc05b81922d66ea74d76602be5c2e3b8b6507b9aa336945d458d4e83f1c99",
+      "source_method_sha256": "c702b1abdbd02743b28e53e72d54fe4d62af241cb25f68bd52cd70551c9bb7e8"
+    },
+    {
+      "id": "v1.datasets.Transaction.get",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v1/datasets/Transaction/get.md",
+      "contract_sha256": "16a2a0ce28b99c1c56c984073a900a0a2b5c43fe04ddae504597a3ad8aa524bf",
+      "behavior_path": "references/rest/v1/datasets/Transaction.md",
+      "behavior_sha256": "5c77e19095a5cd10388035f010c958b00158dbb0b0397421303bb00c37e07a29",
+      "example_path": "examples/rest/074/v1/datasets/Transaction/get.py",
+      "example_sha256": "3c7fd2c6f9cb8912f4819a62347cfd410504e0bf670f3a1879c861b374537e93",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\datasets\\transaction.py",
+      "source_module_sha256": "2dbcc05b81922d66ea74d76602be5c2e3b8b6507b9aa336945d458d4e83f1c99",
+      "source_method_sha256": "17521d45c50c1c556b0bb7cf44434a2b08fc496a084f8d5698eda8fccac64e59"
+    },
+    {
+      "id": "v2.datasets.Branch.create",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Branch/create.md",
+      "contract_sha256": "c9ba5c937cd1d71b2883f0099d50b8931c85e5e080ff55721ac44ab636262e74",
+      "behavior_path": "references/rest/v2/datasets/Branch.md",
+      "behavior_sha256": "684ab53af97dcd66ca87e8dbc0dcf61bd622ab5df70349bf3bf7a147c0f611a8",
+      "example_path": "examples/rest/074/v2/datasets/Branch/create.py",
+      "example_sha256": "441a79858234aca7460d29c484ddfe2c9e7ea88fe488198bc4dd435188acf16d",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\branch.py",
+      "source_module_sha256": "fcf58c69b4c83e33b2308b455d273ebbeb7eff37d503243c80b421ab1d0c3f22",
+      "source_method_sha256": "06baae7bd1b52b7b6ecc3bc32da3ca91b2773b97a9162ef5cc366b35663a4d26"
+    },
+    {
+      "id": "v2.datasets.Branch.delete",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Branch/delete.md",
+      "contract_sha256": "dc80bcc80c5c3c7f49e86fb3c32d8a2b20e35ac409e22200bd190751eccc993e",
+      "behavior_path": "references/rest/v2/datasets/Branch.md",
+      "behavior_sha256": "684ab53af97dcd66ca87e8dbc0dcf61bd622ab5df70349bf3bf7a147c0f611a8",
+      "example_path": "examples/rest/074/v2/datasets/Branch/delete.py",
+      "example_sha256": "cb13ff089cfcb12e74f33d662284e0fec9eb1345441c32a48aa0a2a67b084c74",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\branch.py",
+      "source_module_sha256": "fcf58c69b4c83e33b2308b455d273ebbeb7eff37d503243c80b421ab1d0c3f22",
+      "source_method_sha256": "3b9e59cfde9dbaa31e242bea770aebc8dbb7b3193a05981423bfe5e853ec9d1c"
+    },
+    {
+      "id": "v2.datasets.Branch.get",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Branch/get.md",
+      "contract_sha256": "39386d73c05a76659e13bc87dbc3241fba13a4d196f85f8822df84f940b14a60",
+      "behavior_path": "references/rest/v2/datasets/Branch.md",
+      "behavior_sha256": "684ab53af97dcd66ca87e8dbc0dcf61bd622ab5df70349bf3bf7a147c0f611a8",
+      "example_path": "examples/rest/074/v2/datasets/Branch/get.py",
+      "example_sha256": "5e5192304e59c3a16bc32cfd1638944410ceda674356ade0f00accdcc54152ae",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\branch.py",
+      "source_module_sha256": "fcf58c69b4c83e33b2308b455d273ebbeb7eff37d503243c80b421ab1d0c3f22",
+      "source_method_sha256": "dddfa9e2b683b6fd5b05987904aee270f12fa2726b19157f9c7d5917078f6d69"
+    },
+    {
+      "id": "v2.datasets.Branch.list",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Branch/list.md",
+      "contract_sha256": "e12110bf65e56a3462802814f15587fa3e6f4f4026b8cac70ec22034fbc6633d",
+      "behavior_path": "references/rest/v2/datasets/Branch.md",
+      "behavior_sha256": "684ab53af97dcd66ca87e8dbc0dcf61bd622ab5df70349bf3bf7a147c0f611a8",
+      "example_path": "examples/rest/074/v2/datasets/Branch/list.py",
+      "example_sha256": "cc546f1b0a01083e4b49a9bc40051ed1aacd887e8f3b820c76dca32c2a37698f",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\branch.py",
+      "source_module_sha256": "fcf58c69b4c83e33b2308b455d273ebbeb7eff37d503243c80b421ab1d0c3f22",
+      "source_method_sha256": "f346172955661c6371271c16a015e827f262716c3c6ec349abef45b4c76f8392"
+    },
+    {
+      "id": "v2.datasets.Branch.transactions",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Branch/transactions.md",
+      "contract_sha256": "fe766cc2e95754fd4bbacf5ba5ec0065febab764ef0e46aeab0593ebdfc14ae8",
+      "behavior_path": "references/rest/v2/datasets/Branch.md",
+      "behavior_sha256": "684ab53af97dcd66ca87e8dbc0dcf61bd622ab5df70349bf3bf7a147c0f611a8",
+      "example_path": "examples/rest/074/v2/datasets/Branch/transactions.py",
+      "example_sha256": "f705ec0feb57badddbd22b4e488df7335704adc390997be35356f4c1bfeb22c6",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\branch.py",
+      "source_module_sha256": "fcf58c69b4c83e33b2308b455d273ebbeb7eff37d503243c80b421ab1d0c3f22",
+      "source_method_sha256": "e6ec838d48e86a6e6ec3313aac6c0de0508a6dbb3df34ee0cc38955cd5d017ef"
+    },
+    {
+      "id": "v2.datasets.Dataset.create",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Dataset/create.md",
+      "contract_sha256": "de296eb08e21de2346f6e036f38c3970b2b179a7686b5b5f6a32b87b1637850a",
+      "behavior_path": "references/rest/v2/datasets/Dataset.md",
+      "behavior_sha256": "c8896fac6c97cd01d174b2ef67ccfc49798ca02e64761f5ce487d2e28f8ff6ec",
+      "example_path": "examples/rest/074/v2/datasets/Dataset/create.py",
+      "example_sha256": "1293be13fba5e6a82197cbabb4d7d1ed3fa295969d48c8aaa87255507e9851b5",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\dataset.py",
+      "source_module_sha256": "2d677e8f1c5720a2788be353c005ebadccc0bb4c75306e896dd0de6d797a6001",
+      "source_method_sha256": "2bb2d7e5e13f6e4af7f6181a5b83efd7fb3ea27ef7f8712fa5fc8830eebbd11e"
+    },
+    {
+      "id": "v2.datasets.Dataset.get",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Dataset/get.md",
+      "contract_sha256": "b5d4fc0a0f7b89e7173c116c2eb061a7d5617c06c782803c54bf825be9e6ae01",
+      "behavior_path": "references/rest/v2/datasets/Dataset.md",
+      "behavior_sha256": "c8896fac6c97cd01d174b2ef67ccfc49798ca02e64761f5ce487d2e28f8ff6ec",
+      "example_path": "examples/rest/074/v2/datasets/Dataset/get.py",
+      "example_sha256": "094a675005617124c5f7a7b5dda5cc069077f2755d603b296d06062c77f2f2f2",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\dataset.py",
+      "source_module_sha256": "2d677e8f1c5720a2788be353c005ebadccc0bb4c75306e896dd0de6d797a6001",
+      "source_method_sha256": "04cb0555663eb663d946a35b61b2e3038c04f76a027cd0ab91149007a9d97c09"
+    },
+    {
+      "id": "v2.datasets.Dataset.get_health_check_reports",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Dataset/get_health_check_reports.md",
+      "contract_sha256": "966343a3b3a31f38899969a11f1f5eb747888ef8ca2d9aef19fd216409051162",
+      "behavior_path": "references/rest/v2/datasets/Dataset.md",
+      "behavior_sha256": "c8896fac6c97cd01d174b2ef67ccfc49798ca02e64761f5ce487d2e28f8ff6ec",
+      "example_path": "examples/rest/074/v2/datasets/Dataset/get_health_check_reports.py",
+      "example_sha256": "71036f973d2adeed234ab38186b413a660cf8a3c8a3661766c75e7af6296739b",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\dataset.py",
+      "source_module_sha256": "2d677e8f1c5720a2788be353c005ebadccc0bb4c75306e896dd0de6d797a6001",
+      "source_method_sha256": "2699548d439dab66277858809bf221036a34ee6cb0f5c966ea27112b90284356"
+    },
+    {
+      "id": "v2.datasets.Dataset.get_health_checks",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Dataset/get_health_checks.md",
+      "contract_sha256": "b8f8a8cc58999b9a3faf3e596025d99ea9792289795cf3fafdd98070cdab40be",
+      "behavior_path": "references/rest/v2/datasets/Dataset.md",
+      "behavior_sha256": "c8896fac6c97cd01d174b2ef67ccfc49798ca02e64761f5ce487d2e28f8ff6ec",
+      "example_path": "examples/rest/074/v2/datasets/Dataset/get_health_checks.py",
+      "example_sha256": "a01a401d59b35268dbcb3625e4e4acef8681d903cbc69ecf774c8b30df6c4269",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\dataset.py",
+      "source_module_sha256": "2d677e8f1c5720a2788be353c005ebadccc0bb4c75306e896dd0de6d797a6001",
+      "source_method_sha256": "d0122db688efaabd809343176a7e4f673a290e248504990154f20554d18778d3"
+    },
+    {
+      "id": "v2.datasets.Dataset.get_schedules",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Dataset/get_schedules.md",
+      "contract_sha256": "eba545b59e11ea00f2bb7121aaa27f5aa8cc82d340217ef2a1a38753680ef056",
+      "behavior_path": "references/rest/v2/datasets/Dataset.md",
+      "behavior_sha256": "c8896fac6c97cd01d174b2ef67ccfc49798ca02e64761f5ce487d2e28f8ff6ec",
+      "example_path": "examples/rest/074/v2/datasets/Dataset/get_schedules.py",
+      "example_sha256": "3d4094869c48598a6527585ee8c8ed3797c440ad34ff3ca9ad8d37106ef0dfcb",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\dataset.py",
+      "source_module_sha256": "2d677e8f1c5720a2788be353c005ebadccc0bb4c75306e896dd0de6d797a6001",
+      "source_method_sha256": "cbc8ae5fd22e3a958c309163110330dd5efaceda0ceb7542803274a2394dae63"
+    },
+    {
+      "id": "v2.datasets.Dataset.get_schema_batch",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Dataset/get_schema_batch.md",
+      "contract_sha256": "6162eecddc60cd9d0bf544e307ba06e42c750aea07a72b3f498bbdf2a6bfa0f0",
+      "behavior_path": "references/rest/v2/datasets/Dataset.md",
+      "behavior_sha256": "c8896fac6c97cd01d174b2ef67ccfc49798ca02e64761f5ce487d2e28f8ff6ec",
+      "example_path": "examples/rest/074/v2/datasets/Dataset/get_schema_batch.py",
+      "example_sha256": "bcec15faf6f4c7236d6377e295b5da506b86c1c3e706d76a0570cfb06fd06f7b",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\dataset.py",
+      "source_module_sha256": "2d677e8f1c5720a2788be353c005ebadccc0bb4c75306e896dd0de6d797a6001",
+      "source_method_sha256": "0c06421cde4b4557676a6bfe99aa7b4fe19f9f5fe109a4d91956918bc27ae1de"
+    },
+    {
+      "id": "v2.datasets.Dataset.jobs",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Dataset/jobs.md",
+      "contract_sha256": "f46f3d8efad2f4f88acca10692a3dda71d909a9ab9ebd5bd896259d748140e2b",
+      "behavior_path": "references/rest/v2/datasets/Dataset-2.md",
+      "behavior_sha256": "6a00baa27861eb0cf4a3b0bfb7f620088de693e31ea691e637f487e79fd98e21",
+      "example_path": "examples/rest/074/v2/datasets/Dataset/jobs.py",
+      "example_sha256": "a01cc1411b8db69829e7c51f275491c7a4875590d53c36933d4a1c1de1d693b4",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\dataset.py",
+      "source_module_sha256": "2d677e8f1c5720a2788be353c005ebadccc0bb4c75306e896dd0de6d797a6001",
+      "source_method_sha256": "15d7350ab3105a64bcc19d898d57cf6071b82c1c195644481ffadbf6a6d1312c"
+    },
+    {
+      "id": "v2.datasets.Dataset.read_table",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Dataset/read_table.md",
+      "contract_sha256": "9435bc8cd9899c982a25316fc87e90a22f32488b7ca94c6f5d5c04bfabe0c786",
+      "behavior_path": "references/rest/v2/datasets/Dataset-2.md",
+      "behavior_sha256": "6a00baa27861eb0cf4a3b0bfb7f620088de693e31ea691e637f487e79fd98e21",
+      "example_path": "examples/rest/074/v2/datasets/Dataset/read_table.py",
+      "example_sha256": "6ee57dadf170cc129584ffec25388137580a61135a20ba45b0232d06fbf48849",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\dataset.py",
+      "source_module_sha256": "2d677e8f1c5720a2788be353c005ebadccc0bb4c75306e896dd0de6d797a6001",
+      "source_method_sha256": "28186335d7435f8cd73de126846e82a066288eae27a8b970d98177bdabe8ec7b"
+    },
+    {
+      "id": "v2.datasets.Dataset.transactions",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Dataset/transactions.md",
+      "contract_sha256": "d77dd164026bd375d6c78bb1f80cfdda067652f327ed330ffb78aaabd7f301d3",
+      "behavior_path": "references/rest/v2/datasets/Dataset-2.md",
+      "behavior_sha256": "6a00baa27861eb0cf4a3b0bfb7f620088de693e31ea691e637f487e79fd98e21",
+      "example_path": "examples/rest/074/v2/datasets/Dataset/transactions.py",
+      "example_sha256": "40ea91cd2805593c27aa7e18fc0ac3e83cc29837e930cc15000f596852ace282",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\dataset.py",
+      "source_module_sha256": "2d677e8f1c5720a2788be353c005ebadccc0bb4c75306e896dd0de6d797a6001",
+      "source_method_sha256": "76ea4a8cb5dbc4d7703c6f89f71bb296e92d3cb07f1b8fc0d5ae12ef9670ded1"
+    },
+    {
+      "id": "v2.datasets.File.content",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/File/content.md",
+      "contract_sha256": "2203e18b0699eef77ca8a0ded49d191a92ee6acf5e1fdae49222291a252ca838",
+      "behavior_path": "references/rest/v2/datasets/File.md",
+      "behavior_sha256": "7a0bf6c4a67c5024a7ecd11184d584a2c02271d4d997fef8b99f0be71204fee0",
+      "example_path": "examples/rest/074/v2/datasets/File/content.py",
+      "example_sha256": "75eb7f51113749ef39ec37fddfbd340494e86dc4cf223762e8d0f85051d8deb7",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\file.py",
+      "source_module_sha256": "b28a169423b605704265b12763fe8dffcfe1af5ec30a428c30aef3fcfac9a9d6",
+      "source_method_sha256": "0015321ddb74feb0c4cdef92e2f8da6a227ac6008e4026cd1397c58c5c1a6b8d"
+    },
+    {
+      "id": "v2.datasets.File.delete",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/File/delete.md",
+      "contract_sha256": "dd9043a45eddecef09761266422c991a50666456b5c4034e74e7bb85361975b4",
+      "behavior_path": "references/rest/v2/datasets/File.md",
+      "behavior_sha256": "7a0bf6c4a67c5024a7ecd11184d584a2c02271d4d997fef8b99f0be71204fee0",
+      "example_path": "examples/rest/074/v2/datasets/File/delete.py",
+      "example_sha256": "f10326d3cdaad475b9a238d194028684c99b0d9cfab7bb5e83155774f9d3e9ed",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\file.py",
+      "source_module_sha256": "b28a169423b605704265b12763fe8dffcfe1af5ec30a428c30aef3fcfac9a9d6",
+      "source_method_sha256": "40ad7a7af6b96d1a6ba9d5a7f0a008883f0d8b8e68dbeb0f768b0cd839aa6776"
+    },
+    {
+      "id": "v2.datasets.File.list",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/File/list.md",
+      "contract_sha256": "ed3eb27a13d5fe545c36494157afbcecaa0ee6219409f764fceb58edb4df194f",
+      "behavior_path": "references/rest/v2/datasets/File.md",
+      "behavior_sha256": "7a0bf6c4a67c5024a7ecd11184d584a2c02271d4d997fef8b99f0be71204fee0",
+      "example_path": "examples/rest/074/v2/datasets/File/list.py",
+      "example_sha256": "6ae7466dfee255c915d6a9654f412a2b5c57e59eeda3078a3a25aebae305090c",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\file.py",
+      "source_module_sha256": "b28a169423b605704265b12763fe8dffcfe1af5ec30a428c30aef3fcfac9a9d6",
+      "source_method_sha256": "4fa1667dcd9d7ffe066f11c3d4013a3bbe76fb08df6b490a8ecff81bdeabed61"
+    },
+    {
+      "id": "v2.datasets.Transaction.abort",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Transaction/abort.md",
+      "contract_sha256": "82eacadab65fe4a6cc5053c7d193715ace00a86d87d1ba2c9648d108e5425275",
+      "behavior_path": "references/rest/v2/datasets/Transaction.md",
+      "behavior_sha256": "d16435f483e07e822d7b79fd13b06744ca196c1f594f985a490f5b8c6c51c3ef",
+      "example_path": "examples/rest/074/v2/datasets/Transaction/abort.py",
+      "example_sha256": "dcdad4ea42088bf9d29e523ede8c15ad0c415af2e7ef80dbdf228ba1ae706f50",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\transaction.py",
+      "source_module_sha256": "527353e402dbd1a3a79d117750e12b0e8be7b850048b97e72dc6819a8c543ad7",
+      "source_method_sha256": "4da5dbfd4301bb430d15a21a224876f057d603b8014e875611e5a4b89325835a"
+    },
+    {
+      "id": "v2.datasets.Transaction.build",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Transaction/build.md",
+      "contract_sha256": "b74db74127e453d483b5f9bedec082daef735027fa2c8b602adf635f853ab7c7",
+      "behavior_path": "references/rest/v2/datasets/Transaction.md",
+      "behavior_sha256": "d16435f483e07e822d7b79fd13b06744ca196c1f594f985a490f5b8c6c51c3ef",
+      "example_path": "examples/rest/074/v2/datasets/Transaction/build.py",
+      "example_sha256": "9c73f6a2908d898308c62acb358b97f61c16c23328e15da801cde60e2a94306a",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\transaction.py",
+      "source_module_sha256": "527353e402dbd1a3a79d117750e12b0e8be7b850048b97e72dc6819a8c543ad7",
+      "source_method_sha256": "6347fe294e34fe3377cd348d1dab2b4780dec4611832f23866745c997f832b62"
+    },
+    {
+      "id": "v2.datasets.Transaction.commit",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Transaction/commit.md",
+      "contract_sha256": "649a05bc5bf73263e2c73fb65b8cc07650ab2c71ec1c6585d2550a405cdfa4e2",
+      "behavior_path": "references/rest/v2/datasets/Transaction.md",
+      "behavior_sha256": "d16435f483e07e822d7b79fd13b06744ca196c1f594f985a490f5b8c6c51c3ef",
+      "example_path": "examples/rest/074/v2/datasets/Transaction/commit.py",
+      "example_sha256": "569a9eb6a3f68aaff1be5fda20753b1c6c96d77d657308462a44a244a1d1fd17",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\transaction.py",
+      "source_module_sha256": "527353e402dbd1a3a79d117750e12b0e8be7b850048b97e72dc6819a8c543ad7",
+      "source_method_sha256": "bb30446324a858af68de096f966870c3d7ae29f4af0f6cdc98b41417d9eccc37"
+    },
+    {
+      "id": "v2.datasets.Transaction.create",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Transaction/create.md",
+      "contract_sha256": "5e99f61292552bea170c6fd3597be096dfc59ff535f0b49b91cbc59022193e8c",
+      "behavior_path": "references/rest/v2/datasets/Transaction.md",
+      "behavior_sha256": "d16435f483e07e822d7b79fd13b06744ca196c1f594f985a490f5b8c6c51c3ef",
+      "example_path": "examples/rest/074/v2/datasets/Transaction/create.py",
+      "example_sha256": "47aaff202158456fb01fd387e6c7d67b41cbb617ac3c4f5126e2ea009aef902e",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\transaction.py",
+      "source_module_sha256": "527353e402dbd1a3a79d117750e12b0e8be7b850048b97e72dc6819a8c543ad7",
+      "source_method_sha256": "e3f36854c8f082dd0d6ee6cba77f6268ec3767c60208e7f0c2d5924164b1e89f"
+    },
+    {
+      "id": "v2.datasets.Transaction.get",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Transaction/get.md",
+      "contract_sha256": "9c323f966f1084bd60e6aeb21595a7493dd7e4abbb188197ab596adfef45cd3a",
+      "behavior_path": "references/rest/v2/datasets/Transaction.md",
+      "behavior_sha256": "d16435f483e07e822d7b79fd13b06744ca196c1f594f985a490f5b8c6c51c3ef",
+      "example_path": "examples/rest/074/v2/datasets/Transaction/get.py",
+      "example_sha256": "243b7b749cc47cc3e85c2b2f76fc3a34297bedb69e726c2730015caa229e4fae",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\transaction.py",
+      "source_module_sha256": "527353e402dbd1a3a79d117750e12b0e8be7b850048b97e72dc6819a8c543ad7",
+      "source_method_sha256": "b2af2096a3e653e4a603056cc471c9c5311543763d68d7ea27fc5e90d954f383"
+    },
+    {
+      "id": "v2.datasets.Transaction.job",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/Transaction/job.md",
+      "contract_sha256": "3d2d51a216806c3736848ba7fb0007b4f8a20027cbc13a5b0e0cece6dd7e0ac4",
+      "behavior_path": "references/rest/v2/datasets/Transaction.md",
+      "behavior_sha256": "d16435f483e07e822d7b79fd13b06744ca196c1f594f985a490f5b8c6c51c3ef",
+      "example_path": "examples/rest/074/v2/datasets/Transaction/job.py",
+      "example_sha256": "4e72a3a1d075025946e0cceef8ac3ae92b3089af5ee7273895a0f48a27ad2b7d",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\transaction.py",
+      "source_module_sha256": "527353e402dbd1a3a79d117750e12b0e8be7b850048b97e72dc6819a8c543ad7",
+      "source_method_sha256": "54801b98be400539e8ff0132461870be7dced6de2db40d477e915e047743baf5"
+    },
+    {
+      "id": "v2.datasets.View.add_backing_datasets",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/View/add_backing_datasets.md",
+      "contract_sha256": "70afa09cc41f83446535e3794c282e4dbbc7ab441081de04e2d2b2443fc8c26c",
+      "behavior_path": "references/rest/v2/datasets/View.md",
+      "behavior_sha256": "a6910db30741017c3ec5733ea9746091b9f5c5153bf48e12688629f439b27831",
+      "example_path": "examples/rest/074/v2/datasets/View/add_backing_datasets.py",
+      "example_sha256": "c3a836c04a2ad0824fc8a0421015f8a009c9ce6286a309cad379af0b6a20d486",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\view.py",
+      "source_module_sha256": "4ac9900ae485757aa146cdc0b39dc91ba7e4cf5ede225701f5acfcb08fef1e8f",
+      "source_method_sha256": "c70009bdc9d0f2dd5918b4c6fa2f293ec191ecde18a4f49ee5ab5f726c044b85"
+    },
+    {
+      "id": "v2.datasets.View.create",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/View/create.md",
+      "contract_sha256": "a10ed7e684c6776dd044caa37522b9d2ef68928f5600dc1be55bb8de838c2c2a",
+      "behavior_path": "references/rest/v2/datasets/View.md",
+      "behavior_sha256": "a6910db30741017c3ec5733ea9746091b9f5c5153bf48e12688629f439b27831",
+      "example_path": "examples/rest/074/v2/datasets/View/create.py",
+      "example_sha256": "b4644792a364fd987ea29a4538f82de6fcd1bd5cd0b385ec8ddc0eebd92a3f50",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\view.py",
+      "source_module_sha256": "4ac9900ae485757aa146cdc0b39dc91ba7e4cf5ede225701f5acfcb08fef1e8f",
+      "source_method_sha256": "7961acd699add53ebb8b9f630afa0da57cb52e519f97fcf48f0b45a854efa879"
+    },
+    {
+      "id": "v2.datasets.View.get",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/View/get.md",
+      "contract_sha256": "00377c3628ae9f1bb18467ea01bc07c23a27ed5fdccc813b93d2836d521d04f1",
+      "behavior_path": "references/rest/v2/datasets/View.md",
+      "behavior_sha256": "a6910db30741017c3ec5733ea9746091b9f5c5153bf48e12688629f439b27831",
+      "example_path": "examples/rest/074/v2/datasets/View/get.py",
+      "example_sha256": "9817fc1bcf04233756f76b038e3215c71e4047a5f9459539692417f4f03400a8",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\view.py",
+      "source_module_sha256": "4ac9900ae485757aa146cdc0b39dc91ba7e4cf5ede225701f5acfcb08fef1e8f",
+      "source_method_sha256": "25758360742abfea3251d5597eaf9ee35aa8ce04662b67e02ceec19fcf0ad49b"
+    },
+    {
+      "id": "v2.datasets.View.replace_backing_datasets",
+      "prior_verdict": "PASS",
+      "carried_verdict": "PASS",
+      "checks": {
+        "contract_unchanged": true,
+        "behavior_unchanged": true,
+        "original_sdk_module_unchanged": true,
+        "original_sdk_method_unchanged": true,
+        "example_unchanged": true
+      },
+      "contract_path": "references/rest/contracts/v2/datasets/View/replace_backing_datasets.md",
+      "contract_sha256": "a78265693927b18c12ba94a186702b994f69b996b34a1441f22420231d39d409",
+      "behavior_path": "references/rest/v2/datasets/View.md",
+      "behavior_sha256": "a6910db30741017c3ec5733ea9746091b9f5c5153bf48e12688629f439b27831",
+      "example_path": "examples/rest/074/v2/datasets/View/replace_backing_datasets.py",
+      "example_sha256": "72fc82aafbcfb03291cca878299e85311cfe9de4e52326cd924e26371d8d2834",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\view.py",
+      "source_module_sha256": "4ac9900ae485757aa146cdc0b39dc91ba7e4cf5ede225701f5acfcb08fef1e8f",
+      "source_method_sha256": "68f2bbdfd0baa06915903a4b251a7488f68b7d38f6c552633f7676e598552b8e"
+    }
+  ],
+  "summary": {
+    "PASS": 7,
+    "FAIL": 0,
+    "UNCERTAIN": 1
+  },
+  "carried_original_passes": 44,
+  "independent_pytest": {
+    "command": ".ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe -B -m pytest -q .ept/tmp/feature015_integration/tests/test_offline_rest_074_semantics.py -p no:cacheprovider --basetemp=.ept/tmp/feature015_rest074_retest_pytest",
+    "result": "72 passed in 0.70s",
+    "coverage": "52 SDK offline examples plus 20 mutation cases; socket network denied via autouse fixture. Mutation code manually reviewed; acceptance additionally requires manual source/domain semantics."
+  },
+  "test_source_path": "tests/test_offline_rest_074_semantics.py",
+  "test_source_sha256": "013e3cfa8920bb59ea7dfca2782e045ef3378349a8e1a060205560cdeacd1487",
+  "sources": [
+    {
+      "url": "https://www.palantir.com/docs/foundry/api/v2/datasets-v2-resources/views/remove-backing-datasets",
+      "evidence": "Removal updates membership and schedules SNAPSHOT at next update; no explicit minimum survivor count listed."
+    },
+    {
+      "url": "https://www.palantir.com/docs/foundry/data-integration/views",
+      "evidence": "Select backing datasets requires one or more backing datasets to construct a View. This does not explicitly establish whether an existing View may have its final backing removed."
+    }
+  ],
+  "limits": [
+    "Independent offline semantic review only; formal QA and author registers unchanged.",
+    "Original52 report preserved. Forty-four prior PASS verdicts carry only through verified unchanged behavior, contract, example and original SDK source hashes.",
+    "Seven corrected examples PASS; removal remains UNCERTAIN pending survivor correction or authoritative proof empty metadata composition is allowed.",
+    "Author register example hashes for corrected eight require root-owned refresh during evidence integration."
+  ]
+}
