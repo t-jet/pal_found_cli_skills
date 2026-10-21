@@ -1,6 +1,6 @@
 # SQL query operations
 
-Dataset SQL reads Foundry datasets with Spark SQL `SELECT`. Name a dataset by its path or RID and use backticks around a path, as in the example below. The caller needs read access to every referenced dataset. This query interface reads data; it does not create a transform or change a dataset. A submitted query returns an ID and status, then runs asynchronously. Keep the ID, check status, and retrieve Apache Arrow results only after success. A client timeout during polling does not cancel server execution. Ontology SQL is a separate private-beta operation that returns Arrow bytes synchronously and has no dataset query ID.
+Dataset SQL reads Foundry datasets with Spark SQL `SELECT`. Name a dataset by its path or RID and use backticks around a path, as in the example below. The caller needs read access to every referenced dataset. This query interface reads data; it does not create a transform or change a dataset. A submitted query returns an ID and status, then runs asynchronously. Keep the ID, check status, and retrieve Apache Arrow results only after success. A client timeout during polling does not cancel server execution. Ontology SQL is a separate Public Beta operation that returns Arrow bytes synchronously and has no dataset query ID.
 
 ### sql_query.execute
 
