@@ -24,11 +24,15 @@ example identifiers and configuration values with values from your Foundry enrol
   Resource Identifier (RID) of the start Transaction. `end_transaction_rid`: The Resource Identifier
   (RID) of the end Transaction.
 - **Parameter notes:** `--start-transaction-rid` and `--end-transaction-rid` select the historical transaction range whose file bytes are read.
-- **Result:** Saves the file bytes under the configured download root and prints JSON metadata with
-  the saved path, byte count, checksums, and MIME type. `--output` sets a basename, not a path;
-  omitting it lets the download handler choose a filename.
+- **Result:** Saves up to the configured byte limit under the download root and prints structured
+  metadata; use `--format json` for JSON. Check `file_path`, `file_size`, and `truncated` before
+  using the saved file. Checksums cover saved bytes only. `--output` sets a basename, not a path;
+  omitting it lets the download handler choose a filename. The default limit is 1,572,864 bytes.
 - **Failure or follow-up:** A missing or inaccessible file returns an error, except where the SDK
-  declares an optional result.
+  declares an optional result. Exceeding the byte limit returns success with a saved prefix and
+  `truncated: true`. Retry with a safely chosen larger positive byte limit set through
+  `FOUNDRY_AGENTIC_CLI_MAX_DOWNLOAD_BYTES`, then check the new metadata. A truncated file may end
+  within a record and must not be treated as complete.
 - **Example:** `pal-found-datasets file content DATASET_RID --file-path orders.csv --output orders.csv`
 
 ### file.delete
