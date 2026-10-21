@@ -39,10 +39,11 @@ Common options: `--timeout`, `--format json|toon|auto`, `--pretty`,
 `--page-size`, `--page-token`, `--batch-pages` (where paging applies).
 
 `--timeout` sets the request timeout in seconds. `--format` selects JSON,
-TOON, or automatic structured output; `--pretty` indents it. For paged
-operations, `--page-size` requests entries per page, `--page-token` resumes
-from a returned cursor, and `--batch-pages` bounds how many pages this call
-fetches.
+TOON, or automatic structured output; `session streaming-continue` always
+returns a JSON download envelope regardless of `--format`. `--pretty`
+indents the output. For paged operations, `--page-size` requests entries per
+page, `--page-token` resumes from a returned cursor, and `--batch-pages`
+bounds how many pages this call fetches.
 
 The CLI uses the shared config loader, access control guard, retry handler,
 pagination helper, structured error serializer, output formatter, and
