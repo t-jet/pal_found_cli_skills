@@ -64,8 +64,9 @@ replacement bodies, plus `--organizations`, `--organization-rids`, `--roles`,
 `--role-grants`, `--default-roles`, `--deletion-policy-organizations`, and
 `--variable-values` where command help shows them. Other variants include
 required `--enrollment-rid`, `--parent-folder-rid`, `--template-rid`,
-`--project-description`, `--display-name`, `--path`, `--marking-ids`,
-`--space-rid`, and `--file-system-id`, with `--preview` and
-`--include-inherited` as booleans. Additional scalar variants are
-`--default-role-set-id`, `--description`,
-`--resource-level-role-grants-allowed`, and `--usage-account-rid`.
+`--display-name`, `--path`, `--marking-ids`, and `--space-rid` where command
+help requires them. Optional scalar variants include `--project-description`,
+`--file-system-id`, `--default-role-set-id`, `--description`, and
+`--usage-account-rid`. The boolean flags `--preview`, `--include-inherited`,
+and `--resource-level-role-grants-allowed` send true when present. Omitting
+them leaves the value unspecified; these flags cannot send false.
