@@ -24,7 +24,7 @@ Required input: no required operation arguments. Optional: `--marking-ids`. The 
 
 List host addresses associated with the enrollment, useful when checking which Foundry host belongs to that administrative boundary. Results are paged, and page length may differ from `--page-size`; follow `nextPageToken` until absent.
 
-Required input: `enrollment_rid`. The SDK returns `ListHostsResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned.  Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: `enrollment_rid`. The SDK yields `Host` records through an iterator. The CLI emits collected hosts in the selected output format and pagination metadata on stderr. The operation does not change Foundry state. An empty page can have a continuation token; follow it before concluding no hosts are visible. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin host list ri.multipass..enrollment.example`
 
@@ -56,7 +56,7 @@ Required input: `body`. The SDK returns `GetMarkingsBatchResponse` on success. T
 
 List markings visible to this administrator to discover IDs and categories for later inspection. The maximum page size is 100; follow the returned `nextPageToken` even if a page contains fewer than 100 entries.
 
-Required input: no required operation arguments. The SDK returns `ListMarkingsResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned. The maximum page size is 100. Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: no required operation arguments. The SDK yields `Marking` records through an iterator. The CLI emits collected markings in the selected output format and pagination metadata on stderr. The operation does not change Foundry state. An empty page can have a continuation token; follow it before concluding no markings are visible. The maximum page size is 100. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin marking list`
 
@@ -88,7 +88,7 @@ Required input: `marking_category_id`. The SDK returns `MarkingCategory` on succ
 
 List visible marking categories so an administrator can choose the category ID for a new marking. The maximum page size is 100; follow a returned continuation token to see later categories.
 
-Required input: no required operation arguments. The SDK returns `ListMarkingCategoriesResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned. The maximum page size is 100. Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: no required operation arguments. The SDK yields `MarkingCategory` records through an iterator. The CLI emits collected categories in the selected output format and pagination metadata on stderr. The operation does not change Foundry state. An empty page can have a continuation token; follow it before concluding no categories are visible. The maximum page size is 100. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin marking-category list`
 

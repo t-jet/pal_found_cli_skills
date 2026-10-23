@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "reviews": {
+    "query.execute": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "cb3c1e0f6d42fcd2eebad786f9f111c5ed05b041444822c579c49833fcab0e20",
+      "cli_sha256": "9132a926528f1e9c290b5a5da75beaea61f8c4e0799be0673856d190248dddc6",
+      "sdk_sha256": "f1e9f7331af12571d51860a58f68a561d17d3bf4712e373b3b0891f1feddf2cb",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-functions/references/query.md:5; CLI OP_SPECS query.execute / dispatch pal_found_cli_tool/src/pal_found_cli/functions/scripts/pal_found_functions_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/functions/query.py:62. Parser passes JSON parameters object and plain attribution string; SDK returns ExecuteQueryResponse."
+    },
+    "query.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "9fe53fbb21617ba5c27dfe595c83993e8d853b0fb7223de23a5f735858a7026f",
+      "cli_sha256": "9132a926528f1e9c290b5a5da75beaea61f8c4e0799be0673856d190248dddc6",
+      "sdk_sha256": "f1e9f7331af12571d51860a58f68a561d17d3bf4712e373b3b0891f1feddf2cb",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-functions/references/query.md:16; CLI OP_SPECS query.get / dispatch pal_found_cli_tool/src/pal_found_cli/functions/scripts/pal_found_functions_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/functions/query.py:148. API name plus optional published version selects metadata without execution."
+    },
+    "query.get_by_rid": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "5b360daaa500f05df7120632612da348264f16a6016949452bf17bda8e3f147c",
+      "cli_sha256": "9132a926528f1e9c290b5a5da75beaea61f8c4e0799be0673856d190248dddc6",
+      "sdk_sha256": "f1e9f7331af12571d51860a58f68a561d17d3bf4712e373b3b0891f1feddf2cb",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-functions/references/query.md:27; CLI OP_SPECS query.get_by_rid / dispatch pal_found_cli_tool/src/pal_found_cli/functions/scripts/pal_found_functions_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/functions/query.py:201. RID, prerelease, preview and version select query metadata."
+    },
+    "query.get_by_rid_batch": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "4334cc6353552ad668d5f0c9b36079757b9215bf0d81d30cafd461657817cb07",
+      "cli_sha256": "9132a926528f1e9c290b5a5da75beaea61f8c4e0799be0673856d190248dddc6",
+      "sdk_sha256": "f1e9f7331af12571d51860a58f68a561d17d3bf4712e373b3b0891f1feddf2cb",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-functions/references/query.md:38; CLI OP_SPECS query.get_by_rid_batch / dispatch pal_found_cli_tool/src/pal_found_cli/functions/scripts/pal_found_functions_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/functions/query.py:257. JSON request element list up to 100; SDK response omits inaccessible entries."
+    },
+    "query.streaming_execute": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "dc4a958e0949d28ee88f0acaeb1a246be85182d972634c4049cfcb6d86f28c61",
+      "cli_sha256": "9132a926528f1e9c290b5a5da75beaea61f8c4e0799be0673856d190248dddc6",
+      "sdk_sha256": "f1e9f7331af12571d51860a58f68a561d17d3bf4712e373b3b0891f1feddf2cb",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-functions/references/query.md:49; CLI OP_SPECS query.streaming_execute / dispatch pal_found_cli_tool/src/pal_found_cli/functions/scripts/pal_found_functions_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/functions/query.py:308. Parser passes JSON parameters and plain attribution; SDK bytes are UTF-8 NDJSON written unchanged to stdout."
+    },
+    "value_type.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "2a22488736e2dffe80cc9dc5fc8d6286fc56d9a1f5e2290d415d2256293d79e6",
+      "cli_sha256": "9132a926528f1e9c290b5a5da75beaea61f8c4e0799be0673856d190248dddc6",
+      "sdk_sha256": "780378bcab6eba283c8d17b36d725ebdd7cd2492e8a9d39126a43da2e18966d8",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-functions/references/value-type.md:5; CLI OP_SPECS value_type.get / dispatch pal_found_cli_tool/src/pal_found_cli/functions/scripts/pal_found_functions_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/functions/value_type.py:71. Value-type RID and optional preview select latest ValueType metadata."
+    },
+    "version_id.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "c14d469ff052d2fced91c159212605d875e48c0f4d642fc5fda707caa8844631",
+      "cli_sha256": "9132a926528f1e9c290b5a5da75beaea61f8c4e0799be0673856d190248dddc6",
+      "sdk_sha256": "46cadd8a9def8114c7e919aaeec384af6a1392aa29f80bf073dfe1ead1e6e26e",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-functions/references/version-id.md:5; CLI OP_SPECS version_id.get / dispatch pal_found_cli_tool/src/pal_found_cli/functions/scripts/pal_found_functions_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/functions/version_id.py:60. Value-type RID plus version ID select VersionId metadata."
+    }
+  }
+}

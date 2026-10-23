@@ -77,12 +77,13 @@ def test_namespace_skills_are_documentation_only() -> None:
         assert not (skill_dir / "scripts").exists(), (
             f"{name} must not contain a scripts/ directory"
         )
-        python_launchers = [
+        python_files = [
             path
-            for path in (skill_dir / "scripts").rglob("*.py")
+            for path in skill_dir.rglob("*")
+            if path.is_file() and path.suffix == ".py"
         ]
-        assert python_launchers == [], (
-            f"{name} must not contain Python launchers: {python_launchers}"
+        assert python_files == [], (
+            f"{name} must not contain Python files: {python_files}"
         )
         skill_text = (skill_dir / "SKILL.md").read_text(encoding="utf-8")
         assert "python pal_found_" not in skill_text, (

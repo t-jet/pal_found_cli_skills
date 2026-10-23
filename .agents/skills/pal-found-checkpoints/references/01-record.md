@@ -15,11 +15,11 @@ pal-found-checkpoints record get ri.checkpoints.main.checkpoint.a1b2c3d4-e5f6-78
 
 ### record.get_batch
 
-Retrieve up to 100 records in one request. `--records-json` takes a JSON array of RIDs. The API omits records that do not exist or that the caller cannot access, so compare returned RIDs with the requested list. A successful empty batch does not prove those records do not exist. More than 100 RIDs exceeds the endpoint limit; malformed JSON fails CLI validation.
+Retrieve up to 100 records in one request. `--records-json` takes a JSON array of objects, each with a required `recordRid`. The response maps returned RIDs to records. The API omits records that do not exist or that the caller cannot access, so compare returned RIDs with the requested list. A successful empty batch does not prove those records do not exist. More than 100 entries exceeds the endpoint limit; malformed JSON or missing `recordRid` fails validation.
 
 **Example:**
 ```bash
-pal-found-checkpoints record get-batch --records-json '["ri.checkpoints.main.checkpoint.a1b2c3d4-e5f6-7890-abcd-ef1234567890","ri.checkpoints.main.checkpoint.b1b2c3d4-e5f6-7890-abcd-ef1234567890"]'
+pal-found-checkpoints record get-batch --records-json '[{"recordRid":"ri.checkpoints.main.checkpoint.a1b2c3d4-e5f6-7890-abcd-ef1234567890"},{"recordRid":"ri.checkpoints.main.checkpoint.b1b2c3d4-e5f6-7890-abcd-ef1234567890"}]'
 ```
 
 ### record.search

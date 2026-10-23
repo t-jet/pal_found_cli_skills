@@ -1,6 +1,6 @@
 # Schedule and schedule version operations
 
-A build computes selected dataset targets through jobs. A schedule records what to build and when; a
+A build computes selected buildable resources through jobs. A schedule records what to build and when; a
 schedule run may only start a build, so inspect the build and its jobs to determine completion. The
 trigger controls when a schedule fires; its action and scope determine targets and which resources
 can be built.
@@ -20,8 +20,8 @@ example identifiers and configuration values with values from your Foundry enrol
 - **Before use:** Choose accessible build targets, a valid action and trigger, and a scope that can
   build those outputs.
 - **Inputs:** positional none; required `--action-json`, `--trigger-json`, `--scope-mode-json`;
-  optional `--display-name`, `--description`. `trigger`: The schedule trigger. If the requesting
-  user does not have permission to see the trigger, this will be empty.
+  optional `--display-name`, `--description`. `--trigger-json` sets the condition that starts
+  runs, such as a `time` trigger with `cronExpression` and `timeZone`.
 - **Parameter notes:** `--display-name` labels the schedule; `--description` stores its explanatory text.
 - **Result:** `Schedule`.
 - **Failure or follow-up:** An invalid configuration or insufficient permission rejects schedule
@@ -42,8 +42,7 @@ example identifiers and configuration values with values from your Foundry enrol
 ### schedule.get
 
 - **Behavior:** Get the Schedule with the specified rid.
-- **Before use:** The schedule must exist and be accessible; state-changing calls also require
-  schedule management permission.
+- **Before use:** The schedule must exist and be accessible to the caller.
 - **Inputs:** positional `schedule_rid`; required none; optional none.
 - **Result:** `Schedule`.
 - **Failure or follow-up:** A missing or inaccessible schedule returns an error, except where the
@@ -54,8 +53,7 @@ example identifiers and configuration values with values from your Foundry enrol
 
 - **Behavior:** Returns the resources affected by the schedule's action, so you can inspect its
   build scope before running or editing it.
-- **Before use:** The schedule must exist and be accessible; state-changing calls also require
-  schedule management permission.
+- **Before use:** The schedule must exist and be accessible to the caller.
 - **Inputs:** positional `schedule_rid`; required none; optional none.
 - **Result:** `AffectedResourcesResponse`.
 - **Failure or follow-up:** Invalid input or insufficient access to the schedule is returned through
@@ -66,8 +64,8 @@ example identifiers and configuration values with values from your Foundry enrol
 
 - **Behavior:** Fetch multiple schedules in a single request. Schedules not found or inaccessible to
   the user will be omitted from the response. The maximum batch size for this endpoint is 1000.
-- **Before use:** The schedule must exist and be accessible; state-changing calls also require
-  schedule management permission.
+- **Before use:** The requested schedules must be accessible to the caller; missing or
+  inaccessible entries may be omitted.
 - **Inputs:** positional none; required `--schedule-rids-json`; optional none.
 - **Result:** `GetSchedulesBatchResponse`.
 - **Failure or follow-up:** Check the returned entries: batch endpoints may omit missing or
@@ -92,8 +90,9 @@ example identifiers and configuration values with values from your Foundry enrol
 - **Before use:** The schedule must exist and be editable; provide its complete replacement action,
   trigger, and scope.
 - **Inputs:** positional `schedule_rid`; required `--action-json`, `--trigger-json`,
-  `--scope-mode-json`; optional `--display-name`, `--description`. `trigger`: The schedule trigger.
-  If the requesting user does not have permission to see the trigger, this will be empty.
+  `--scope-mode-json`; optional `--display-name`, `--description`. `--trigger-json` supplies the
+  replacement condition that starts future runs, such as a `time` trigger with `cronExpression`
+  and `timeZone`. Supply the intended trigger as part of the full replacement configuration.
 - **Parameter notes:** `--display-name` replaces the schedule label; `--description` replaces its explanatory text.
 - **Result:** `Schedule`.
 - **Failure or follow-up:** An invalid replacement payload or insufficient permission leaves the
@@ -116,12 +115,17 @@ example identifiers and configuration values with values from your Foundry enrol
 
 - **Behavior:** Get the most recent runs of a Schedule. If no page size is provided, a page size of
   100 will be used.
-- **Before use:** The schedule must exist and be accessible; state-changing calls also require
-  schedule management permission.
-- **Inputs:** positional `schedule_rid`; required none; optional none.
-- **Result:** `ListRunsOfScheduleResponse`.
-- **Failure or follow-up:** An empty page is not proof there are no more results; follow the
-  returned page token when present.
+- **Before use:** The schedule must exist and be accessible to the caller.
+- **Inputs:** positional `schedule_rid`; required none; optional `--page-size`, `--page-token`,
+  `--all`, `--max-pages`. Use `--page-token` to resume from the `next_page_token` reported by a
+  previous call; `--all` or `--max-pages` fetches more than one page in one invocation.
+- **Parameter notes:** `--page-size` sets requested runs per page (default 100 unless CLI
+  configuration changes it). `--page-token` resumes at a cursor. `--max-pages` bounds pages
+  fetched in this call; `--all` fetches up to the CLI page cap.
+- **Result:** A list of schedule runs on stdout in the selected format. Page count and any
+  `next_page_token` appear separately in stderr metadata.
+- **Failure or follow-up:** An empty item list does not prove there are no more runs. If stderr
+  metadata contains `next_page_token`, pass it as `--page-token` to continue.
 - **Example:** `pal-found-orchestration schedule runs SCHEDULE_RID`
 
 ### schedule.unpause

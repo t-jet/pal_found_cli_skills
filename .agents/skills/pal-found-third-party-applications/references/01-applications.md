@@ -65,11 +65,13 @@ delete. Missing version or read permission prevents lookup.
 
 ### version.list
 
-Lists versions for application. Response has `data` array of Version records
-and optional `nextPageToken`. `--page-size` requests page size but server may
-return fewer or more records. Omit `--page-token` on first call; reuse returned
-token on next call. `--all --max-pages` gives bounded traversal. Missing
-application or read permission fails.
+Lists versions for an application. The CLI writes a list of Version records to
+stdout and pagination metadata, including any `next_page_token`, to stderr.
+`--page-size` requests page size, but the server may return fewer or more records.
+Omit `--page-token` on the first call; use the stderr token to resume.
+`--max-pages N` fetches at most N pages; `--all` traverses up to the CLI's
+40-page safety cap (or a lower configured cap) and ignores `--max-pages`. A missing application or denied
+read access fails.
 
 **Example:** `pal-found-third-party-applications version list "$APP_RID" --page-size 50`
 

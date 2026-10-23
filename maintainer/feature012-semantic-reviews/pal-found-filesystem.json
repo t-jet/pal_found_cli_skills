@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "reviews": {
+    "folder.children": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "988aff4af5825f1c3556fe48644f324fb509f5ece1945587a0f27e5aac8d5d83",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "0a1667b04e4f7f125d5b4d665fc1f8884ac893b68ebe28e798917126ba43fbcd",
+      "note": "Independent BUG-012 QA regression: full SDK pages, resume tokens, empty and short pages, and batch counts passed; current result wording source-checked. Evidence: BUG-012 comments 20261012-223816 and 20261012-223818. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/01-folder-project.md:17; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:82; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/folder.py:431; BUG-026 applies; complete-page/retry path at pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:537; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "folder.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "4bb96251fab8f2b59f583d9aa4a91bac1d9072414e2ca94999566cfc589a3211",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "0a1667b04e4f7f125d5b4d665fc1f8884ac893b68ebe28e798917126ba43fbcd",
+      "note": "Display name and parent folder map to SDK create; Folder result matches. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/01-folder-project.md:31; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:90; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/folder.py:499; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "folder.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "80cfbd5998a0591bae9401f02457752e73a56c35cff73aa5a3ce88ae460a36ca",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "0a1667b04e4f7f125d5b4d665fc1f8884ac893b68ebe28e798917126ba43fbcd",
+      "note": "Folder RID maps to SDK get; Folder result and access behavior match. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/01-folder-project.md:43; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:97; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/folder.py:566; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "folder.get_batch": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "7e4b912088ace0e270f70f58801c340a6c7843b20e98f8d02a45f8f4b0aea73e",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "0a1667b04e4f7f125d5b4d665fc1f8884ac893b68ebe28e798917126ba43fbcd",
+      "note": "CLI parses positional JSON body; SDK takes a 1-1000 folderRid array and returns batch map. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/01-folder-project.md:53; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:98; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/folder.py:618; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "folder.replace": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "d01fde2d31a52519e56d15db6761cabc057ac90716975349af55e147aca49d3d",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "0a1667b04e4f7f125d5b4d665fc1f8884ac893b68ebe28e798917126ba43fbcd",
+      "note": "RID, required display name and parent folder, and optional preview map to SDK replace. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/01-folder-project.md:64; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:106; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/folder.py:667; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "project.add_organizations": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "69baf0d66430fb0c8c0e4c1f7cfc0227ffc1d0e3c93c991608d29d8649f61269",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "f7b91dca6d893f70b4113b821e41119c20c56efdb566246eefcd6adae649e90e",
+      "note": "Project RID and parsed organization RID list map to SDK add; None result matches. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/01-folder-project.md:79; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:115; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/project.py:617; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "project.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "d931e9bd52637d89c53f27157b98e6d09de403a74f54e1b928c769d671f966f3",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "f7b91dca6d893f70b4113b821e41119c20c56efdb566246eefcd6adae649e90e",
+      "note": "Required project fields, parsed role grants, and optional fields map to SDK create; Project result matches. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/01-folder-project.md:90; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:124; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/project.py:676; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "project.create_from_template": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "9efcc639f9671cacc7bec11a569909418324a479fefdc78123703ded8dc83099",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "f7b91dca6d893f70b4113b821e41119c20c56efdb566246eefcd6adae649e90e",
+      "note": "Template RID and parsed variables map to SDK; optional role, organization, and description fields match. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/01-folder-project.md:108; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:139; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/project.py:774; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "project.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "0dc6841e903fdaf74766ab617391395d10c1d10f8b9867f077aa663538bc4524",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "f7b91dca6d893f70b4113b821e41119c20c56efdb566246eefcd6adae649e90e",
+      "note": "Project RID maps to SDK get; Project result matches. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/01-folder-project.md:121; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:148; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/project.py:878; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "project.organizations": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "ac9045a67c26542de7396af8f0f884279c5462598d6ae26ceeb0a84aa78f210a",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "f7b91dca6d893f70b4113b821e41119c20c56efdb566246eefcd6adae649e90e",
+      "note": "Independent BUG-012 QA regression: full SDK pages, resume tokens, empty and short pages, and batch counts passed; current result wording source-checked. Evidence: BUG-012 comments 20261012-223816 and 20261012-223818. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/01-folder-project.md:131; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:149; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/project.py:921; BUG-026 applies; complete-page/retry path at pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:537; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "project.remove_organizations": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "00119690735de55978f3fdfdafe6e09559b499dbff2bae997f64c8e62d4765c1",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "f7b91dca6d893f70b4113b821e41119c20c56efdb566246eefcd6adae649e90e",
+      "note": "Project RID and parsed organization RID list map to SDK remove; None result matches. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/01-folder-project.md:145; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:157; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/project.py:979; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "project.replace": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "434e8b7e6aa62615426839d347cada1ca823a24c23d048ce5386a80e53343dc1",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "f7b91dca6d893f70b4113b821e41119c20c56efdb566246eefcd6adae649e90e",
+      "note": "Project RID, required display name, optional description and preview map to SDK replace. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/01-folder-project.md:156; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:166; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/project.py:1040; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "resource.add_markings": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "ea694ff8e1ae4a24ea7796d880239c94987b32120b44dda1e0e160d3d66a114f",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "2bf80c7f402f760d7fc52ca70460aa8315c5ef4dda24c727e618b046028763c8",
+      "note": "Resource RID and parsed marking IDs map to SDK add; None result matches. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/02-resource.md:17; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:175; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/resource.py:772; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "resource.delete": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "6b05e27daa9ec49505d3f78bf6129c889ad9f2c77c94f3d746d54ba6da183b2a",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "2bf80c7f402f760d7fc52ca70460aa8315c5ef4dda24c727e618b046028763c8",
+      "note": "Resource RID maps to SDK trash operation; restorable state and None result match. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/02-resource.md:28; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:184; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/resource.py:835; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "resource.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "d4f169881a1cc4fd7d652e25d1fd926a6a498f595706ed3aef8428caed2a99c1",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "2bf80c7f402f760d7fc52ca70460aa8315c5ef4dda24c727e618b046028763c8",
+      "note": "Resource RID maps to SDK get; Resource metadata result matches. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/02-resource.md:41; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:185; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/resource.py:891; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "resource.get_access_requirements": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "19959c09cbd088bc5d80d4c4fde9e3a42d284547d6c955396879ce3b00057a41",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "2bf80c7f402f760d7fc52ca70460aa8315c5ef4dda24c727e618b046028763c8",
+      "note": "Resource RID maps to SDK read; inherited/direct organization and marking requirements match. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/02-resource.md:51; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:186; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/resource.py:943; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "resource.get_batch": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "16d930ec33e6c553dc843f22dd6beb0f51c3736caa2cbc7d7139a8be98b952fa",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "2bf80c7f402f760d7fc52ca70460aa8315c5ef4dda24c727e618b046028763c8",
+      "note": "CLI parses positional JSON body; SDK takes resourceRid array and returns RID map with omissions. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/02-resource.md:63; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:193; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/resource.py:995; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "resource.get_by_path": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "17a59b357d7b37fd7bf167ae8acb464b0ea0bb3988a92be1c94d7370e335939a",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "2bf80c7f402f760d7fc52ca70460aa8315c5ef4dda24c727e618b046028763c8",
+      "note": "Required path maps to SDK get_by_path; leading slash may be omitted and Resource result matches. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/02-resource.md:76; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:201; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/resource.py:1046; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "resource.get_by_path_batch": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "8c1169bee62282c6557bbefa91966b857a233295ca134cda1d6cb9c41659eab9",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "2bf80c7f402f760d7fc52ca70460aa8315c5ef4dda24c727e618b046028763c8",
+      "note": "Independent recheck: response Resource.path is compared with requested paths, not RIDs. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/02-resource.md:87; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:208; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/resource.py:1103; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "resource.markings": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "446e740062eb401b2834ae3f8354530f0ef510966164a7a48a4bfdca01777a7c",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "2bf80c7f402f760d7fc52ca70460aa8315c5ef4dda24c727e618b046028763c8",
+      "note": "Independent BUG-012 QA regression: full SDK pages, resume tokens, empty and short pages, and batch counts passed; current result wording source-checked. Evidence: BUG-012 comments 20261012-223816 and 20261012-223818. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/02-resource.md:100; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:216; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/resource.py:1155; BUG-026 applies; complete-page/retry path at pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:537; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "resource.permanently_delete": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "0184afa9396212f824cc3cd207c62ae35e7765c9a7db3caef80a3423bdae0b19",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "2bf80c7f402f760d7fc52ca70460aa8315c5ef4dda24c727e618b046028763c8",
+      "note": "Resource RID maps to SDK permanent trash deletion; not-trashed error and None result match. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/02-resource.md:114; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:224; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/resource.py:1213; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "resource.remove_markings": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "acab8b014dda179b092029a9cb287c84154cf51d20cb65bd23864b101f73da9b",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "2bf80c7f402f760d7fc52ca70460aa8315c5ef4dda24c727e618b046028763c8",
+      "note": "Resource RID and parsed marking IDs map to SDK remove; None result matches. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/02-resource.md:126; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:231; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/resource.py:1265; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "resource.restore": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "42fc790b94823ba46822e644a62e83d2799a4c7f9c78a9ab83af90069639c4cf",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "2bf80c7f402f760d7fc52ca70460aa8315c5ef4dda24c727e618b046028763c8",
+      "note": "Resource RID maps to SDK restore; directly trashed ancestors and idempotent state match. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/02-resource.md:137; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:240; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/resource.py:1328; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "resource_role.add": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "8c6091ff362152922c8c75004aa9392c09a5b506934869303619502f69b53136",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "71c9a83326cc70948e2935ae9e980eec333dd9ccc7cc40da838e823802194486",
+      "note": "Resource RID and parsed role identifiers map to SDK add; None result matches. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/03-resource-role-space.md:17; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:241; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/resource_role.py:274; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "resource_role.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "d4ea4161c394666ae2dab1f927cc61b61564d9957f0b679e414550232636f649",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "71c9a83326cc70948e2935ae9e980eec333dd9ccc7cc40da838e823802194486",
+      "note": "Independent BUG-012 QA regression: full SDK pages, resume tokens, empty and short pages, and batch counts passed; current result wording source-checked. Evidence: BUG-012 comments 20261012-223816 and 20261012-223818. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/03-resource-role-space.md:30; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:250; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/resource_role.py:328; BUG-026 applies; complete-page/retry path at pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:537; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "resource_role.remove": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "76a9c5baab59f62a0d708cab82f1bd2cf2ae1a0195510be3e2e8361f4b584075",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "71c9a83326cc70948e2935ae9e980eec333dd9ccc7cc40da838e823802194486",
+      "note": "Resource RID and parsed role identifiers map to SDK remove; direct-grant removal matches. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/03-resource-role-space.md:46; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:258; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/resource_role.py:385; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "space.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "3b989794b30441c7ca10917b61c82b8a9d80659c4ad7bebbd47bc511ee49c3e8",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "532b0904cb7df31beba1d3938cc353d8093707bd57d59b02b86ceda75337ae16",
+      "note": "Required organization and enrollment fields plus optional metadata map to SDK create. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/03-resource-role-space.md:58; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:267; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/space.py:435; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "space.delete": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "1e7a724c542ac245626d43cacca751f5f99e7fce41be2497f28ae3be5e5f56f7",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "532b0904cb7df31beba1d3938cc353d8093707bd57d59b02b86ceda75337ae16",
+      "note": "Space RID and optional preview map to SDK delete; empty-space constraint matches. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/03-resource-role-space.md:76; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:287; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/space.py:528; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "space.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "dd95794688124512fb8bcaddcf0d3d1a7122027035f31575e038ae565ed131d5",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "532b0904cb7df31beba1d3938cc353d8093707bd57d59b02b86ceda75337ae16",
+      "note": "Space RID and optional preview map to SDK get; Space result matches. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/03-resource-role-space.md:90; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:288; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/space.py:579; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "space.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "fe103199a4035b699dfc6950c60c4dbb2be8f3f431c2d7981b92896f221a9c52",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "532b0904cb7df31beba1d3938cc353d8093707bd57d59b02b86ceda75337ae16",
+      "note": "Independent BUG-012 QA regression: full SDK pages, resume tokens, empty and short pages, and batch counts passed; current result wording source-checked. Evidence: BUG-012 comments 20261012-223816 and 20261012-223818. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/03-resource-role-space.md:102; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:289; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/space.py:627; BUG-026 applies; complete-page/retry path at pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:537; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    },
+    "space.replace": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-14",
+      "record_sha256": "c8a244ed1bc1e14e2126e4b8fb69de17496a28e1090177fa4cb2dd63b5f8ba2e",
+      "cli_sha256": "0fd6f1ba45d23503f7926700849caf4ea0217a03c4e254b9c36057cb088c40b4",
+      "sdk_sha256": "532b0904cb7df31beba1d3938cc353d8093707bd57d59b02b86ceda75337ae16",
+      "note": "Space RID, required name, and optional role, description, usage, preview map to SDK replace. Recheck 2026-10-14: record pal_found_cli_skills/.agents/skills/pal-found-filesystem/references/03-resource-role-space.md:116; CLI OP_SPECS pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:290; SDK async method .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/filesystem/space.py:676; BUG-026 inapplicable: nonpaginated OP_SPECS operation; BUG-027 shared main error path pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py:562."
+    }
+  }
+}

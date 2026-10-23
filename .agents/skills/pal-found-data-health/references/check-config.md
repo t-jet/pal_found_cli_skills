@@ -49,10 +49,10 @@ subject and any fields absent from the replacement contract.
 5. For `allowedColumnValues`, give every value its own `type` (`string`,
    `numeric`, `boolean` or `date`) and matching `value`. `allowNull` controls
    the optional null policy. A JSON boolean is not a quoted string.
-6. Validate locally using the prepared SDK and supplied fixture runner. Then
-   pass the adapted JSON to `check create` or `check replace` from the local
-   [operation guide](01-check-report.md). Read the saved check and subsequent
-   reports to verify configuration and actual evaluation separately.
+6. Validate locally against the prepared SDK and the field contracts above.
+   Then pass the adapted JSON to `check create` or `check replace` from the
+   local [operation guide](01-check-report.md). Read the saved check and
+   subsequent reports to verify configuration and actual evaluation separately.
 
 `primaryKey` creation specifies column names; its replacement configuration
 changes severity, retaining those names. Column type and numeric/percentage
@@ -69,17 +69,19 @@ They use synthetic resource and column values; adapt them to your authorized
 dataset and schema. The union has 16 variants. A server/enrollment may restrict
 availability even when the prepared model can parse its JSON.
 
-Run `python -B examples/check_config_fixture.py` from this skill directory.
-It checks all 32 supplied create/replace payloads and rejects a wrong type,
-missing subject and invalid severity. Its `validate_check_choices(payload)`
-also rejects the five documented empty cross-field choices listed above.
-Reuse that helper for local preflight after SDK model parsing; it covers these
-specific constraints and does not replace all server validation. An empty
-`timeCheckConfig` is an invalid duration rule, and `ignoreEmptyTransactions`
-alone is an invalid transaction-time rule. These checks use prepared SDK model
-validation and require no enrollment. Pydantic may coerce some inputs and the
-SDK permits extra properties; successful parsing is not proof that an unknown
-field or a semantically inconsistent policy is accepted by Foundry.
+Local parsing is not a substitute for server validation. The prepared SDK
+parses all 16 create and 16 replace payloads but rejects a wrong `type`, a
+create payload without its `subject`, and a `statusCheckConfig` whose
+`severity` is not a valid enum value. Cross-field choices are not enforced by
+SDK parsing: numeric mean/median configuration needs `numericBounds` or
+`trend`; a `trend` needs `trendType` or `differenceBounds`; percentage
+configuration needs `percentageBounds` or `medianDeviation`; and time and
+transaction-time configuration each need `timeBounds` or `medianDeviation`.
+An empty `timeCheckConfig` is an invalid duration rule, and
+`ignoreEmptyTransactions` alone is an invalid transaction-time rule. Check
+these constraints yourself before submitting. Pydantic may coerce some inputs
+and the SDK permits extra properties; successful parsing is not proof that an
+unknown field or a semantically inconsistent policy is accepted by Foundry.
 
 Saving and evaluating checks requires authorized enrollment connectivity and
 resource permissions. Creation is not evaluation; an empty latest-report list

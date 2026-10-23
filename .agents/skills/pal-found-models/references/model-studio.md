@@ -8,7 +8,7 @@ These records describe the `model_studio` commands in `pal-found-models`. Each r
 - **CLI inputs:** required `--name`, `--parent-folder-rid`.
 - **Input meaning:** `--name`: The name of the Model Studio. `--parent-folder-rid`: Resource identifier (RID) of the named Foundry resource.
 - **Input guide:** [Identifiers and JSON payloads](./inputs.md).
-- **Preconditions:** The Model Studio RID or target folder exists and the caller has the required access.
+- **Preconditions:** The parent folder RID identifies an existing folder where the caller can create a Model Studio.
 - **Result:** Returns the created `ModelStudio` with its server-assigned identifier.
 - **Failure:** Invalid model studio inputs or insufficient permission produce a structured error. After a timeout, read current state before retrying.
 - **Example:** `pal-found-models model-studio create --name 'Order forecast' --parent-folder-rid ri.compass.main.folder.c410f510-2937-420e-8ea3-8c9bcb3c1791`
@@ -19,7 +19,7 @@ These records describe the `model_studio` commands in `pal-found-models`. Each r
 - **CLI inputs:** positionals `model_studio_rid`.
 - **Input meaning:** `model_studio_rid`: Resource identifier (RID) of the named Foundry resource.
 - **Input guide:** [Identifiers and JSON payloads](./inputs.md).
-- **Preconditions:** The Model Studio RID or target folder exists and the caller has the required access.
+- **Preconditions:** The Model Studio RID identifies an existing Studio that the caller can read.
 - **Result:** Returns `ModelStudio` for the selected model studio.
 - **Failure:** An unknown model studio identifier, inaccessible resource, or invalid selector produces a structured error.
 - **Example:** `pal-found-models model-studio get <MODEL_STUDIO_RID>`

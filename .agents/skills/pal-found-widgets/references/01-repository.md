@@ -51,11 +51,13 @@ permission fails.
 
 ### release.list
 
-Lists releases of positional widget set RID. Response has `data` array and
-optional `nextPageToken`; server may return page of different size than
-`--page-size` request. Omit `--page-token` on first page, then pass returned
-token for next. `--all --max-pages` bounds automatic traversal. Missing
-widget set or read access fails.
+Lists releases of the positional widget set RID. The CLI writes a list of
+releases to stdout and pagination metadata, including any `next_page_token`,
+to stderr. The server may return a page of different size than requested with
+`--page-size`. Omit `--page-token` on the first call; use the stderr token to
+resume. `--max-pages N` fetches at most N pages; `--all` traverses up to the
+CLI's 40-page safety cap (or a lower configured cap) and ignores `--max-pages`. A missing widget set
+or denied read access fails.
 
 **Example:** `pal-found-widgets release list "$WIDGET_SET_RID" --page-size 50`
 

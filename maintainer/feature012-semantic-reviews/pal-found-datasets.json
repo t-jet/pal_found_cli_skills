@@ -1,0 +1,302 @@
+{
+  "schema_version": 1,
+  "reviews": {
+    "branch.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "d36f4c6c57c2357a922d05a02901c9141a893727c9e7b7c18953e77ae7709b59",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "fcf58c69b4c83e33b2308b455d273ebbeb7eff37d503243c80b421ab1d0c3f22",
+      "note": "Independent recheck: supplied head transaction must be committed; SDK raises TransactionNotCommitted for open input."
+    },
+    "branch.delete": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "9a41b827201932cbff9388bda5f42569f1fd2e1ef991b2a3d2780dbb2c9ff3be",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "fcf58c69b4c83e33b2308b455d273ebbeb7eff37d503243c80b421ab1d0c3f22",
+      "note": "Dataset RID and required branch name map to SDK delete; no-result branch removal matches."
+    },
+    "branch.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "fd963e3678542ae13e202c79f6b621bcb7922e7859db0dbb22ac5543d6b511a9",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "fcf58c69b4c83e33b2308b455d273ebbeb7eff37d503243c80b421ab1d0c3f22",
+      "note": "RID and optional branch name map to SDK; default branch and Branch result match."
+    },
+    "branch.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "a6def4f0d60a70c9a3c24d79d96e37f03d34abc3c94e3719ff65ebb569f71d85",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "fcf58c69b4c83e33b2308b455d273ebbeb7eff37d503243c80b421ab1d0c3f22",
+      "note": "Independent recheck: inputs and stdout item list plus stderr pagination metadata match CLI and local SDK."
+    },
+    "branch.transactions": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "cf41e1401d91acea53daefb0b604322410f3fbe05ef868de77a3c314e6d4839f",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "fcf58c69b4c83e33b2308b455d273ebbeb7eff37d503243c80b421ab1d0c3f22",
+      "note": "Independent recheck: inputs and stdout item list plus stderr pagination metadata match CLI and local SDK."
+    },
+    "dataset.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "9f31631f27dc7c2b9a059f4147dbda9f3c0498b4c93f804f2ac18f0fd144a277",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "e307b3d17292ed724f26575e76b79871b218230ded385ef0e3ba727c3f9fae3e",
+      "note": "Required name and parent folder map to SDK create; Dataset result and permission failure match."
+    },
+    "dataset.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "05a9eb70db4ffcf99f9cf8163a60cd49c355efef7c6906ab72a2f9f5be7cc8ac",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "e307b3d17292ed724f26575e76b79871b218230ded385ef0e3ba727c3f9fae3e",
+      "note": "RID maps to SDK get; metadata-only Dataset result and not-found behavior match."
+    },
+    "dataset.get_health_check_reports": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "cdd271d9a967d63aa525d0c8bee09d47265b8b1e943d70cab2d1c337f343f4d8",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "e307b3d17292ed724f26575e76b79871b218230ded385ef0e3ba727c3f9fae3e",
+      "note": "RID and optional branch map to SDK; one latest report per configured check and response type match."
+    },
+    "dataset.get_health_checks": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "9c8b007775617a8750f1066aa8539ad0806fb4f602fcd72ca2bbc764e870af9d",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "e307b3d17292ed724f26575e76b79871b218230ded385ef0e3ba727c3f9fae3e",
+      "note": "RID and optional branch map to SDK; check RID response and access behavior match."
+    },
+    "dataset.get_schedules": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "69c934d8e60b942db7890c27d10b932e7ab05b0403a74448707d7702d05e1d66",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "e307b3d17292ed724f26575e76b79871b218230ded385ef0e3ba727c3f9fae3e",
+      "note": "Independent recheck: inputs and stdout item list plus stderr pagination metadata match CLI and local SDK."
+    },
+    "dataset.get_schema": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "79cbb1e3ba0f829deb16d174440c2ca491c018e3d084e441e0820f89ef32d8e4",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "e307b3d17292ed724f26575e76b79871b218230ded385ef0e3ba727c3f9fae3e",
+      "note": "RID and optional branch map to SDK; CLI omits SDK-only transaction selector as stated."
+    },
+    "dataset.get_schema_batch": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "3746e1eb962b8572b25502929e4c52c9c3987ac79bda4155fa24e436baf33068",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "e307b3d17292ed724f26575e76b79871b218230ded385ef0e3ba727c3f9fae3e",
+      "note": "CLI parses 1-1000 datasetRid objects; SDK batch response can omit inaccessible RIDs."
+    },
+    "dataset.jobs": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "3cabd07457d34fb3bad4e426c264adce03d60216d574c083f8c2e7f4b79b28a7",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "e307b3d17292ed724f26575e76b79871b218230ded385ef0e3ba727c3f9fae3e",
+      "note": "Independent recheck: inputs and stdout item list plus stderr pagination metadata match CLI and local SDK."
+    },
+    "dataset.put_schema": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "548f9b9b7bfa32399d5b9980213cb802edec9f38423c30cd90226ae3640b7414",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "e307b3d17292ed724f26575e76b79871b218230ded385ef0e3ba727c3f9fae3e",
+      "note": "CLI parses schema JSON and forwards branch; SDK PUT returns schema response."
+    },
+    "dataset.read_table": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "8daa780b912042955fe0c434dc56ad0b2e9c922b017f45329a516dac2a3d728d",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "e307b3d17292ed724f26575e76b79871b218230ded385ef0e3ba727c3f9fae3e",
+      "note": "CLI validates format and columns, streams SDK table bytes to bounded download, and prints file metadata."
+    },
+    "dataset.transactions": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "087207b58809085b91a477f46dd9831b87c5a9b7d87f7ea4ae92588e34e4e6b5",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "e307b3d17292ed724f26575e76b79871b218230ded385ef0e3ba727c3f9fae3e",
+      "note": "Independent recheck: inputs and stdout item list plus stderr pagination metadata match CLI and local SDK."
+    },
+    "file.content": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "881a9b29ead755319178934f65e883fe1cadd4757ea12f10b05146fc18662f8c",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "25c162b2d7bd2c53034709f07b50943435677a1c6e459caa3af664fb718f187c",
+      "note": "CLI streams SDK content bytes to download handler; branch and transaction range selectors match."
+    },
+    "file.delete": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "5d46501cdd5389531145f143ba9c121a9d066d2469bb540ebcfcfb012397f646",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "25c162b2d7bd2c53034709f07b50943435677a1c6e459caa3af664fb718f187c",
+      "note": "CLI forwards file path and optional open DELETE transaction; SDK default branch behavior and None result match."
+    },
+    "file.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "1d62476ce8f8c605a1be9ad82d23a4e090ece9dbc2b95e4359c350785e20ba1e",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "25c162b2d7bd2c53034709f07b50943435677a1c6e459caa3af664fb718f187c",
+      "note": "CLI forwards file path, branch, and transaction range; SDK returns File metadata."
+    },
+    "file.list": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "eb8957fb36bd3d83f3e2f7d32829124bb4086d4f2dcd384a5d22545ffc4c88fd",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "25c162b2d7bd2c53034709f07b50943435677a1c6e459caa3af664fb718f187c",
+      "note": "Independent recheck: inputs and stdout item list plus stderr pagination metadata match CLI and local SDK."
+    },
+    "file.upload": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "98a359faad40bf53e61e376ea3db3a11ce638b3048a53887661c2392fe349211",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "25c162b2d7bd2c53034709f07b50943435677a1c6e459caa3af664fb718f187c",
+      "note": "CLI reads local --file-path as bytes and uses same dataset path; transaction RID and File result match."
+    },
+    "transaction.abort": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "a0c8a527b920be48cfc7b8388f5feaed11d7815271050db1d6d032e3e2d27a51",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "527353e402dbd1a3a79d117750e12b0e8be7b850048b97e72dc6819a8c543ad7",
+      "note": "Dataset and transaction RIDs map to SDK abort; open-state failure and Transaction result match."
+    },
+    "transaction.build": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "86f71ac56733e9153ef64a514a6ef93cc144d949bdfb52a5d6ec17625f325135",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "527353e402dbd1a3a79d117750e12b0e8be7b850048b97e72dc6819a8c543ad7",
+      "note": "Dataset and transaction RIDs map to SDK build read; optional Build RID result matches."
+    },
+    "transaction.commit": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "ef5e95878eca662a10e5e8245bdc1d4138fd4fd3edabc6ed9885713979506b7f",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "527353e402dbd1a3a79d117750e12b0e8be7b850048b97e72dc6819a8c543ad7",
+      "note": "Dataset and transaction RIDs map to SDK commit; branch update and Transaction result match."
+    },
+    "transaction.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "6885e408d725dd10d9df83e1dd3ae10cf4bbabdc417e2bb59d019081122ec76d",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "527353e402dbd1a3a79d117750e12b0e8be7b850048b97e72dc6819a8c543ad7",
+      "note": "Transaction type and optional branch map to SDK create; open-transaction constraint matches."
+    },
+    "transaction.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "48aac716cf0cc6a9560a25d23c554cfba2fd287e84e5ecd6f86871c7b3ac7b2d",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "527353e402dbd1a3a79d117750e12b0e8be7b850048b97e72dc6819a8c543ad7",
+      "note": "Dataset and transaction RIDs map to SDK get; Transaction result matches."
+    },
+    "transaction.job": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "7d992e686da0af4757a64d333bfd92ece80c0b36c129ef01afc07125d1d384c6",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "527353e402dbd1a3a79d117750e12b0e8be7b850048b97e72dc6819a8c543ad7",
+      "note": "Dataset and transaction RIDs map to SDK job read; optional Job RID result matches."
+    },
+    "view.add_backing_datasets": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "d74414b1027382be56cc7aacd9d8c28a7410922e6091f1530bb834376cb25dbd",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "2207e2f5d456d00260750e7079c2219142a928e851311969fe2e17bec4d514e6",
+      "note": "CLI parses backing dataset JSON and branch; SDK add ignores duplicate RID/branch pairs."
+    },
+    "view.add_primary_key": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "70bfdeaeb6eef46742a0fd003fe7b13cc0214f070ff176627f2c9b1544256400",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "2207e2f5d456d00260750e7079c2219142a928e851311969fe2e17bec4d514e6",
+      "note": "CLI parses primary-key JSON and branch; SDK returns View and rejects an existing key."
+    },
+    "view.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "cb4d29004bbf8e0070f6922221f626c831fca1bea33af60bde87142f515531b6",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "2207e2f5d456d00260750e7079c2219142a928e851311969fe2e17bec4d514e6",
+      "note": "Independent recheck: backing dataset example includes required stopPropagatingMarkingIds; local model validation passes."
+    },
+    "view.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "b8a7f1f7ad8c2310fd64535d9573a70ebc01e401811796542571af441271a703",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "2207e2f5d456d00260750e7079c2219142a928e851311969fe2e17bec4d514e6",
+      "note": "View RID and optional branch map to SDK get; View result matches."
+    },
+    "view.remove_backing_datasets": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "4abe5dad8fd9b26b4f2f28ea338ceed55d683b9c9b4cba427d394ecd5ef0a60e",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "2207e2f5d456d00260750e7079c2219142a928e851311969fe2e17bec4d514e6",
+      "note": "CLI parses backing dataset JSON and branch; SDK removal and next-update snapshot behavior match."
+    },
+    "view.replace_backing_datasets": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "7bfbc1f49042cf1fee7fb4839d6354493ee14d0405893adcecadc144f619a09d",
+      "cli_sha256": "2d7f2bba23f6ecc8f450eae87d273d153133f823502546ff5cd0a179812013d3",
+      "sdk_sha256": "2207e2f5d456d00260750e7079c2219142a928e851311969fe2e17bec4d514e6",
+      "note": "CLI parses backing dataset JSON and branch; SDK replacement and snapshot behavior match."
+    }
+  }
+}

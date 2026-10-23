@@ -40,7 +40,7 @@ Required input: `body`. The SDK returns `GetGroupsBatchResponse` on success. The
 
 List groups visible to the caller to discover IDs for membership or role operations. Results are paged; a page can be shorter or longer than requested. Continue with the returned `nextPageToken` until it is absent.
 
-Required input: no required operation arguments. The SDK returns `ListGroupsResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned.  Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: no required operation arguments. The SDK yields `Group` records through an iterator. The CLI emits collected groups in the selected output format and pagination metadata on stderr. The operation does not change Foundry state. An empty page can have a continuation token; follow it before concluding no groups are visible. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin group list`
 
@@ -80,7 +80,7 @@ Required input: `group_id`, `--principal-ids` as a JSON array. Optional: `--expi
 
 List user or group principals inheriting the group's grants. `--include-expirations` adds direct members' expiry times; `--transitive` follows nested groups. The flags cannot both be true. Results are paged; pass returned `nextPageToken` as `--page-token` to continue, even if the current page is short.
 
-Required input: `group_id`. `--include-expirations` shows expiration times for temporary direct members. `--transitive` includes members inherited through nested groups. These flags are mutually exclusive when true; choose one view per request. The SDK returns `ListGroupMembersResponse` without changing membership. An empty response means no visible matches; continue with `--page-token` when a token is returned. Authentication or permission errors stop the read.
+Required input: `group_id`. `--include-expirations` shows expiration times for temporary direct members. `--transitive` includes members inherited through nested groups. These flags are mutually exclusive when true; choose one view per request. The SDK yields `GroupMember` records through an iterator. The CLI emits collected members in the selected output format and pagination metadata on stderr without changing membership. An empty page can have a continuation token; continue with `--page-token` before concluding no members are visible. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin group-member list 0950264e-01c8-4e83-81a9-1a6b7f77621a --include-expirations --page-size 50`
 
@@ -96,7 +96,7 @@ Required input: `group_id`, `--principal-ids` as a JSON array. Success is HTTP 2
 
 List groups containing a given user to explain access inherited through group grants. By default, only direct memberships appear; `--transitive` also follows nested groups. Results are paged; continue with returned `nextPageToken` even if the current page is short.
 
-Required input: `user_id`. By default, the response lists direct group memberships. `--transitive` also follows nested groups: if the user is in A and A is in B, both A and B appear. The SDK returns `ListGroupMembershipsResponse` without changing membership. An empty response means no visible matches; page forward when a continuation token is returned. Authentication or permission errors stop the read.
+Required input: `user_id`. By default, the response lists direct group memberships. `--transitive` also follows nested groups: if the user is in A and A is in B, both A and B appear. The SDK yields `GroupMembership` records through an iterator. The CLI emits collected memberships in the selected output format and pagination metadata on stderr without changing membership. An empty page can have a continuation token; follow it before concluding no memberships are visible. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin group-membership list f05f8da4-b84c-4fca-9c77-8af0b13d11de`
 

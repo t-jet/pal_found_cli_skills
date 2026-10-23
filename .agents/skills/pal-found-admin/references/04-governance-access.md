@@ -16,7 +16,7 @@ Required input: `marking_id`, `--principal-ids`. The SDK returns no resource bod
 
 List principals able to satisfy the specified marking requirement. `--transitive` includes access inherited through group membership. The API ignores `pageSize` and requires `api:admin-write` because marking membership is visible only to marking administrators. Membership alone does not override other access controls.
 
-Required input: `marking_id`. Optional: `--transitive`. The SDK returns `ListMarkingMembersResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned.  Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: `marking_id`. Optional: `--transitive`. The SDK yields `MarkingMember` records through an iterator. The CLI emits collected members in the selected output format and pagination metadata on stderr. The operation does not change Foundry state. An empty page can have a continuation token; follow it before concluding no members are visible. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin marking-member list 0950264e-01c8-4e83-81a9-1a6b7f77621a`
 
@@ -40,7 +40,7 @@ Required input: `marking_id`, `--role-assignments`. The SDK returns no resource 
 
 List direct role assignments on a marking, with each principal and its marking role. Use this to check who can administer or use a marking before changing it. The API ignores `pageSize`; a small requested page size does not limit the result.
 
-Required input: `marking_id`. The SDK returns `ListMarkingRoleAssignmentsResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned.  Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: `marking_id`. The SDK yields `MarkingRoleAssignment` records through an iterator. The CLI emits collected assignments in the selected output format and pagination metadata on stderr. The operation does not change Foundry state. An empty page can have a continuation token; follow it before concluding no assignments are visible. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin marking-role-assignment list 0950264e-01c8-4e83-81a9-1a6b7f77621a`
 
@@ -96,7 +96,7 @@ Required input: `organization_rid`, `--principal-ids`. The SDK returns no resour
 
 List principals added as guests of the specified organization. Use it after `add` or `remove` to verify the effective guest list. A primary member need not appear as a guest; adding one through the guest endpoint can return success without changing its membership kind.
 
-Required input: `organization_rid`. The SDK returns `ListOrganizationGuestMembersResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned.  Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: `organization_rid`; optional `--preview` enables preview API behavior when available. The SDK returns `ListOrganizationGuestMembersResponse` on success. The operation does not change Foundry state. The CLI has no page-token input for this command, so it cannot resume a continuation token in the response. An empty result may still have a continuation token. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin organization-guest-member list ri.multipass..organization.example`
 
@@ -120,7 +120,7 @@ Required input: `organization_rid`, `--role-assignments`. The SDK returns no res
 
 Organization roles delegate administration within an organization. List all principals who are assigned a role for the given Organization.
 
-Required input: `organization_rid`. The SDK returns `ListOrganizationRoleAssignmentsResponse` on success. The operation does not change Foundry state. An empty response means no visible matches; page forward when a continuation token is returned.  Authentication or permission errors stop the read; an empty visible result is not an API failure.
+Required input: `organization_rid`. The SDK returns `ListOrganizationRoleAssignmentsResponse` on success. The operation does not change Foundry state. The CLI has no page-token input for this command, so it cannot resume a continuation token in the response. An empty result may still have a continuation token. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin organization-role-assignment list ri.multipass..organization.example`
 

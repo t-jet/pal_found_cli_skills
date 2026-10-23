@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "reviews": {
+    "check.create": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "95fa7cee121db54a75ee8540f274eb8fde32143f574c71106500ad5d087f6956",
+      "cli_sha256": "8e1bc22f7afc749509b13b11c47f4fcad39006e0ce0282da17b300db2976b034",
+      "sdk_sha256": "e85ad6bedee89d011cb03d78412d6d0056787efa0a2fdae6df8f648e1c07aca9",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-data-health/references/01-check-report.md:7; CLI OP_SPECS check.create / dispatch pal_found_cli_tool/src/pal_found_cli/data_health/scripts/pal_found_data_health_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/data_health/check.py:71. Typed CheckConfig JSON and optional intent create rule; returned Check RID does not prove evaluation."
+    },
+    "check.delete": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "963f841bbae997d7191f65fc12693ac30f239e9e0e1abd62560556ade5f8a92b",
+      "cli_sha256": "8e1bc22f7afc749509b13b11c47f4fcad39006e0ce0282da17b300db2976b034",
+      "sdk_sha256": "e85ad6bedee89d011cb03d78412d6d0056787efa0a2fdae6df8f648e1c07aca9",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-data-health/references/01-check-report.md:31; CLI OP_SPECS check.delete / dispatch pal_found_cli_tool/src/pal_found_cli/data_health/scripts/pal_found_data_health_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/data_health/check.py:138. Deletes rule, not dataset; SDK None maps to structured CLI null output."
+    },
+    "check.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "2b082b86ba3fc3cdb4c11b1b6b9c7d707d18825311b52a822d01b3057dfc17d9",
+      "cli_sha256": "8e1bc22f7afc749509b13b11c47f4fcad39006e0ce0282da17b300db2976b034",
+      "sdk_sha256": "e85ad6bedee89d011cb03d78412d6d0056787efa0a2fdae6df8f648e1c07aca9",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-data-health/references/01-check-report.md:16; CLI OP_SPECS check.get / dispatch pal_found_cli_tool/src/pal_found_cli/data_health/scripts/pal_found_data_health_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/data_health/check.py:186. Reads saved Check by RID without evaluation or write."
+    },
+    "check.replace": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "f2801c84c57bbaeb7b0ed1207a48c5add06db7e44297cf1520a8cf82e35917a7",
+      "cli_sha256": "8e1bc22f7afc749509b13b11c47f4fcad39006e0ce0282da17b300db2976b034",
+      "sdk_sha256": "e85ad6bedee89d011cb03d78412d6d0056787efa0a2fdae6df8f648e1c07aca9",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-data-health/references/01-check-report.md:22; CLI OP_SPECS check.replace / dispatch pal_found_cli_tool/src/pal_found_cli/data_health/scripts/pal_found_data_health_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/data_health/check.py:236. ReplaceCheckConfig changes existing rule, preserves target and type; returns updated Check."
+    },
+    "check_report.get": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "428fc53dd8bd62b83c1efb6967bcef368f53e60420c22a3373ac4e28f5c635e2",
+      "cli_sha256": "8e1bc22f7afc749509b13b11c47f4fcad39006e0ce0282da17b300db2976b034",
+      "sdk_sha256": "08d6d22cc463a01b69a44e943b47fb024e316feac78bd06e51ccb05a6f83bd31",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-data-health/references/01-check-report.md:37; CLI OP_SPECS check_report.get / dispatch pal_found_cli_tool/src/pal_found_cli/data_health/scripts/pal_found_data_health_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/data_health/check_report.py:60. Reads historical CheckReport snapshot by check/report RID pair."
+    },
+    "check_report.get_latest": {
+      "decision": "pass",
+      "reviewer": "qa-engineer",
+      "reviewed_on": "2026-10-13",
+      "record_sha256": "07cfddd61611fae3ab70adc1847fbddc638774b899bb5611a6e1e828bc784383",
+      "cli_sha256": "8e1bc22f7afc749509b13b11c47f4fcad39006e0ce0282da17b300db2976b034",
+      "sdk_sha256": "08d6d22cc463a01b69a44e943b47fb024e316feac78bd06e51ccb05a6f83bd31",
+      "note": "Record pal_found_cli_skills/.agents/skills/pal-found-data-health/references/01-check-report.md:43; CLI OP_SPECS check_report.get_latest / dispatch pal_found_cli_tool/src/pal_found_cli/data_health/scripts/pal_found_data_health_cli.py; SDK .ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/data_health/check_report.py:114. Limit validated 1..100, SDK default 10; response data list may be empty before evaluation."
+    }
+  }
+}

@@ -9,19 +9,21 @@ access.
 Platform context: [Palantir
 documentation](https://www.palantir.com/docs/foundry/getting-started/projects-and-resources). The
 behavior below describes the installed CLI commands.
-parser. Replace example identifiers and configuration values with values from your Foundry
+Replace example identifiers and configuration values with values from your Foundry
 enrollment.
 
 ## Operation records
 
 ### folder.children
 
-- **Behavior:** List all child Resources of the Folder. This is a paged endpoint. The page size will
-  be limited to 2,000 results per page. If no page size is provided, this page size will also be
-  used as the default.
+- **Behavior:** List child resources of the folder in pages. The endpoint caps a page at 2,000
+  results; the CLI requests 100 results when `--page-size` is omitted.
 - **Before use:** The resource or container must be accessible to the requesting identity.
-- **Inputs:** positional `folder_rid`; required none; optional none.
-- **Result:** `ListChildrenOfFolderResponse`.
+- **Inputs:** positional `folder_rid`; required none; optional `--page-size`,
+  `--page-token`, and `--batch-pages`.
+- **Parameter notes:** `--page-size` requests the number of results per page, `--page-token` resumes from prior metadata, and `--batch-pages` limits pages fetched in one call.
+- **Result:** A list of child resources on stdout. Pagination metadata, including any next-page
+  token, is written to stderr.
 - **Failure or follow-up:** An empty page is not proof there are no more results; follow the
   returned page token when present.
 - **Example:** `pal-found-filesystem folder children FOLDER_RID`
@@ -131,8 +133,11 @@ enrollment.
 - **Behavior:** List of Organizations directly applied to a Project. The number of Organizations on
   a Project is typically small so the `pageSize` and `pageToken` parameters are not required.
 - **Before use:** The resource or container must be accessible to the requesting identity.
-- **Inputs:** positional `project_rid`; required none; optional none.
-- **Result:** `ListOrganizationsOfProjectResponse`.
+- **Inputs:** positional `project_rid`; required none; optional `--page-size`,
+  `--page-token`, and `--batch-pages`.
+- **Parameter notes:** `--page-size` requests the number of results per page, `--page-token` resumes from prior metadata, and `--batch-pages` limits pages fetched in one call.
+- **Result:** A list of organizations on stdout. Pagination metadata, including any next-page
+  token, is written to stderr.
 - **Failure or follow-up:** An empty page is not proof there are no more results; follow the
   returned page token when present.
 - **Example:** `pal-found-filesystem project organizations PROJECT_RID`

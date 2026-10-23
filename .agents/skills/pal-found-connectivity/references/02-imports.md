@@ -72,10 +72,16 @@ Replace example identifiers and configuration values with values from your Found
 - **Behavior:** Lists all file imports defined for this connection. Only file imports that the user
   has permissions to view will be returned.
 - **Before use:** The connection and requested import must be readable.
-- **Inputs:** positional `connection_rid`; required none; optional none.
-- **Result:** `ListFileImportsResponse`.
-- **Failure or follow-up:** An empty page is not proof there are no more results; follow the
-  returned page token when present.
+- **Inputs:** positional `connection_rid`; required none; optional `--page-size`, `--page-token`,
+  `--all`, `--max-pages`.
+- **Parameter notes:** `--page-size` sets items requested per server page. `--page-token` starts
+  after a previous page. `--max-pages` fetches at most that many pages; `--all` requests bounded
+  automatic paging.
+- **Result:** List of `FileImport` items on stdout in the selected output format. The CLI writes `pages_fetched`,
+  `total_items`, and any `next_page_token` as JSON metadata on stderr.
+- **Failure or follow-up:** The default call fetches one page. An empty item array can still have a
+  `next_page_token`; pass it with `--page-token` to continue, or use `--all` for bounded automatic
+  paging.
 - **Example:** `pal-found-connectivity file-import list CONNECTION_RID`
 
 ### file_import.replace
@@ -156,10 +162,16 @@ Replace example identifiers and configuration values with values from your Found
 - **Behavior:** Lists all table imports defined for this connection. Only table imports that the
   user has permissions to view will be returned.
 - **Before use:** The connection and requested import must be readable.
-- **Inputs:** positional `connection_rid`; required none; optional none.
-- **Result:** `ListTableImportsResponse`.
-- **Failure or follow-up:** An empty page is not proof there are no more results; follow the
-  returned page token when present.
+- **Inputs:** positional `connection_rid`; required none; optional `--page-size`, `--page-token`,
+  `--all`, `--max-pages`.
+- **Parameter notes:** `--page-size` sets items requested per server page. `--page-token` starts
+  after a previous page. `--max-pages` fetches at most that many pages; `--all` requests bounded
+  automatic paging.
+- **Result:** List of `TableImport` items on stdout in the selected output format. The CLI writes `pages_fetched`,
+  `total_items`, and any `next_page_token` as JSON metadata on stderr.
+- **Failure or follow-up:** The default call fetches one page. An empty item array can still have a
+  `next_page_token`; pass it with `--page-token` to continue, or use `--all` for bounded automatic
+  paging.
 - **Example:** `pal-found-connectivity table-import list CONNECTION_RID`
 
 ### table_import.replace

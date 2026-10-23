@@ -15,13 +15,13 @@ example identifiers and configuration values with values from your Foundry enrol
 ### branch.create
 
 - **Behavior:** Creates a named branch on an existing dataset. With `--transaction-rid`, its head
-  points to that dataset's specified open or committed transaction; an aborted transaction cannot
-  be the head. Without the flag, Foundry creates the branch without a supplied head transaction.
+  points to the specified committed transaction. Without the flag, Foundry creates the branch
+  without a supplied head transaction.
 - **Before use:** The dataset must exist and be writable. A supplied transaction must belong to
-  that dataset and be open or committed.
+  that dataset and be committed.
 - **Inputs:** positional `dataset_rid`; required `--name`; optional `--transaction-rid`.
-  `transaction_rid`: The most recent OPEN or COMMITTED transaction on the branch. This will never be
-  an ABORTED transaction.
+  `transaction_rid`: A committed transaction to use as the branch head. Open or aborted
+  transactions are rejected.
 - **Result:** `Branch`.
 - **Failure or follow-up:** A duplicate branch name, invalid transaction, or insufficient permission
   rejects creation. Later calls identify the branch by name alongside the dataset RID.
@@ -52,8 +52,11 @@ example identifiers and configuration values with values from your Foundry enrol
 
 - **Behavior:** Lists the names and transaction heads of branches visible on the dataset.
 - **Before use:** The dataset must be readable.
-- **Inputs:** positional `dataset_rid`; required none; optional none.
-- **Result:** `ListBranchesResponse`.
+- **Inputs:** positional `dataset_rid`; required none; optional `--page-size`,
+  `--page-token`, and `--batch-pages`.
+- **Parameter notes:** `--page-size` requests the number of results per page, `--page-token` resumes from prior metadata, and `--batch-pages` limits pages fetched in one call.
+- **Result:** A list of branches on stdout. Pagination metadata, including any next-page token,
+  is written to stderr.
 - **Failure or follow-up:** An empty page is not proof there are no more results; follow the
   returned page token when present.
 - **Example:** `pal-found-datasets branch list DATASET_RID`
@@ -63,9 +66,11 @@ example identifiers and configuration values with values from your Foundry enrol
 - **Behavior:** Get the Transaction history for the given Dataset. When requesting all transactions,
   the endpoint returns them in reverse chronological order.
 - **Before use:** The dataset and selected branch must be readable.
-- **Inputs:** positional `dataset_rid`; required none; optional `--branch-name`.
-- **Parameter notes:** `--branch-name` selects the branch whose transaction history is returned; omit it for the default branch.
-- **Result:** `ListTransactionsResponse`.
+- **Inputs:** positional `dataset_rid`; required none; optional `--branch-name`,
+  `--page-size`, `--page-token`, and `--batch-pages`.
+- **Parameter notes:** `--branch-name` selects the branch whose transaction history is returned; omit it for the default branch. `--page-size` requests the number of results per page, `--page-token` resumes from prior metadata, and `--batch-pages` limits pages fetched in one call.
+- **Result:** A list of transactions on stdout. Pagination metadata, including any next-page
+  token, is written to stderr.
 - **Failure or follow-up:** An empty page is not proof there are no more results; follow the
   returned page token when present.
 - **Example:** `pal-found-datasets branch transactions DATASET_RID`
