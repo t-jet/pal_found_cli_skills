@@ -17,15 +17,15 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'GET'
-EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/scenarios/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/objects/Asset/conflicting'
+EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/scenarios/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/objects/Order/conflicting'
 EXPECTED_BODY = None
-EXPECTED_QUERY = {'pageSize': None, 'pageToken': None, 'preview': None}
+EXPECTED_QUERY = {'pageSize': None, 'pageToken': None, 'preview': True}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'data': [{'objectTypeApiName': 'synthetic-value', 'primaryKeyValue': 'synthetic-value'}]}
+SUCCESS = {'data': [{'objectTypeApiName': 'Order', 'primaryKeyValue': 'ORD-101'}]}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.list_scenario_conflicting_objects(ontology='synthetic-value', scenario_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', object_type='Asset', request_timeout=30)
+    return client.with_raw_response.list_scenario_conflicting_objects(ontology='synthetic-value', scenario_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', object_type='Order', preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

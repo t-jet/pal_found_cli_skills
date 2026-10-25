@@ -28,10 +28,10 @@ An Ontology property value uses the JSON encoding for its declared property type
 | String | string | `"Call me Ishmael"` |
 | Struct | JSON object of struct field API name -> value | `{"firstName":"Alex","lastName":"Karp"}` |
 | Timestamp | ISO 8601 extended offset date-time string in UTC zone | `"2021-01-04T05:00:00Z"` |
-| Timeseries | JSON encoded `TimeseriesProperty` object or seriesId string | `{"seriesId":"wellPressureSeriesId","syncRid":"ri.time-series-catalog.main.sync.synthetic"}` |
+| Timeseries | JSON encoded `TimeseriesProperty` object or seriesId string | `{"seriesId":"wellPressureSeriesId","syncRid":"ri.time-series-catalog.main.sync.synthetic"}`<br>`{"templateRid":"ri.codex-emu.main.template.synthetic","templateVersion":"0.0.0"}`<br>`"wellPressureSeriesId"` |
 | Vector | array | `[0.1,0.3,0.02]` |
 
-Decimal and Long are JSON strings so their values are not rounded through a JSON number. Date uses a local ISO 8601 date; Timestamp uses an ISO 8601 UTC offset date-time. GeoPoint and GeoShape use GeoJSON objects. Struct is an object keyed by struct field API name. An Attachment is an object with `rid`; a MediaReference has `mimeType` and a typed `reference`; a secured value has `value` and `propertySecurityIndex`. Timeseries accepts its documented object or series ID string. For compatibility the source also accepts Boolean, Byte, Double, Float, Integer and Short as JSON strings; prefer the primary encoding shown above.
+Decimal and Long are JSON strings so their values are not rounded through a JSON number. Date uses a local ISO 8601 date; Timestamp uses an ISO 8601 UTC offset date-time. GeoPoint and GeoShape use GeoJSON objects. Struct is an object keyed by struct field API name. An Attachment is an object with `rid`; a MediaReference has `mimeType` and a typed `reference`; a secured value has `value` and `propertySecurityIndex`. Timeseries accepts an object with `seriesId` and `syncRid`, an object with `templateRid` and `templateVersion`, or a bare series ID string. For compatibility the source also accepts Boolean, Byte, Double, Float, Integer and Short as JSON strings; prefer the primary encoding shown above.
 
 ## Exact SDK definition
 

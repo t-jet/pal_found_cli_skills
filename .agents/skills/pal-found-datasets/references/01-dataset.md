@@ -100,11 +100,15 @@ example identifiers and configuration values with values from your Foundry enrol
   `--branch-name`, `--columns-json`, `--row-limit`, `--start-transaction-rid`, and
   `--end-transaction-rid`. `--columns-json` is an array of column names. Row order is not guaranteed.
 - **Parameter notes:** `--branch-name` selects the branch to export. `--columns-json` is a JSON array of columns to include. `--start-transaction-rid` and `--end-transaction-rid` bound the transaction view read by the export.
-- **Result:** Saves the table export under the configured download root and prints JSON metadata
-  with the saved path, byte count, checksums, and MIME type. `--output` sets a basename, not a path;
-  omitting it lets the download handler choose a filename.
-- **Failure or follow-up:** An invalid column list, format, or missing dataset fails. Large exports
-  may exceed the configured download size limit; use `--row-limit` or select fewer columns.
+- **Result:** Saves up to the configured byte limit under the download root and prints structured
+  metadata; use `--format json` for JSON. Check `file_path`, `file_size`, and `truncated` before
+  using the saved file. Checksums cover saved bytes only. `--output` sets a basename, not a path;
+  omitting it lets the download handler choose a filename. The default limit is 1,572,864 bytes.
+- **Failure or follow-up:** An invalid column list, format, or missing dataset fails. Exceeding the
+  byte limit returns success with a saved prefix and `truncated: true`; the prefix may end within
+  a row or record. Retry with a safely chosen larger positive byte limit set through
+  `FOUNDRY_AGENTIC_CLI_MAX_DOWNLOAD_BYTES`, or reduce `--row-limit` or the columns selected through
+  `--columns-json`. Check the new metadata before treating the export as complete.
 - **Example:** `pal-found-datasets dataset read-table DATASET_RID --table-format CSV --row-limit 100 --output orders.csv`
 
 ### dataset.get_schema_batch

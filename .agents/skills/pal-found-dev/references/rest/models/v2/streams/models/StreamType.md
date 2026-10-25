@@ -1,7 +1,7 @@
 # foundry_sdk.v2.streams.models.StreamType
 
 
-`LOW_LATENCY` is the default stream type. `HIGH_THROUGHPUT` favors larger batches with some added latency. Select it after checking stream metrics for batches near their maximum or producer batch expiry in downstream jobs.
+`LOW_LATENCY` is the default and suits most streams. `HIGH_THROUGHPUT` can add latency. Choose it only when in-platform metrics show average batch size equals the SDK's stated max match size, or jobs fail because Kafka producer batches expire.
 
 ## Exact SDK definition
 

@@ -1,0 +1,276 @@
+{
+  "reviewer": "/root/datasets_pages_review",
+  "completed_utc": "2026-10-21T07:07:51.171036+00:00",
+  "kind": "Independent whole-page review, separate from accepted REST074 operation review.",
+  "candidate_head": "e15df45a8edc790fb9f26f13019afa672ee7c562",
+  "cli_head": "2feb1fed64406ddc987d036ce7ae667d3bd11d9d",
+  "sdk_release": "1.101.0",
+  "summary": {
+    "PASS": 6,
+    "FAIL": 0,
+    "UNCERTAIN": 0,
+    "documented_examples": 33,
+    "actual_parser_pass": 33,
+    "actual_sdk_request_construction_pass": 33,
+    "pagination_operations_probed": 6,
+    "bounded_download_operations_probed": 2,
+    "corrected_prior_rest_fixtures_inspected": 8
+  },
+  "pages": [
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-datasets\\SKILL.md",
+      "relative_path": "SKILL.md",
+      "sha256": "fddbc4cad7c23c471aa2c46dd95c20e8cec4f5f572f4899693fb30a0ec916f21",
+      "verdict": "PASS",
+      "review_scope": "Entire page, including prose, inputs, results, examples, failure/follow-up and links.",
+      "checks": [
+        "Whole page: dataset/file/schema distinction, branch pointer/history, four transaction types and downstream incremental effect checked against SDK and official concepts.",
+        "33-operation index and reference links checked; 11 dataset +5 branch +5 file +6 transaction +6 View.",
+        "Parameter descriptions match pinned CLI, including required transaction type, JSON arrays, local upload path reused remotely, basename downloads, explicit branch get/transactions/delete selectors.",
+        "Download success can contain prefix; default 1572864, truncated flag, stored-byte checksums, positive limit env and table projection/row-limit recovery verified.",
+        "Dataset view versus View resource, no dataset branch merge, transform input/output limits checked against official concepts."
+      ],
+      "examples_checked": 0,
+      "unresolved_findings": []
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-datasets\\references\\01-dataset.md",
+      "relative_path": "references/01-dataset.md",
+      "sha256": "62baab65a723feedd60bfe19b3f8e8db7aaf10d2eb914ef804179343f829cb86",
+      "verdict": "PASS",
+      "review_scope": "Entire page, including prose, inputs, results, examples, failure/follow-up and links.",
+      "checks": [
+        "All 11 operation records and examples reviewed; real parser and actual SDK request construction pass.",
+        "Metadata/read split, health-check/report scope, stale schedules warning, default job order and cross-branch transaction listing checked.",
+        "get_schema SDK accepts end transaction and schema version ID; CLI exposes branch only. Page correctly limits installed CLI and does not advertise unsupported --version-id.",
+        "Batch schema array of datasetRid objects and max1000, structured schema payload, absent/inaccessible omission reviewed.",
+        "Table binary format, columns, row limit, branch and start/end selectors match source; View table-read exclusion matches frozen SDK.",
+        "get_schedules/jobs/transactions paging probes follow empty page and preserve cursor after two-page cap.",
+        "Table6-byte mock yields4-byte saved prefix/truncated true; retry under100-byte limit saves all6/truncated false; docs now explain completion checks."
+      ],
+      "examples_checked": 11,
+      "unresolved_findings": []
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-datasets\\references\\02-branch.md",
+      "relative_path": "references/02-branch.md",
+      "sha256": "d9509b1a947c35104c41ec98e3be39be8c4a8cd09d330ae0e7196c1d29e1df4e",
+      "verdict": "PASS",
+      "review_scope": "Entire page, including prose, inputs, results, examples, failure/follow-up and links.",
+      "checks": [
+        "All5 operation records reviewed; branch create optional committed transaction head and branch delete pointer semantics match SDK.",
+        "Corrected get/transactions examples explicitly supply master; actual SDK validation and RequestInfo construction now pass.",
+        "Page accurately notes current parser accepts omitted branch_name but SDK rejects None; omission no longer claimed to select default.",
+        "branch list/transactions paging probes follow empty first page and retain remaining cursor with bounded fetch."
+      ],
+      "examples_checked": 5,
+      "unresolved_findings": []
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-datasets\\references\\03-file.md",
+      "relative_path": "references/03-file.md",
+      "sha256": "2f2de0d6487a28197d1667062ae8d95fdf7d139d5ef5011ba153dc2fe1295c4f",
+      "verdict": "PASS",
+      "review_scope": "Entire page, including prose, inputs, results, examples, failure/follow-up and links.",
+      "checks": [
+        "All5 records reviewed; file content versus metadata, historical transaction selectors, path prefix and branch selectors match SDK/CLI.",
+        "File upload reads local file at --file-path and sends identical remote dataset path; local file bytes and supplied transaction RID forwarding checked.",
+        "Default upload auto transaction/commit, open manual transaction commit/abort follow-up and overwrite visibility match SDK docstring.",
+        "Delete leaves historical view, auto commits default transaction, manual DELETE transaction required; manual RID forwarded.",
+        "File list empty-page continuation checked. Binary content prefix then larger-limit complete retry checked; output basename/metadata guidance now correct."
+      ],
+      "examples_checked": 5,
+      "unresolved_findings": []
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-datasets\\references\\04-transaction.md",
+      "relative_path": "references/04-transaction.md",
+      "sha256": "614942c70d7b346d01bb82c6430328962f173e3b8b2cdb040ceaff7301b5a17e",
+      "verdict": "PASS",
+      "review_scope": "Entire page, including prose, inputs, results, examples, failure/follow-up and links.",
+      "checks": [
+        "All6 records and examples reviewed with real parser and SDK request construction.",
+        "abort discards modifications without branch update; commit preserves changes and moves branch pointer; open state and dataset membership conditions checked.",
+        "build/job are optional associations and reads; neither starts a build or job.",
+        "create requires explicit SNAPSHOT/APPEND/UPDATE/DELETE; optional branch and single open transaction precondition match SDK. RID flags, not positional transaction IDs, verified."
+      ],
+      "examples_checked": 6,
+      "unresolved_findings": []
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-datasets\\references\\05-view.md",
+      "relative_path": "references/05-view.md",
+      "sha256": "b36e13838fd86862cdfa935292c014dbe56bd16aa10af0a75531c8393900509e",
+      "verdict": "PASS",
+      "review_scope": "Entire page, including prose, inputs, results, examples, failure/follow-up and links.",
+      "checks": [
+        "All6 records/examples reviewed; JSON backing datasets/primary key payloads pass actual SDK model validation and request construction.",
+        "View union/backing dataset semantics distinguished from historical dataset view. Schema and project reference conditions checked against SDK errors and official concepts.",
+        "add ignores duplicate RID/branch pair, remove ignores absent pair and removal triggers SNAPSHOT on next update, replace changes full list checked against SDK descriptions.",
+        "Branch flag addresses View branch; backing dataset branch remains inside each payload entry.",
+        "add_primary_key requires absent existing key and creator uniqueness guarantees. Accepted corrected fixture includes requested returned key.",
+        "Accepted removal fixture preserves distinct surviving backing dataset rather than using ambiguous empty composition; no live graph/lifecycle success inferred."
+      ],
+      "examples_checked": 6,
+      "unresolved_findings": []
+    }
+  ],
+  "source_files_sha256": {
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\dataset.py": "2d677e8f1c5720a2788be353c005ebadccc0bb4c75306e896dd0de6d797a6001",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\branch.py": "fcf58c69b4c83e33b2308b455d273ebbeb7eff37d503243c80b421ab1d0c3f22",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\file.py": "b28a169423b605704265b12763fe8dffcfe1af5ec30a428c30aef3fcfac9a9d6",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\transaction.py": "527353e402dbd1a3a79d117750e12b0e8be7b850048b97e72dc6819a8c543ad7",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\datasets\\view.py": "4ac9900ae485757aa146cdc0b39dc91ba7e4cf5ede225701f5acfcb08fef1e8f",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\datasets\\scripts\\pal_found_datasets_cli.py": "c6a1597371c8425f6649b718dfac1f2fa114609d764f1a976ca96951dc538829",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\binary_download_handler.py": "60918187fad8f0a195fab73f1dc61b5ff4df124f2a8f697822f7ac39e84ffcab",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\pagination_helper.py": "b831ea4c2d64b48e5ed5a9558da2a19f4933d27d4290922d266030db1796e5db",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\config_loader.py": "b7ccddda86b733302f1f8f1800dfd172207361bdc661045b64871ded0e8af7bc",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\cli_parser.py": "35a813c652ecb5cfb791479c73bd88a74189b7e97d94c4f409d9d373ef0a5f47",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\maintainer\\rest-qa-074.json": "a27e9f189dca575cd7d1a4fda56b53c8bc706701c2878897bb3b7d40ae885df2",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\maintainer\\rest-domain-independent-review-074-current.json": "0159eef97949b27a81b4cac587f1e6f5ab4bebe46164d2a74cf7bb6007b1a98c",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\maintainer\\rest-domain-independent-review-074-survivor-retest.json": "7ec66a6874ab6a42329f172d53c687f76ce529bab215896081a296bf2aa9c230"
+  },
+  "commands": [
+    "git -C .ept/tmp/feature015_shared_cli_fixes rev-parse HEAD",
+    "python -c \"import inspect;from foundry_sdk.v2.datasets.file import FileClient; print(inspect.getdoc(FileClient.upload)); print(inspect.getdoc(FileClient.delete))\"",
+    "python -c \"import inspect;from foundry_sdk.v2.datasets.dataset import DatasetClient;from foundry_sdk.v2.datasets.branch import BranchClient;from foundry_sdk.v2.datasets.view import ViewClient;print(inspect.getdoc(DatasetClient.get_schema));print(inspect.signature(BranchClient.get));print(inspect.signature(BranchClient.transactions));print(inspect.getdoc(ViewClient.create));print(inspect.getdoc(ViewClient.add_backing_datasets))\"",
+    ".ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe .ept/tmp/feature015_datasets_pages_probe.py",
+    ".ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe .ept/tmp/feature015_datasets_pages_probe.py .ept/tmp/feature015_dataset_guidance_fix/.agents/skills/pal-found-datasets E:/learn/GenAI_Foundations_DA/git/foundry_cli/.ept/tmp/feature015_datasets_pages_author_retest.json",
+    ".ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe .ept/tmp/feature015_datasets_pages_probe.py .ept/tmp/feature015_integration/.agents/skills/pal-found-datasets E:/learn/GenAI_Foundations_DA/git/foundry_cli/.ept/tmp/feature015_datasets_pages_integrated_retest.json",
+    ".ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe .ept/tmp/feature015_datasets_pages_report.py"
+  ],
+  "network_guard": {
+    "socket_connect_connect_ex_create_connection_getaddrinfo": "denied",
+    "self_test": "PASS",
+    "event_loop": "Created before socket guard so Windows internal socketpair initializes; all probes run after guard."
+  },
+  "findings_and_retest": [
+    {
+      "code": "SUCCESSFUL_TRUNCATION_UNDOCUMENTED",
+      "original_verdict": "FAIL",
+      "pages": [
+        "SKILL.md",
+        "references/01-dataset.md",
+        "references/03-file.md"
+      ],
+      "evidence": "Original table record treated size limit as failure; file content/entry omitted saved-prefix success semantics.6-byte source succeeds saving4 bytes with truncated=true.",
+      "author": "/root/ci_parser_annotation_fix",
+      "author_commit": "f543f5011860fddd9b2c9021b98521bde3a60641",
+      "correction": "Guidance now identifies prefix success, default positive byte limit, saved-byte checksums, metadata checks and larger-limit/table reduction retry.",
+      "integrated_retest": "PASS both4-byte prefix and6-byte complete larger-limit retry."
+    },
+    {
+      "code": "BRANCH_NAME_NONE_REJECTED_BY_SDK",
+      "original_verdict": "FAIL",
+      "pages": [
+        "SKILL.md",
+        "references/02-branch.md"
+      ],
+      "evidence": "Original get/transactions examples parse but fail actual SDK1.101 validation because branch_name=None is not a string.",
+      "author": "/root/ci_parser_annotation_fix",
+      "author_commit": "f543f5011860fddd9b2c9021b98521bde3a60641",
+      "correction": "Examples explicitly pass --branch-name master and describe parser omission versus SDK requirement.",
+      "integrated_retest": "PASS both actual SDK calls now reach mocked RequestInfo transport."
+    }
+  ],
+  "prior_rest074": {
+    "scope": "Accepted operation semantics retained; whole-page review independently checks CLI guidance and examples.",
+    "corrected_fixture_checks": [
+      {
+        "operation": "v1.datasets.File.get",
+        "sha256": "309c095e5610817e7a94b13419accbe29b4ae670412d6f328be3c23ed0e4d536",
+        "example_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\074\\v1\\datasets\\File\\get.py",
+        "verdict": "PASS",
+        "check": "Accepted corrected fixture hash matches; corrected success identity/branch/key/surviving backing composition independently inspected."
+      },
+      {
+        "operation": "v1.datasets.File.upload",
+        "sha256": "1bdbfd68a31db4ca2c6bb24b382e6012a799c5973798ccb24a1e3608686380e0",
+        "example_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\074\\v1\\datasets\\File\\upload.py",
+        "verdict": "PASS",
+        "check": "Accepted corrected fixture hash matches; corrected success identity/branch/key/surviving backing composition independently inspected."
+      },
+      {
+        "operation": "v2.datasets.Dataset.get_schema",
+        "sha256": "94255699c49ecfafd1e1222da6e0f3f798f7d2535ed8b04306422a6fc15bde79",
+        "example_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\074\\v2\\datasets\\Dataset\\get_schema.py",
+        "verdict": "PASS",
+        "check": "Accepted corrected fixture hash matches; corrected success identity/branch/key/surviving backing composition independently inspected."
+      },
+      {
+        "operation": "v2.datasets.Dataset.put_schema",
+        "sha256": "3c2dd258157b171501151023bb1d1f15b8f62c898fd2d7bc828e0cd4e4d364d0",
+        "example_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\074\\v2\\datasets\\Dataset\\put_schema.py",
+        "verdict": "PASS",
+        "check": "Accepted corrected fixture hash matches; corrected success identity/branch/key/surviving backing composition independently inspected."
+      },
+      {
+        "operation": "v2.datasets.File.get",
+        "sha256": "636b1fc4358e15ed2748e01730521a98929fcabda3dad4c2090f2f39ea30577a",
+        "example_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\074\\v2\\datasets\\File\\get.py",
+        "verdict": "PASS",
+        "check": "Accepted corrected fixture hash matches; corrected success identity/branch/key/surviving backing composition independently inspected."
+      },
+      {
+        "operation": "v2.datasets.File.upload",
+        "sha256": "3d9d634a94728a790058303772058c22941d6106d445ee8cb8372d2fcf670f3c",
+        "example_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\074\\v2\\datasets\\File\\upload.py",
+        "verdict": "PASS",
+        "check": "Accepted corrected fixture hash matches; corrected success identity/branch/key/surviving backing composition independently inspected."
+      },
+      {
+        "operation": "v2.datasets.View.add_primary_key",
+        "sha256": "878e10fa7ffac25e172a798e709d9fafc8efbefa03e2cbdd5f4a7df195baab7d",
+        "example_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\074\\v2\\datasets\\View\\add_primary_key.py",
+        "verdict": "PASS",
+        "check": "Accepted corrected fixture hash matches; corrected success identity/branch/key/surviving backing composition independently inspected."
+      },
+      {
+        "operation": "v2.datasets.View.remove_backing_datasets",
+        "sha256": "efd9df1eaed3f200f672ce43824db62e50ab20c05fa6a48acf1625a7d582b89b",
+        "example_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\074\\v2\\datasets\\View\\remove_backing_datasets.py",
+        "verdict": "PASS",
+        "check": "Accepted corrected fixture hash matches; corrected success identity/branch/key/surviving backing composition independently inspected."
+      }
+    ]
+  },
+  "official_primary_context": [
+    {
+      "url": "https://www.palantir.com/docs/foundry/data-integration/datasets",
+      "reviewed": "Transaction type effects, dataset views, schema metadata; current context checked against frozen SDK."
+    },
+    {
+      "url": "https://www.palantir.com/docs/foundry/data-integration/branching",
+      "reviewed": "Dataset branch pointer, independent branch histories and lack of dataset branch merge."
+    },
+    {
+      "url": "https://www.palantir.com/docs/foundry/data-integration/views",
+      "reviewed": "Union without own files, schema/backing dataset/project prerequisites, primary key and transform constraints."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_datasets_pages_probe.py",
+      "sha256": "78bcd43aa21f50ea7f27000ebb387d7d6106eda7eaa07ce006dcb659c0ce7ed5"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_datasets_pages_probe.json",
+      "sha256": "945cf38c99e06f0592836863a9196a336d448f010ddb1afde6e4009d441eb0ac"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_datasets_pages_author_retest.json",
+      "sha256": "1bab2ab0d71865409126fcdff53e965fae4644cbe61d1f0a043c18965015971b"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_datasets_pages_integrated_retest.json",
+      "sha256": "83648ceb9fb1a3ba35143a70da07f3f2d4f73749a0b932b6247d6607709f9cae"
+    }
+  ],
+  "limits": [
+    "No live Foundry tenant calls, permission checks, mutation effects, commit/abort execution or recovery against server state.",
+    "New33 probes execute actual CLI parser and SDK validation/RequestInfo construction; SDK call_api boundary returns synthetic responses. They do not execute httpx serialization or decode server responses. Accepted REST074 transport/decode evidence remains separate.",
+    "Placeholder RIDs replaced after exact command parsing with syntactically valid synthetic identifiers; local orders.csv exists only under parent .ept/tmp.",
+    "Pagination and byte recovery probes establish client behavior with mocks, not service guarantees or all selector combinations.",
+    "PASS applies to exact six page hashes listed, not release readiness or unrelated skill pages."
+  ]
+}

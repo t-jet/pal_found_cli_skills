@@ -7,7 +7,9 @@ import json
 import sys
 import urllib.parse
 import datetime
+from io import BytesIO
 from pathlib import Path
+from zipfile import ZipFile
 
 import httpx
 from foundry_sdk import PalantirRPCException
@@ -18,7 +20,16 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/widgets/repositories/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/publish'
-EXPECTED_BODY = b'synthetic-response'
+def archive_bytes():
+    """Build a ZIP fixture; tenant manifest validation needs a real widget build."""
+    buffer = BytesIO()
+    with ZipFile(buffer, 'w') as archive:
+        archive.writestr('.palantir/widgets.config.json', json.dumps({'widgets': []}))
+        archive.writestr('counter.html', '<!doctype html><title>Counter fixture</title>')
+        archive.writestr('summary.html', '<!doctype html><title>Summary fixture</title>')
+    return buffer.getvalue()
+
+EXPECTED_BODY = archive_bytes()
 EXPECTED_QUERY = {'repositoryVersion': 'synthetic-value', 'preview': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/octet-stream', 'Accept': 'application/json'}
 SUCCESS = {'widgetSetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
@@ -31,7 +42,7 @@ ERRORS = [{'name': 'PublishReleasePermissionDenied',
   'parameters': {'repositoryRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}}]
 
 def invoke(client):
-    return client.with_raw_response.publish(repository_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', body=b'synthetic-response', repository_version='synthetic-value', request_timeout=30)
+    return client.with_raw_response.publish(repository_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', body=EXPECTED_BODY, repository_version='synthetic-value', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -46,6 +57,10 @@ def check_request(request):
     assert sorted(request.url.params.multi_items()) == sorted(expected.multi_items())
     if isinstance(EXPECTED_BODY, bytes):
         assert request.content == EXPECTED_BODY
+        with ZipFile(BytesIO(request.content)) as archive:
+            assert '.palantir/widgets.config.json' in archive.namelist()
+            assert isinstance(json.loads(archive.read('.palantir/widgets.config.json')), dict)
+            assert {'counter.html', 'summary.html'} <= set(archive.namelist())
     elif EXPECTED_BODY is not None:
         assert json.loads(request.content) == EXPECTED_BODY
 
@@ -75,7 +90,10 @@ def verify():
     with mock_resource(RepositoryClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
+            assert decoded['locator']['repositoryRid'] == EXPECTED_PATH.split('/')[5]
+            assert decoded['locator']['repositoryVersion'] == EXPECTED_QUERY['repositoryVersion']
         finally:
             raw.close()
     assert len(calls) == 1

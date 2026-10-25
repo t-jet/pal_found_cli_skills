@@ -26,6 +26,36 @@ Read [exact contract](../../contracts/v2/ontologies/Query/execute.md) for option
 
 Resolve the query type and its parameter contract, execute `ordersByStatus` with a bounded status value, inspect the typed output and record the query version used. Handle no rows separately from access or validation failure.
 
+```python
+ontology = "dispatch"  # authorized Ontology identifier
+query = client.ontologies.Ontology.QueryType.get(
+    ontology=ontology, query_api_name="ordersByStatus",
+    version=approved_function_version,
+)
+inputs = {"status": "Open"}
+declared = set(query.parameters)
+required = {name for name, parameter in query.parameters.items()
+            if parameter.required}
+assert required <= set(inputs) <= declared
+# Check each supplied value against query.parameters[name].data_type.
+result = client.ontologies.Query.execute(
+    ontology=ontology,
+    query_api_name="ordersByStatus",
+    parameters=inputs,
+    version=approved_function_version,
+)
+print(result.value)
+```
+
+Check each `QueryTypeV2.parameters` data type and the output type before using this call. Obtain
+`approved_function_version` from the published query/version record; omitting
+`version` runs the most recently published version, which may be a pre-release.
+Read metadata and execute with the same version to avoid validating inputs
+against a different schema.
+`ExecuteQueryResponse.value` can represent an empty business result without an
+API failure. Authorization, parameter type and query execution errors have
+separate contracts.
+
 The linked operation fixtures show actual SDK method invocation, serialized request and decoded response/error using a local mock transport. Their synthetic values are test data. Replace them with authorized identifiers and typed payloads from each linked contract; verify the live result under the intended identity before asserting a platform effect.
 
 ## Expected result and checks

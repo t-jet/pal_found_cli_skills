@@ -19,6 +19,11 @@ Source: the [Palantir Checkpoints overview](https://www.palantir.com/docs/foundr
 
 3 Foundry Checkpoints API v2 operations are available through the installed `pal-found-checkpoints` command.
 
+All three record operations send SDK `preview=True` internally, serializing
+`preview=true` in the query, including every search page. The CLI has no
+`--preview` option; do not add it or attempt to pass false. API availability
+and normal authorization still apply; local validation does not prove access.
+
 ## Usage
 
 ```bash
@@ -26,7 +31,7 @@ pal-found-checkpoints record <operation> [options]
 ```
 
 Common options: `--timeout`, `--format json|toon|auto`, `--pretty`,
-`--page-size`, `--page-token`, `--batch-pages` (on paged search).
+`--page-size`, `--page-token`, `--all`, `--max-pages` (on paged search).
 
 The CLI uses the shared config loader, access control guard, retry handler,
 pagination helper, structured error serializer, output formatter, and
@@ -41,27 +46,15 @@ SDK-native B3 tracing scope.
 ## Parameters and JSON
 
 Every operation accepts `--timeout`, `--format json|toon|auto`, and
-`--pretty`. `get-batch` uses `--records-json` (array of RIDs, at most 100).
+`--pretty`. `get-batch` uses `--records-json` (at most 100 objects, each with a
+`recordRid` field).
 `search` uses `--where-json` (typed filter), `--page-size`, `--page-token`,
 and `--sort-direction ASC|DESC`. Read the [record guide](references/01-record.md)
 for the visibility rule: batch retrieval omits missing and inaccessible records.
 
 `--timeout` limits a request in seconds; `--format` selects output encoding;
 `--pretty` indents it. On search, `--page-size` requests records per page,
-`--page-token` resumes at a returned continuation token, and `--batch-pages`
-caps automatic traversal. `--sort-direction` controls creation-time order.
-
-## Install requirement
-
-`pal-found-checkpoints` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```
+`--page-token` resumes at a returned continuation token. `--max-pages` bounds
+multi-page search; `--all` requests traversal up to the shared page cap and takes
+precedence if both are supplied. Check continuation metadata for remaining pages.
+`--sort-direction` controls creation-time order.

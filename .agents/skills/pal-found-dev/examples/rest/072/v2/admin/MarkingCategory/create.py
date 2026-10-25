@@ -24,7 +24,7 @@ EXPECTED_BODY = {'initialPermissions': {'organizationRids': ['ri.synthetic.main.
                         'isPublic': True},
  'name': 'synthetic-value',
  'description': 'synthetic-value'}
-EXPECTED_QUERY = {'preview': None}
+EXPECTED_QUERY = {'preview': True}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
 SUCCESS = {'id': 'synthetic-value',
  'name': 'synthetic-value',
@@ -53,7 +53,7 @@ ERRORS = [{'name': 'CreateMarkingCategoryMissingInitialAdminRole',
 def invoke(client):
     return client.with_raw_response.create(description='synthetic-value', initial_permissions={'organizationRids': ['ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'],
  'roles': [{'role': 'ADMINISTER', 'principalId': '00000000-0000-0000-0000-000000000001'}],
- 'isPublic': True}, name='synthetic-value', request_timeout=30)
+ 'isPublic': True}, name='synthetic-value', preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

@@ -58,21 +58,6 @@ and ignores `--max-pages`.
 `--settings-json` is its JSON override map. Publishing uses
 `--repository-version` as the build version and `--file` as the local zip path.
 
-## Install requirement
-
-`pal-found-widgets` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```
-
 ## Unsupported legacy operations
 
 The older Widgets design catalogue contained these operations, which the

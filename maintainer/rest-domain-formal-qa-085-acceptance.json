@@ -1,0 +1,32 @@
+{
+  "story": "DEV-STORY-085",
+  "formal_qa_status": "accepted",
+  "independent_qa_agent": "/root/formal085_finish/case085_approve_execute",
+  "observed_at_utc": "2026-10-20T07:28:59.982468+00:00",
+  "integration_agent": "/root/rest073_acceptance_integrate",
+  "closure": {
+    "TESTCASE-082": {
+      "status": "Closed",
+      "evidence": "maintainer/evidence/TESTCASE-082-closure.txt",
+      "sha256": "ee36db1abbc703ab4ce64b09ec628a4ad9955cfe4fefe1680ceac21a696dcdab",
+      "command": "python .ept/tools/tracker/tracker_cli.py get TESTCASE-082"
+    },
+    "TESTEXEC-082": {
+      "status": "Closed",
+      "evidence": "maintainer/evidence/TESTEXEC-082-closure.txt",
+      "sha256": "205d29a363aa1fe9a90b84048f9ae6627aaab69fe57c9477d681d1d187361ae9",
+      "command": "python .ept/tools/tracker/tracker_cli.py get TESTEXEC-082"
+    }
+  },
+  "artifacts": {
+    "maintainer/rest-domain-formal-qa-085.json": "134c1dec26f4453d9bc2baf85cd80b8f7f3c22bde7708ae582de68db65bb7396",
+    "maintainer/evidence/rest085_formal_execute.py": "0724fe0165924c7143a22fc920bf64acbdaa10ae42ba037d0bdbd807239ed007",
+    "maintainer/evidence/rest085_formal_execute.log": "40c2f048cf825205ed28088bb3390a285ff932bc775268e2a50461d90f464481",
+    "maintainer/evidence/TESTCASE-082-closure.txt": "ee36db1abbc703ab4ce64b09ec628a4ad9955cfe4fefe1680ceac21a696dcdab",
+    "maintainer/evidence/TESTEXEC-082-closure.txt": "205d29a363aa1fe9a90b84048f9ae6627aaab69fe57c9477d681d1d187361ae9"
+  },
+  "checks": 91,
+  "operations": 11,
+  "execution_candidate_commit": "3e7146b0b1fba03538de3b24164294612ab2f7c3",
+  "boundary": "Offline source-aligned formal execution only; no live tenant verification or enrollment claim."
+}

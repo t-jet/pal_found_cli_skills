@@ -42,6 +42,28 @@ Read [exact contract](../../contracts/v2/ontologies/CipherTextProperty/encrypt_w
 
 Use an approved test object/property. Encrypt a synthetic secret through its selected or default channel, store only the resulting ciphertext in the intended authorized path, then decrypt under a permitted identity. Do not print plaintext or tokens into logs.
 
+```python
+api = client.ontologies.CipherTextProperty
+encrypted = api.encrypt_with_default_channel(
+    ontology="dispatch", object_type="Ticket", property="privateNote",
+    plaintext="synthetic note", preview=True,
+)
+assert encrypted.ciphertext
+
+# After an authorized Action writes that ciphertext to Ticket T-1:
+decrypted = api.decrypt(
+    ontology="dispatch", object_type="Ticket", primary_key="T-1",
+    property="privateNote",
+)
+assert decrypted.plaintext == "synthetic note"
+```
+
+The default-channel path requires a configured `defaultCipherChannelRid`.
+For an existing object's channel use `encrypt` with its primary key instead.
+Encryption does not write the property, and decrypting requires separate
+permission on the stored object. Never print returned plaintext or ciphertext
+into routine logs. On denial, inspect channel configuration and acting identity.
+
 The linked operation fixtures show actual SDK method invocation, serialized request and decoded response/error using a local mock transport. Their synthetic values are test data. Replace them with authorized identifiers and typed payloads from each linked contract; verify the live result under the intended identity before asserting a platform effect.
 
 ## Expected result and checks

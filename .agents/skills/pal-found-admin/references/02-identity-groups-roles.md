@@ -2,6 +2,8 @@
 
 Groups collect users for shared access grants and are often supplied by an external identity provider. Granting a project role to a group lets its members inherit that discretionary access to project contents. A role controls permitted actions; membership in a group alone does not establish which role was granted, and a project role cannot bypass organization, marking, or classification requirements. Check direct or transitive membership with `group-member list` as appropriate, inspect the role and its assignments, and check membership expiration before relying on an access path. Use the returned principal and role IDs for changes. Examples use the installed Admin CLI. Replace sample identifiers before running.
 
+A timeout, transport failure, or exhausted retry during a group, membership, provider mapping, or expiration-policy change can leave the write applied. Read the current group, membership, mapping, or policy before replaying it. Reconcile the observed state with the intended change, including indirect access through nested groups; a failed response does not prove that nothing changed.
+
 ## Operation records
 
 ### group.create
@@ -48,9 +50,11 @@ Required input: no required operation arguments. The SDK yields `Group` records 
 
 List groups containing the authenticated user, directly or through nested groups. If the user belongs to A and A belongs to B, both appear. Unlike `group-membership list` for an arbitrary user, this self-service call does not require `api:admin-read` scope.
 
+Current API documentation requires `preview=true`; pass the supported `--preview` flag.
+
 Required input: no required operation arguments. The SDK returns `ListCurrentGroupsResponse` on success. The operation does not change Foundry state. Direct and transitive groups are included, so nested group access appears in the response. Authentication or permission errors stop the read; an empty visible result is not an API failure.
 
-**Example:** `pal-found-admin group list-current`
+**Example:** `pal-found-admin group list-current --preview`
 
 ### group.replace
 
@@ -104,17 +108,21 @@ Required input: `user_id`. By default, the response lists direct group membershi
 
 Read the group's membership expiration policy before adding temporary members. `maximum_duration` limits how far into the future an expiration may be, in seconds from the time a member is added. `maximum_value` is an absolute latest expiration timestamp. These are constraints on additions to the group, not expiration dates assigned by this read.
 
+Current API documentation requires `preview=true`; pass the supported `--preview` flag.
+
 Required input: `group_id`. The SDK returns `GroupMembershipExpirationPolicy` without changing the group. An unknown group or insufficient read permission prevents a usable response.
 
-**Example:** `pal-found-admin group-membership-expiration-policy get 0950264e-01c8-4e83-81a9-1a6b7f77621a`
+**Example:** `pal-found-admin group-membership-expiration-policy get 0950264e-01c8-4e83-81a9-1a6b7f77621a --preview`
 
 ### group_membership_expiration_policy.replace
 
 Replace the policy that limits future group membership expirations. `--maximum-duration` is a number of seconds measured from each new member's addition; `--maximum-value` is an absolute latest expiration timestamp. New member expirations must satisfy the configured limits. For example, 86400 seconds limits a temporary addition to less than one day into the future. Read the current policy first so the requested replacement keeps every limit you intend.
 
+Current API documentation requires `preview=true`; pass the supported `--preview` flag.
+
 Required input: `group_id`; optional limits are `--maximum-duration` and `--maximum-value`. The SDK returns the updated `GroupMembershipExpirationPolicy`. Confirm it with `get` before adding members. An invalid duration or timestamp, unknown group, or insufficient permission can reject the change.
 
-**Example:** `pal-found-admin group-membership-expiration-policy replace 0950264e-01c8-4e83-81a9-1a6b7f77621a --maximum-duration 86400 --maximum-value 2027-01-31T00:00:00.000Z`
+**Example:** `pal-found-admin group-membership-expiration-policy replace 0950264e-01c8-4e83-81a9-1a6b7f77621a --maximum-duration 86400 --maximum-value 2027-01-31T00:00:00.000Z --preview`
 
 ### group_provider_info.get
 

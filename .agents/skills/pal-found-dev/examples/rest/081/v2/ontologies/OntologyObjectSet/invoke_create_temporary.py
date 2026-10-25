@@ -18,18 +18,8 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/objectSets/createTemporary'
-EXPECTED_BODY = {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'type': 'methodInput'},
-                                                                       'link': 'synthetic-value',
-                                                                       'type': 'searchAround'},
-                                                         'link': 'synthetic-value',
-                                                         'type': 'searchAround'},
-                                           'link': 'synthetic-value',
-                                           'type': 'searchAround'},
-                             'link': 'synthetic-value',
-                             'type': 'searchAround'},
-               'link': 'synthetic-value',
-               'type': 'searchAround'}}
-EXPECTED_QUERY = {'branch': None, 'preview': None, 'sdkPackageRid': None, 'sdkVersion': None}
+EXPECTED_BODY = {'objectSet': {'type': 'base', 'objectType': 'Asset'}}
+EXPECTED_QUERY = {'branch': None, 'preview': True, 'sdkPackageRid': None, 'sdkVersion': None}
 EXPECTED_HEADERS = {'traceParent': None,
  'traceState': None,
  'Content-Type': 'application/json',
@@ -38,17 +28,7 @@ SUCCESS = {'objectSetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-0
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.create_temporary(ontology='synthetic-value', object_set={'objectSet': {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'type': 'methodInput'},
-                                                         'link': 'synthetic-value',
-                                                         'type': 'searchAround'},
-                                           'link': 'synthetic-value',
-                                           'type': 'searchAround'},
-                             'link': 'synthetic-value',
-                             'type': 'searchAround'},
-               'link': 'synthetic-value',
-               'type': 'searchAround'},
- 'link': 'synthetic-value',
- 'type': 'searchAround'}, request_timeout=30)
+    return client.with_raw_response.create_temporary(ontology='synthetic-value', object_set={'type': 'base', 'objectType': 'Asset'}, preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

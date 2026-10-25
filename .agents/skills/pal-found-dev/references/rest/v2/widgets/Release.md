@@ -8,7 +8,7 @@ set first, then choose the exact version. These methods are Private Beta in SDK
 
 ## get
 
-Use `client.widgets.release.get(widget_set_rid, release_version,
+Use `client.widgets.WidgetSet.Release.get(widget_set_rid, release_version,
 preview=True)` to retrieve one release. Verify the returned `widgetSetRid`,
 `version` and repository locator before using it in a host application.
 `ReleaseNotFound` can indicate a wrong set, version or unavailable release;
@@ -17,7 +17,7 @@ compare with a bounded list before selecting a replacement. See the
 
 ## list
 
-Use `client.widgets.release.list(widget_set_rid, page_size=...,
+Use `client.widgets.WidgetSet.Release.list(widget_set_rid, page_size=...,
 preview=True)` to discover versions. Ordinary sync returns a `ResourceIterator`;
 ordinary async returns an `AsyncResourceIterator`. For explicit page control,
 use the raw response wrapper and carry `nextPageToken` into `page_token`.
@@ -28,7 +28,7 @@ See the [exact contract](../../contracts/v2/widgets/Release/list.md),
 
 ## delete
 
-Use `client.widgets.release.delete(widget_set_rid, release_version,
+Use `client.widgets.WidgetSet.Release.delete(widget_set_rid, release_version,
 preview=True)` only after recording the exact release identity and checking
 which hosts refer to it. Success returns `None`. If the request times out,
 look up the exact version before deciding whether another delete is needed.

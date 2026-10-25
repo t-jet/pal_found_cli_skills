@@ -21,12 +21,20 @@ def parse_classifications(self, *, classification_strings: typing.List[str], pre
 
 | SDK parameter | Type | Required/default | Meaning |
 | --- | --- | --- | --- |
-| classification_strings | typing.List[str] | required | The classification strings to parse, e.g. 'S//NF'. Duplicate entries are ignored. At most 1000 entries are accepted. |
+| classification_strings | typing.List[str] | required | Classification strings to parse, e.g. 'S//NF'. The API requires 1–1000 submitted entries. Duplicates count toward this limit, although each distinct string is parsed once. |
 | preview | typing.Optional[core_models.PreviewMode] | None | Enables the use of preview functionality. |
 | request_timeout | typing.Optional[core.Timeout] | None | timeout setting for this request in seconds. |
 | _sdk_internal | core.SdkInternal | {} | SDK transport internals; use ordinary/raw/streaming wrapper APIs instead of treating this as application input. |
 
-## Documented operation errors
+The API returns `MissingBatchRequest` for an empty list and
+`BatchRequestSizeExceededLimit` for more than 1000 entries. SDK 1.101.0 forwards
+both requests without checking the list length. Validate the count before calling
+the SDK. These are API-level boundary errors, separate from the named errors in
+the SDK method's `throwable_errors` mapping below.
+
+[Official Parse Classifications API reference](https://www.palantir.com/docs/foundry/api/v2/admin-v2-resources/markings/parse-classifications).
+
+## SDK-declared operation errors
 
 | Error | Meaning |
 | --- | --- |

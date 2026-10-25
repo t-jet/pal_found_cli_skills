@@ -1,0 +1,70 @@
+{
+  "story": "DEV-STORY-072",
+  "testcase": "TESTCASE-075",
+  "executor_identity": "/root/formal072_resume/independent072",
+  "harness_sha256": "5b04683a2d658432fa0671889b83113bb16c6998a148beb4290e4a05da67eb06",
+  "cases_sha256": "99cf3b938c7b7525bde7b9ffab42607128d1ca6e18cee183ee38e464bcc9d62c",
+  "operations": 40,
+  "declared_errors": 113,
+  "execution": "FAIL",
+  "created_at": "2026-10-21T06:54:52.773599+00:00",
+  "results": [
+    {
+      "case_id": "REST072",
+      "check": "socket_traps_active",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F072-01",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-01",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-01",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-01",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-01",
+      "check": "error_AuthenticationProviderNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-01",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-01",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-01",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    }
+  ],
+  "failure": "SDKInternalError('Expecting property name enclosed in double quotes: line 1 column 2 (char 1)')"
+}

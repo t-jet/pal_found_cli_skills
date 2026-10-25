@@ -6,6 +6,7 @@ No network connection or tenant mutation occurs.
 
 import socket
 from time import sleep
+from typing import Any
 from unittest.mock import patch
 
 import httpx
@@ -28,10 +29,12 @@ def deny_network(*_args, **_kwargs):
 
 
 def exercise(build_terminal: str, *, timeout_at: str | None = None,
-             abort: bool = False) -> dict[str, object]:
+             abort: bool = False, fault_at: str | None = None,
+             trace: dict[str, Any] | None = None) -> dict[str, object]:
     """Exercise one transaction and its separately submitted Build RID."""
-    state = {"transaction": "ABSENT", "build_reads": 0, "file_uploaded": False,
-             "mutations": [], "staged_reads": 0, "visible_reads": 0}
+    state: dict[str, Any] = trace if trace is not None else {}
+    state.update({"transaction": "ABSENT", "build_reads": 0, "file_uploaded": False,
+                  "mutations": [], "staged_reads": 0, "visible_reads": 0})
 
     def handler(request):
         path = request.url.path
@@ -69,7 +72,9 @@ def exercise(build_terminal: str, *, timeout_at: str | None = None,
                 assert "startTransactionRid" not in params
                 state["visible_reads"] += 1
             if path.endswith("/content"):
-                return httpx.Response(200, content=PAYLOAD)
+                view = "staged-content" if state["transaction"] == "OPEN" else "visible-content"
+                content = b"unexpected-content" if fault_at == view else PAYLOAD
+                return httpx.Response(200, content=content)
             return httpx.Response(200, json={"path": FILE, "transactionRid": TRANSACTION,
                                             "sizeBytes": len(PAYLOAD), "updatedTime": TIME})
         if request.method == "POST" and path == f"{dataset_root}/transactions/{TRANSACTION}/commit":
@@ -92,7 +97,10 @@ def exercise(build_terminal: str, *, timeout_at: str | None = None,
                                             "status": state["transaction"], "createdTime": TIME})
         if request.method == "GET" and path == f"{dataset_root}/branches/{BRANCH}":
             assert state["transaction"] == "COMMITTED"
-            return httpx.Response(200, json={"name": BRANCH, "transactionRid": TRANSACTION})
+            branch_transaction = ("ri.synthetic.main.transaction.00000000-0000-0000-0000-000000000002"
+                                  if fault_at == "branch-pointer" else TRANSACTION)
+            return httpx.Response(200, json={"name": BRANCH,
+                                            "transactionRid": branch_transaction})
         if request.method == "GET" and path == f"/api/v2/orchestration/builds/{BUILD}":
             assert state["transaction"] == "COMMITTED"
             state["build_reads"] += 1

@@ -18,7 +18,7 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/admin/groups/00000000-0000-0000-0000-000000000001/groupMembers/add'
-EXPECTED_BODY = {'principalIds': ['00000000-0000-0000-0000-000000000001']}
+EXPECTED_BODY = {'principalIds': ['00000000-0000-0000-0000-000000000002']}
 EXPECTED_QUERY = {}
 EXPECTED_HEADERS = {'Content-Type': 'application/json'}
 SUCCESS = None
@@ -38,10 +38,10 @@ ERRORS = [{'name': 'AddGroupMembersPermissionDenied',
  {'name': 'PrincipalNotFound',
   'status': 404,
   'code': 'NOT_FOUND',
-  'parameters': {'principalId': '00000000-0000-0000-0000-000000000001'}}]
+  'parameters': {'principalId': '00000000-0000-0000-0000-000000000002'}}]
 
 def invoke(client):
-    return client.with_raw_response.add(group_id='00000000-0000-0000-0000-000000000001', principal_ids=['00000000-0000-0000-0000-000000000001'], request_timeout=30)
+    return client.with_raw_response.add(group_id='00000000-0000-0000-0000-000000000001', principal_ids=['00000000-0000-0000-0000-000000000002'], request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

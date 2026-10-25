@@ -69,21 +69,29 @@ def test_canonical_skill_tree_has_one_renamed_skill_set() -> None:
 
 
 def test_namespace_skills_are_documentation_only() -> None:
-    # FEATURE-011 (DEV-STORY-038/039): every namespace skill is doc-only; no
-    # scripts/ dir and no Python launcher remains, and each SKILL.md invokes
-    # the installed pal-found-* command.
+    # FEATURE-011 (DEV-STORY-038/039) and FEATURE-012 (SA-DES-012 section 5):
+    # every namespace skill is doc-only. No scripts/ dir, no examples/ dir, no
+    # executable file anywhere in the folder, and each SKILL.md invokes the
+    # installed pal-found-* command. QUESTION-189 extended this gate beyond the
+    # original scripts/*.py check after a fixture script shipped under examples/.
+    script_suffixes = {".py", ".pyi", ".sh", ".ps1", ".bat", ".cmd", ".js", ".mjs"}
     for name in sorted(EXPECTED_SKILLS - {"pal-found", "pal-found-dev"}):
         skill_dir = SKILLS / name
         assert not (skill_dir / "scripts").exists(), (
             f"{name} must not contain a scripts/ directory"
         )
-        python_files = [
-            path
+        assert not (skill_dir / "examples").exists(), (
+            f"{name} must not contain an examples/ directory"
+        )
+        executables = [
+            path.relative_to(skill_dir).as_posix()
             for path in skill_dir.rglob("*")
-            if path.is_file() and path.suffix == ".py"
+            if path.is_file()
+            and "__pycache__" not in path.parts
+            and path.suffix.lower() in script_suffixes
         ]
-        assert python_files == [], (
-            f"{name} must not contain Python files: {python_files}"
+        assert executables == [], (
+            f"{name} must not contain executable files: {executables}"
         )
         skill_text = (skill_dir / "SKILL.md").read_text(encoding="utf-8")
         assert "python pal_found_" not in skill_text, (

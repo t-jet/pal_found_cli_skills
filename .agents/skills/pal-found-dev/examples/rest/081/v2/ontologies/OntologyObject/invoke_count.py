@@ -19,13 +19,13 @@ from mock_transport import mock_resource
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/objects/Asset/count'
 EXPECTED_BODY = None
-EXPECTED_QUERY = {'branch': None, 'preview': None, 'sdkPackageRid': None, 'sdkVersion': None}
+EXPECTED_QUERY = {'branch': None, 'preview': True, 'sdkPackageRid': None, 'sdkVersion': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {}
+SUCCESS = {'count': 3}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.count(ontology='synthetic-value', object_type='Asset', request_timeout=30)
+    return client.with_raw_response.count(ontology='synthetic-value', object_type='Asset', preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -69,10 +69,12 @@ def verify():
     with mock_resource(OntologyObjectClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
         finally:
             raw.close()
     assert len(calls) == 1
+    assert decoded['count'] == 3
     for error_case in ERRORS:
         def failure(request):
             check_request(request)

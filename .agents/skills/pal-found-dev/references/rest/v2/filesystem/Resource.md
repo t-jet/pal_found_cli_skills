@@ -6,6 +6,10 @@ A resource RID remains the stable identity when its path changes. Read access re
 
 Prepare SDK 1.101.0 and an identity authorized for the exact tenant resource. Check each contract for its API stage and endpoint-specific restrictions. No universal role or retry guarantee is implied by these operations. For an uncertain write, read the exact RID and effect before repeating it.
 
+## Python client route
+
+With a configured `FoundryClient` named `client`, use `client.filesystem.Resource` for this resource. Each operation below is a method on that resource client; `with_raw_response` and `with_streaming_response` are wrappers available where the linked contract lists them. The offline fixture constructs the resource client directly so it can replace HTTP transport without tenant access.
+
 ## Operations
 
 ### add_markings
@@ -73,3 +77,47 @@ Read [exact SDK arguments, HTTP request, result and errors](../../contracts/v2/f
 Restore the RID and its directly trashed ancestors. Read its resulting parent/path and trash status; an already active resource is left as it is.
 
 Read [exact SDK arguments, HTTP request, result and errors](../../contracts/v2/filesystem/Resource/restore.md) and run the [offline SDK fixture](../../../../examples/rest/073/v2/filesystem/Resource/restore.py) from the skill root. The fixture checks serialization, synthetic response decoding and source-declared errors without contacting an enrollment.
+
+## Resolve access, then change one resource
+
+Use a prepared `FoundryClient` and a RID selected from an authorized folder or
+project read. Check the returned RID before applying any change. Direct
+Markings and effective access requirements answer different questions:
+
+```python
+resource = client.filesystem.Resource.get(resource_rid, request_timeout=30)
+assert resource.rid == resource_rid
+requirements = client.filesystem.Resource.get_access_requirements(
+    resource_rid, request_timeout=30
+)
+effective = {item.marking_id for item in requirements.markings}
+direct = {item.marking_id for item in requirements.markings
+          if item.is_directly_applied}
+assert direct <= effective
+
+client.filesystem.Resource.add_markings(
+    resource_rid, marking_ids=[approved_marking_id], request_timeout=30
+)
+checked = client.filesystem.Resource.get_access_requirements(
+    resource_rid, request_timeout=30
+)
+assert approved_marking_id in {item.marking_id for item in checked.markings}
+```
+
+`add_markings` returns `None`; verify state with a read. A direct Marking may
+affect who can see the resource, and inherited Markings remain even after a
+direct Marking is removed. Resolve `approved_marking_id` through the
+organization's marking policy. If a read is denied after the write, use an
+authorized administrator to inspect effective requirements; do not infer that
+the write failed from the caller's lost visibility.
+
+## Trash and recovery decision
+
+`delete(resource_rid)` moves the resource to trash. Preserve RID, path and
+parent before calling, then read trash status if access permits. `restore`
+restores the RID and directly trashed ancestors. `permanently_delete` requires
+the resource to be directly trashed and has no restore route. If a delete or
+restore response is uncertain, read the exact RID and status before repeating
+it. Do not substitute a resource found at the old path; path lookup can now
+resolve to a different RID. [Role assignments](ResourceRole.md) and
+[project references](ProjectResourceReference.md) need separate checks.

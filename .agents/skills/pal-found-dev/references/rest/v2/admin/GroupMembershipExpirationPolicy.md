@@ -25,9 +25,10 @@ and reconcile through authorized reads before repeating.
 
 ### get
 
-Read the policy for the selected group and inspect its complete local model before
-deciding whether membership should expire. Absence, a default and an explicit expiration
-setting have different meanings in the model.
+Read the policy for the selected group and inspect `maximumDuration` and `maximumValue`
+before deciding whether membership should expire. A missing policy returns the named
+not-found error; a returned policy may omit either limit. The SDK model does not define
+tenant default behavior for omitted limits.
 
 [Exact parameters, request, result and error models](../../contracts/v2/admin/GroupMembershipExpirationPolicy/get.md).
 

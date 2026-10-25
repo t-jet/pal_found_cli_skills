@@ -6,6 +6,10 @@ A Website deployment selects an uploaded application version for serving. Upload
 
 Prepare SDK 1.101.0 and an identity authorized for the exact tenant resource. Check each contract for its API stage and endpoint-specific restrictions. No universal role or retry guarantee is implied by these operations. For an uncertain write, read the exact RID and effect before repeating it.
 
+## Python client route
+
+With a configured `FoundryClient` named `client`, use `client.third_party_applications.ThirdPartyApplication.Website` for this resource. Each operation below is a method on that resource client; `with_raw_response` and `with_streaming_response` are wrappers available where the linked contract lists them. The offline fixture constructs the resource client directly so it can replace HTTP transport without tenant access.
+
 ## Operations
 
 ### deploy

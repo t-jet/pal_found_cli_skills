@@ -1,0 +1,302 @@
+{
+  "reviewed_at_utc": "2026-10-21T07:00:25.056311+00:00",
+  "review_type": "Independent whole-page prose, examples, parser, SDK wire, pagination, errors, security and recovery review",
+  "status": "PASS",
+  "scope": "Only three assigned pages. No page, ledger or tracker edits.",
+  "sdk": {
+    "version": "1.101.0",
+    "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk",
+    "note": "Installed release used for probes. Supplied SDK snapshot also checked; snapshot version is unpublished 0.0.0 and is not identified as release 1.101.0."
+  },
+  "cli_checkout_head": "2feb1fed64406ddc987d036ce7ae667d3bd11d9d",
+  "pages": [
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-admin\\references\\04-governance-access.md",
+      "sha256": "d92e884a4d56b84b7121705934a61684e5d87a3463fd7c19f1e76aed29605cbb",
+      "status": "PASS",
+      "checks": [
+        "Read every paragraph and all 16 operation records, including recovery and mutation scope.",
+        "Compared every required/optional CLI input and SDK return type to operation catalog and installed SDK 1.101.0.",
+        "All 16 examples parsed and serialized into one SDK HTTP request each, intercepted by MockTransport.",
+        "Confirmed marking member pageSize ignored, api:admin-write required, transitive membership, iterator result and stderr pagination metadata.",
+        "Confirmed marking roles and organization marking ADMINISTER restriction; principalId/role wire pairs.",
+        "Confirmed organization create/get/list_available_roles/replace inputs, returned Organization and host semantics.",
+        "Confirmed guest primary-member no-op behavior. Guest and organization role response models permit nextPageToken while SDK methods and CLI lack continuation inputs.",
+        "Confirmed organization role assignment maximum 100 and roleId/principalId wire schema.",
+        "Official organization and propagation docs support primary/guest membership, space inheritance and mandatory control prose."
+      ],
+      "findings": [],
+      "uncertainty": []
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-admin\\SKILL.md",
+      "sha256": "ca195891ff4c2abda9a79e337f25a9aef20241fd06dbcec6d40f169e308a3e79",
+      "status": "PASS",
+      "checks": [
+        "Read whole capability, usage, operation index and parameter table.",
+        "Catalog and tests establish 66 unique Admin operations; groups total 20+18+12+16.",
+        "Common parser supports timeout/format/pretty. Paged operations support page-size/page-token/batch-pages; helper preserves short/empty-page cursors and emits stderr metadata.",
+        "Checked every parameter-table row against SDK models/descriptions: reserved multipass attributes, display types, JSON structures, user status/include, expiry and transitive/include-expirations exclusion.",
+        "queryString JSON filter matches SDK PrincipalFilterType and UserSearchFilter shape.",
+        "Verified shared config, ADMIN guard, retry, error serializer, formatter and invocation B3 scope by code and tests.",
+        "Official administration/security docs support identity, role delegation and mandatory-control descriptions."
+      ],
+      "findings": [],
+      "uncertainty": []
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-audit\\SKILL.md",
+      "sha256": "90f95b408320c92cf389d03f648785cde7ed623dedd7d268087bbc5b40b9ae4d",
+      "status": "PASS",
+      "checks": [
+        "Read whole capability, access prerequisites, command table, operations, workflow, shared behavior, exit taxonomy and parameters.",
+        "Official audit docs confirm organization workflow role, generated service user, audit-read application access and OAuth scope; role and scope are separate grants.",
+        "Both examples parsed and serialized with SDK 1.101.0 under MockTransport.",
+        "Confirmed strict date parser, initial start-date requirement, inclusive end date, continuation without start date and empty-page polling cursor handling.",
+        "Verified raw response decoding, default one actual page, stderr metadata and 40-page hard cap.",
+        "Verified bounded streaming download, filename handling, JSON metadata even with toon and no audit-content stdout/logging in supported paths.",
+        "AUDIT guard precedes client construction and download filesystem access; metadata-only allows list and blocks content.",
+        "Checked timeout/retry/cancellation, structured exits 1-9, output, B3 propagation and no W3C additions using code and offline tests."
+      ],
+      "findings": [],
+      "uncertainty": []
+    }
+  ],
+  "source_files": [
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\config_loader.py",
+      "sha256": "b7ccddda86b733302f1f8f1800dfd172207361bdc661045b64871ded0e8af7bc"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\access_control_guard.py",
+      "sha256": "62aca2ad1b1504dbcdf1b1cee92f8e025cb3870694f506971bb24eb23efead61"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\pagination_helper.py",
+      "sha256": "b831ea4c2d64b48e5ed5a9558da2a19f4933d27d4290922d266030db1796e5db"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\error_serializer.py",
+      "sha256": "8ef68e5e0065411c297d7119d40ee0898693062c2f7df02d2318c679151ac02b"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\sdk_error_utils.py",
+      "sha256": "b5b34644179677b2cda83237c93e8b038583ba2c300764e2734e8d05392e2d4e"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\retry.py",
+      "sha256": "3464aa78aaeaf3a592e789e5f0fb612f4c14cbc412ad0b37919f9b4c4487dda0"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\output_formatter.py",
+      "sha256": "4b7f78a68cddb999a0474195f76545bd8f755d80ee18e71c9d0628c4718b7383"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\tracing_provider.py",
+      "sha256": "0cdc2b00727b83b723329cc71ac6179bb73860e47f0c4fcf14a6fec7f3b1cc56"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\async_client_factory.py",
+      "sha256": "6ca5c512a625ca019ff6070f8b4d9808db8946aa3dd18cce0268d0d3a62cd6b4"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\binary_download_handler.py",
+      "sha256": "60918187fad8f0a195fab73f1dc61b5ff4df124f2a8f697822f7ac39e84ffcab"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\cli_parser.py",
+      "sha256": "35a813c652ecb5cfb791479c73bd88a74189b7e97d94c4f409d9d373ef0a5f47"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\timeout_config.py",
+      "sha256": "76b9896c096f689734e106b9be559ea59d2f22123799d423f39446172263e4c7"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\admin\\scripts\\pal_found_admin_cli.py",
+      "sha256": "82ad3f6b388fc6b2f34f006b640291d8f951266a807a0bf1819b8472e61217c7"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\audit\\scripts\\pal_found_audit_cli.py",
+      "sha256": "c6157ccbad678429bfd41f92681d55382ac2f8cf8fea21dfd5a44a223f3b1664"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\audit\\metadata-allow-list.md",
+      "sha256": "61d0024c4c08639b804d647c7952cb1333ec71360b3b07b806cdd7e2a9bdd492"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking_member.py",
+      "sha256": "91221537f59ff65d3d204f5695bfb6626bba1c57c531a4a62eb7ef2bf32eb1a1"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking_role_assignment.py",
+      "sha256": "7134a249a96e059a6ee2d4c5a57a78950c5afc38bf3bf2fe873abfa8cd4f8f8f"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\organization.py",
+      "sha256": "d4d3c63cb1d22a69e71f5810359213fc1d7e3b338e0c21d16d81ec14eaf11246"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\organization_guest_member.py",
+      "sha256": "5c86c45850a967e5d907b6b1e7ab3bf88b8291989f65a2231cacccb74174a62b"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\organization_role_assignment.py",
+      "sha256": "84a5413ae5c2deda602aad02c48312ce175e0cdf9740c1d7563a1009c6e9ac48"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\models.py",
+      "sha256": "326356d1c91e7f061ef94cc9e2ba05a6468142e0eb960b50915673b3f6fc7b9f"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\group.py",
+      "sha256": "60010cfe82e39f188d0599c63d28e42d0a0b32d1b28c0565948442471c9c0176"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\group_member.py",
+      "sha256": "accf5143e289576d0eef922d7db9dd506bbb1e1aeebf0a04cb5616062beee5bf"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\group_membership_expiration_policy.py",
+      "sha256": "0841e5adf0b6e22863fa8edda7c612cd911961f7b96c6bc40b7cf8cf1ffcbd57"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking.py",
+      "sha256": "fe6f205fa99922940d7a8e96387c664376ad18fe3f22794e6dea4bcfa686d6d7"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\admin\\marking_category.py",
+      "sha256": "c00cdd6eb8cd2a2d6ecee921ed40df2206069f95ad5edec483d81baed1a6ebba"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\audit\\log_file.py",
+      "sha256": "e1d7f069854638f47c24ff0ff517fdeca6f5880501feee9a66c7dcaf9533a93e"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\audit\\models.py",
+      "sha256": "d94f86cc593ce399687dcab3411284dd3630075ea51609fdfcf43199518a1b58"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\_version.py",
+      "sha256": "ef3616a11d49a728332e0138b0e505b884af85103aef2fa277fbf8c4adb1aa7e"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\docs\\customer_input\\foundry-platform-python\\foundry_sdk\\v2\\admin\\marking_member.py",
+      "sha256": "91221537f59ff65d3d204f5695bfb6626bba1c57c531a4a62eb7ef2bf32eb1a1"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\docs\\customer_input\\foundry-platform-python\\foundry_sdk\\v2\\admin\\marking_role_assignment.py",
+      "sha256": "7134a249a96e059a6ee2d4c5a57a78950c5afc38bf3bf2fe873abfa8cd4f8f8f"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\docs\\customer_input\\foundry-platform-python\\foundry_sdk\\v2\\admin\\organization.py",
+      "sha256": "d4d3c63cb1d22a69e71f5810359213fc1d7e3b338e0c21d16d81ec14eaf11246"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\docs\\customer_input\\foundry-platform-python\\foundry_sdk\\v2\\admin\\organization_guest_member.py",
+      "sha256": "5c86c45850a967e5d907b6b1e7ab3bf88b8291989f65a2231cacccb74174a62b"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\docs\\customer_input\\foundry-platform-python\\foundry_sdk\\v2\\admin\\organization_role_assignment.py",
+      "sha256": "84a5413ae5c2deda602aad02c48312ce175e0cdf9740c1d7563a1009c6e9ac48"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\docs\\customer_input\\foundry-platform-python\\foundry_sdk\\v2\\admin\\models.py",
+      "sha256": "84fc1c2df49b685bb62cbf0a81940afd13fa13a5cb628952b2fcb85472667dce"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\docs\\customer_input\\foundry-platform-python\\foundry_sdk\\v2\\admin\\group.py",
+      "sha256": "60010cfe82e39f188d0599c63d28e42d0a0b32d1b28c0565948442471c9c0176"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\docs\\customer_input\\foundry-platform-python\\foundry_sdk\\v2\\admin\\group_member.py",
+      "sha256": "a855053b8c4ad03dc75d3c8adf77951bea91986db5c42319531ebbe9c17969e1"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\docs\\customer_input\\foundry-platform-python\\foundry_sdk\\v2\\admin\\group_membership_expiration_policy.py",
+      "sha256": "0841e5adf0b6e22863fa8edda7c612cd911961f7b96c6bc40b7cf8cf1ffcbd57"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\docs\\customer_input\\foundry-platform-python\\foundry_sdk\\v2\\admin\\marking.py",
+      "sha256": "1a07162a319ba78a47d4bf6a352a714fc6dd487fcdc3a976fa3b300bbfacc527"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\docs\\customer_input\\foundry-platform-python\\foundry_sdk\\v2\\admin\\marking_category.py",
+      "sha256": "c00cdd6eb8cd2a2d6ecee921ed40df2206069f95ad5edec483d81baed1a6ebba"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\docs\\customer_input\\foundry-platform-python\\foundry_sdk\\v2\\audit\\log_file.py",
+      "sha256": "e1d7f069854638f47c24ff0ff517fdeca6f5880501feee9a66c7dcaf9533a93e"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\docs\\customer_input\\foundry-platform-python\\foundry_sdk\\v2\\audit\\models.py",
+      "sha256": "009eeee7c2a08904165e92b01b927e7aeb38cbd06bcb9ef196a44162021b979e"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\docs\\customer_input\\foundry-platform-python\\foundry_sdk\\_version.py",
+      "sha256": "7f737b57e9d25fe15e0db0aa128a736d8f1d0f77c2f4e17c846965938422e60b"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_admin_cli.py",
+      "sha256": "7737d09ff7c356e4cd1fb76269a6f783af9c34f3979d88ee2ddca4ad208e97e7"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_audit_cli.py",
+      "sha256": "7efa079b2b5c101ee827847726d4847a999f75285675b29105123eb09cdbc968"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_required_preview_wire.py",
+      "sha256": "62d081e6b68ab0f1289e7c86273e18a33e944b324f2e7708a07f0460e8fa50c4"
+    }
+  ],
+  "online_sources": [
+    {
+      "url": "https://www.palantir.com/docs/foundry/security/orgs-and-spaces",
+      "checked": "Primary/guest memberships, project organization requirement, spaces and Ontology restrictions."
+    },
+    {
+      "url": "https://www.palantir.com/docs/foundry/security/access-control-propagation",
+      "checked": "Mandatory control derivation and discretionary resource/read boundaries."
+    },
+    {
+      "url": "https://www.palantir.com/docs/foundry/security/audit-logs-overview",
+      "checked": "Audit purpose, SIEM, workflow role, service user, OAuth scope and polling cursor handling."
+    },
+    {
+      "url": "https://www.palantir.com/docs/foundry/administration/overview",
+      "checked": "Enrollment, organization, authentication and identity administration scope."
+    },
+    {
+      "url": "https://www.palantir.com/docs/foundry/security/overview",
+      "checked": "Combined mandatory and discretionary controls."
+    }
+  ],
+  "actual_test_probes": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest [three focused modules]",
+      "status": "ENVIRONMENT_ERROR",
+      "result": "Collection failed: root virtualenv lacks toon_format. Rerun used existing QA environment."
+    },
+    {
+      "command": ".ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe -m pytest .ept/tmp/feature015_shared_cli_fixes/tests/test_pal_found_admin_cli.py .ept/tmp/feature015_shared_cli_fixes/tests/test_pal_found_audit_cli.py .ept/tmp/feature015_shared_cli_fixes/tests/test_required_preview_wire.py -q --basetemp=.ept/tmp/feature015_remaining_admin_audit_pytest2",
+      "status": "PASS",
+      "result": "321 passed in 7.01s. PYTHONPATH targets shared_cli_fixes/src."
+    },
+    {
+      "command": ".ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe .ept/tmp/feature015_remaining_admin_audit_probe.py",
+      "status": "PASS",
+      "result": "18/18 examples parse and reach SDK serialized request. MockTransport prevents live requests.",
+      "script": {
+        "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_remaining_admin_audit_probe.py",
+        "sha256": "d375a7354fafadd5581a9b0e7c0addffe970e95e741089fb9438b278a13d0ea3"
+      },
+      "evidence": {
+        "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_remaining_admin_audit_examples.json",
+        "sha256": "19298f2ac246dd706e6e97987c8e6a49cde5ab30a1f05c76e950b11d09a11d9e"
+      }
+    }
+  ],
+  "limitations": [
+    "No live Foundry requests. Server authorization, resource existence and effective access outcomes checked against authoritative source/docs, without tenant execution."
+  ],
+  "supported_patches_needed": []
+}

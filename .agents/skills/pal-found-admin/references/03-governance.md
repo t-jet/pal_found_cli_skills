@@ -2,13 +2,15 @@
 
 Markings, classification-based access controls (CBAC), and organizations are mandatory requirements applied alongside project role grants. A user must satisfy the requirements carried by a resource even when the user has a project role; mandatory requirements can follow data into derived outputs. Ordinary markings applied together require access to each marking. CBAC is enrollment-configured and is not enabled by default; classification categories can have different conjunction or disjunction rules, so inspect the configured restrictions rather than assuming ordinary marking behavior. A marking category groups markings and controls their visibility and administration. Before changing a category or marking, inspect its current definition, membership, and role assignments, then verify the intended access after the change. Examples use the installed Admin CLI. Replace sample identifiers before running.
 
+A timeout, transport failure, or exhausted retry during a marking or category write can leave the change applied. Read the current marking or category, its membership and permissions before replaying the request. For creates, reconcile the returned identifier or inspect existing definitions before creating another resource. A failed response does not prove that nothing changed.
+
 ## Operation records
 
 ### cbac_banner.get
 
 Compute the classification banner to display for a set of markings. Supply marking IDs with `--marking-ids`; `--display-type PORTION_MARKING` is the short form for a paragraph, while `BANNER_LINE` is the longer document-header form. The response contains banner text and colors; it does not grant access.
 
-Required input: no required operation arguments. Optional: `--display-type`, `--marking-ids`. The SDK returns `CbacBanner` on success. The operation does not change Foundry state.  An unknown ID or insufficient read permission prevents a usable response.
+Required input: no required operation arguments. Optional: `--display-type`, `--marking-ids`. The SDK returns `CbacBanner` on success. The operation does not change Foundry state.  Unrecognized marking IDs are ignored and omitted from the response markings; duplicate IDs are ignored too. Authentication or permission failures can still stop the read.
 
 **Example:** `pal-found-admin cbac-banner get`
 
@@ -24,9 +26,11 @@ Required input: no required operation arguments. Optional: `--marking-ids`. The 
 
 List host addresses associated with the enrollment, useful when checking which Foundry host belongs to that administrative boundary. Results are paged, and page length may differ from `--page-size`; follow `nextPageToken` until absent.
 
+Current API documentation requires `preview=true`; pass the supported `--preview` flag.
+
 Required input: `enrollment_rid`. The SDK yields `Host` records through an iterator. The CLI emits collected hosts in the selected output format and pagination metadata on stderr. The operation does not change Foundry state. An empty page can have a continuation token; follow it before concluding no hosts are visible. Authentication or permission errors stop the read.
 
-**Example:** `pal-found-admin host list ri.multipass..enrollment.example`
+**Example:** `pal-found-admin host list ri.multipass..enrollment.example --preview`
 
 ### marking.create
 
@@ -72,9 +76,11 @@ Required input: `marking_id`, `--name`. Optional: `--description`. The SDK retur
 
 A category groups related markings and controls who can discover or administer them. `--name` is the category label and `--description` explains its purpose. `--initial-permissions` specifies organization visibility, public visibility, and administrator role assignments. Include at least one `ADMINISTER` assignment for yourself or a group you belong to, or you may be unable to manage the created category.
 
+Current API documentation requires `preview=true`; pass the supported `--preview` flag.
+
 Required input: `--description`, `--initial-permissions`, `--name`. The SDK returns `MarkingCategory` on success. This changes identity or access state. Read the affected resource afterward to verify the intended result.  Invalid identifiers or payloads, insufficient administration rights, and CLI access policy can reject the change.
 
-**Example:** `pal-found-admin marking-category create --description 'Markings related to data about our customers' --initial-permissions '{"organizationRids":["ri.multipass..organization.c30ee6ad-b5e4-4afe-a74f-fe4a289f2faa"],"roles":[{"role":"ADMINISTER","principalId":"f05f8da4-b84c-4fca-9c77-8af0b13d11de"}],"isPublic":false}' --name 'Customer Data'`
+**Example:** `pal-found-admin marking-category create --description 'Markings related to data about our customers' --initial-permissions '{"organizationRids":["ri.multipass..organization.c30ee6ad-b5e4-4afe-a74f-fe4a289f2faa"],"roles":[{"role":"ADMINISTER","principalId":"f05f8da4-b84c-4fca-9c77-8af0b13d11de"}],"isPublic":false}' --name 'Customer Data' --preview`
 
 ### marking_category.get
 
@@ -96,8 +102,10 @@ Required input: no required operation arguments. The SDK yields `MarkingCategory
 
 Change a category's displayed label with `--name` and its explanation with `--description`, while keeping its ID. This call does not edit its permissions. Read the category afterward to verify the metadata.
 
+Current API documentation requires `preview=true`; pass the supported `--preview` flag.
+
 Required input: `marking_category_id`, `--description`, `--name`. The SDK returns `MarkingCategory` on success. This changes identity or access state. Read the affected resource afterward to verify the intended result.  Invalid identifiers or payloads, insufficient administration rights, and CLI access policy can reject the change.
 
-**Example:** `pal-found-admin marking-category replace 0950264e-01c8-4e83-81a9-1a6b7f77621a --description 'Markings related to data about our customers' --name 'Customer Data'`
+**Example:** `pal-found-admin marking-category replace 0950264e-01c8-4e83-81a9-1a6b7f77621a --description 'Markings related to data about our customers' --name 'Customer Data' --preview`
 
 Optional sources: [Foundry security model](https://www.palantir.com/docs/foundry/security/overview), [CBAC](https://www.palantir.com/docs/foundry/security/classification-based-access-controls), [marking management](https://www.palantir.com/docs/foundry/platform-security-management/manage-markings).

@@ -684,9 +684,9 @@ _MODEL_OFFLINE_NOTES.update({
         "Long, Short, String or Timestamp. Optional `change_data_capture` adds CDC behavior."
     ),
     "foundry_sdk.v2.streams.models.StreamType": (
-        "`LOW_LATENCY` is the default stream type. `HIGH_THROUGHPUT` favors larger batches "
-        "with some added latency. Select it after checking stream metrics for batches near "
-        "their maximum or producer batch expiry in downstream jobs."
+        "`LOW_LATENCY` is the default and suits most streams. `HIGH_THROUGHPUT` can add "
+        "latency. Choose it only when in-platform metrics show average batch size equals "
+        "the SDK's stated max match size, or jobs fail because Kafka producer batches expire."
     ),
     "foundry_sdk.v1.datasets.errors.DeleteSchemaPermissionDeniedParameters": (
         "The frozen SDK leaves this error-parameter description unspecified. "
@@ -904,6 +904,16 @@ def property_value_encoding_table(document: str) -> str:
                        "syncRid": "ri.time-series-catalog.main.sync.synthetic"},
         "Vector": [0.1, 0.3, 0.02],
     }
+    timeseries_variants = [
+        examples["Timeseries"],
+        {"templateRid": "ri.codex-emu.main.template.synthetic", "templateVersion": "0.0.0"},
+        "wellPressureSeriesId",
+    ]
+
+    def example_cell(name: str) -> str:
+        values = timeseries_variants if name == "Timeseries" else [examples[name]]
+        return "<br>".join(f"`{json.dumps(value, separators=(',', ':'))}`" for value in values)
+
     rows = []
     for line in document.splitlines():
         if not line.startswith("|"):
@@ -922,15 +932,16 @@ def property_value_encoding_table(document: str) -> str:
         "its encoding below. JSON examples illustrate shape with synthetic values; "
         "substitute authorized tenant identifiers, metadata and real encrypted values.", "",
         "| Property type | JSON encoding | JSON example |", "| --- | --- | --- |",
-        *(f"| {name} | {encoding} | `{json.dumps(examples[name], separators=(',', ':'))}` |"
+        *(f"| {name} | {encoding} | {example_cell(name)} |"
           for name, encoding in rows), "",
         "Decimal and Long are JSON strings so their values are not rounded through a JSON "
         "number. Date uses a local ISO 8601 date; Timestamp uses an ISO 8601 UTC offset "
         "date-time. GeoPoint and GeoShape use GeoJSON objects. Struct is an object keyed "
         "by struct field API name. An Attachment is an object with `rid`; a MediaReference "
         "has `mimeType` and a typed `reference`; a secured value has `value` and "
-        "`propertySecurityIndex`. Timeseries accepts its documented object or series ID "
-        "string. For compatibility the source also accepts Boolean, Byte, Double, Float, "
+        "`propertySecurityIndex`. Timeseries accepts an object with `seriesId` and "
+        "`syncRid`, an object with `templateRid` and `templateVersion`, or a bare "
+        "series ID string. For compatibility the source also accepts Boolean, Byte, Double, Float, "
         "Integer and Short as JSON strings; prefer the primary encoding shown above.",
     ])
 

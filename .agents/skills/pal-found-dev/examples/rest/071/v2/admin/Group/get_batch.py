@@ -21,7 +21,13 @@ EXPECTED_PATH = '/api/v2/admin/groups/getBatch'
 EXPECTED_BODY = [{'groupId': '00000000-0000-0000-0000-000000000001'}]
 EXPECTED_QUERY = {}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'data': {}}
+SUCCESS = {'data': {
+ '00000000-0000-0000-0000-000000000001': {
+  'id': '00000000-0000-0000-0000-000000000001',
+  'name': 'synthetic-value',
+  'realm': 'synthetic-value',
+  'organizations': ['ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'],
+  'attributes': {}}}}
 ERRORS = []
 
 def invoke(client):

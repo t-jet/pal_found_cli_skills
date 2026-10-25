@@ -21,6 +21,8 @@ EXPECTED_PATH = '/api/v2/functions/valueTypes/ri.synthetic.main.resource.0000000
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'preview': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
+REQUEST_VALUE_TYPE_RID = 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'
+REQUEST_VERSION_ID = '00000000-0000-0000-0000-000000000001'
 SUCCESS = {'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
  'version': 'synthetic-value',
  'versionId': '00000000-0000-0000-0000-000000000001',
@@ -34,7 +36,12 @@ ERRORS = [{'name': 'VersionIdNotFound',
                  'versionIdVersionId': '00000000-0000-0000-0000-000000000001'}}]
 
 def invoke(client):
-    return client.with_raw_response.get(value_type_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', version_id_version_id='00000000-0000-0000-0000-000000000001', request_timeout=30)
+    return client.with_raw_response.get(value_type_rid=REQUEST_VALUE_TYPE_RID, version_id_version_id=REQUEST_VERSION_ID, request_timeout=30)
+
+
+def check_result(result):
+    assert result.rid == REQUEST_VALUE_TYPE_RID, 'Returned value type RID differs from request'
+    assert result.version_id == REQUEST_VERSION_ID, 'Returned version ID differs from request'
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -78,7 +85,9 @@ def verify():
     with mock_resource(VersionIdClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = raw.decode()
+            assert normalized(result) == SUCCESS
+            check_result(result)
         finally:
             raw.close()
     assert len(calls) == 1

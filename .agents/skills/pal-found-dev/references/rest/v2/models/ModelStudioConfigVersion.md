@@ -112,3 +112,7 @@ Read the [exact SDK/HTTP contract](../../contracts/v2/models/ModelStudioConfigVe
 List configuration versions with finite paging and choose an existing version by its returned number.
 
 Read the [exact SDK/HTTP contract](../../contracts/v2/models/ModelStudioConfigVersion/list.md) for parameters, models, return mode and named errors. Run the [offline SDK fixture](../../../../examples/rest/087/v2/models/ModelStudioConfigVersion/list.py) from the skill root. It checks the synthetic request, result and declared errors without contacting Foundry.
+
+## Python client route
+
+With a configured `FoundryClient` named `client`, use `client.models.ModelStudio.ConfigVersion` for this resource. Each operation below is a method on that resource client; `with_raw_response` and `with_streaming_response` are wrappers available where the linked contract lists them. The offline fixture constructs the resource client directly so it can replace HTTP transport without tenant access.

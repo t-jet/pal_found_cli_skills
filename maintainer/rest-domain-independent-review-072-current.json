@@ -1,0 +1,119 @@
+{
+  "story": "DEV-STORY-072",
+  "reviewer_identity": "/root/rest072_remaining_semantic_qa",
+  "review_role": "qa-engineer",
+  "reviewed_candidate_sha": "5d50cf8eade90419c481c93612fb1d8ce36f10a9",
+  "content_baseline_sha": "68d569c",
+  "sdk_release": "1.101.0",
+  "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+  "validation": {
+    "fixture_examples_passed": 6,
+    "wave1_pytest_passed": 518,
+    "formal_operation_qa": "pending",
+    "live_enrollment": "not tested"
+  },
+  "operations": [
+    {
+      "id": "v2.admin.CbacBanner.get",
+      "verdict": "PASS",
+      "source_expectation": "SDK cbac_banner.py get accepts marking_ids and returns classification banner text and colors for the given marking IDs; query serializes markingIds.",
+      "assertions": [
+        "Fixture passes marking_ids=[synthetic-value] and preview=True.",
+        "MockTransport checks markingIds query, preview query, path and authorization.",
+        "Decoded classification string/colors and four declared errors checked."
+      ],
+      "contract": "references/rest/contracts/v2/admin/CbacBanner/get.md",
+      "contract_sha256": "cc734b0cf9b46e3ba8552401a707e568dacaa2fea9692d4ed78099eacd3a8a66",
+      "behavior": "references/rest/v2/admin/CbacBanner.md",
+      "behavior_sha256": "0ea746738e56aabf1866d0fc489595016f831ce739d63d04350ee70685a82b22",
+      "example": "examples/rest/072/v2/admin/CbacBanner/get.py",
+      "example_sha256": "1bdcc92085003ccac9d60ee2a0dc172476e22c7a3588092e00136e42c6e8f879",
+      "historical_verdict": "FAIL"
+    },
+    {
+      "id": "v2.admin.CbacMarkingRestrictions.get",
+      "verdict": "PASS",
+      "source_expectation": "SDK cbac_marking_restrictions.py get accepts marking_ids and returns disallowed, implied and required markings for that set; query serializes markingIds.",
+      "assertions": [
+        "Fixture passes marking_ids=[synthetic-value] and preview=True.",
+        "MockTransport checks markingIds query, preview query, path and authorization.",
+        "Decoded restriction sets and three declared errors checked."
+      ],
+      "contract": "references/rest/contracts/v2/admin/CbacMarkingRestrictions/get.md",
+      "contract_sha256": "da791f969a801b777bab021e4dbb3be04cd00d4697d7db62614c7e33d5431ef1",
+      "behavior": "references/rest/v2/admin/CbacMarkingRestrictions.md",
+      "behavior_sha256": "8fcdf1954e0659bf139d215af011fd6f9a7c98f332b08d90afb9b483ff95a8a4",
+      "example": "examples/rest/072/v2/admin/CbacMarkingRestrictions/get.py",
+      "example_sha256": "5942871e72fd0ccaa3e2b312989dcf6f725a578f573c81a3091bfbc4f629b61d",
+      "historical_verdict": "FAIL"
+    },
+    {
+      "id": "v2.admin.Marking.get_batch",
+      "verdict": "PASS",
+      "source_expectation": "SDK marking.py get_batch accepts up to 500 marking IDs; GetMarkingsBatchResponse.data maps MarkingId to Marking.",
+      "assertions": [
+        "POST body requests markingId synthetic-value.",
+        "Response data has key synthetic-value and nested Marking.id synthetic-value.",
+        "MockTransport checks request and typed decode."
+      ],
+      "contract": "references/rest/contracts/v2/admin/Marking/get_batch.md",
+      "contract_sha256": "ea765b5f66fa5f65560a0eaab5c0d1eef7564b2f935d726b5e4ae6ca5554b057",
+      "behavior": "references/rest/v2/admin/Marking.md",
+      "behavior_sha256": "6b6c17e3cfba69ce8f9f07007da521af3267f539cfbdd9c907c6e6a9c0bf2bd0",
+      "example": "examples/rest/072/v2/admin/Marking/get_batch.py",
+      "example_sha256": "cb65ff8607729e1aaa234c215552bf331036b6aa16ce63f48ce6479cf316a8ba",
+      "historical_verdict": "FAIL"
+    },
+    {
+      "id": "v2.admin.MarkingRoleAssignment.add",
+      "verdict": "PASS",
+      "source_expectation": "SDK marking_role_assignment.py permits USE and DECLASSIFY on Organization markings; ADMINISTER must use Organization Role Assignment and raises OrganizationMarkingAdministerRoleNotSupported here.",
+      "assertions": [
+        "Success fixture submits USE, not ADMINISTER, and checks request path/body.",
+        "Separate Organization marking ADMINISTER request checks source-declared error and parameters.",
+        "Five declared error fixtures pass."
+      ],
+      "contract": "references/rest/contracts/v2/admin/MarkingRoleAssignment/add.md",
+      "contract_sha256": "7d05bb9f00eb41d2a0975f6e0e8a75daa9d335340fa88648f4872051f0de184d",
+      "behavior": "references/rest/v2/admin/MarkingRoleAssignment.md",
+      "behavior_sha256": "e699e7fbb6066dde02cd265413523acf633bdcf5b9f98a7167b81a450d9cea5f",
+      "example": "examples/rest/072/v2/admin/MarkingRoleAssignment/add.py",
+      "example_sha256": "2e28ad41cb098244f8a4dd5377b3c4ffe8b13690f4ef98f667864919d79199ec",
+      "historical_verdict": "UNCERTAIN"
+    },
+    {
+      "id": "v2.admin.MarkingRoleAssignment.remove",
+      "verdict": "PASS",
+      "source_expectation": "SDK marking_role_assignment.py permits USE and DECLASSIFY removal on Organization markings; ADMINISTER requires Organization Role Assignment. Ordinary marking last-administrator removal has separate error.",
+      "assertions": [
+        "Success fixture removes USE and checks request path/body.",
+        "Separate Organization marking ADMINISTER and ordinary marking last-administrator cases check declared errors.",
+        "Eight declared error fixtures pass."
+      ],
+      "contract": "references/rest/contracts/v2/admin/MarkingRoleAssignment/remove.md",
+      "contract_sha256": "202c8ef52f3936b1cfca79278ec7ca8ba3d19967bae31ef088106c9c7cbb2843",
+      "behavior": "references/rest/v2/admin/MarkingRoleAssignment.md",
+      "behavior_sha256": "e699e7fbb6066dde02cd265413523acf633bdcf5b9f98a7167b81a450d9cea5f",
+      "example": "examples/rest/072/v2/admin/MarkingRoleAssignment/remove.py",
+      "example_sha256": "9aca7a2420bf23d1de00103bf942c7a84cfd1be2f4501f1aae8e7731a2635965",
+      "historical_verdict": "UNCERTAIN"
+    },
+    {
+      "id": "v2.admin.Role.get_batch",
+      "verdict": "PASS",
+      "source_expectation": "SDK role.py get_batch accepts up to 500 role IDs; GetRolesBatchResponse.data maps RoleId to Role.",
+      "assertions": [
+        "POST body requests roleId synthetic-value.",
+        "Response data has key synthetic-value and nested Role.id synthetic-value.",
+        "MockTransport checks request and typed decode."
+      ],
+      "contract": "references/rest/contracts/v2/admin/Role/get_batch.md",
+      "contract_sha256": "d614437edcf872677d225825cab81bd22a2928fc667b4f9f3a1af4b097e6f13c",
+      "behavior": "references/rest/v2/admin/Role.md",
+      "behavior_sha256": "64c4f47d6bc9544f05358e89ac00a5e985303db48204ca1bd107eca7e2b340af",
+      "example": "examples/rest/072/v2/admin/Role/get_batch.py",
+      "example_sha256": "be0018cd31e9d345dca5bc3f59e778d083d92f89e5f18d378280039a7f39da3d",
+      "historical_verdict": "FAIL"
+    }
+  ]
+}

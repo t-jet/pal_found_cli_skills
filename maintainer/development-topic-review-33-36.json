@@ -1,0 +1,94 @@
+{
+  "reviewer": "qa-engineer",
+  "candidate": "336b03105e142ba57d65c79da69b64017563b37f",
+  "content_freeze": "68d569c76a2a30bbc33a267ce6395d09435a97c6",
+  "review_date": "2026-10-19",
+  "scope": "Independent read-only full-page semantic and official-source review of topics T33-T36. Registered headings, SHA-256 and line counts, and all local Markdown targets checked. T33's linked synthetic compute fixture passed. No live Foundry resource, build, schedule, or alert execution claimed.",
+  "topics": [
+    {
+      "topic": "T33",
+      "verdict": "PASS",
+      "path": "references/security/compute-branches.md",
+      "sha256": "dff393c7a4cb504c4e5bd0c66ecf818ea9083f8ccc43c04aa29a6414f9c16ee4",
+      "lines": 72,
+      "checks": [
+        "Registered heading, digest and line count match",
+        "All local Markdown targets resolve",
+        "Function service identity, pipeline scoped job token/resource aliases, Source network permission, and separate branch/resource rights match official docs",
+        "python examples/compute/verify_fixture.py exited 0: synthetic compute fixture passed; local requests dependency warning did not affect assertions"
+      ],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/compute-modules/execution-modes",
+        "https://www.palantir.com/docs/foundry/compute-modules/sources",
+        "https://www.palantir.com/docs/foundry/global-branching/branch-security"
+      ],
+      "limit": "Fixture validates local bindings only; no module authentication, network grant, branch proposal or real read/write was tested."
+    },
+    {
+      "topic": "T34",
+      "verdict": "PASS",
+      "path": "references/operations/lineage.md",
+      "sha256": "6a425dde1dc0c4036f3fc4d270c924217007f4ea1ea4ee5c57bd2c0d190b3618",
+      "lines": 76,
+      "checks": [
+        "Registered heading, digest and line count match",
+        "All local Markdown targets resolve",
+        "Lineage graph, build timeline and job investigation steps match official navigation and build sources",
+        "Multi-output jobs update their outputs together, while a failed build may contain completed jobs with committed outputs; page directs reader to individual transactions",
+        "Illustrative O1/O2/T1 trace keeps current upstream state separate from actual prior job input"
+      ],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/data-lineage/overview",
+        "https://www.palantir.com/docs/foundry/data-lineage/navigation",
+        "https://www.palantir.com/docs/foundry/data-lineage/build-timeline",
+        "https://www.palantir.com/docs/foundry/data-integration/builds"
+      ],
+      "limit": "No tenant lineage graph or job report was inspected; walkthrough is illustrative."
+    },
+    {
+      "topic": "T35",
+      "verdict": "PASS",
+      "path": "references/operations/monitoring.md",
+      "sha256": "10d343b940761a4a89090deb13e5912075a621eb73f04ec5ed93230d60d9586b",
+      "lines": 78,
+      "checks": [
+        "Registered heading, digest and line count match",
+        "All local Markdown targets resolve",
+        "Schedule/job status distinctions and cancellation behavior match official check types",
+        "Update, data and sync freshness differ as described; empty commit refreshes update time, and the one-hour threshold example follows automatic evaluation semantics",
+        "Watch, email, issue, pause and delete behavior match official notification docs"
+      ],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/health-checks/overview",
+        "https://www.palantir.com/docs/foundry/health-checks/check-types",
+        "https://www.palantir.com/docs/foundry/health-checks/check-evaluation",
+        "https://www.palantir.com/docs/foundry/health-checks/watching-checks",
+        "https://www.palantir.com/docs/foundry/health-checks/notifications"
+      ],
+      "limit": "No check evaluation, notification delivery, or recovery was run in an enrollment."
+    },
+    {
+      "topic": "T36",
+      "verdict": "PASS",
+      "path": "references/operations/support.md",
+      "sha256": "4ed70a8d3a057f3c6294dc1dbe0351df86f129c1c3c750086aa23564d672f6e4",
+      "lines": 87,
+      "checks": [
+        "Registered heading, digest and line count match",
+        "All local Markdown targets resolve",
+        "Succeeded schedule run means build launch, Ignored may mean no stale work, and pause resets trigger state per official schedule docs",
+        "Job Compare requires output transactions; save driver logs before cancel and verify actual build/output state",
+        "Project versus user schedule scope limits and support handover guidance match official docs"
+      ],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/data-integration/schedules",
+        "https://www.palantir.com/docs/foundry/building-pipelines/create-schedule",
+        "https://www.palantir.com/docs/foundry/optimizing-pipelines/debug-job",
+        "https://www.palantir.com/docs/foundry/optimizing-pipelines/debug-pipeline",
+        "https://www.palantir.com/docs/foundry/maintaining-pipelines/support-processes"
+      ],
+      "limit": "No live incident, schedule recovery, production build, or consumer check was performed."
+    }
+  ],
+  "reviewer_agent": "/root/feature015_topics24_28_independent_qa"
+}

@@ -1,0 +1,251 @@
+{
+  "reviewer": "/root/formal072_resume/independent072",
+  "case_author": "/root/formal072_workflow_completion/review072",
+  "case_manifest_sha256": "99cf3b938c7b7525bde7b9ffab42607128d1ca6e18cee183ee38e464bcc9d62c",
+  "verdict": "APPROVED",
+  "reviewed_at": "2026-10-21T06:52:44.672995+00:00",
+  "operations": [
+    {
+      "operation": "v2.admin.AuthenticationProvider.get",
+      "source_wire_oracles": 3,
+      "declared_errors": 1,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.AuthenticationProvider.list",
+      "source_wire_oracles": 3,
+      "declared_errors": 1,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.AuthenticationProvider.preregister_group",
+      "source_wire_oracles": 4,
+      "declared_errors": 2,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.AuthenticationProvider.preregister_user",
+      "source_wire_oracles": 4,
+      "declared_errors": 2,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.CbacBanner.get",
+      "source_wire_oracles": 6,
+      "declared_errors": 4,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.CbacMarkingRestrictions.get",
+      "source_wire_oracles": 5,
+      "declared_errors": 3,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.Enrollment.get",
+      "source_wire_oracles": 3,
+      "declared_errors": 1,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.Enrollment.get_current",
+      "source_wire_oracles": 4,
+      "declared_errors": 2,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.EnrollmentRoleAssignment.add",
+      "source_wire_oracles": 7,
+      "declared_errors": 4,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.EnrollmentRoleAssignment.list",
+      "source_wire_oracles": 4,
+      "declared_errors": 2,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.EnrollmentRoleAssignment.remove",
+      "source_wire_oracles": 7,
+      "declared_errors": 4,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.Host.list",
+      "source_wire_oracles": 7,
+      "declared_errors": 3,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.Marking.create",
+      "source_wire_oracles": 9,
+      "declared_errors": 7,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.Marking.get",
+      "source_wire_oracles": 4,
+      "declared_errors": 2,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.Marking.get_batch",
+      "source_wire_oracles": 4,
+      "declared_errors": 0,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.Marking.list",
+      "source_wire_oracles": 5,
+      "declared_errors": 1,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.Marking.parse_classifications",
+      "source_wire_oracles": 7,
+      "declared_errors": 2,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.Marking.replace",
+      "source_wire_oracles": 8,
+      "declared_errors": 6,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.MarkingCategory.create",
+      "source_wire_oracles": 6,
+      "declared_errors": 4,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.MarkingCategory.get",
+      "source_wire_oracles": 4,
+      "declared_errors": 2,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.MarkingCategory.list",
+      "source_wire_oracles": 5,
+      "declared_errors": 1,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.MarkingCategory.replace",
+      "source_wire_oracles": 5,
+      "declared_errors": 3,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.MarkingMember.add",
+      "source_wire_oracles": 6,
+      "declared_errors": 4,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.MarkingMember.list",
+      "source_wire_oracles": 7,
+      "declared_errors": 3,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.MarkingMember.remove",
+      "source_wire_oracles": 6,
+      "declared_errors": 4,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.MarkingRoleAssignment.add",
+      "source_wire_oracles": 9,
+      "declared_errors": 5,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.MarkingRoleAssignment.list",
+      "source_wire_oracles": 6,
+      "declared_errors": 2,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.MarkingRoleAssignment.remove",
+      "source_wire_oracles": 12,
+      "declared_errors": 8,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.Organization.create",
+      "source_wire_oracles": 8,
+      "declared_errors": 6,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.Organization.get",
+      "source_wire_oracles": 3,
+      "declared_errors": 1,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.Organization.list_available_roles",
+      "source_wire_oracles": 4,
+      "declared_errors": 2,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.Organization.replace",
+      "source_wire_oracles": 6,
+      "declared_errors": 4,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.OrganizationGuestMember.add",
+      "source_wire_oracles": 6,
+      "declared_errors": 3,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.OrganizationGuestMember.list",
+      "source_wire_oracles": 4,
+      "declared_errors": 2,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.OrganizationGuestMember.remove",
+      "source_wire_oracles": 6,
+      "declared_errors": 3,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.OrganizationRoleAssignment.add",
+      "source_wire_oracles": 6,
+      "declared_errors": 3,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.OrganizationRoleAssignment.list",
+      "source_wire_oracles": 4,
+      "declared_errors": 2,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.OrganizationRoleAssignment.remove",
+      "source_wire_oracles": 6,
+      "declared_errors": 3,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.Role.get",
+      "source_wire_oracles": 3,
+      "declared_errors": 1,
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.admin.Role.get_batch",
+      "source_wire_oracles": 4,
+      "declared_errors": 0,
+      "verdict": "PASS"
+    }
+  ],
+  "candidate_sha": "a8695c8356a5f42e2e8cf6945753bdaaeaae0071",
+  "method": "Independent primary SDK AST, schemas, literal requests/results/errors and harness review. 220 wire oracles, 40 operations, 113 errors; exact unchanged asset hashes bind current candidate. Formal execution not run."
+}

@@ -28,6 +28,8 @@ and reconcile through authorized reads before repeating.
 Resolve the provider RID and inspect its metadata before preregistering a user or group.
 Do not infer provider identity from a user-facing login label alone.
 
+This Public Beta endpoint requires `preview=true`; set `preview=True` in the SDK call.
+
 [Exact parameters, request, result and error models](../../contracts/v2/admin/AuthenticationProvider/get.md).
 
 [Executable SDK example](../../../../examples/rest/072/v2/admin/AuthenticationProvider/get.py):
@@ -56,6 +58,8 @@ retrying.
 
 Discover authentication providers and retain their RIDs. Compare provider metadata with
 the intended identity source before choosing a preregistration target.
+
+This Public Beta endpoint requires `preview=true`; set `preview=True` in the SDK call.
 
 [Exact parameters, request, result and error models](../../contracts/v2/admin/AuthenticationProvider/list.md).
 
@@ -87,6 +91,8 @@ Preregister a named group through the confirmed provider before its users log in
 the group identity for later role or membership assignments; preregistration itself does
 not grant those roles.
 
+This Public Beta endpoint requires `preview=true`; set `preview=True` in the SDK call.
+
 [Exact parameters, request, result and error models](../../contracts/v2/admin/AuthenticationProvider/preregister_group.md).
 
 [Executable SDK example](../../../../examples/rest/072/v2/admin/AuthenticationProvider/preregister_group.py):
@@ -116,6 +122,8 @@ retrying.
 
 Preregister a username through the confirmed provider before first login. Retain the
 returned identity so groups and roles can be assigned deliberately before login.
+
+This Public Beta endpoint requires `preview=true`; set `preview=True` in the SDK call.
 
 [Exact parameters, request, result and error models](../../contracts/v2/admin/AuthenticationProvider/preregister_user.md).
 

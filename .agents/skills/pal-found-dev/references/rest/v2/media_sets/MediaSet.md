@@ -13,6 +13,12 @@ existing set; it does not create a new media set.
 
 ## Prerequisites
 
+With an authenticated SDK 1.101.0 `foundry_sdk.v2.FoundryClient` named
+`client`, these operations are available at `client.media_sets.MediaSet`.
+For example, `client.media_sets.MediaSet.get(media_set_rid)` reads the set;
+`client.media_sets.MediaSet.read(media_set_rid, media_item_rid)` reads item
+content. Check each linked contract for its exact arguments and response mode.
+
 Prepare SDK 1.101.0 and an accessible media set. Inspect its `media_schema`,
 `default_branch_name`, `transaction_policy` and `paths_required`. Select exactly one
 supported branch name, branch RID or view RID when an operation permits that

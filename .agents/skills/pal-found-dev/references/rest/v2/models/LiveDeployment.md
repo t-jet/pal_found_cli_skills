@@ -6,6 +6,10 @@ A live deployment serves a model version with runtime configuration. Creation st
 
 Prepare SDK 1.101.0 and access to the exact tenant resource. Check operation stage and endpoint restrictions in its contract. For uncertain writes, read the exact resulting RID/state before repeating the request. A fake-transport fixture proves SDK serialization, not tenant capability or model execution.
 
+## Python client route
+
+With a configured `FoundryClient` named `client`, use `client.models.LiveDeployment` for this resource. Each operation below is a method on that resource client; `with_raw_response` and `with_streaming_response` are wrappers available where the linked contract lists them. The offline fixture constructs the resource client directly so it can replace HTTP transport without tenant access.
+
 ## Operations
 
 ### create
@@ -35,5 +39,32 @@ Read the [exact SDK/HTTP contract](../../contracts/v2/models/LiveDeployment/repl
 ### transform_json
 
 Run JSON inference only against a ready deployment. Validate input schema and inspect the returned model result separately from transport success.
+
+First read `client.models.LiveDeployment.get(deployment_rid)` and require
+`deployment.status.is_ready`. Check its selected model version against the
+version whose transform input and output schema the application was built
+for. The following **synthetic** model accepts one numeric `feature` and
+returns one numeric `score`; replace both keys and value checks with the
+deployed model version's actual transform schema:
+
+```python
+deployment = client.models.LiveDeployment.get(
+    deployment_rid, request_timeout=30,
+)
+if not deployment.status.is_ready:
+    raise RuntimeError("Deployment is not ready for inference")
+assert deployment.model_version.model_version_rid == approved_version_rid
+response = client.models.LiveDeployment.transform_json(
+    deployment_rid, input={"feature": 2.0}, request_timeout=30,
+)
+score = response.output["score"]
+assert isinstance(score, (int, float))
+```
+
+`InferenceInvalidInput` means the request did not match the live transform
+schema; inspect the selected version and expected shape before retrying.
+`InferenceFailure` is a model execution failure, while `InferenceTimeout`
+needs reconciliation under the application's request budget. A ready state
+can change, so retain the deployment RID and response status for diagnosis.
 
 Read the [exact SDK/HTTP contract](../../contracts/v2/models/LiveDeployment/transform_json.md) for parameters, models, return mode and named errors. Run the [offline SDK fixture](../../../../examples/rest/087/v2/models/LiveDeployment/transform_json.py) from the skill root. It checks the synthetic request, result and declared errors without contacting Foundry.

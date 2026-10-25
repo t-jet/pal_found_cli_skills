@@ -1,0 +1,183 @@
+{
+  "story": "DEV-STORY-072",
+  "formal_qa_status": "accepted",
+  "independent_qa_agent": "/root/formal072_resume/independent072",
+  "observed_at_utc": "2026-10-21T07:01:45.731130+00:00",
+  "integration_agent": "/root/release_status_refresh",
+  "closure": {
+    "DEV-STORY-072": {
+      "status": "Deployment",
+      "evidence": "maintainer/evidence/rest072/DEV-STORY-072-closure.txt",
+      "sha256": "b5e1c84e336161bca4d8e1e6eac0bd48ed15e6b70689985474acd1261ccfe141",
+      "command": "python .ept/tools/tracker/tracker_cli.py get DEV-STORY-072 --author project-manager"
+    },
+    "DESIGN-075": {
+      "status": "Closed",
+      "evidence": "maintainer/evidence/rest072/DESIGN-075-closure.txt",
+      "sha256": "a6e32f55293d6bb784c09f280a8d8ca8c78a82b0690ca4f4c408ea2f44e7803d",
+      "command": "python .ept/tools/tracker/tracker_cli.py get DESIGN-075 --author project-manager"
+    },
+    "DEV-075": {
+      "status": "Closed",
+      "evidence": "maintainer/evidence/rest072/DEV-075-closure.txt",
+      "sha256": "8993177bcad3dc44906e3115976af1324268791de9bf7092c9d109eeb4024ab6",
+      "command": "python .ept/tools/tracker/tracker_cli.py get DEV-075 --author project-manager"
+    },
+    "UNITTEST-075": {
+      "status": "Closed",
+      "evidence": "maintainer/evidence/rest072/UNITTEST-075-closure.txt",
+      "sha256": "3eabf0e81d9c4404f4763b3af185e54be14cc77890273c5b6cafea2f3c5d52e8",
+      "command": "python .ept/tools/tracker/tracker_cli.py get UNITTEST-075 --author project-manager"
+    },
+    "CODEREVIEW-076": {
+      "status": "Closed",
+      "evidence": "maintainer/evidence/rest072/CODEREVIEW-076-closure.txt",
+      "sha256": "13b4ddaa28bbf4f0608d264c274be69a996466abe6ce7027189fe5ef4ee3d5bb",
+      "command": "python .ept/tools/tracker/tracker_cli.py get CODEREVIEW-076 --author project-manager"
+    },
+    "TESTCASE-075": {
+      "status": "Closed",
+      "evidence": "maintainer/evidence/rest072/TESTCASE-075-closure.txt",
+      "sha256": "b39d1cc0d1e152be0be59b91a50c97b681d947ecfe6839c06d4e727c16bcff35",
+      "command": "python .ept/tools/tracker/tracker_cli.py get TESTCASE-075 --author project-manager"
+    },
+    "TESTEXEC-075": {
+      "status": "Closed",
+      "evidence": "maintainer/evidence/rest072/TESTEXEC-075-closure.txt",
+      "sha256": "0a2837c767933d942e53c0b72fb3070fd678bf421068c9c198c8e895a72a1526",
+      "command": "python .ept/tools/tracker/tracker_cli.py get TESTEXEC-075 --author project-manager"
+    },
+    "BUG-SUB-029": {
+      "status": "Closed",
+      "evidence": "maintainer/evidence/rest072/BUG-SUB-029-closure.txt",
+      "sha256": "7cb47cea32a623c196ab7d68f9eae54714ab925c966c4273973f75b2ff50f730",
+      "command": "python .ept/tools/tracker/tracker_cli.py get BUG-SUB-029 --author project-manager"
+    },
+    "BUG-SUB-030": {
+      "status": "Closed",
+      "evidence": "maintainer/evidence/rest072/BUG-SUB-030-closure.txt",
+      "sha256": "263cb8eed0a32def07dbd420752a595c21c9c8cf9b4c14900b2c1a051c710b2d",
+      "command": "python .ept/tools/tracker/tracker_cli.py get BUG-SUB-030 --author project-manager"
+    },
+    "BUG-SUB-031": {
+      "status": "Closed",
+      "evidence": "maintainer/evidence/rest072/BUG-SUB-031-closure.txt",
+      "sha256": "ab25d5b3bb87a41ef6e551941ffa97e8d31d64487808fe1daf2d881ec5e653ab",
+      "command": "python .ept/tools/tracker/tracker_cli.py get BUG-SUB-031 --author project-manager"
+    }
+  },
+  "artifacts": {
+    "maintainer/evidence/rest072/feature015_rest072_formal_qa.json": "bb62b4304636d200fb87dc8fc24806e141f969c61b5ed33086a9a32c426877ec",
+    "maintainer/evidence/rest072/rest072_case_approval.json": "d74ec004b477019fde8ebc364c80586714a0e32330f9f5e30bfa9d0c3fb1b449",
+    "maintainer/evidence/rest072/rest072_case_approval.py": "7f56986cac7c083b792a01bf32fb29988bee0fc435c2b6083f288b24b88f791a",
+    "maintainer/evidence/rest072/rest072_formal_cases.json": "99cf3b938c7b7525bde7b9ffab42607128d1ca6e18cee183ee38e464bcc9d62c",
+    "maintainer/evidence/rest072/rest072_independent_codereview.json": "beb003f903cd9af8d9ab681b170c43642ad4a8bddddf79778753a168395dc187",
+    "maintainer/evidence/rest072/rest072_mutation_check.json": "aacfee8c2d65279068803977fd7bf1d5cc49a512ff238d0a594a7b51e1b8a089",
+    "maintainer/evidence/rest072/rest072_mutation_check.py": "f802fcb198394bf243041ae97f6cd7a1d3796c473d6e363942f164f9a202bc48",
+    "maintainer/evidence/rest072/rest072_resume_archive_inventory.py": "0025e907c161f44353f7cf561189d6e30dbcefed0117d91d7e95ed0f7e6113e9",
+    "maintainer/evidence/rest072/rest072_resume_attempt1_formal_execute.log": "0ee78c996a496c53697622ff17e50290d49a256bc321a90e0a97ae2f7a512c30",
+    "maintainer/evidence/rest072/rest072_resume_attempt1_formal_execute.py": "5964005abd127681e0bdce9cdd2e9328b9709f09a0df1186f2e7bba9f0f7982d",
+    "maintainer/evidence/rest072/rest072_resume_attempt1_formal_execution.json": "96a214cd64b6b7f2cea4f202fa69bc3e0513d91daece7e1bc16bb36b9721b181",
+    "maintainer/evidence/rest072/rest072_resume_attempt1_formal_runner.json": "14ac0d041500f5a10cb95b12802b2c058b440ad589040ac2054d993c9156e1fa",
+    "maintainer/evidence/rest072/rest072_resume_attempt1_formal_stderr.log": "b6ad5242f5c33741e13ff133543e356ef8030ae1fdde60898937ddc639589cc1",
+    "maintainer/evidence/rest072/rest072_resume_attempt1_formal_stdout.log": "0ee78c996a496c53697622ff17e50290d49a256bc321a90e0a97ae2f7a512c30",
+    "maintainer/evidence/rest072/rest072_resume_attempt2_formal_execute.log": "39b05004495b835f006058a89b84332b9aad5e8cbc1b2caff82cf8b0884e4dbd",
+    "maintainer/evidence/rest072/rest072_resume_attempt2_formal_execute.py": "5b04683a2d658432fa0671889b83113bb16c6998a148beb4290e4a05da67eb06",
+    "maintainer/evidence/rest072/rest072_resume_attempt2_formal_execution.json": "4d2da2177d732ad8b6f67471fa4df1bddc0d7b9fd4b5145143849cd1467ab016",
+    "maintainer/evidence/rest072/rest072_resume_attempt2_formal_runner.json": "34704a85e0dab7a01836a42f9f689d6b1ac4145edd5dcba9f87431f2bcdb3d76",
+    "maintainer/evidence/rest072/rest072_resume_attempt2_formal_stderr.log": "2985c901118dc2d1f3162f5bb5021795a2b35e3aa15d446b937b09ab1f6ae059",
+    "maintainer/evidence/rest072/rest072_resume_attempt2_formal_stdout.log": "39b05004495b835f006058a89b84332b9aad5e8cbc1b2caff82cf8b0884e4dbd",
+    "maintainer/evidence/rest072/rest072_resume_attempt3_formal_execute.log": "bafce39e571a0ebbe089769795e7e6800443df0c0ce70704bafad809f0fbff61",
+    "maintainer/evidence/rest072/rest072_resume_attempt3_formal_execute.py": "450a2f21a91db090299caa9b16e541d0036962e0340b9b009ffe551966c3b988",
+    "maintainer/evidence/rest072/rest072_resume_attempt3_formal_execution.json": "59b12c94e02feebc0d57bab39f836cd5b0225adbc2acfc1ee7aa4b41e4b6d0a2",
+    "maintainer/evidence/rest072/rest072_resume_attempt3_formal_runner.json": "03eff17366f53d981101a53afe9e65c618eda48693bb4a4b76c6812ff5953c4a",
+    "maintainer/evidence/rest072/rest072_resume_attempt3_formal_stderr.log": "23c55b7214910da31e47944faf8ba100b7b3bdc9556da9af52caa7f257ea2dd0",
+    "maintainer/evidence/rest072/rest072_resume_attempt3_formal_stdout.log": "bafce39e571a0ebbe089769795e7e6800443df0c0ce70704bafad809f0fbff61",
+    "maintainer/evidence/rest072/rest072_resume_attempt4_formal_execute.log": "07c5fe7ab0319d66e153f99ed38df474346c28d82531f98fb4d488ad60d6ff7c",
+    "maintainer/evidence/rest072/rest072_resume_attempt4_formal_execute.py": "24dbcf7bc019b2f9c64e0c137d9f63898d4344d7fcd7262ef4da49bb9222a82f",
+    "maintainer/evidence/rest072/rest072_resume_attempt4_formal_execution.json": "dc8048b2891be992c5ea9c9936292af76c5c14a017e0443f092597fdaf1b9821",
+    "maintainer/evidence/rest072/rest072_resume_attempt4_formal_runner.json": "5719e370a7c8ed2168b15b49b0b43938b6d0908e0e8431e9eefbbe28dfe2b0c9",
+    "maintainer/evidence/rest072/rest072_resume_attempt4_formal_stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "maintainer/evidence/rest072/rest072_resume_attempt4_formal_stdout.log": "07c5fe7ab0319d66e153f99ed38df474346c28d82531f98fb4d488ad60d6ff7c",
+    "maintainer/evidence/rest072/rest072_resume_case_approval.json": "85f0cbb2a88c5b1ea5d37422773e288077bb15948fc6c5321f95a70dea5bc569",
+    "maintainer/evidence/rest072/rest072_resume_codereview_approval.json": "4a940c2ccb402e2e4cc966fdbd221157bd76925f0627b87b072d380b94de45fc",
+    "maintainer/evidence/rest072/rest072_resume_export_closure.py": "a08594bd31e6a4da12c499ee0f2baf9187cadc939257c5aa21830af0655cb5a7",
+    "maintainer/evidence/rest072/rest072_resume_fix_decode.py": "665249ed46c6ddc094ead86a7733c2072c76d62c3eafe2f0450ca38063e8e25d",
+    "maintainer/evidence/rest072/rest072_resume_fix_harness.py": "906c8bd8f306f146dfa7fbc0f0efaa6f7c85ef44b586a292ba813b05639f3a99",
+    "maintainer/evidence/rest072/rest072_resume_fix_iterator_terminal.py": "df2b332a2aa2bb2f9000fd33fe7d5ed83343bcb9fdacd8874b44caeb3c780ac3",
+    "maintainer/evidence/rest072/rest072_resume_fix_modes.py": "5acd0fdb88ea0b233a30726c5006da54053c0b0751a258a5ab41764de56b1a5e",
+    "maintainer/evidence/rest072/rest072_resume_formal_execute.log": "5f7bdd95f67818d91c6bdef464a8ecbe11d0112ecec7fd72b307df24de9aff4d",
+    "maintainer/evidence/rest072/rest072_resume_formal_execute.py": "e5d4cf98b03770f644fb36b4b7a71c44564c75836ec71b8832ebd0fe589873f0",
+    "maintainer/evidence/rest072/rest072_resume_formal_execution.json": "ed4cd99b60f914d11c38a4e6f5392f12f55dc0ab680da271a3324a80a7841518",
+    "maintainer/evidence/rest072/rest072_resume_formal_per_case.json": "42e10ac48c48d5758be76d0b9b96af908cac54e47fdc188c179737db38cd941b",
+    "maintainer/evidence/rest072/rest072_resume_formal_runner.json": "c4f8898f32dd6fbb1c373b23c944d8bb944a1752c2d27e86f481990f947d57d2",
+    "maintainer/evidence/rest072/rest072_resume_formal_stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "maintainer/evidence/rest072/rest072_resume_formal_stdout.log": "5f7bdd95f67818d91c6bdef464a8ecbe11d0112ecec7fd72b307df24de9aff4d",
+    "maintainer/evidence/rest072/rest072_resume_independent_inspect.py": "e988c2eb4cf105f1c5ef718b209824f0b043fd6f8f1b869014769200a5554b10",
+    "maintainer/evidence/rest072/rest072_resume_independent_inspection.json": "8ec27f0c0412e5947fdf05538429368581d38a5e9a0a9629a3f1499c38505cfe",
+    "maintainer/evidence/rest072/rest072_resume_prepare_harness.py": "2f29ad2c98ff201ecdc4b6b610b9b3122db09cc64fcfebe65e5575c78b3da529",
+    "maintainer/evidence/rest072/rest072_resume_readiness.json": "e439d1ccdd6d688b750918ed68ace2f917f5e58f06dd5c760284c159629c070e",
+    "maintainer/evidence/rest072/rest072_resume_readiness.py": "4a9f4839bc77cc313814337fed283bbe074b79bc7676f3101122c6e66098c0e7",
+    "maintainer/evidence/rest072/rest072_resume_record_cases.py": "f11f9972b14f7f69c88758cf897e1edb7bf552d619a8b402d7b99c83abaa24ae",
+    "maintainer/evidence/rest072/rest072_resume_record_execution.py": "cc282f4c92bbd0ce313a287d8e06d9cea7f1f9f0b2d71c041bca264c39c75869",
+    "maintainer/evidence/rest072/rest072_resume_record_readiness.py": "41b245014898db18cadfa89ad2d5bcdedc5f4395c6a5a807b76557dd976635ae",
+    "maintainer/evidence/rest072/rest072_resume_record_review.py": "29d4e4af2818dc3713e861a066dd4a1e79670875334ea4df550f2ab0fb439fb4",
+    "maintainer/evidence/rest072/rest072_resume_run_formal.py": "14221b47a021ca99b205ec5253fcf7d95194a522a6a0097f9a77668f37df844c",
+    "maintainer/evidence/rest072/rest072_resume_tracker_closure.json": "eb8cd05f7a8ae4243a262ec1c68b55df886d624e6d810a505661c130fb9bf2bf",
+    "maintainer/evidence/rest072/rest072_review_measured_timing.json": "07e1abde6affa6e1478df04c064a89ca2783faebce5026c13a286cb105d567b5",
+    "maintainer/evidence/rest072/rest072_resume_archive_inventory.json": "3beb6733aa89004d0245236430c3019e6878d71469d77ca029002cbda8192b46",
+    "maintainer/evidence/rest072/DEV-STORY-072-closure.txt": "b5e1c84e336161bca4d8e1e6eac0bd48ed15e6b70689985474acd1261ccfe141",
+    "maintainer/evidence/rest072/DESIGN-075-closure.txt": "a6e32f55293d6bb784c09f280a8d8ca8c78a82b0690ca4f4c408ea2f44e7803d",
+    "maintainer/evidence/rest072/DEV-075-closure.txt": "8993177bcad3dc44906e3115976af1324268791de9bf7092c9d109eeb4024ab6",
+    "maintainer/evidence/rest072/UNITTEST-075-closure.txt": "3eabf0e81d9c4404f4763b3af185e54be14cc77890273c5b6cafea2f3c5d52e8",
+    "maintainer/evidence/rest072/CODEREVIEW-076-closure.txt": "13b4ddaa28bbf4f0608d264c274be69a996466abe6ce7027189fe5ef4ee3d5bb",
+    "maintainer/evidence/rest072/TESTCASE-075-closure.txt": "b39d1cc0d1e152be0be59b91a50c97b681d947ecfe6839c06d4e727c16bcff35",
+    "maintainer/evidence/rest072/TESTEXEC-075-closure.txt": "0a2837c767933d942e53c0b72fb3070fd678bf421068c9c198c8e895a72a1526",
+    "maintainer/evidence/rest072/BUG-SUB-029-closure.txt": "7cb47cea32a623c196ab7d68f9eae54714ab925c966c4273973f75b2ff50f730",
+    "maintainer/evidence/rest072/BUG-SUB-030-closure.txt": "263cb8eed0a32def07dbd420752a595c21c9c8cf9b4c14900b2c1a051c710b2d",
+    "maintainer/evidence/rest072/BUG-SUB-031-closure.txt": "ab25d5b3bb87a41ef6e551941ffa97e8d31d64487808fe1daf2d881ec5e653ab",
+    "maintainer/rest-domain-formal-qa-072.json": "3b4b2256b51cf3e3542481655e473c399fdf28680ffe0bc6c13e13cd6232b546"
+  },
+  "checks": 612,
+  "operations": 40,
+  "declared_errors": 113,
+  "execution_candidate_commit": "6042d1e8f9dc66b6dbda9cccdd711c0afbeb176d",
+  "content_candidate_commit": "a8695c8356a5f42e2e8cf6945753bdaaeaae0071",
+  "input_bundle_sha256": "3663e8994f2a98e7bd27a43fa987c2d3b1d10feb104ea7a5867a880d47363fdb",
+  "case_manifest_sha256": "99cf3b938c7b7525bde7b9ffab42607128d1ca6e18cee183ee38e464bcc9d62c",
+  "historical_attempts": [
+    {
+      "runner": "rest072_resume_attempt1_formal_runner.json",
+      "exit_code": 1,
+      "elapsed_seconds": 0.6838460999997551,
+      "sha256": "14ac0d041500f5a10cb95b12802b2c058b440ad589040ac2054d993c9156e1fa",
+      "failure": "AttributeError(\"'AuthenticationProviderNotFound' object has no attribute 'error_code'\")"
+    },
+    {
+      "runner": "rest072_resume_attempt2_formal_runner.json",
+      "exit_code": 1,
+      "elapsed_seconds": 0.6437832999999955,
+      "sha256": "34704a85e0dab7a01836a42f9f689d6b1ac4145edd5dcba9f87431f2bcdb3d76",
+      "failure": "SDKInternalError('Expecting property name enclosed in double quotes: line 1 column 2 (char 1)')"
+    },
+    {
+      "runner": "rest072_resume_attempt3_formal_runner.json",
+      "exit_code": 1,
+      "elapsed_seconds": 0.7034911000000648,
+      "sha256": "03eff17366f53d981101a53afe9e65c618eda48693bb4a4b76c6812ff5953c4a",
+      "failure": "AssertionError(('v2.admin.Host.list', <foundry_sdk._core.resource_iterator.ResourceIterator object at 0x0000023C6A967490>, {'data': [{'hostName': 'qa-review-072'}], 'nextPageToken': 'qa-review-072'}))"
+    },
+    {
+      "runner": "rest072_resume_attempt4_formal_runner.json",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9948214000000917,
+      "sha256": "5719e370a7c8ed2168b15b49b0b43938b6d0908e0e8431e9eefbbe28dfe2b0c9",
+      "failure": null
+    }
+  ],
+  "final_execution_attempt": 5,
+  "archive_inventory": "maintainer/evidence/rest072/rest072_resume_archive_inventory.json",
+  "workflow_note": "DEV-STORY-072 advanced automatically to Deployment after TESTEXEC-075 closed. All six direct children are Closed. Feature release approval remains separate.",
+  "archive_note": "Original reports, approvals and executed harness bytes are preserved unchanged. Historical local paths identify the measured environment. Attempts 1 through 3 failed; attempt 4 passed with weaker assertions. Acceptance uses the final fifth run.",
+  "boundary": "Offline SDK serialization, typed results, errors and bounded lifecycle assertions only; no live enrollment/deployment verification."
+}

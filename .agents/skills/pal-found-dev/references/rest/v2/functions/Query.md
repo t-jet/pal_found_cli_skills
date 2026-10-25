@@ -15,9 +15,12 @@ Select the supported endpoint instead of assuming all Query names share a scope.
 
 Prepare SDK 1.101.0, a permitted published Query and its input/result definitions.
 Check the operation's release stage, preview enablement and function/resource
-access. The latest version is the most recently published version and can be a
-pre-release. Pin `version` for a reproducible business contract. With `branch`,
-that version must exist on the selected branch. An omitted branch uses the default.
+access. Execution without `version` uses the most recently published version,
+which can be a pre-release. RID metadata lookups resolve the latest stable
+version by default; set `include_prerelease=True` on `get_by_rid` or on each
+`get_by_rid_batch` request element to include pre-releases. Pin `version` for a
+reproducible business contract. With `branch`, that version must exist on the
+selected branch. An omitted branch uses the default.
 Transactions are experimental and not supported in every workflow; a transaction
 ID is not a generic request correlation identifier.
 
@@ -27,11 +30,11 @@ ID is not a generic request correlation identifier.
 | --- | --- |
 | [get](../../contracts/v2/functions/Query/get.md) ([fixture](../../../../examples/rest/085/v2/functions/Query/invoke_get.py)) | Resolve metadata by API name and selected version before constructing argument values. |
 | [get_by_rid](../../contracts/v2/functions/Query/get_by_rid.md) ([fixture](../../../../examples/rest/085/v2/functions/Query/invoke_get_by_rid.py)) | Resolve the exact function identity when the caller has its RID. |
-| [get_by_rid_batch](../../contracts/v2/functions/Query/get_by_rid_batch.md) ([fixture](../../../../examples/rest/085/v2/functions/Query/invoke_get_by_rid_batch.py)) | Resolve a bounded set of RID requests and match returned identities to the requested set. |
+| [get_by_rid_batch](../../contracts/v2/functions/Query/get_by_rid_batch.md) ([fixture](../../../../examples/rest/085/v2/functions/Query/invoke_get_by_rid_batch.py)) | Resolve up to 100 RID requests; missing or inaccessible Queries are omitted from the result. Match returned identities to the requests. |
 | [execute](../../contracts/v2/functions/Query/execute.md) ([fixture](../../../../examples/rest/085/v2/functions/Query/invoke_execute.py)) | Invoke a global Query and decode its complete JSON result. Validate the business result shape. |
 | [execute_async](../../contracts/v2/functions/Query/execute_async.md) ([fixture](../../../../examples/rest/085/v2/functions/Query/invoke_execute_async.py)) | Submit execution; inspect whether the response is an immediate result or an execution ID. |
-| [streaming_execute](../../contracts/v2/functions/Query/streaming_execute.md) ([fixture](../../../../examples/rest/085/v2/functions/Query/invoke_streaming_execute.py)) | Receive raw SSE bytes; SDK ordinary bytes buffer the result. Use the streaming wrapper for bounded incremental consumption. |
-| [streaming_execute_events](../../contracts/v2/functions/Query/streaming_execute_events.md) ([fixture](../../../../examples/rest/085/v2/functions/Query/invoke_streaming_execute_events.py)) | Use its typed SSE context manager and handle each discriminated data/error event. |
+| [streaming_execute](../../contracts/v2/functions/Query/streaming_execute.md) ([fixture](../../../../examples/rest/085/v2/functions/Query/invoke_streaming_execute.py)) | Use the typed SSE context manager, consume data batches, and handle an error event after partial data. |
+| [streaming_execute_events](../../contracts/v2/functions/Query/streaming_execute_events.md) ([fixture](../../../../examples/rest/085/v2/functions/Query/invoke_streaming_execute_events.py)) | Use the typed SSE context manager and handle each discriminated data/error event. |
 
 After asynchronous submission, poll [Execution.get_result](../../contracts/v2/functions/Execution/get_result.md)
 with an explicit deadline and attempt budget. Server asynchronous execution differs
@@ -44,8 +47,12 @@ one data event containing its entire result; a streaming function can send sever
 batches. An SSE error event is a typed application failure before termination and
 can follow earlier data. Preserve partial results and report failure explicitly.
 HTTP success or the first data batch does not prove complete Query success. Apply
-the [local SSE framing/lifetime contract](../../client-behavior.md) and a finite
-event/byte/deadline budget.
+the [local SSE framing/lifetime contract](../../client-behavior.md) and finite
+event, decoded-payload byte and deadline budgets. The fixtures close the SSE
+context on every outcome. The byte budget counts serialized decoded event
+payloads after SDK parsing; it does not cap raw wire bytes or a single event
+before decoding. `request_timeout` limits an individual read, while the
+application deadline is checked between events.
 
 ## Worked example
 

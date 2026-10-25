@@ -1,0 +1,30 @@
+{
+  "reviewer_identity": "/root/formal074_prepare/independent_review",
+  "completed_utc": "2026-10-21T12:48:28.488572+00:00",
+  "verdict": "APPROVED",
+  "kind": "Harness normalization correction only; no client calls or formal re-execution",
+  "previous_harness_sha256": "24602d30f2212bc4fde6640d287fe4bc944f02ea0c545b9021e2b5ac0697d842",
+  "corrected_harness_sha256": "ff6a8c6d15d25225c1c3a74755f73c7494011967968b652430d36a5a9ed72d05",
+  "unchanged_manifest_sha256": "599ee752c7c375d5afca7b12620527f74734f9e053f4e4c0060f3b6ecdfb6632",
+  "source": {
+    "model_base_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\model_base.py",
+    "model_base_sha256": "9991688d13830547f029b78995d0b822d1ac63b2f99911d876277515c44dbb1e",
+    "to_dict_source": "    def to_dict(self) -> Dict[str, Any]:\n        \"\"\"Return the dictionary representation of the model using the field aliases.\"\"\"\n        return cast(Dict[str, Any], self.model_dump(by_alias=True, exclude_none=True))\n",
+    "core_Long": "Annotated[int, PlainSerializer(return_type=str, when_used=json)]"
+  },
+  "reason": "JSON serialization converts core.Long values to strings. Typed comparison must use Python values. Preserve aliases and exclude_unset; normalize dates explicitly. Frozen response literals remain unchanged.",
+  "checks": {
+    "only_reviewed_normalization_delta": true,
+    "long_integer_preserved": true,
+    "datetime_normalized": true,
+    "date_normalized": true,
+    "explicit_null_preserved": true,
+    "omitted_optional_field_stays_omitted": true,
+    "failed_attempt_preserved": true
+  },
+  "failed_attempt_evidence": {
+    "path": ".ept\\tmp\\rest074_exec_attempt1_rest074_formal_execution.json",
+    "sha256": "5713752c5105db0b0be81f3510f85650533186452d0a3f7c67454e0d9da880c5"
+  },
+  "formal_execution": "NOT_RUN_BY_REVIEWER"
+}

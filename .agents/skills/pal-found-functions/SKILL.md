@@ -19,11 +19,15 @@ The operation records below explain each supported command.
 
 Use a query's API name for `execute`, `streaming_execute`, and `get`; use a RID
 only for `get_by_rid` and `get_by_rid_batch`. Execution defaults to the latest
-query version unless `--version` is supplied. The SDK marks `execute` as a
-backward-compatibility endpoint and recommends `streaming_execute` for new
-callers. That endpoint returns NDJSON, including a single line for a
-nonstreaming function. Query execution can consume compute; inspecting query
-or value-type metadata does not run the query.
+query version unless `--version` is supplied; the latest version may be a
+prerelease. `execute` runs global queries and returns one JSON result.
+`streaming_execute` also supports Ontology-scoped functions when `--ontology`
+is supplied. The SDK receives Server-Sent Events (SSE). The CLI buffers their
+JSON payloads and writes newline-delimited JSON (NDJSON) to stdout after the
+stream finishes. A nonstreaming function produces one data line. Inspect each
+line for execution errors even when the command exits successfully. A timeout
+before completion produces no partial NDJSON. Query execution can consume
+compute; inspecting query or value-type metadata does not run the query.
 
 7 Foundry Functions API v2 operations are exposed by `pal-found-functions`.
 
@@ -55,18 +59,3 @@ API names, RIDs, and JSON payload shapes.
 
 Every operation accepts `--timeout`, `--format json|toon|auto`, and
 `--pretty`. Query execution uses JSON parameter payloads.
-
-## Install requirement
-
-`pal-found-functions` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```

@@ -7,7 +7,9 @@ import json
 import sys
 import urllib.parse
 import datetime
+from io import BytesIO
 from pathlib import Path
+from zipfile import ZipFile
 
 import httpx
 from foundry_sdk import PalantirRPCException
@@ -18,7 +20,13 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/thirdPartyApplications/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/website/versions/upload'
-EXPECTED_BODY = b'synthetic-response'
+def archive_bytes():
+    buffer = BytesIO()
+    with ZipFile(buffer, 'w') as archive:
+        archive.writestr('index.html', '<!doctype html><title>Offline application</title>')
+    return buffer.getvalue()
+
+EXPECTED_BODY = archive_bytes()
 EXPECTED_QUERY = {'version': 'synthetic-value'}
 EXPECTED_HEADERS = {'Content-Type': 'application/octet-stream', 'Accept': 'application/json'}
 SUCCESS = {'version': 'synthetic-value'}
@@ -28,7 +36,7 @@ ERRORS = [{'name': 'UploadVersionPermissionDenied',
   'parameters': {'thirdPartyApplicationRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}}]
 
 def invoke(client):
-    return client.with_raw_response.upload(third_party_application_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', body=b'synthetic-response', version='synthetic-value', request_timeout=30)
+    return client.with_raw_response.upload(third_party_application_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', body=EXPECTED_BODY, version='synthetic-value', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -43,6 +51,8 @@ def check_request(request):
     assert sorted(request.url.params.multi_items()) == sorted(expected.multi_items())
     if isinstance(EXPECTED_BODY, bytes):
         assert request.content == EXPECTED_BODY
+        with ZipFile(BytesIO(request.content)) as archive:
+            assert archive.read('index.html').startswith(b'<!doctype html>')
     elif EXPECTED_BODY is not None:
         assert json.loads(request.content) == EXPECTED_BODY
 

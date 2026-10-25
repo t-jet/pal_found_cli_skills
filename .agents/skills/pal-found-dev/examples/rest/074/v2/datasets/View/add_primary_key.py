@@ -24,7 +24,8 @@ EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/j
 SUCCESS = {'viewName': 'synthetic-value',
  'datasetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
  'parentFolderRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
- 'backingDatasets': [{'datasetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
+ 'primaryKey': {'columns': ['synthetic-value'], 'resolution': {'type': 'unique'}},
+ 'backingDatasets': [{'datasetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000002',
                       'stopPropagatingMarkingIds': ['synthetic-value']}]}
 ERRORS = [{'name': 'AddPrimaryKeyPermissionDenied',
   'status': 403,
@@ -98,11 +99,16 @@ def normalized(value):
         return value.model_dump(mode='json', by_alias=True, exclude_none=True)
     return value
 
+def check_result(result, request):
+    requested_key = json.loads(request.content)['primaryKey']
+    assert result.get('primaryKey') == requested_key, 'Returned primary key differs from request'
+
+
 def verify():
     calls = []
     def success(request):
         check_request(request)
-        calls.append(True)
+        calls.append(request)
         if isinstance(SUCCESS, bytes):
             return httpx.Response(200, content=SUCCESS)
         if SUCCESS is None:
@@ -111,7 +117,9 @@ def verify():
     with mock_resource(ViewClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = normalized(raw.decode())
+            assert result == SUCCESS
+            check_result(result, calls[0])
         finally:
             raw.close()
     assert len(calls) == 1

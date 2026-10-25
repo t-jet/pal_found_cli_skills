@@ -1,7 +1,7 @@
 # foundry_sdk.v2.filesystem.models.FolderType
 
 
-The folder type distinguishes an ordinary folder, Project and Space. Read the literal values below and use the matching resource operation when traversing the hierarchy. Project and Space also carry access context that an ordinary folder path does not convey.
+A folder can be a regular Folder, a Project, or a Space. The literal values are `FOLDER`, `PROJECT`, and `SPACE`.
 
 ## Exact SDK definition
 

@@ -86,7 +86,7 @@ Declared failures for this operation:
 | --- | --- |
 | BranchNotFound | The requested branch could not be found, or the client token does not have access to it. |
 | DatasetNotFound | The requested dataset could not be found, or the client token does not have access to it. |
-| DeleteSchemaPermissionDenied | todo |
+| DeleteSchemaPermissionDenied | Permission denied while deleting this dataset schema. Check caller access to the exact dataset; the SDK does not name a specific missing grant. |
 | InvalidBranchId | The requested branch name cannot be used. Branch names cannot be empty and must not look like RIDs or UUIDs. |
 | SchemaNotFound | A schema could not be found for the given dataset and branch, or the client token does not have access to it. |
 | TransactionNotFound | The requested transaction could not be found on the dataset, or the client token does not have access to it. |
@@ -128,9 +128,11 @@ retrying.
 
 ### get_schema
 
-Read schema for the selected dataset version. In v2 omission of endTransactionRid
-selects the latest committed version. Check column types before parsing exports or
-authoring schema-dependent code.
+Read schema for the selected v1 dataset view. Supply `branch_id` for the
+intended branch, or `transaction_rid` when inspecting the schema held by a
+known transaction. This v1 method has no `end_transaction_rid` selector.
+Its return annotation permits `None`, so check that a schema was returned
+before using column types to parse exports or author schema-dependent code.
 
 [Exact parameters, request, result and error models](../../contracts/v1/datasets/Dataset/get_schema.md).
 
@@ -223,7 +225,7 @@ Declared failures for this operation:
 | InvalidBranchId | The requested branch name cannot be used. Branch names cannot be empty and must not look like RIDs or UUIDs. |
 | InvalidTransactionType | The given transaction type is not valid. Valid transaction types are `SNAPSHOT`, `UPDATE`, `APPEND`, and `DELETE`. |
 | OpenTransactionAlreadyExists | A transaction is already open on this dataset and branch. A branch of a dataset can only have one open transaction at a time. |
-| PutSchemaPermissionDenied | todo |
+| PutSchemaPermissionDenied | Permission denied while replacing this dataset schema. Check caller access to the exact dataset; the SDK does not name a specific missing grant. |
 | TransactionNotFound | The requested transaction could not be found on the dataset, or the client token does not have access to it. |
 | TransactionNotOpen | The given transaction is not open. |
 

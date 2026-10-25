@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "reviewer": "Independent QA /root/core_and_schedule_final_qa",
+  "review_date": "2026-10-20",
+  "status": "complete",
+  "tool_head": "0963e6e006f82ad1997be0e22c6b750ed0bbce3b",
+  "sdk_version": "1.101.0",
+  "scope": "Read-only whole-page review of three Admin identity and governance pages; all50 operation examples checked; no source, tracker, or shared ledger edits.",
+  "validation": [
+    "238 pinned Admin CLI tests passed with PYTHONPATH set to pinned tool and temporary test data under parent .ept/tmp.",
+    "50/50 exact page examples pass pinned parser/coercion and real SDK1.101 decorated input validation with call_api mocked before invocation.",
+    "Synthetic request query captures retained in feature015_admin_pages_probe.json; no Foundry request.",
+    "Final six required-preview commands captured preview=True in real SDK RequestInfo before mocked call_api; six examples corrected, all50 examples remain valid."
+  ],
+  "limitations": [
+    "No live enrollment, identity deletion, role assignment, or authorization behavior tested.",
+    "SDK local validation does not establish server acceptance or satisfy explicit API preview requirements."
+  ],
+  "pages": [
+    {
+      "path": "pal-found-admin/references/01-identity-auth-users.md",
+      "sha256": "37b85bfef36f77858723b839766aaa55e9f9d32ea36924d96e91aed450fd0096",
+      "lines": 169,
+      "reviewed_range": "1-169",
+      "verdict": "PASS",
+      "reviewer": "Independent QA /root/core_and_schedule_final_qa",
+      "checks": [
+        "Whole conceptual opening and every operation record read against pinned parser, adapter, SDK signatures, return types, and SDK semantics.",
+        "Every published operation example passes parser and SDK input validation; this does not prove API preconditions.",
+        "Fresh full-page retest after root-owned corrections; exact current bytes hashed.",
+        "Uncertain-write recovery requires inspection/reconciliation before replay; successful API request distinguished from inferred access state.",
+        "Authentication-provider and enrollment-role lists now correctly described as nonpaged data-only responses; user list/search retain genuine continuation guidance. Preregistration, status selection, revocation, provider mapping, batch limit500, profile byte-count behavior, and role assignment limit100 match pinned sources."
+      ],
+      "operation_count": 20,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/security/users-and-groups",
+        "https://www.palantir.com/docs/foundry/administration/overview",
+        "https://www.palantir.com/docs/foundry/api/v2/admin-v2-resources/authentication-providers/list-authentication-providers",
+        "https://www.palantir.com/docs/foundry/api/v2/admin-v2-resources/enrollment-role-assignments/list-enrollment-role-assignments"
+      ],
+      "local_sources": [
+        "pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py",
+        "SDK1.101.0 foundry_sdk/v2/admin/models.py",
+        "SDK1.101.0 foundry_sdk/v2/admin resource client methods (captured docs in feature015_admin_sdk_docs.json)"
+      ],
+      "findings": [],
+      "historical_findings": [
+        {
+          "severity": "Medium",
+          "location": "authentication_provider.list",
+          "line": 15,
+          "actual": "Guide discusses continuation tokens, but ListAuthenticationProvidersResponse contains data only and SDK method has no paging inputs. Describe a nonpaged list."
+        },
+        {
+          "severity": "Medium",
+          "location": "enrollment_role_assignment.list",
+          "line": 63,
+          "actual": "Guide discusses continuation tokens, but ListEnrollmentRoleAssignmentsResponse contains data only and SDK method has no paging inputs. Describe a nonpaged list."
+        },
+        {
+          "severity": "High",
+          "location": "whole page mutation recovery",
+          "line": 1,
+          "actual": "Preregistration, role assignments, delete, token revocation, and provider replacement lack explicit recovery after timeout/transport/exhausted retries. Require read/reconciliation before replay; avoid claiming failed response means no change."
+        }
+      ],
+      "historical_sha256": "c7bfb33917ec7361aec6046bca2bf91f2bc1a106ae08decce85bb5d28d69dc10"
+    },
+    {
+      "path": "pal-found-admin/references/02-identity-groups-roles.md",
+      "sha256": "5622e7de5b992e077d03b5aa175d02c4a2e6edda8cc7ef09e57da2e121f4fd86",
+      "lines": 159,
+      "reviewed_range": "1-159",
+      "verdict": "PASS",
+      "reviewer": "Independent QA /root/core_and_schedule_final_qa",
+      "checks": [
+        "Whole conceptual opening and every operation record read against pinned parser, adapter, SDK signatures, return types, and SDK semantics.",
+        "Every published operation example passes parser and SDK input validation; this does not prove API preconditions.",
+        "Fresh full-page retest after root-owned corrections; exact current bytes hashed.",
+        "Uncertain-write recovery requires inspection/reconciliation before replay; successful API request distinguished from inferred access state.",
+        "Three required-preview examples now emit SDK query preview=True. Group replacement preserves multipass attributes; direct/transitive membership, mutually exclusive expiration flags, policy units, provider mapping uniqueness, prefix search, and role result semantics match SDK/official sources."
+      ],
+      "operation_count": 18,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/security/users-and-groups",
+        "https://www.palantir.com/docs/foundry/security/projects-and-roles",
+        "https://www.palantir.com/docs/foundry/api/admin-v2-resources/groups/list-current-groups",
+        "https://www.palantir.com/docs/foundry/api/admin-v2-resources/group-membership-expiration-policies/replace-group-membership-expiration-policy",
+        "https://www.palantir.com/docs/foundry/api/v2/admin-v2-resources/group-membership-expiration-policies/get-group-membership-expiration-policy"
+      ],
+      "local_sources": [
+        "pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py",
+        "SDK1.101.0 foundry_sdk/v2/admin/models.py",
+        "SDK1.101.0 foundry_sdk/v2/admin resource client methods (captured docs in feature015_admin_sdk_docs.json)"
+      ],
+      "findings": [],
+      "historical_findings": [
+        {
+          "severity": "High",
+          "location": "group.list_current",
+          "line": 47,
+          "actual": "Official API requires preview=true; example omits supported --preview."
+        },
+        {
+          "severity": "High",
+          "location": "group_membership_expiration_policy.get",
+          "line": 103,
+          "actual": "Official API requires preview=true; example omits supported --preview."
+        },
+        {
+          "severity": "High",
+          "location": "group_membership_expiration_policy.replace",
+          "line": 111,
+          "actual": "Official API requires preview=true; example omits supported --preview."
+        },
+        {
+          "severity": "High",
+          "location": "whole page mutation recovery",
+          "line": 1,
+          "actual": "Group/member/provider/policy changes lack explicit uncertain-write reconciliation before replay."
+        }
+      ],
+      "historical_sha256": "d7690f0d49f1654b6e64572ef9af8ff1de55f529a9846e1abd33c65c3fc1c0ca"
+    },
+    {
+      "path": "pal-found-admin/references/03-governance.md",
+      "sha256": "421133d88b624146138ff90029582a367f1a1ae0784ab4306521a801d3121a57",
+      "lines": 111,
+      "reviewed_range": "1-111",
+      "verdict": "PASS",
+      "reviewer": "Independent QA /root/core_and_schedule_final_qa",
+      "checks": [
+        "Whole conceptual opening and every operation record read against pinned parser, adapter, SDK signatures, return types, and SDK semantics.",
+        "Every published operation example passes parser and SDK input validation; this does not prove API preconditions.",
+        "Fresh full-page retest after root-owned corrections; exact current bytes hashed.",
+        "Uncertain-write recovery requires inspection/reconciliation before replay; successful API request distinguished from inferred access state.",
+        "Host list and marking category create/replace examples now emit SDK query preview=True. CBAC banner now explains ignored unknown IDs and deduplication. Mandatory marking/CBAC distinction, limit500 batches, limit100 marking/category pages, initial administrator requirements, and metadata-only replacement semantics match sources."
+      ],
+      "operation_count": 12,
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/security/classification-based-access-controls",
+        "https://www.palantir.com/docs/foundry/platform-security-management/manage-markings",
+        "https://www.palantir.com/docs/foundry/api/admin-v2-resources/cbac-banners/get-cbac-banner",
+        "https://www.palantir.com/docs/foundry/api/admin-v2-resources/marking-categories/create-marking-category",
+        "https://www.palantir.com/docs/foundry/api/v2/admin-v2-resources/marking-categories/replace-marking-category",
+        "https://www.palantir.com/docs/foundry/api/v2/admin-v2-resources/hosts/list-hosts"
+      ],
+      "local_sources": [
+        "pal_found_cli_tool/src/pal_found_cli/admin/scripts/pal_found_admin_cli.py",
+        "SDK1.101.0 foundry_sdk/v2/admin/models.py",
+        "SDK1.101.0 foundry_sdk/v2/admin resource client methods (captured docs in feature015_admin_sdk_docs.json)"
+      ],
+      "findings": [],
+      "historical_findings": [
+        {
+          "severity": "High",
+          "location": "host.list",
+          "line": 23,
+          "actual": "Official API requires preview=true; example omits supported --preview."
+        },
+        {
+          "severity": "High",
+          "location": "marking_category.create",
+          "line": 71,
+          "actual": "Official API requires preview=true; example omits supported --preview."
+        },
+        {
+          "severity": "High",
+          "location": "marking_category.replace",
+          "line": 95,
+          "actual": "Official API requires preview=true; example omits supported --preview."
+        },
+        {
+          "severity": "Medium",
+          "location": "cbac_banner.get",
+          "line": 7,
+          "actual": "Guide says unknown ID prevents usable response, but current official API ignores unrecognized marking IDs and omits them from markings response; duplicates are ignored too."
+        },
+        {
+          "severity": "High",
+          "location": "whole page mutation recovery",
+          "line": 1,
+          "actual": "Marking/category writes lack explicit uncertain-write reconciliation before replay."
+        }
+      ],
+      "historical_sha256": "b6b6248e6c86de0c082df1f3ebecef6c726cc0395ce58e9d281e4c7bd6aa0cc7"
+    }
+  ],
+  "summary": {
+    "PASS": 3,
+    "FAIL": 0,
+    "UNCERTAIN": 0
+  },
+  "tool_boundary": "Admin parser and SDK forwarding support --preview. Corrections here are documentation fixes. This PASS does not close broader tool baseline/SRS issues, prove live authorization, or approve a release."
+}

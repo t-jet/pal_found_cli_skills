@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\rest074_formal_execute.py", line 542, in <module>
+    main()
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\rest074_formal_execute.py", line 529, in main
+    execute(manifest)
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\rest074_formal_execute.py", line 349, in execute
+    success(case, cls, method)
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\rest074_formal_execute.py", line 214, in success
+    assert normalized(result) == normalized(expected), (case['operation'], normalized(result), expected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('v1.datasets.File.get', {'path': 'inspections-independent/status.csv', 'transactionRid': 'ri.foundry.main.transaction.independent074', 'sizeBytes': '37', 'updatedTime': '2026-10-21T08:00:00+00:00'}, {'path': 'inspections-independent/status.csv', 'transactionRid': 'ri.foundry.main.transaction.independent074', 'updatedTime': '2026-10-21T08:00:00Z', 'sizeBytes': 37})
