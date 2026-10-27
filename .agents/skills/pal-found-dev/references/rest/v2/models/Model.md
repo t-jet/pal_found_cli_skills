@@ -20,7 +20,7 @@ Read the [exact SDK/HTTP contract](../../contracts/v2/models/Model/create.md) fo
 
 ### get
 
-Read Model metadata by RID and verify branch/version state before selecting a version.
+Read a Model by RID. The returned model contains its RID, without branch or version state. Use [Model Version list/get](ModelVersion.md) to discover and inspect a version before selecting it.
 
 Read the [exact SDK/HTTP contract](../../contracts/v2/models/Model/get.md) for parameters, models, return mode and named errors. Run the [offline SDK fixture](../../../../examples/rest/087/v2/models/Model/get.py) from the skill root. It checks the synthetic request, result and declared errors without contacting Foundry.
 

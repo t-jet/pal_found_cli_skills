@@ -14,6 +14,6 @@ With a configured `FoundryClient` named `client`, use `client.language_models.Op
 
 ### embeddings
 
-Submit text inputs for embedding, then check each vector index and dimension against the request before persisting downstream references.
+Submit text inputs for embedding, then check the returned vector count and dimensions against the expected input batch and requested dimensions before persisting downstream references. The response contains a list of vectors without per-vector index fields.
 
 Read the [exact SDK/HTTP contract](../../contracts/v2/language_models/OpenAiModel/embeddings.md) for parameters, models, return mode and named errors. Run the [offline SDK fixture](../../../../examples/rest/087/v2/language_models/OpenAiModel/embeddings.py) from the skill root. It checks the synthetic request, result and declared errors without contacting Foundry.

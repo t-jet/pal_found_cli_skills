@@ -20,7 +20,7 @@ Read the [exact SDK/HTTP contract](../../contracts/v2/models/ModelStudio/create.
 
 ### get
 
-Read a Studio by RID, including the information needed to select a configuration and trainer.
+Read a Studio's RID, parent folder RID and creation time. Read [configuration versions](ModelStudioConfigVersion.md) and [trainer metadata](ModelStudioTrainer.md) separately to select and validate the training configuration.
 
 Read the [exact SDK/HTTP contract](../../contracts/v2/models/ModelStudio/get.md) for parameters, models, return mode and named errors. Run the [offline SDK fixture](../../../../examples/rest/087/v2/models/ModelStudio/get.py) from the skill root. It checks the synthetic request, result and declared errors without contacting Foundry.
 

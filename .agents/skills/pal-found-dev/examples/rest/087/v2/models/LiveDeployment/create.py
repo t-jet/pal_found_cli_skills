@@ -36,11 +36,11 @@ ERRORS = [{'name': 'CreateLiveDeploymentPermissionDenied',
  {'name': 'GpuTypeNotAvailable',
   'status': 400,
   'code': 'INVALID_ARGUMENT',
-  'parameters': {'requestedGpuType': 'A100', 'availableGpuTypes': ['A100']}},
+  'parameters': {'requestedGpuType': 'A100', 'availableGpuTypes': ['T4']}},
  {'name': 'InvalidGpuCount',
   'status': 400,
   'code': 'INVALID_ARGUMENT',
-  'parameters': {'providedGpuCount': 1, 'maxGpuCount': 1}},
+  'parameters': {'providedGpuCount': 2, 'maxGpuCount': 1}},
  {'name': 'ModelNotFound',
   'status': 404,
   'code': 'NOT_FOUND',
@@ -48,7 +48,7 @@ ERRORS = [{'name': 'CreateLiveDeploymentPermissionDenied',
  {'name': 'ThreadCountTooHigh',
   'status': 400,
   'code': 'INVALID_ARGUMENT',
-  'parameters': {'maxThreadCount': 1, 'providedThreadCount': 1}}]
+  'parameters': {'maxThreadCount': 1, 'providedThreadCount': 2}}]
 
 def invoke(client):
     return client.with_raw_response.create(deployment_type={'modelRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',

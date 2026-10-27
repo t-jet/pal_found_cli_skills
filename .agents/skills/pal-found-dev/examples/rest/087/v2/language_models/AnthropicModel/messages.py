@@ -37,11 +37,11 @@ ERRORS = [{'name': 'AnthropicMessagesPermissionDenied',
  {'name': 'MultipleSystemPromptsNotSupported',
   'status': 400,
   'code': 'INVALID_ARGUMENT',
-  'parameters': {'systemPromptSize': 1}},
+  'parameters': {'systemPromptSize': 2}},
  {'name': 'MultipleToolResultContentsNotSupported',
   'status': 400,
   'code': 'INVALID_ARGUMENT',
-  'parameters': {'toolResultContentsSize': 1}}]
+  'parameters': {'toolResultContentsSize': 2}}]
 
 def invoke(client):
     return client.with_raw_response.messages(anthropic_model_model_id='synthetic-value', max_tokens=16, messages=[{'content': [{'text': 'Reply with one short greeting.', 'type': 'text'}], 'role': 'USER'}], request_timeout=30)
