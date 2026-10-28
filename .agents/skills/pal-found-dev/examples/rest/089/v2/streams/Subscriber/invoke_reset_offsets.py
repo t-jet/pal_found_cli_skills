@@ -2,6 +2,11 @@
 
 Synthetic identifiers do not name tenant resources. Prepared SDK 1.101.0/httpx
 required. No network connections or live mutations occur.
+
+Assume partition 0 retains offset 50 and its end is beyond 50. Reset resumes
+reading at 50; unlike commit_offsets, do not add one. A bounded subscriber read
+should confirm that position on the live stream. The mocked map proves decoding
+only and cannot prove replay or a server-side checkpoint change.
 """
 import json
 import sys
@@ -18,10 +23,10 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/highScale/streams/datasets/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/streams/synthetic-value/subscribers/synthetic-value/resetOffsets'
-EXPECTED_BODY = {'position': {'offsets': {}, 'type': 'specific'}}
+EXPECTED_BODY = {'position': {'offsets': {'0': 50}, 'type': 'specific'}}
 EXPECTED_QUERY = {'preview': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {}
+SUCCESS = {'0': 50}
 ERRORS = [{'name': 'ResetSubscriberOffsetsPermissionDenied',
   'status': 403,
   'code': 'PERMISSION_DENIED',
@@ -34,7 +39,7 @@ ERRORS = [{'name': 'ResetSubscriberOffsetsPermissionDenied',
   'parameters': {'subscriberId': 'synthetic-value'}}]
 
 def invoke(client):
-    return client.with_raw_response.reset_offsets(dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', stream_branch_name='synthetic-value', subscriber_subscriber_id='synthetic-value', position={'offsets': {}, 'type': 'specific'}, request_timeout=30)
+    return client.with_raw_response.reset_offsets(dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', stream_branch_name='synthetic-value', subscriber_subscriber_id='synthetic-value', position={'offsets': {'0': 50}, 'type': 'specific'}, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
