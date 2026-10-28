@@ -1,0 +1,47 @@
+{
+  "ticket": "BUG-SUB-025",
+  "journey": "J12",
+  "acceptance_status": "accepted",
+  "scope": "Independent fresh standalone reader and separate six-dimension grade at exact consulted source hashes.",
+  "score": "6/6",
+  "reader_agent": "/root/j12_reader_recover_20261028",
+  "independent_grader": "/root/j12_independent_grade_20261028",
+  "archivist_agent": "/root/j12_archive_finish_20261028",
+  "reader_answer": {
+    "path": "maintainer/evidence/j12-20261028/reader/reader_answer.json",
+    "sha256": "65cc2f91075a54a5902e948801d706c87a119ec404f6044bcb04bee559015fe8"
+  },
+  "independent_grade": {
+    "path": "maintainer/evidence/j12-20261028/grader/independent-grade.json",
+    "sha256": "0b81f4c254d2f21cf19217e4eb9c158a2430d2d4a5809718d96e899b0a0f582c"
+  },
+  "archive_context": {
+    "path": "maintainer/evidence/j12-20261028/archive-context.json",
+    "sha256": "5fc3edf93369f1ab06466fe00e4ef44073da7dd77b4f03f8f3cfaaaabe781828"
+  },
+  "verified": {
+    "reader_artifacts": 32,
+    "snapshot_files": 4437,
+    "consulted_current_sources": 23,
+    "reader_scenarios": 12,
+    "independent_reproduction_exit_code": 0,
+    "archived_artifacts": 90,
+    "all_archive_bytes_equal_originals": true
+  },
+  "closure_preconditions": [
+    "Archive and commit this grade, reader code/output, manifests, consulted-source hashes and original failure references before BUG-SUB-025 resolution; the prior developer comment explicitly requires durable committed QA evidence.",
+    "Developer checks current In Progress DoD and documents root cause/fix/regression/time with no invented contributor hours before moving to Resolved.",
+    "Separate QA then checks Resolved DoD, removes only verified Blocks LINK-01894 and preserves RelatesTo LINK-01893 before closure.",
+    "TESTEXEC-064 complete REST acceptance remains separate; this J12 grade does not waive its other namespaces/journeys or domain formal QA."
+  ],
+  "scope_limits": [
+    "Real SDK serialization and decoding against a declared stateful HTTP mock, not live Foundry writes, build execution, credentials, permissions or administrator grants.",
+    "The reader reports single-writer fixture assumptions; its reconciliation is not an atomic concurrency guarantee.",
+    "Per-process DNS/socket denial and explicit rejection probes do not demonstrate OS-wide isolation.",
+    "Lost create response and abort-timeout branches are guarded but not executed; deadline exhaustion was not separately timed. Required bounded poll exhaustion and uncertain upload/commit cases were executed.",
+    "The reader snapshot is immutable by its recorded content manifest; consulted files match current shared skill bytes. No claim that every current unconsulted file equals that snapshot or an immutable Git commit is made."
+  ],
+  "publication_boundary": "Archive prepared but not committed or pushed by this agent. Commit these immutable evidence files before checking the current developer DoD and resolving BUG-SUB-025.",
+  "tracker_mutations": [],
+  "source_or_ledger_mutations": []
+}

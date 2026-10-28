@@ -1,0 +1,384 @@
+{
+  "name": "branch_mismatch",
+  "started": "2026-10-28T07:53:00.130240+00:00",
+  "finished": "2026-10-28T07:53:00.153295+00:00",
+  "outcome": "stopped",
+  "status_requested": "SUCCEEDED",
+  "fault": "wrong_branch",
+  "denial_probes": [
+    "public network denied by J12 reader",
+    "public network denied by J12 reader"
+  ],
+  "mutations": [
+    "create",
+    "upload",
+    "commit"
+  ],
+  "mutation_attempts": {
+    "upload": 1,
+    "commit": 1
+  },
+  "build_reads": 0,
+  "journal": "journal_branch_mismatch.json",
+  "requests": [
+    {
+      "at": "2026-10-28T07:53:00.130240+00:00",
+      "method": "GET",
+      "path": "/api/v2/datasets/ri.reader.main.dataset.00000000-0000-0000-0000-000000000012/branches/reader-j12",
+      "query": [],
+      "headers": {
+        "host": "reader.invalid",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "accept": "application/json"
+      },
+      "body": "",
+      "timeout": {
+        "connect": 3,
+        "read": 3,
+        "write": 3,
+        "pool": 3
+      },
+      "http_status": 200,
+      "response": "{\"name\":\"reader-j12\",\"transactionRid\":\"ri.reader.main.transaction.00000000-0000-0000-0000-000000000011\"}"
+    },
+    {
+      "at": "2026-10-28T07:53:00.132239+00:00",
+      "method": "POST",
+      "path": "/api/v2/datasets/ri.reader.main.dataset.00000000-0000-0000-0000-000000000012/transactions",
+      "query": [
+        [
+          "branchName",
+          "reader-j12"
+        ]
+      ],
+      "headers": {
+        "host": "reader.invalid",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "content-type": "application/json",
+        "accept": "application/json",
+        "content-length": "29"
+      },
+      "body": "{\"transactionType\": \"APPEND\"}",
+      "timeout": {
+        "connect": 3,
+        "read": 3,
+        "write": 3,
+        "pool": 3
+      },
+      "http_status": 200,
+      "response": "{\"rid\":\"ri.reader.main.transaction.00000000-0000-0000-0000-000000000012\",\"transactionType\":\"APPEND\",\"status\":\"OPEN\",\"createdTime\":\"2026-10-28T12:00:00+00:00\"}"
+    },
+    {
+      "at": "2026-10-28T07:53:00.134379+00:00",
+      "method": "GET",
+      "path": "/api/v2/datasets/ri.reader.main.dataset.00000000-0000-0000-0000-000000000012/transactions/ri.reader.main.transaction.00000000-0000-0000-0000-000000000012",
+      "query": [],
+      "headers": {
+        "host": "reader.invalid",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "accept": "application/json"
+      },
+      "body": "",
+      "timeout": {
+        "connect": 3,
+        "read": 3,
+        "write": 3,
+        "pool": 3
+      },
+      "http_status": 200,
+      "response": "{\"rid\":\"ri.reader.main.transaction.00000000-0000-0000-0000-000000000012\",\"transactionType\":\"APPEND\",\"status\":\"OPEN\",\"createdTime\":\"2026-10-28T12:00:00+00:00\"}"
+    },
+    {
+      "at": "2026-10-28T07:53:00.137883+00:00",
+      "method": "POST",
+      "path": "/api/v2/datasets/ri.reader.main.dataset.00000000-0000-0000-0000-000000000012/files/reader/batch.csv/upload",
+      "query": [
+        [
+          "transactionRid",
+          "ri.reader.main.transaction.00000000-0000-0000-0000-000000000012"
+        ]
+      ],
+      "headers": {
+        "host": "reader.invalid",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "content-type": "application/octet-stream",
+        "accept": "application/json",
+        "content-length": "21"
+      },
+      "body": "id,value\n12,accepted\n",
+      "timeout": {
+        "connect": 3,
+        "read": 3,
+        "write": 3,
+        "pool": 3
+      },
+      "http_status": 200,
+      "response": "{\"path\":\"reader/batch.csv\",\"transactionRid\":\"ri.reader.main.transaction.00000000-0000-0000-0000-000000000012\",\"sizeBytes\":21,\"updatedTime\":\"2026-10-28T12:00:00+00:00\"}"
+    },
+    {
+      "at": "2026-10-28T07:53:00.138888+00:00",
+      "method": "GET",
+      "path": "/api/v2/datasets/ri.reader.main.dataset.00000000-0000-0000-0000-000000000012/transactions/ri.reader.main.transaction.00000000-0000-0000-0000-000000000012",
+      "query": [],
+      "headers": {
+        "host": "reader.invalid",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "accept": "application/json"
+      },
+      "body": "",
+      "timeout": {
+        "connect": 3,
+        "read": 3,
+        "write": 3,
+        "pool": 3
+      },
+      "http_status": 200,
+      "response": "{\"rid\":\"ri.reader.main.transaction.00000000-0000-0000-0000-000000000012\",\"transactionType\":\"APPEND\",\"status\":\"OPEN\",\"createdTime\":\"2026-10-28T12:00:00+00:00\"}"
+    },
+    {
+      "at": "2026-10-28T07:53:00.138888+00:00",
+      "method": "GET",
+      "path": "/api/v2/datasets/ri.reader.main.dataset.00000000-0000-0000-0000-000000000012/files/reader/batch.csv",
+      "query": [
+        [
+          "endTransactionRid",
+          "ri.reader.main.transaction.00000000-0000-0000-0000-000000000012"
+        ],
+        [
+          "startTransactionRid",
+          "ri.reader.main.transaction.00000000-0000-0000-0000-000000000012"
+        ]
+      ],
+      "headers": {
+        "host": "reader.invalid",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "accept": "application/json"
+      },
+      "body": "",
+      "timeout": {
+        "connect": 3,
+        "read": 3,
+        "write": 3,
+        "pool": 3
+      },
+      "http_status": 200,
+      "response": "{\"path\":\"reader/batch.csv\",\"transactionRid\":\"ri.reader.main.transaction.00000000-0000-0000-0000-000000000012\",\"sizeBytes\":21,\"updatedTime\":\"2026-10-28T12:00:00+00:00\"}"
+    },
+    {
+      "at": "2026-10-28T07:53:00.139888+00:00",
+      "method": "GET",
+      "path": "/api/v2/datasets/ri.reader.main.dataset.00000000-0000-0000-0000-000000000012/files/reader/batch.csv/content",
+      "query": [
+        [
+          "endTransactionRid",
+          "ri.reader.main.transaction.00000000-0000-0000-0000-000000000012"
+        ],
+        [
+          "startTransactionRid",
+          "ri.reader.main.transaction.00000000-0000-0000-0000-000000000012"
+        ]
+      ],
+      "headers": {
+        "host": "reader.invalid",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "accept": "application/octet-stream"
+      },
+      "body": "",
+      "timeout": {
+        "connect": 3,
+        "read": 3,
+        "write": 3,
+        "pool": 3
+      },
+      "http_status": 200,
+      "response": "id,value\n12,accepted\n"
+    },
+    {
+      "at": "2026-10-28T07:53:00.141391+00:00",
+      "method": "GET",
+      "path": "/api/v2/datasets/ri.reader.main.dataset.00000000-0000-0000-0000-000000000012/transactions/ri.reader.main.transaction.00000000-0000-0000-0000-000000000012",
+      "query": [],
+      "headers": {
+        "host": "reader.invalid",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "accept": "application/json"
+      },
+      "body": "",
+      "timeout": {
+        "connect": 3,
+        "read": 3,
+        "write": 3,
+        "pool": 3
+      },
+      "http_status": 200,
+      "response": "{\"rid\":\"ri.reader.main.transaction.00000000-0000-0000-0000-000000000012\",\"transactionType\":\"APPEND\",\"status\":\"OPEN\",\"createdTime\":\"2026-10-28T12:00:00+00:00\"}"
+    },
+    {
+      "at": "2026-10-28T07:53:00.141391+00:00",
+      "method": "GET",
+      "path": "/api/v2/datasets/ri.reader.main.dataset.00000000-0000-0000-0000-000000000012/branches/reader-j12",
+      "query": [],
+      "headers": {
+        "host": "reader.invalid",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "accept": "application/json"
+      },
+      "body": "",
+      "timeout": {
+        "connect": 3,
+        "read": 3,
+        "write": 3,
+        "pool": 3
+      },
+      "http_status": 200,
+      "response": "{\"name\":\"reader-j12\",\"transactionRid\":\"ri.reader.main.transaction.00000000-0000-0000-0000-000000000011\"}"
+    },
+    {
+      "at": "2026-10-28T07:53:00.143545+00:00",
+      "method": "GET",
+      "path": "/api/v2/datasets/ri.reader.main.dataset.00000000-0000-0000-0000-000000000012/files/reader/batch.csv",
+      "query": [
+        [
+          "endTransactionRid",
+          "ri.reader.main.transaction.00000000-0000-0000-0000-000000000012"
+        ],
+        [
+          "startTransactionRid",
+          "ri.reader.main.transaction.00000000-0000-0000-0000-000000000012"
+        ]
+      ],
+      "headers": {
+        "host": "reader.invalid",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "accept": "application/json"
+      },
+      "body": "",
+      "timeout": {
+        "connect": 3,
+        "read": 3,
+        "write": 3,
+        "pool": 3
+      },
+      "http_status": 200,
+      "response": "{\"path\":\"reader/batch.csv\",\"transactionRid\":\"ri.reader.main.transaction.00000000-0000-0000-0000-000000000012\",\"sizeBytes\":21,\"updatedTime\":\"2026-10-28T12:00:00+00:00\"}"
+    },
+    {
+      "at": "2026-10-28T07:53:00.144050+00:00",
+      "method": "GET",
+      "path": "/api/v2/datasets/ri.reader.main.dataset.00000000-0000-0000-0000-000000000012/files/reader/batch.csv/content",
+      "query": [
+        [
+          "endTransactionRid",
+          "ri.reader.main.transaction.00000000-0000-0000-0000-000000000012"
+        ],
+        [
+          "startTransactionRid",
+          "ri.reader.main.transaction.00000000-0000-0000-0000-000000000012"
+        ]
+      ],
+      "headers": {
+        "host": "reader.invalid",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "accept": "application/octet-stream"
+      },
+      "body": "",
+      "timeout": {
+        "connect": 3,
+        "read": 3,
+        "write": 3,
+        "pool": 3
+      },
+      "http_status": 200,
+      "response": "id,value\n12,accepted\n"
+    },
+    {
+      "at": "2026-10-28T07:53:00.147284+00:00",
+      "method": "POST",
+      "path": "/api/v2/datasets/ri.reader.main.dataset.00000000-0000-0000-0000-000000000012/transactions/ri.reader.main.transaction.00000000-0000-0000-0000-000000000012/commit",
+      "query": [],
+      "headers": {
+        "host": "reader.invalid",
+        "content-length": "0",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "accept": "application/json"
+      },
+      "body": "",
+      "timeout": {
+        "connect": 3,
+        "read": 3,
+        "write": 3,
+        "pool": 3
+      },
+      "http_status": 200,
+      "response": "{\"rid\":\"ri.reader.main.transaction.00000000-0000-0000-0000-000000000012\",\"transactionType\":\"APPEND\",\"status\":\"COMMITTED\",\"createdTime\":\"2026-10-28T12:00:00+00:00\"}"
+    },
+    {
+      "at": "2026-10-28T07:53:00.149786+00:00",
+      "method": "GET",
+      "path": "/api/v2/datasets/ri.reader.main.dataset.00000000-0000-0000-0000-000000000012/transactions/ri.reader.main.transaction.00000000-0000-0000-0000-000000000012",
+      "query": [],
+      "headers": {
+        "host": "reader.invalid",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "accept": "application/json"
+      },
+      "body": "",
+      "timeout": {
+        "connect": 3,
+        "read": 3,
+        "write": 3,
+        "pool": 3
+      },
+      "http_status": 200,
+      "response": "{\"rid\":\"ri.reader.main.transaction.00000000-0000-0000-0000-000000000012\",\"transactionType\":\"APPEND\",\"status\":\"COMMITTED\",\"createdTime\":\"2026-10-28T12:00:00+00:00\"}"
+    },
+    {
+      "at": "2026-10-28T07:53:00.149786+00:00",
+      "method": "GET",
+      "path": "/api/v2/datasets/ri.reader.main.dataset.00000000-0000-0000-0000-000000000012/branches/reader-j12",
+      "query": [],
+      "headers": {
+        "host": "reader.invalid",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "accept": "application/json"
+      },
+      "body": "",
+      "timeout": {
+        "connect": 3,
+        "read": 3,
+        "write": 3,
+        "pool": 3
+      },
+      "http_status": 200,
+      "response": "{\"name\":\"reader-j12\",\"transactionRid\":\"ri.reader.main.transaction.00000000-0000-0000-0000-000000000011\"}"
+    }
+  ]
+}

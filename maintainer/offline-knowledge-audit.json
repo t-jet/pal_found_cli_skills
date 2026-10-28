@@ -2181,111 +2181,238 @@
       "path": "pal-found-language-models\\references\\01-inference.md",
       "sha256": "c15dcb156f1a945b5a8a2c2a19fa01eb3374e9914f1800b7560436a3c3983470",
       "lines": 6,
-      "review_status": "author context review; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/language_qa_recover_20261028",
+        "review_date": "2026-10-28",
         "page_sha256": "c15dcb156f1a945b5a8a2c2a19fa01eb3374e9914f1800b7560436a3c3983470",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 2",
-          "reachable from owning SKILL.md"
+          "Reviewed entire resource navigation page; both linked resource records exist and correspond to exact two CLI operations."
         ],
-        "url_contexts_in_current_audit": 0,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-language-models.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-language-models\\references\\01-inference.md",
+          "sha256": "c15dcb156f1a945b5a8a2c2a19fa01eb3374e9914f1800b7560436a3c3983470",
+          "lines": 6,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "c15dcb156f1a945b5a8a2c2a19fa01eb3374e9914f1800b7560436a3c3983470",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 2",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 0,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-language-models\\references\\anthropic-model.md",
       "sha256": "392022726d2d2476709dd2936467b5dbb58a6004624441ece927179ac9a103d6",
       "lines": 14,
-      "review_status": "author context review; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/language_qa_recover_20261028",
+        "review_date": "2026-10-28",
         "page_sha256": "392022726d2d2476709dd2936467b5dbb58a6004624441ece927179ac9a103d6",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 1",
-          "reachable from owning SKILL.md"
+          "Reviewed every purpose, input, precondition, result, failure and example statement against generated SDK1.101 and CLI.",
+          "Actual documented message example reaches one SDK HTTP POST with exact model route, message content and maxTokens256.",
+          "Optional sampling, stop/system, tools/tool-choice, thinking and output-config payloads serialize through actual SDK.",
+          "Response content and usage decode via frozen AnthropicMessagesResponse; timeout uncertainty remains an explicit boundary."
         ],
-        "url_contexts_in_current_audit": 0,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-language-models.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-language-models\\references\\anthropic-model.md",
+          "sha256": "392022726d2d2476709dd2936467b5dbb58a6004624441ece927179ac9a103d6",
+          "lines": 14,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "392022726d2d2476709dd2936467b5dbb58a6004624441ece927179ac9a103d6",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 1",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 0,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-language-models\\references\\inputs.md",
-      "sha256": "122a4f1ba9944522a3a9e56c754fe5e9d9a5f6ec0f2c8fbc163e47ef732d0567",
-      "lines": 19,
-      "review_status": "author context review; independent semantic review pending",
+      "sha256": "0e81c2dac68f67c1b1948d800477850313dec09e67e709164dc51f4c738d8306",
+      "lines": 38,
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "122a4f1ba9944522a3a9e56c754fe5e9d9a5f6ec0f2c8fbc163e47ef732d0567",
+        "reviewer_agent": "/root/language_qa_recover_20261028",
+        "review_date": "2026-10-28",
+        "page_sha256": "0e81c2dac68f67c1b1948d800477850313dec09e67e709164dc51f4c738d8306",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 0",
-          "reachable from owning SKILL.md"
+          "Reviewed API-name versus artifact-RID distinction, roles, typed text content and outer JSON shapes.",
+          "Verified documented system text array, maximum-one source restriction, temperature0..1 and temperature/top_p recommendation.",
+          "Verified every added optional JSON table value through actual CLI plus SDK HTTP, including four tool-choice variants and both thinking variants.",
+          "Verified thinking budget greater than1024, effort enums, JSON schema output shape and source-supported model feature boundaries.",
+          "Verified frozen SDK embedding maximum8192tokens/input, text-embedding-3+ dimensions support, FLOAT/BASE64 selectors and wire aliases.",
+          "Malformed JSON fails before HTTP; readonly inference guard fails before HTTP. Source-defined service constraints are not falsely described as client-enforced."
         ],
-        "url_contexts_in_current_audit": 0,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-language-models.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-language-models\\references\\inputs.md",
+          "sha256": "122a4f1ba9944522a3a9e56c754fe5e9d9a5f6ec0f2c8fbc163e47ef732d0567",
+          "lines": 19,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "122a4f1ba9944522a3a9e56c754fe5e9d9a5f6ec0f2c8fbc163e47ef732d0567",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 0",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 0,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-language-models\\references\\open-ai-model.md",
-      "sha256": "17671b7c1279e47837f3aafa7184dd778a8532e34b0e4434beb83bd6560bdf9d",
+      "sha256": "02a3e6d3cb76b6bf44dbaaefc754cb4a239451ec1afbcc182a8d7fe2597cc5e6",
       "lines": 14,
-      "review_status": "author context review; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "17671b7c1279e47837f3aafa7184dd778a8532e34b0e4434beb83bd6560bdf9d",
+        "reviewer_agent": "/root/language_qa_recover_20261028",
+        "review_date": "2026-10-28",
+        "page_sha256": "02a3e6d3cb76b6bf44dbaaefc754cb4a239451ec1afbcc182a8d7fe2597cc5e6",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 1",
-          "reachable from owning SKILL.md"
+          "Reviewed entire operation record and exact required/optional input surface.",
+          "Actual documented embedding example reaches one SDK HTTP POST with exact input text array.",
+          "Response is data:list[list[float]], model:str, usage.promptTokens; corrected explicit indexed-vector claim.",
+          "Verified optional dimensions and both encoding selectors on wire; returned count/dimension reconciliation is reader guidance.",
+          "Typed OpenAiEmbeddingsPermissionDenied decoded and serialized as sanitized structured JSON HTTP403/exit3."
         ],
-        "url_contexts_in_current_audit": 0,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-language-models.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-language-models\\references\\open-ai-model.md",
+          "sha256": "17671b7c1279e47837f3aafa7184dd778a8532e34b0e4434beb83bd6560bdf9d",
+          "lines": 14,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "17671b7c1279e47837f3aafa7184dd778a8532e34b0e4434beb83bd6560bdf9d",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 1",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 0,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-language-models\\SKILL.md",
-      "sha256": "cb8b34b721b79e72eda7316e80a7be625750cef7c3354ab2740cce6513b3ce29",
-      "lines": 58,
-      "review_status": "author context review; independent semantic review pending",
+      "sha256": "bfb622c87edf5f113aca4d197cdf77706b3ae4af3e36b80acb4247e1e1500c18",
+      "lines": 61,
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "846dfc34b535a8a8926b1d77fd4527b24135fb8f2f9b941a544cec773c687f4c",
+        "reviewer_agent": "/root/language_qa_recover_20261028",
+        "review_date": "2026-10-28",
+        "page_sha256": "bfb622c87edf5f113aca4d197cdf77706b3ae4af3e36b80acb4247e1e1500c18",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 4",
-          "reachable from owning SKILL.md"
+          "Reviewed entire capability overview, two-operation routing, model availability/usage boundaries and shared CLI controls.",
+          "Confirmed both resource paths, required inputs and every exposed option against actual parser/source.",
+          "Replaced absent SDK Markdown pointers with existing own-skill links; local links resolve.",
+          "Verified both top-level SDK response objects emit JSON even when TOON selector is requested; pretty output parses.",
+          "Shared factory, config/guard/retry/error/formatter/B3 components inspected; no live model availability or billing claim.",
+          "Fresh reviewer verified the separate author removed only the unsupported pagination-helper phrase, while preserving all prior page corrections; actual namespace source has no pagination usage."
         ],
-        "url_contexts_in_current_audit": 2,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-language-models.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-language-models\\SKILL.md",
+          "sha256": "cb8b34b721b79e72eda7316e80a7be625750cef7c3354ab2740cce6513b3ce29",
+          "lines": 58,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "846dfc34b535a8a8926b1d77fd4527b24135fb8f2f9b941a544cec773c687f4c",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 4",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 2,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-media-sets\\references\\01-lifecycle.md",
@@ -9992,9 +10119,9 @@
     },
     {
       "path": "pal-found-language-models\\SKILL.md",
-      "line": 16,
+      "line": 17,
       "url": "https://www.palantir.com/docs/foundry/platform-overview/overview",
-      "context": "settings. An embedding model turns input text into numeric vectors used for\nsimilarity and retrieval. These are inference calls, so results depend on the\nselected model and inputs and can consume model usage. Model availability\ndepends on the enrollment. See Palantir's [platform overview](https://www.palantir.com/docs/foundry/platform-overview/overview)\nand [supported LLMs](https://www.palantir.com/docs/foundry/aip/supported-llms).\n\nSource: Palantir's platform overview and supported LLMs pages linked above;",
+      "context": "[platform overview](https://www.palantir.com/docs/foundry/platform-overview/overview)",
       "classification": "optional platform provenance",
       "owner": "DEV-STORY-061",
       "reviewer": "pending independent reviewer",
@@ -10004,13 +10131,20 @@
       "qa_reviewer": "qa-engineer",
       "qa_current_dispositions": [
         "optional_provenance_local_page"
-      ]
+      ],
+      "location_history": [
+        {
+          "line": 16,
+          "context": "settings. An embedding model turns input text into numeric vectors used for\nsimilarity and retrieval. These are inference calls, so results depend on the\nselected model and inputs and can consume model usage. Model availability\ndepends on the enrollment. See Palantir's [platform overview](https://www.palantir.com/docs/foundry/platform-overview/overview)\nand [supported LLMs](https://www.palantir.com/docs/foundry/aip/supported-llms).\n\nSource: Palantir's platform overview and supported LLMs pages linked above;"
+        }
+      ],
+      "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
     },
     {
       "path": "pal-found-language-models\\SKILL.md",
-      "line": 17,
+      "line": 18,
       "url": "https://www.palantir.com/docs/foundry/aip/supported-llms",
-      "context": "similarity and retrieval. These are inference calls, so results depend on the\nselected model and inputs and can consume model usage. Model availability\ndepends on the enrollment. See Palantir's [platform overview](https://www.palantir.com/docs/foundry/platform-overview/overview)\nand [supported LLMs](https://www.palantir.com/docs/foundry/aip/supported-llms).\n\nSource: Palantir's platform overview and supported LLMs pages linked above;\nthe operation records below explain supported request shapes.",
+      "context": "and [supported LLMs](https://www.palantir.com/docs/foundry/aip/supported-llms).",
       "classification": "optional platform provenance",
       "owner": "DEV-STORY-061",
       "reviewer": "pending independent reviewer",
@@ -10020,7 +10154,14 @@
       "qa_reviewer": "qa-engineer",
       "qa_current_dispositions": [
         "optional_provenance_local_page"
-      ]
+      ],
+      "location_history": [
+        {
+          "line": 17,
+          "context": "similarity and retrieval. These are inference calls, so results depend on the\nselected model and inputs and can consume model usage. Model availability\ndepends on the enrollment. See Palantir's [platform overview](https://www.palantir.com/docs/foundry/platform-overview/overview)\nand [supported LLMs](https://www.palantir.com/docs/foundry/aip/supported-llms).\n\nSource: Palantir's platform overview and supported LLMs pages linked above;\nthe operation records below explain supported request shapes."
+        }
+      ],
+      "location_update_scope": "Unchanged URL re-anchored to reviewed page bytes; historical whole-bundle scan unchanged."
     },
     {
       "path": "pal-found-media-sets\\SKILL.md",
@@ -12908,7 +13049,7 @@
   },
   "independent_reviewer": "qa-engineer",
   "independent_review_counts": {
-    "PASS": 129,
-    "UNCERTAIN": 63
+    "PASS": 134,
+    "UNCERTAIN": 58
   }
 }

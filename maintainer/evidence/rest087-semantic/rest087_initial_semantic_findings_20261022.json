@@ -1,0 +1,104 @@
+{
+  "operations": [
+    {
+      "id": "v2.aip_agents.Agent.all_sessions",
+      "asset": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Agent\\all_sessions.py",
+      "sha256": "bccdf5132383fde43d73ebf0c62db5069af06a1050e8b2d0be548e1431bc48ef",
+      "findings": [
+        {
+          "code": "AGENT_VERSION_FORMAT",
+          "reason": "Successful AgentVersionString synthetic-value violates source documented majorVersion.minorVersion; AgentVersion string also mismatches major=1/minor=1."
+        }
+      ]
+    },
+    {
+      "id": "v2.aip_agents.Agent.get",
+      "asset": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Agent\\get.py",
+      "sha256": "aa60b406ee9d36250921b6a9ce7c6b03c862f729c9dee212765ddd1aa9d7392c",
+      "findings": [
+        {
+          "code": "AGENT_VERSION_FORMAT",
+          "reason": "Successful AgentVersionString synthetic-value violates source documented majorVersion.minorVersion; AgentVersion string also mismatches major=1/minor=1."
+        }
+      ]
+    },
+    {
+      "id": "v2.aip_agents.AgentVersion.get",
+      "asset": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\AgentVersion\\get.py",
+      "sha256": "68e757325f9f48fde6bfadea45fc8e1bf23344d8d9912f19e318d6874ad6fe55",
+      "findings": [
+        {
+          "code": "AGENT_VERSION_FORMAT",
+          "reason": "Successful AgentVersionString synthetic-value violates source documented majorVersion.minorVersion; AgentVersion string also mismatches major=1/minor=1."
+        }
+      ]
+    },
+    {
+      "id": "v2.aip_agents.AgentVersion.list",
+      "asset": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\AgentVersion\\list.py",
+      "sha256": "cebd5347489d74d7c51304fd7fb7407ad2c87e8640046a3daa3c65d4218dc03a",
+      "findings": [
+        {
+          "code": "AGENT_VERSION_FORMAT",
+          "reason": "Successful AgentVersionString synthetic-value violates source documented majorVersion.minorVersion; AgentVersion string also mismatches major=1/minor=1."
+        }
+      ]
+    },
+    {
+      "id": "v2.aip_agents.Session.blocking_continue",
+      "asset": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Session\\blocking_continue.py",
+      "sha256": "88257f7b43f9d9092ac283e58399acd1a5ab0359a07838a610450d149986bd0e",
+      "findings": [
+        {
+          "code": "PARAMETER_TYPE_ERROR_IDENTICAL",
+          "reason": "InvalidParameterType expectedType and receivedType both synthetic-value; source error says parameter has invalid type."
+        }
+      ]
+    },
+    {
+      "id": "v2.aip_agents.Session.streaming_continue",
+      "asset": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Session\\streaming_continue.py",
+      "sha256": "15fd2e1f74a6a45f2a389f46f313488f22aef9e0b85ec56a702badc984235377",
+      "findings": [
+        {
+          "code": "PARAMETER_TYPE_ERROR_IDENTICAL",
+          "reason": "InvalidParameterType expectedType and receivedType both synthetic-value; source error says parameter has invalid type."
+        }
+      ]
+    },
+    {
+      "id": "v2.language_models.AnthropicModel.messages",
+      "asset": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\language_models\\AnthropicModel\\messages.py",
+      "sha256": "c2db282f3edd8ae7fa32dad6359c149971707cd894400c424756908c7fd46353",
+      "findings": [
+        {
+          "code": "MULTIPLE_ERROR_SIZE_ONE",
+          "reason": "MultipleSystemPromptsNotSupported.systemPromptSize=1 and MultipleToolResultContentsNotSupported.toolResultContentsSize=1 contradict multiple unsupported source meaning."
+        }
+      ]
+    },
+    {
+      "id": "v2.models.LiveDeployment.create",
+      "asset": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\LiveDeployment\\create.py",
+      "sha256": "d3c74713111941724d477d1bdb3d0b1067a1999edee7b3b50feb4f639d36b20c",
+      "findings": [
+        {
+          "code": "GPU_ERROR_CONTRADICTION",
+          "reason": "Requested GPU A100 appears available; provided GPU1 is within max1; thread1 does not exceed max1. Error parameter source documents opposite constraints."
+        }
+      ]
+    },
+    {
+      "id": "v2.models.LiveDeployment.replace",
+      "asset": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\LiveDeployment\\replace.py",
+      "sha256": "b1e90f99590bfc08ea62e70781fdf6d4bf88c2a3ff8dc5bcfbd3bc4cdd272640",
+      "findings": [
+        {
+          "code": "GPU_ERROR_CONTRADICTION",
+          "reason": "Requested GPU A100 appears available; provided GPU1 is within max1; thread1 does not exceed max1. Error parameter source documents opposite constraints."
+        }
+      ]
+    }
+  ],
+  "promote_version_initial": "Previously observed same source/result RID; author already corrected separately; original authoring-register example hash preserves baseline."
+}

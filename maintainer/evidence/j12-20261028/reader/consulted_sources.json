@@ -1,0 +1,141 @@
+{
+  "standalone_skill": [
+    {
+      "path": "skill_snapshot/SKILL.md",
+      "sha256": "2495f974d0c9ba4f9811530fe5f2aa031cfe5912230f6b8624601ef692fbc0fe",
+      "headings_or_scope": "Read by task; Evidence before delivery"
+    },
+    {
+      "path": "skill_snapshot/references/rest-api.md",
+      "sha256": "af3562db0dc7f4a45d684b837ce5ba4364af65c0bf4380f74b322fdfca0597ff",
+      "headings_or_scope": "Discover and author any frozen SDK REST operation; Failures and recovery"
+    },
+    {
+      "path": "skill_snapshot/references/rest/authentication.md",
+      "sha256": "21cf5c0319011cf8603358d08b10205b6e92f247da4e6ec871f7526a01618a7c",
+      "headings_or_scope": "Prepared client; Resolve authorization prerequisites locally"
+    },
+    {
+      "path": "skill_snapshot/references/rest/client-behavior.md",
+      "sha256": "57826178f9a203bbe1eb3de24832bef82dc457ecb167f1208a3ba177a93dbcc2",
+      "headings_or_scope": "Client and API version; Timeouts, throttling and uncertain writes; Errors and cleanup"
+    },
+    {
+      "path": "skill_snapshot/references/rest/v2/datasets/Transaction.md",
+      "sha256": "d16435f483e07e822d7b79fd13b06744ca196c1f594f985a490f5b8c6c51c3ef",
+      "headings_or_scope": "Stage a file, commit, and verify the branch; commit; create; get; abort"
+    },
+    {
+      "path": "skill_snapshot/references/rest/v2/datasets/File.md",
+      "sha256": "7a0bf6c4a67c5024a7ecd11184d584a2c02271d4d997fef8b99f0be71204fee0",
+      "headings_or_scope": "Client route and bounded content read; upload; Operations and outcome checks"
+    },
+    {
+      "path": "skill_snapshot/references/rest/v2/orchestration/Build.md",
+      "sha256": "ad26f97daf4f9b9a117c28f343794e5eb710e0967d85072976985d4541b64499",
+      "headings_or_scope": "Wait for a submitted build; create; get"
+    },
+    {
+      "path": "skill_snapshot/examples/rest/074/v2/datasets/staged_commit_journey.py",
+      "sha256": "b260986ea80bb57f0e25c72b728918291484eab242b4bf1ab8ff63622fdf076e",
+      "headings_or_scope": "Read adaptable exercise implementation; did not execute or import it"
+    },
+    {
+      "path": "skill_snapshot/references/rest/contracts/v2/datasets/File/upload.md",
+      "sha256": "4df6acf02e7f13927225887cb6cf5a067707b421ad469e91fe0ede5fd3437e22",
+      "headings_or_scope": "SDK invocation contract; Wire request; Documented operation errors"
+    },
+    {
+      "path": "skill_snapshot/references/rest/contracts/v2/datasets/File/get.md",
+      "sha256": "c73dab3b9b26c60673295ab7166383504ef487d0fae4fabdb6d46c5065fced43",
+      "headings_or_scope": "Purpose and parameter meaning; SDK invocation contract; Wire request (first 145 lines)"
+    },
+    {
+      "path": "skill_snapshot/references/rest/contracts/v2/datasets/File/content.md",
+      "sha256": "2203e18b0699eef77ca8a0ded49d191a92ee6acf5e1fdae49222291a252ca838",
+      "headings_or_scope": "Purpose and parameter meaning; SDK invocation contract; Wire request (first 125 lines)"
+    },
+    {
+      "path": "skill_snapshot/references/rest/contracts/v2/datasets/Branch/get.md",
+      "sha256": "39386d73c05a76659e13bc87dbc3241fba13a4d196f85f8822df84f940b14a60",
+      "headings_or_scope": "SDK invocation contract; Wire request (first 110 lines)"
+    },
+    {
+      "path": "skill_snapshot/references/rest/contracts/v2/datasets/Transaction/create.md",
+      "sha256": "5e99f61292552bea170c6fd3597be096dfc59ff535f0b49b91cbc59022193e8c",
+      "headings_or_scope": "SDK invocation contract; Wire request (first 110 lines)"
+    },
+    {
+      "path": "skill_snapshot/references/rest/contracts/v2/datasets/Transaction/commit.md",
+      "sha256": "649a05bc5bf73263e2c73fb65b8cc07650ab2c71ec1c6585d2550a405cdfa4e2",
+      "headings_or_scope": "SDK invocation contract; Wire request (first 110 lines)"
+    },
+    {
+      "path": "skill_snapshot/references/rest/contracts/v2/orchestration/Build/create.md",
+      "sha256": "f2d0d140d01fec67c4411a5eaa262c87131185437a4dcadfe5b054fe09e93f64",
+      "headings_or_scope": "SDK invocation contract; Wire request; Complete referenced models and errors"
+    },
+    {
+      "path": "skill_snapshot/references/rest/contracts/v2/orchestration/Build/get.md",
+      "sha256": "a3e8bf7a0ec6d0e1549042796286f7183ccfab194f2bb156902fca42a2e412d0",
+      "headings_or_scope": "Purpose and parameter meaning; SDK invocation contract; Wire request"
+    },
+    {
+      "path": "skill_snapshot/references/rest/models/v2/orchestration/models/BuildTarget.md",
+      "sha256": "052bc31af2406ef5de0076c4f249b85a6f2d0b5ce156326a5b452777d42e7ddb",
+      "headings_or_scope": "Exact SDK definition"
+    },
+    {
+      "path": "skill_snapshot/references/rest/models/v2/orchestration/models/ManualTarget.md",
+      "sha256": "6d1fe072e94c063b35c663c8a27eacf0ce1b3e544f5e2aebeffac5a9829c9e28",
+      "headings_or_scope": "Fields and wire names; Exact SDK definition"
+    },
+    {
+      "path": "skill_snapshot/references/rest/models/v2/orchestration/models/Build.md",
+      "sha256": "08eead343da308cdb094fa145f54cb868a4a6a14a048dd881bfce5e298216415",
+      "headings_or_scope": "Fields and wire names; Exact SDK definition"
+    },
+    {
+      "path": "skill_snapshot/references/rest/models/v2/datasets/models/Transaction.md",
+      "sha256": "7935cd1d197bec46d3b8ac9ae52665aa8e426e4aae6ea5ae924f46ffa9f31312",
+      "headings_or_scope": "Fields and wire names; Exact SDK definition"
+    },
+    {
+      "path": "skill_snapshot/references/rest/models/v2/datasets/models/File.md",
+      "sha256": "33b8c79a93e12880a80447260fd27985aad8b75543560e3420139d333d395f10",
+      "headings_or_scope": "Fields and wire names; Exact SDK definition"
+    },
+    {
+      "path": "skill_snapshot/references/rest/models/v2/datasets/errors/FileNotFoundOnTransactionRangeParameters.md",
+      "sha256": "09aa437f9f652bbb29bd01dade9f923520775bd665271e707d58e3d714f38951",
+      "headings_or_scope": "Exact SDK definition; consulted while planning, no missing-file error fabricated in execution"
+    },
+    {
+      "path": "skill_snapshot/references/pipelines/transactions.md",
+      "sha256": "b84dfb7cc285039527ed3c14e0bb908c1a1aa8d9ce4b98053278c9458d21d367",
+      "headings_or_scope": "Concept and lifecycle; Failures and recovery"
+    }
+  ],
+  "required_control_skills": [
+    {
+      "path": ".ept/resources/skills/caveman/SKILL.md",
+      "sha256": "69a75536aff909afc7f46acf236f2a3d184b0870e2b5330659c84e6b9318adb7"
+    },
+    {
+      "path": ".ept/resources/skills/humanizer/SKILL.md",
+      "sha256": "e8269e236bed06ed0fe4824c274112e54950b0cb46b0bafe5e1576ef7c9f93d5"
+    },
+    {
+      "path": ".ept/resources/skills/work-instructions/SKILL.md",
+      "sha256": "6215aab3060692a52bfed1c4d36bba3765618cad7d700bf3c7706fcf2ebfd67c"
+    },
+    {
+      "path": ".ept/resources/skills/tracking-system/SKILL.md",
+      "sha256": "d542c74d48e35b867a09217afa1cd4f6e4fca19511028ad23ae4fb7c6ddaf851"
+    },
+    {
+      "path": ".ept/resources/skills/tracking-system/references/REFERENCE.md",
+      "sha256": "3f7f1763f0c375449e631e9e0a4e245c0c505e83943ae176b945870972dc0e1e"
+    }
+  ]
+}

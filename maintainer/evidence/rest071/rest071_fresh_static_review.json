@@ -1,0 +1,390 @@
+{
+  "reviewer": "/root/rest071_finish_20261027/independent071_review",
+  "execution": "NOT_RUN",
+  "method": "Independent SDK AST, schema and model-only checks; no client construction or SDK operation invocation.",
+  "manifest": {
+    "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest071_formal_cases.json",
+    "sha256": "eaa4126766a52b28eb99d7d26b392d2ec997c20479022f7e3eafeacfa38295e7"
+  },
+  "operations": [
+    {
+      "case_id": "F071-01",
+      "operation": "v2.admin.Group.create",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 2
+      }
+    },
+    {
+      "case_id": "F071-02",
+      "operation": "v2.admin.Group.delete",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 3
+      }
+    },
+    {
+      "case_id": "F071-03",
+      "operation": "v2.admin.Group.get",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 3
+      }
+    },
+    {
+      "case_id": "F071-04",
+      "operation": "v2.admin.Group.get_batch",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 5
+      }
+    },
+    {
+      "case_id": "F071-05",
+      "operation": "v2.admin.Group.list",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 2
+      }
+    },
+    {
+      "case_id": "F071-06",
+      "operation": "v2.admin.Group.list_current",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 1
+      }
+    },
+    {
+      "case_id": "F071-07",
+      "operation": "v2.admin.Group.replace",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 3
+      }
+    },
+    {
+      "case_id": "F071-08",
+      "operation": "v2.admin.Group.search",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 3
+      }
+    },
+    {
+      "case_id": "F071-09",
+      "operation": "v2.admin.GroupMember.add",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 3
+      }
+    },
+    {
+      "case_id": "F071-10",
+      "operation": "v2.admin.GroupMember.list",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 4
+      }
+    },
+    {
+      "case_id": "F071-11",
+      "operation": "v2.admin.GroupMember.remove",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 3
+      }
+    },
+    {
+      "case_id": "F071-12",
+      "operation": "v2.admin.GroupMembership.list",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 4
+      }
+    },
+    {
+      "case_id": "F071-13",
+      "operation": "v2.admin.GroupMembershipExpirationPolicy.get",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 3
+      }
+    },
+    {
+      "case_id": "F071-14",
+      "operation": "v2.admin.GroupMembershipExpirationPolicy.replace",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 5
+      }
+    },
+    {
+      "case_id": "F071-15",
+      "operation": "v2.admin.GroupProviderInfo.get",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 3
+      }
+    },
+    {
+      "case_id": "F071-16",
+      "operation": "v2.admin.GroupProviderInfo.replace",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 3
+      }
+    },
+    {
+      "case_id": "F071-17",
+      "operation": "v2.admin.User.delete",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 3
+      }
+    },
+    {
+      "case_id": "F071-18",
+      "operation": "v2.admin.User.get",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 4
+      }
+    },
+    {
+      "case_id": "F071-19",
+      "operation": "v2.admin.User.get_batch",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 5
+      }
+    },
+    {
+      "case_id": "F071-20",
+      "operation": "v2.admin.User.get_current",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 1
+      }
+    },
+    {
+      "case_id": "F071-21",
+      "operation": "v2.admin.User.get_markings",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 3
+      }
+    },
+    {
+      "case_id": "F071-22",
+      "operation": "v2.admin.User.list",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 3
+      }
+    },
+    {
+      "case_id": "F071-23",
+      "operation": "v2.admin.User.profile_picture",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 4
+      }
+    },
+    {
+      "case_id": "F071-24",
+      "operation": "v2.admin.User.revoke_all_tokens",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 3
+      }
+    },
+    {
+      "case_id": "F071-25",
+      "operation": "v2.admin.User.search",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 3
+      }
+    },
+    {
+      "case_id": "F071-26",
+      "operation": "v2.admin.UserProviderInfo.get",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 3
+      }
+    },
+    {
+      "case_id": "F071-27",
+      "operation": "v2.admin.UserProviderInfo.replace",
+      "checks": {
+        "source_hash": true,
+        "actual_ast_expressions": true,
+        "asset_hashes": true,
+        "wire_literal": true,
+        "response_schema": true,
+        "response_valid": true,
+        "exact_declared_errors": true,
+        "all_additional_reviewed": 3
+      }
+    }
+  ],
+  "failures": []
+}

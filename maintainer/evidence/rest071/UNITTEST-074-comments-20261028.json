@@ -1,0 +1,43 @@
+{
+  "ticket": "UNITTEST-074",
+  "comment_count": 9,
+  "listing": "\nFound 9 comment(s) for UNITTEST-074:\n========================================================================================================================\nComment ID                     Author               Created              Updated              Subject\n------------------------------------------------------------------------------------------------------------------------\n20261007-101533-tech-lead      tech-lead            2026-10-07T10:15:33  2026-10-07T10:15:33  Ticket created\n20261007-101535-tech-lead      tech-lead            2026-10-07T10:15:35  2026-10-07T10:15:35  Ticket updated\n20261007-101537-tech-lead      tech-lead            2026-10-07T10:15:37  2026-10-07T10:15:37  Ticket updated\n20261007-231726-python-developer python-developer     2026-10-07T23:17:26  2026-10-07T23:17:26  Hermetic SDK collector implementation plan\n20261007-231728-python-developer python-developer     2026-10-07T23:17:28  2026-10-07T23:17:28  Ticket updated\n20261027-233412-@python-developer python-developer     2026-10-27T23:34:12  2026-10-27T23:34:12  Dedicated committed unit suite and independent regression verification\n20261027-233412-@python-developer~001 python-developer     2026-10-27T23:34:12  2026-10-27T23:34:12  Ticket updated\n20261028-094555-@python-developer python-developer     2026-10-28T09:45:55  2026-10-28T09:45:55  Independent review complete; closure prerequisites verified\n20261028-094556-@python-developer python-developer     2026-10-28T09:45:56  2026-10-28T09:45:56  Ticket updated\n",
+  "comments": [
+    {
+      "comment_id": "20261007-101533-tech-lead",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261007-101533-tech-lead\nauthor          : tech-lead\nsubject         : Ticket created\ncreated         : 2026-10-07T10:15:33\nupdated         : 2026-10-07T10:15:33\ntext:\nCreated ticket of type 'unittest'\n"
+    },
+    {
+      "comment_id": "20261007-101535-tech-lead",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261007-101535-tech-lead\nauthor          : tech-lead\nsubject         : Ticket updated\ncreated         : 2026-10-07T10:15:35\nupdated         : 2026-10-07T10:15:35\ntext:\nUpdated fields: status=Open\n"
+    },
+    {
+      "comment_id": "20261007-101537-tech-lead",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261007-101537-tech-lead\nauthor          : tech-lead\nsubject         : Ticket updated\ncreated         : 2026-10-07T10:15:37\nupdated         : 2026-10-07T10:15:37\ntext:\nUpdated fields: assignee=python-developer, description=<updated>\n"
+    },
+    {
+      "comment_id": "20261007-231726-python-developer",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261007-231726-python-developer\nauthor          : python-developer\nsubject         : Hermetic SDK collector implementation plan\ncreated         : 2026-10-07T23:17:26\nupdated         : 2026-10-07T23:17:26\ntext:\nPrerequisites reviewed: indexed BA-DES-015 revision 2, SA-DES-014 revision 2, FEATURE-015-rest-authoring-contract.md and exact operation partitions. No linked questions. Domain source committed locally at ce413e14f6d2bcd5aa2524067cbdd6ef778d4443 and runnable under prepared SDK 1.101.0/httpx. Manager grants shared five-domain unit collector ownership at tests/test_offline_rest_wave1.py and maintainer/offline-rest-wave1.json, preserving other tests and shared register. Reconcile owned IDs against independently inspected actual SDK Client RequestInfo methods, excluding nested client properties; compare declared named errors with source. Parameterize every owned example and execute real SDK wire/result/error assertions in process while socket/DNS, actual HTTP dispatch, urllib and subprocess are denied. Use MockTransport only; preserve finite responses, close semantics and source-specific schema handling. Author validation covers 171 operations and 519 named error fixtures; independent source, semantic review and QA remain open. No installation, source checkout or public network dependency in reader assets.\n"
+    },
+    {
+      "comment_id": "20261007-231728-python-developer",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261007-231728-python-developer\nauthor          : python-developer\nsubject         : Ticket updated\ncreated         : 2026-10-07T23:17:28\nupdated         : 2026-10-07T23:17:28\ntext:\nUpdated fields: status=In Progress\n"
+    },
+    {
+      "comment_id": "20261027-233412-@python-developer",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261027-233412-@python-developer\nauthor          : python-developer\nsubject         : Dedicated committed unit suite and independent regression verification\ncreated         : 2026-10-27T23:34:12\nupdated         : 2026-10-27T23:34:12\ntext:\n## Unit results\n\n`tests/test_offline_rest_071.py` is committed at0623f5a; SHA256 `291961bdb7dc815eabbfdc365856bf31d0d3e6244dba020fb1ff624fc7b1fc65`. Fresh independent reviewer `/root/rest071_code_qa_20261027` reports72/72 PASS in1.97s and Ruff PASS. The suite derives27 operation request/response contracts and74 declared exceptions from frozen SDK1.101.0; it checks target identity, body/result correspondence, membership semantics, meaningful expiration settings, batch maps and source constraints. Mutation guards reject empty/mismatched policies and wrong/missing batch identities. Public sockets, DNS and ordinary HTTPX transports are denied. No async-mode formal acceptance is inferred from this unit suite. Report `.ept/tmp/feature015_rest071_code_review_20261027.json`, SHA256 `9a96e3f17cdcc5e5c57cd24fed53efe4bc7ae3c887f6cf8937f63058066fd831`. Frontmatter time records only measured1.97s test execution, excluding unmeasured historical authoring effort. Indexed requirements/handoff were reviewed; no documentation changes were needed. No linked/child Questions; parent and role links remain registered. Formal CASE074/EXEC074 and bug closure remain separate.\n"
+    },
+    {
+      "comment_id": "20261027-233412-@python-developer~001",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261027-233412-@python-developer~001\nauthor          : python-developer\nsubject         : Ticket updated\ncreated         : 2026-10-27T23:34:12\nupdated         : 2026-10-27T23:34:12\ntext:\nUpdated fields: status=Resolved, time_spent_hours=0.0005472222222222222\n"
+    },
+    {
+      "comment_id": "20261028-094555-@python-developer",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261028-094555-@python-developer\nauthor          : python-developer\nsubject         : Independent review complete; closure prerequisites verified\ncreated         : 2026-10-28T09:45:55\nupdated         : 2026-10-28T09:45:55\ntext:\n## Closure evidence\nIndependent architect CODEREVIEW-075 is Closed/Done. Its exact review blocker LINK-02040 was removed by the architect; related links LINK-01795/01796 remain. Dedicated suite commit0623f5a has72PASS and RuffPASS with exact source/asset hashes in feature015_rest071_code_review_20261027.json (SHA2569a96e3f17cdcc5e5c57cd24fed53efe4bc7ae3c887f6cf8937f63058066fd831). Fresh architect source/mode review cb6add1065f3ac574cf1bd23a6abe5e5e373f53630c7bf45537e829a991d9e30 approved all27 operations. This recorder verified current links and current bytes; no implementation or unit test was rerun. Existing measured DEV/UNIT frontmatter time remains unchanged. No blocker or linked Question remains.\n"
+    },
+    {
+      "comment_id": "20261028-094556-@python-developer",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261028-094556-@python-developer\nauthor          : python-developer\nsubject         : Ticket updated\ncreated         : 2026-10-28T09:45:56\nupdated         : 2026-10-28T09:45:56\ntext:\nUpdated fields: status=Closed, resolution=Done\n"
+    }
+  ]
+}

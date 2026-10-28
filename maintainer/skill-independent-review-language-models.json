@@ -1,0 +1,1291 @@
+{
+  "reviewer_agent": "/root/language_qa_recover_20261028",
+  "author_agent": "/root/rest087_finish_20261027",
+  "reviewed_at_utc": "2026-10-28T07:49:54.158030+00:00",
+  "review_status": "PASS",
+  "status": "PASS",
+  "owner_story": "DEV-STORY-061",
+  "scope": "Independent whole-page review of five standalone Language Models pages, with exact current hashes. No shared source, ledger or tracker edits by reviewer.",
+  "sdk_release": "1.101.0",
+  "tool_head": "a3a38ec434fdb046c329b850e716dc541fa87ecd",
+  "pages": [
+    {
+      "path": ".agents/skills/pal-found-language-models/SKILL.md",
+      "sha256": "bfb622c87edf5f113aca4d197cdf77706b3ae4af3e36b80acb4247e1e1500c18",
+      "status": "PASS",
+      "checks": [
+        "Reviewed entire capability overview, two-operation routing, model availability/usage boundaries and shared CLI controls.",
+        "Confirmed both resource paths, required inputs and every exposed option against actual parser/source.",
+        "Replaced absent SDK Markdown pointers with existing own-skill links; local links resolve.",
+        "Verified both top-level SDK response objects emit JSON even when TOON selector is requested; pretty output parses.",
+        "Shared factory, config/guard/retry/error/formatter/B3 components inspected; no live model availability or billing claim.",
+        "Fresh reviewer verified the separate author removed only the unsupported pagination-helper phrase, while preserving all prior page corrections; actual namespace source has no pagination usage."
+      ],
+      "uncertainty": [],
+      "resolved_findings": [
+        {
+          "code": "UNUSED_PAGINATION_HELPER_CLAIM",
+          "reason": "Page says Language Models CLI uses a pagination helper, but namespace source neither imports nor calls one; the two inference operations have no pagination.",
+          "required_correction": "Remove pagination helper from the list of components used by this namespace.",
+          "source": "src/pal_found_cli/language_models/scripts/pal_found_language_models_cli.py"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "path": ".agents/skills/pal-found-language-models/references/01-inference.md",
+      "sha256": "c15dcb156f1a945b5a8a2c2a19fa01eb3374e9914f1800b7560436a3c3983470",
+      "status": "PASS",
+      "checks": [
+        "Reviewed entire resource navigation page; both linked resource records exist and correspond to exact two CLI operations."
+      ],
+      "findings": [],
+      "uncertainty": []
+    },
+    {
+      "path": ".agents/skills/pal-found-language-models/references/anthropic-model.md",
+      "sha256": "392022726d2d2476709dd2936467b5dbb58a6004624441ece927179ac9a103d6",
+      "status": "PASS",
+      "checks": [
+        "Reviewed every purpose, input, precondition, result, failure and example statement against generated SDK1.101 and CLI.",
+        "Actual documented message example reaches one SDK HTTP POST with exact model route, message content and maxTokens256.",
+        "Optional sampling, stop/system, tools/tool-choice, thinking and output-config payloads serialize through actual SDK.",
+        "Response content and usage decode via frozen AnthropicMessagesResponse; timeout uncertainty remains an explicit boundary."
+      ],
+      "findings": [],
+      "uncertainty": []
+    },
+    {
+      "path": ".agents/skills/pal-found-language-models/references/inputs.md",
+      "sha256": "0e81c2dac68f67c1b1948d800477850313dec09e67e709164dc51f4c738d8306",
+      "status": "PASS",
+      "checks": [
+        "Reviewed API-name versus artifact-RID distinction, roles, typed text content and outer JSON shapes.",
+        "Verified documented system text array, maximum-one source restriction, temperature0..1 and temperature/top_p recommendation.",
+        "Verified every added optional JSON table value through actual CLI plus SDK HTTP, including four tool-choice variants and both thinking variants.",
+        "Verified thinking budget greater than1024, effort enums, JSON schema output shape and source-supported model feature boundaries.",
+        "Verified frozen SDK embedding maximum8192tokens/input, text-embedding-3+ dimensions support, FLOAT/BASE64 selectors and wire aliases.",
+        "Malformed JSON fails before HTTP; readonly inference guard fails before HTTP. Source-defined service constraints are not falsely described as client-enforced."
+      ],
+      "findings": [],
+      "uncertainty": []
+    },
+    {
+      "path": ".agents/skills/pal-found-language-models/references/open-ai-model.md",
+      "sha256": "02a3e6d3cb76b6bf44dbaaefc754cb4a239451ec1afbcc182a8d7fe2597cc5e6",
+      "status": "PASS",
+      "checks": [
+        "Reviewed entire operation record and exact required/optional input surface.",
+        "Actual documented embedding example reaches one SDK HTTP POST with exact input text array.",
+        "Response is data:list[list[float]], model:str, usage.promptTokens; corrected explicit indexed-vector claim.",
+        "Verified optional dimensions and both encoding selectors on wire; returned count/dimension reconciliation is reader guidance.",
+        "Typed OpenAiEmbeddingsPermissionDenied decoded and serialized as sanitized structured JSON HTTP403/exit3."
+      ],
+      "findings": [],
+      "uncertainty": []
+    }
+  ],
+  "source_checks": [
+    {
+      "id": "v2.language_models.AnthropicModel.messages",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\language_models\\anthropic_model.py",
+      "sha256": "23ce4366d538286c933d8a1a2c20fdc22987c8292997f317ff016ea2b1e24b02",
+      "frozen_oracle_match": true,
+      "author_register_match": true
+    },
+    {
+      "id": "v2.language_models.OpenAiModel.embeddings",
+      "source_module": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\language_models\\open_ai_model.py",
+      "sha256": "f0de3feb8825b82a89ae8442176daf1f8e664d49ec0e4bdaf7c5d9fd3d869550",
+      "frozen_oracle_match": true,
+      "author_register_match": true
+    }
+  ],
+  "source_hashes": {
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\language_models\\anthropic_model.py": "23ce4366d538286c933d8a1a2c20fdc22987c8292997f317ff016ea2b1e24b02",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\language_models\\open_ai_model.py": "f0de3feb8825b82a89ae8442176daf1f8e664d49ec0e4bdaf7c5d9fd3d869550",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\language_models\\models.py": "ce804f2c866056971263a9e142bc1144a64cbf001c1abfe7754f006a7ca183ca",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\language_models\\scripts\\pal_found_language_models_cli.py": "cbec77f413460511456db7b0158c279240c467c6da0f809cad2102b1ee8acd85"
+  },
+  "checks": {
+    "pages": 5,
+    "local_links": 9,
+    "probes": 21,
+    "actual_sdk_http_requests": 19,
+    "documented_operation_examples": 2,
+    "all_pass": true
+  },
+  "local_link_results": [
+    {
+      "page": "SKILL.md",
+      "target": "references/anthropic-model.md",
+      "status": "PASS"
+    },
+    {
+      "page": "SKILL.md",
+      "target": "references/open-ai-model.md",
+      "status": "PASS"
+    },
+    {
+      "page": "SKILL.md",
+      "target": "references/inputs.md",
+      "status": "PASS"
+    },
+    {
+      "page": "SKILL.md",
+      "target": "references/01-inference.md",
+      "status": "PASS"
+    },
+    {
+      "page": "SKILL.md",
+      "target": "references/inputs.md",
+      "status": "PASS"
+    },
+    {
+      "page": "references/01-inference.md",
+      "target": "./anthropic-model.md",
+      "status": "PASS"
+    },
+    {
+      "page": "references/01-inference.md",
+      "target": "./open-ai-model.md",
+      "status": "PASS"
+    },
+    {
+      "page": "references/anthropic-model.md",
+      "target": "./inputs.md",
+      "status": "PASS"
+    },
+    {
+      "page": "references/open-ai-model.md",
+      "target": "./inputs.md",
+      "status": "PASS"
+    }
+  ],
+  "probes": [
+    {
+      "name": "documented_anthropic_example",
+      "argv": [
+        "anthropic-model",
+        "messages",
+        "offline-model",
+        "--max-tokens",
+        "256",
+        "--messages-json",
+        "[{\"role\":\"USER\",\"content\":[{\"type\":\"text\",\"text\":\"Summarize this order.\"}]}]"
+      ],
+      "exit_code": 0,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/languageModels/anthropic/offline-model/messages",
+          "query": {},
+          "json_body": {
+            "messages": [
+              {
+                "content": [
+                  {
+                    "text": "Summarize this order.",
+                    "type": "text"
+                  }
+                ],
+                "role": "USER"
+              }
+            ],
+            "maxTokens": 256
+          },
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "stdout": "{\"content\": [{\"text\": \"Order summary.\", \"type\": \"text\"}], \"id\": \"offline-message\", \"model\": \"offline-model\", \"role\": \"ASSISTANT\", \"usage\": {\"inputTokens\": 8, \"outputTokens\": 3}}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "documented_embeddings_example",
+      "argv": [
+        "open-ai-model",
+        "embeddings",
+        "offline-model",
+        "--input-json",
+        "[\"Order shipped yesterday\"]"
+      ],
+      "exit_code": 0,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/languageModels/openAi/offline-model/embeddings",
+          "query": {},
+          "json_body": {
+            "input": [
+              "Order shipped yesterday"
+            ]
+          },
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "stdout": "{\"data\": [[0.1, 0.2]], \"model\": \"offline-model\", \"usage\": {\"promptTokens\": 4}}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "anthropic_timeout_pretty",
+      "argv": [
+        "anthropic-model",
+        "messages",
+        "offline-model",
+        "--max-tokens",
+        "256",
+        "--messages-json",
+        "[{\"role\":\"USER\",\"content\":[{\"type\":\"text\",\"text\":\"Summarize this order.\"}]}]",
+        "--timeout",
+        "17",
+        "--pretty"
+      ],
+      "exit_code": 0,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/languageModels/anthropic/offline-model/messages",
+          "query": {},
+          "json_body": {
+            "messages": [
+              {
+                "content": [
+                  {
+                    "text": "Summarize this order.",
+                    "type": "text"
+                  }
+                ],
+                "role": "USER"
+              }
+            ],
+            "maxTokens": 256
+          },
+          "timeout": {
+            "connect": 17,
+            "read": 17,
+            "write": 17,
+            "pool": 17
+          }
+        }
+      ],
+      "stdout": "{\n  \"content\": [\n    {\n      \"text\": \"Order summary.\",\n      \"type\": \"text\"\n    }\n  ],\n  \"id\": \"offline-message\",\n  \"model\": \"offline-model\",\n  \"role\": \"ASSISTANT\",\n  \"usage\": {\n    \"inputTokens\": 8,\n    \"outputTokens\": 3\n  }\n}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "embeddings_dimensions_float",
+      "argv": [
+        "open-ai-model",
+        "embeddings",
+        "offline-model",
+        "--input-json",
+        "[\"Order shipped yesterday\"]",
+        "--dimensions",
+        "2",
+        "--encoding-format",
+        "FLOAT"
+      ],
+      "exit_code": 0,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/languageModels/openAi/offline-model/embeddings",
+          "query": {},
+          "json_body": {
+            "input": [
+              "Order shipped yesterday"
+            ],
+            "dimensions": 2,
+            "encodingFormat": "FLOAT"
+          },
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "stdout": "{\"data\": [[0.1, 0.2]], \"model\": \"offline-model\", \"usage\": {\"promptTokens\": 4}}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "embeddings_base64_selector",
+      "argv": [
+        "open-ai-model",
+        "embeddings",
+        "offline-model",
+        "--input-json",
+        "[\"Order shipped yesterday\"]",
+        "--encoding-format",
+        "BASE64"
+      ],
+      "exit_code": 0,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/languageModels/openAi/offline-model/embeddings",
+          "query": {},
+          "json_body": {
+            "input": [
+              "Order shipped yesterday"
+            ],
+            "encodingFormat": "BASE64"
+          },
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "stdout": "{\"data\": [[0.1, 0.2]], \"model\": \"offline-model\", \"usage\": {\"promptTokens\": 4}}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "anthropic_sampling_system_stop",
+      "argv": [
+        "anthropic-model",
+        "messages",
+        "offline-model",
+        "--max-tokens",
+        "256",
+        "--messages-json",
+        "[{\"role\":\"USER\",\"content\":[{\"type\":\"text\",\"text\":\"Summarize this order.\"}]}]",
+        "--temperature",
+        "0",
+        "--top-k",
+        "10",
+        "--system-json",
+        "[{\"type\":\"text\",\"text\":\"Summarize.\"}]",
+        "--stop-sequences-json",
+        "[\"END\"]"
+      ],
+      "exit_code": 0,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/languageModels/anthropic/offline-model/messages",
+          "query": {},
+          "json_body": {
+            "messages": [
+              {
+                "content": [
+                  {
+                    "text": "Summarize this order.",
+                    "type": "text"
+                  }
+                ],
+                "role": "USER"
+              }
+            ],
+            "maxTokens": 256,
+            "stopSequences": [
+              "END"
+            ],
+            "system": [
+              {
+                "text": "Summarize.",
+                "type": "text"
+              }
+            ],
+            "temperature": 0.0,
+            "topK": 10
+          },
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "stdout": "{\"content\": [{\"text\": \"Order summary.\", \"type\": \"text\"}], \"id\": \"offline-message\", \"model\": \"offline-model\", \"role\": \"ASSISTANT\", \"usage\": {\"inputTokens\": 8, \"outputTokens\": 3}}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "anthropic_optional_tool_thinking_output",
+      "argv": [
+        "anthropic-model",
+        "messages",
+        "offline-model",
+        "--max-tokens",
+        "256",
+        "--messages-json",
+        "[{\"role\":\"USER\",\"content\":[{\"type\":\"text\",\"text\":\"Summarize this order.\"}]}]",
+        "--top-p",
+        "0.9",
+        "--tools-json",
+        "[{\"type\":\"custom\",\"name\":\"lookup\",\"inputSchema\":{\"type\":\"object\",\"properties\":{}}}]",
+        "--tool-choice-json",
+        "{\"type\":\"auto\"}",
+        "--thinking-json",
+        "{\"type\":\"disabled\"}",
+        "--output-config-json",
+        "{\"format\":{\"type\":\"jsonSchema\",\"schema\":{\"type\":\"object\",\"properties\":{}}},\"effort\":\"HIGH\"}"
+      ],
+      "exit_code": 0,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/languageModels/anthropic/offline-model/messages",
+          "query": {},
+          "json_body": {
+            "messages": [
+              {
+                "content": [
+                  {
+                    "text": "Summarize this order.",
+                    "type": "text"
+                  }
+                ],
+                "role": "USER"
+              }
+            ],
+            "maxTokens": 256,
+            "thinking": {
+              "type": "disabled"
+            },
+            "toolChoice": {
+              "type": "auto"
+            },
+            "tools": [
+              {
+                "name": "lookup",
+                "inputSchema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "type": "custom"
+              }
+            ],
+            "topP": 0.9,
+            "outputConfig": {
+              "format": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "type": "jsonSchema"
+              },
+              "effort": "HIGH"
+            }
+          },
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "stdout": "{\"content\": [{\"text\": \"Order summary.\", \"type\": \"text\"}], \"id\": \"offline-message\", \"model\": \"offline-model\", \"role\": \"ASSISTANT\", \"usage\": {\"inputTokens\": 8, \"outputTokens\": 3}}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "documented_json_--stop-sequences-json_0",
+      "argv": [
+        "anthropic-model",
+        "messages",
+        "offline-model",
+        "--max-tokens",
+        "256",
+        "--messages-json",
+        "[{\"role\":\"USER\",\"content\":[{\"type\":\"text\",\"text\":\"Summarize this order.\"}]}]",
+        "--stop-sequences-json",
+        "[\"END\"]"
+      ],
+      "exit_code": 0,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/languageModels/anthropic/offline-model/messages",
+          "query": {},
+          "json_body": {
+            "messages": [
+              {
+                "content": [
+                  {
+                    "text": "Summarize this order.",
+                    "type": "text"
+                  }
+                ],
+                "role": "USER"
+              }
+            ],
+            "maxTokens": 256,
+            "stopSequences": [
+              "END"
+            ]
+          },
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "stdout": "{\"content\": [{\"text\": \"Order summary.\", \"type\": \"text\"}], \"id\": \"offline-message\", \"model\": \"offline-model\", \"role\": \"ASSISTANT\", \"usage\": {\"inputTokens\": 8, \"outputTokens\": 3}}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "documented_json_--tools-json_0",
+      "argv": [
+        "anthropic-model",
+        "messages",
+        "offline-model",
+        "--max-tokens",
+        "256",
+        "--messages-json",
+        "[{\"role\":\"USER\",\"content\":[{\"type\":\"text\",\"text\":\"Summarize this order.\"}]}]",
+        "--tools-json",
+        "[{\"type\": \"custom\", \"name\": \"lookup_order\", \"inputSchema\": {\"type\": \"object\", \"properties\": {}}}]"
+      ],
+      "exit_code": 0,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/languageModels/anthropic/offline-model/messages",
+          "query": {},
+          "json_body": {
+            "messages": [
+              {
+                "content": [
+                  {
+                    "text": "Summarize this order.",
+                    "type": "text"
+                  }
+                ],
+                "role": "USER"
+              }
+            ],
+            "maxTokens": 256,
+            "tools": [
+              {
+                "name": "lookup_order",
+                "inputSchema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "type": "custom"
+              }
+            ]
+          },
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "stdout": "{\"content\": [{\"text\": \"Order summary.\", \"type\": \"text\"}], \"id\": \"offline-message\", \"model\": \"offline-model\", \"role\": \"ASSISTANT\", \"usage\": {\"inputTokens\": 8, \"outputTokens\": 3}}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "documented_json_--tool-choice-json_0",
+      "argv": [
+        "anthropic-model",
+        "messages",
+        "offline-model",
+        "--max-tokens",
+        "256",
+        "--messages-json",
+        "[{\"role\":\"USER\",\"content\":[{\"type\":\"text\",\"text\":\"Summarize this order.\"}]}]",
+        "--tools-json",
+        "[{\"type\": \"custom\", \"name\": \"lookup_order\", \"inputSchema\": {\"type\": \"object\", \"properties\": {}}}]",
+        "--tool-choice-json",
+        "{\"type\": \"auto\"}"
+      ],
+      "exit_code": 0,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/languageModels/anthropic/offline-model/messages",
+          "query": {},
+          "json_body": {
+            "messages": [
+              {
+                "content": [
+                  {
+                    "text": "Summarize this order.",
+                    "type": "text"
+                  }
+                ],
+                "role": "USER"
+              }
+            ],
+            "maxTokens": 256,
+            "toolChoice": {
+              "type": "auto"
+            },
+            "tools": [
+              {
+                "name": "lookup_order",
+                "inputSchema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "type": "custom"
+              }
+            ]
+          },
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "stdout": "{\"content\": [{\"text\": \"Order summary.\", \"type\": \"text\"}], \"id\": \"offline-message\", \"model\": \"offline-model\", \"role\": \"ASSISTANT\", \"usage\": {\"inputTokens\": 8, \"outputTokens\": 3}}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "documented_json_--tool-choice-json_1",
+      "argv": [
+        "anthropic-model",
+        "messages",
+        "offline-model",
+        "--max-tokens",
+        "256",
+        "--messages-json",
+        "[{\"role\":\"USER\",\"content\":[{\"type\":\"text\",\"text\":\"Summarize this order.\"}]}]",
+        "--tools-json",
+        "[{\"type\": \"custom\", \"name\": \"lookup_order\", \"inputSchema\": {\"type\": \"object\", \"properties\": {}}}]",
+        "--tool-choice-json",
+        "{\"type\": \"none\"}"
+      ],
+      "exit_code": 0,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/languageModels/anthropic/offline-model/messages",
+          "query": {},
+          "json_body": {
+            "messages": [
+              {
+                "content": [
+                  {
+                    "text": "Summarize this order.",
+                    "type": "text"
+                  }
+                ],
+                "role": "USER"
+              }
+            ],
+            "maxTokens": 256,
+            "toolChoice": {
+              "type": "none"
+            },
+            "tools": [
+              {
+                "name": "lookup_order",
+                "inputSchema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "type": "custom"
+              }
+            ]
+          },
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "stdout": "{\"content\": [{\"text\": \"Order summary.\", \"type\": \"text\"}], \"id\": \"offline-message\", \"model\": \"offline-model\", \"role\": \"ASSISTANT\", \"usage\": {\"inputTokens\": 8, \"outputTokens\": 3}}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "documented_json_--tool-choice-json_2",
+      "argv": [
+        "anthropic-model",
+        "messages",
+        "offline-model",
+        "--max-tokens",
+        "256",
+        "--messages-json",
+        "[{\"role\":\"USER\",\"content\":[{\"type\":\"text\",\"text\":\"Summarize this order.\"}]}]",
+        "--tools-json",
+        "[{\"type\": \"custom\", \"name\": \"lookup_order\", \"inputSchema\": {\"type\": \"object\", \"properties\": {}}}]",
+        "--tool-choice-json",
+        "{\"type\": \"any\"}"
+      ],
+      "exit_code": 0,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/languageModels/anthropic/offline-model/messages",
+          "query": {},
+          "json_body": {
+            "messages": [
+              {
+                "content": [
+                  {
+                    "text": "Summarize this order.",
+                    "type": "text"
+                  }
+                ],
+                "role": "USER"
+              }
+            ],
+            "maxTokens": 256,
+            "toolChoice": {
+              "type": "any"
+            },
+            "tools": [
+              {
+                "name": "lookup_order",
+                "inputSchema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "type": "custom"
+              }
+            ]
+          },
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "stdout": "{\"content\": [{\"text\": \"Order summary.\", \"type\": \"text\"}], \"id\": \"offline-message\", \"model\": \"offline-model\", \"role\": \"ASSISTANT\", \"usage\": {\"inputTokens\": 8, \"outputTokens\": 3}}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "documented_json_--tool-choice-json_3",
+      "argv": [
+        "anthropic-model",
+        "messages",
+        "offline-model",
+        "--max-tokens",
+        "256",
+        "--messages-json",
+        "[{\"role\":\"USER\",\"content\":[{\"type\":\"text\",\"text\":\"Summarize this order.\"}]}]",
+        "--tools-json",
+        "[{\"type\": \"custom\", \"name\": \"lookup_order\", \"inputSchema\": {\"type\": \"object\", \"properties\": {}}}]",
+        "--tool-choice-json",
+        "{\"type\": \"tool\", \"name\": \"lookup_order\"}"
+      ],
+      "exit_code": 0,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/languageModels/anthropic/offline-model/messages",
+          "query": {},
+          "json_body": {
+            "messages": [
+              {
+                "content": [
+                  {
+                    "text": "Summarize this order.",
+                    "type": "text"
+                  }
+                ],
+                "role": "USER"
+              }
+            ],
+            "maxTokens": 256,
+            "toolChoice": {
+              "name": "lookup_order",
+              "type": "tool"
+            },
+            "tools": [
+              {
+                "name": "lookup_order",
+                "inputSchema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "type": "custom"
+              }
+            ]
+          },
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "stdout": "{\"content\": [{\"text\": \"Order summary.\", \"type\": \"text\"}], \"id\": \"offline-message\", \"model\": \"offline-model\", \"role\": \"ASSISTANT\", \"usage\": {\"inputTokens\": 8, \"outputTokens\": 3}}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "documented_json_--thinking-json_0",
+      "argv": [
+        "anthropic-model",
+        "messages",
+        "offline-model",
+        "--max-tokens",
+        "256",
+        "--messages-json",
+        "[{\"role\":\"USER\",\"content\":[{\"type\":\"text\",\"text\":\"Summarize this order.\"}]}]",
+        "--thinking-json",
+        "{\"type\": \"disabled\"}"
+      ],
+      "exit_code": 0,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/languageModels/anthropic/offline-model/messages",
+          "query": {},
+          "json_body": {
+            "messages": [
+              {
+                "content": [
+                  {
+                    "text": "Summarize this order.",
+                    "type": "text"
+                  }
+                ],
+                "role": "USER"
+              }
+            ],
+            "maxTokens": 256,
+            "thinking": {
+              "type": "disabled"
+            }
+          },
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "stdout": "{\"content\": [{\"text\": \"Order summary.\", \"type\": \"text\"}], \"id\": \"offline-message\", \"model\": \"offline-model\", \"role\": \"ASSISTANT\", \"usage\": {\"inputTokens\": 8, \"outputTokens\": 3}}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "documented_json_--thinking-json_1",
+      "argv": [
+        "anthropic-model",
+        "messages",
+        "offline-model",
+        "--max-tokens",
+        "4096",
+        "--messages-json",
+        "[{\"role\":\"USER\",\"content\":[{\"type\":\"text\",\"text\":\"Summarize this order.\"}]}]",
+        "--thinking-json",
+        "{\"type\": \"enabled\", \"budgetTokens\": 2048}"
+      ],
+      "exit_code": 0,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/languageModels/anthropic/offline-model/messages",
+          "query": {},
+          "json_body": {
+            "messages": [
+              {
+                "content": [
+                  {
+                    "text": "Summarize this order.",
+                    "type": "text"
+                  }
+                ],
+                "role": "USER"
+              }
+            ],
+            "maxTokens": 4096,
+            "thinking": {
+              "budgetTokens": 2048,
+              "type": "enabled"
+            }
+          },
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "stdout": "{\"content\": [{\"text\": \"Order summary.\", \"type\": \"text\"}], \"id\": \"offline-message\", \"model\": \"offline-model\", \"role\": \"ASSISTANT\", \"usage\": {\"inputTokens\": 8, \"outputTokens\": 3}}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "documented_json_--output-config-json_0",
+      "argv": [
+        "anthropic-model",
+        "messages",
+        "offline-model",
+        "--max-tokens",
+        "256",
+        "--messages-json",
+        "[{\"role\":\"USER\",\"content\":[{\"type\":\"text\",\"text\":\"Summarize this order.\"}]}]",
+        "--output-config-json",
+        "{\"format\": {\"type\": \"jsonSchema\", \"schema\": {\"type\": \"object\", \"properties\": {\"answer\": {\"type\": \"string\"}}, \"required\": [\"answer\"]}}, \"effort\": \"HIGH\"}"
+      ],
+      "exit_code": 0,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/languageModels/anthropic/offline-model/messages",
+          "query": {},
+          "json_body": {
+            "messages": [
+              {
+                "content": [
+                  {
+                    "text": "Summarize this order.",
+                    "type": "text"
+                  }
+                ],
+                "role": "USER"
+              }
+            ],
+            "maxTokens": 256,
+            "outputConfig": {
+              "format": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "answer": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "answer"
+                  ]
+                },
+                "type": "jsonSchema"
+              },
+              "effort": "HIGH"
+            }
+          },
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "stdout": "{\"content\": [{\"text\": \"Order summary.\", \"type\": \"text\"}], \"id\": \"offline-message\", \"model\": \"offline-model\", \"role\": \"ASSISTANT\", \"usage\": {\"inputTokens\": 8, \"outputTokens\": 3}}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "anthropic_toon",
+      "argv": [
+        "anthropic-model",
+        "messages",
+        "offline-model",
+        "--max-tokens",
+        "256",
+        "--messages-json",
+        "[{\"role\":\"USER\",\"content\":[{\"type\":\"text\",\"text\":\"Summarize this order.\"}]}]",
+        "--format",
+        "toon"
+      ],
+      "exit_code": 0,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/languageModels/anthropic/offline-model/messages",
+          "query": {},
+          "json_body": {
+            "messages": [
+              {
+                "content": [
+                  {
+                    "text": "Summarize this order.",
+                    "type": "text"
+                  }
+                ],
+                "role": "USER"
+              }
+            ],
+            "maxTokens": 256
+          },
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "stdout": "{\"content\": [{\"text\": \"Order summary.\", \"type\": \"text\"}], \"id\": \"offline-message\", \"model\": \"offline-model\", \"role\": \"ASSISTANT\", \"usage\": {\"inputTokens\": 8, \"outputTokens\": 3}}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "embeddings_toon",
+      "argv": [
+        "open-ai-model",
+        "embeddings",
+        "offline-model",
+        "--input-json",
+        "[\"Order shipped yesterday\"]",
+        "--format",
+        "toon"
+      ],
+      "exit_code": 0,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/languageModels/openAi/offline-model/embeddings",
+          "query": {},
+          "json_body": {
+            "input": [
+              "Order shipped yesterday"
+            ]
+          },
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "stdout": "{\"data\": [[0.1, 0.2]], \"model\": \"offline-model\", \"usage\": {\"promptTokens\": 4}}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "embeddings_malformed_json",
+      "argv": [
+        "open-ai-model",
+        "embeddings",
+        "offline-model",
+        "--input-json",
+        "not-json"
+      ],
+      "exit_code": 1,
+      "requests": [],
+      "stdout": "{\"error\": true, \"exit_code\": 1, \"exit_code_name\": \"UserInputError\", \"message\": \"input must contain valid JSON\", \"exception_type\": \"CLIInputError\", \"traceback\": \"\", \"call_id\": \"7eb38b02-4362-4e8a-8872-aa84a3bb2be7\"}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "anthropic_readonly_guard",
+      "argv": [
+        "anthropic-model",
+        "messages",
+        "offline-model",
+        "--max-tokens",
+        "256",
+        "--messages-json",
+        "[{\"role\":\"USER\",\"content\":[{\"type\":\"text\",\"text\":\"Summarize this order.\"}]}]"
+      ],
+      "exit_code": 8,
+      "requests": [],
+      "stdout": "{\"error\": true, \"exit_code\": 8, \"exit_code_name\": \"AccessControlError\", \"message\": \"Operation blocked: read-only mode active\", \"exception_type\": \"AccessControlError\", \"traceback\": \"\", \"call_id\": \"3762d930-0b86-4688-a5fa-ad645f0661a8\"}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    },
+    {
+      "name": "embeddings_permission_denied",
+      "argv": [
+        "open-ai-model",
+        "embeddings",
+        "offline-model",
+        "--input-json",
+        "[\"Order shipped yesterday\"]"
+      ],
+      "exit_code": 3,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/languageModels/openAi/offline-model/embeddings",
+          "query": {},
+          "json_body": {
+            "input": [
+              "Order shipped yesterday"
+            ]
+          },
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "stdout": "{\"error\": true, \"exit_code\": 3, \"exit_code_name\": \"PermissionDeniedError\", \"message\": \"Language Models operation failed\", \"exception_type\": \"OpenAiEmbeddingsPermissionDenied\", \"traceback\": \"\", \"call_id\": \"28d80912-f75b-41cc-9848-426de5c35e5c\", \"http_status\": 403}\n",
+      "stderr": "",
+      "verdict": "PASS",
+      "scope": "Actual CLI main and generated SDK async HTTP via MockTransport; no tenant connection."
+    }
+  ],
+  "initial_review": {
+    "reviewer_agent": "/root/language_models_pages_20261027",
+    "status": "FAIL",
+    "pages": [
+      {
+        "path": ".ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-language-models\\references\\01-inference.md",
+        "sha256": "c15dcb156f1a945b5a8a2c2a19fa01eb3374e9914f1800b7560436a3c3983470"
+      },
+      {
+        "path": ".ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-language-models\\references\\anthropic-model.md",
+        "sha256": "392022726d2d2476709dd2936467b5dbb58a6004624441ece927179ac9a103d6"
+      },
+      {
+        "path": ".ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-language-models\\references\\inputs.md",
+        "sha256": "122a4f1ba9944522a3a9e56c754fe5e9d9a5f6ec0f2c8fbc163e47ef732d0567"
+      },
+      {
+        "path": ".ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-language-models\\references\\open-ai-model.md",
+        "sha256": "17671b7c1279e47837f3aafa7184dd778a8532e34b0e4434beb83bd6560bdf9d"
+      },
+      {
+        "path": ".ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-language-models\\SKILL.md",
+        "sha256": "cb8b34b721b79e72eda7316e80a7be625750cef7c3354ab2740cce6513b3ce29"
+      }
+    ],
+    "findings": [
+      {
+        "path": "references/open-ai-model.md",
+        "defect": "Response data list[list[float]] has no per-vector index; indexed vector claim false; model and usage do exist."
+      },
+      {
+        "path": "SKILL.md",
+        "defect": "LanguageModels/AnthropicModel.md and OpenAiModel.md are not existing standalone reader paths; replace with actual local links or label source pointer accurately."
+      },
+      {
+        "path": "references/inputs.md",
+        "defect": "Missing frozenSDK concrete embedding input limit8192tokens and dimensions support text-embedding-3+; generic model limit/compatible selector gives no local bound."
+      },
+      {
+        "path": "references/inputs.md",
+        "defect": "System prompt maximumone and temperature/top_p chooseone restriction source-defined but absent from optionalinput guidance."
+      }
+    ],
+    "source_models_path": "D:/app/Python/Lib/site-packages/foundry_sdk/v2/language_models/models.py",
+    "source_models_sha256": "ce804f2c866056971263a9e142bc1144a64cbf001c1abfe7754f006a7ca183ca"
+  },
+  "correction_summary": [
+    "Removed nonexistent reader paths and clarified response-object JSON fallback.",
+    "Corrected embedding vector shape and added source-backed returned count/dimension checks.",
+    "Completed local optional JSON examples and frozen inference input constraints."
+  ],
+  "evidence": {
+    "language_models_pages_initial_20261027.json": "061f4784a09d911afef46b64473554091e0e1ae4138a69ed49a2dff15af9f072",
+    "language_models_author_validation_20261027.json": "5c463a224765355b0cbeac9c308a4abcd4e293d69d8f9f0ae0f04aec65e09334",
+    "language_models_pages_probe_20261028.json": "137f557376b5ea80a9344ab7a3395305ca6cafdb3127e6fcb5525c035ace2d4f",
+    "language_models_pages_probe_20261028.py": "8187f5c1dc8d5da713c0b401a9552273eae9a965b4afa39ca3b10b17a799a35f"
+  },
+  "scope_limits": [
+    "Offline synthetic HTTP responses only; no enrollment connection, model inference, usage charge, actual output quality or permission grant verified.",
+    "BASE64 selector is verified on the request wire. Frozen SDK response model remains numeric vectors; no live BASE64 server-response compatibility claim.",
+    "Token limits, system prompt count, thinking budget and sampling guidance were checked against frozen SDK source documentation. MockTransport does not prove server enforcement.",
+    "No public URL liveness check or current upstream specification claim; linked URLs are optional provenance. No general whole-tool full-suite or packaging claim.",
+    "Three early harness assumptions were corrected: preview query absent rather than true, readonly environment variable name, and object responses falling back to JSON under TOON selection. They were harness setup findings, not product defects."
+  ],
+  "review_date_local": "2026-10-28 Europe/Sofia",
+  "recovery_provenance": {
+    "prior_reviewer": "/root/language_models_pages_20261027",
+    "prior_status": "Interrupted before final acceptance; no completed prior acceptance assumed.",
+    "fresh_review": "Current reviewer independently read all five pages, compared installed SDK source constraints and response models, inspected CLI option and dispatch source, resolved local links, and reran all 21 real CLI/SDK HTTP probes.",
+    "harness_correction": "Old finalizer looked up nonexistent oracle key module_sha256; current oracle uses source_sha256. Corrected only the owned recovery harness. No product source or page change.",
+    "intermediate_attempts": [
+      {
+        "command": "python .ept/tmp/language_models_pages_finalize_20261028.py",
+        "exit_code": 1,
+        "error": "KeyError: 'module_sha256'",
+        "category": "Evidence harness schema mismatch"
+      },
+      {
+        "command": "inline Python harness replacement",
+        "exit_code": 1,
+        "error": "SyntaxError: unexpected character after line continuation character",
+        "category": "Shell quoting; no file changed"
+      },
+      {
+        "command": "python .ept/tmp/language_models_pages_finalize_20261028.py",
+        "exit_code": 0,
+        "result": "Five page/source fingerprints and 21 prior fresh probe results checked."
+      }
+    ],
+    "harness_sha256": {
+      "language_models_pages_probe_20261027.py": "cac8a8b561ef9b19a4823d75b1abd8dc683c711b1fc8957af623c3987bcf285e",
+      "language_models_pages_finalize_20261027.py": "2a6fa4eac6634cb19d55776480e38322655342afd58b7394c98e204542099317",
+      "language_models_pages_probe_20261028.py": "8187f5c1dc8d5da713c0b401a9552273eae9a965b4afa39ca3b10b17a799a35f",
+      "language_models_pages_finalize_20261028.py": "3c0e0bd53548eb354d6bf24dc05c26cfccda2d76235f64e61b68432c6030dada"
+    }
+  },
+  "commands": [
+    {
+      "command": ".ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe .ept/tmp/language_models_pages_probe_20261028.py",
+      "exit_code": 0,
+      "stdout": "{\"probes\": 21, \"all_pass\": true}",
+      "result_scope": "19 real SDK HTTP requests; malformed JSON and readonly guard stop before HTTP."
+    }
+  ],
+  "counts": {
+    "PASS": 5,
+    "FAIL": 0
+  },
+  "final_correction_retest": {
+    "author_agent": "/root/rest075_author_recover_20261028",
+    "independent_reviewer_agent": "/root/language_qa_recover_20261028",
+    "initial_recovery_report": "language_models_pages_initial_recovery_20261028.json",
+    "initial_recovery_report_sha256": "2b05eec4a74c913462ea9ab1b7381873c689904d68702a14e940f2eae4a4a06a",
+    "correction": "Removed only the unsupported pagination-helper phrase from SKILL.md.",
+    "byte_reconstruction_matches_previous_page": true,
+    "unchanged_other_pages": 4,
+    "all_probe_source_hashes_unchanged": true,
+    "probe_reexecution": "Not repeated after this isolated prose removal; the fresh current-reviewer run of all 21 probes remains applicable at unchanged runtime/source/other-page bytes.",
+    "historical_author_validation_boundary": "Oct27 author validation predates this final phrase removal. Its source/page hashes are historical inputs; final exact current hashes are the pages array above.",
+    "harness_sha256": "deacbf719b9a2964a3582700dd3526ec65a08597ed7f4b5ad30bcccf6185cb89"
+  }
+}

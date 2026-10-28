@@ -1,0 +1,626 @@
+{
+  "story": "DEV-STORY-071",
+  "reviewer_identity": "/root/rest071_finish_20261027/independent071_review",
+  "reviewed_at_utc": "2026-10-27T21:32:38.020096+00:00",
+  "verdict": "APPROVED",
+  "execution": "NOT_RUN",
+  "manifest": {
+    "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest071_formal_cases.json",
+    "sha256": "eaa4126766a52b28eb99d7d26b392d2ec997c20479022f7e3eafeacfa38295e7"
+  },
+  "harness": {
+    "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest071_formal_execute.py",
+    "sha256": "d36df0fb9824d603944971a702cabf7694e0dada1a08c953797798db99fb7876"
+  },
+  "method": "Fresh independent manual SDK semantics and harness inspection, plus a separately executed adapted prior AST/schema checker. No SDK operation clients constructed or invoked.",
+  "review_history": {
+    "previous_manifest_sha256": "78c548179aa0020215ca471c4ebd031460584035933a3e85fce4dafa4706fb50",
+    "findings_reported_to_case_author": [
+      "Both search continuation fixtures violated the requested prefix.",
+      "AttributesNotEditable request did not change a reserved attribute from the stated prior GET.",
+      "Case instructions prescribed JSON-mode normalization despite Python-mode Long expectations."
+    ],
+    "correction_review": "Current author corrections preserve the search prefix, alter the named reserved attribute only in its adverse request, use qualified DELETED-vs-active error context, and align the normalization procedure with the harness. The harness checks prefix and ACTIVE user search results in preflight and executed page paths."
+  },
+  "static_check_provenance": {
+    "script": "rest071_fresh_static_review.py",
+    "sha256": "53d48851e09e626b6f46ca4c0d145b516d5f3aec1f78b014e35d229d34226037",
+    "adapted_from": "rest071_review_independent.py",
+    "report_sha256": "f808fd30ec30b3efc47ffb6f88e63d56b6a0ec3892e1f368aca99c5efa93a83f",
+    "failures": []
+  },
+  "counts": {
+    "operations": 27,
+    "declared_errors": 74,
+    "additional_cases": 85,
+    "findings": 0
+  },
+  "harness_inspection": {
+    "supported_sync_async_raw_streaming_success_paths": true,
+    "ordinary_sync_async_iterator_paths": true,
+    "named_errors_use_each_error_request_and_wire": true,
+    "typed_error_identity_parameters_checked": true,
+    "required_omission_and_schema_rejections_before_http": true,
+    "socket_and_dns_traps_with_denial_probes": true,
+    "raw_streaming_transport_cleanup": true,
+    "timeout_no_retry_and_malformed_json_cases": true,
+    "literal_wire_path_query_headers_body_auth_timeout_checks": true,
+    "source_asset_error_hash_preflight": true,
+    "model_normalization_uses_python_mode_and_canonical_dates": true,
+    "scope_limit": "All modes are success paths; each declared service error is exercised through synchronous decoded mode. Synthetic responses establish transport/model behavior, not live server effects or grants."
+  },
+  "operations": [
+    {
+      "case_id": "F071-01",
+      "operation": "v2.admin.Group.create",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 2
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-02",
+      "operation": "v2.admin.Group.delete",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 3
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-03",
+      "operation": "v2.admin.Group.get",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 3
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-04",
+      "operation": "v2.admin.Group.get_batch",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 5
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-05",
+      "operation": "v2.admin.Group.list",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 2
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-06",
+      "operation": "v2.admin.Group.list_current",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 1
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-07",
+      "operation": "v2.admin.Group.replace",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 3
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "reserved_attribute_error_changes_reserved_value": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-08",
+      "operation": "v2.admin.Group.search",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 3
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "search_prefix_page_1": true,
+        "search_prefix_page_2": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-09",
+      "operation": "v2.admin.GroupMember.add",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 3
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-10",
+      "operation": "v2.admin.GroupMember.list",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 4
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-11",
+      "operation": "v2.admin.GroupMember.remove",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 3
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-12",
+      "operation": "v2.admin.GroupMembership.list",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 4
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-13",
+      "operation": "v2.admin.GroupMembershipExpirationPolicy.get",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 3
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-14",
+      "operation": "v2.admin.GroupMembershipExpirationPolicy.replace",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 5
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-15",
+      "operation": "v2.admin.GroupProviderInfo.get",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 3
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-16",
+      "operation": "v2.admin.GroupProviderInfo.replace",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 3
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-17",
+      "operation": "v2.admin.User.delete",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 3
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-18",
+      "operation": "v2.admin.User.get",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 4
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-19",
+      "operation": "v2.admin.User.get_batch",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 5
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-20",
+      "operation": "v2.admin.User.get_current",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 1
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-21",
+      "operation": "v2.admin.User.get_markings",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 3
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-22",
+      "operation": "v2.admin.User.list",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 3
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-23",
+      "operation": "v2.admin.User.profile_picture",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 4
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true
+      }
+    },
+    {
+      "case_id": "F071-24",
+      "operation": "v2.admin.User.revoke_all_tokens",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 3
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-25",
+      "operation": "v2.admin.User.search",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 3
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "search_prefix_page_1": true,
+        "search_prefix_page_2": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-26",
+      "operation": "v2.admin.UserProviderInfo.get",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 3
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    },
+    {
+      "case_id": "F071-27",
+      "operation": "v2.admin.UserProviderInfo.replace",
+      "checks": {
+        "source_static_model_checks": {
+          "source_hash": true,
+          "actual_ast_expressions": true,
+          "asset_hashes": true,
+          "wire_literal": true,
+          "response_schema": true,
+          "response_valid": true,
+          "exact_declared_errors": true,
+          "all_additional_reviewed": 3
+        },
+        "actual_source_matches_frozen_oracle": true,
+        "oracle_file_hash_matches_manifest": true,
+        "method_source_sha256": true,
+        "async_method_source_sha256": true,
+        "normalization_procedure_matches_python_mode_harness": true
+      }
+    }
+  ],
+  "findings": []
+}
