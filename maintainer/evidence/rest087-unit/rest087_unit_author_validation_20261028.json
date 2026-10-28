@@ -1,0 +1,632 @@
+{
+  "author_agent": "/root/rest087_unit_complete_20261028",
+  "role": "Unit author; fresh independent review is required before acceptance.",
+  "owned_files": [
+    "tests/test_offline_rest_087.py"
+  ],
+  "test_sha256": "97e814edd2a12a2e5fc39982d15c0bf1096d1c496f2c19eed2c43cc893f18b82",
+  "original_tests_preserved": 30,
+  "scope_limits": [
+    "Real frozen SDK requests with synthetic HTTP responses, never live Foundry.",
+    "Source wire expectations come from installed SDK AST and bound example input literals.",
+    "Response models and exception classes come from installed SDK, not candidate expected constants.",
+    "Current synthetic values demonstrate bounded cases, not every model alternative or service policy.",
+    "ModelStudioConfigVersion.get native integer-path failure remains separate from its direct REST bridge.",
+    "Windows event-loop local socket pair is initialized before socket/DNS guard; all test work is guarded.",
+    "No tracker changes, asset changes, ledger changes, commit or push."
+  ],
+  "commands": [
+    {
+      "command": [
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_qa_env\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\tests\\test_offline_rest_087.py",
+        "-q",
+        "--tb=short",
+        "--basetemp=E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_unit_report_basetemp",
+        "-o",
+        "cache_dir=E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_unit_report_cache"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.8481495000014547,
+      "stdout": "........................................................................ [ 53%]\n...............................................................          [100%]\n135 passed in 1.24s\n",
+      "stderr": "D:\\app\\Python\\Lib\\site-packages\\requests\\__init__.py:113: RequestsDependencyWarning: urllib3 (2.3.0) or chardet (7.4.0.post2)/charset_normalizer (3.4.1) doesn't match a supported version!\n  warnings.warn(\nD:\\app\\Python\\Lib\\site-packages\\pytest_asyncio\\plugin.py:247: PytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\nThe event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n"
+    },
+    {
+      "command": [
+        "ruff",
+        "check",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\tests\\test_offline_rest_087.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.017803399998228997,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration",
+        "-c",
+        "core.whitespace=cr-at-eol",
+        "diff",
+        "--check",
+        "--",
+        "tests/test_offline_rest_087.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.0207036999927368,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "prior_attempts": [
+    {
+      "log": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_unit_attempt1.log",
+      "sha256": "00f3310750033c302c7171aaf7d1850e828662b9c3a601e5ec75fc951db60c94",
+      "result": "28 failed, 97 passed",
+      "cause": "Harness None-header handling, frozen parameter names, error base-code mapping, nested typed parameters, Windows event-loop initialization."
+    },
+    {
+      "log": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_unit_attempt2.log",
+      "sha256": "e38bbedf378055a621ee3bbd8ed4175ad659e0c62095132f4b377589ade200af",
+      "result": "3 failed, 122 passed",
+      "cause": "Harness internal-server code mapping and nested error-model normalization."
+    }
+  ],
+  "operations": [
+    {
+      "id": "v2.aip_agents.Agent.all_sessions",
+      "source_sha256": "a4e8a02cd5e824228a83dd06134389f32876403cff75c5b2bc0317efd0140162",
+      "example": "examples/rest/087/v2/aip_agents/Agent/all_sessions.py",
+      "example_sha256": "f567932a1da4d2100acbd29adf0c33ecefe761ab23d28b6dc111c1f561a76cec",
+      "declared_errors": [
+        "GetAllSessionsAgentsPermissionDenied",
+        "ListSessionsForAgentsPermissionDenied"
+      ]
+    },
+    {
+      "id": "v2.aip_agents.Agent.get",
+      "source_sha256": "a4e8a02cd5e824228a83dd06134389f32876403cff75c5b2bc0317efd0140162",
+      "example": "examples/rest/087/v2/aip_agents/Agent/get.py",
+      "example_sha256": "5b27f89c713433f8ac0ffe8bd8afe17835d13cc646976c30dd7b5d3b0b3255b0",
+      "declared_errors": [
+        "AgentNotFound",
+        "AgentVersionNotFound",
+        "InvalidAgentVersion",
+        "NoPublishedAgentVersion"
+      ]
+    },
+    {
+      "id": "v2.aip_agents.AgentVersion.get",
+      "source_sha256": "800b64e68d4a3c104e76b792e3ac02d400d13a667186cfb002465417c965c3d8",
+      "example": "examples/rest/087/v2/aip_agents/AgentVersion/get.py",
+      "example_sha256": "72219d32f1394fef0fe8eee87ca045864ed4cb78c6dd0a81e3f2a33951f496d9",
+      "declared_errors": [
+        "AgentNotFound",
+        "AgentVersionNotFound",
+        "InvalidAgentVersion",
+        "NoPublishedAgentVersion"
+      ]
+    },
+    {
+      "id": "v2.aip_agents.AgentVersion.list",
+      "source_sha256": "800b64e68d4a3c104e76b792e3ac02d400d13a667186cfb002465417c965c3d8",
+      "example": "examples/rest/087/v2/aip_agents/AgentVersion/list.py",
+      "example_sha256": "7aa23d9de3dd2a192c31d310bb0323b5eff93bece90f81270707fc8cc41ca6a9",
+      "declared_errors": [
+        "AgentNotFound"
+      ]
+    },
+    {
+      "id": "v2.aip_agents.Content.get",
+      "source_sha256": "d7b4c970889956f860350a5794736869405dc81b4ac00999e91595ade4c6e0a1",
+      "example": "examples/rest/087/v2/aip_agents/Content/get.py",
+      "example_sha256": "333af48692463c5e7dada36241631e7a4a0cc147a80b7e4c4891e3562858d20e",
+      "declared_errors": [
+        "AgentNotFound",
+        "ContentNotFound",
+        "SessionNotFound"
+      ]
+    },
+    {
+      "id": "v2.aip_agents.Session.blocking_continue",
+      "source_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "example": "examples/rest/087/v2/aip_agents/Session/blocking_continue.py",
+      "example_sha256": "8b0c938259c89fae05906ee94b83b03f0eac30d5e6577abba12b7e296000d8de",
+      "declared_errors": [
+        "ActionTypeNotFound",
+        "AgentIterationsExceededLimit",
+        "AgentNotFound",
+        "BlockingContinueSessionPermissionDenied",
+        "ContextSizeExceededLimit",
+        "FunctionLocatorNotFound",
+        "InvalidParameter",
+        "InvalidParameterType",
+        "ObjectTypeIdsNotFound",
+        "ObjectTypeRidsNotFound",
+        "OntologyEntitiesNotFound",
+        "RateLimitExceeded",
+        "RetryAttemptsExceeded",
+        "RetryDeadlineExceeded",
+        "SessionExecutionFailed",
+        "SessionNotFound",
+        "SessionTraceIdAlreadyExists",
+        "UnsupportedLanguageModelRid"
+      ]
+    },
+    {
+      "id": "v2.aip_agents.Session.cancel",
+      "source_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "example": "examples/rest/087/v2/aip_agents/Session/cancel.py",
+      "example_sha256": "ce5a88b8d67d1f1a6d178a94022b5a38bc8fdf2d47990488b9e4fc1eea0e5f7c",
+      "declared_errors": [
+        "AgentNotFound",
+        "CancelSessionFailedMessageNotInProgress",
+        "CancelSessionPermissionDenied",
+        "SessionNotFound"
+      ]
+    },
+    {
+      "id": "v2.aip_agents.Session.create",
+      "source_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "example": "examples/rest/087/sessions.py",
+      "example_sha256": "d76ebc427b958989cb3530cc78482876167addc79ab6000ab0847ae2de2e0985",
+      "declared_errors": [
+        "ActionTypeNotFound",
+        "AgentNotFound",
+        "AgentVersionNotFound",
+        "CreateSessionPermissionDenied",
+        "FunctionLocatorNotFound",
+        "InvalidAgentVersion",
+        "NoPublishedAgentVersion",
+        "ObjectTypeIdsNotFound",
+        "ObjectTypeRidsNotFound",
+        "OntologyEntitiesNotFound",
+        "SessionNotFound",
+        "UnsupportedLanguageModelRid"
+      ]
+    },
+    {
+      "id": "v2.aip_agents.Session.delete",
+      "source_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "example": "examples/rest/087/v2/aip_agents/Session/delete.py",
+      "example_sha256": "69746a1599f0d11dda08f573ed8e0620fc9b3090f86a45c088f6269fa2b31500",
+      "declared_errors": [
+        "AgentNotFound",
+        "DeleteSessionPermissionDenied",
+        "SessionNotFound"
+      ]
+    },
+    {
+      "id": "v2.aip_agents.Session.get",
+      "source_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "example": "examples/rest/087/sessions.py",
+      "example_sha256": "d76ebc427b958989cb3530cc78482876167addc79ab6000ab0847ae2de2e0985",
+      "declared_errors": [
+        "AgentNotFound",
+        "SessionNotFound"
+      ]
+    },
+    {
+      "id": "v2.aip_agents.Session.list",
+      "source_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "example": "examples/rest/087/sessions.py",
+      "example_sha256": "d76ebc427b958989cb3530cc78482876167addc79ab6000ab0847ae2de2e0985",
+      "declared_errors": [
+        "AgentNotFound"
+      ]
+    },
+    {
+      "id": "v2.aip_agents.Session.rag_context",
+      "source_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "example": "examples/rest/087/v2/aip_agents/Session/rag_context.py",
+      "example_sha256": "55bec996b954d9743d9fe5fa15a6a9c9cc5293e3d261a8fdd4b5ceace083e853",
+      "declared_errors": [
+        "AgentNotFound",
+        "FunctionLocatorNotFound",
+        "GetRagContextForSessionPermissionDenied",
+        "ObjectTypeIdsNotFound",
+        "ObjectTypeRidsNotFound",
+        "OntologyEntitiesNotFound",
+        "SessionNotFound"
+      ]
+    },
+    {
+      "id": "v2.aip_agents.Session.streaming_continue",
+      "source_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "example": "examples/rest/087/v2/aip_agents/Session/streaming_continue.py",
+      "example_sha256": "415f68e0e5e29a414fe48545b50cb91ff23c74646c95fa0ee3db993c59d1ecd8",
+      "declared_errors": [
+        "ActionTypeNotFound",
+        "AgentNotFound",
+        "FunctionLocatorNotFound",
+        "InvalidParameter",
+        "InvalidParameterType",
+        "ObjectTypeIdsNotFound",
+        "ObjectTypeRidsNotFound",
+        "OntologyEntitiesNotFound",
+        "SessionNotFound",
+        "SessionTraceIdAlreadyExists",
+        "StreamingContinueSessionPermissionDenied",
+        "UnsupportedLanguageModelRid"
+      ]
+    },
+    {
+      "id": "v2.aip_agents.Session.update_title",
+      "source_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "example": "examples/rest/087/v2/aip_agents/Session/update_title.py",
+      "example_sha256": "2aa51c5d3f7861fe3f9d148902c6310d47121485c2078d19208bca88a79a37ee",
+      "declared_errors": [
+        "AgentNotFound",
+        "SessionNotFound",
+        "UpdateSessionTitlePermissionDenied"
+      ]
+    },
+    {
+      "id": "v2.aip_agents.SessionTrace.get",
+      "source_sha256": "24dbb5a1290eb00d8024c12fc2ad50afed584fccc042bd7773a924a4d378df29",
+      "example": "examples/rest/087/v2/aip_agents/SessionTrace/get.py",
+      "example_sha256": "0af811c5057a47548e8512ab02961040c48426ef67b32c60a84a9ee534214c80",
+      "declared_errors": [
+        "AgentNotFound",
+        "SessionNotFound",
+        "SessionTraceNotFound"
+      ]
+    },
+    {
+      "id": "v2.language_models.AnthropicModel.messages",
+      "source_sha256": "23ce4366d538286c933d8a1a2c20fdc22987c8292997f317ff016ea2b1e24b02",
+      "example": "examples/rest/087/v2/language_models/AnthropicModel/messages.py",
+      "example_sha256": "7f983e0b7045a3da4ab8a371bcb56d3f29ccb6bfe3e60e5f5caf0a1921ab8396",
+      "declared_errors": [
+        "AnthropicMessagesPermissionDenied",
+        "MultipleSystemPromptsNotSupported",
+        "MultipleToolResultContentsNotSupported"
+      ]
+    },
+    {
+      "id": "v2.language_models.OpenAiModel.embeddings",
+      "source_sha256": "f0de3feb8825b82a89ae8442176daf1f8e664d49ec0e4bdaf7c5d9fd3d869550",
+      "example": "examples/rest/087/v2/language_models/OpenAiModel/embeddings.py",
+      "example_sha256": "936d477b3ee52922457d9171f71799ab3c55165e91d170877b05d802b75f7682",
+      "declared_errors": [
+        "OpenAiEmbeddingsPermissionDenied"
+      ]
+    },
+    {
+      "id": "v2.models.Experiment.get",
+      "source_sha256": "afee53ef61ec8fde78a968a24ab7f7695ca85d9f8f89b06fac072eed440896e9",
+      "example": "examples/rest/087/v2/models/Experiment/get.py",
+      "example_sha256": "04ef9f4f0613fa28ca562dd70b1982742faec3be0c24022c0ca54e4781e9cadc",
+      "declared_errors": [
+        "ExperimentNotFound",
+        "ModelExperimentNotFound"
+      ]
+    },
+    {
+      "id": "v2.models.Experiment.search",
+      "source_sha256": "afee53ef61ec8fde78a968a24ab7f7695ca85d9f8f89b06fac072eed440896e9",
+      "example": "examples/rest/087/v2/models/Experiment/search.py",
+      "example_sha256": "f4ba220971a8f9f9d8e5dc70962f29026593c19f75b565fa3c22599f8b1c02cc",
+      "declared_errors": [
+        "InvalidExperimentSearchFilter",
+        "SearchExperimentsPermissionDenied"
+      ]
+    },
+    {
+      "id": "v2.models.ExperimentArtifactTable.json",
+      "source_sha256": "d0e7fe85815d7e9591ab5c382e2c068a3b0d9665b6537f8b5a5cad131db4b66d",
+      "example": "examples/rest/087/v2/models/ExperimentArtifactTable/invoke_json.py",
+      "example_sha256": "3f0ec81e1f8c10cd5d5edeee099f363887e5d7052ba337cfc8b6cd1103752645",
+      "declared_errors": [
+        "ExperimentArtifactNotFound",
+        "JsonExperimentArtifactTablePermissionDenied",
+        "ModelExperimentNotFound"
+      ]
+    },
+    {
+      "id": "v2.models.ExperimentArtifactTable.parquet",
+      "source_sha256": "d0e7fe85815d7e9591ab5c382e2c068a3b0d9665b6537f8b5a5cad131db4b66d",
+      "example": "examples/rest/087/v2/models/ExperimentArtifactTable/parquet.py",
+      "example_sha256": "9113795992bccca038ab722aef5582374bb2b697c8435329af88c73a600a74ef",
+      "declared_errors": [
+        "ExperimentArtifactNotFound",
+        "ModelExperimentNotFound",
+        "ParquetExperimentArtifactTablePermissionDenied"
+      ]
+    },
+    {
+      "id": "v2.models.ExperimentSeries.json",
+      "source_sha256": "695990e14cdef6fe9ab18fb2fa872c9e5bc8f8b4eeec904c080c735d5822d344",
+      "example": "examples/rest/087/v2/models/ExperimentSeries/invoke_json.py",
+      "example_sha256": "9c0cef4f03df2c67fde00a32a8bf99f84ff0b2ea9d5665c092a8efedf6bac23f",
+      "declared_errors": [
+        "ExperimentSeriesNotFound",
+        "JsonExperimentSeriesPermissionDenied",
+        "ModelExperimentNotFound"
+      ]
+    },
+    {
+      "id": "v2.models.ExperimentSeries.parquet",
+      "source_sha256": "695990e14cdef6fe9ab18fb2fa872c9e5bc8f8b4eeec904c080c735d5822d344",
+      "example": "examples/rest/087/v2/models/ExperimentSeries/parquet.py",
+      "example_sha256": "6db275817357550185dee3ec88c13a6fb750c9a61e4417440db4b5f140134388",
+      "declared_errors": [
+        "ExperimentSeriesNotFound",
+        "ModelExperimentNotFound",
+        "ParquetExperimentSeriesPermissionDenied"
+      ]
+    },
+    {
+      "id": "v2.models.LiveDeployment.create",
+      "source_sha256": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa",
+      "example": "examples/rest/087/v2/models/LiveDeployment/create.py",
+      "example_sha256": "8c5922f078d0c60cd4c2fe7732887aefd52404aedd5655f826f9d118df1d5f95",
+      "declared_errors": [
+        "CreateLiveDeploymentPermissionDenied",
+        "GpuTypeNotAvailable",
+        "InvalidGpuCount",
+        "ModelNotFound",
+        "ThreadCountTooHigh"
+      ]
+    },
+    {
+      "id": "v2.models.LiveDeployment.get",
+      "source_sha256": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa",
+      "example": "examples/rest/087/v2/models/LiveDeployment/get.py",
+      "example_sha256": "50d71d41daaa88a8535f1c22383b30e7be2f5d78617a9c736a719ce6351ab48f",
+      "declared_errors": [
+        "LiveDeploymentNotFound",
+        "UnsupportedLiveDeployment"
+      ]
+    },
+    {
+      "id": "v2.models.LiveDeployment.list",
+      "source_sha256": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa",
+      "example": "examples/rest/087/v2/models/LiveDeployment/list.py",
+      "example_sha256": "0515ff6c0f172d2f680ebac66e684520af96f8d1c53d63b31a4b3925fdb578db",
+      "declared_errors": [
+        "ModelNotFound"
+      ]
+    },
+    {
+      "id": "v2.models.LiveDeployment.replace",
+      "source_sha256": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa",
+      "example": "examples/rest/087/v2/models/LiveDeployment/replace.py",
+      "example_sha256": "83787c0c1bdcffbb05fd4475d6c07c9acdf9655baa29dc6e26e517fae50b4311",
+      "declared_errors": [
+        "GpuTypeNotAvailable",
+        "InvalidGpuCount",
+        "LiveDeploymentNotFound",
+        "ReplaceLiveDeploymentPermissionDenied",
+        "ThreadCountTooHigh",
+        "UnsupportedLiveDeployment"
+      ]
+    },
+    {
+      "id": "v2.models.LiveDeployment.transform_json",
+      "source_sha256": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa",
+      "example": "examples/rest/087/v2/models/LiveDeployment/transform_json.py",
+      "example_sha256": "4bb0f46c1cf1b23ecf939d223732453fb05ced84472ac2e5ce5a6d92d3888e0b",
+      "declared_errors": [
+        "InferenceFailure",
+        "InferenceInvalidInput",
+        "InferenceTimeout",
+        "LiveDeploymentNotFound",
+        "TransformJsonLiveDeploymentPermissionDenied"
+      ]
+    },
+    {
+      "id": "v2.models.Model.create",
+      "source_sha256": "420a4bd19511d5732532fb3ac4252310732e3c4b4ea418551adb2cf68a41cd20",
+      "example": "examples/rest/087/v2/models/Model/create.py",
+      "example_sha256": "dd03624b56503e0e4fa50245c9b4108a6a27980f4fbb68d050b517bf954ed459",
+      "declared_errors": [
+        "CreateModelPermissionDenied",
+        "InvalidDisplayName",
+        "ResourceNameAlreadyExists"
+      ]
+    },
+    {
+      "id": "v2.models.Model.get",
+      "source_sha256": "420a4bd19511d5732532fb3ac4252310732e3c4b4ea418551adb2cf68a41cd20",
+      "example": "examples/rest/087/v2/models/Model/get.py",
+      "example_sha256": "620123e171c793e76339e952251c3c8a52665a2bebbbfedb21fdd0cddf28af72",
+      "declared_errors": [
+        "ModelNotFound"
+      ]
+    },
+    {
+      "id": "v2.models.Model.promote_version",
+      "source_sha256": "420a4bd19511d5732532fb3ac4252310732e3c4b4ea418551adb2cf68a41cd20",
+      "example": "examples/rest/087/v2/models/Model/promote_version.py",
+      "example_sha256": "7a629445b41d379bb6eff3172707fc6c487fd40b0f44dc4bc107433162e30d47",
+      "declared_errors": [
+        "ModelNotFound",
+        "ModelVersionNotFound",
+        "PromoteVersionModelPermissionDenied",
+        "UnsupportedModelSource"
+      ]
+    },
+    {
+      "id": "v2.models.ModelFunction.create",
+      "source_sha256": "9bd76546691d4b1a00b3d5dd6f0efcee90b40954c04ac32c3b74708f5a60ccf6",
+      "example": "examples/rest/087/v2/models/ModelFunction/create.py",
+      "example_sha256": "b7143adfbca358ec0942c37bfb2867d8587d368dbc77d71adf215b24f1d8d3a6",
+      "declared_errors": [
+        "CreateModelFunctionPermissionDenied",
+        "FunctionAlreadyExists",
+        "InvalidFunctionApiName",
+        "ModelApiTypeUnsupportedForFunction",
+        "ModelNotFound",
+        "OntologyBindingRequired",
+        "OntologyNotFound"
+      ]
+    },
+    {
+      "id": "v2.models.ModelFunction.get",
+      "source_sha256": "9bd76546691d4b1a00b3d5dd6f0efcee90b40954c04ac32c3b74708f5a60ccf6",
+      "example": "examples/rest/087/v2/models/ModelFunction/get.py",
+      "example_sha256": "4a61788396c69d32a868bdaa86c5822d8ce096373603a9f41d2dde79feced13b",
+      "declared_errors": [
+        "ModelFunctionNotFound",
+        "ModelNotFound"
+      ]
+    },
+    {
+      "id": "v2.models.ModelFunction.replace",
+      "source_sha256": "9bd76546691d4b1a00b3d5dd6f0efcee90b40954c04ac32c3b74708f5a60ccf6",
+      "example": "examples/rest/087/v2/models/ModelFunction/replace.py",
+      "example_sha256": "9705d3f24fd58bf023e7b931d3a48a5b3768f9f5cc902f14ac8dc1fbda43ec35",
+      "declared_errors": [
+        "InvalidFunctionApiName",
+        "ModelApiTypeUnsupportedForFunction",
+        "ModelFunctionNotFound",
+        "ModelNotFound",
+        "OntologyBindingRequired",
+        "OntologyNotFound",
+        "ReplaceModelFunctionPermissionDenied"
+      ]
+    },
+    {
+      "id": "v2.models.ModelStudio.create",
+      "source_sha256": "4ece4867d0046dafdbf4eac2fad4d5348a281b3ea628809b332ff769e161b49e",
+      "example": "examples/rest/087/v2/models/ModelStudio/create.py",
+      "example_sha256": "e009753016d83de6e567db5476206c686d8a1d03f9489e59454954914b1f2d74",
+      "declared_errors": [
+        "CreateModelStudioPermissionDenied",
+        "InvalidDisplayName",
+        "InvalidModelStudioCreateRequest",
+        "ResourceNameAlreadyExists"
+      ]
+    },
+    {
+      "id": "v2.models.ModelStudio.get",
+      "source_sha256": "4ece4867d0046dafdbf4eac2fad4d5348a281b3ea628809b332ff769e161b49e",
+      "example": "examples/rest/087/v2/models/ModelStudio/get.py",
+      "example_sha256": "8fad7e7037b8812795a548f7a840ecc9cab637c0174de1a6354fdf897af746a4",
+      "declared_errors": [
+        "ModelStudioNotFound"
+      ]
+    },
+    {
+      "id": "v2.models.ModelStudio.launch",
+      "source_sha256": "4ece4867d0046dafdbf4eac2fad4d5348a281b3ea628809b332ff769e161b49e",
+      "example": "examples/rest/087/v2/models/ModelStudio/launch.py",
+      "example_sha256": "a56d6644ec040ef60136c8e544cb0ddf5b7f8202d04580979a42e8fe1bc6b71a",
+      "declared_errors": [
+        "LaunchModelStudioPermissionDenied",
+        "ModelStudioNotFound"
+      ]
+    },
+    {
+      "id": "v2.models.ModelStudioConfigVersion.create",
+      "source_sha256": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2",
+      "example": "examples/rest/087/v2/models/ModelStudioConfigVersion/create.py",
+      "example_sha256": "3212a5645d29e30a3b37dd617219a3022d19fad1ed20e50def496b8307fbaf8a",
+      "declared_errors": [
+        "CreateConfigValidationError",
+        "CreateModelStudioConfigVersionPermissionDenied",
+        "ModelStudioNotFound",
+        "TrainerNotFound"
+      ]
+    },
+    {
+      "id": "v2.models.ModelStudioConfigVersion.get",
+      "source_sha256": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2",
+      "example": "examples/rest/087/model_studio_config_version.py",
+      "example_sha256": "bca2e06ea53cb591617dccfc8109550bb67e2a87a0ba5c8df61861407589487b",
+      "declared_errors": [
+        "ModelStudioConfigVersionNotFound",
+        "ModelStudioNotFound"
+      ]
+    },
+    {
+      "id": "v2.models.ModelStudioConfigVersion.latest",
+      "source_sha256": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2",
+      "example": "examples/rest/087/v2/models/ModelStudioConfigVersion/latest.py",
+      "example_sha256": "79f9640ebe37b503ac9dc86e15183f96ac188245320bd23b4b5aedec8efbc38c",
+      "declared_errors": [
+        "LatestModelStudioConfigVersionsPermissionDenied",
+        "ModelStudioNotFound"
+      ]
+    },
+    {
+      "id": "v2.models.ModelStudioConfigVersion.list",
+      "source_sha256": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2",
+      "example": "examples/rest/087/v2/models/ModelStudioConfigVersion/list.py",
+      "example_sha256": "d0d3ffcb9333b14a83a686dad38fc72d02e2e43a582ccb3ea0ec7d464b640966",
+      "declared_errors": [
+        "ModelStudioNotFound"
+      ]
+    },
+    {
+      "id": "v2.models.ModelStudioRun.list",
+      "source_sha256": "e7bf121ae2c96f41fbff874a53102f22c1f774812936aaf49f435e4963093513",
+      "example": "examples/rest/087/v2/models/ModelStudioRun/list.py",
+      "example_sha256": "686b7ccfd196a5e94b79ca13b502599532eabd0357f0aaf1afee1695e4c05ee2",
+      "declared_errors": [
+        "ModelStudioConfigVersionNotFound",
+        "ModelStudioNotFound"
+      ]
+    },
+    {
+      "id": "v2.models.ModelStudioTrainer.get",
+      "source_sha256": "b4d5fd37b3cebe920077e755adb09d37c9aa499a7b25fa0f46ecc4787d5c09d0",
+      "example": "examples/rest/087/v2/models/ModelStudioTrainer/get.py",
+      "example_sha256": "f602c0436c666e6ac762b8c2b236ca6449a7ca5b7180fb3e3a6c24b03ce7060d",
+      "declared_errors": [
+        "ModelStudioTrainerNotFound",
+        "TrainerNotFound"
+      ]
+    },
+    {
+      "id": "v2.models.ModelStudioTrainer.list",
+      "source_sha256": "b4d5fd37b3cebe920077e755adb09d37c9aa499a7b25fa0f46ecc4787d5c09d0",
+      "example": "examples/rest/087/v2/models/ModelStudioTrainer/list.py",
+      "example_sha256": "a8e366d5caf5ed27c46dd8a1ae1d37b25202ccf2fa36a25e237e0fa890ca95d6",
+      "declared_errors": []
+    },
+    {
+      "id": "v2.models.ModelVersion.create",
+      "source_sha256": "ad0514eaa6f22b4f362cc94305b395c4c8c7d3b36bd2b337fc70d57b85655dc8",
+      "example": "examples/rest/087/v2/models/ModelVersion/create.py",
+      "example_sha256": "a9348c71e54f13c5a3f12b4bd6f4580eb78136b2dc713048894cce11fe7261ed",
+      "declared_errors": [
+        "CondaSolveFailureForProvidedPackages",
+        "CreateModelVersionPermissionDenied",
+        "InvalidModelApi",
+        "ModelNotFound",
+        "UnsupportedModelSource"
+      ]
+    },
+    {
+      "id": "v2.models.ModelVersion.get",
+      "source_sha256": "ad0514eaa6f22b4f362cc94305b395c4c8c7d3b36bd2b337fc70d57b85655dc8",
+      "example": "examples/rest/087/v2/models/ModelVersion/get.py",
+      "example_sha256": "470489e75af3d0d1871c4267e65eec3823ed988685b4653a3a48ff531788a1a0",
+      "declared_errors": [
+        "ModelVersionNotFound",
+        "UnsupportedModelSource"
+      ]
+    },
+    {
+      "id": "v2.models.ModelVersion.list",
+      "source_sha256": "ad0514eaa6f22b4f362cc94305b395c4c8c7d3b36bd2b337fc70d57b85655dc8",
+      "example": "examples/rest/087/v2/models/ModelVersion/list.py",
+      "example_sha256": "18885841c0b08efd51ac0b22140426e3d888df4e0c5881b5e7b5b6fbebe05a9d",
+      "declared_errors": [
+        "ModelNotFound",
+        "UnsupportedModelSource"
+      ]
+    }
+  ],
+  "operation_count": 47,
+  "declared_error_count": 171,
+  "test_count": 135,
+  "all_commands_passed": true,
+  "final_test_sha256": "97e814edd2a12a2e5fc39982d15c0bf1096d1c496f2c19eed2c43cc893f18b82"
+}
