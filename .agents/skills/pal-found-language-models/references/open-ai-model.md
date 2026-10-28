@@ -9,6 +9,6 @@ These records describe the `open_ai_model` commands in `pal-found-language-model
 - **Input meaning:** `--input-json`: JSON array of text strings to embed. `model_id`: Language model API name available in this enrollment. `--dimensions`: Requested output vector length, if the model supports it. `--encoding-format`: Vector representation in the response.
 - **Input guide:** [Identifiers and JSON payloads](./inputs.md).
 - **Preconditions:** The model API name is available in this enrollment and the caller may invoke it with the supported request shape.
-- **Result:** Returns `OpenAiEmbeddingsResponse` with one indexed embedding vector per input item and model usage information.
+- **Result:** Returns `OpenAiEmbeddingsResponse` with a list of numeric vectors in `data`, the model ID in `model`, and usage statistics in `usage`. Vectors have no per-vector index field. Check the returned vector count and dimensions against the input batch and requested dimensions before storing results.
 - **Failure:** Unavailable model, malformed inference input, or denied access returns a structured error. A timeout leaves usage and response status uncertain.
 - **Example:** `pal-found-language-models open-ai-model embeddings <MODEL_ID> --input-json '["Order shipped yesterday"]'`
