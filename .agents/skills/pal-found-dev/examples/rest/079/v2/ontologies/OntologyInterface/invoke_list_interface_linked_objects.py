@@ -16,8 +16,11 @@ from foundry_sdk.v2.ontologies.ontology_interface import OntologyInterfaceClient
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from synthetic_schema import asset_object, check_objects
+
 EXPECTED_METHOD = 'GET'
-EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/interfaces/synthetic-value/Asset/A-1/links/synthetic-value'
+EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/interfaces/Trackable/Asset/A-1/links/peers'
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'branch': None,
  'excludeRid': None,
@@ -28,11 +31,11 @@ EXPECTED_QUERY = {'branch': None,
  'select': None,
  'snapshot': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'data': [{}]}
+SUCCESS = {'data': [asset_object('A-2')]}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.list_interface_linked_objects(ontology='synthetic-value', interface_type='synthetic-value', object_type='Asset', primary_key='A-1', interface_link_type='synthetic-value', request_timeout=30)
+    return client.with_raw_response.list_interface_linked_objects(ontology='synthetic-value', interface_type='Trackable', object_type='Asset', primary_key='A-1', interface_link_type='peers', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -63,6 +66,10 @@ def normalized(value):
         return value.model_dump(mode='json', by_alias=True, exclude_none=True)
     return value
 
+def check_result(value):
+    check_objects(value, linked=True)
+
+
 def verify():
     calls = []
     def success(request):
@@ -76,7 +83,9 @@ def verify():
     with mock_resource(OntologyInterfaceClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
+            check_result(decoded)
         finally:
             raw.close()
     assert len(calls) == 1

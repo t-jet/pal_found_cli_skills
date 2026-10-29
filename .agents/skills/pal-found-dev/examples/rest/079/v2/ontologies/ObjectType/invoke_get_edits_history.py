@@ -16,17 +16,15 @@ from foundry_sdk.v2.ontologies.object_type import ObjectTypeClient
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from synthetic_schema import check_history
+
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/objectTypes/Asset/editsHistory'
 EXPECTED_BODY = {}
 EXPECTED_QUERY = {'branch': None, 'preview': None, 'scenarioRid': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'data': [{'objectPrimaryKey': {},
-           'operationId': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
-           'actionTypeRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
-           'userId': 'synthetic-value',
-           'timestamp': '2026-10-07T00:00:00+00:00',
-           'edit': {'properties': {}, 'type': 'createEdit'}}]}
+SUCCESS = {'data': [{'objectPrimaryKey': {'assetId': {'type': 'stringValue', 'value': 'A-1'}}, 'operationId': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', 'actionTypeRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', 'userId': 'synthetic-value', 'timestamp': '2026-10-07T00:00:00+00:00', 'edit': {'properties': {'assetId': 'A-1', 'name': 'Pump A-1', 'observedAt': '2026-10-07T00:00:00Z'}, 'type': 'createEdit'}}]}
 ERRORS = []
 
 def invoke(client):
@@ -61,6 +59,10 @@ def normalized(value):
         return value.model_dump(mode='json', by_alias=True, exclude_none=True)
     return value
 
+def check_result(value):
+    check_history(value)
+
+
 def verify():
     calls = []
     def success(request):
@@ -74,7 +76,9 @@ def verify():
     with mock_resource(ObjectTypeClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
+            check_result(decoded)
         finally:
             raw.close()
     assert len(calls) == 1

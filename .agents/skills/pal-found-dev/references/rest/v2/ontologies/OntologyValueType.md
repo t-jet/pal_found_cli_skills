@@ -32,7 +32,7 @@ Read [exact contract](../../contracts/v2/ontologies/OntologyValueType/list.md) f
 
 ## Worked example
 
-Resolve the `Priority` value type by its actual API name, inspect its latest definition, and compare it with the Action parameter or property model before sending a value.
+Resolve a value type by its actual API name, inspect its latest definition, and compare it with the Action parameter or property model before sending a value. Both fixtures use the synthetic `ObservationDate` definition, version `1`, with `fieldType={'type': 'date'}` and an empty constraints list. The get request and response use the same API name. This fixture imposes no additional constraint on the date. A `struct` constraint maps struct properties to their value types and does not belong on this date definition. Check field type and constraint alternatives together when adapting the response.
 
 The linked operation fixtures show actual SDK method invocation, serialized request and decoded response/error using a local mock transport. Their synthetic values are test data. Replace them with authorized identifiers and typed payloads from each linked contract; verify the live result under the intended identity before asserting a platform effect.
 

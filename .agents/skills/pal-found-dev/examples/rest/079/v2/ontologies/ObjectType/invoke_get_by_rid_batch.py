@@ -8,6 +8,7 @@ import sys
 import urllib.parse
 import datetime
 from pathlib import Path
+from copy import deepcopy
 
 import httpx
 from foundry_sdk import PalantirRPCException
@@ -16,24 +17,19 @@ from foundry_sdk.v2.ontologies.object_type import ObjectTypeClient
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from synthetic_schema import ASSET, check_asset
+
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/objectTypes/getByRidBatch'
-EXPECTED_BODY = {'requests': [{'objectTypeRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}]}
+EXPECTED_BODY = {'requests': [{'objectTypeRid': 'ri.ontology.main.object-type.asset'}]}
 EXPECTED_QUERY = {'branch': None, 'preview': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'data': [{'apiName': 'synthetic-value',
-           'displayName': 'synthetic-value',
-           'status': 'ACTIVE',
-           'pluralDisplayName': 'synthetic-value',
-           'icon': {'color': 'synthetic-value', 'name': 'synthetic-value', 'type': 'blueprint'},
-           'primaryKey': 'synthetic-value',
-           'properties': {},
-           'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
-           'titleProperty': 'synthetic-value'}]}
+SUCCESS = {'data': [deepcopy(ASSET)]}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.get_by_rid_batch(ontology='synthetic-value', requests=[{'objectTypeRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}], request_timeout=30)
+    return client.with_raw_response.get_by_rid_batch(ontology='synthetic-value', requests=[{'objectTypeRid': 'ri.ontology.main.object-type.asset'}], request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -64,6 +60,10 @@ def normalized(value):
         return value.model_dump(mode='json', by_alias=True, exclude_none=True)
     return value
 
+def check_result(value):
+    check_asset(value['data'][0])
+
+
 def verify():
     calls = []
     def success(request):
@@ -77,7 +77,9 @@ def verify():
     with mock_resource(ObjectTypeClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
+            check_result(decoded)
         finally:
             raw.close()
     assert len(calls) == 1

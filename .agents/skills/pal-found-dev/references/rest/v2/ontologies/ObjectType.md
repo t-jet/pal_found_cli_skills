@@ -55,6 +55,10 @@ tenant schema. The example executes no schema mutation or object write.
 
 ## Expected result and checks
 
+The batch, list and full-metadata fixtures use `Asset` from the [declared synthetic schema](../../../../examples/rest/079/synthetic_schema.py). Its primary key `assetId` and title property `name` both exist and have string type. The full-metadata request names `Asset`, and the response returns that same API name. `implementsInterfaces`, `implementsInterfaces2`, and `sharedPropertyTypeMapping` agree on the `Trackable` implementation and its backing local properties. Check property types and link implementations as well as names before adapting an interface consumer.
+
+The history fixture identifies `Asset/A-1`: `objectPrimaryKey` maps `assetId` to `{'type': 'stringValue', 'value': 'A-1'}`. History uses typed primary-key envelopes in SDK 1.101.0. The `createEdit.properties` map contains plain property values, including `assetId='A-1'` and `name='Pump A-1'`. Compare the unwrapped key with the creation properties to identify which object was created.
+
 Check exact identity, branch, primary key and each property needed by the application.
 For batches, record omissions; for lists, preserve cursors and partial results.
 For history, retain ordering/filter assumptions with the underlying storage version.

@@ -34,6 +34,8 @@ Read [exact contract](../../contracts/v2/ontologies/ActionTypeFullMetadata/list.
 
 Inspect a selected Action's full metadata before building a governance report. Page through list results until the documented cursor ends and retain the exact metadata version used for the report.
 
+The fixtures describe `rename-trackable` in the [synthetic schema](../../../../examples/rest/079/synthetic_schema.py). Its required `target` parameter has interface-object type `Trackable`; `newName` has string type. The operation summary uses `modifyInterfaceObject`, while the full rule uses `modifyInterface`. These are the SDK's distinct discriminator names for the summary and detailed rule. The full rule resolves `interfaceObjectToModify` to `target` and sets the shared `name` property from `newName`. Check these references and types together when inspecting real metadata. Reading this configuration does not submit the Action or grant permission to execute it.
+
 The linked operation fixtures show actual SDK method invocation, serialized request and decoded response/error using a local mock transport. Their synthetic values are test data. Replace them with authorized identifiers and typed payloads from each linked contract; verify the live result under the intended identity before asserting a platform effect.
 
 ## Expected result and checks
