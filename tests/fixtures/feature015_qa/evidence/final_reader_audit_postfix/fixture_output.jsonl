@@ -1,0 +1,10 @@
+{"scenario": "public_network_guard", "status": "PASS", "probe": "PUBLIC_NETWORK_DENIED"}
+{"scenario": "complete_empty_middle", "status": "PASS", "requests": [null, "A", "B"], "ids": ["log-1", "log-2"], "complete": true, "reason": "complete", "cursor": null, "pages": 3, "remaining_on_page": []}
+{"scenario": "page_budget", "status": "PASS", "requests": [null, "A"], "ids": ["log-1"], "complete": false, "reason": "page_budget", "cursor": "B", "pages": 2, "remaining_on_page": []}
+{"scenario": "item_budget_mid_page", "status": "PASS", "requests": [null], "ids": ["log-1"], "complete": false, "reason": "item_budget", "cursor": "A", "pages": 1, "remaining_on_page": ["log-2"]}
+{"scenario": "repeated_token", "status": "PASS", "requests": [null, "A"], "ids": ["log-1"], "complete": false, "reason": "repeated_token", "cursor": "A", "pages": 2, "remaining_on_page": []}
+{"scenario": "time_budget_before_request", "status": "PASS", "requests": [], "ids": [], "complete": false, "reason": "time_budget", "cursor": null, "pages": 0, "remaining_on_page": []}
+{"scenario": "time_budget_after_response", "status": "PASS", "requests": [null], "ids": ["log-2"], "complete": false, "reason": "time_budget", "cursor": null, "pages": 1, "remaining_on_page": []}
+{"scenario": "lost_response", "status": "PASS", "requests": [null], "ids": [], "complete": false, "reason": "lost_response", "cursor": null, "pages": 0, "remaining_on_page": []}
+{"scenario": "permission_denied", "status": "PASS", "requests": [null], "ids": [], "complete": false, "reason": "permission_denied", "cursor": null, "pages": 0, "remaining_on_page": []}
+{"scenario": "missing_start_date", "status": "PASS", "error": "MissingStartDate"}

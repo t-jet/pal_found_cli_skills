@@ -1,0 +1,818 @@
+{
+  "archivist_agent": "/root/j12_archive_finish_20261028",
+  "archived_at_utc": "2026-10-28T13:35:45.721322+00:00",
+  "ticket": "BUG-SUB-025",
+  "journey": "J12",
+  "original_bytes_preserved": true,
+  "copied_artifact_count": 90,
+  "files": [
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/artifact_hash_manifest.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/artifact_hash_manifest.json",
+      "sha256": "0cf2442dfe39a706feb414a30ae76d4407a3054539b104a3deb26c9d84150215",
+      "bytes": 5394,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/consulted_sources.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/consulted_sources.json",
+      "sha256": "9b02410c5c8e7d664f4a1e05836d8bb60c5d5c0b47e6b5e27dcb3e4e93bf23bc",
+      "bytes": 7182,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/execution_results.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/execution_results.json",
+      "sha256": "9970dec9de823847d7dbe60a62a229d209e882977414d2cc20966dc527a17aad",
+      "bytes": 8077,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/journal_branch_mismatch.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/journal_branch_mismatch.json",
+      "sha256": "4d289914475c30f063c30bd4c3ba1e85169cda662874dc5f4c26343d70a39bd6",
+      "bytes": 2177,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/journal_canceled.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/journal_canceled.json",
+      "sha256": "1f5c3d977499267767b5f3fed59fefa8c00b66415b33158a95e196c1a42127f5",
+      "bytes": 3273,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/journal_commit_recovery.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/journal_commit_recovery.json",
+      "sha256": "3511a84a80fa2d65bca81db6bb911af8b2e4e6ae3bd15c4914640d27c09e95f5",
+      "bytes": 3349,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/journal_commit_safe_retry.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/journal_commit_safe_retry.json",
+      "sha256": "ff0c166b3a6cce25b651f79eaeffdf9b5eb7622849b9a7a7edf4f46c0b4deadf",
+      "bytes": 3664,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/journal_failed.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/journal_failed.json",
+      "sha256": "e592c5f1dfb7ac9e6468ae118382362c2f7ffe35f72f3110926253273a2f4b04",
+      "bytes": 3269,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/journal_pending.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/journal_pending.json",
+      "sha256": "29160234ec4e926997952aead1c19d55bc3c26637118d658d507eaec8ff64f52",
+      "bytes": 3405,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/journal_pending_resume.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/journal_pending_resume.json",
+      "sha256": "2341e6fa29df65de4b61414550707d682551b6dd20324eb0b3ba44912bd62be7",
+      "bytes": 3898,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/journal_reconciliation_unavailable.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/journal_reconciliation_unavailable.json",
+      "sha256": "10c0e3e888f5cc905f34afc8a2e803102e62817106ce09b6f8734c25d599e667",
+      "bytes": 1616,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/journal_staging_corruption.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/journal_staging_corruption.json",
+      "sha256": "08ed8ddaaeb3c2f613c52b0d48318a0ed4e8da9ab0a45b70a51cc08a00abce2a",
+      "bytes": 1601,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/journal_success.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/journal_success.json",
+      "sha256": "a048da640c88f8e50ffcfd00458d7a9c47afe1be84fd361f51592101ced0e74a",
+      "bytes": 3109,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/journal_upload_recovery.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/journal_upload_recovery.json",
+      "sha256": "2741c4c0846b93a7ac414dca6a91870c6c42d456e545e50d018819c8dfd710fd",
+      "bytes": 3110,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/journal_visible_corruption.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/journal_visible_corruption.json",
+      "sha256": "35f2aa8d6ea06abd2ef5df6dc3037cdf92b8d920f86d97fc93c55b1cf8900915",
+      "bytes": 2255,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/package_evidence.py",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/package_evidence.py",
+      "sha256": "1f773bd6066298efa2a1a154e634f285bfca5071e3e640092b26dfd67de1928f",
+      "bytes": 14822,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/raw_execution_output.txt",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/raw_execution_output.txt",
+      "sha256": "15c9ea5f68c0562a50ad6b654ec44f3bc5444d36ba09f7a85fc0dcc58a69c372",
+      "bytes": 5620,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/reader_answer.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/reader_answer.json",
+      "sha256": "65cc2f91075a54a5902e948801d706c87a119ec404f6044bcb04bee559015fe8",
+      "bytes": 25686,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/reader_prompt.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/reader_prompt.json",
+      "sha256": "4171b8aad75bf1055c3c43217ccbd93d660ad449b07509daa0585ee293a23c4d",
+      "bytes": 867,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/reader_workflow.py",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/reader_workflow.py",
+      "sha256": "54c339eb4eafc889b9d849ed40c3e70bff25133ed066dfa39dbe0f6ef017710a",
+      "bytes": 19525,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/snapshot_manifest.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/snapshot_manifest.json",
+      "sha256": "33b05039a68cf46d124f03372d353c8c61fe93bedf174171ff938783a552ea4d",
+      "bytes": 916906,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/trace_branch_mismatch.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/trace_branch_mismatch.json",
+      "sha256": "a1a7de61f3cf4fa8002d560a6e5af35ab3e79a0d251442ccac81feaef087be1b",
+      "bytes": 13472,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/trace_canceled.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/trace_canceled.json",
+      "sha256": "30c9c0cecee5289d60d642a1ce928f20060bafabcb8235a9edea4abc61b41e54",
+      "bytes": 19227,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/trace_commit_recovery.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/trace_commit_recovery.json",
+      "sha256": "713f98b3ded031e396077c780f31f2e1e7f9596c220e7bb37d80943da25615ee",
+      "bytes": 19960,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/trace_commit_safe_retry.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/trace_commit_safe_retry.json",
+      "sha256": "f1a56f3cca66f38c389e7e24590ea9a74b6bcadcd107a0e64b9488d46f0e2829",
+      "bytes": 22952,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/trace_failed.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/trace_failed.json",
+      "sha256": "1ab7e4f5055982b60cd776f19d3beb25bfb1cacf0236406398e66d4e3ff0411d",
+      "bytes": 19219,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/trace_pending.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/trace_pending.json",
+      "sha256": "ec18c7653ad1dd627507351652dfcba259edb66bfb8aae81f845aeb3c8d7782e",
+      "bytes": 19480,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/trace_pending_resume.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/trace_pending_resume.json",
+      "sha256": "325af4bbfb41555a4cb9448e70ccd1b3aaa2a64d740ae1d83a018ce73f8a8cc7",
+      "bytes": 24708,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/trace_reconciliation_unavailable.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/trace_reconciliation_unavailable.json",
+      "sha256": "af358d90ba34777e0da746d3c8ceff6ed4481955be1ce42592dc605f22f6db52",
+      "bytes": 9908,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/trace_staging_corruption.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/trace_staging_corruption.json",
+      "sha256": "e5d17b516ff521ed8cf4611003f12154ddcf5e71ea8fba7bd91b37e30e63d82f",
+      "bytes": 9878,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/trace_success.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/trace_success.json",
+      "sha256": "cd409f84e771a73132edaf6763522e50ebfaddcdcd63087214a7b9d8214e1fcf",
+      "bytes": 18465,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/trace_upload_recovery.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/trace_upload_recovery.json",
+      "sha256": "ca8dd45d2c454176116e5a15ffadff06853f7e5db610803b097d2c5510c473ad",
+      "bytes": 18320,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/trace_visible_corruption.json",
+      "archived_path": "maintainer/evidence/j12-20261028/reader/trace_visible_corruption.json",
+      "sha256": "429f080919ca752f075d6cbec155a402ebbd5df63ec9dd6fa7a0bb6820d08331",
+      "bytes": 15135,
+      "role": "Original fresh reader evidence"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/execution_results.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/execution_results.json",
+      "sha256": "9f46be10672dedf3f82dad3eae02c077d751210bf6e74eec3fc6af7083ef667f",
+      "bytes": 8077,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/journal_branch_mismatch.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_branch_mismatch.json",
+      "sha256": "bc29fdde04cf7b652ae93240342434cfed5e466967749a05f1b01682c103eeaf",
+      "bytes": 2177,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/journal_canceled.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_canceled.json",
+      "sha256": "c2d98082577a7e2238056f8cc51eb90ff5e51df5a2cbd7123a267c394f408e30",
+      "bytes": 3273,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/journal_commit_recovery.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_commit_recovery.json",
+      "sha256": "4891a20ce56d7f0da59b0122b0aa57b690c79b6e94c0f586f4c69131a2d9d919",
+      "bytes": 3349,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/journal_commit_safe_retry.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_commit_safe_retry.json",
+      "sha256": "ab645c309f3441f0821e1cca1615b035c9c78f61ab50a3d5706a224dc9b0086d",
+      "bytes": 3664,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/journal_failed.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_failed.json",
+      "sha256": "07a2d53683dffad0078d521e9a0fd3fa7de41c52219d3c3baa02bf7090d220b6",
+      "bytes": 3269,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/journal_pending.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_pending.json",
+      "sha256": "82f3ff2593b4ab3169602010b1ce60bc88a60f80b254c13c9eee2d3d4b1dbf35",
+      "bytes": 3405,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/journal_pending_resume.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_pending_resume.json",
+      "sha256": "7dae2c28dcc561106c7a5d2d4c6d4bf113292cb183b93bc946320d6be7ec4eba",
+      "bytes": 3898,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/journal_reconciliation_unavailable.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_reconciliation_unavailable.json",
+      "sha256": "a938586f1c6664498cca6b878ae53bb8389e0db7556146a1f0107384dcba00fc",
+      "bytes": 1616,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/journal_staging_corruption.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_staging_corruption.json",
+      "sha256": "02407b070d20f47612caa154cc70dc8103c3013c67de1b06010a482581bb35fb",
+      "bytes": 1601,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/journal_success.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_success.json",
+      "sha256": "aad378a0cf2a6e8e609e1da7f12b79b0dd6b001c7b6f94c73c7254436627e5af",
+      "bytes": 3109,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/journal_upload_recovery.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_upload_recovery.json",
+      "sha256": "5fd8fa147976f86c1576a53a11333e9f1bf4db241a8c0d32ab585ab12964bf3a",
+      "bytes": 3110,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/journal_visible_corruption.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_visible_corruption.json",
+      "sha256": "467bf7f816bc4ac9c11331562eae868016443c282481a3402489d1e98b1075b2",
+      "bytes": 2255,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/reader_workflow.py",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/reader_workflow.py",
+      "sha256": "54c339eb4eafc889b9d849ed40c3e70bff25133ed066dfa39dbe0f6ef017710a",
+      "bytes": 19525,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/stderr.log",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/stdout.log",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/stdout.log",
+      "sha256": "b3ac936bf344f646be80242a3dfce41cdf695549cd39a0aa6f8cff161ec394d9",
+      "bytes": 5620,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/trace_branch_mismatch.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_branch_mismatch.json",
+      "sha256": "11fce16ebc1e35c1260076b89dab2f2ac5530f240714df3807f662bb05aa03ba",
+      "bytes": 13472,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/trace_canceled.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_canceled.json",
+      "sha256": "c6416b50b31483c018b409b073ee8259be595bd8ded94da5464dd6d70c33d7ab",
+      "bytes": 19227,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/trace_commit_recovery.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_commit_recovery.json",
+      "sha256": "53b19a0a898c931b30b5a7c677ee55a946cf2ea40903e126506ecb0ad616b3ef",
+      "bytes": 19960,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/trace_commit_safe_retry.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_commit_safe_retry.json",
+      "sha256": "a3464766e61b69e3cf3871e7e48617aa489cbf4ea04638bc33b77d846960693f",
+      "bytes": 22952,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/trace_failed.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_failed.json",
+      "sha256": "57ae9f2c280d69f40a06486ed853da1a86ce5c1e68a44dc45842fcd2374c4a20",
+      "bytes": 19219,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/trace_pending.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_pending.json",
+      "sha256": "64b7aed28f956b33bffe947b886ca5699cdb20927132b4d510da438a0c5c9a0d",
+      "bytes": 19480,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/trace_pending_resume.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_pending_resume.json",
+      "sha256": "c1898a0cd04195e702832ce71d3d7ea222ddd79749154d49203b9eb8180799ba",
+      "bytes": 24708,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/trace_reconciliation_unavailable.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_reconciliation_unavailable.json",
+      "sha256": "10e1b1175f581347a5ddaae6fe7ccf4f306b926f6e639f876d71da1203beaa57",
+      "bytes": 9908,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/trace_staging_corruption.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_staging_corruption.json",
+      "sha256": "2e490db8a3bff92e76f4ce3eda37c33aa121e2cd942ef105e53e27eea9cd389b",
+      "bytes": 9878,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/trace_success.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_success.json",
+      "sha256": "3b4f268b52759ea4a592ba318581526b9b64be70f54ef7293195e6add1ef15e6",
+      "bytes": 18465,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/trace_upload_recovery.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_upload_recovery.json",
+      "sha256": "0b4a9dbd9f226c0f32e79d93b8dca66ab6cc1bff707d0099377ce1fab593e74f",
+      "bytes": 18320,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_grade_repro_20261028/trace_visible_corruption.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_visible_corruption.json",
+      "sha256": "cfd49ba0589ee20ab511ea6c348d64707afdfc9e00f85a3347e3067cd787547b",
+      "bytes": 15135,
+      "role": "Original independent grader reproduction"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_independent_grade_20261028.json",
+      "archived_path": "maintainer/evidence/j12-20261028/grader/independent-grade.json",
+      "sha256": "0b81f4c254d2f21cf19217e4eb9c158a2430d2d4a5809718d96e899b0a0f582c",
+      "bytes": 25337,
+      "role": "Original independent six-dimension grade"
+    },
+    {
+      "source": ".ept/tmp/feature015_j12_independent_grade_20261028.py",
+      "archived_path": "maintainer/evidence/j12-20261028/grader/independent-grade.py",
+      "sha256": "1d6caec6dfad649e20e53968f5277a0bfd79b8b70a32572cf89a87310ce3a77b",
+      "bytes": 13590,
+      "role": "Original grading harness; historical workspace paths retained"
+    },
+    {
+      "source": ".ept/tmp/feature015_rest075_j12_readiness_20261027.json",
+      "archived_path": "maintainer/evidence/j12-20261028/regression/current-composed-regression.json",
+      "sha256": "c899180b39cf2a309b3382ef4d42d014b547f2caf25ff93242ce182f8b78b5e1",
+      "bytes": 94508,
+      "role": "Current composed fixture regression evidence"
+    },
+    {
+      "source": ".ept/docs/deliverables/architecture/SA-DES-014-offline-development-knowledge/verification-and-delivery.md",
+      "archived_path": "maintainer/evidence/j12-20261028/rubric/verification-and-delivery.md",
+      "sha256": "e75f9388890c84a61e987b79112a3d8caa85aad6afddd700da9060599180e62a",
+      "bytes": 12331,
+      "role": "Approved independent journey rubric"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/SKILL.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/SKILL.md",
+      "sha256": "2495f974d0c9ba4f9811530fe5f2aa031cfe5912230f6b8624601ef692fbc0fe",
+      "bytes": 6152,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest-api.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest-api.md",
+      "sha256": "af3562db0dc7f4a45d684b837ce5ba4364af65c0bf4380f74b322fdfca0597ff",
+      "bytes": 6230,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest/authentication.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/authentication.md",
+      "sha256": "21cf5c0319011cf8603358d08b10205b6e92f247da4e6ec871f7526a01618a7c",
+      "bytes": 7431,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest/client-behavior.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/client-behavior.md",
+      "sha256": "57826178f9a203bbe1eb3de24832bef82dc457ecb167f1208a3ba177a93dbcc2",
+      "bytes": 9401,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest/v2/datasets/Transaction.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/v2/datasets/Transaction.md",
+      "sha256": "d16435f483e07e822d7b79fd13b06744ca196c1f594f985a490f5b8c6c51c3ef",
+      "bytes": 13416,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest/v2/datasets/File.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/v2/datasets/File.md",
+      "sha256": "7a0bf6c4a67c5024a7ecd11184d584a2c02271d4d997fef8b99f0be71204fee0",
+      "bytes": 15862,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest/v2/orchestration/Build.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/v2/orchestration/Build.md",
+      "sha256": "ad26f97daf4f9b9a117c28f343794e5eb710e0967d85072976985d4541b64499",
+      "bytes": 11847,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/examples/rest/074/v2/datasets/staged_commit_journey.py",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/examples/rest/074/v2/datasets/staged_commit_journey.py",
+      "sha256": "b260986ea80bb57f0e25c72b728918291484eab242b4bf1ab8ff63622fdf076e",
+      "bytes": 12026,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest/contracts/v2/datasets/File/upload.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/contracts/v2/datasets/File/upload.md",
+      "sha256": "4df6acf02e7f13927225887cb6cf5a067707b421ad469e91fe0ede5fd3437e22",
+      "bytes": 13393,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest/contracts/v2/datasets/File/get.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/contracts/v2/datasets/File/get.md",
+      "sha256": "c73dab3b9b26c60673295ab7166383504ef487d0fae4fabdb6d46c5065fced43",
+      "bytes": 10811,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest/contracts/v2/datasets/File/content.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/contracts/v2/datasets/File/content.md",
+      "sha256": "2203e18b0699eef77ca8a0ded49d191a92ee6acf5e1fdae49222291a252ca838",
+      "bytes": 11016,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest/contracts/v2/datasets/Branch/get.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/contracts/v2/datasets/Branch/get.md",
+      "sha256": "39386d73c05a76659e13bc87dbc3241fba13a4d196f85f8822df84f940b14a60",
+      "bytes": 5295,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest/contracts/v2/datasets/Transaction/create.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/contracts/v2/datasets/Transaction/create.md",
+      "sha256": "5e99f61292552bea170c6fd3597be096dfc59ff535f0b49b91cbc59022193e8c",
+      "bytes": 7815,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest/contracts/v2/datasets/Transaction/commit.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/contracts/v2/datasets/Transaction/commit.md",
+      "sha256": "649a05bc5bf73263e2c73fb65b8cc07650ab2c71ec1c6585d2550a405cdfa4e2",
+      "bytes": 6853,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest/contracts/v2/orchestration/Build/create.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/contracts/v2/orchestration/Build/create.md",
+      "sha256": "f2d0d140d01fec67c4411a5eaa262c87131185437a4dcadfe5b054fe09e93f64",
+      "bytes": 8794,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest/contracts/v2/orchestration/Build/get.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/contracts/v2/orchestration/Build/get.md",
+      "sha256": "a3e8bf7a0ec6d0e1549042796286f7183ccfab194f2bb156902fca42a2e412d0",
+      "bytes": 6015,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest/models/v2/orchestration/models/BuildTarget.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/models/v2/orchestration/models/BuildTarget.md",
+      "sha256": "052bc31af2406ef5de0076c4f249b85a6f2d0b5ce156326a5b452777d42e7ddb",
+      "bytes": 1103,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest/models/v2/orchestration/models/ManualTarget.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/models/v2/orchestration/models/ManualTarget.md",
+      "sha256": "6d1fe072e94c063b35c663c8a27eacf0ce1b3e544f5e2aebeffac5a9829c9e28",
+      "bytes": 1620,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest/models/v2/orchestration/models/Build.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/models/v2/orchestration/models/Build.md",
+      "sha256": "08eead343da308cdb094fa145f54cb868a4a6a14a048dd881bfce5e298216415",
+      "bytes": 5261,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest/models/v2/datasets/models/Transaction.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/models/v2/datasets/models/Transaction.md",
+      "sha256": "7935cd1d197bec46d3b8ac9ae52665aa8e426e4aae6ea5ae924f46ffa9f31312",
+      "bytes": 2751,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest/models/v2/datasets/models/File.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/models/v2/datasets/models/File.md",
+      "sha256": "33b8c79a93e12880a80447260fd27985aad8b75543560e3420139d333d395f10",
+      "bytes": 2163,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/rest/models/v2/datasets/errors/FileNotFoundOnTransactionRangeParameters.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/models/v2/datasets/errors/FileNotFoundOnTransactionRangeParameters.md",
+      "sha256": "09aa437f9f652bbb29bd01dade9f923520775bd665271e707d58e3d714f38951",
+      "bytes": 2388,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/j12_reader_recover_20261028/skill_snapshot/references/pipelines/transactions.md",
+      "archived_path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/pipelines/transactions.md",
+      "sha256": "b84dfb7cc285039527ed3c14e0bb908c1a1aa8d9ce4b98053278c9458d21d367",
+      "bytes": 8291,
+      "role": "Exact consulted standalone skill source from reader snapshot"
+    },
+    {
+      "source": ".ept/tmp/feature015-j12-reader/reader-results.md",
+      "archived_path": "maintainer/evidence/j12-20261028/historical-failure/reader-results.md",
+      "sha256": "62e3859100af2ff4ea12427a6e7931a0e338a023e467004266391f499e1467cd",
+      "bytes": 7940,
+      "role": "Preserved original failed J12 reader or score"
+    },
+    {
+      "source": ".ept/tmp/feature015_rest_semantic_review/j12_independent_score.md",
+      "archived_path": "maintainer/evidence/j12-20261028/historical-failure/j12_independent_score.md",
+      "sha256": "a503dd80baccd1c84f389c6e40c6e622775960a530c6c16ec8737acf5b21df05",
+      "bytes": 2570,
+      "role": "Preserved original failed J12 reader or score"
+    }
+  ],
+  "snapshot": {
+    "file_count": 4437,
+    "tree_sha256": "adaaf3919f98e423ac2224cd1646b43236bc7e2580f895fe7f697ca63e9600d0",
+    "all_original_snapshot_bytes_verified": true,
+    "manifest": "reader/snapshot_manifest.json",
+    "consulted_source_copies": 23,
+    "full_tree_copy_omitted": "The full standalone tree already belongs to the skill bundle. This archive keeps its original complete content manifest and the 23 files consulted by the reader, avoiding a duplicate 4,437-file tree."
+  },
+  "source_continuity": [
+    {
+      "path": "SKILL.md",
+      "sha256": "2495f974d0c9ba4f9811530fe5f2aa031cfe5912230f6b8624601ef692fbc0fe",
+      "bytes": 6152,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/SKILL.md"
+    },
+    {
+      "path": "references/rest-api.md",
+      "sha256": "af3562db0dc7f4a45d684b837ce5ba4364af65c0bf4380f74b322fdfca0597ff",
+      "bytes": 6230,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest-api.md"
+    },
+    {
+      "path": "references/rest/authentication.md",
+      "sha256": "21cf5c0319011cf8603358d08b10205b6e92f247da4e6ec871f7526a01618a7c",
+      "bytes": 7431,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest/authentication.md"
+    },
+    {
+      "path": "references/rest/client-behavior.md",
+      "sha256": "57826178f9a203bbe1eb3de24832bef82dc457ecb167f1208a3ba177a93dbcc2",
+      "bytes": 9401,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest/client-behavior.md"
+    },
+    {
+      "path": "references/rest/v2/datasets/Transaction.md",
+      "sha256": "d16435f483e07e822d7b79fd13b06744ca196c1f594f985a490f5b8c6c51c3ef",
+      "bytes": 13416,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest/v2/datasets/Transaction.md"
+    },
+    {
+      "path": "references/rest/v2/datasets/File.md",
+      "sha256": "7a0bf6c4a67c5024a7ecd11184d584a2c02271d4d997fef8b99f0be71204fee0",
+      "bytes": 15862,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest/v2/datasets/File.md"
+    },
+    {
+      "path": "references/rest/v2/orchestration/Build.md",
+      "sha256": "ad26f97daf4f9b9a117c28f343794e5eb710e0967d85072976985d4541b64499",
+      "bytes": 11847,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest/v2/orchestration/Build.md"
+    },
+    {
+      "path": "examples/rest/074/v2/datasets/staged_commit_journey.py",
+      "sha256": "b260986ea80bb57f0e25c72b728918291484eab242b4bf1ab8ff63622fdf076e",
+      "bytes": 12026,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/examples/rest/074/v2/datasets/staged_commit_journey.py"
+    },
+    {
+      "path": "references/rest/contracts/v2/datasets/File/upload.md",
+      "sha256": "4df6acf02e7f13927225887cb6cf5a067707b421ad469e91fe0ede5fd3437e22",
+      "bytes": 13393,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest/contracts/v2/datasets/File/upload.md"
+    },
+    {
+      "path": "references/rest/contracts/v2/datasets/File/get.md",
+      "sha256": "c73dab3b9b26c60673295ab7166383504ef487d0fae4fabdb6d46c5065fced43",
+      "bytes": 10811,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest/contracts/v2/datasets/File/get.md"
+    },
+    {
+      "path": "references/rest/contracts/v2/datasets/File/content.md",
+      "sha256": "2203e18b0699eef77ca8a0ded49d191a92ee6acf5e1fdae49222291a252ca838",
+      "bytes": 11016,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest/contracts/v2/datasets/File/content.md"
+    },
+    {
+      "path": "references/rest/contracts/v2/datasets/Branch/get.md",
+      "sha256": "39386d73c05a76659e13bc87dbc3241fba13a4d196f85f8822df84f940b14a60",
+      "bytes": 5295,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest/contracts/v2/datasets/Branch/get.md"
+    },
+    {
+      "path": "references/rest/contracts/v2/datasets/Transaction/create.md",
+      "sha256": "5e99f61292552bea170c6fd3597be096dfc59ff535f0b49b91cbc59022193e8c",
+      "bytes": 7815,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest/contracts/v2/datasets/Transaction/create.md"
+    },
+    {
+      "path": "references/rest/contracts/v2/datasets/Transaction/commit.md",
+      "sha256": "649a05bc5bf73263e2c73fb65b8cc07650ab2c71ec1c6585d2550a405cdfa4e2",
+      "bytes": 6853,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest/contracts/v2/datasets/Transaction/commit.md"
+    },
+    {
+      "path": "references/rest/contracts/v2/orchestration/Build/create.md",
+      "sha256": "f2d0d140d01fec67c4411a5eaa262c87131185437a4dcadfe5b054fe09e93f64",
+      "bytes": 8794,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest/contracts/v2/orchestration/Build/create.md"
+    },
+    {
+      "path": "references/rest/contracts/v2/orchestration/Build/get.md",
+      "sha256": "a3e8bf7a0ec6d0e1549042796286f7183ccfab194f2bb156902fca42a2e412d0",
+      "bytes": 6015,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest/contracts/v2/orchestration/Build/get.md"
+    },
+    {
+      "path": "references/rest/models/v2/orchestration/models/BuildTarget.md",
+      "sha256": "052bc31af2406ef5de0076c4f249b85a6f2d0b5ce156326a5b452777d42e7ddb",
+      "bytes": 1103,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest/models/v2/orchestration/models/BuildTarget.md"
+    },
+    {
+      "path": "references/rest/models/v2/orchestration/models/ManualTarget.md",
+      "sha256": "6d1fe072e94c063b35c663c8a27eacf0ce1b3e544f5e2aebeffac5a9829c9e28",
+      "bytes": 1620,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest/models/v2/orchestration/models/ManualTarget.md"
+    },
+    {
+      "path": "references/rest/models/v2/orchestration/models/Build.md",
+      "sha256": "08eead343da308cdb094fa145f54cb868a4a6a14a048dd881bfce5e298216415",
+      "bytes": 5261,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest/models/v2/orchestration/models/Build.md"
+    },
+    {
+      "path": "references/rest/models/v2/datasets/models/Transaction.md",
+      "sha256": "7935cd1d197bec46d3b8ac9ae52665aa8e426e4aae6ea5ae924f46ffa9f31312",
+      "bytes": 2751,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest/models/v2/datasets/models/Transaction.md"
+    },
+    {
+      "path": "references/rest/models/v2/datasets/models/File.md",
+      "sha256": "33b8c79a93e12880a80447260fd27985aad8b75543560e3420139d333d395f10",
+      "bytes": 2163,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest/models/v2/datasets/models/File.md"
+    },
+    {
+      "path": "references/rest/models/v2/datasets/errors/FileNotFoundOnTransactionRangeParameters.md",
+      "sha256": "09aa437f9f652bbb29bd01dade9f923520775bd665271e707d58e3d714f38951",
+      "bytes": 2388,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/rest/models/v2/datasets/errors/FileNotFoundOnTransactionRangeParameters.md"
+    },
+    {
+      "path": "references/pipelines/transactions.md",
+      "sha256": "b84dfb7cc285039527ed3c14e0bb908c1a1aa8d9ce4b98053278c9458d21d367",
+      "bytes": 8291,
+      "current_match": true,
+      "snapshot_archive": "consulted-snapshot/references/pipelines/transactions.md"
+    }
+  ],
+  "boundaries": [
+    "Only the 23 consulted files are asserted equal to the current shared skill. The historical full snapshot digest does not claim equality to every current unconsulted file or a Git commit.",
+    "Original evidence paths, dates, ticket statuses and harness paths remain unchanged. This context maps the archived bytes to their original locations.",
+    "Reader and reproduction workflows write journals and traces beside themselves. Copy them to a disposable parent .ept/tmp directory before reproducing; do not execute against the checked-in archive.",
+    "The grading and packaging harnesses retain historical workspace paths and are provenance records, not portable entrypoints.",
+    "This archive records synthetic SDK HTTP evidence and offline reader acceptance, not live Foundry execution, tenant permissions, whole-domain formal QA, publication or bug closure."
+  ]
+}

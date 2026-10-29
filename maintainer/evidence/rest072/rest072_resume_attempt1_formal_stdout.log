@@ -1,0 +1,5 @@
+{"case_id": "REST072", "check": "socket_traps_active", "result": "PASS"}
+{"case_id": "F072-01", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F072-01", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F072-01", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F072-01", "check": "async_raw_closed", "result": "PASS", "requests": 1}

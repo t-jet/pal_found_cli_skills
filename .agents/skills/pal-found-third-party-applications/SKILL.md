@@ -56,18 +56,3 @@ as the requested number of versions, `--page-token` to resume from a returned
 token. `--max-pages N` bounds a batch to N pages; `--all` uses a cap of up to 40 pages
 and ignores `--max-pages`. Uploads use
 `--version` as the website version label and `--file` as the local zip path.
-
-## Install requirement
-
-`pal-found-third-party-applications` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```

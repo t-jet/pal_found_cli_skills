@@ -1,0 +1,241 @@
+{
+  "candidate": "824a8ae7aacd491ea1884262b600053164fc9d81",
+  "compiler": "TypeScript 7.0.2",
+  "node": "v24.12.0",
+  "command": ".\\node_modules\\.bin\\tsc.cmd --project applications/api-check.tsconfig.json",
+  "exit_code": 0,
+  "diagnostics": [],
+  "source_copy_files": [
+    {
+      "path": "applications/api-check.tsconfig.json",
+      "sha256": "f94d17803734fc551e4350db69ef5fcf7b84ad2d78ffeb376564abd7a741ae9d"
+    },
+    {
+      "path": "applications/Application.tsx",
+      "sha256": "93154db3a9eda3b164ad2134ec4879d5561ba06c178c896d9e971253eec4f28c"
+    },
+    {
+      "path": "applications/client.ts",
+      "sha256": "264907dfc6356552e0cb716af431a8776df760e3fd1a7ca5642837da2024ae84"
+    },
+    {
+      "path": "applications/fixture_run.mjs",
+      "sha256": "177bf63fffe9f2e1f8c7911d82aaf6fd44213944f5a051661e9c5e8e996fc2fb"
+    },
+    {
+      "path": "applications/schema-fixture.d.ts",
+      "sha256": "909694594c23c3c8f3a2c479a175a9ff4e3341b41143d634b9e504d9ef7f6460"
+    },
+    {
+      "path": "applications/schema.json",
+      "sha256": "216166e81f49cbc3029d2ac809ce02d2062d2bfaad4b67db2c16781c41d13f77"
+    },
+    {
+      "path": "applications/timeout.d.mts",
+      "sha256": "0056b1fbc0658f4fbb042105f9f08f1c1742779da6fd8ac80fcb037c64ccc392"
+    },
+    {
+      "path": "applications/timeout.mjs",
+      "sha256": "86155a8edbd01df4f4bd11deeb8cd770db52b73d320e7745ec535cb0b2aac9c8"
+    },
+    {
+      "path": "applications/timeout_fixture.mjs",
+      "sha256": "9812dc25e0d1cdf3bee956d196ce6086538bf38fcc10402af218e8813f1958d2"
+    },
+    {
+      "path": "applications/timeout_unit_fixture.mjs",
+      "sha256": "1743ff7683b4e8951f53d9a51100bfcf0775b25e2ae2cad6c7f9c123feb46282"
+    },
+    {
+      "path": "applications/TodoList.tsx",
+      "sha256": "483cc0129d141d88c21a50443d734db18d6b238ad33da19689742d8722a1cc7c"
+    },
+    {
+      "path": "applications/versions.json",
+      "sha256": "d4618fa327ed84f2a1e17f2c03d89f95dce074fb17037bdf8512862ed1e8bca9"
+    },
+    {
+      "path": "applications/view_state.d.mts",
+      "sha256": "38fc11c13c5b0b38e7c23033397170e9047913f4a456630a3fa30fc612eadcdd"
+    },
+    {
+      "path": "applications/view_state.mjs",
+      "sha256": "77eb7635b1c9e3cd1fbb313dc124376e2526cbf9f19305f941320ef273b05a5a"
+    },
+    {
+      "path": "widgets/counter.config.ts",
+      "sha256": "f3ef5de2fa2b54563931afbe4d700a18237aae4443187d1d0d096863ae9f734a"
+    },
+    {
+      "path": "widgets/counter.html",
+      "sha256": "08b4473f88121742e339cbb93ad26e95e1b0ab0de31dcd9c998a4741c60d966d"
+    },
+    {
+      "path": "widgets/counter.tsx",
+      "sha256": "a600189705c5c0f16b9a2560c62a118462738fd3320070d807f73835ed6314f2"
+    },
+    {
+      "path": "widgets/events.d.mts",
+      "sha256": "3f0e52f2d27808645486f80b60782400405201ebb3ef2308f1413a8bb7daf847"
+    },
+    {
+      "path": "widgets/events.mjs",
+      "sha256": "d920e136bdbdd077c12e0bd5bb8d38dee61a8db6c1392007c316c173ac590978"
+    },
+    {
+      "path": "widgets/fixture_run.mjs",
+      "sha256": "f9dec2ec40cf30991733fe93dd510fe08d53e4bd0dd302b275f4232c2cf4993c"
+    },
+    {
+      "path": "widgets/foundry-config.example.json",
+      "sha256": "7c2be70f90402c6e247127479301d00725c05daa393ae13c695a4534450640fb"
+    },
+    {
+      "path": "widgets/ReviewCounter.tsx",
+      "sha256": "c2122d185541e31e8025ebe7296f035506a90cd130b15cd4d57b0d87f9d5a1c2"
+    },
+    {
+      "path": "widgets/summary.config.ts",
+      "sha256": "83d84ad1c8a81f892440fb244d9d7b2e1810227e33624fcdefe4b9c43b6a7e09"
+    },
+    {
+      "path": "widgets/summary.html",
+      "sha256": "7a165802bbd2a1a73719822b5accc074eec259ce436efe8ffda2f6c8dc2c7271"
+    },
+    {
+      "path": "widgets/summary.tsx",
+      "sha256": "bfb7ed211f20fc0b52752d4378cdd618854b6a3187ab863d69442b5fe7b83817"
+    },
+    {
+      "path": "widgets/todo-client.ts",
+      "sha256": "45fe5870e49de327732956d1ff038cc99d050be789f28fd4bbc51a5d3937bc8a"
+    },
+    {
+      "path": "widgets/todo.config.ts",
+      "sha256": "da68e3d2abd80bfe16b366d693b2e1646e67b760e97bcf553ecea7c563f76708"
+    },
+    {
+      "path": "widgets/TodoWidget.tsx",
+      "sha256": "eb9e671a1e577b0d61bae02020546a54fbb2c83524df807f289651d6fb019bc4"
+    },
+    {
+      "path": "widgets/vite.config.ts",
+      "sha256": "1924d3f4ff34509bf6c07464f54c35a54ce56aa26c8db03c1fd0249a37b267ff"
+    }
+  ],
+  "types": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/node": "24.19.2"
+  },
+  "registry": "https://registry.npmjs.org",
+  "dependency_lock": "package-lock.json",
+  "checked_on": "2026-10-19",
+  "independent_reviewer_agent": "/root/feature015_gate_completion_map",
+  "verdict": "PASS",
+  "scope": "Application and widget TypeScript API compile against recorded prepared dependencies, synthetic schema-fixture.d.ts and placeholder @my/osdk; no generated tenant binding, deployment or tenant execution claim.",
+  "historical_failure_assessment": "Earlier npx tsc failure came from absent prepared dependencies and fetching unrelated tsc package. All eleven recorded package/version pins resolve in official npm registry. Actual pinned TypeScript compiler reports zero diagnostics.",
+  "commands": [
+    "Set npm_config_cache, TEMP and TMP beneath .ept/tmp/feature015_ts_compile_20261019 before npm install.",
+    "Copy byte-identical applications and widgets example trees into isolated temporary directory.",
+    "Create private module package.json with every recorded package/version plus @types/react@^19, @types/react-dom@^19 and @types/node@^24.",
+    "npm install --ignore-scripts --no-audit --no-fund --loglevel=error",
+    ".\\node_modules\\.bin\\tsc.cmd --project applications/api-check.tsconfig.json",
+    ".\\node_modules\\.bin\\tsc.cmd --version",
+    ".\\node_modules\\.bin\\tsc.cmd --project applications/api-check.tsconfig.json --listFilesOnly"
+  ],
+  "recorded_dependency_pins": {
+    "typescript": "7.0.2",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "@osdk/api": "2.76.0",
+    "@osdk/client": "2.76.0",
+    "@osdk/react": "2.76.0",
+    "@osdk/oauth": "1.14.0",
+    "@osdk/widget.client": "3.76.0",
+    "@osdk/widget.client-react": "3.76.0",
+    "@osdk/widget.vite-plugin": "3.76.0",
+    "vite": "7.3.7"
+  },
+  "recorded_node": "24.12.0",
+  "registry_availability": [
+    {
+      "package": "typescript",
+      "version": "7.0.2",
+      "url": "https://registry.npmjs.org/typescript/7.0.2",
+      "http_status": 200
+    },
+    {
+      "package": "react",
+      "version": "19.3.0",
+      "url": "https://registry.npmjs.org/react/19.3.0",
+      "http_status": 200
+    },
+    {
+      "package": "react-dom",
+      "version": "19.3.0",
+      "url": "https://registry.npmjs.org/react-dom/19.3.0",
+      "http_status": 200
+    },
+    {
+      "package": "@osdk/api",
+      "version": "2.76.0",
+      "url": "https://registry.npmjs.org/@osdk%2fapi/2.76.0",
+      "http_status": 200
+    },
+    {
+      "package": "@osdk/client",
+      "version": "2.76.0",
+      "url": "https://registry.npmjs.org/@osdk%2fclient/2.76.0",
+      "http_status": 200
+    },
+    {
+      "package": "@osdk/react",
+      "version": "2.76.0",
+      "url": "https://registry.npmjs.org/@osdk%2freact/2.76.0",
+      "http_status": 200
+    },
+    {
+      "package": "@osdk/oauth",
+      "version": "1.14.0",
+      "url": "https://registry.npmjs.org/@osdk%2foauth/1.14.0",
+      "http_status": 200
+    },
+    {
+      "package": "@osdk/widget.client",
+      "version": "3.76.0",
+      "url": "https://registry.npmjs.org/@osdk%2fwidget.client/3.76.0",
+      "http_status": 200
+    },
+    {
+      "package": "@osdk/widget.client-react",
+      "version": "3.76.0",
+      "url": "https://registry.npmjs.org/@osdk%2fwidget.client-react/3.76.0",
+      "http_status": 200
+    },
+    {
+      "package": "@osdk/widget.vite-plugin",
+      "version": "3.76.0",
+      "url": "https://registry.npmjs.org/@osdk%2fwidget.vite-plugin/3.76.0",
+      "http_status": 200
+    },
+    {
+      "package": "vite",
+      "version": "7.3.7",
+      "url": "https://registry.npmjs.org/vite/7.3.7",
+      "http_status": 200
+    }
+  ],
+  "type_dependency_requirements": {
+    "@types/react": "Explicit peer of @osdk/react and @osdk/widget.client-react; JSX/React declarations.",
+    "@types/react-dom": "Explicit peer of @osdk/widget.client-react; React DOM declarations.",
+    "@types/node": "Vite type peer; supports Node declarations used by build configuration. Prepared type environment supplies version 24 matching Node runtime major."
+  },
+  "source_copy_continuity": "All 29 copied example files byte-identical to integration at verification. Per-file SHA-256 entries preserved in source_copy_files.",
+  "harness_root": ".ept\\tmp\\feature015_ts_compile_20261019",
+  "lockfile_sha256": "0d6b6d8b6ffa97ab0577e78195566461e25564f69d4a12ef54afa7ba588acdf6",
+  "source_edits": false,
+  "candidate_dependency_install": false,
+  "requested_candidate": "336b03105e142ba57d65c79da69b64017563b37f",
+  "candidate_continuity": "git diff --quiet 336b031 824a8ae7aacd491ea1884262b600053164fc9d81 -- .agents/skills/pal-found-dev/examples/applications .agents/skills/pal-found-dev/examples/widgets returned 0. Example bytes unchanged."
+}

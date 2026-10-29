@@ -16,6 +16,15 @@ returns bytes.
 
 Source: the [Palantir audit logs overview](https://www.palantir.com/docs/foundry/security/audit-logs-overview).
 
+## Access prerequisites
+
+In Control Panel, ask an administrator to assign an organization role that
+includes the `Create datasets with audit logs for the organization` workflow
+to the token's user. For a Developer Console application, assign that role to
+the application's generated service user, enable audit-read access in the
+application, and request the `api:audit-read` OAuth scope. The scope does not
+grant the organization role. Both `list` and `content` need this access.
+
 Use `pal-found-audit` for 2 Foundry Audit API v2 operations:
 
 | Command | Required arguments | Options |
@@ -27,12 +36,12 @@ Use `pal-found-audit` for 2 Foundry Audit API v2 operations:
 
 List log files belonging to an organization. The first request requires
 `--start-date`; `--end-date` is inclusive. Each returned `LogFile` contains
-its ID. The response also has a `nextPageToken` when more files are available.
-Page size is a hint, so
-the server may return a different number of files. Continue with
-`--page-token` using the returned token. Without an end date, continuing to
-poll the token can discover later available logs. A wrong organization RID,
-missing first-page start date, or inadequate permission fails.
+its ID. Page size is a hint, so the server may return a different number of
+files. Save any returned `nextPageToken` and pass it with `--page-token` on the
+next request. For open-ended polling (no `--end-date`), save the token even
+when no files were returned: an empty page does not mean polling is finished.
+If no token is returned, there is no cursor to resume. A wrong organization
+RID, missing first-page start date, or inadequate permission fails.
 
 **Example:** `pal-found-audit log-file list ri.multipass..organization.a1b2c3d4-e5f6-7890-abcd-ef1234567890 --start-date 2026-08-01 --end-date 2026-08-31 --page-size 100`
 
@@ -75,18 +84,3 @@ and `--end-date`, plus `--page-size`, `--page-token`, and `--batch-pages`.
 `log-file content` accepts positional `organization_rid` and `log_file_id`,
 plus `--output-filename`. This namespace has no JSON input flags; dates and
 identifiers are strings.
-
-## Install requirement
-
-`pal-found-audit` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```

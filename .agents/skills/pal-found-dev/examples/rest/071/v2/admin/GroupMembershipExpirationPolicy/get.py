@@ -21,7 +21,7 @@ EXPECTED_PATH = '/api/v2/admin/groups/00000000-0000-0000-0000-000000000001/membe
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'preview': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {}
+SUCCESS = {'maximumDuration': '3600'}
 ERRORS = [{'name': 'GroupMembershipExpirationPolicyNotFound',
   'status': 404,
   'code': 'NOT_FOUND',

@@ -21,7 +21,12 @@ EXPECTED_PATH = '/api/v2/admin/roles/getBatch'
 EXPECTED_BODY = [{'roleId': 'synthetic-value'}]
 EXPECTED_QUERY = {'preview': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'data': {}}
+SUCCESS = {'data': {'synthetic-value': {
+ 'id': 'synthetic-value',
+ 'displayName': 'synthetic-value',
+ 'description': 'synthetic-value',
+ 'operations': ['synthetic-value'],
+ 'canAssigns': ['synthetic-value']}}}
 ERRORS = []
 
 def invoke(client):

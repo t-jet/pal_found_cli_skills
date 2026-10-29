@@ -1,0 +1,82 @@
+{
+  "reviewer": "Independent Data Health QA subagent /root/data_health_formal_qa",
+  "review_date": "2026-10-19",
+  "scope": "Full-page semantic and source acceptance review of the two Data Health pages still pending in maintainer/offline-knowledge-audit.json for BUG-034. This review is separate from DHT-TC-021 tool execution and does not transition tickets.",
+  "candidate": {
+    "skills_head": "cb096d1c3eb67d4b82c9a9bcff148f92844b4aeb",
+    "skills_guide_worktree_state": "Modified, uncommitted at review time; acceptance applies to the exact SHA256 below.",
+    "tool_head": "0963e6e006f82ad1997be0e22c6b750ed0bbce3b",
+    "tool_cli_sha256": "64df429460b2735b07902534d2f198ec264518500a06a65042511401c42e636b",
+    "sdk_version": "foundry-platform-sdk==1.101.0",
+    "sdk_check_source_sha256": "e85ad6bedee89d011cb03d78412d6d0056787efa0a2fdae6df8f648e1c07aca9",
+    "sdk_check_report_source_sha256": "08d6d22cc463a01b69a44e943b47fb024e316feac78bd06e51ccb05a6f83bd31"
+  },
+  "pages": [
+    {
+      "path": "pal-found-data-health/SKILL.md",
+      "sha256": "a4da0673e75e2545d99e6a018d2dd245a80e18a70b6b921ceea0e51c6ebe4d18",
+      "lines": 60,
+      "verdict": "PASS",
+      "source_checks": [
+        "Lines 8-24: Data Health monitoring views, individual checks, evaluations, reports, and alerts match the official overview and check-evaluation pages. The text limits CLI scope to six check/report operations.",
+        "Lines 27-40: CLI entry point, shared config/access/retry/error/output/tracing components, preview=true injection, and get-latest single-response limit match tool 0963e6e and SDK 1.101.0. No cursor-pagination claim remains.",
+        "Lines 42-60: Operation count, common options, typed create/replace JSON, limit default 10/maximum 100, and immutable check type match tool and SDK contracts.",
+        "Both local links to references/01-check-report.md resolve within the copied skill folder."
+      ],
+      "sources": [
+        "https://www.palantir.com/docs/foundry/observability/data-health",
+        "https://www.palantir.com/docs/foundry/health-checks/check-evaluation",
+        "https://www.palantir.com/docs/foundry/api/v2/data-health-v2-resources/check-reports/get-latest-check-reports"
+      ]
+    },
+    {
+      "path": "pal-found-data-health/references/01-check-report.md",
+      "sha256": "428c5cd006237e618867a3482903bd29bdbf2af73d939e10dd4c212ea886696b",
+      "lines": 79,
+      "verdict": "PASS",
+      "source_checks": [
+        "Lines 1-5: Resource/check/report distinction, build status, evaluation timing, empty latest result, and API failure distinction match primary product docs and SDK response contracts.",
+        "Lines 7-17: Local read-only and metadata-only policy, scoped READONLY=false and namespace METADATA_ONLY=false overrides, ENABLED=false precedence, exit 8 before client creation, and preview=true injection match AccessControlGuard and Data Health CLI source.",
+        "Lines 19-62: All six operation records and examples match OP_SPECS, parse under the candidate CLI, and use SDK-valid buildStatus create/replace payloads. Parameters, response meaning, immutable type, delete 204, report snapshot, reverse chronological latest order, and limit 10/100 match SDK 1.101.0 and primary endpoint docs.",
+        "Lines 63-79: Permission and local policy recovery, uncertain write reconciliation, bounded retry classes, runtime exit codes, and parser input exit 1 with JSON match candidate source. Subprocess reproduction of missing check RID exited 1 and returned UserInputError JSON.",
+        "Local check-config.md link resolves; recursive navigation reaches 51 pages with zero broken local links or links outside the copied skill folder."
+      ],
+      "sources": [
+        "https://www.palantir.com/docs/foundry/health-checks/overview",
+        "https://www.palantir.com/docs/foundry/health-checks/check-evaluation",
+        "https://www.palantir.com/docs/foundry/health-checks/checks-reference",
+        "https://www.palantir.com/docs/foundry/api/v2/data-health-v2-resources/checks/create-check",
+        "https://www.palantir.com/docs/foundry/api/v2/data-health-v2-resources/checks/delete-check",
+        "https://www.palantir.com/docs/foundry/api/v2/data-health-v2-resources/checks/get-check",
+        "https://www.palantir.com/docs/foundry/api/v2/data-health-v2-resources/checks/replace-check",
+        "https://www.palantir.com/docs/foundry/api/v2/data-health-v2-resources/check-reports/get-check-report",
+        "https://www.palantir.com/docs/foundry/api/v2/data-health-v2-resources/check-reports/get-latest-check-reports"
+      ]
+    }
+  ],
+  "verification": [
+    {
+      "command": "python .ept/tmp/feature015_data_health_skill_probe.py",
+      "result": "PASS: six examples parsed, 51 reachable Markdown pages, zero broken or outside-folder links."
+    },
+    {
+      "command": "python tests/fixtures/offline/data-health/check_config_fixture.py",
+      "result": "PASS: 32 create/replace configuration payloads parsed, invalid type/subject/severity rejected, five empty cross-field choices rejected."
+    },
+    {
+      "command": "python -m pytest -q tests/test_offline_skill_gate.py",
+      "result": "PASS: 9 tests."
+    },
+    {
+      "command": "python -m pal_found_cli.data_health.scripts.pal_found_data_health_cli check get",
+      "workdir": ".ept/tmp/feature015_data_health_preview_fix",
+      "result": "PASS negative case: process exit 1; stdout JSON exit_code=1, exit_code_name=UserInputError, exception_type=CLIInputError."
+    }
+  ],
+  "formal_status": "Both reviewed page hashes PASS independent offline source/semantic acceptance. DHT-TC-021's separate 18-scenario/51-test tool behavior evidence cannot alone accept these pages. BUG-034 and FEATURE-015 tracker/ledger closure, committed guide hash, and release provenance remain parent responsibilities.",
+  "limits": [
+    "No enrolled Foundry tenant was available; server permission, evaluation, and alert delivery were not tested here.",
+    "This review covers the two pending pages. The other 48 Data Health model pages retain prior independent acceptance and were not reopened.",
+    "The guide was uncommitted at review time. Any later content change requires fresh hash-bound review."
+  ]
+}

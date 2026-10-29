@@ -1,0 +1,22 @@
+{
+  "executed_utc": "2026-10-11T19:28:24.931065+00:00",
+  "snapshot_tree_sha256": "6949469c7055ba3396bdf8f7570ab696f2122298536962f7be7e646a11a00eb7",
+  "source_path": "examples/rest/073/v2/audit/LogFile/list_pagination.py",
+  "source_sha256": "a6932dc5c36dee808f0621c41f9b59d4cee88bef0464fac9d1bb82e11b10a481",
+  "mode": "synthetic in-process fake page with cooperative DNS/socket denial",
+  "budget_seconds": 0.01,
+  "fake_page_delay_seconds": 0.12,
+  "elapsed_seconds": 0.125,
+  "request_timeout_seconds": [
+    1
+  ],
+  "expected": "Do not claim completion after the stated wall-time budget ends",
+  "actual": {
+    "file_ids": [],
+    "complete": true,
+    "reason": null,
+    "cursor": null
+  },
+  "status": "FAIL",
+  "live_tenant_tested": false
+}

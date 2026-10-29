@@ -7,7 +7,7 @@ never make network calls and never invoke a Foundry API.
 
 Checks:
 - 300-line leaf limit for every skill Markdown part, including pal-found-dev.
-- Exact FEATURE-011 install block in command skills; pal-found-dev is knowledge only.
+- No CLI installation prose in distributed skills, per FEATURE-015.
 - Relative local links in every SKILL.md resolve within that skill folder.
 - Every frozen operation key is documented (reachable record) in the owning
   namespace references parts, and no extra callable claim is introduced.
@@ -22,10 +22,10 @@ ROOT = Path(__file__).parent.parent
 SKILLS = ROOT / ".agents" / "skills"
 
 LEAF_LIMIT = 300
-INSTALL_STRINGS = (
-    "conda install -c t-jet pal_found_cli",
-    "pip install pal_found_cli",
-    "uv tool install pal_found_cli",
+FORBIDDEN_DISTRIBUTION_PROSE = (
+    r"\binstall(?:ation|ing)?\b",
+    r"(?m)^\s*(?:[`$>]\s*)?(?:(?:python(?:3)?\s+-m\s+)?pip(?:3)?|pipx|conda|mamba|micromamba|uv(?:\s+(?:pip|tool))?|poetry|pdm|npm|pnpm|yarn)\s+(?:install|add)\b",
+    r"\b(?:copy|clone|sync|move|cp|rsync|robocopy|xcopy)\b[^\n]{0,120}(?:\.agents[/\\]skills|SKILL\.md|pal_found_cli_skills|skills?\s+(?:folder|directory|bundle)|bundle\s+(?:folder|directory))\b",
 )
 
 # Frozen per-operation registers (grooming comments 20261003-1747xx-1749xx).
@@ -284,12 +284,13 @@ def test_leaf_files_respect_300_line_limit() -> None:
             assert count <= LEAF_LIMIT, f"{path.name} has {count} lines > {LEAF_LIMIT}"
 
 
-def test_every_skill_has_install_prerequisite_block() -> None:
-    for name in set(FROZEN_OPERATIONS) | {"pal-found"}:
-        skill = SKILLS / name / "SKILL.md"
+def test_distributed_skills_exclude_install_and_copy_prose() -> None:
+    for skill in SKILLS.rglob("*.md"):
         text = skill.read_text(encoding="utf-8")
-        for expected in INSTALL_STRINGS:
-            assert expected in text, f"{name} missing install string: {expected}"
+        for pattern in FORBIDDEN_DISTRIBUTION_PROSE:
+            assert not re.search(pattern, text, re.IGNORECASE), (
+                f"{skill} contains distribution prose matching {pattern}"
+            )
 
 
 def test_relative_links_resolve_within_skill_folder() -> None:

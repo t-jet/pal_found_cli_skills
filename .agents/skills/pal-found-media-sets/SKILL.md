@@ -61,18 +61,3 @@ requires `--transformation-json`; `--token` or `--read-token` can grant
 item read access on supported calls. Binary downloads take optional
 `--output` basename, saved under configured download directory. The CLI
 enforces its download bound. Files uploaded with `--file` are limited to 16 MiB.
-
-## Install requirement
-
-`pal-found-media-sets` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```

@@ -1,0 +1,988 @@
+{
+  "story": "DEV-STORY-072",
+  "testcase": "TESTCASE-075",
+  "executor_identity": "/root/formal072_resume/independent072",
+  "harness_sha256": "450a2f21a91db090299caa9b16e541d0036962e0340b9b009ffe551966c3b988",
+  "cases_sha256": "99cf3b938c7b7525bde7b9ffab42607128d1ca6e18cee183ee38e464bcc9d62c",
+  "operations": 40,
+  "declared_errors": 113,
+  "execution": "FAIL",
+  "created_at": "2026-10-21T06:55:23.811165+00:00",
+  "results": [
+    {
+      "case_id": "REST072",
+      "check": "socket_traps_active",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F072-01",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-01",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-01",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-01",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-01",
+      "check": "error_AuthenticationProviderNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-01",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-01",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-01",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-01",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F072-01",
+      "check": "missing_required_enrollment_rid",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F072-01",
+      "check": "missing_required_authentication_provider_rid",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F072-01",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-01",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-02",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-02",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-02",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-02",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-02",
+      "check": "error_EnrollmentNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-02",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-02",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-02",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-02",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F072-02",
+      "check": "missing_required_enrollment_rid",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F072-02",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-02",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-03",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-03",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-03",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-03",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-03",
+      "check": "error_AuthenticationProviderNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-03",
+      "check": "error_PreregisterGroupPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-03",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-03",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-03",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-03",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F072-03",
+      "check": "missing_required_enrollment_rid",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F072-03",
+      "check": "missing_required_authentication_provider_rid",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F072-03",
+      "check": "missing_required_name",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F072-03",
+      "check": "missing_required_organizations",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F072-03",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-03",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-04",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-04",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-04",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-04",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-04",
+      "check": "error_AuthenticationProviderNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-04",
+      "check": "error_PreregisterUserPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-04",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-04",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-04",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-04",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F072-04",
+      "check": "missing_required_enrollment_rid",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F072-04",
+      "check": "missing_required_authentication_provider_rid",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F072-04",
+      "check": "missing_required_organization",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F072-04",
+      "check": "missing_required_username",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F072-04",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-04",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-05",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-05",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-05",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-05",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-05",
+      "check": "error_CbacBannerNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-05",
+      "check": "error_CbacUnavailable",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-05",
+      "check": "error_GetCbacBannerPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-05",
+      "check": "error_UnknownClassificationBannerDisplayType",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-05",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-05",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-05",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-05",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F072-05",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-05",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-06",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-06",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-06",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-06",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-06",
+      "check": "error_CbacMarkingRestrictionsNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-06",
+      "check": "error_CbacUnavailable",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-06",
+      "check": "error_GetCbacMarkingRestrictionInfoPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-06",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-06",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-06",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-06",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F072-06",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-06",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-07",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-07",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-07",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-07",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-07",
+      "check": "error_EnrollmentNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-07",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-07",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-07",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-07",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F072-07",
+      "check": "missing_required_enrollment_rid",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F072-07",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-07",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-08",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-08",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-08",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-08",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-08",
+      "check": "error_EnrollmentNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-08",
+      "check": "error_GetCurrentEnrollmentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-08",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-08",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-08",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-08",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F072-08",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-08",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-09",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-09",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-09",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-09",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-09",
+      "check": "error_AddEnrollmentRoleAssignmentsPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-09",
+      "check": "error_EnrollmentNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-09",
+      "check": "error_EnrollmentRoleNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-09",
+      "check": "error_PrincipalNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-09",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-09",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-09",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-09",
+      "check": "missing_required_enrollment_rid",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F072-09",
+      "check": "missing_required_role_assignments",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F072-09",
+      "check": "role mutation semantics_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-09",
+      "check": "role mutation semantics_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-09",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-09",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-10",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-10",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-10",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-10",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-10",
+      "check": "error_EnrollmentNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-10",
+      "check": "error_ListEnrollmentRoleAssignmentsPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-10",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-10",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-10",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-10",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F072-10",
+      "check": "missing_required_enrollment_rid",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F072-10",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-10",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-11",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-11",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-11",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-11",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-11",
+      "check": "error_EnrollmentNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-11",
+      "check": "error_EnrollmentRoleNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-11",
+      "check": "error_PrincipalNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-11",
+      "check": "error_RemoveEnrollmentRoleAssignmentsPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-11",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-11",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F072-11",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-11",
+      "check": "missing_required_enrollment_rid",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F072-11",
+      "check": "missing_required_role_assignments",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F072-11",
+      "check": "role mutation semantics_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-11",
+      "check": "role mutation semantics_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-11",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F072-11",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    }
+  ],
+  "failure": "AssertionError(('v2.admin.Host.list', <foundry_sdk._core.resource_iterator.ResourceIterator object at 0x0000023C6A967490>, {'data': [{'hostName': 'qa-review-072'}], 'nextPageToken': 'qa-review-072'}))"
+}

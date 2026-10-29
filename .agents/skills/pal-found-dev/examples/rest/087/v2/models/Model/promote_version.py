@@ -18,10 +18,10 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/models/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/promoteVersion'
-EXPECTED_BODY = {'sourceModelVersionRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}
+EXPECTED_BODY = {'sourceModelVersionRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000002'}
 EXPECTED_QUERY = {'preview': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
+SUCCESS = {'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000003',
  'modelApi': {'inputs': [{'unsupportedType': 'synthetic-value',
                           'params': {},
                           'type': 'unsupported'}],
@@ -39,7 +39,7 @@ ERRORS = [{'name': 'ModelNotFound',
   'status': 404,
   'code': 'NOT_FOUND',
   'parameters': {'modelRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
-                 'modelVersionRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}},
+                 'modelVersionRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000002'}},
  {'name': 'PromoteVersionModelPermissionDenied',
   'status': 403,
   'code': 'PERMISSION_DENIED',
@@ -50,7 +50,7 @@ ERRORS = [{'name': 'ModelNotFound',
   'parameters': {}}]
 
 def invoke(client):
-    return client.with_raw_response.promote_version(model_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', source_model_version_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', request_timeout=30)
+    return client.with_raw_response.promote_version(model_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', source_model_version_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000002', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -94,7 +94,11 @@ def verify():
     with mock_resource(ModelClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
+            assert decoded['rid'] != EXPECTED_BODY['sourceModelVersionRid'], (
+                'Promoted model version must have a new RID'
+            )
         finally:
             raw.close()
     assert len(calls) == 1

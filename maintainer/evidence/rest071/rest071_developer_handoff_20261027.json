@@ -1,0 +1,328 @@
+{
+  "actor": "/root/rest071_finish_20261027",
+  "started_at_utc": "2026-10-27T21:34:06.466372+00:00",
+  "commands": [
+    {
+      "args": [
+        "get",
+        "DEV-074",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "ticket_id: DEV-074\ncurrent_status: In Progress\nstatus_description: Implementation in progress; code being written and reviewed.\nstatus_goal: Implement the assigned work and record progress.\nstatus_responsible_roles:\n- Developer\nallowed_transitions:\n- Resolved\n- Blocked\n- Canceled\n- Rejected\n- Duplicated\ninstructions:\n- Implement changes; update tests as needed.\n- Record decisions as a comment on this ticket.\n- List created/modified/deleted files as a comment on this ticket.\n- 'VERIFICATION CHECKPOINT: Before claiming file creation, verify file exists in workspace\n  using file search.'\n- 'CORRECTIVE ACTION IF FILES DO NOT EXIST: IF claimed files do not exist in workspace\n  THEN do NOT move to Resolved; IF verification fails THEN document issue as a comment\n  on this ticket and remain In Progress; IF phantom completion detected THEN create\n  BUG ticket and revert status to Open.'\ndefinitions_of_done:\n- target_statuses:\n  - Resolved\n  dod_criteria:\n  - Studied related documentation from the `.ept/docs/document_index.md`\n  - Critical thinking applied\n  - All required questions asked using the Question sub-tasks and all these sub-tasks\n    are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)\n  - 'MANDATORY VERIFICATION: All claimed files physically exist in workspace (use\n    file search or directory listing to verify)'\n  - 'MANDATORY VERIFICATION: Code compiles without errors (run build/compile command\n    and document output)'\n  - All code committed to repository\n  - Implementation complete and ready for review\n  - Code follows project standards\n  - All external connections has configurable timeout\n  - Test coverage as per project requirements\n  - Unit tests are really unit tests (no external connections)\n  - All unit tests passed\n  - List of created/modified/deleted files documented as a comment on this ticket\n  - Time reported in subtask frontmatter\n  - All required deliverables completed\n  - Related documents in the `.ept/docs/document_index.md` analyzed and modified to\n    incorporate ticket results\n  - '`.ept/docs/document_index.md` updated for changes in deliverables'\n  - All document changes documented as a comment on this ticket\n  - All links registered\n  - CodeReview sub-task created and relates-to link established\n\nTicket Details:\n================================================================================\nid             : DEV-074\ntype           : development\ntitle          : DEV-STORY-071 development identity and membership lifecycle REST contracts\nstatus         : In Progress\npriority       : High\nassignee       : python-developer\nreporter       : tech-lead\nparent         : DEV-STORY-071\naddressed_to   : \npath           : DEV-STORY-071/DEV-074\ncreated        : 2026-10-07\nupdated        : 2026-10-07\nestimated_hours: 32\ncontent:\n# DEV-STORY-071 development\n\n## Owned scope\n27 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 7f314edf2faf396d384980dcb18a2941547d48aa1dd6ec6c39a79fb68f8f6d22.\nResources: v2.admin.Group, v2.admin.GroupMember, v2.admin.GroupMembership, v2.admin.GroupMembershipExpirationPolicy, v2.admin.GroupProviderInfo, v2.admin.User, v2.admin.UserProviderInfo.\nCore069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/071/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_071.py.\n\n## Acceptance criteria\nAuthor original behavior for every owned method, exact adaptable SDK-backed invocation and response/error fixture. Explain purpose, prerequisites, effects, constraints, stages, validation and recovery.\nEvery operation has locally available signature/HTTP/body/typed inputs/results/nested models/errors/effects/availability/modes and bounded recovery. Every example supplies synthetic or precisely described tenant values, actual SDK call, request/response/error assertions. Use actual asynchronous return signatures, not inferred Awaitable types. Keep source silence explicit with authorized tenant verification; invent no universal scope or idempotency guarantee. Independently reconcile full model/error closure;3242 is not a cap. Owned capability workflow covers exact resources in this partition: identity/access and supported reads/mutations, version-specific availability, finite iteration, transport lifetimes, denied operations and uncertain-write effect reconciliation. Admin071 and072 share a namespace but own disjoint resources and never change central service indexes. Dataset074 separates v1/v2 branches, schemas, files and transaction operations; build075 separates schedule/trigger/build completion, checkpoint and health-report state; v1 Ontology077 stays distinct from v2 schema/object/Action contracts.\n\n## Related documentation\nBA-DES-015/SA-DES-014 revision2 and closed owner approvals QUESTION179/182. Indexed FEATURE-015-rest-authoring-contract.md and exact partition JSON. Primary SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf/OpenAPI1.1697.0. Supplement SDK silence with relevant official API references while authoring. Preserve351 CLI operations and other authors, Apache2.0 copyright/license/NOTICE. No installation/copy/internal reader links. Final independent REST acceptance093, GitHub-only integrated publication070.\n\n## Estimate and readiness\n32 contributor hours; total72h candidate8points within80h two-week budget with reviewer/QA slots. Firstthree operation/example/constraint fixtures measured before scaling; split exact exclusive IDs if capacity exceeded. No implementation before DESIGNClosed, independent lead reviews and parentDevelopmentDoD. No infrastructure change; no DEVOPS child because070 owns release.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "link",
+        "list",
+        "DEV-074",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "\nFound 4 link(s) for DEV-074:\n====================================================================================================\nLink ID         Source             Target          Type            Role\n----------------------------------------------------------------------------------------------------\nLINK-01790      DEV-STORY-071   -> DEV-074         Contains        (Contains)\nLINK-01795      DEV-074         -> CODEREVIEW-075  RelatesTo       (Relates To)\nLINK-01796      CODEREVIEW-075  -> DEV-074         RelatesTo       (Relates To)\nLINK-01797      DEV-074         -> CODEREVIEW-075  Blocks          (Blocks)\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "list",
+        "--parent",
+        "DEV-074",
+        "--type",
+        "question",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "\nFound 0 ticket(s):\n============================================================================================================================================\nID              Status          Priority   Assignee             Reporter        Blocked  Title\n--------------------------------------------------------------------------------------------------------------------------------------------\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "get",
+        "UNITTEST-074",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "ticket_id: UNITTEST-074\ncurrent_status: In Progress\nstatus_description: Unit test work in progress; tests being written and executed.\nstatus_goal: Write and execute unit tests, record results and coverage.\nstatus_responsible_roles:\n- Developer\nallowed_transitions:\n- Resolved\n- Blocked\n- Canceled\n- Rejected\n- Duplicated\ninstructions:\n- Add/update unit tests; record results.\ndefinitions_of_done:\n- target_statuses:\n  - Resolved\n  dod_criteria:\n  - Studied related documentation from the `.ept/docs/document_index.md`\n  - Critical thinking applied\n  - All required questions asked using the Question sub-tasks and all these sub-tasks\n    are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)\n  - All unit tests written and committed\n  - Unit tests cover main scenarios and edge cases\n  - All unit tests passing (100% pass rate)\n  - Test coverage meets project standards\n  - Time reported in subtask frontmatter\n  - All links registered\n\nTicket Details:\n================================================================================\nid             : UNITTEST-074\ntype           : unittest\ntitle          : DEV-STORY-071 unittest identity and membership lifecycle REST contracts\nstatus         : In Progress\npriority       : High\nassignee       : python-developer\nreporter       : tech-lead\nparent         : DEV-STORY-071\naddressed_to   : \npath           : DEV-STORY-071/UNITTEST-074\ncreated        : 2026-10-07\nupdated        : 2026-10-07\nestimated_hours: 8\ncontent:\n# DEV-STORY-071 unittest\n\n## Owned scope\n27 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 7f314edf2faf396d384980dcb18a2941547d48aa1dd6ec6c39a79fb68f8f6d22.\nResources: v2.admin.Group, v2.admin.GroupMember, v2.admin.GroupMembership, v2.admin.GroupMembershipExpirationPolicy, v2.admin.GroupProviderInfo, v2.admin.User, v2.admin.UserProviderInfo.\nCore069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/071/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_071.py.\n\n## Acceptance criteria\nImplement offline SDK-backed fake-transport serialization/response/error assertions for every owned method. Include actual async iterator/raw/stream/SSE lifetimes and finite work. Derive expected values from source; counts cannot approve behavior.\nEvery operation has locally available signature/HTTP/body/typed inputs/results/nested models/errors/effects/availability/modes and bounded recovery. Every example supplies synthetic or precisely described tenant values, actual SDK call, request/response/error assertions. Use actual asynchronous return signatures, not inferred Awaitable types. Keep source silence explicit with authorized tenant verification; invent no universal scope or idempotency guarantee. Independently reconcile full model/error closure;3242 is not a cap. Owned capability workflow covers exact resources in this partition: identity/access and supported reads/mutations, version-specific availability, finite iteration, transport lifetimes, denied operations and uncertain-write effect reconciliation. Admin071 and072 share a namespace but own disjoint resources and never change central service indexes. Dataset074 separates v1/v2 branches, schemas, files and transaction operations; build075 separates schedule/trigger/build completion, checkpoint and health-report state; v1 Ontology077 stays distinct from v2 schema/object/Action contracts.\n\n## Related documentation\nBA-DES-015/SA-DES-014 revision2 and closed owner approvals QUESTION179/182. Indexed FEATURE-015-rest-authoring-contract.md and exact partition JSON. Primary SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf/OpenAPI1.1697.0. Supplement SDK silence with relevant official API references while authoring. Preserve351 CLI operations and other authors, Apache2.0 copyright/license/NOTICE. No installation/copy/internal reader links. Final independent REST acceptance093, GitHub-only integrated publication070.\n\n## Estimate and readiness\n8 contributor hours; total72h candidate8points within80h two-week budget with reviewer/QA slots. Firstthree operation/example/constraint fixtures measured before scaling; split exact exclusive IDs if capacity exceeded. No implementation before DESIGNClosed, independent lead reviews and parentDevelopmentDoD. No infrastructure change; no DEVOPS child because070 owns release.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "link",
+        "list",
+        "UNITTEST-074",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "\nFound 1 link(s) for UNITTEST-074:\n====================================================================================================\nLink ID         Source             Target          Type            Role\n----------------------------------------------------------------------------------------------------\nLINK-01791      DEV-STORY-071   -> UNITTEST-074    Contains        (Contains)\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "list",
+        "--parent",
+        "UNITTEST-074",
+        "--type",
+        "question",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "\nFound 0 ticket(s):\n============================================================================================================================================\nID              Status          Priority   Assignee             Reporter        Blocked  Title\n--------------------------------------------------------------------------------------------------------------------------------------------\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "comment",
+        "create",
+        "DEV-074",
+        "--author",
+        "python-developer",
+        "--subject",
+        "Committed REST071 implementation verified for independent architect handoff",
+        "--text",
+        "## Implementation and verification\n\nAll 27 owned examples and their resource behavior and structural contract files exist, are committed, and match the accepted source/semantic evidence. Current source SDK is the frozen 1.101.0 release. The dedicated committed suite is `tests/test_offline_rest_071.py` at `0623f5a1cad0bbd4ba9e1f37bb822cba50b61335`. Fresh independent reviewer `/root/rest071_code_qa_20261027` verified all 27 current asset/source bindings and all 74 declared errors; 72 tests passed in 1.97 seconds, and Ruff passed. Report `.ept/tmp/feature015_rest071_code_review_20261027.json`, SHA256 `9a96e3f17cdcc5e5c57cd24fed53efe4bc7ae3c887f6cf8937f63058066fd831`. Examples plus test compile without errors; current compile/tracked-byte validation took 1.922000 seconds. No external service connection is made; actual SDK HTTP requests use synthetic transports and denied public sockets/DNS. Timeout parameters remain configurable. Historical content authoring hours are unmeasured; frontmatter time records only this measured validation run. Indexed BA-DES-015/SA-DES-014 revision 2 and REST authoring handoff were reviewed. No requirement, shared architecture deliverable or index link changes were needed. No linked or child Questions exist. Paired architect review CODEREVIEW-075 and RelatesTo links01795/01796 are registered. Formal testcase/execution acceptance and BUG-SUB-027/028 closure remain pending.\n\n## Current owned files\n\n- `examples/rest/071/v2/admin/Group/create.py`; SHA256 `e11015c71ba7aed4203a8947607ea45db9490c5c62245c861b2d262570563a96`.\n- `examples/rest/071/v2/admin/Group/delete.py`; SHA256 `e05c5d7caee65398aebb3ab6c4bb5086a1d1e035b6df0e96e62a25e6210f389a`.\n- `examples/rest/071/v2/admin/Group/get.py`; SHA256 `7fe58686a1079d451d23e1e425f0fdff91cf6e752b4c1fc4356c5be5d68e2ac8`.\n- `examples/rest/071/v2/admin/Group/get_batch.py`; SHA256 `e010ce2befcd4df593bbc7215188991001240382cfbba4c2a7e5b024a87d24cb`.\n- `examples/rest/071/v2/admin/Group/list.py`; SHA256 `77826820f2da63292528ce73b44b075636d5c5c975b22f4567a8da2c9903ff7d`.\n- `examples/rest/071/v2/admin/Group/list_current.py`; SHA256 `892bfc1ca5189dc230c113b9ee3a1e54125731cd63b2b92b8a89e804a8ebebed`.\n- `examples/rest/071/v2/admin/Group/replace.py`; SHA256 `1ba957962eabaa838e302afb86100392b122723baf1fd029a6392d49a2b421a4`.\n- `examples/rest/071/v2/admin/Group/search.py`; SHA256 `63279f5ea7a135a303755751a6d51c181f0c066f43c07c9611f3107ec31552e4`.\n- `examples/rest/071/v2/admin/GroupMember/add.py`; SHA256 `52128d7ba10b150e7a48fbddd06886399422d61856ce58beff23188922b49a02`.\n- `examples/rest/071/v2/admin/GroupMember/list.py`; SHA256 `c553a5b4e466d9934569ed1c464904a796906e6bf0a5d3eca7dd97592c09355c`.\n- `examples/rest/071/v2/admin/GroupMember/remove.py`; SHA256 `6d35e395c11f7ca66cc520f4f52c3c16369382b41491d920f7062ff79bf70be6`.\n- `examples/rest/071/v2/admin/GroupMembership/list.py`; SHA256 `3401222d98792f3057780fe7f06b8224505c169c77eaf8679ab56ca6b0aee6dc`.\n- `examples/rest/071/v2/admin/GroupMembershipExpirationPolicy/get.py`; SHA256 `f4787a2a8e1dfa0dc2f73641365afb43bd1eb210993d76bfb7d35fb030d4c430`.\n- `examples/rest/071/v2/admin/GroupMembershipExpirationPolicy/replace.py`; SHA256 `2dd7ac4bb4f870235a4919c5567de140e7d1a6e50f612fca97f67ffdfcc8b75c`.\n- `examples/rest/071/v2/admin/GroupProviderInfo/get.py`; SHA256 `72e2e74f0537ae07bc6451dbc06dd1aa3a760236a712faf0f9bd78629bef297e`.\n- `examples/rest/071/v2/admin/GroupProviderInfo/replace.py`; SHA256 `48227aa4a5746998c2a1eae4a1905526ef489e29b117fc5ac575cf3f161478d6`.\n- `examples/rest/071/v2/admin/User/delete.py`; SHA256 `6d01525099e7a74c47752baa71017b1a0c8217fd2c18869097f351fd3820e684`.\n- `examples/rest/071/v2/admin/User/get.py`; SHA256 `c3dfde80be21684d7f5fc7a0adffcaefa352decb82cd9a0efaef4d61642c4553`.\n- `examples/rest/071/v2/admin/User/get_batch.py`; SHA256 `1edfc562b5ce4ce387bf01c07f61a1fe2e4e8b286b2bb24cf0a87502bff72e09`.\n- `examples/rest/071/v2/admin/User/get_current.py`; SHA256 `2380b82207a0769216f01a6449a544021b117b59d3b56430e66491a4bd30e603`.\n- `examples/rest/071/v2/admin/User/get_markings.py`; SHA256 `ab3caab80c70efb0779f0f7f8af4369297efb99c1cbe7105e1981eccadcac7af`.\n- `examples/rest/071/v2/admin/User/list.py`; SHA256 `32fd8534e68895512ac93aaa66116735124c7f7063d41aebe764421ea0869b65`.\n- `examples/rest/071/v2/admin/User/profile_picture.py`; SHA256 `30bfc19ee35ec0444aebde39cfcf6981cd19740ab26a698249d09d511e492c2b`.\n- `examples/rest/071/v2/admin/User/revoke_all_tokens.py`; SHA256 `b3d274dcaebe16ed47f4c77f6259550bda39e3470677b5785965e8f18c0614c3`.\n- `examples/rest/071/v2/admin/User/search.py`; SHA256 `02897ef508f89028aebf9b6d14ce8316dc2c084a9489b8ed9df5c52b02a7e593`.\n- `examples/rest/071/v2/admin/UserProviderInfo/get.py`; SHA256 `8df815fb40e18dc0db7073867bcc82a33ac9bb0d192e4f0b6cde4173c754f45c`.\n- `examples/rest/071/v2/admin/UserProviderInfo/replace.py`; SHA256 `fba6caf5f2adaf8a344deed122435d1b30d0ab911050092667c0f6ddfcd9c670`.\n- `references/rest/contracts/v2/admin/Group/create.md`; SHA256 `38a47f2913b70c3a5b1b246a8f0c3264ecfb7b24d0a7468fe63c47887f542947`.\n- `references/rest/contracts/v2/admin/Group/delete.md`; SHA256 `695e23ee4572ff2542c062ba15911a21b6ac9dfef4a45a48b2b02d45897187b5`.\n- `references/rest/contracts/v2/admin/Group/get.md`; SHA256 `1017d31946857f3ecbb17046a50384a8ba5f86344b4b3dd99e6dc472807a8781`.\n- `references/rest/contracts/v2/admin/Group/get_batch.md`; SHA256 `1a700ae9f425c16fb823fd65d51ca31e5e839726c8067b0a95072b5db19578c1`.\n- `references/rest/contracts/v2/admin/Group/list.md`; SHA256 `63c4ece981f4f5bfb9a16b8aa63763696a9abdc2e634550ec08fdc0698bf6e8b`.\n- `references/rest/contracts/v2/admin/Group/list_current.md`; SHA256 `717268c7266dbf89216bbf16224946b9901a8274e141310f50e4c62b9c6fa372`.\n- `references/rest/contracts/v2/admin/Group/replace.md`; SHA256 `ca5f45e71a241c285e7ed861385673d32b619442a2984d2793f36b86acb64ced`.\n- `references/rest/contracts/v2/admin/Group/search.md`; SHA256 `c2400ff51b98bfbb9c11424d40f6e75286dcb4d14fbec3357409e8501f967081`.\n- `references/rest/contracts/v2/admin/GroupMember/add.md`; SHA256 `c74fd2d7b0a89f7e0172638e9b56819cb7d22665d71e2aa53ced2a538ac13e71`.\n- `references/rest/contracts/v2/admin/GroupMember/list.md`; SHA256 `a9928d4f84c39a7c3869c95b0b12da55bae57907d28c95a1653f88b251a0b3be`.\n- `references/rest/contracts/v2/admin/GroupMember/remove.md`; SHA256 `689699b053d96fd2c142fcba02093ac742a5d027246449793343458a62467646`.\n- `references/rest/contracts/v2/admin/GroupMembership/list.md`; SHA256 `1b4af29f1bef3764a4dc185b85633f08494b610e92d5373293a7c3cff74967b3`.\n- `references/rest/contracts/v2/admin/GroupMembershipExpirationPolicy/get.md`; SHA256 `45a7f0399e171082fa9e314fe6c14330745edf45629866890ad7aa5050ec75d3`.\n- `references/rest/contracts/v2/admin/GroupMembershipExpirationPolicy/replace.md`; SHA256 `67ea57de550e241ec57e5f8b43ad816dc1310af33e8dee5bb1fb0d84bfa3a9a3`.\n- `references/rest/contracts/v2/admin/GroupProviderInfo/get.md`; SHA256 `e909ad4da496cf7f103b546e3ce82e54f26860dc5ace13d4c98955bd0dce0213`.\n- `references/rest/contracts/v2/admin/GroupProviderInfo/replace.md`; SHA256 `2bbf63eb6937f7573382f9f1216261145d8b04e65c7d7e5296d76dd6f3d9170f`.\n- `references/rest/contracts/v2/admin/User/delete.md`; SHA256 `ab03f6abfe67bc8de512c272795b52cb704de10207f97b6368675831864ab4d2`.\n- `references/rest/contracts/v2/admin/User/get.md`; SHA256 `a501d928b84670ef5678f21768affb59e6e44e68cad3bc6b5ec8e30058e631d1`.\n- `references/rest/contracts/v2/admin/User/get_batch.md`; SHA256 `97889caeba8c79e2562ecc0416805df91317e544b63eaef91080426695400147`.\n- `references/rest/contracts/v2/admin/User/get_current.md`; SHA256 `a0bf6a941c7fcef7b98772f8efc90f8bece9ea262aa7722d7f344b460ffeda51`.\n- `references/rest/contracts/v2/admin/User/get_markings.md`; SHA256 `86a8f719a7004e1b851d80aaa84ada540f0f12c3cceb19b4a1eedc434c3de1ae`.\n- `references/rest/contracts/v2/admin/User/list.md`; SHA256 `a26dcd4852979f502e84efac5064dd677a335472e7a41cef8cf220d9aeb1f2fa`.\n- `references/rest/contracts/v2/admin/User/profile_picture.md`; SHA256 `17e7b3fa4a650d2d5cda111473fdc25119b36bcf28377f08e530cead0b5bf956`.\n- `references/rest/contracts/v2/admin/User/revoke_all_tokens.md`; SHA256 `8bd8270251a942311e6c82fbe962d638cc77994037284436ab43bb32698a3323`.\n- `references/rest/contracts/v2/admin/User/search.md`; SHA256 `fa2b918fcb5a27950529b0aeda7f4469b1e856405270237c6a6c9159300ed6af`.\n- `references/rest/contracts/v2/admin/UserProviderInfo/get.md`; SHA256 `013030384167f6caf70951b1102c63c025e2b7e2ebad8cbbcea534ab06f12a96`.\n- `references/rest/contracts/v2/admin/UserProviderInfo/replace.md`; SHA256 `f0bc4ba308348e26b7d6cbe4cbab8b53fc7c893bdb884c9ce76b772092f62b85`.\n- `references/rest/v2/admin/Group-2.md`; SHA256 `a8a45a08fab40e3d0241a2b6ed564c007c5c5b956270ef2179ba9dcf3fd739b7`.\n- `references/rest/v2/admin/Group.md`; SHA256 `4827f012e45b8c3340675e3d2aede80c36953bd204583e957e2d2737368934f2`.\n- `references/rest/v2/admin/GroupMember.md`; SHA256 `3b3678dfd8c94474c27512c6ee2b97a0a38ac574b0d26a9ef25a60641c7f6170`.\n- `references/rest/v2/admin/GroupMembership.md`; SHA256 `065be56a23cfd69b09324b52bdaac5bfe3a944f5d98876b3119c0bfa36255cd0`.\n- `references/rest/v2/admin/GroupMembershipExpirationPolicy.md`; SHA256 `51fdfcb57d900cb3d741cc78363590f88ccd50b9fbd5c13b73adcee52627297e`.\n- `references/rest/v2/admin/GroupProviderInfo.md`; SHA256 `1de4424257e3c2233ae88d7f5623f3147c504d435d69b5620ab98cecc5fa8352`.\n- `references/rest/v2/admin/User-2.md`; SHA256 `ffe3cb7a255e4eb293ce6bb0300fbfbf6314ce1a6c468bdfaad607e4d290c8b3`.\n- `references/rest/v2/admin/User.md`; SHA256 `6f24a137f05bf6939a9cdb4445ba0bad251d61994314205cf69a20a14200c342`.\n- `references/rest/v2/admin/UserProviderInfo.md`; SHA256 `11dd530ed5502f70c7a9a8e1f231e70ee6a217e7ed399afd4213a2aec8054b62`.\n\n- Added `tests/test_offline_rest_071.py`; SHA256 `291961bdb7dc815eabbfdc365856bf31d0d3e6244dba020fb1ff624fc7b1fc65`.\n- No deletion in this handoff. Earlier corrections are preserved in repository history."
+      ],
+      "exit_code": 0,
+      "stdout": "Created comment: 20261027-233411-@python-developer\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "update",
+        "DEV-074",
+        "--field",
+        "time_spent_hours=0.0005338888888864959",
+        "--status",
+        "Resolved",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "ticket_id: DEV-074\ncurrent_status: Resolved\nstatus_description: Implementation complete; code ready for code review.\nstatus_goal: Manage blockers and prepare for closure.\nstatus_responsible_roles:\n- Developer\nallowed_transitions:\n- Closed\n- Canceled\n- Rejected\n- Duplicated\n- Blocked\n- In Progress\ninstructions:\n- IF blocker link exists AND blocker resolved THEN remove the blocking link.\n- 'Block Development sub-task on CodeReview: add is-blocked-by/blocks links between\n  DEV and CODEREVIEW.'\n- Move CodeReview sub-task to Open and assign reviewer.\n- Ensure review readiness.\n- IF not blocked THEN ready to move to Closed.\ndefinitions_of_done:\n- target_statuses:\n  - Closed\n  dod_criteria:\n  - Ticket not blocked (no active is-blocked-by links)\n\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "comment",
+        "create",
+        "UNITTEST-074",
+        "--author",
+        "python-developer",
+        "--subject",
+        "Dedicated committed unit suite and independent regression verification",
+        "--text",
+        "## Unit results\n\n`tests/test_offline_rest_071.py` is committed at0623f5a; SHA256 `291961bdb7dc815eabbfdc365856bf31d0d3e6244dba020fb1ff624fc7b1fc65`. Fresh independent reviewer `/root/rest071_code_qa_20261027` reports72/72 PASS in1.97s and Ruff PASS. The suite derives27 operation request/response contracts and74 declared exceptions from frozen SDK1.101.0; it checks target identity, body/result correspondence, membership semantics, meaningful expiration settings, batch maps and source constraints. Mutation guards reject empty/mismatched policies and wrong/missing batch identities. Public sockets, DNS and ordinary HTTPX transports are denied. No async-mode formal acceptance is inferred from this unit suite. Report `.ept/tmp/feature015_rest071_code_review_20261027.json`, SHA256 `9a96e3f17cdcc5e5c57cd24fed53efe4bc7ae3c887f6cf8937f63058066fd831`. Frontmatter time records only measured1.97s test execution, excluding unmeasured historical authoring effort. Indexed requirements/handoff were reviewed; no documentation changes were needed. No linked/child Questions; parent and role links remain registered. Formal CASE074/EXEC074 and bug closure remain separate."
+      ],
+      "exit_code": 0,
+      "stdout": "Created comment: 20261027-233412-@python-developer\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "update",
+        "UNITTEST-074",
+        "--field",
+        "time_spent_hours=0.0005472222222222222",
+        "--status",
+        "Resolved",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "ticket_id: UNITTEST-074\ncurrent_status: Resolved\nstatus_description: Unit tests complete and passing.\nstatus_goal: Manage blockers and prepare for closure.\nstatus_responsible_roles:\n- Developer\nallowed_transitions:\n- Closed\n- Canceled\n- Rejected\n- Duplicated\n- Blocked\n- In Progress\ninstructions:\n- IF blocker link exists AND blocker resolved THEN remove the blocking link.\n- Confirm all tests pass.\n- IF not blocked THEN ready to move to Closed.\ndefinitions_of_done:\n- target_statuses:\n  - Closed\n  dod_criteria:\n  - Ticket not blocked (no active is-blocked-by links)\n\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "get",
+        "DEV-074",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "ticket_id: DEV-074\ncurrent_status: Resolved\nstatus_description: Implementation complete; code ready for code review.\nstatus_goal: Manage blockers and prepare for closure.\nstatus_responsible_roles:\n- Developer\nallowed_transitions:\n- Closed\n- Canceled\n- Rejected\n- Duplicated\n- Blocked\n- In Progress\ninstructions:\n- IF blocker link exists AND blocker resolved THEN remove the blocking link.\n- 'Block Development sub-task on CodeReview: add is-blocked-by/blocks links between\n  DEV and CODEREVIEW.'\n- Move CodeReview sub-task to Open and assign reviewer.\n- Ensure review readiness.\n- IF not blocked THEN ready to move to Closed.\ndefinitions_of_done:\n- target_statuses:\n  - Closed\n  dod_criteria:\n  - Ticket not blocked (no active is-blocked-by links)\n\nTicket Details:\n================================================================================\nid             : DEV-074\ntype           : development\ntitle          : DEV-STORY-071 development identity and membership lifecycle REST contracts\nstatus         : Resolved\npriority       : High\nassignee       : python-developer\nreporter       : tech-lead\nparent         : DEV-STORY-071\naddressed_to   : \npath           : DEV-STORY-071/DEV-074\ncreated        : 2026-10-07\nupdated        : 2026-10-27\nestimated_hours: 32\ntime_spent_hours: 0.0005338888888864959\ncontent:\n# DEV-STORY-071 development\n\n## Owned scope\n27 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 7f314edf2faf396d384980dcb18a2941547d48aa1dd6ec6c39a79fb68f8f6d22.\nResources: v2.admin.Group, v2.admin.GroupMember, v2.admin.GroupMembership, v2.admin.GroupMembershipExpirationPolicy, v2.admin.GroupProviderInfo, v2.admin.User, v2.admin.UserProviderInfo.\nCore069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/071/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_071.py.\n\n## Acceptance criteria\nAuthor original behavior for every owned method, exact adaptable SDK-backed invocation and response/error fixture. Explain purpose, prerequisites, effects, constraints, stages, validation and recovery.\nEvery operation has locally available signature/HTTP/body/typed inputs/results/nested models/errors/effects/availability/modes and bounded recovery. Every example supplies synthetic or precisely described tenant values, actual SDK call, request/response/error assertions. Use actual asynchronous return signatures, not inferred Awaitable types. Keep source silence explicit with authorized tenant verification; invent no universal scope or idempotency guarantee. Independently reconcile full model/error closure;3242 is not a cap. Owned capability workflow covers exact resources in this partition: identity/access and supported reads/mutations, version-specific availability, finite iteration, transport lifetimes, denied operations and uncertain-write effect reconciliation. Admin071 and072 share a namespace but own disjoint resources and never change central service indexes. Dataset074 separates v1/v2 branches, schemas, files and transaction operations; build075 separates schedule/trigger/build completion, checkpoint and health-report state; v1 Ontology077 stays distinct from v2 schema/object/Action contracts.\n\n## Related documentation\nBA-DES-015/SA-DES-014 revision2 and closed owner approvals QUESTION179/182. Indexed FEATURE-015-rest-authoring-contract.md and exact partition JSON. Primary SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf/OpenAPI1.1697.0. Supplement SDK silence with relevant official API references while authoring. Preserve351 CLI operations and other authors, Apache2.0 copyright/license/NOTICE. No installation/copy/internal reader links. Final independent REST acceptance093, GitHub-only integrated publication070.\n\n## Estimate and readiness\n32 contributor hours; total72h candidate8points within80h two-week budget with reviewer/QA slots. Firstthree operation/example/constraint fixtures measured before scaling; split exact exclusive IDs if capacity exceeded. No implementation before DESIGNClosed, independent lead reviews and parentDevelopmentDoD. No infrastructure change; no DEVOPS child because070 owns release.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "get",
+        "UNITTEST-074",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "ticket_id: UNITTEST-074\ncurrent_status: Resolved\nstatus_description: Unit tests complete and passing.\nstatus_goal: Manage blockers and prepare for closure.\nstatus_responsible_roles:\n- Developer\nallowed_transitions:\n- Closed\n- Canceled\n- Rejected\n- Duplicated\n- Blocked\n- In Progress\ninstructions:\n- IF blocker link exists AND blocker resolved THEN remove the blocking link.\n- Confirm all tests pass.\n- IF not blocked THEN ready to move to Closed.\ndefinitions_of_done:\n- target_statuses:\n  - Closed\n  dod_criteria:\n  - Ticket not blocked (no active is-blocked-by links)\n\nTicket Details:\n================================================================================\nid             : UNITTEST-074\ntype           : unittest\ntitle          : DEV-STORY-071 unittest identity and membership lifecycle REST contracts\nstatus         : Resolved\npriority       : High\nassignee       : python-developer\nreporter       : tech-lead\nparent         : DEV-STORY-071\naddressed_to   : \npath           : DEV-STORY-071/UNITTEST-074\ncreated        : 2026-10-07\nupdated        : 2026-10-27\nestimated_hours: 8\ntime_spent_hours: 0.0005472222222222222\ncontent:\n# DEV-STORY-071 unittest\n\n## Owned scope\n27 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 7f314edf2faf396d384980dcb18a2941547d48aa1dd6ec6c39a79fb68f8f6d22.\nResources: v2.admin.Group, v2.admin.GroupMember, v2.admin.GroupMembership, v2.admin.GroupMembershipExpirationPolicy, v2.admin.GroupProviderInfo, v2.admin.User, v2.admin.UserProviderInfo.\nCore069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/071/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_071.py.\n\n## Acceptance criteria\nImplement offline SDK-backed fake-transport serialization/response/error assertions for every owned method. Include actual async iterator/raw/stream/SSE lifetimes and finite work. Derive expected values from source; counts cannot approve behavior.\nEvery operation has locally available signature/HTTP/body/typed inputs/results/nested models/errors/effects/availability/modes and bounded recovery. Every example supplies synthetic or precisely described tenant values, actual SDK call, request/response/error assertions. Use actual asynchronous return signatures, not inferred Awaitable types. Keep source silence explicit with authorized tenant verification; invent no universal scope or idempotency guarantee. Independently reconcile full model/error closure;3242 is not a cap. Owned capability workflow covers exact resources in this partition: identity/access and supported reads/mutations, version-specific availability, finite iteration, transport lifetimes, denied operations and uncertain-write effect reconciliation. Admin071 and072 share a namespace but own disjoint resources and never change central service indexes. Dataset074 separates v1/v2 branches, schemas, files and transaction operations; build075 separates schedule/trigger/build completion, checkpoint and health-report state; v1 Ontology077 stays distinct from v2 schema/object/Action contracts.\n\n## Related documentation\nBA-DES-015/SA-DES-014 revision2 and closed owner approvals QUESTION179/182. Indexed FEATURE-015-rest-authoring-contract.md and exact partition JSON. Primary SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf/OpenAPI1.1697.0. Supplement SDK silence with relevant official API references while authoring. Preserve351 CLI operations and other authors, Apache2.0 copyright/license/NOTICE. No installation/copy/internal reader links. Final independent REST acceptance093, GitHub-only integrated publication070.\n\n## Estimate and readiness\n8 contributor hours; total72h candidate8points within80h two-week budget with reviewer/QA slots. Firstthree operation/example/constraint fixtures measured before scaling; split exact exclusive IDs if capacity exceeded. No implementation before DESIGNClosed, independent lead reviews and parentDevelopmentDoD. No infrastructure change; no DEVOPS child because070 owns release.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "comment",
+        "create",
+        "CODEREVIEW-075",
+        "--author",
+        "python-developer",
+        "--subject",
+        "Developer resolution satisfies recorded review prerequisite",
+        "--text",
+        "## Handoff\n\nDEV-074 and UNITTEST-074 are now Resolved with committed files and independent72-test evidence. The original comment20261007-101557-tech-lead explicitly records `PriorOpen; DEV-074 blocks architect review until Resolved`. That specific condition is satisfied. Remove only LINK-01797 and restore Open; preserve RelatesTo01795/01796. Architect must independently approve and record its own role DoD; this developer handoff is not code-review approval. DEV remains subject to architect review before closure."
+      ],
+      "exit_code": 0,
+      "stdout": "Created comment: 20261027-233413-@python-developer\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "link",
+        "remove",
+        "LINK-01797",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "Removed link: LINK-01797\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "get",
+        "CODEREVIEW-075",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "ticket_id: CODEREVIEW-075\ncurrent_status: Blocked\nstatus_description: Cannot proceed; blocker documented.\nstatus_goal: Verify blocking condition remains, maintain blocker links and priorities,\n  and return to prior status when unblocked.\nstatus_responsible_roles:\n- Current assignee\nallowed_transitions:\n- Open\n- Correction\n- Corrected\n- Canceled\n- Rejected\n- Duplicated\ninstructions:\n- Confirm blocker and prior status are documented as a comment on this ticket (include\n  blocker ID and prior status).\n- Verify blocking link exists on this ticket.\n- Do not create new blocker links in this status; they must be created when the block\n  is identified.\n- IF blocking link missing THEN create QUESTION ticket addressed_to appropriate role,\n  add a Blocks link and a Question link from it to this ticket, and remain Blocked.\n- \"Query blocking links on this ticket. For each blocker found, check its status:\\n\\\n  \\  - IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated`\\\n  \\ THEN remove the blocking link and return to prior status\\n  - IF blocker still\\\n  \\ active AND blocker priority lower than this ticket priority THEN raise blocker\\\n  \\ priority to match.\\n\"\n- IF all blocking links removed THEN return this ticket to prior status.\ndefinitions_of_done: []\n\nTicket Details:\n================================================================================\nid             : CODEREVIEW-075\ntype           : codereview\ntitle          : DEV-STORY-071 codereview identity and membership lifecycle REST contracts\nstatus         : Blocked\npriority       : High\nassignee       : architect\nreporter       : tech-lead\nparent         : DEV-STORY-071\naddressed_to   : \npath           : DEV-STORY-071/CODEREVIEW-075\ncreated        : 2026-10-07\nupdated        : 2026-10-07\nestimated_hours: 12\ncontent:\n# DEV-STORY-071 codereview\n\n## Owned scope\n27 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 7f314edf2faf396d384980dcb18a2941547d48aa1dd6ec6c39a79fb68f8f6d22.\nResources: v2.admin.Group, v2.admin.GroupMember, v2.admin.GroupMembership, v2.admin.GroupMembershipExpirationPolicy, v2.admin.GroupProviderInfo, v2.admin.User, v2.admin.UserProviderInfo.\nCore069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/071/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_071.py.\n\n## Acceptance criteria\nIndependent architect reviews every owned method against frozen docs/source/API references, full corrected models/errors and actual runnable examples. Record exact per-operation findings and dispositions. Do not review own content; wait paired DEV Resolved.\nEvery operation has locally available signature/HTTP/body/typed inputs/results/nested models/errors/effects/availability/modes and bounded recovery. Every example supplies synthetic or precisely described tenant values, actual SDK call, request/response/error assertions. Use actual asynchronous return signatures, not inferred Awaitable types. Keep source silence explicit with authorized tenant verification; invent no universal scope or idempotency guarantee. Independently reconcile full model/error closure;3242 is not a cap. Owned capability workflow covers exact resources in this partition: identity/access and supported reads/mutations, version-specific availability, finite iteration, transport lifetimes, denied operations and uncertain-write effect reconciliation. Admin071 and072 share a namespace but own disjoint resources and never change central service indexes. Dataset074 separates v1/v2 branches, schemas, files and transaction operations; build075 separates schedule/trigger/build completion, checkpoint and health-report state; v1 Ontology077 stays distinct from v2 schema/object/Action contracts.\n\n## Related documentation\nBA-DES-015/SA-DES-014 revision2 and closed owner approvals QUESTION179/182. Indexed FEATURE-015-rest-authoring-contract.md and exact partition JSON. Primary SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf/OpenAPI1.1697.0. Supplement SDK silence with relevant official API references while authoring. Preserve351 CLI operations and other authors, Apache2.0 copyright/license/NOTICE. No installation/copy/internal reader links. Final independent REST acceptance093, GitHub-only integrated publication070.\n\n## Estimate and readiness\n12 contributor hours; total72h candidate8points within80h two-week budget with reviewer/QA slots. Firstthree operation/example/constraint fixtures measured before scaling; split exact exclusive IDs if capacity exceeded. No implementation before DESIGNClosed, independent lead reviews and parentDevelopmentDoD. No infrastructure change; no DEVOPS child because070 owns release.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "update",
+        "CODEREVIEW-075",
+        "--status",
+        "Open",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "ticket_id: CODEREVIEW-075\ncurrent_status: Open\nstatus_description: Review in progress by reviewer.\nstatus_goal: Perform the review and decide whether corrections are needed or approval\n  can be granted.\nstatus_responsible_roles:\n- Reviewer (Architect/Business Analyst)\nallowed_transitions:\n- Correction\n- Closed\n- Blocked\n- Canceled\n- Rejected\n- Duplicated\ninstructions:\n- Review code/design and log findings as a comment on this ticket.\n- Apply critical thinking.\n- IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md`\n  THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks\n  link and a Question link from it to this ticket, set status to Blocked until resolved,\n  and record blocker ID and prior status as a comment on this ticket.\n- 'Review answers from linked QUESTION tickets: Query Question links on this ticket.\n  For each linked QUESTION ticket found: retrieve it, read its Answer section and\n  comments, and incorporate findings/decisions into current work.'\n- IF review requires changes THEN move to Correction and assign to implementer.\n- IF review approved THEN move to Closed and return Development sub-task to its prior\n  status.\n- 'CORRECTIVE ACTION FOR PHANTOM REVIEWS: IF review findings don''t cite specific\n  files/lines THEN review is incomplete; IF review claims excellence but provides\n  no code examples THEN review may be phantom; IF files reviewed do not exist THEN\n  this is phantom review - create BUG ticket and revert to New; ALL review findings\n  MUST reference verifiable code locations.'\ndefinitions_of_done:\n- target_statuses:\n  - Correction\n  - Closed\n  dod_criteria:\n  - Studied related documentation from the `.ept/docs/document_index.md`\n  - Critical thinking applied\n  - All required questions asked using the Question sub-tasks and all these sub-tasks\n    are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)\n  - Code/design reviewed thoroughly\n  - 'MANDATORY: Specific file paths and line numbers cited in review findings'\n  - 'MANDATORY: Review findings reference actual code snippets (not generic descriptions)'\n  - Review findings documented as a comment on this ticket\n  - Decision made (approve or request corrections)\n\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "get",
+        "CODEREVIEW-075",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "ticket_id: CODEREVIEW-075\ncurrent_status: Open\nstatus_description: Review in progress by reviewer.\nstatus_goal: Perform the review and decide whether corrections are needed or approval\n  can be granted.\nstatus_responsible_roles:\n- Reviewer (Architect/Business Analyst)\nallowed_transitions:\n- Correction\n- Closed\n- Blocked\n- Canceled\n- Rejected\n- Duplicated\ninstructions:\n- Review code/design and log findings as a comment on this ticket.\n- Apply critical thinking.\n- IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md`\n  THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks\n  link and a Question link from it to this ticket, set status to Blocked until resolved,\n  and record blocker ID and prior status as a comment on this ticket.\n- 'Review answers from linked QUESTION tickets: Query Question links on this ticket.\n  For each linked QUESTION ticket found: retrieve it, read its Answer section and\n  comments, and incorporate findings/decisions into current work.'\n- IF review requires changes THEN move to Correction and assign to implementer.\n- IF review approved THEN move to Closed and return Development sub-task to its prior\n  status.\n- 'CORRECTIVE ACTION FOR PHANTOM REVIEWS: IF review findings don''t cite specific\n  files/lines THEN review is incomplete; IF review claims excellence but provides\n  no code examples THEN review may be phantom; IF files reviewed do not exist THEN\n  this is phantom review - create BUG ticket and revert to New; ALL review findings\n  MUST reference verifiable code locations.'\ndefinitions_of_done:\n- target_statuses:\n  - Correction\n  - Closed\n  dod_criteria:\n  - Studied related documentation from the `.ept/docs/document_index.md`\n  - Critical thinking applied\n  - All required questions asked using the Question sub-tasks and all these sub-tasks\n    are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)\n  - Code/design reviewed thoroughly\n  - 'MANDATORY: Specific file paths and line numbers cited in review findings'\n  - 'MANDATORY: Review findings reference actual code snippets (not generic descriptions)'\n  - Review findings documented as a comment on this ticket\n  - Decision made (approve or request corrections)\n\nTicket Details:\n================================================================================\nid             : CODEREVIEW-075\ntype           : codereview\ntitle          : DEV-STORY-071 codereview identity and membership lifecycle REST contracts\nstatus         : Open\npriority       : High\nassignee       : architect\nreporter       : tech-lead\nparent         : DEV-STORY-071\naddressed_to   : \npath           : DEV-STORY-071/CODEREVIEW-075\ncreated        : 2026-10-07\nupdated        : 2026-10-27\nestimated_hours: 12\ncontent:\n# DEV-STORY-071 codereview\n\n## Owned scope\n27 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 7f314edf2faf396d384980dcb18a2941547d48aa1dd6ec6c39a79fb68f8f6d22.\nResources: v2.admin.Group, v2.admin.GroupMember, v2.admin.GroupMembership, v2.admin.GroupMembershipExpirationPolicy, v2.admin.GroupProviderInfo, v2.admin.User, v2.admin.UserProviderInfo.\nCore069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/071/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_071.py.\n\n## Acceptance criteria\nIndependent architect reviews every owned method against frozen docs/source/API references, full corrected models/errors and actual runnable examples. Record exact per-operation findings and dispositions. Do not review own content; wait paired DEV Resolved.\nEvery operation has locally available signature/HTTP/body/typed inputs/results/nested models/errors/effects/availability/modes and bounded recovery. Every example supplies synthetic or precisely described tenant values, actual SDK call, request/response/error assertions. Use actual asynchronous return signatures, not inferred Awaitable types. Keep source silence explicit with authorized tenant verification; invent no universal scope or idempotency guarantee. Independently reconcile full model/error closure;3242 is not a cap. Owned capability workflow covers exact resources in this partition: identity/access and supported reads/mutations, version-specific availability, finite iteration, transport lifetimes, denied operations and uncertain-write effect reconciliation. Admin071 and072 share a namespace but own disjoint resources and never change central service indexes. Dataset074 separates v1/v2 branches, schemas, files and transaction operations; build075 separates schedule/trigger/build completion, checkpoint and health-report state; v1 Ontology077 stays distinct from v2 schema/object/Action contracts.\n\n## Related documentation\nBA-DES-015/SA-DES-014 revision2 and closed owner approvals QUESTION179/182. Indexed FEATURE-015-rest-authoring-contract.md and exact partition JSON. Primary SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf/OpenAPI1.1697.0. Supplement SDK silence with relevant official API references while authoring. Preserve351 CLI operations and other authors, Apache2.0 copyright/license/NOTICE. No installation/copy/internal reader links. Final independent REST acceptance093, GitHub-only integrated publication070.\n\n## Estimate and readiness\n12 contributor hours; total72h candidate8points within80h two-week budget with reviewer/QA slots. Firstthree operation/example/constraint fixtures measured before scaling; split exact exclusive IDs if capacity exceeded. No implementation before DESIGNClosed, independent lead reviews and parentDevelopmentDoD. No infrastructure change; no DEVOPS child because070 owns release.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "link",
+        "create",
+        "CODEREVIEW-075",
+        "DEV-074",
+        "Blocks",
+        "--author",
+        "python-developer",
+        "--comment",
+        "Resolved DEV waits for independent architect review before closure."
+      ],
+      "exit_code": 0,
+      "stdout": "Created link: LINK-02040\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "link",
+        "list",
+        "DEV-074",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "\nFound 4 link(s) for DEV-074:\n====================================================================================================\nLink ID         Source             Target          Type            Role\n----------------------------------------------------------------------------------------------------\nLINK-01790      DEV-STORY-071   -> DEV-074         Contains        (Contains)\nLINK-01795      DEV-074         -> CODEREVIEW-075  RelatesTo       (Relates To)\nLINK-01796      CODEREVIEW-075  -> DEV-074         RelatesTo       (Relates To)\nLINK-02040      CODEREVIEW-075  -> DEV-074         Blocks          (Blocks)\n",
+      "stderr": ""
+    }
+  ],
+  "compiled_examples": 27,
+  "compile_elapsed_seconds": 1.9219999999913853,
+  "assets": {
+    "references/rest/contracts/v2/admin/Group/create.md": "38a47f2913b70c3a5b1b246a8f0c3264ecfb7b24d0a7468fe63c47887f542947",
+    "references/rest/v2/admin/Group.md": "4827f012e45b8c3340675e3d2aede80c36953bd204583e957e2d2737368934f2",
+    "examples/rest/071/v2/admin/Group/create.py": "e11015c71ba7aed4203a8947607ea45db9490c5c62245c861b2d262570563a96",
+    "references/rest/contracts/v2/admin/Group/delete.md": "695e23ee4572ff2542c062ba15911a21b6ac9dfef4a45a48b2b02d45897187b5",
+    "examples/rest/071/v2/admin/Group/delete.py": "e05c5d7caee65398aebb3ab6c4bb5086a1d1e035b6df0e96e62a25e6210f389a",
+    "references/rest/contracts/v2/admin/Group/get.md": "1017d31946857f3ecbb17046a50384a8ba5f86344b4b3dd99e6dc472807a8781",
+    "examples/rest/071/v2/admin/Group/get.py": "7fe58686a1079d451d23e1e425f0fdff91cf6e752b4c1fc4356c5be5d68e2ac8",
+    "references/rest/contracts/v2/admin/Group/get_batch.md": "1a700ae9f425c16fb823fd65d51ca31e5e839726c8067b0a95072b5db19578c1",
+    "examples/rest/071/v2/admin/Group/get_batch.py": "e010ce2befcd4df593bbc7215188991001240382cfbba4c2a7e5b024a87d24cb",
+    "references/rest/contracts/v2/admin/Group/list.md": "63c4ece981f4f5bfb9a16b8aa63763696a9abdc2e634550ec08fdc0698bf6e8b",
+    "examples/rest/071/v2/admin/Group/list.py": "77826820f2da63292528ce73b44b075636d5c5c975b22f4567a8da2c9903ff7d",
+    "references/rest/contracts/v2/admin/Group/list_current.md": "717268c7266dbf89216bbf16224946b9901a8274e141310f50e4c62b9c6fa372",
+    "examples/rest/071/v2/admin/Group/list_current.py": "892bfc1ca5189dc230c113b9ee3a1e54125731cd63b2b92b8a89e804a8ebebed",
+    "references/rest/contracts/v2/admin/Group/replace.md": "ca5f45e71a241c285e7ed861385673d32b619442a2984d2793f36b86acb64ced",
+    "examples/rest/071/v2/admin/Group/replace.py": "1ba957962eabaa838e302afb86100392b122723baf1fd029a6392d49a2b421a4",
+    "references/rest/contracts/v2/admin/Group/search.md": "c2400ff51b98bfbb9c11424d40f6e75286dcb4d14fbec3357409e8501f967081",
+    "references/rest/v2/admin/Group-2.md": "a8a45a08fab40e3d0241a2b6ed564c007c5c5b956270ef2179ba9dcf3fd739b7",
+    "examples/rest/071/v2/admin/Group/search.py": "63279f5ea7a135a303755751a6d51c181f0c066f43c07c9611f3107ec31552e4",
+    "references/rest/contracts/v2/admin/GroupMember/add.md": "c74fd2d7b0a89f7e0172638e9b56819cb7d22665d71e2aa53ced2a538ac13e71",
+    "references/rest/v2/admin/GroupMember.md": "3b3678dfd8c94474c27512c6ee2b97a0a38ac574b0d26a9ef25a60641c7f6170",
+    "examples/rest/071/v2/admin/GroupMember/add.py": "52128d7ba10b150e7a48fbddd06886399422d61856ce58beff23188922b49a02",
+    "references/rest/contracts/v2/admin/GroupMember/list.md": "a9928d4f84c39a7c3869c95b0b12da55bae57907d28c95a1653f88b251a0b3be",
+    "examples/rest/071/v2/admin/GroupMember/list.py": "c553a5b4e466d9934569ed1c464904a796906e6bf0a5d3eca7dd97592c09355c",
+    "references/rest/contracts/v2/admin/GroupMember/remove.md": "689699b053d96fd2c142fcba02093ac742a5d027246449793343458a62467646",
+    "examples/rest/071/v2/admin/GroupMember/remove.py": "6d35e395c11f7ca66cc520f4f52c3c16369382b41491d920f7062ff79bf70be6",
+    "references/rest/contracts/v2/admin/GroupMembership/list.md": "1b4af29f1bef3764a4dc185b85633f08494b610e92d5373293a7c3cff74967b3",
+    "references/rest/v2/admin/GroupMembership.md": "065be56a23cfd69b09324b52bdaac5bfe3a944f5d98876b3119c0bfa36255cd0",
+    "examples/rest/071/v2/admin/GroupMembership/list.py": "3401222d98792f3057780fe7f06b8224505c169c77eaf8679ab56ca6b0aee6dc",
+    "references/rest/contracts/v2/admin/GroupMembershipExpirationPolicy/get.md": "45a7f0399e171082fa9e314fe6c14330745edf45629866890ad7aa5050ec75d3",
+    "references/rest/v2/admin/GroupMembershipExpirationPolicy.md": "51fdfcb57d900cb3d741cc78363590f88ccd50b9fbd5c13b73adcee52627297e",
+    "examples/rest/071/v2/admin/GroupMembershipExpirationPolicy/get.py": "f4787a2a8e1dfa0dc2f73641365afb43bd1eb210993d76bfb7d35fb030d4c430",
+    "references/rest/contracts/v2/admin/GroupMembershipExpirationPolicy/replace.md": "67ea57de550e241ec57e5f8b43ad816dc1310af33e8dee5bb1fb0d84bfa3a9a3",
+    "examples/rest/071/v2/admin/GroupMembershipExpirationPolicy/replace.py": "2dd7ac4bb4f870235a4919c5567de140e7d1a6e50f612fca97f67ffdfcc8b75c",
+    "references/rest/contracts/v2/admin/GroupProviderInfo/get.md": "e909ad4da496cf7f103b546e3ce82e54f26860dc5ace13d4c98955bd0dce0213",
+    "references/rest/v2/admin/GroupProviderInfo.md": "1de4424257e3c2233ae88d7f5623f3147c504d435d69b5620ab98cecc5fa8352",
+    "examples/rest/071/v2/admin/GroupProviderInfo/get.py": "72e2e74f0537ae07bc6451dbc06dd1aa3a760236a712faf0f9bd78629bef297e",
+    "references/rest/contracts/v2/admin/GroupProviderInfo/replace.md": "2bbf63eb6937f7573382f9f1216261145d8b04e65c7d7e5296d76dd6f3d9170f",
+    "examples/rest/071/v2/admin/GroupProviderInfo/replace.py": "48227aa4a5746998c2a1eae4a1905526ef489e29b117fc5ac575cf3f161478d6",
+    "references/rest/contracts/v2/admin/User/delete.md": "ab03f6abfe67bc8de512c272795b52cb704de10207f97b6368675831864ab4d2",
+    "references/rest/v2/admin/User.md": "6f24a137f05bf6939a9cdb4445ba0bad251d61994314205cf69a20a14200c342",
+    "examples/rest/071/v2/admin/User/delete.py": "6d01525099e7a74c47752baa71017b1a0c8217fd2c18869097f351fd3820e684",
+    "references/rest/contracts/v2/admin/User/get.md": "a501d928b84670ef5678f21768affb59e6e44e68cad3bc6b5ec8e30058e631d1",
+    "examples/rest/071/v2/admin/User/get.py": "c3dfde80be21684d7f5fc7a0adffcaefa352decb82cd9a0efaef4d61642c4553",
+    "references/rest/contracts/v2/admin/User/get_batch.md": "97889caeba8c79e2562ecc0416805df91317e544b63eaef91080426695400147",
+    "examples/rest/071/v2/admin/User/get_batch.py": "1edfc562b5ce4ce387bf01c07f61a1fe2e4e8b286b2bb24cf0a87502bff72e09",
+    "references/rest/contracts/v2/admin/User/get_current.md": "a0bf6a941c7fcef7b98772f8efc90f8bece9ea262aa7722d7f344b460ffeda51",
+    "examples/rest/071/v2/admin/User/get_current.py": "2380b82207a0769216f01a6449a544021b117b59d3b56430e66491a4bd30e603",
+    "references/rest/contracts/v2/admin/User/get_markings.md": "86a8f719a7004e1b851d80aaa84ada540f0f12c3cceb19b4a1eedc434c3de1ae",
+    "examples/rest/071/v2/admin/User/get_markings.py": "ab3caab80c70efb0779f0f7f8af4369297efb99c1cbe7105e1981eccadcac7af",
+    "references/rest/contracts/v2/admin/User/list.md": "a26dcd4852979f502e84efac5064dd677a335472e7a41cef8cf220d9aeb1f2fa",
+    "examples/rest/071/v2/admin/User/list.py": "32fd8534e68895512ac93aaa66116735124c7f7063d41aebe764421ea0869b65",
+    "references/rest/contracts/v2/admin/User/profile_picture.md": "17e7b3fa4a650d2d5cda111473fdc25119b36bcf28377f08e530cead0b5bf956",
+    "examples/rest/071/v2/admin/User/profile_picture.py": "30bfc19ee35ec0444aebde39cfcf6981cd19740ab26a698249d09d511e492c2b",
+    "references/rest/contracts/v2/admin/User/revoke_all_tokens.md": "8bd8270251a942311e6c82fbe962d638cc77994037284436ab43bb32698a3323",
+    "references/rest/v2/admin/User-2.md": "ffe3cb7a255e4eb293ce6bb0300fbfbf6314ce1a6c468bdfaad607e4d290c8b3",
+    "examples/rest/071/v2/admin/User/revoke_all_tokens.py": "b3d274dcaebe16ed47f4c77f6259550bda39e3470677b5785965e8f18c0614c3",
+    "references/rest/contracts/v2/admin/User/search.md": "fa2b918fcb5a27950529b0aeda7f4469b1e856405270237c6a6c9159300ed6af",
+    "examples/rest/071/v2/admin/User/search.py": "02897ef508f89028aebf9b6d14ce8316dc2c084a9489b8ed9df5c52b02a7e593",
+    "references/rest/contracts/v2/admin/UserProviderInfo/get.md": "013030384167f6caf70951b1102c63c025e2b7e2ebad8cbbcea534ab06f12a96",
+    "references/rest/v2/admin/UserProviderInfo.md": "11dd530ed5502f70c7a9a8e1f231e70ee6a217e7ed399afd4213a2aec8054b62",
+    "examples/rest/071/v2/admin/UserProviderInfo/get.py": "8df815fb40e18dc0db7073867bcc82a33ac9bb0d192e4f0b6cde4173c754f45c",
+    "references/rest/contracts/v2/admin/UserProviderInfo/replace.md": "f0bc4ba308348e26b7d6cbe4cbab8b53fc7c893bdb884c9ce76b772092f62b85",
+    "examples/rest/071/v2/admin/UserProviderInfo/replace.py": "fba6caf5f2adaf8a344deed122435d1b30d0ab911050092667c0f6ddfcd9c670"
+  },
+  "test_sha256": "291961bdb7dc815eabbfdc365856bf31d0d3e6244dba020fb1ff624fc7b1fc65",
+  "independent_qa_sha256": "9a96e3f17cdcc5e5c57cd24fed53efe4bc7ae3c887f6cf8937f63058066fd831",
+  "review_blocker_creation": "Created link: LINK-02040\n",
+  "dev_links_after": "\nFound 4 link(s) for DEV-074:\n====================================================================================================\nLink ID         Source             Target          Type            Role\n----------------------------------------------------------------------------------------------------\nLINK-01790      DEV-STORY-071   -> DEV-074         Contains        (Contains)\nLINK-01795      DEV-074         -> CODEREVIEW-075  RelatesTo       (Relates To)\nLINK-01796      CODEREVIEW-075  -> DEV-074         RelatesTo       (Relates To)\nLINK-02040      CODEREVIEW-075  -> DEV-074         Blocks          (Blocks)\n",
+  "writer_done": true,
+  "finished_at_utc": "2026-10-27T21:34:16.277771+00:00"
+}

@@ -1,0 +1,25 @@
+{
+  "ticket": "BUG-SUB-025",
+  "status": "Closed",
+  "resolution": "Done",
+  "acceptance_commit": "e44b97ed51f438ea495096287565cd064c77b150",
+  "acceptance_sha256": "6acb2c856d19e3478879cb984b9ac62f2352b5b9ddd33f0044f58fa2ac54cae9",
+  "independent_qa_agent": "/root/j12_independent_grade_20261028",
+  "removed_blocker": "LINK-01894",
+  "preserved_link": "LINK-01893",
+  "artifacts": [
+    {
+      "path": "maintainer/evidence/j12-closure-20261029/feature015_j12_qa_closure_20261028.json",
+      "sha256": "3ea1b4625c0cdf1d0cde52c47d850b3b4c7d4e8db777199e110a01e15e671137"
+    },
+    {
+      "path": "maintainer/evidence/j12-closure-20261029/BUG-SUB-025-closure-20261028.txt",
+      "sha256": "30fcd3d04a8f776cb12f0e0c1a6a10c9d30b21876899ad7067c390e3bca5d65f"
+    },
+    {
+      "path": "maintainer/evidence/j12-closure-20261029/feature015_j12_developer_resolution_20261028.json",
+      "sha256": "af11c7aeac283ab56d4eda8e6f8411b6c2a07dfc45bd7fae3c3603c6f770dd25"
+    }
+  ],
+  "scope": "J12 defect closure only. REST075 formal execution and overall feature acceptance remain pending."
+}

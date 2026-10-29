@@ -1,0 +1,403 @@
+{
+  "author_agent": "/root/rest075_author_recover_20261028",
+  "observed_at_utc": "2026-10-28T07:45:39.912472+00:00",
+  "boundary": "Author verification only. Separate source/semantic/unit review and formal TESTEXEC acceptance remain required. No tenant request or server scheduling/filter result is claimed.",
+  "commands": [
+    {
+      "command": [
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_qa_env\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\tests\\test_offline_rest_075.py",
+        "-q",
+        "--basetemp=E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest075_author_report_basetemp_20261028",
+        "-o",
+        "cache_dir=E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest075_recover_pytest_cache_20261028"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.1081319999939296,
+      "stdout": "........................................................................ [ 83%]\n..............                                                           [100%]\n86 passed in 0.53s\n",
+      "stderr": "D:\\app\\Python\\Lib\\site-packages\\requests\\__init__.py:113: RequestsDependencyWarning: urllib3 (2.3.0) or chardet (7.4.0.post2)/charset_normalizer (3.4.1) doesn't match a supported version!\n  warnings.warn(\nD:\\app\\Python\\Lib\\site-packages\\pytest_asyncio\\plugin.py:247: PytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\nThe event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n"
+    },
+    {
+      "command": [
+        "ruff",
+        "check",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\tests\\test_offline_rest_075.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.018097499996656552,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration",
+        "-c",
+        "core.whitespace=cr-at-eol",
+        "diff",
+        "--check",
+        "--",
+        ".agents\\skills\\pal-found-dev\\examples\\rest\\075\\v2\\data_health\\Check\\replace.py",
+        ".agents\\skills\\pal-found-dev\\examples\\rest\\075\\v2\\orchestration\\Schedule\\create.py",
+        ".agents\\skills\\pal-found-dev\\examples\\rest\\075\\v2\\orchestration\\Schedule\\replace.py",
+        ".agents\\skills\\pal-found-dev\\examples\\rest\\075\\v2\\checkpoints\\Record\\get_batch.py",
+        ".agents\\skills\\pal-found-dev\\examples\\rest\\075\\v2\\orchestration\\Build\\get_batch.py",
+        ".agents\\skills\\pal-found-dev\\examples\\rest\\075\\v2\\orchestration\\Job\\get_batch.py",
+        ".agents\\skills\\pal-found-dev\\examples\\rest\\075\\v2\\orchestration\\Schedule\\get_batch.py",
+        ".agents\\skills\\pal-found-dev\\examples\\rest\\075\\v2\\orchestration\\Build\\search.py",
+        "tests\\test_offline_rest_075.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.022783099993830547,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "operations": [
+    {
+      "id": "v2.checkpoints.Record.get",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\checkpoints\\record.py",
+      "source_sha256": "7e24a42aeca2358ee592164dee243ff1c7b362453d98a85e10e150cf876bee48",
+      "example": "examples/rest/075/v2/checkpoints/Record/get.py",
+      "example_sha256": "9aa43c25b40c73404ecdc11d92d417c2fc98dfb1017eab92ffdd6e2d4e10321d",
+      "declared_errors": 3,
+      "elapsed_seconds": 0.007968899997649714
+    },
+    {
+      "id": "v2.checkpoints.Record.get_batch",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\checkpoints\\record.py",
+      "source_sha256": "7e24a42aeca2358ee592164dee243ff1c7b362453d98a85e10e150cf876bee48",
+      "example": "examples/rest/075/v2/checkpoints/Record/get_batch.py",
+      "example_sha256": "363c78fc9e26f754d13c7bfd14cd9d814e59eb6b9edca716f43710ff2c80d656",
+      "declared_errors": 0,
+      "elapsed_seconds": 0.0014560999989043921
+    },
+    {
+      "id": "v2.checkpoints.Record.search",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\checkpoints\\record.py",
+      "source_sha256": "7e24a42aeca2358ee592164dee243ff1c7b362453d98a85e10e150cf876bee48",
+      "example": "examples/rest/075/v2/checkpoints/Record/search.py",
+      "example_sha256": "06fca9287eecf0026c7fd41f6bce86a3ffedabc4aa01dbd980af2b7e9d1bd461",
+      "declared_errors": 1,
+      "elapsed_seconds": 0.0044590000179596245
+    },
+    {
+      "id": "v2.data_health.Check.create",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\data_health\\check.py",
+      "source_sha256": "e85ad6bedee89d011cb03d78412d6d0056787efa0a2fdae6df8f648e1c07aca9",
+      "example": "examples/rest/075/v2/data_health/Check/create.py",
+      "example_sha256": "0a553ad34a280222455c0668fc3ecdadb5338cff12e09701e70a165849698748",
+      "declared_errors": 8,
+      "elapsed_seconds": 0.011733899998944253
+    },
+    {
+      "id": "v2.data_health.Check.delete",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\data_health\\check.py",
+      "source_sha256": "e85ad6bedee89d011cb03d78412d6d0056787efa0a2fdae6df8f648e1c07aca9",
+      "example": "examples/rest/075/v2/data_health/Check/delete.py",
+      "example_sha256": "511607036eb1b621718369fc2d23ebf67079c1745b870504fd5749176e968570",
+      "declared_errors": 2,
+      "elapsed_seconds": 0.0015395999944303185
+    },
+    {
+      "id": "v2.data_health.Check.get",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\data_health\\check.py",
+      "source_sha256": "e85ad6bedee89d011cb03d78412d6d0056787efa0a2fdae6df8f648e1c07aca9",
+      "example": "examples/rest/075/v2/data_health/Check/get.py",
+      "example_sha256": "097b03815236ac4ca4a897cfbc061b8556856a97cf50279c4b7600a7eecac2ed",
+      "declared_errors": 2,
+      "elapsed_seconds": 0.0015481000009458512
+    },
+    {
+      "id": "v2.data_health.Check.replace",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\data_health\\check.py",
+      "source_sha256": "e85ad6bedee89d011cb03d78412d6d0056787efa0a2fdae6df8f648e1c07aca9",
+      "example": "examples/rest/075/v2/data_health/Check/replace.py",
+      "example_sha256": "fb5043ef102804ebd32412344c185d0bfed6216006fa535ec8b3c25a22a8a2cc",
+      "declared_errors": 9,
+      "elapsed_seconds": 0.008311400015372783
+    },
+    {
+      "id": "v2.data_health.CheckReport.get",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\data_health\\check_report.py",
+      "source_sha256": "08d6d22cc463a01b69a44e943b47fb024e316feac78bd06e51ccb05a6f83bd31",
+      "example": "examples/rest/075/v2/data_health/CheckReport/get.py",
+      "example_sha256": "2ec4d610d8f232acb06b917fdef7eaec4d0734a27cf54a2782dcb9f9a4a580dd",
+      "declared_errors": 2,
+      "elapsed_seconds": 0.002407299994956702
+    },
+    {
+      "id": "v2.data_health.CheckReport.get_latest",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\data_health\\check_report.py",
+      "source_sha256": "08d6d22cc463a01b69a44e943b47fb024e316feac78bd06e51ccb05a6f83bd31",
+      "example": "examples/rest/075/v2/data_health/CheckReport/get_latest.py",
+      "example_sha256": "7bc6de158dc65600db71568a548ef3e4d2b95df33f3508a3ced2fcc78b6fb23e",
+      "declared_errors": 3,
+      "elapsed_seconds": 0.002549099997850135
+    },
+    {
+      "id": "v2.orchestration.Build.cancel",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\build.py",
+      "source_sha256": "61407c978e0e5913e13514df30c625db79a3d0b05e5bf100694aea8df3d0873d",
+      "example": "examples/rest/075/v2/orchestration/Build/cancel.py",
+      "example_sha256": "ec30252aee89a2cd50441703b68e260f393973f9fe349e5543751102364df602",
+      "declared_errors": 1,
+      "elapsed_seconds": 0.001058900001225993
+    },
+    {
+      "id": "v2.orchestration.Build.create",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\build.py",
+      "source_sha256": "61407c978e0e5913e13514df30c625db79a3d0b05e5bf100694aea8df3d0873d",
+      "example": "examples/rest/075/v2/orchestration/Build/create.py",
+      "example_sha256": "12f6d437ce687d49e7aa0d5c366eab34cfc60a278b501832e1e89fff7712521b",
+      "declared_errors": 1,
+      "elapsed_seconds": 0.0026350000116508454
+    },
+    {
+      "id": "v2.orchestration.Build.get",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\build.py",
+      "source_sha256": "61407c978e0e5913e13514df30c625db79a3d0b05e5bf100694aea8df3d0873d",
+      "example": "examples/rest/075/v2/orchestration/Build/get.py",
+      "example_sha256": "0887749dee0350c212576926c558abbafe992edd0fddd1c253f038cb460f5120",
+      "declared_errors": 1,
+      "elapsed_seconds": 0.0011201000015717
+    },
+    {
+      "id": "v2.orchestration.Build.get_batch",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\build.py",
+      "source_sha256": "61407c978e0e5913e13514df30c625db79a3d0b05e5bf100694aea8df3d0873d",
+      "example": "examples/rest/075/v2/orchestration/Build/get_batch.py",
+      "example_sha256": "de3140e108072634d0380835b610062b2fec61e7f5e76aa1ed7ab310d99ea5e7",
+      "declared_errors": 0,
+      "elapsed_seconds": 0.0007533000025432557
+    },
+    {
+      "id": "v2.orchestration.Build.jobs",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\build.py",
+      "source_sha256": "61407c978e0e5913e13514df30c625db79a3d0b05e5bf100694aea8df3d0873d",
+      "example": "examples/rest/075/v2/orchestration/Build/jobs.py",
+      "example_sha256": "81fef337496d044db9cc6a50fe587e1ed0670a20492194e1a34005081a85055f",
+      "declared_errors": 0,
+      "elapsed_seconds": 0.0018364999850746244
+    },
+    {
+      "id": "v2.orchestration.Build.search",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\build.py",
+      "source_sha256": "61407c978e0e5913e13514df30c625db79a3d0b05e5bf100694aea8df3d0873d",
+      "example": "examples/rest/075/v2/orchestration/Build/search.py",
+      "example_sha256": "9972bd0b1b757b06fd09062e023a80a64cec4f3a1dde6a9e20b57ee4765db353",
+      "declared_errors": 1,
+      "elapsed_seconds": 0.0014069000026211143
+    },
+    {
+      "id": "v2.orchestration.Job.get",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\job.py",
+      "source_sha256": "7b791264b8f5abba4e4034016cf140df661aa2478484e692e896820a880da5b6",
+      "example": "examples/rest/075/v2/orchestration/Job/get.py",
+      "example_sha256": "60dcc519a9483130f2dfe668b282e85762660799302bea552c66129b3f64f23c",
+      "declared_errors": 1,
+      "elapsed_seconds": 0.0010123999963980168
+    },
+    {
+      "id": "v2.orchestration.Job.get_batch",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\job.py",
+      "source_sha256": "7b791264b8f5abba4e4034016cf140df661aa2478484e692e896820a880da5b6",
+      "example": "examples/rest/075/v2/orchestration/Job/get_batch.py",
+      "example_sha256": "9ce16e9800ef3e6e6fca700395f88b9baf1d9cbc0b010db570ffd07298c144f3",
+      "declared_errors": 0,
+      "elapsed_seconds": 0.0008611000084783882
+    },
+    {
+      "id": "v2.orchestration.Schedule.create",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\schedule.py",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "example": "examples/rest/075/v2/orchestration/Schedule/create.py",
+      "example_sha256": "e68960b2f2fea3c9d88ae80ef3e3cd1967b436be968b19b7ddb0f729d7843964",
+      "declared_errors": 1,
+      "elapsed_seconds": 0.00500930001726374
+    },
+    {
+      "id": "v2.orchestration.Schedule.delete",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\schedule.py",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "example": "examples/rest/075/v2/orchestration/Schedule/delete.py",
+      "example_sha256": "f51417eeb474833c2b5fa4d388b6115abd41aaf78be5494d0fdd2a700afbcae5",
+      "declared_errors": 1,
+      "elapsed_seconds": 0.000977000017883256
+    },
+    {
+      "id": "v2.orchestration.Schedule.get",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\schedule.py",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "example": "examples/rest/075/v2/orchestration/Schedule/get.py",
+      "example_sha256": "dd1d78b26a0d2a015cf7ebad8a4c9fa4d5611d0dc4afbab81b1f17c419596b7a",
+      "declared_errors": 1,
+      "elapsed_seconds": 0.0011909999884665012
+    },
+    {
+      "id": "v2.orchestration.Schedule.get_affected_resources",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\schedule.py",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "example": "examples/rest/075/v2/orchestration/Schedule/get_affected_resources.py",
+      "example_sha256": "fdba8916e359fba41c22b181e64105d001cc8163225bf9470224e18081f08c11",
+      "declared_errors": 1,
+      "elapsed_seconds": 0.0013537999766413122
+    },
+    {
+      "id": "v2.orchestration.Schedule.get_batch",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\schedule.py",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "example": "examples/rest/075/v2/orchestration/Schedule/get_batch.py",
+      "example_sha256": "2db86ff00b5630a771c36fcd82ceb1b2a383163b8b352d434eb48f679e465464",
+      "declared_errors": 0,
+      "elapsed_seconds": 0.0009407000034116209
+    },
+    {
+      "id": "v2.orchestration.Schedule.pause",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\schedule.py",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "example": "examples/rest/075/v2/orchestration/Schedule/pause.py",
+      "example_sha256": "9c4daebe71e7f0f2dca001ff072941c75887d86082cba8f42ecd756fca184de8",
+      "declared_errors": 1,
+      "elapsed_seconds": 0.001049600017722696
+    },
+    {
+      "id": "v2.orchestration.Schedule.replace",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\schedule.py",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "example": "examples/rest/075/v2/orchestration/Schedule/replace.py",
+      "example_sha256": "e193d22013869412f46557715d33663972dc8486f26c0bab35913e66afef0cfd",
+      "declared_errors": 1,
+      "elapsed_seconds": 0.003027500002644956
+    },
+    {
+      "id": "v2.orchestration.Schedule.run",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\schedule.py",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "example": "examples/rest/075/v2/orchestration/Schedule/run.py",
+      "example_sha256": "ed644a84382fe2165d16e321fe716d3ec8b0b34f548422ff5c5e80164eb6ef3b",
+      "declared_errors": 1,
+      "elapsed_seconds": 0.0018974000122398138
+    },
+    {
+      "id": "v2.orchestration.Schedule.runs",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\schedule.py",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "example": "examples/rest/075/v2/orchestration/Schedule/runs.py",
+      "example_sha256": "1cee932b7db13c96eb465764b4a870cf4b9b94fa9662c391f7120a5a4a75ce74",
+      "declared_errors": 0,
+      "elapsed_seconds": 0.0007967000128701329
+    },
+    {
+      "id": "v2.orchestration.Schedule.unpause",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\schedule.py",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "example": "examples/rest/075/v2/orchestration/Schedule/unpause.py",
+      "example_sha256": "4dac4552b436813300a409686af048e86398fe88654e8ae5ca97caeecfe9b864",
+      "declared_errors": 1,
+      "elapsed_seconds": 0.0009711000020615757
+    },
+    {
+      "id": "v2.orchestration.ScheduleVersion.get",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\schedule_version.py",
+      "source_sha256": "59b5ef850327e727b4d728781f15cf80c3949119bd95dd9df95fa38ae4403f7d",
+      "example": "examples/rest/075/v2/orchestration/ScheduleVersion/get.py",
+      "example_sha256": "6ec248dabdaea39b2316956154643e974bfdc54be359685a4fce487d678dfb6b",
+      "declared_errors": 1,
+      "elapsed_seconds": 0.0023381999926641583
+    },
+    {
+      "id": "v2.orchestration.ScheduleVersion.schedule",
+      "verdict": "PASS",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\schedule_version.py",
+      "source_sha256": "59b5ef850327e727b4d728781f15cf80c3949119bd95dd9df95fa38ae4403f7d",
+      "example": "examples/rest/075/v2/orchestration/ScheduleVersion/schedule.py",
+      "example_sha256": "d25324b2582ad52abb01cb2188da6ce258ed3a137ef56a7d61ab90f1318393f1",
+      "declared_errors": 0,
+      "elapsed_seconds": 0.0005176999839022756
+    }
+  ],
+  "owned_files": [
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/075/v2/data_health/Check/replace.py",
+      "sha256": "fb5043ef102804ebd32412344c185d0bfed6216006fa535ec8b3c25a22a8a2cc"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/075/v2/orchestration/Schedule/create.py",
+      "sha256": "e68960b2f2fea3c9d88ae80ef3e3cd1967b436be968b19b7ddb0f729d7843964"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/075/v2/orchestration/Schedule/replace.py",
+      "sha256": "e193d22013869412f46557715d33663972dc8486f26c0bab35913e66afef0cfd"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/075/v2/checkpoints/Record/get_batch.py",
+      "sha256": "363c78fc9e26f754d13c7bfd14cd9d814e59eb6b9edca716f43710ff2c80d656"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/075/v2/orchestration/Build/get_batch.py",
+      "sha256": "de3140e108072634d0380835b610062b2fec61e7f5e76aa1ed7ab310d99ea5e7"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/075/v2/orchestration/Job/get_batch.py",
+      "sha256": "9ce16e9800ef3e6e6fca700395f88b9baf1d9cbc0b010db570ffd07298c144f3"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/075/v2/orchestration/Schedule/get_batch.py",
+      "sha256": "2db86ff00b5630a771c36fcd82ceb1b2a383163b8b352d434eb48f679e465464"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/075/v2/orchestration/Build/search.py",
+      "sha256": "9972bd0b1b757b06fd09062e023a80a64cec4f3a1dde6a9e20b57ee4765db353"
+    },
+    {
+      "path": "tests/test_offline_rest_075.py",
+      "sha256": "94f3ad41acaf9f20398ce2125624b430d47ea27a7a332652ec44405e5f97c880"
+    }
+  ],
+  "original_inventory": {
+    "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest075_originals_20261028\\manifest.json",
+    "sha256": "c145da7cc5cdbbe7ae380945ffcb78a0aaf569ff309b19f89fc5c49df0c8363e"
+  },
+  "initial_test_result": {
+    "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest075_author_initial_pytest.log",
+    "sha256": "7a60d7cd9d75dca98f726317e572bdf01a0653251dce293800414fe14b10bf5b",
+    "scope": "Prior author draft against original eight examples: 20 failed,65 passed. Preserved verbatim; not all failures were independent product defects."
+  },
+  "verdict": "AUTHOR_VERIFICATION_PASS",
+  "source_bound_operations": 29,
+  "fixture_declared_error_cases": 44,
+  "network_guard": "socket connect/connect_ex and socket DNS helpers denied for all29 executable fixtures; dedicated suite also denies real HTTP transports.",
+  "compile_result": "All9 owned Python files compiled to explicitly assigned parent-temp paths."
+}

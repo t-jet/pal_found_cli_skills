@@ -52,7 +52,7 @@ scope that replaces Agent, tool, Ontology or model permissions.
 | [streaming_continue](../../contracts/v2/aip_agents/Session/streaming_continue.md) | Same conversation inputs with optional UUID message/trace IDs; generates Markdown response text as a byte stream. | Bound consumption and reload session content after completion. |
 | [rag_context](../../contracts/v2/aip_agents/Session/rag_context.md) | User input and application-variable values; retrieves configured context before continuation. | Inspect or preprocess it, then supply a compatible context override. |
 | [cancel](../../contracts/v2/aip_agents/Session/cancel.md) | Agent/session RIDs and the exact in-progress streaming message UUID; cancels that exchange. | Close the stream separately and reload content after a race. |
-| [update_title](../../contracts/v2/aip_agents/Session/update_title.md) | Session identity and a title; changes its label for discovery. | Verify the returned title, without treating it as a unique identifier. |
+| [update_title](../../contracts/v2/aip_agents/Session/update_title.md) | Session identity and a title; changes its label for discovery. | Read the session again and verify `metadata.title`; the title is not a unique identifier. |
 | [delete](../../contracts/v2/aip_agents/Session/delete.md) | Agent and session RIDs; removes the conversation from access and listings. | Retain diagnostic IDs before deletion; deletion is not stream cancellation. |
 
 The ordinary `streaming_continue` result in SDK 1.101.0 is `bytes`, not a
@@ -128,7 +128,7 @@ Model generation and real session lifecycle remain separate live checks.
 
 ### blocking_continue
 
-Submit one exchange and wait for the complete Agent response. Check returned exchange identity and content before sending another request.
+Submit one exchange and wait for the complete Agent response. Check its user input and result, including `result.session_trace_id` and `result.interrupted_output`, before sending another request. The returned exchange has no exchange or streaming message ID.
 
 Read the [exact SDK/HTTP contract](../../contracts/v2/aip_agents/Session/blocking_continue.md) for parameters, models, return mode and named errors. Run the [offline SDK fixture](../../../../examples/rest/087/v2/aip_agents/Session/blocking_continue.py) from the skill root. It checks the synthetic request, result and declared errors without contacting Foundry.
 
@@ -158,6 +158,10 @@ Read the [exact SDK/HTTP contract](../../contracts/v2/aip_agents/Session/streami
 
 ### update_title
 
-Set a session display title and verify the returned title. The session RID remains its identity.
+Set a session display title. This operation returns no content; call `get` afterward and verify `metadata.title`. The session RID remains its identity.
 
 Read the [exact SDK/HTTP contract](../../contracts/v2/aip_agents/Session/update_title.md) for parameters, models, return mode and named errors. Run the [offline SDK fixture](../../../../examples/rest/087/v2/aip_agents/Session/update_title.py) from the skill root. It checks the synthetic request, result and declared errors without contacting Foundry.
+
+## Python client route
+
+With a configured `FoundryClient` named `client`, use `client.aip_agents.Agent.Session` for this resource. Each operation below is a method on that resource client; `with_raw_response` and `with_streaming_response` are wrappers available where the linked contract lists them. The offline fixture constructs the resource client directly so it can replace HTTP transport without tenant access.

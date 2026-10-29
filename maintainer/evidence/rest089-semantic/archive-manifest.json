@@ -1,0 +1,17 @@
+{
+  "scope": "Original semantic review harnesses and author manifest; historical temporary paths are retained, not portable entrypoints. Arrow validation uses declared prepared pyarrow23.0.0; CLI runtime dependencies unchanged.",
+  "files": [
+    {
+      "file": "feature015_rest089_semantic_corrections_manifest_20261028.json",
+      "sha256": "d41ec7f4096dcd9c42b26f967d6981a2121a4dfba034eedb65e54b0e74c59944"
+    },
+    {
+      "file": "rest089_current_review_probe_20261028.py",
+      "sha256": "188c1b00ff952fa669ad385bb5dbee6682337649748bb98a9402c0e12bef2445"
+    },
+    {
+      "file": "rest089_semantic_retest_20261029.py",
+      "sha256": "2ca78ed58e4a76651e6b32097a81fd4017262c10a2643aa26d8490f2d9af334d"
+    }
+  ]
+}

@@ -3,7 +3,8 @@
 Datasets hold versioned files, with an optional schema for tabular reads. A transaction changes a
 branch view; a branch is a pointer to transaction history. A View is a separate resource that reads
 a union of backing datasets without storing their files. Most enrollments use `master` as the
-default branch, but omit the branch flag to use the enrollment default.
+default branch. Pass the branch name explicitly for `branch get`, `branch transactions`, and
+`branch delete`.
 
 Platform context: [Palantir
 documentation](https://www.palantir.com/docs/foundry/data-integration/datasets). The behavior below
@@ -39,14 +40,15 @@ example identifiers and configuration values with values from your Foundry enrol
 
 ### branch.get
 
-- **Behavior:** Gets the named branch and its current transaction head. Without `--branch-name`,
-  Foundry selects the dataset's default branch (`master` in most enrollments).
+- **Behavior:** Gets the named branch and its current transaction head.
 - **Before use:** The dataset and selected branch must be readable.
-- **Inputs:** positional `dataset_rid`; required none; optional `--branch-name`.
+- **Inputs:** positional `dataset_rid`; required `--branch-name` for a successful call.
+- **Parameter notes:** The current parser accepts omission, but SDK validation then fails. Supply
+  the actual branch name, including when reading the default branch (`master` in most enrollments).
 - **Result:** `Branch`.
 - **Failure or follow-up:** A missing or inaccessible branch returns an error, except where the SDK
   declares an optional result.
-- **Example:** `pal-found-datasets branch get DATASET_RID`
+- **Example:** `pal-found-datasets branch get DATASET_RID --branch-name master`
 
 ### branch.list
 
@@ -66,11 +68,14 @@ example identifiers and configuration values with values from your Foundry enrol
 - **Behavior:** Get the Transaction history for the given Dataset. When requesting all transactions,
   the endpoint returns them in reverse chronological order.
 - **Before use:** The dataset and selected branch must be readable.
-- **Inputs:** positional `dataset_rid`; required none; optional `--branch-name`,
+- **Inputs:** positional `dataset_rid`; required `--branch-name` for a successful call; optional
   `--page-size`, `--page-token`, and `--batch-pages`.
-- **Parameter notes:** `--branch-name` selects the branch whose transaction history is returned; omit it for the default branch. `--page-size` requests the number of results per page, `--page-token` resumes from prior metadata, and `--batch-pages` limits pages fetched in one call.
+- **Parameter notes:** `--branch-name` selects the branch whose transaction history is returned.
+  The current parser accepts omission, but SDK validation then fails; supply the actual branch
+  name even for the default branch. `--page-size` requests the number of results per page,
+  `--page-token` resumes from prior metadata, and `--batch-pages` limits pages fetched in one call.
 - **Result:** A list of transactions on stdout. Pagination metadata, including any next-page
   token, is written to stderr.
 - **Failure or follow-up:** An empty page is not proof there are no more results; follow the
   returned page token when present.
-- **Example:** `pal-found-datasets branch transactions DATASET_RID`
+- **Example:** `pal-found-datasets branch transactions DATASET_RID --branch-name master`

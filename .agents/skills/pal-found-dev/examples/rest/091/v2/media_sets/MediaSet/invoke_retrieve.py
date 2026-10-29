@@ -7,6 +7,9 @@ import json
 import sys
 import urllib.parse
 import datetime
+import base64
+import struct
+from io import BytesIO
 from pathlib import Path
 
 import httpx
@@ -21,7 +24,8 @@ EXPECTED_PATH = '/api/v2/mediasets/ri.synthetic.main.resource.00000000-0000-0000
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'preview': None}
 EXPECTED_HEADERS = {'ReadToken': None, 'Accept': '*/*'}
-SUCCESS = b'offline synthetic content'
+# A real 200x1 WebP image generated offline; no image package needed to decode bytes.
+SUCCESS = base64.b64decode('UklGRjgAAABXRUJQVlA4ICwAAABwAwCdASrIAAEAPm02mEkkIyKhIogAgA2JaQAAE+6fQmzy4AAA/vshgAAAAA==')
 ERRORS = []
 
 def invoke(client):
@@ -69,7 +73,16 @@ def verify():
     with mock_resource(MediaSetClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
+            assert decoded[:4] == b'RIFF' and decoded[8:12] == b'WEBP'
+            assert struct.unpack('<I', decoded[4:8])[0] + 8 == len(decoded)
+            try:
+                from PIL import Image
+            except ImportError:
+                pass  # The embedded bytes were generated as a 200x1 WebP.
+            else:
+                assert Image.open(BytesIO(decoded)).size == (200, 1)
         finally:
             raw.close()
     assert len(calls) == 1

@@ -28,6 +28,8 @@ and reconcile through authorized reads before repeating.
 Add at most 100 principal-role assignments to the selected enrollment. Validate
 principal types and role IDs, then list assignments to compare intended access.
 
+This Public Beta endpoint requires `preview=true`; set `preview=True` in the SDK call.
+
 [Exact parameters, request, result and error models](../../contracts/v2/admin/EnrollmentRoleAssignment/add.md).
 
 [Executable SDK example](../../../../examples/rest/072/v2/admin/EnrollmentRoleAssignment/add.py):
@@ -60,6 +62,8 @@ retrying.
 Enumerate principals with roles in the selected enrollment. Preserve both principal and
 role identities when explaining enrollment-wide access.
 
+This Public Beta endpoint requires `preview=true`; set `preview=True` in the SDK call.
+
 [Exact parameters, request, result and error models](../../contracts/v2/admin/EnrollmentRoleAssignment/list.md).
 
 [Executable SDK example](../../../../examples/rest/072/v2/admin/EnrollmentRoleAssignment/list.py):
@@ -90,6 +94,8 @@ retrying.
 Remove at most 100 principal-role assignments from the confirmed enrollment. List
 assignments afterward; removing one role does not establish that other access paths
 disappeared.
+
+This Public Beta endpoint requires `preview=true`; set `preview=True` in the SDK call.
 
 [Exact parameters, request, result and error models](../../contracts/v2/admin/EnrollmentRoleAssignment/remove.md).
 

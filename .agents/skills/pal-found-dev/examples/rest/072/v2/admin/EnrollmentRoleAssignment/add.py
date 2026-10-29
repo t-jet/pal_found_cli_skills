@@ -20,7 +20,7 @@ EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/admin/enrollments/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/roleAssignments/add'
 EXPECTED_BODY = {'roleAssignments': [{'roleId': 'synthetic-value',
                       'principalId': '00000000-0000-0000-0000-000000000001'}]}
-EXPECTED_QUERY = {'preview': None}
+EXPECTED_QUERY = {'preview': True}
 EXPECTED_HEADERS = {'Content-Type': 'application/json'}
 SUCCESS = None
 ERRORS = [{'name': 'AddEnrollmentRoleAssignmentsPermissionDenied',
@@ -38,7 +38,7 @@ ERRORS = [{'name': 'AddEnrollmentRoleAssignmentsPermissionDenied',
   'parameters': {'principalId': '00000000-0000-0000-0000-000000000001'}}]
 
 def invoke(client):
-    return client.with_raw_response.add(enrollment_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', role_assignments=[{'roleId': 'synthetic-value', 'principalId': '00000000-0000-0000-0000-000000000001'}], request_timeout=30)
+    return client.with_raw_response.add(enrollment_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', role_assignments=[{'roleId': 'synthetic-value', 'principalId': '00000000-0000-0000-0000-000000000001'}], preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

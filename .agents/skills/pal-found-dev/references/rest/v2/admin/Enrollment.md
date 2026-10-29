@@ -29,6 +29,8 @@ and reconcile through authorized reads before repeating.
 Read enrollment metadata by RID and confirm the administration boundary before choosing
 organization or role-assignment targets.
 
+This Public Beta endpoint requires `preview=true`; set `preview=True` in the SDK call.
+
 [Exact parameters, request, result and error models](../../contracts/v2/admin/Enrollment/get.md).
 
 [Executable SDK example](../../../../examples/rest/072/v2/admin/Enrollment/get.py):
@@ -58,6 +60,8 @@ retrying.
 Read the enrollment associated with the current user's primary organization. Compare its
 RID with the intended boundary; do not assume every accessible organization belongs to
 that enrollment.
+
+This Public Beta endpoint requires `preview=true`; set `preview=True` in the SDK call.
 
 [Exact parameters, request, result and error models](../../contracts/v2/admin/Enrollment/get_current.md).
 

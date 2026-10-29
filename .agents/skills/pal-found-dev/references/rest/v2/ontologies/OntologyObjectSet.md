@@ -9,6 +9,10 @@ An Object Set is a definition of selected objects. Loading and aggregating evalu
 ## Prerequisites
 
 Use the frozen Foundry Python SDK 1.101.0 and an authorized Ontology, branch, resource identifier, acting identity and exact type/parameter names from the enrollment. Prepare the linked local models before a live request. Synthetic examples run offline with the prepared SDK and mock transport; real reads or writes require enrollment access, resource permissions and any listed beta enablement. An administrator or resource owner supplies missing grants and capability access.
+The beta examples pass the SDK's `preview=True` selector. The published
+`create_temporary`, `load_multiple_object_types`, and
+`load_objects_or_interfaces` endpoints require it. The private beta `get`
+and `load_links` examples also pass the SDK selector.
 
 ## Procedure and operation choices
 
@@ -18,15 +22,17 @@ Select the operation below, read its exact request/response/error model, then ad
 
 Stage: Stable. Required SDK arguments: `ontology`, `aggregation`, `group_by`, `object_set`.
 
-Aggregates the ontology objects present in the `ObjectSet` from the provided object set definition.
+Aggregates the ontology objects present in the `ObjectSet` from the provided object set definition. The fixture follows the published `Employee` example: it groups by `city`, computes average `tenure`, and checks the named metric and returned group. `REQUIRE_ACCURATE` can produce `AggregationAccuracyNotSupported`; loosen accuracy or narrow the request only when the result remains useful. [Published endpoint](https://www.palantir.com/docs/foundry/api/ontologies-v2-resources/ontology-object-sets/aggregate-object-set).
 
-Read [exact contract](../../contracts/v2/ontologies/OntologyObjectSet/aggregate.md) for optional parameters, response modes, model fields and wire errors. [Offline SDK fixture](../../../../examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_aggregate.py): `python -B examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_aggregate.py` from skill root. Named failure in source text: none listed; handle transport and generic API failures.
+Read [exact contract](../../contracts/v2/ontologies/OntologyObjectSet/aggregate.md) for optional parameters, response modes, model fields and wire errors. [Offline SDK fixture](../../../../examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_aggregate.py): `python -B examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_aggregate.py` from skill root. Named failure: `AggregationAccuracyNotSupported`.
 
 ### `OntologyObjectSet.create_temporary`
 
 Stage: Public Beta. Required SDK arguments: `ontology`, `object_set`.
 
 Creates a temporary `ObjectSet` from the given definition. This `ObjectSet` expires after one hour.
+The published endpoint requires `preview=true`; pass `preview=True` to the SDK.
+The fixture uses a base `Asset` set and checks the returned temporary RID.
 
 Read [exact contract](../../contracts/v2/ontologies/OntologyObjectSet/create_temporary.md) for optional parameters, response modes, model fields and wire errors. [Offline SDK fixture](../../../../examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_create_temporary.py): `python -B examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_create_temporary.py` from skill root. Named failure in source text: none listed; handle transport and generic API failures.
 
@@ -35,47 +41,54 @@ Read [exact contract](../../contracts/v2/ontologies/OntologyObjectSet/create_tem
 Stage: Private Beta. Required SDK arguments: `ontology`, `object_set_rid`.
 
 Gets the definition of the `ObjectSet` with the given RID.
+The fixture checks that a temporary RID resolves to a base `Asset` definition. The frozen SDK declares `ObjectSetNotFound` when the RID is missing or inaccessible. A temporary RID expires after one hour.
 
-Read [exact contract](../../contracts/v2/ontologies/OntologyObjectSet/get.md) for optional parameters, response modes, model fields and wire errors. [Offline SDK fixture](../../../../examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_get.py): `python -B examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_get.py` from skill root. Named failure in source text: none listed; handle transport and generic API failures.
+Read [exact contract](../../contracts/v2/ontologies/OntologyObjectSet/get.md) for optional parameters, response modes, model fields and wire errors. [Offline SDK fixture](../../../../examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_get.py): `python -B examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_get.py` from skill root. Named failure: `ObjectSetNotFound`.
 
 ### `OntologyObjectSet.load`
 
 Stage: Stable. Required SDK arguments: `ontology`, `object_set`, `select`.
 
 Load the ontology objects present in the `ObjectSet` from the provided object set definition. For Object Storage V1 backed objects, this endpoint returns a maximum of 10,000 objects. After 10,000 objects have been returned and if more objects are available, attempting to load another page will result in an `ObjectsExceededLimit` error being returned. There is no limit on Object Storage V2 backed objects. Note that null value properties will not be returned. Vector properties will not be returned unless included in the `select` parameter.
+The fixture selects `firstName` and `lastName` from `Employee`, requests a two-item page with snapshot consistency, and checks object identity and total count. Continue only while `nextPageToken` exists; a short page does not prove completion. [Published endpoint](https://www.palantir.com/docs/foundry/api/ontologies-v2-resources/ontology-object-sets/load-object-set).
 
-Read [exact contract](../../contracts/v2/ontologies/OntologyObjectSet/load.md) for optional parameters, response modes, model fields and wire errors. [Offline SDK fixture](../../../../examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load.py): `python -B examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load.py` from skill root. Named failure in source text: `ObjectsExceededLimit`.
+Read [exact contract](../../contracts/v2/ontologies/OntologyObjectSet/load.md) for optional parameters, response modes, model fields and wire errors. [Offline SDK fixture](../../../../examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load.py): `python -B examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load.py` from skill root. Named failure: `ObjectsExceededLimit`.
 
 ### `OntologyObjectSet.load_links`
 
 Stage: Private Beta. Required SDK arguments: `ontology`, `links`, `object_set`.
 
 Loads the specified links from the defined object set. Links are defined as a link type API name and object locators for the source and target objects where only the `__primaryKey` and `__apiName` properties are loaded. Links are grouped by source object locator; however, the links for a given source object may be split over multiple entries with the same source object locator. Please keep these limitations in mind: - Links returned may be stale. For example, primary keys returned by this endpoint may not exist anymore. - This endpoint requests links for 1,000 objects at a time. See the linked contract for further limits and query details.
+The fixture requests `installedAt` links for `Asset` and checks the source and target locators and link type. The frozen SDK declares `LoadObjectSetLinksNotSupported` for Object Storage V1 links; verify storage support before calling.
 
-Read [exact contract](../../contracts/v2/ontologies/OntologyObjectSet/load_links.md) for optional parameters, response modes, model fields and wire errors. [Offline SDK fixture](../../../../examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load_links.py): `python -B examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load_links.py` from skill root. Named failure in source text: none listed; handle transport and generic API failures.
+Read [exact contract](../../contracts/v2/ontologies/OntologyObjectSet/load_links.md) for optional parameters, response modes, model fields and wire errors. [Offline SDK fixture](../../../../examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load_links.py): `python -B examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load_links.py` from skill root. Named failure: `LoadObjectSetLinksNotSupported`.
 
 ### `OntologyObjectSet.load_multiple_object_types`
 
 Stage: Public Beta. Required SDK arguments: `ontology`, `object_set`, `select`.
 
 Load the ontology objects present in the `ObjectSet` from the provided object set definition. The resulting objects may be scoped to an object type, in which all the selected properties on the object type are returned, or scoped to an interface, in which only the object type properties that implement the properties of any interfaces in its scope are returned. For objects that are scoped to an interface in the result, a mapping from interface to object implementation is returned in order to interpret the objects as the interfaces that they implement. See the linked contract for further limits and query details.
+The fixture unions `Asset` and `Vehicle` sets, selects `name`, and checks both object identities and total count. Empty interface mappings are expected here because this set contains object types. If the set includes interfaces, interpret returned properties through `interfaceToObjectTypeMappings` or its V2 form. This preview endpoint requires `preview=true` and uses `$`-prefixed object metadata. [Published endpoint](https://www.palantir.com/docs/foundry/api/ontologies-v2-resources/ontology-object-sets/load-object-set-multiple-object-types).
 
-Read [exact contract](../../contracts/v2/ontologies/OntologyObjectSet/load_multiple_object_types.md) for optional parameters, response modes, model fields and wire errors. [Offline SDK fixture](../../../../examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load_multiple_object_types.py): `python -B examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load_multiple_object_types.py` from skill root. Named failure in source text: none listed; handle transport and generic API failures.
+Read [exact contract](../../contracts/v2/ontologies/OntologyObjectSet/load_multiple_object_types.md) for optional parameters, response modes, model fields and wire errors. [Offline SDK fixture](../../../../examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load_multiple_object_types.py): `python -B examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load_multiple_object_types.py` from skill root. Named failure: `ObjectsExceededLimit` for Object Storage V1 pagination.
 
 ### `OntologyObjectSet.load_objects_or_interfaces`
 
 Stage: Public Beta. Required SDK arguments: `ontology`, `object_set`, `select`.
 
 Load the ontology objects present in the `ObjectSet` from the provided object set definition. If the requested object set contains interfaces and the object can be viewed as an interface, it will contain the properties defined by the interface. If not, it will contain the properties defined by its object type. This allows directly loading all objects of an interface where all objects are viewed as the interface, for example. Note that the result object set cannot contain a mix of objects with "interface" properties and "object type" properties. See the linked contract for further limits and query details.
+The published endpoint requires `preview=true`; pass `preview=True` to the SDK.
+The fixture loads a base `Asset` set and checks object identity, selected data, and total count.
+The fixture also requests a two-item page with snapshot consistency. Returned object metadata uses `$` prefixes. An interface base set must yield interface-scoped properties; avoid mixing interface and object-type property scopes in one result. [Published endpoint](https://www.palantir.com/docs/foundry/api/ontologies-v2-resources/ontology-object-sets/load-object-set-objects-or-interfaces).
 
-Read [exact contract](../../contracts/v2/ontologies/OntologyObjectSet/load_objects_or_interfaces.md) for optional parameters, response modes, model fields and wire errors. [Offline SDK fixture](../../../../examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load_objects_or_interfaces.py): `python -B examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load_objects_or_interfaces.py` from skill root. Named failure in source text: none listed; handle transport and generic API failures.
+Read [exact contract](../../contracts/v2/ontologies/OntologyObjectSet/load_objects_or_interfaces.md) for optional parameters, response modes, model fields and wire errors. [Offline SDK fixture](../../../../examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load_objects_or_interfaces.py): `python -B examples/rest/081/v2/ontologies/OntologyObjectSet/invoke_load_objects_or_interfaces.py` from skill root. Named failure: `ObjectsExceededLimit` for Object Storage V1 pagination.
 
 ## Worked example
 
 Prepare a bounded `Order` Object Set definition, create a temporary handle when reuse is needed, then load a page and aggregate that same selection. Verify type scope and page completion before claiming a total.
 
 ```python
-from foundry_sdk.v2.ontologies.models import ObjectSetBaseType
+from foundry_sdk.v2.ontologies.models import ObjectSetBaseType, ObjectSetReferenceType
 
 ontology = "dispatch"  # use the authorized Ontology identifier
 selection = ObjectSetBaseType(object_type="Order")  # actual type API name
@@ -86,7 +99,7 @@ assert temporary.object_set_rid
 
 page = client.ontologies.OntologyObjectSet.load(
     ontology=ontology,
-    object_set=selection,
+    object_set=ObjectSetReferenceType(reference=temporary.object_set_rid),
     select=["orderId", "status"],
     page_size=20,
     snapshot=True,
@@ -96,9 +109,10 @@ for order in page.data:
 next_token = page.next_page_token
 ```
 
-Use `next_token` as `page_token` on the same selection and branch until it is
-absent or the agreed page budget ends. The returned temporary RID can be read
-through `get`; it expires after one hour. The `ObjectSetBaseType` discriminator
+Use `next_token` as `page_token` with the same `ObjectSetReferenceType` and
+branch until it is absent or the agreed page budget ends. The returned
+temporary RID can be read through `get`; it expires after one hour. Do not
+reuse it after expiry. The `ObjectSetBaseType` discriminator
 and `LoadObjectSetResponseV2` fields are defined in the linked local models.
 An Object Storage V1 result has a 10,000-object limit; do not claim complete
 enumeration after `ObjectsExceededLimit`. Null-valued properties are omitted

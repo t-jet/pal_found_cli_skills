@@ -20,14 +20,19 @@ EXPECTED_METHOD = 'PUT'
 EXPECTED_PATH = '/api/v2/admin/groups/00000000-0000-0000-0000-000000000001'
 EXPECTED_BODY = {'name': 'synthetic-value',
  'organizations': ['ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'],
- 'attributes': {}}
+ 'attributes': {'multipass:owner': ['foundry'], 'team': ['analytics']}}
 EXPECTED_QUERY = {}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
+EXISTING = {'id': '00000000-0000-0000-0000-000000000001',
+ 'name': 'original-name',
+ 'realm': 'synthetic-value',
+ 'organizations': ['ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'],
+ 'attributes': {'multipass:owner': ['foundry'], 'team': ['old']}}
 SUCCESS = {'id': '00000000-0000-0000-0000-000000000001',
  'name': 'synthetic-value',
  'realm': 'synthetic-value',
  'organizations': ['ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'],
- 'attributes': {}}
+ 'attributes': EXPECTED_BODY['attributes']}
 ERRORS = [{'name': 'AttributesNotEditable',
   'status': 400,
   'code': 'INVALID_ARGUMENT',
@@ -50,12 +55,20 @@ ERRORS = [{'name': 'AttributesNotEditable',
   'parameters': {'groupId': '00000000-0000-0000-0000-000000000001'}}]
 
 def invoke(client):
-    return client.with_raw_response.replace(group_id='00000000-0000-0000-0000-000000000001', attributes={}, name='synthetic-value', organizations=['ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'], request_timeout=30)
+    current = client.get(group_id='00000000-0000-0000-0000-000000000001', request_timeout=30)
+    attributes = dict(current.attributes)
+    attributes['team'] = ['analytics']
+    return client.with_raw_response.replace(group_id=current.id, attributes=attributes, name='synthetic-value', organizations=current.organizations, request_timeout=30)
 
 def check_request(request):
-    assert request.method == EXPECTED_METHOD
     assert urllib.parse.unquote(request.url.path) == EXPECTED_PATH
     assert request.headers['Authorization'] == 'Bearer offline-fixture-token'
+    assert request.method in ('GET', EXPECTED_METHOD)
+    if request.method == 'GET':
+        assert request.headers['Accept'] == 'application/json'
+        assert not request.content
+        assert not request.url.params
+        return
     for key, value in EXPECTED_HEADERS.items():
         if value is None:
             assert key not in request.headers
@@ -85,7 +98,9 @@ def verify():
     calls = []
     def success(request):
         check_request(request)
-        calls.append(True)
+        calls.append(request.method)
+        if request.method == 'GET':
+            return httpx.Response(200, json=EXISTING)
         if isinstance(SUCCESS, bytes):
             return httpx.Response(200, content=SUCCESS)
         if SUCCESS is None:
@@ -97,10 +112,12 @@ def verify():
             assert normalized(raw.decode()) == SUCCESS
         finally:
             raw.close()
-    assert len(calls) == 1
+    assert calls == ['GET', 'PUT']
     for error_case in ERRORS:
         def failure(request):
             check_request(request)
+            if request.method == 'GET':
+                return httpx.Response(200, json=EXISTING)
             return httpx.Response(error_case['status'], json={
                 'errorName':error_case['name'], 'errorCode':error_case['code'],
                 'parameters':error_case['parameters'],

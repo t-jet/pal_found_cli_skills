@@ -21,7 +21,7 @@ EXPECTED_PATH = '/api/v1/datasets/ri.synthetic.main.resource.00000000-0000-0000-
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'branchId': 'master', 'endTransactionRid': None, 'startTransactionRid': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'path': 'synthetic-value',
+SUCCESS = {'path': 'inspections/status.csv',
  'transactionRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
  'updatedTime': '2026-10-07T00:00:00+00:00'}
 ERRORS = [{'name': 'BranchNotFound',
@@ -92,11 +92,16 @@ def normalized(value):
         return value.model_dump(mode='json', by_alias=True, exclude_none=True)
     return value
 
+def check_result(result, request):
+    requested_path = urllib.parse.unquote(request.url.path).split('/files/', 1)[1]
+    assert result['path'] == requested_path, 'Returned file path differs from request'
+
+
 def verify():
     calls = []
     def success(request):
         check_request(request)
-        calls.append(True)
+        calls.append(request)
         if isinstance(SUCCESS, bytes):
             return httpx.Response(200, content=SUCCESS)
         if SUCCESS is None:
@@ -105,7 +110,9 @@ def verify():
     with mock_resource(FileClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = normalized(raw.decode())
+            assert result == SUCCESS
+            check_result(result, calls[0])
         finally:
             raw.close()
     assert len(calls) == 1

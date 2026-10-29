@@ -19,7 +19,7 @@ from mock_transport import mock_resource
 EXPECTED_METHOD = 'GET'
 EXPECTED_PATH = '/api/v2/audit/organizations/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/logFiles'
 EXPECTED_BODY = None
-EXPECTED_QUERY = {'endDate': None, 'pageSize': None, 'pageToken': None, 'startDate': None}
+EXPECTED_QUERY = {'endDate': '2026-10-07', 'pageSize': None, 'pageToken': None, 'startDate': '2026-10-01'}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
 SUCCESS = {'data': [{'id': 'synthetic-value'}]}
 ERRORS = [{'name': 'ListLogFilesPermissionDenied',
@@ -29,7 +29,7 @@ ERRORS = [{'name': 'ListLogFilesPermissionDenied',
  {'name': 'MissingStartDate', 'status': 400, 'code': 'INVALID_ARGUMENT', 'parameters': {}}]
 
 def invoke(client):
-    return client.with_raw_response.list(organization_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', request_timeout=30)
+    return client.with_raw_response.list(organization_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', start_date=datetime.date(2026, 10, 1), end_date=datetime.date(2026, 10, 7), request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

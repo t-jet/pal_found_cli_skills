@@ -1,0 +1,3336 @@
+{
+  "story": "DEV-STORY-071",
+  "testcase": "TESTCASE-074",
+  "executor_identity": "/root/rest071_execute_20261027",
+  "harness_sha256": "d36df0fb9824d603944971a702cabf7694e0dada1a08c953797798db99fb7876",
+  "cases_sha256": "eaa4126766a52b28eb99d7d26b392d2ec997c20479022f7e3eafeacfa38295e7",
+  "operations": 27,
+  "declared_errors": 74,
+  "execution": "PASS",
+  "created_at": "2026-10-27T21:37:11.850884+00:00",
+  "results": [
+    {
+      "case_id": "REST071",
+      "check": "socket_traps_active",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-01",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-01",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-01",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-01",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-01",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-01",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-01",
+      "check": "error_CreateGroupPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-01",
+      "check": "error_GroupNameAlreadyExists",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-01",
+      "check": "error_InvalidGroupOrganizations",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-01",
+      "check": "error_OrganizationNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-01",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-01",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-01",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-01",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-01",
+      "check": "missing_required_attributes",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-01",
+      "check": "missing_required_name",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-01",
+      "check": "missing_required_organizations",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-01",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-01",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-01",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-02",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-02",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-02",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-02",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-02",
+      "check": "error_DeleteGroupPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-02",
+      "check": "error_GroupNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-02",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-02",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-02",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-02",
+      "check": "missing_required_group_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-02",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-02",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-02",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-02",
+      "check": "group_id malformed UUID rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-03",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-03",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-03",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-03",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-03",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-03",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-03",
+      "check": "error_GroupNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-03",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-03",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-03",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-03",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-03",
+      "check": "missing_required_group_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-03",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-03",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-03",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-03",
+      "check": "group_id malformed UUID rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-04",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-04",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-04",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-04",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-04",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-04",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-04",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-04",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-04",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-04",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-04",
+      "check": "missing_required_body",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-04",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-04",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-04",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-04",
+      "check": "batch length 0 rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-04",
+      "check": "batch length 501 rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-04",
+      "check": "batch upper bound accepted_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-04",
+      "check": "batch upper bound accepted_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-05",
+      "check": "ordinary_sync_iterator_terminal_closed",
+      "result": "PASS",
+      "requests": 2,
+      "items": [
+        {
+          "id": "00000000-0000-0000-0000-000000000271",
+          "name": "Identity audit 071 page A",
+          "realm": "independent-realm071",
+          "organizations": [
+            "ri.multipass..organization.independent071"
+          ],
+          "attributes": {
+            "team": [
+              "identity-audit071"
+            ]
+          }
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000371",
+          "name": "Identity audit 071 page B",
+          "realm": "independent-realm071",
+          "organizations": [
+            "ri.multipass..organization.independent071"
+          ],
+          "attributes": {
+            "team": [
+              "identity-audit071"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "F071-05",
+      "check": "ordinary_async_iterator_terminal_closed",
+      "result": "PASS",
+      "requests": 2,
+      "items": [
+        {
+          "id": "00000000-0000-0000-0000-000000000271",
+          "name": "Identity audit 071 page A",
+          "realm": "independent-realm071",
+          "organizations": [
+            "ri.multipass..organization.independent071"
+          ],
+          "attributes": {
+            "team": [
+              "identity-audit071"
+            ]
+          }
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000371",
+          "name": "Identity audit 071 page B",
+          "realm": "independent-realm071",
+          "organizations": [
+            "ri.multipass..organization.independent071"
+          ],
+          "attributes": {
+            "team": [
+              "identity-audit071"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "F071-05",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-05",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-05",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-05",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-05",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-05",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-05",
+      "check": "error_InvalidPageSize",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-05",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-05",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-05",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-05",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-05",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-05",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-05",
+      "check": "finite continuation",
+      "result": "PASS",
+      "requests": 2,
+      "items": [
+        {
+          "id": "00000000-0000-0000-0000-000000000271",
+          "name": "Identity audit 071 page A",
+          "realm": "independent-realm071",
+          "organizations": [
+            "ri.multipass..organization.independent071"
+          ],
+          "attributes": {
+            "team": [
+              "identity-audit071"
+            ]
+          }
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000371",
+          "name": "Identity audit 071 page B",
+          "realm": "independent-realm071",
+          "organizations": [
+            "ri.multipass..organization.independent071"
+          ],
+          "attributes": {
+            "team": [
+              "identity-audit071"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "F071-06",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-06",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-06",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-06",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-06",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-06",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-06",
+      "check": "error_ListCurrentGroupsPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-06",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-06",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-06",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-06",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-06",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-06",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-07",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-07",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-07",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-07",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-07",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-07",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-07",
+      "check": "error_AttributesNotEditable",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-07",
+      "check": "error_GroupNameAlreadyExists",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-07",
+      "check": "error_GroupNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-07",
+      "check": "error_InvalidGroupOrganizations",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-07",
+      "check": "error_ReplaceGroupPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-07",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-07",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-07",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-07",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-07",
+      "check": "missing_required_group_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-07",
+      "check": "missing_required_attributes",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-07",
+      "check": "missing_required_name",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-07",
+      "check": "missing_required_organizations",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-07",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-07",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-07",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-07",
+      "check": "group_id malformed UUID rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-08",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-08",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-08",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-08",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-08",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-08",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-08",
+      "check": "error_InvalidPageSize",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-08",
+      "check": "error_SearchGroupsPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-08",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-08",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-08",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-08",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-08",
+      "check": "missing_required_where",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-08",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-08",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-08",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-08",
+      "check": "finite continuation",
+      "result": "PASS",
+      "requests": 2,
+      "items": [
+        {
+          "id": "00000000-0000-0000-0000-000000000271",
+          "name": "Identity audit 071 page A",
+          "realm": "independent-realm071",
+          "organizations": [
+            "ri.multipass..organization.independent071"
+          ],
+          "attributes": {
+            "team": [
+              "identity-audit071"
+            ]
+          }
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000371",
+          "name": "Identity audit 071 page B",
+          "realm": "independent-realm071",
+          "organizations": [
+            "ri.multipass..organization.independent071"
+          ],
+          "attributes": {
+            "team": [
+              "identity-audit071"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "F071-09",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-09",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-09",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-09",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-09",
+      "check": "error_AddGroupMembersPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-09",
+      "check": "error_GroupNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-09",
+      "check": "error_InvalidGroupMembershipExpiration",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-09",
+      "check": "error_PrincipalNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-09",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-09",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-09",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-09",
+      "check": "missing_required_group_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-09",
+      "check": "missing_required_principal_ids",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-09",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-09",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-09",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-09",
+      "check": "group_id malformed UUID rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-10",
+      "check": "ordinary_sync_iterator_terminal_closed",
+      "result": "PASS",
+      "requests": 2,
+      "items": [
+        {
+          "principalType": "USER",
+          "principalId": "00000000-0000-0000-0000-000000000271",
+          "expiration": "2026-10-23T08:00:00+00:00"
+        },
+        {
+          "principalType": "USER",
+          "principalId": "00000000-0000-0000-0000-000000000371",
+          "expiration": "2026-10-23T08:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "case_id": "F071-10",
+      "check": "ordinary_async_iterator_terminal_closed",
+      "result": "PASS",
+      "requests": 2,
+      "items": [
+        {
+          "principalType": "USER",
+          "principalId": "00000000-0000-0000-0000-000000000271",
+          "expiration": "2026-10-23T08:00:00+00:00"
+        },
+        {
+          "principalType": "USER",
+          "principalId": "00000000-0000-0000-0000-000000000371",
+          "expiration": "2026-10-23T08:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "case_id": "F071-10",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-10",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-10",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-10",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-10",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-10",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-10",
+      "check": "error_ExpirationForTransitiveGroupMembersNotSupported",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-10",
+      "check": "error_GroupNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-10",
+      "check": "error_InvalidPageSize",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-10",
+      "check": "error_ListGroupMembersPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-10",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-10",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-10",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-10",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-10",
+      "check": "missing_required_group_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-10",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-10",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-10",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-10",
+      "check": "finite continuation",
+      "result": "PASS",
+      "requests": 2,
+      "items": [
+        {
+          "principalType": "USER",
+          "principalId": "00000000-0000-0000-0000-000000000271",
+          "expiration": "2026-10-23T08:00:00+00:00"
+        },
+        {
+          "principalType": "USER",
+          "principalId": "00000000-0000-0000-0000-000000000371",
+          "expiration": "2026-10-23T08:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "case_id": "F071-10",
+      "check": "group_id malformed UUID rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-11",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-11",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-11",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-11",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-11",
+      "check": "error_GroupNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-11",
+      "check": "error_PrincipalNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-11",
+      "check": "error_RemoveGroupMembersPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-11",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-11",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-11",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-11",
+      "check": "missing_required_group_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-11",
+      "check": "missing_required_principal_ids",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-11",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-11",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-11",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-11",
+      "check": "group_id malformed UUID rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-12",
+      "check": "ordinary_sync_iterator_terminal_closed",
+      "result": "PASS",
+      "requests": 2,
+      "items": [
+        {
+          "groupId": "00000000-0000-0000-0000-000000000271"
+        },
+        {
+          "groupId": "00000000-0000-0000-0000-000000000371"
+        }
+      ]
+    },
+    {
+      "case_id": "F071-12",
+      "check": "ordinary_async_iterator_terminal_closed",
+      "result": "PASS",
+      "requests": 2,
+      "items": [
+        {
+          "groupId": "00000000-0000-0000-0000-000000000271"
+        },
+        {
+          "groupId": "00000000-0000-0000-0000-000000000371"
+        }
+      ]
+    },
+    {
+      "case_id": "F071-12",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-12",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-12",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-12",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-12",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-12",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-12",
+      "check": "error_InvalidPageSize",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-12",
+      "check": "error_UserDeleted",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-12",
+      "check": "error_UserNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-12",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-12",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-12",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-12",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-12",
+      "check": "missing_required_user_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-12",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-12",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-12",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-12",
+      "check": "finite continuation",
+      "result": "PASS",
+      "requests": 2,
+      "items": [
+        {
+          "groupId": "00000000-0000-0000-0000-000000000271"
+        },
+        {
+          "groupId": "00000000-0000-0000-0000-000000000371"
+        }
+      ]
+    },
+    {
+      "case_id": "F071-12",
+      "check": "user_id malformed UUID rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-13",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-13",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-13",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-13",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-13",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-13",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-13",
+      "check": "error_GroupMembershipExpirationPolicyNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-13",
+      "check": "error_GroupNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-13",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-13",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-13",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-13",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-13",
+      "check": "missing_required_group_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-13",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-13",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-13",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-13",
+      "check": "group_id malformed UUID rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-14",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-14",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-14",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-14",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-14",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-14",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-14",
+      "check": "error_GroupNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-14",
+      "check": "error_ReplaceGroupMembershipExpirationPolicyPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-14",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-14",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-14",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-14",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-14",
+      "check": "missing_required_group_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-14",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-14",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-14",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-14",
+      "check": "group_id malformed UUID rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-14",
+      "check": "maximum_duration alone_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-14",
+      "check": "maximum_duration alone_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-14",
+      "check": "maximum_value alone_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-14",
+      "check": "maximum_value alone_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-15",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-15",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-15",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-15",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-15",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-15",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-15",
+      "check": "error_GetGroupProviderInfoPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-15",
+      "check": "error_GroupNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-15",
+      "check": "error_GroupProviderInfoNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-15",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-15",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-15",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-15",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-15",
+      "check": "missing_required_group_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-15",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-15",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-15",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-15",
+      "check": "group_id malformed UUID rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-16",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-16",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-16",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-16",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-16",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-16",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-16",
+      "check": "error_CannotReplaceProviderInfoForPrincipalInProtectedRealm",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-16",
+      "check": "error_GetGroupProviderInfoPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-16",
+      "check": "error_GroupNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-16",
+      "check": "error_GroupProviderInfoNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-16",
+      "check": "error_ReplaceGroupProviderInfoPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-16",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-16",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-16",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-16",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-16",
+      "check": "missing_required_group_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-16",
+      "check": "missing_required_provider_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-16",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-16",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-16",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-16",
+      "check": "group_id malformed UUID rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-17",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-17",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-17",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-17",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-17",
+      "check": "error_DeleteUserPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-17",
+      "check": "error_UserDeleted",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-17",
+      "check": "error_UserNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-17",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-17",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-17",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-17",
+      "check": "missing_required_user_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-17",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-17",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-17",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-17",
+      "check": "user_id malformed UUID rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-18",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-18",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-18",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-18",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-18",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-18",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-18",
+      "check": "error_UserDeleted",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-18",
+      "check": "error_UserIsActive",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-18",
+      "check": "error_UserNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-18",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-18",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-18",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-18",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-18",
+      "check": "missing_required_user_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-18",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-18",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-18",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-18",
+      "check": "user_id malformed UUID rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-18",
+      "check": "status unsupported enum rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-19",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-19",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-19",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-19",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-19",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-19",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-19",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-19",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-19",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-19",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-19",
+      "check": "missing_required_body",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-19",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-19",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-19",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-19",
+      "check": "batch length 0 rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-19",
+      "check": "batch length 501 rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-19",
+      "check": "batch upper bound accepted_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-19",
+      "check": "batch upper bound accepted_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-20",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-20",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-20",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-20",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-20",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-20",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-20",
+      "check": "error_GetCurrentUserPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-20",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-20",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-20",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-20",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-20",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-20",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-21",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-21",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-21",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-21",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-21",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-21",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-21",
+      "check": "error_GetMarkingsUserPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-21",
+      "check": "error_UserDeleted",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-21",
+      "check": "error_UserNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-21",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-21",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-21",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-21",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-21",
+      "check": "missing_required_user_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-21",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-21",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-21",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-21",
+      "check": "user_id malformed UUID rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-22",
+      "check": "ordinary_sync_iterator_terminal_closed",
+      "result": "PASS",
+      "requests": 2,
+      "items": [
+        {
+          "id": "00000000-0000-0000-0000-000000000271",
+          "username": "identity.audit071.pageA",
+          "givenName": "Alex",
+          "familyName": "Audit",
+          "email": "identity071@example.invalid",
+          "realm": "independent-realm071",
+          "organization": "ri.multipass..organization.independent071",
+          "status": "ACTIVE",
+          "attributes": {
+            "team": [
+              "identity-audit071"
+            ]
+          }
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000371",
+          "username": "identity.audit071.pageB",
+          "givenName": "Alex",
+          "familyName": "Audit",
+          "email": "identity071@example.invalid",
+          "realm": "independent-realm071",
+          "organization": "ri.multipass..organization.independent071",
+          "status": "ACTIVE",
+          "attributes": {
+            "team": [
+              "identity-audit071"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "F071-22",
+      "check": "ordinary_async_iterator_terminal_closed",
+      "result": "PASS",
+      "requests": 2,
+      "items": [
+        {
+          "id": "00000000-0000-0000-0000-000000000271",
+          "username": "identity.audit071.pageA",
+          "givenName": "Alex",
+          "familyName": "Audit",
+          "email": "identity071@example.invalid",
+          "realm": "independent-realm071",
+          "organization": "ri.multipass..organization.independent071",
+          "status": "ACTIVE",
+          "attributes": {
+            "team": [
+              "identity-audit071"
+            ]
+          }
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000371",
+          "username": "identity.audit071.pageB",
+          "givenName": "Alex",
+          "familyName": "Audit",
+          "email": "identity071@example.invalid",
+          "realm": "independent-realm071",
+          "organization": "ri.multipass..organization.independent071",
+          "status": "ACTIVE",
+          "attributes": {
+            "team": [
+              "identity-audit071"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "F071-22",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-22",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-22",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-22",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-22",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-22",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-22",
+      "check": "error_InvalidPageSize",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-22",
+      "check": "error_UserDeleted",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-22",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-22",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-22",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-22",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-22",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-22",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-22",
+      "check": "finite continuation",
+      "result": "PASS",
+      "requests": 2,
+      "items": [
+        {
+          "id": "00000000-0000-0000-0000-000000000271",
+          "username": "identity.audit071.pageA",
+          "givenName": "Alex",
+          "familyName": "Audit",
+          "email": "identity071@example.invalid",
+          "realm": "independent-realm071",
+          "organization": "ri.multipass..organization.independent071",
+          "status": "ACTIVE",
+          "attributes": {
+            "team": [
+              "identity-audit071"
+            ]
+          }
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000371",
+          "username": "identity.audit071.pageB",
+          "givenName": "Alex",
+          "familyName": "Audit",
+          "email": "identity071@example.invalid",
+          "realm": "independent-realm071",
+          "organization": "ri.multipass..organization.independent071",
+          "status": "ACTIVE",
+          "attributes": {
+            "team": [
+              "identity-audit071"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "F071-22",
+      "check": "include unsupported enum rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-23",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-23",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-23",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-23",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-23",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-23",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-23",
+      "check": "error_GetProfilePictureOfUserPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-23",
+      "check": "error_InvalidProfilePicture",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-23",
+      "check": "error_ProfileServiceNotPresent",
+      "result": "PASS",
+      "status": 500,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-23",
+      "check": "error_UserDeleted",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-23",
+      "check": "error_UserNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-23",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-23",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-23",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-23",
+      "check": "missing_required_user_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-23",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-23",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-23",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-23",
+      "check": "user_id malformed UUID rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-23",
+      "check": "empty optional profile picture_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-23",
+      "check": "empty optional profile picture_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-24",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-24",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-24",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-24",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-24",
+      "check": "error_RevokeAllTokensUserPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-24",
+      "check": "error_UserDeleted",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-24",
+      "check": "error_UserNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-24",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-24",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-24",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-24",
+      "check": "missing_required_user_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-24",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-24",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-24",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-24",
+      "check": "user_id malformed UUID rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-25",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-25",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-25",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-25",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-25",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-25",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-25",
+      "check": "error_InvalidPageSize",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-25",
+      "check": "error_SearchUsersPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-25",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-25",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-25",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-25",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-25",
+      "check": "missing_required_where",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-25",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-25",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-25",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-25",
+      "check": "finite continuation",
+      "result": "PASS",
+      "requests": 2,
+      "items": [
+        {
+          "id": "00000000-0000-0000-0000-000000000271",
+          "username": "identity.audit071.pageA",
+          "givenName": "Alex",
+          "familyName": "Audit",
+          "email": "identity071@example.invalid",
+          "realm": "independent-realm071",
+          "organization": "ri.multipass..organization.independent071",
+          "status": "ACTIVE",
+          "attributes": {
+            "team": [
+              "identity-audit071"
+            ]
+          }
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000371",
+          "username": "identity.audit071.pageB",
+          "givenName": "Alex",
+          "familyName": "Audit",
+          "email": "identity071@example.invalid",
+          "realm": "independent-realm071",
+          "organization": "ri.multipass..organization.independent071",
+          "status": "ACTIVE",
+          "attributes": {
+            "team": [
+              "identity-audit071"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "F071-26",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-26",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-26",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-26",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-26",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-26",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-26",
+      "check": "error_GetUserProviderInfoPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-26",
+      "check": "error_UserDeleted",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-26",
+      "check": "error_UserNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-26",
+      "check": "error_UserProviderInfoNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-26",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-26",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-26",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-26",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-26",
+      "check": "missing_required_user_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-26",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-26",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-26",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-26",
+      "check": "user_id malformed UUID rejected locally",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-27",
+      "check": "success_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-27",
+      "check": "success_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-27",
+      "check": "async_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-27",
+      "check": "async_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-27",
+      "check": "sync_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-27",
+      "check": "async_stream_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-27",
+      "check": "error_CannotReplaceProviderInfoForPrincipalInProtectedRealm",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-27",
+      "check": "error_GetUserProviderInfoPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-27",
+      "check": "error_ReplaceUserProviderInfoPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-27",
+      "check": "error_UserDeleted",
+      "result": "PASS",
+      "status": 400,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-27",
+      "check": "error_UserNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-27",
+      "check": "error_UserProviderInfoNotFound",
+      "result": "PASS",
+      "status": 404,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-27",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 401,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-27",
+      "check": "error_IndependentPermissionDenied",
+      "result": "PASS",
+      "status": 403,
+      "requests": 1
+    },
+    {
+      "case_id": "F071-27",
+      "check": "timeout_no_retry",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-27",
+      "check": "malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F071-27",
+      "check": "missing_required_user_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-27",
+      "check": "missing_required_provider_id",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-27",
+      "check": "optional omission_typed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-27",
+      "check": "optional omission_raw_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F071-27",
+      "check": "required argument omitted",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F071-27",
+      "check": "user_id malformed UUID rejected locally",
+      "result": "PASS",
+      "requests": 0
+    }
+  ],
+  "completed_at": "2026-10-27T21:37:12.251900+00:00"
+}

@@ -1,7 +1,8 @@
 """v2.ontologies.OntologyObject.list: SDK request, decoded result and declared error fixtures.
 
-Synthetic identifiers do not name tenant resources. Prepared SDK 1.101.0/httpx
-required. No network connections or live mutations occur.
+Identifiers and records follow Palantir's illustrative API examples.
+Source: https://www.palantir.com/docs/foundry/api/ontologies-v2-resources/ontology-objects/list-objects
+Prepared SDK 1.101.0/httpx required. No network or live mutations occur.
 """
 import json
 import sys
@@ -10,32 +11,33 @@ import datetime
 from pathlib import Path
 
 import httpx
-from foundry_sdk import PalantirRPCException
+from foundry_sdk import BadRequestError, PalantirRPCException
 from foundry_sdk.v2.ontologies.ontology_object import OntologyObjectClient
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'GET'
-EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/objects/Asset'
+EXPECTED_PATH = '/api/v2/ontologies/palantir/objects/employee'
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'branch': None,
  'excludeRid': None,
  'orderBy': None,
- 'pageSize': None,
+ 'pageSize': 100,
  'pageToken': None,
  'sdkPackageRid': None,
  'sdkVersion': None,
  'select': None,
  'snapshot': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'data': [{}], 'totalCount': '1'}
-ERRORS = []
+SUCCESS = {'data': [{'__rid': 'ri.phonograph2-objects.main.object.88a6fccb-f333-46d6-a07e-7725c5f18b61', '__primaryKey': 50030, '__apiName': 'Employee', 'id': 50030, 'firstName': 'John', 'lastName': 'Doe'}], 'nextPageToken': 'employee-page-2', 'totalCount': '2'}
+PAGE_TWO = {'data': [{'__rid': 'ri.phonograph2-objects.main.object.dcd887d1-c757-4d7a-8619-71e6ec2c25ab', '__primaryKey': 20090, '__apiName': 'Employee', 'id': 20090, 'firstName': 'John', 'lastName': 'Haymore'}], 'totalCount': '2'}
+ERRORS = [{'status': 400, 'name': 'ObjectsExceededLimit', 'code': 'INVALID_ARGUMENT', 'parameters': {}}]
 
-def invoke(client):
-    return client.with_raw_response.list(ontology='synthetic-value', object_type='Asset', request_timeout=30)
+def invoke(client, page_token=None):
+    return client.with_raw_response.list(ontology='palantir', object_type='employee', page_size=100, page_token=page_token, request_timeout=30)
 
-def check_request(request):
+def check_request(request, page_token=None):
     assert request.method == EXPECTED_METHOD
     assert urllib.parse.unquote(request.url.path) == EXPECTED_PATH
     assert request.headers['Authorization'] == 'Bearer offline-fixture-token'
@@ -44,7 +46,8 @@ def check_request(request):
             assert key not in request.headers
         else:
             assert request.headers[key] == str(value)
-    expected = httpx.QueryParams({key: value for key,value in EXPECTED_QUERY.items() if value is not None})
+    expected_query = {**EXPECTED_QUERY, 'pageToken': page_token}
+    expected = httpx.QueryParams({key: value for key,value in expected_query.items() if value is not None})
     assert sorted(request.url.params.multi_items()) == sorted(expected.multi_items())
     if isinstance(EXPECTED_BODY, bytes):
         assert request.content == EXPECTED_BODY
@@ -77,10 +80,27 @@ def verify():
     with mock_resource(OntologyObjectClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
         finally:
             raw.close()
     assert len(calls) == 1
+    assert decoded['data'][0]['__primaryKey'] == 50030
+    assert decoded['data'][0]['__apiName'] == 'Employee'
+    token = decoded['nextPageToken']
+    def next_page(request):
+        check_request(request, token)
+        return httpx.Response(200, json=PAGE_TWO)
+    with mock_resource(OntologyObjectClient, next_page) as client:
+        raw = invoke(client, token)
+        try:
+            decoded_second_page = normalized(raw.decode())
+            assert decoded_second_page == PAGE_TWO
+        finally:
+            raw.close()
+    assert decoded_second_page['data'][0]['__primaryKey'] == 20090
+    assert decoded_second_page['data'][0]['__apiName'] == 'Employee'
+    assert 'nextPageToken' not in decoded_second_page
     for error_case in ERRORS:
         def failure(request):
             check_request(request)
@@ -95,7 +115,8 @@ def verify():
                 raw.close()
             except PalantirRPCException as error:
                 assert error.name == error_case['name']
-                assert type(error).__name__ == error_case['name']
+                assert type(error) is BadRequestError
+                assert error.error_code == error_case['code']
                 assert normalized(error.parameters) == error_case['parameters']
             else:
                 raise AssertionError('Expected ' + error_case['name'])

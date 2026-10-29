@@ -196,6 +196,34 @@ def test_skill_identities_match_reviewed_baseline() -> None:
     skill_identities_match(actual, baseline)
 
 
+def test_offline_knowledge_audit_tracks_current_local_pages() -> None:
+    audit = json.loads(URL_AUDIT.read_text(encoding="utf-8"))
+    listed = audit["files"]
+    listed_paths = [row["path"].replace("\\", "/") for row in listed]
+    actual_paths = {
+        page.relative_to(SKILLS).as_posix()
+        for page in SKILLS.glob("pal-found*/**/*.md")
+        if page.relative_to(SKILLS).parts[:3] != ("pal-found-dev", "references", "rest")
+    }
+    assert len(listed_paths) == len(set(listed_paths)), "Duplicate audit page"
+    assert set(listed_paths) == actual_paths, "Offline knowledge audit page inventory drift"
+    assert audit["scope"]["markdown_files"] == len(actual_paths), "Stale audit page count"
+    assert {path.split("/")[0] for path in actual_paths} == {
+        page.parent.name for page in SKILLS.glob("*/SKILL.md")
+    }, "Missing skill in audit page inventory"
+    for row, relative in zip(listed, listed_paths):
+        page = SKILLS / relative
+        assert hashlib.sha256(page.read_bytes()).hexdigest() == row["sha256"], (
+            f"{relative}: stale offline audit hash"
+        )
+        assert len(page.read_text(encoding="utf-8").splitlines()) == row["lines"], (
+            f"{relative}: stale offline audit line count"
+        )
+        assert row["owner"] and row["review_status"] and row["disposition"], (
+            f"{relative}: incomplete audit ownership or review state"
+        )
+
+
 def test_cli_operation_inventory_matches_reviewed_baseline() -> None:
     baseline = json.loads(REGISTER.read_text(encoding="utf-8"))["baseline"]
     actual = []

@@ -1,0 +1,316 @@
+{
+  "schema_version": 1,
+  "reviewer": "Independent QA /root/core_and_schedule_final_qa",
+  "review_date": "2026-10-20",
+  "scope": "Whole-page review of three corrected core pages and five Checkpoints/Orchestration pages; exact working bytes, not merely committed HEAD.",
+  "tool_head": "0963e6e006f82ad1997be0e22c6b750ed0bbce3b",
+  "sdk_version": "1.101.0",
+  "status": "complete",
+  "pages": [
+    {
+      "path": "pal-found/references/02-identifiers-auth-access.md",
+      "sha256": "56950f5aa94905fb7f8969c7bc5c6434e5cef465b7c29615e2101df7067923ed",
+      "lines": 108,
+      "verdict": "PASS",
+      "reviewer": "Independent QA /root/core_and_schedule_final_qa",
+      "reviewed_range": "1-108",
+      "checks": [
+        "Full identifier table, configuration lookup, setup example, ACL precedence, override caveats, and local/platform authorization distinction checked.",
+        "Setup command uses positional project RID; synthetic identifier now uses compass folder resource, matching official Project example.",
+        "ACL table matches global absolute disable, operation/namespace disable, inherited readonly overrides with immediate returns, metadata-only namespace override, and allow-list checks. Independent readonly/metadata tests passed."
+      ],
+      "findings": [],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/api/filesystem-v2-resources/projects/get-project"
+      ],
+      "local_sources": [
+        "pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py",
+        "pal_found_cli_tool/src/pal_found_cli/common/config_loader.py",
+        "pal_found_cli_tool/src/pal_found_cli/common/access_control_guard.py"
+      ]
+    },
+    {
+      "path": "pal-found/references/03-output-success-failure.md",
+      "sha256": "7efa6d72d1e7eb24181dac5939b1962ce7cf1a146778d98371715cc73f57319e",
+      "lines": 103,
+      "verdict": "PASS",
+      "reviewer": "Independent QA /root/core_and_schedule_final_qa",
+      "reviewed_range": "1-103",
+      "checks": [
+        "Full output auto-selection, stdout/stderr separation, exit table, parser exceptions, retries, logs, pagination, size limits, and completion guidance checked against pinned implementations.",
+        "Corrected prose explicitly reports default format masking, custom aligned text formatter, configuration exit 9, argparse stderr exit 2, and five default attempts. Repeated bounded probes confirm each corrected behavior.",
+        "Outer RetryHandler float timeout and separate bounded ConfigLoader SDK timeout accurately distinguished. No successful request is treated as asynchronous work completion."
+      ],
+      "findings": [],
+      "source_urls": [],
+      "local_sources": [
+        "pal_found_cli_tool/src/pal_found_cli/common/output_formatter.py",
+        "pal_found_cli_tool/src/pal_found_cli/common/error_serializer.py",
+        "pal_found_cli_tool/src/pal_found_cli/common/retry.py",
+        "pal_found_cli_tool/src/pal_found_cli/common/log_setup.py",
+        "pal_found_cli_tool/src/pal_found_cli/common/config_loader.py",
+        "pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py"
+      ]
+    },
+    {
+      "path": "pal-found/references/04-shared-options.md",
+      "sha256": "da5a2dc1e3ae58e3d175bc2321bc1df6b32c3fdd660b3caedaeeaa5c023bd32d",
+      "lines": 68,
+      "verdict": "PASS",
+      "reviewer": "Independent QA /root/core_and_schedule_final_qa",
+      "reviewed_range": "1-68",
+      "checks": [
+        "Full common options, positional/body guidance, per-namespace pagination naming, output/state distinction, and parser limitations checked.",
+        "Filesystem SDK --timeout and independent outer timeout caveat matches bounded probe, including 120-second SDK value and 3-second outer value.",
+        "Parser acceptance versus operation support accurately distinguished: nonpaged project get accepts ignored --page-size; truly unknown --project-rid exits argparse 2. Explicit --format advice matches probe."
+      ],
+      "findings": [],
+      "source_urls": [],
+      "local_sources": [
+        "pal_found_cli_tool/src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py",
+        "pal_found_cli_tool/src/pal_found_cli/common/retry.py",
+        "pal_found_cli_tool/src/pal_found_cli/common/output_formatter.py"
+      ]
+    },
+    {
+      "path": "pal-found-checkpoints/SKILL.md",
+      "sha256": "a1b59ed4ba627998558c692812bd6b899905f7c2b080358acad002c73f210de3",
+      "lines": 60,
+      "verdict": "PASS",
+      "reviewer": "Independent QA /root/core_and_schedule_final_qa",
+      "reviewed_range": "1-60",
+      "checks": [
+        "Whole capability description, record-only boundary, operation count, commands, common flags, batch object schema, timeout, formatting, and pagination guidance reviewed.",
+        "All three Checkpoints operations match CLI OP_SPECS. Corrected --records-json requires objects with recordRid, not bare RIDs. --all overrides --max-pages, confirmed by bounded parser/resolver probe.",
+        "Governance concepts and user/admin visibility match official overview. Guide states only retrieval operations; no prompt configuration or justification submission is promised.",
+        "Fresh full-page text includes required preview=true disclosure, unsupported CLI flag/forwarding limitation, and local validation versus server-acceptance boundary. This is documentation PASS, not tool/API contract satisfaction."
+      ],
+      "findings": [],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/checkpoints/overview",
+        "https://www.palantir.com/docs/foundry/api/checkpoints-v2-resources/records/get-records-batch",
+        "https://www.palantir.com/docs/foundry/api/checkpoints-v2-resources/records/get-record",
+        "https://www.palantir.com/docs/foundry/api/checkpoints-v2-resources/records/search-records"
+      ],
+      "local_sources": [
+        "pal_found_cli_tool/src/pal_found_cli/checkpoints/scripts/pal_found_checkpoints_cli.py",
+        "SDK 1.101.0 foundry_sdk/v2/checkpoints/record.py",
+        "SDK 1.101.0 foundry_sdk/v2/checkpoints/models.py"
+      ],
+      "documented_tool_limitations": {
+        "operations": [
+          "record.get",
+          "record.get_batch",
+          "record.search"
+        ],
+        "required_api_query": "preview=true",
+        "frozen_cli_behavior": "No preview option and no preview forwarding; synthetic SDK request capture records preview=None.",
+        "server_acceptance": "Unverified; no live call. Current docs disclose API/CLI gap and SDK/REST route with required preview flag."
+      }
+    },
+    {
+      "path": "pal-found-checkpoints/references/01-record.md",
+      "sha256": "198fe7cee1b4802fee14ffe7cbcb3c4824cb21a19ace681b0e7dc09c10ffbf68",
+      "lines": 39,
+      "verdict": "PASS",
+      "reviewer": "Independent QA /root/core_and_schedule_final_qa",
+      "reviewed_range": "1-39",
+      "checks": [
+        "Whole three operation records checked against pinned parser, adapter, SDK request models, endpoint docs, and official governance overview.",
+        "All three examples pass CLI parser/local validation and real SDK 1.101.0 decorated method validation with call_api replaced before invocation. Checkpoint equality-filter shape is accepted.",
+        "Batch 100 maximum and omission of missing/inaccessible records match SDK and official API. Search default page size 100 and reverse chronological ordering match SDK. Read-only boundary explicit.",
+        "Fresh full-page text includes required preview=true disclosure, unsupported CLI flag/forwarding limitation, and local validation versus server-acceptance boundary. This is documentation PASS, not tool/API contract satisfaction."
+      ],
+      "findings": [],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/checkpoints/overview",
+        "https://www.palantir.com/docs/foundry/api/checkpoints-v2-resources/records/get-records-batch",
+        "https://www.palantir.com/docs/foundry/api/checkpoints-v2-resources/records/get-record",
+        "https://www.palantir.com/docs/foundry/api/checkpoints-v2-resources/records/search-records"
+      ],
+      "local_sources": [
+        "pal_found_cli_tool/src/pal_found_cli/checkpoints/scripts/pal_found_checkpoints_cli.py",
+        "SDK 1.101.0 foundry_sdk/v2/checkpoints/record.py",
+        "SDK 1.101.0 foundry_sdk/v2/checkpoints/models.py"
+      ],
+      "documented_tool_limitations": {
+        "operations": [
+          "record.get",
+          "record.get_batch",
+          "record.search"
+        ],
+        "required_api_query": "preview=true",
+        "frozen_cli_behavior": "No preview option and no preview forwarding; synthetic SDK request capture records preview=None.",
+        "server_acceptance": "Unverified; no live call. Current docs disclose API/CLI gap and SDK/REST route with required preview flag."
+      }
+    },
+    {
+      "path": "pal-found-orchestration/SKILL.md",
+      "sha256": "dd288000368e93e9b0a820dff8701c7b6a6384f0cea9ae32dc4860fe3766450a",
+      "lines": 67,
+      "verdict": "PASS",
+      "reviewer": "Independent QA /root/core_and_schedule_final_qa",
+      "reviewed_range": "1-67",
+      "checks": [
+        "Whole capability, build/job distinction, schedule run outcomes, user-scope permissions, command grammar, 20-operation count, parameters, and local routing links reviewed.",
+        "Build/job 8 and schedule/version 12 operation split matches CLI. Required build target/fallback branches and schedule action/trigger/scope flags match pinned parser.",
+        "Official build/schedule sources support buildable resources, run acceptance versus job completion, ignored runs, trigger categories, and scope behavior.",
+        "Fresh full-page text includes required preview=true disclosure, unsupported CLI flag/forwarding limitation, and local validation versus server-acceptance boundary. This is documentation PASS, not tool/API contract satisfaction."
+      ],
+      "findings": [],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/data-integration/builds",
+        "https://www.palantir.com/docs/foundry/data-integration/schedules",
+        "https://www.palantir.com/docs/foundry/api/orchestration-v2-resources/jobs/get-job",
+        "https://www.palantir.com/docs/foundry/api/orchestration-v2-resources/jobs/get-jobs-batch",
+        "https://www.palantir.com/docs/foundry/api/orchestration-v2-resources/schedule-versions/get-schedule-version",
+        "https://www.palantir.com/docs/foundry/api/orchestration-v2-resources/schedule-versions/get-schedule-of-schedule-version"
+      ],
+      "local_sources": [
+        "pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py",
+        "SDK 1.101.0 foundry_sdk/v2/orchestration/build.py",
+        "SDK 1.101.0 foundry_sdk/v2/orchestration/schedule.py"
+      ],
+      "documented_tool_limitations": {
+        "operations": [
+          "job.get",
+          "job.get_batch",
+          "schedule_version.get",
+          "schedule_version.schedule"
+        ],
+        "required_api_query": "preview=true",
+        "frozen_cli_behavior": "No preview option and no preview forwarding; synthetic SDK request capture records preview=None.",
+        "server_acceptance": "Unverified; no live call. Current docs disclose API/CLI gap and SDK/REST route with required preview flag."
+      }
+    },
+    {
+      "path": "pal-found-orchestration/references/02-schedule.md",
+      "sha256": "9adc312e9ff693092acbd33a0fa834e58250531b08923630bd4b9d0c73071262",
+      "lines": 175,
+      "verdict": "PASS",
+      "reviewer": "Independent QA /root/core_and_schedule_final_qa",
+      "reviewed_range": "1-175",
+      "checks": [
+        "Whole 12-operation schedule/version page checked against pinned CLI flags, SDK parameters/return types, official schedule concepts, and all documented examples.",
+        "Pause explicitly resets observed trigger events; unpause does not replay forgotten events. Official schedule concepts confirm reset and ignored events during pause.",
+        "All twelve examples pass CLI/local and decorated SDK validation after replacing named RID placeholders with syntactically valid synthetic RIDs. Network call_api replaced before each invocation.",
+        "Schedule batch size 1000, omission rule, default runs page size 100, required complete replacement payload, and optional ScheduleVersion association match SDK. Shared recovery paragraph requires reconciliation after uncertain writes; accepted run is not claimed completed build.",
+        "Fresh full-page text includes required preview=true disclosure, unsupported CLI flag/forwarding limitation, and local validation versus server-acceptance boundary. This is documentation PASS, not tool/API contract satisfaction."
+      ],
+      "findings": [],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/data-integration/schedules",
+        "https://www.palantir.com/docs/foundry/api/orchestration-v2-resources/schedules/pause-schedule",
+        "https://www.palantir.com/docs/foundry/api/orchestration-v2-resources/jobs/get-job",
+        "https://www.palantir.com/docs/foundry/api/orchestration-v2-resources/jobs/get-jobs-batch",
+        "https://www.palantir.com/docs/foundry/api/orchestration-v2-resources/schedule-versions/get-schedule-version",
+        "https://www.palantir.com/docs/foundry/api/orchestration-v2-resources/schedule-versions/get-schedule-of-schedule-version"
+      ],
+      "local_sources": [
+        "pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py",
+        "SDK 1.101.0 foundry_sdk/v2/orchestration/schedule.py",
+        "SDK 1.101.0 foundry_sdk/v2/orchestration/schedule_version.py"
+      ],
+      "documented_tool_limitations": {
+        "operations": [
+          "schedule_version.get",
+          "schedule_version.schedule"
+        ],
+        "required_api_query": "preview=true",
+        "frozen_cli_behavior": "No preview option and no preview forwarding; synthetic SDK request capture records preview=None.",
+        "server_acceptance": "Unverified; no live call. Current docs disclose API/CLI gap and SDK/REST route with required preview flag."
+      }
+    },
+    {
+      "path": "pal-found-orchestration/references/01-build-job.md",
+      "sha256": "f967e32d92a0c95f86ad2e105af70d80c82807c0eab2c6402afd19120d0b4f0f",
+      "lines": 145,
+      "verdict": "PASS",
+      "reviewer": "Independent QA /root/core_and_schedule_final_qa",
+      "reviewed_range": "1-145",
+      "checks": [
+        "Whole eight-operation build/job page reviewed against CLI flags, SDK signatures, models, return types, rate limits, batching limits, and official build concepts.",
+        "SDK-required where caveat now explicit despite permissive parser. Corrected STATUS/RUNNING filter example passes real SDK 1.101 validation, as do all eight operation examples after RID placeholder substitution.",
+        "Cancellation is asynchronous and may race completed builds; creation response is distinguished from completed jobs. Paging metadata, empty page continuation, and uncertain-write recovery guidance match pinned adapters.",
+        "Fresh full-page text includes required preview=true disclosure, unsupported CLI flag/forwarding limitation, and local validation versus server-acceptance boundary. This is documentation PASS, not tool/API contract satisfaction."
+      ],
+      "findings": [],
+      "source_urls": [
+        "https://www.palantir.com/docs/foundry/data-integration/builds",
+        "https://www.palantir.com/docs/foundry/api/orchestration-v2-resources/builds/get-builds-batch",
+        "https://www.palantir.com/docs/foundry/api/orchestration-v2-resources/jobs/get-jobs-batch",
+        "https://www.palantir.com/docs/foundry/api/orchestration-v2-resources/jobs/get-job",
+        "https://www.palantir.com/docs/foundry/api/orchestration-v2-resources/jobs/get-jobs-batch",
+        "https://www.palantir.com/docs/foundry/api/orchestration-v2-resources/schedule-versions/get-schedule-version",
+        "https://www.palantir.com/docs/foundry/api/orchestration-v2-resources/schedule-versions/get-schedule-of-schedule-version"
+      ],
+      "local_sources": [
+        "pal_found_cli_tool/src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py",
+        "SDK 1.101.0 foundry_sdk/v2/orchestration/build.py",
+        "SDK 1.101.0 foundry_sdk/v2/orchestration/job.py",
+        "SDK 1.101.0 foundry_sdk/v2/orchestration/models.py"
+      ],
+      "documented_tool_limitations": {
+        "operations": [
+          "job.get",
+          "job.get_batch"
+        ],
+        "required_api_query": "preview=true",
+        "frozen_cli_behavior": "No preview option and no preview forwarding; synthetic SDK request capture records preview=None.",
+        "server_acceptance": "Unverified; no live call. Current docs disclose API/CLI gap and SDK/REST route with required preview flag."
+      }
+    }
+  ],
+  "validation": [
+    "138 passed: isolated pinned-tool Checkpoints, Orchestration, and access-control suites.",
+    "Repeated bounded batch01 probe: env default json still produces table without flag; explicit JSON works; unknown flag exits argparse 2; default retries make five calls; --timeout 120 leaves outer timeout 3.0 with env timeout 3.",
+    "6 passed: documented example parsing plus PowerShell distribution commands.",
+    "23 namespace examples pass pinned CLI parser/local validation and real SDK decorated method validation. Explicit RID placeholders replaced with synthetic RIDs; no request issued.",
+    "13 local links resolve across core, Checkpoints, and Orchestration skill pages.",
+    "ConfigLoader bounded fixture confirms CWD .env fallback even when Git root exists without .env.",
+    "HTTPStatusError with synthetic HTTP503 serializes exit6 after retry exhaustion.",
+    "Synthetic SDK RequestInfo capture for all23 examples retained in feature015_core_schedule_probe.json; preview-capable operations receive preview=None from frozen CLI argument mapping."
+  ],
+  "requirements_boundary": "PASS concerns documentation accuracy against frozen CLI. Existing SRS concerns about environment format defaults, toon-python dependency, parser JSON errors, and timeout layering remain separate tool/spec questions. This review does not declare those requirements satisfied. Seven documented preview omissions remain a tool/API conformance defect requiring separate correction and wire retest. Parser omission of SDK-required build.search where also remains a tool input-validation gap; guide now provides correct filter.",
+  "limitations": [
+    "No Foundry enrollment contacted. No live authorization, asynchronous completion, or server-side mutation behavior inferred from offline probes."
+  ],
+  "resolved_findings": [
+    {
+      "path": "pal-found/references/02-identifiers-auth-access.md",
+      "finding": "CWD fallback omitted when Git root exists but root .env does not",
+      "resolution": "Corrected lookup branch and bounded fixture retest PASS"
+    },
+    {
+      "path": "pal-found/references/03-output-success-failure.md",
+      "finding": "Exit6 table excluded retried503",
+      "resolution": "Table includes503 after retry exhaustion; serializer probe PASS"
+    },
+    {
+      "path": "pal-found/references/03-output-success-failure.md",
+      "finding": "Upload row implied uniform16MiB bound although Datasets upload lacks local cap",
+      "resolution": "Namespace-specific upload-cap wording; pinned Datasets and bounded namespace implementations reviewed"
+    },
+    {
+      "path": "pal-found-orchestration/references/01-build-job.md",
+      "finding": "Unfiltered build search fails SDK-required where validation despite permissive parser",
+      "resolution": "Required SDK filter caveat and valid STATUS/RUNNING example retested PASS"
+    },
+    {
+      "paths": [
+        "pal-found-checkpoints/SKILL.md",
+        "pal-found-checkpoints/references/01-record.md",
+        "pal-found-orchestration/SKILL.md",
+        "pal-found-orchestration/references/01-build-job.md",
+        "pal-found-orchestration/references/02-schedule.md"
+      ],
+      "finding": "Seven API preview requirements missing from operational guidance; Optional Schedule empty-cause explanation unsupported",
+      "resolution": "Root added explicit frozen-CLI limitation and alternative SDK/REST route across all five pages; optional result explanation narrowed to declared type. Fresh text reviewed; tool defect remains open."
+    }
+  ],
+  "summary": {
+    "PASS": 8,
+    "FAIL": 0,
+    "UNCERTAIN": 0
+  }
+}

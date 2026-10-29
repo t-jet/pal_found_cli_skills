@@ -1,0 +1,212 @@
+{
+  "actor_agent": "/root/j12_archive_finish_20261028",
+  "actor_role": "python-developer",
+  "ticket": "BUG-SUB-025",
+  "started_at_utc": "2026-10-28T13:41:40.254113+00:00",
+  "evidence_commit": "e44b97ed51f438ea495096287565cd064c77b150",
+  "commands": [
+    {
+      "args": [
+        "get",
+        "BUG-SUB-025",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "ticket_id: BUG-SUB-025\ncurrent_status: In Progress\nstatus_description: Bug investigation and fix in progress.\nstatus_goal: Investigate root cause and implement fix.\nstatus_responsible_roles:\n- Developer\nallowed_transitions:\n- Resolved\n- Blocked\n- Canceled\n- Rejected\n- Duplicated\ninstructions:\n- Apply critical thinking and ask questions.\n- IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md`\n  THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks\n  link and a Question link from it to this ticket, set status to Blocked until resolved,\n  and record blocker ID and prior status as a comment on this ticket.\n- IF blocked by dependency THEN add a blocking link, set status to Blocked until resolved,\n  and record blocker ID and prior status as a comment on this ticket.\n- IF lower-priority blocker blocks higher-priority Bug THEN raise blocker priority.\n- ELSE investigate root cause and document as a comment on this ticket.\n- Apply fix and document implementation.\ndefinitions_of_done:\n- target_statuses:\n  - Resolved\n  dod_criteria:\n  - Studied related documentation from the `.ept/docs/document_index.md`\n  - Critical thinking applied\n  - All required questions asked using the Question sub-tasks and all these sub-tasks\n    are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)\n  - Fix implemented and tested\n  - Root cause documented\n  - Regression test performed\n  - Time reported in subtask frontmatter\n  - All links registered\n\nTicket Details:\n================================================================================\nid             : BUG-SUB-025\ntype           : bug_subtask\ntitle          : J12 guide lacks integrated transaction file verification and build outcome\nstatus         : In Progress\npriority       : High\nassignee       : python-developer\nreporter       : qa-engineer\nparent         : DEV-STORY-075\naddressed_to   : \npath           : DEV-STORY-075/BUG-SUB-025\ncreated        : 2026-10-09\nupdated        : 2026-10-11\ntime_spent_hours: untracked\ncontent:\n## Severity and version\nHigh; SDK 1.101.0; pal_found_cli_skills candidate based on HEAD b40d0be, 2026-10-09.\n\n## Reproduction\nSource-blind J12 reader .ept/tmp/feature015-j12-reader/reader-results.md scored 4/6 in .ept/tmp/feature015_rest_semantic_review/j12_independent_score.md. It followed local Transaction.md lines 91-99 and 125-160, File.md upload section, and Build.md lines 59-90. The composed code omits staged File.get/content before commit and postcommit branch/file verification; it exits on any terminal Build state without marking FAILED/CANCELED unsuccessful. Six individual SDK fake-transport examples pass, but no composed sequence runs.\n\n## Expected behavior\nOffline guidance and a runnable root-client fixture verify transaction-view file state before commit, committed branch/file state afterward, and RUNNING/SUCCEEDED/FAILED/CANCELED/poll-exhaustion separately. Upload or commit timeout is reconciled before replay.\n\n## Acceptance criteria\n- Coordinate dataset-view portion with DEV-STORY-074; keep integrated Build journey under DEV-STORY-075.\n- Add composed SDK1.101.0 fake-transport example and regression for all listed states and checks.\n- Fresh source-blind reader passes all six J12 dimensions using only standalone skill/prepared runtime.\n- Preserve failed artifact and distinguish fixture from tenant operation.\n\n## Test reference\nTESTEXEC-064 comment 20261009-092807-qa-engineer. Related to DEV-STORY-074; Blocks TESTEXEC-064. No FileImport or unrelated namespace scope.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "link",
+        "list",
+        "BUG-SUB-025",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "\nFound 2 link(s) for BUG-SUB-025:\n====================================================================================================\nLink ID         Source             Target          Type            Role\n----------------------------------------------------------------------------------------------------\nLINK-01893      BUG-SUB-025     -> DEV-STORY-074   RelatesTo       (Relates To)\nLINK-01894      BUG-SUB-025     -> TESTEXEC-064    Blocks          (Blocks)\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "list",
+        "--parent",
+        "BUG-SUB-025",
+        "--type",
+        "question",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "\nFound 0 ticket(s):\n============================================================================================================================================\nID              Status          Priority   Assignee             Reporter        Blocked  Title\n--------------------------------------------------------------------------------------------------------------------------------------------\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "workflow",
+        "transitions",
+        "bug_subtask",
+        "In Progress",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "\nAllowed transitions from 'In Progress' (bug_subtask):\n============================================================\n  -> Resolved\n  -> Blocked\n  -> Canceled [TERMINAL]\n  -> Rejected [TERMINAL]\n  -> Duplicated [TERMINAL]\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "get",
+        "DEV-STORY-075",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "ticket_id: DEV-STORY-075\ncurrent_status: Development\nstatus_description: Implementation sub-tasks in progress.\nstatus_goal: Implement and review code to reach QA readiness.\nstatus_responsible_roles:\n- Developers\n- Reviewer (Architect/BA)\nallowed_transitions:\n- QA\n- Blocked\n- Canceled\n- Rejected\n- Duplicated\ninstructions:\n- Execute DEV sub-task(s) - implementation work.\n- Execute UNITTEST sub-task(s) - unit testing.\n- Execute CODEREVIEW sub-task - peer review.\n- WHEN all DEV, UNITTEST, and CODEREVIEW sub-tasks Closed THEN move to QA.\ndefinitions_of_done:\n- target_statuses:\n  - QA\n  dod_criteria:\n  - Studied related documentation from the `.ept/docs/document_index.md`\n  - Critical thinking applied\n  - All required questions asked using the Question sub-tasks and all these sub-tasks\n    are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)\n  - DESIGN sub-task Closed\n  - All DEV sub-tasks Closed\n  - All UNITTEST sub-tasks Closed\n  - All CODEREVIEW sub-tasks Closed (approved)\n\nTicket Details:\n================================================================================\nid             : DEV-STORY-075\ntype           : dev_story\ntitle          : Author offline REST SDK contracts: Pipeline orchestration checkpoints and health\nstatus         : Development\npriority       : High\nassignee       : python-developer\nreporter       : ba\nparent         : FEATURE-015\naddressed_to   : \npath           : FEATURE-015/DEV-STORY-075\ncreated        : 2026-10-06\nupdated        : 2026-10-07\nfeature_request: FEATURE-015\nepic           : EPIC-015\ncomponent      : skills\nstory_points   : 8\nrelease_notes  : Offline SDK1.101.0 knowledge for Pipeline orchestration checkpoints and health; every owned contract available locally.\ncontent:\n# Author offline REST SDK contracts: Pipeline orchestration checkpoints and health\n\n## Business outcome\nAn agent discovers and authors any owned Foundry REST SDK operation using only the standalone pal-found-dev knowledge and prepared SDK/runtime artifacts.\n\n## Owned scope\nT37 partition R5; 29 canonical operations in frozen SDK 1.101.0 (all v2.orchestration, v2.checkpoints and v2.data_health operations; owns build-state example in J12). Exact IDs derive from the reviewed SA-DES-014 inventory using these service/resource predicates. All stability states are included. No operation exclusion without recorded Project Owner approval. This story exclusively owns these operation explanations/examples and coordinates shared models under DEV-STORY-069 ownership.\n\n## Acceptance Criteria\n- Each owned operation maps to a complete local SDK/HTTP contract, meaningful adaptable example, required input/output/model definitions, effects, permissions/prerequisites, errors, availability restrictions and bounded recovery where applicable.\n- Synchronous/asynchronous and raw/streaming response forms have locally navigable guidance where exposed; all transitive models/errors resolve within standalone pal-found-dev.\n- Fulfill BA-DES-015 BD-015-01,08,11 and seven-element topic contract; independent source/semantic review covers every owned operation, not only journey samples.\n- Independent QA authors fixture expectations and selects service/API-version discovery cases without author assistance. Public internet is blocked; enrollment/fixture boundary and missing prerequisites are explicit.\n- Preserve 351 CLI operations, other topic owners and valid knowledge. No installation/copy instructions, required sibling skills or internal development-document references in distributed content.\n- Essential CLI defects remain FEATURE-012-owned with a linked acceptance blocker. All owned content gaps must be resolved before acceptance.\n\n## Related Documentation\nBA-DES-015 revision2; SA-DES-014 revision2 and SDK inventory 1.101.0; WORK-003; approved historical BA-ANA-016/SA-ANA-016.\n\n## Planning and delivery\nGroomed estimate: 8 points;72 contributor hours with first-three measurement/resplit checkpoint. Grooming must validate authoring and independent review capacity, exact model-dependency effort and one-sprint feasibility; split further by explicit operation-ID subsets if needed without changing the complete425 union. Requires approved design, DEV-STORY-061 audit/routing and DEV-STORY-069 frozen catalog/common patterns. Stories remain New until FEATURE-015 Waiting for Implementation. No authoring begins during design. Deliver content and review evidence to REST acceptance story and DEV-STORY-070 integration; final publication remains GitHub-only.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "get",
+        "DEV-STORY-074",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "ticket_id: DEV-STORY-074\ncurrent_status: Deployment\nstatus_description: Ready for production deployment.\nstatus_goal: Deploy changes and validate in target environment.\nstatus_responsible_roles:\n- DevOps Engineer\n- Tech Lead\nallowed_transitions:\n- Resolved\n- Canceled\n- Blocked\n- Rejected\n- Duplicated\ninstructions:\n- Execute DEVOPS sub-task (if exists).\n- Apply deployment and configuration changes.\n- Verify deployment successful.\n- Document deployment steps in DEVOPS comments.\n- WHEN deployment complete AND verified THEN move to Resolved.\ndefinitions_of_done:\n- target_statuses:\n  - Resolved\n  dod_criteria:\n  - Studied related documentation from the `.ept/docs/document_index.md`\n  - Critical thinking applied\n  - All required questions asked using the Question sub-tasks and all these sub-tasks\n    are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)\n  - DEVOPS sub-task Closed (if exists)\n  - Deployment successful and validated\n  - Deployment steps documented\n  - Target environment verified\n\nTicket Details:\n================================================================================\nid             : DEV-STORY-074\ntype           : dev_story\ntitle          : Author offline REST SDK contracts: Datasets across both API versions\nstatus         : Deployment\npriority       : High\nassignee       : python-developer\nreporter       : ba\nparent         : FEATURE-015\naddressed_to   : \npath           : FEATURE-015/DEV-STORY-074\ncreated        : 2026-10-06\nupdated        : 2026-10-21\nfeature_request: FEATURE-015\nepic           : EPIC-015\ncomponent      : skills\nstory_points   : 8\nrelease_notes  : Offline SDK1.101.0 knowledge for Datasets across both API versions; every owned contract available locally.\ncontent:\n# Author offline REST SDK contracts: Datasets across both API versions\n\n## Business outcome\nAn agent discovers and authors any owned Foundry REST SDK operation using only the standalone pal-found-dev knowledge and prepared SDK/runtime artifacts.\n\n## Owned scope\nT37 partition R4; 52 canonical operations in frozen SDK 1.101.0 (all v1.datasets and v2.datasets operations; owns REST dataset transactions and binary/file examples J11/J12). Exact IDs derive from the reviewed SA-DES-014 inventory using these service/resource predicates. All stability states are included. No operation exclusion without recorded Project Owner approval. This story exclusively owns these operation explanations/examples and coordinates shared models under DEV-STORY-069 ownership.\n\n## Acceptance Criteria\n- Each owned operation maps to a complete local SDK/HTTP contract, meaningful adaptable example, required input/output/model definitions, effects, permissions/prerequisites, errors, availability restrictions and bounded recovery where applicable.\n- Synchronous/asynchronous and raw/streaming response forms have locally navigable guidance where exposed; all transitive models/errors resolve within standalone pal-found-dev.\n- Fulfill BA-DES-015 BD-015-01,08,11 and seven-element topic contract; independent source/semantic review covers every owned operation, not only journey samples.\n- Independent QA authors fixture expectations and selects service/API-version discovery cases without author assistance. Public internet is blocked; enrollment/fixture boundary and missing prerequisites are explicit.\n- Preserve 351 CLI operations, other topic owners and valid knowledge. No installation/copy instructions, required sibling skills or internal development-document references in distributed content.\n- Essential CLI defects remain FEATURE-012-owned with a linked acceptance blocker. All owned content gaps must be resolved before acceptance.\n\n## Related Documentation\nBA-DES-015 revision2; SA-DES-014 revision2 and SDK inventory 1.101.0; WORK-003; approved historical BA-ANA-016/SA-ANA-016.\n\n## Planning and delivery\nCandidate 8 points. Grooming must validate authoring and independent review capacity, exact model-dependency effort and one-sprint feasibility; split further by explicit operation-ID subsets if needed without changing the complete425 union. Requires approved design, DEV-STORY-061 audit/routing and DEV-STORY-069 frozen catalog/common patterns. Stories remain New until FEATURE-015 Waiting for Implementation. No authoring begins during design. Deliver content and review evidence to REST acceptance story and DEV-STORY-070 integration; final publication remains GitHub-only.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "comment",
+        "get",
+        "BUG-SUB-025",
+        "20261011-223043-python-developer",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "\nComment Details:\n================================================================================\ncomment_id      : 20261011-223043-python-developer\nauthor          : python-developer\nsubject         : 2026-10-11 root cause and in-progress evidence\ncreated         : 2026-10-11T22:30:43\nupdated         : 2026-10-11T22:30:43\ntext:\n## Root cause\nThe local per-operation examples checked request and response shapes separately. No composed J12 path checked transaction-view File.get/content before commit, branch-view File.get/content after commit, or the difference between a terminal Build status and successful completion. The original reader therefore produced an incomplete sequence despite six method fixtures passing.\n\n## Implemented correction\nCommit `d2ce40a` adds a root-client SDK 1.101.0 journey with seven finite MockTransport cases: SUCCEEDED, FAILED, CANCELED, RUNNING after budget, lost upload reply, lost commit reply, and explicit abort. It asserts staged and committed file views, known transaction RID reconciliation, and exactly one create/upload/commit mutation where applicable. Transaction.md and Build.md explain the lifecycle and finite Build.jobs diagnostics. The public SDK jobs cursor probe and the seven-case journey exited 0 without public DNS/socket access. These are synthetic fixtures, not live tenant execution.\n\n## Remaining verification\nIndependent tech-lead handoff reports source/API PASS for `d2ce40a`, pending durable peer comment. QA reports a final-candidate source-blind provisional 6/6 on snapshot `6949469` with 20 consulted files byte-matching, pending committed hashes and formal score. Preserve original 4/6 evidence. Do not resolve until these two records are durable. Contributor time remains untracked because actual hours were not measured.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "comment",
+        "get",
+        "BUG-SUB-025",
+        "20261011-223156-tech-lead",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "\nComment Details:\n================================================================================\ncomment_id      : 20261011-223156-tech-lead\nauthor          : tech-lead\nsubject         : Independent source and fixture review of d2ce40a\ncreated         : 2026-10-11T22:31:56\nupdated         : 2026-10-11T22:32:16\ntext:\n## Review verdict\nPASS for the scoped source/API correction in skills commit `d2ce40a2baee7d53d06e530777747a6ae26e0e07` (2026-10-11). The commit contains exactly the staged journey example and the v2 Transaction and Build guides. It does not alter the frozen source-signature fences.\n\n## Grounding\n- Installed `foundry-platform-sdk` is 1.101.0. The frozen SDK source confirms public composed routes `client.datasets.Dataset.Transaction`, `.File`, `.Branch`, and `client.orchestration.Build.get`; the fixture asserts HTTP paths, transaction selectors, payload and result states through MockTransport.\n- `python -B pal_found_cli_skills/.agents/skills/pal-found-dev/examples/rest/074/v2/datasets/staged_commit_journey.py` exited 0: seven synthetic outcomes for SUCCEEDED, FAILED, CANCELED, RUNNING after budget, lost upload reply, lost commit reply and abort. The upload and commit mutations occur once; staged file reads precede commit and branch file reads follow it. The fixture SHA256 is `3E7EA955183B1A9CACF02C5D83FA8CCA94C7348A77FE181807C21AF13C77BE78`.\n- The Build.jobs guide uses the already fetched ResourceIterator `.data` and `.next_page_token`. Five requests and 500 jobs cap the diagnostic loop; empty intermediary pages advance and repeated cursors stop. Frozen `_core/page_iterator.py` confirms the first page loads in the iterator constructor.\n\n## Acceptance boundary\nThe original J12 4/6 failure remains in the retained QA manifest. Its earlier fresh 6/6 manifest predates this commit (prior fixture SHA256 `8bced797088eb1854744098d7355b28711842fdaf7235bba9755bafdcd149bf4`). QA reports a new source-blind provisional 6/6 at snapshot `6949469` with 20 consulted files byte-matching; those outputs are not yet committed as final candidate evidence. Do not treat this review as final J12 QA sign-off or clear TESTEXEC-064 until QA records its durable result. Socket/DNS patches and MockTransport prove this synthetic SDK path, not OS-wide network isolation or live tenant behavior.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "comment",
+        "get",
+        "BUG-SUB-025",
+        "20261011-223401-python-developer",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "\nComment Details:\n================================================================================\ncomment_id      : 20261011-223401-python-developer\nauthor          : python-developer\nsubject         : 2026-10-11 time field and verification gate\ncreated         : 2026-10-11T22:34:01\nupdated         : 2026-10-11T22:34:01\ntext:\n## Time reporting\nSet `time_spent_hours: untracked` through the documented tracker CLI and confirmed it in ticket readback. Actual contributor hours were not measured; a numeric value would be fabricated.\n\n## Status\nBUG-SUB-025 stays In Progress. Tech-lead source/API review of commit `d2ce40a` is durable in comment `20261011-223156-tech-lead`. Final-candidate J12 source-blind QA reported provisional 6/6, but its immutable output and manifest have not yet been committed. Do not transition to Resolved until QA evidence is durable and the exact In Progress DoD is checked again.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "comment",
+        "create",
+        "BUG-SUB-025",
+        "--author",
+        "python-developer",
+        "--subject",
+        "Committed final-candidate J12 evidence satisfies developer resolution gate",
+        "--text",
+        "## Root cause and implemented correction\n\nThe original per-operation examples checked shapes independently. They did not compose staged File.get/content checks before commit, branch/file checks after commit, or distinguish a terminal Build state from successful completion. The original source-blind reader therefore scored 4/6 despite six method fixtures passing.\n\nThe historical implementation and independent source/API review are recorded in comments 20261011-223043-python-developer and 20261011-223156-tech-lead for d2ce40a. Current evidence is bound to committed skills revision `e44b97ed51f438ea495096287565cd064c77b150` rather than reusing the earlier fixture hash. The current composed journey SHA256 is `b260986ea80bb57f0e25c72b728918291484eab242b4bf1ab8ff63622fdf076e`; Transaction.md is `d16435f483e07e822d7b79fd13b06744ca196c1f594f985a490f5b8c6c51c3ef` and Build.md is `ad26f97daf4f9b9a117c28f343794e5eb710e0967d85072976985d4541b64499`.\n\n## Committed independent verification\n\n- Fresh reader `/root/j12_reader_recover_20261028` used only the standalone skill and prepared SDK 1.101.0 runtime. Its reader answer SHA256 is `65cc2f91075a54a5902e948801d706c87a119ec404f6044bcb04bee559015fe8`.\n- Separate grader `/root/j12_independent_grade_20261028` approved all six rubric dimensions, reproduced all 12 synthetic scenarios, and verified artifact/source integrity. Grade SHA256 is `0b81f4c254d2f21cf19217e4eb9c158a2430d2d4a5809718d96e899b0a0f582c`.\n- Durable acceptance: `maintainer/j12-independent-acceptance-20261028.json`, SHA256 `6acb2c856d19e3478879cb984b9ac62f2352b5b9ddd33f0044f58fa2ac54cae9`. Archive context: `maintainer/evidence/j12-20261028/archive-context.json`, SHA256 `5fc3edf93369f1ab06466fe00e4ef44073da7dd77b4f03f8f3cfaaaabe781828`.\n- All 90 original archived artifacts plus acceptance/context are committed and unchanged. All 23 consulted current source files match both their recorded hashes and that commit. The complete 4,437-file historical snapshot manifest and original 4/6 failure artifacts are preserved without claiming every current unconsulted file equals the historical snapshot.\n- Current composed seven-case regression evidence is retained separately from the fresh 12-scenario reader and independent reproduction. This handoff verifies existing immutable evidence; it does not claim an additional runtime retest.\n\n## In Progress DoD and handoff\n\nRelated documentation was consulted through `.ept/docs/document_index.md` and the approved SA-DES-014 verification rubric. Required fields, parent context, root cause, implementation, regression and linked evidence were checked. No Question sub-task or Question link exists on this bug. Contributor hours remain explicitly `untracked` in frontmatter, as approved in comment 20261011-223401-python-developer; no numeric contributor time is invented.\n\nThe committed-evidence prerequisite in that comment is now satisfied. Resolve for separate QA verification only. Preserve Blocks `LINK-01894` to TESTEXEC-064 and RelatesTo `LINK-01893` to DEV-STORY-074; QA owns the verified blocker removal and final closure.\n\nThese are synthetic SDK HTTP and offline reader results, not live tenant mutations, authorization, server-side builds or OS-wide network isolation. Full REST075 formal QA, TESTEXEC-064's remaining scope, publication and FEATURE-015 release acceptance remain separate gates."
+      ],
+      "exit_code": 0,
+      "stdout": "Created comment: 20261028-154145-@python-developer\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "update",
+        "BUG-SUB-025",
+        "--status",
+        "Resolved",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "ticket_id: BUG-SUB-025\ncurrent_status: Resolved\nstatus_description: Fix implemented; ready for verification.\nstatus_goal: Manage blockers and prepare for closure.\nstatus_responsible_roles:\n- Developer\nallowed_transitions:\n- Closed\n- Canceled\n- Rejected\n- Duplicated\n- Blocked\n- In Progress\ninstructions:\n- QA verifies fix and records evidence.\n- IF this ticket blocks any other tickets with the source_role=Blocks link(s) THEN\n  remove these links.\n- IF not blocked THEN ready to move to Closed.\ndefinitions_of_done:\n- target_statuses:\n  - Closed\n  dod_criteria:\n  - Fix verified by QA\n  - Ticket not blocked (no active `blocks` links)\n\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "get",
+        "BUG-SUB-025",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "ticket_id: BUG-SUB-025\ncurrent_status: Resolved\nstatus_description: Fix implemented; ready for verification.\nstatus_goal: Manage blockers and prepare for closure.\nstatus_responsible_roles:\n- Developer\nallowed_transitions:\n- Closed\n- Canceled\n- Rejected\n- Duplicated\n- Blocked\n- In Progress\ninstructions:\n- QA verifies fix and records evidence.\n- IF this ticket blocks any other tickets with the source_role=Blocks link(s) THEN\n  remove these links.\n- IF not blocked THEN ready to move to Closed.\ndefinitions_of_done:\n- target_statuses:\n  - Closed\n  dod_criteria:\n  - Fix verified by QA\n  - Ticket not blocked (no active `blocks` links)\n\nTicket Details:\n================================================================================\nid             : BUG-SUB-025\ntype           : bug_subtask\ntitle          : J12 guide lacks integrated transaction file verification and build outcome\nstatus         : Resolved\npriority       : High\nassignee       : python-developer\nreporter       : qa-engineer\nparent         : DEV-STORY-075\naddressed_to   : \npath           : DEV-STORY-075/BUG-SUB-025\ncreated        : 2026-10-09\nupdated        : 2026-10-28\ntime_spent_hours: untracked\ncontent:\n## Severity and version\nHigh; SDK 1.101.0; pal_found_cli_skills candidate based on HEAD b40d0be, 2026-10-09.\n\n## Reproduction\nSource-blind J12 reader .ept/tmp/feature015-j12-reader/reader-results.md scored 4/6 in .ept/tmp/feature015_rest_semantic_review/j12_independent_score.md. It followed local Transaction.md lines 91-99 and 125-160, File.md upload section, and Build.md lines 59-90. The composed code omits staged File.get/content before commit and postcommit branch/file verification; it exits on any terminal Build state without marking FAILED/CANCELED unsuccessful. Six individual SDK fake-transport examples pass, but no composed sequence runs.\n\n## Expected behavior\nOffline guidance and a runnable root-client fixture verify transaction-view file state before commit, committed branch/file state afterward, and RUNNING/SUCCEEDED/FAILED/CANCELED/poll-exhaustion separately. Upload or commit timeout is reconciled before replay.\n\n## Acceptance criteria\n- Coordinate dataset-view portion with DEV-STORY-074; keep integrated Build journey under DEV-STORY-075.\n- Add composed SDK1.101.0 fake-transport example and regression for all listed states and checks.\n- Fresh source-blind reader passes all six J12 dimensions using only standalone skill/prepared runtime.\n- Preserve failed artifact and distinguish fixture from tenant operation.\n\n## Test reference\nTESTEXEC-064 comment 20261009-092807-qa-engineer. Related to DEV-STORY-074; Blocks TESTEXEC-064. No FileImport or unrelated namespace scope.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "link",
+        "list",
+        "BUG-SUB-025",
+        "--author",
+        "python-developer"
+      ],
+      "exit_code": 0,
+      "stdout": "\nFound 2 link(s) for BUG-SUB-025:\n====================================================================================================\nLink ID         Source             Target          Type            Role\n----------------------------------------------------------------------------------------------------\nLINK-01893      BUG-SUB-025     -> DEV-STORY-074   RelatesTo       (Relates To)\nLINK-01894      BUG-SUB-025     -> TESTEXEC-064    Blocks          (Blocks)\n",
+      "stderr": ""
+    }
+  ],
+  "repository_checks": {
+    "verified_committed_artifacts": 92,
+    "archive_originals": 90,
+    "verified_current_committed_sources": 23,
+    "current_source_hashes": {
+      "SKILL.md": "2495f974d0c9ba4f9811530fe5f2aa031cfe5912230f6b8624601ef692fbc0fe",
+      "references/rest-api.md": "af3562db0dc7f4a45d684b837ce5ba4364af65c0bf4380f74b322fdfca0597ff",
+      "references/rest/authentication.md": "21cf5c0319011cf8603358d08b10205b6e92f247da4e6ec871f7526a01618a7c",
+      "references/rest/client-behavior.md": "57826178f9a203bbe1eb3de24832bef82dc457ecb167f1208a3ba177a93dbcc2",
+      "references/rest/v2/datasets/Transaction.md": "d16435f483e07e822d7b79fd13b06744ca196c1f594f985a490f5b8c6c51c3ef",
+      "references/rest/v2/datasets/File.md": "7a0bf6c4a67c5024a7ecd11184d584a2c02271d4d997fef8b99f0be71204fee0",
+      "references/rest/v2/orchestration/Build.md": "ad26f97daf4f9b9a117c28f343794e5eb710e0967d85072976985d4541b64499",
+      "examples/rest/074/v2/datasets/staged_commit_journey.py": "b260986ea80bb57f0e25c72b728918291484eab242b4bf1ab8ff63622fdf076e",
+      "references/rest/contracts/v2/datasets/File/upload.md": "4df6acf02e7f13927225887cb6cf5a067707b421ad469e91fe0ede5fd3437e22",
+      "references/rest/contracts/v2/datasets/File/get.md": "c73dab3b9b26c60673295ab7166383504ef487d0fae4fabdb6d46c5065fced43",
+      "references/rest/contracts/v2/datasets/File/content.md": "2203e18b0699eef77ca8a0ded49d191a92ee6acf5e1fdae49222291a252ca838",
+      "references/rest/contracts/v2/datasets/Branch/get.md": "39386d73c05a76659e13bc87dbc3241fba13a4d196f85f8822df84f940b14a60",
+      "references/rest/contracts/v2/datasets/Transaction/create.md": "5e99f61292552bea170c6fd3597be096dfc59ff535f0b49b91cbc59022193e8c",
+      "references/rest/contracts/v2/datasets/Transaction/commit.md": "649a05bc5bf73263e2c73fb65b8cc07650ab2c71ec1c6585d2550a405cdfa4e2",
+      "references/rest/contracts/v2/orchestration/Build/create.md": "f2d0d140d01fec67c4411a5eaa262c87131185437a4dcadfe5b054fe09e93f64",
+      "references/rest/contracts/v2/orchestration/Build/get.md": "a3e8bf7a0ec6d0e1549042796286f7183ccfab194f2bb156902fca42a2e412d0",
+      "references/rest/models/v2/orchestration/models/BuildTarget.md": "052bc31af2406ef5de0076c4f249b85a6f2d0b5ce156326a5b452777d42e7ddb",
+      "references/rest/models/v2/orchestration/models/ManualTarget.md": "6d1fe072e94c063b35c663c8a27eacf0ce1b3e544f5e2aebeffac5a9829c9e28",
+      "references/rest/models/v2/orchestration/models/Build.md": "08eead343da308cdb094fa145f54cb868a4a6a14a048dd881bfce5e298216415",
+      "references/rest/models/v2/datasets/models/Transaction.md": "7935cd1d197bec46d3b8ac9ae52665aa8e426e4aae6ea5ae924f46ffa9f31312",
+      "references/rest/models/v2/datasets/models/File.md": "33b8c79a93e12880a80447260fd27985aad8b75543560e3420139d333d395f10",
+      "references/rest/models/v2/datasets/errors/FileNotFoundOnTransactionRangeParameters.md": "09aa437f9f652bbb29bd01dade9f923520775bd665271e707d58e3d714f38951",
+      "references/pipelines/transactions.md": "b84dfb7cc285039527ed3c14e0bb908c1a1aa8d9ce4b98053278c9458d21d367"
+    },
+    "evidence_commit_is_ancestor_of_HEAD": true,
+    "no_additional_runtime_retest": true
+  },
+  "verification_machine_seconds": 5.453606700000819,
+  "writer_done": true,
+  "result": "Resolved; separate QA closure pending",
+  "links_preserved": [
+    "LINK-01893",
+    "LINK-01894"
+  ],
+  "finished_at_utc": "2026-10-28T13:41:47.241518+00:00"
+}

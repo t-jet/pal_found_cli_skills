@@ -32,9 +32,15 @@ Side-effect endpoints/secrets/networking require their authorized owners.
 4. Verify schema/object/Action read/write authorization separately. Avoid
    negative membership checks as an authorization shortcut: scoped tokens may
    omit the attribute and accidentally satisfy such a negative condition.
-5. Use Test run to inspect criteria/rules before effectful submission. Test
-   with the selected actual inputs and allowed/restricted identities; distinguish
-   validation results from committed edits and configured side effects.
+5. Before Test run, inspect the Action's configured functions and external
+   calls. Use isolated/test endpoints and confirm the possible external effects
+   before acknowledging Foundry's external-call prompt. Test run leaves Ontology
+   edits unapplied and skips post-apply side effects (side-effect webhooks,
+   notifications and schedule builds). It still executes writeback webhooks and
+   functions/calls needed to compute the result, which can change external
+   systems after acknowledgement. Test criteria/rules with the selected actual
+   inputs and allowed/restricted identities; inspect those external effects
+   separately from the proposed Ontology edits.
 6. Submit through the supported consumer or generated SDK, inspect returned
    validation/edit information, reread the target and check side-effect logs.
    Preserve correlation/target identities for uncertain-outcome reconciliation.

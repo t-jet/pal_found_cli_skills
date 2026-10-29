@@ -24,7 +24,7 @@ EXPECTED_BODY = {'branchName': 'master', 'schema': {'fieldSchemaList': [
      'arraySubtype': {'type': 'STRING', 'nullable': False}}]}}
 EXPECTED_QUERY = {}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'branchName': 'synthetic-value',
+SUCCESS = {'branchName': 'master',
  'endTransactionRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
  'schema': {'fieldSchemaList': [
      {'name': 'id', 'type': 'LONG', 'nullable': False},
@@ -86,11 +86,17 @@ def normalized(value):
         return value.model_dump(mode='json', by_alias=True, exclude_none=True)
     return value
 
+def check_result(result, request):
+    requested_branch = json.loads(request.content)['branchName']
+    assert result['branchName'] == requested_branch, 'Returned schema branch differs from request'
+    assert result['schema'] == json.loads(request.content)['schema'], 'Returned schema differs from request'
+
+
 def verify():
     calls = []
     def success(request):
         check_request(request)
-        calls.append(True)
+        calls.append(request)
         if isinstance(SUCCESS, bytes):
             return httpx.Response(200, content=SUCCESS)
         if SUCCESS is None:
@@ -99,7 +105,9 @@ def verify():
     with mock_resource(DatasetClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = normalized(raw.decode())
+            assert result == SUCCESS
+            check_result(result, calls[0])
         finally:
             raw.close()
     assert len(calls) == 1

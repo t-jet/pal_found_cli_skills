@@ -1,7 +1,7 @@
 # foundry_sdk.v2.filesystem.models.ProjectResourceReferenceUnion
 
 
-A project resource reference represents a resource imported from another Project. Select the union alternative and discriminator shown below. The reference does not change ownership of the source resource; check its access separately.
+A reference represents a resource outside the current Project that has been imported into it. This alias accepts `ProjectExternalResourceReference` or `ProjectFilesystemResourceReference`, selected by the `type` discriminator.
 
 ## Exact SDK definition
 

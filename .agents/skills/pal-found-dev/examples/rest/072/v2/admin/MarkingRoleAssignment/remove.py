@@ -18,7 +18,7 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/admin/markings/synthetic-value/roleAssignments/remove'
-EXPECTED_BODY = {'roleAssignments': [{'role': 'ADMINISTER',
+EXPECTED_BODY = {'roleAssignments': [{'role': 'USE',
                       'principalId': '00000000-0000-0000-0000-000000000001'}]}
 EXPECTED_QUERY = {}
 EXPECTED_HEADERS = {'Content-Type': 'application/json'}
@@ -38,7 +38,7 @@ ERRORS = [{'name': 'GetMarkingPermissionDenied',
  {'name': 'OrganizationMarkingAdministerRoleNotSupported',
   'status': 400,
   'code': 'INVALID_ARGUMENT',
-  'parameters': {'markingId': 'synthetic-value',
+  'parameters': {'markingId': 'synthetic-organization-marking',
                  'organizationRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}},
  {'name': 'PrincipalNotFound',
   'status': 404,
@@ -58,12 +58,12 @@ ERRORS = [{'name': 'GetMarkingPermissionDenied',
   'parameters': {'markingId': 'synthetic-value',
                  'currentAdministrators': ['00000000-0000-0000-0000-000000000001']}}]
 
-def invoke(client):
-    return client.with_raw_response.remove(marking_id='synthetic-value', role_assignments=[{'role': 'ADMINISTER', 'principalId': '00000000-0000-0000-0000-000000000001'}], request_timeout=30)
+def invoke(client, role='USE', marking_id='synthetic-value'):
+    return client.with_raw_response.remove(marking_id=marking_id, role_assignments=[{'role': role, 'principalId': '00000000-0000-0000-0000-000000000001'}], request_timeout=30)
 
-def check_request(request):
+def check_request(request, role='USE', marking_id='synthetic-value'):
     assert request.method == EXPECTED_METHOD
-    assert urllib.parse.unquote(request.url.path) == EXPECTED_PATH
+    assert urllib.parse.unquote(request.url.path) == EXPECTED_PATH.replace('/synthetic-value/', f'/{marking_id}/')
     assert request.headers['Authorization'] == 'Bearer offline-fixture-token'
     for key, value in EXPECTED_HEADERS.items():
         if value is None:
@@ -72,10 +72,8 @@ def check_request(request):
             assert request.headers[key] == str(value)
     expected = httpx.QueryParams({key: value for key,value in EXPECTED_QUERY.items() if value is not None})
     assert sorted(request.url.params.multi_items()) == sorted(expected.multi_items())
-    if isinstance(EXPECTED_BODY, bytes):
-        assert request.content == EXPECTED_BODY
-    elif EXPECTED_BODY is not None:
-        assert json.loads(request.content) == EXPECTED_BODY
+    assert json.loads(request.content) == {'roleAssignments': [
+        {'role': role, 'principalId': '00000000-0000-0000-0000-000000000001'}]}
 
 def normalized(value):
     if isinstance(value, dict):
@@ -108,8 +106,11 @@ def verify():
             raw.close()
     assert len(calls) == 1
     for error_case in ERRORS:
+        organization_error = error_case['name'] == 'OrganizationMarkingAdministerRoleNotSupported'
+        role = 'ADMINISTER' if organization_error or error_case['name'] == 'RemoveMarkingRoleAssignmentsRemoveAllAdministratorsNotAllowed' else 'USE'
+        marking_id = 'synthetic-organization-marking' if organization_error else 'synthetic-value'
         def failure(request):
-            check_request(request)
+            check_request(request, role=role, marking_id=marking_id)
             return httpx.Response(error_case['status'], json={
                 'errorName':error_case['name'], 'errorCode':error_case['code'],
                 'parameters':error_case['parameters'],
@@ -117,7 +118,7 @@ def verify():
             })
         with mock_resource(MarkingRoleAssignmentClient, failure) as client:
             try:
-                raw = invoke(client)
+                raw = invoke(client, role=role, marking_id=marking_id)
                 raw.close()
             except PalantirRPCException as error:
                 assert error.name == error_case['name']

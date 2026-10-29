@@ -18,21 +18,17 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/languageModels/anthropic/synthetic-value/messages'
-EXPECTED_BODY = {'messages': [{'content': [{'source': {'data': 'synthetic-value',
-                                       'mediaType': 'IMAGE_JPEG',
-                                       'type': 'base64'},
-                            'type': 'image'}],
-               'role': 'USER'}],
- 'maxTokens': 1}
+EXPECTED_BODY = {'messages': [{'content': [{'text': 'Reply with one short greeting.',
+                                           'type': 'text'}],
+                               'role': 'USER'}],
+                 'maxTokens': 16}
 EXPECTED_QUERY = {'preview': None}
 EXPECTED_HEADERS = {'attribution': None, 'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'content': [{'id': 'synthetic-value',
-              'input': 'synthetic-value',
-              'name': 'synthetic-value',
-              'type': 'toolUse'}],
+SUCCESS = {'content': [{'text': 'Hello.', 'type': 'text'}],
  'id': 'synthetic-value',
  'model': 'synthetic-value',
- 'role': 'USER',
+ 'role': 'ASSISTANT',
+ 'stopReason': 'end_turn',
  'usage': {'inputTokens': 1, 'outputTokens': 1}}
 ERRORS = [{'name': 'AnthropicMessagesPermissionDenied',
   'status': 403,
@@ -41,18 +37,14 @@ ERRORS = [{'name': 'AnthropicMessagesPermissionDenied',
  {'name': 'MultipleSystemPromptsNotSupported',
   'status': 400,
   'code': 'INVALID_ARGUMENT',
-  'parameters': {'systemPromptSize': 1}},
+  'parameters': {'systemPromptSize': 2}},
  {'name': 'MultipleToolResultContentsNotSupported',
   'status': 400,
   'code': 'INVALID_ARGUMENT',
-  'parameters': {'toolResultContentsSize': 1}}]
+  'parameters': {'toolResultContentsSize': 2}}]
 
 def invoke(client):
-    return client.with_raw_response.messages(anthropic_model_model_id='synthetic-value', max_tokens=1, messages=[{'content': [{'source': {'data': 'synthetic-value',
-                          'mediaType': 'IMAGE_JPEG',
-                          'type': 'base64'},
-               'type': 'image'}],
-  'role': 'USER'}], request_timeout=30)
+    return client.with_raw_response.messages(anthropic_model_model_id='synthetic-value', max_tokens=16, messages=[{'content': [{'text': 'Reply with one short greeting.', 'type': 'text'}], 'role': 'USER'}], request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

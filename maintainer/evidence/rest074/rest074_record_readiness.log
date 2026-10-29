@@ -1,0 +1,1107 @@
+ticket_id: DESIGN-076
+current_status: Closed
+status_description: Verified and archived.
+status_goal: Archive the completed sub-task.
+status_responsible_roles:
+- Assignee
+allowed_transitions:
+- Resolved
+instructions:
+- Terminal status, Archive only; no edits.
+definitions_of_done: []
+
+Ticket Details:
+================================================================================
+id             : DESIGN-076
+type           : design
+title          : DEV-STORY-074 design versioned dataset branch and transaction lifecycle REST contracts
+status         : Closed
+priority       : High
+assignee       : tech-lead
+reporter       : tech-lead
+parent         : DEV-STORY-074
+addressed_to   : 
+path           : DEV-STORY-074/DESIGN-076
+created        : 2026-10-07
+updated        : 2026-10-07
+estimated_hours: 4
+time_spent_hours: 0.5
+content:
+# DEV-STORY-074 design
+
+## Owned scope
+52 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 8efcd5e310fd263c31e9b81224f23458c799c29de027fdbb4b2d1f5f5eab1c8d.
+Resources: v1.datasets.Branch, v1.datasets.Dataset, v1.datasets.File, v1.datasets.Transaction, v2.datasets.Branch, v2.datasets.Dataset, v2.datasets.File, v2.datasets.Transaction, v2.datasets.View.
+Core069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/074/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_074.py.
+
+## Acceptance criteria
+Finalize source/file ownership, finite estimates and independent lead review; record technical plan in tracker. No content implementation.
+Every operation has locally available signature/HTTP/body/typed inputs/results/nested models/errors/effects/availability/modes and bounded recovery. Every example supplies synthetic or precisely described tenant values, actual SDK call, request/response/error assertions. Use actual asynchronous return signatures, not inferred Awaitable types. Keep source silence explicit with authorized tenant verification; invent no universal scope or idempotency guarantee. Independently reconcile full model/error closure;3242 is not a cap. Owned capability workflow covers exact resources in this partition: identity/access and supported reads/mutations, version-specific availability, finite iteration, transport lifetimes, denied operations and uncertain-write effect reconciliation. Admin071 and072 share a namespace but own disjoint resources and never change central service indexes. Dataset074 separates v1/v2 branches, schemas, files and transaction operations; build075 separates schedule/trigger/build completion, checkpoint and health-report state; v1 Ontology077 stays distinct from v2 schema/object/Action contracts.
+
+## Related documentation
+BA-DES-015/SA-DES-014 revision2 and closed owner approvals QUESTION179/182. Indexed FEATURE-015-rest-authoring-contract.md and exact partition JSON. Primary SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf/OpenAPI1.1697.0. Supplement SDK silence with relevant official API references while authoring. Preserve351 CLI operations and other authors, Apache2.0 copyright/license/NOTICE. No installation/copy/internal reader links. Final independent REST acceptance093, GitHub-only integrated publication070.
+
+## Estimate and readiness
+4 contributor hours; total72h candidate8points within80h two-week budget with reviewer/QA slots. Firstthree operation/example/constraint fixtures measured before scaling; split exact exclusive IDs if capacity exceeded. No implementation before DESIGNClosed, independent lead reviews and parentDevelopmentDoD. No infrastructure change; no DEVOPS child because070 owns release.
+ 
+ticket_id: BUG-SUB-024
+current_status: Closed
+status_description: Verified and archived.
+status_goal: Archive the completed sub-task.
+status_responsible_roles:
+- Assignee
+allowed_transitions:
+- Resolved
+instructions:
+- Terminal status. Archive only; no edits.
+definitions_of_done: []
+
+Ticket Details:
+================================================================================
+id             : BUG-SUB-024
+type           : bug_subtask
+title          : Dataset File guide omits composed SDK client path
+status         : Closed
+priority       : High
+assignee       : python-developer
+reporter       : qa-engineer
+parent         : DEV-STORY-074
+addressed_to   : 
+path           : DEV-STORY-074/BUG-SUB-024
+created        : 2026-10-09
+updated        : 2026-10-11
+time_spent_hours: untracked
+content:
+## Severity and version
+High; SDK 1.101.0; pal_found_cli_skills candidate based on HEAD b40d0be, 2026-10-09.
+
+## Reproduction
+Source-blind J11 artifact .ept/tmp/feature015_rest_semantic_review/reader_j11_j13_j14.md followed the local File guide and authored `client.datasets.File.with_streaming_response.content`. In prepared SDK, `hasattr(client.datasets, "File")` is False and `hasattr(client.datasets.Dataset, "File")` is True. The authored path raises `AttributeError: DatasetsClient object has no attribute File`. Resource-level FileClient fixture exit 0 bypasses root traversal.
+
+## Expected behavior
+Standalone local Datasets guidance and a root-client fake-transport example show the correct composed path, method signature and result handling so an offline agent can write executable File operations.
+
+## Acceptance criteria
+- Document the verified public FoundryClient route for affected v1/v2 Dataset File operations and related nested resources as applicable.
+- Add a root-client fake-transport regression that invokes the full path and checks request/result and named errors.
+- Re-run source-blind J11 with corrected skill only; six dimensions pass, including actual composed call.
+- Preserve all other frozen operation records and keep the full425 traversal gate under TESTCASE-064.
+
+## Test reference
+TESTEXEC-064; BUG-SUB-024 Blocks DEV-STORY-074 and TESTEXEC-064. No live tenant call occurred.
+ 
+ticket_id: DEV-076
+current_status: In Progress
+status_description: Implementation in progress; code being written and reviewed.
+status_goal: Implement the assigned work and record progress.
+status_responsible_roles:
+- Developer
+allowed_transitions:
+- Resolved
+- Blocked
+- Canceled
+- Rejected
+- Duplicated
+instructions:
+- Implement changes; update tests as needed.
+- Record decisions as a comment on this ticket.
+- List created/modified/deleted files as a comment on this ticket.
+- 'VERIFICATION CHECKPOINT: Before claiming file creation, verify file exists in workspace
+  using file search.'
+- 'CORRECTIVE ACTION IF FILES DO NOT EXIST: IF claimed files do not exist in workspace
+  THEN do NOT move to Resolved; IF verification fails THEN document issue as a comment
+  on this ticket and remain In Progress; IF phantom completion detected THEN create
+  BUG ticket and revert status to Open.'
+definitions_of_done:
+- target_statuses:
+  - Resolved
+  dod_criteria:
+  - Studied related documentation from the `.ept/docs/document_index.md`
+  - Critical thinking applied
+  - All required questions asked using the Question sub-tasks and all these sub-tasks
+    are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
+  - 'MANDATORY VERIFICATION: All claimed files physically exist in workspace (use
+    file search or directory listing to verify)'
+  - 'MANDATORY VERIFICATION: Code compiles without errors (run build/compile command
+    and document output)'
+  - All code committed to repository
+  - Implementation complete and ready for review
+  - Code follows project standards
+  - All external connections has configurable timeout
+  - Test coverage as per project requirements
+  - Unit tests are really unit tests (no external connections)
+  - All unit tests passed
+  - List of created/modified/deleted files documented as a comment on this ticket
+  - Time reported in subtask frontmatter
+  - All required deliverables completed
+  - Related documents in the `.ept/docs/document_index.md` analyzed and modified to
+    incorporate ticket results
+  - '`.ept/docs/document_index.md` updated for changes in deliverables'
+  - All document changes documented as a comment on this ticket
+  - All links registered
+  - CodeReview sub-task created and relates-to link established
+
+Ticket Details:
+================================================================================
+id             : DEV-076
+type           : development
+title          : DEV-STORY-074 development versioned dataset branch and transaction lifecycle REST contracts
+status         : In Progress
+priority       : High
+assignee       : python-developer
+reporter       : tech-lead
+parent         : DEV-STORY-074
+addressed_to   : 
+path           : DEV-STORY-074/DEV-076
+created        : 2026-10-07
+updated        : 2026-10-07
+estimated_hours: 32
+content:
+# DEV-STORY-074 development
+
+## Owned scope
+52 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 8efcd5e310fd263c31e9b81224f23458c799c29de027fdbb4b2d1f5f5eab1c8d.
+Resources: v1.datasets.Branch, v1.datasets.Dataset, v1.datasets.File, v1.datasets.Transaction, v2.datasets.Branch, v2.datasets.Dataset, v2.datasets.File, v2.datasets.Transaction, v2.datasets.View.
+Core069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/074/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_074.py.
+
+## Acceptance criteria
+Author original behavior for every owned method, exact adaptable SDK-backed invocation and response/error fixture. Explain purpose, prerequisites, effects, constraints, stages, validation and recovery.
+Every operation has locally available signature/HTTP/body/typed inputs/results/nested models/errors/effects/availability/modes and bounded recovery. Every example supplies synthetic or precisely described tenant values, actual SDK call, request/response/error assertions. Use actual asynchronous return signatures, not inferred Awaitable types. Keep source silence explicit with authorized tenant verification; invent no universal scope or idempotency guarantee. Independently reconcile full model/error closure;3242 is not a cap. Owned capability workflow covers exact resources in this partition: identity/access and supported reads/mutations, version-specific availability, finite iteration, transport lifetimes, denied operations and uncertain-write effect reconciliation. Admin071 and072 share a namespace but own disjoint resources and never change central service indexes. Dataset074 separates v1/v2 branches, schemas, files and transaction operations; build075 separates schedule/trigger/build completion, checkpoint and health-report state; v1 Ontology077 stays distinct from v2 schema/object/Action contracts.
+
+## Related documentation
+BA-DES-015/SA-DES-014 revision2 and closed owner approvals QUESTION179/182. Indexed FEATURE-015-rest-authoring-contract.md and exact partition JSON. Primary SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf/OpenAPI1.1697.0. Supplement SDK silence with relevant official API references while authoring. Preserve351 CLI operations and other authors, Apache2.0 copyright/license/NOTICE. No installation/copy/internal reader links. Final independent REST acceptance093, GitHub-only integrated publication070.
+
+## Estimate and readiness
+32 contributor hours; total72h candidate8points within80h two-week budget with reviewer/QA slots. Firstthree operation/example/constraint fixtures measured before scaling; split exact exclusive IDs if capacity exceeded. No implementation before DESIGNClosed, independent lead reviews and parentDevelopmentDoD. No infrastructure change; no DEVOPS child because070 owns release.
+ 
+Updated ticket: DEV-076
+DEV-076         In Progress     High       python-developer     DEV-STORY-074 development versioned dataset branch and transaction lifecycle REST contracts
+ 
+Created comment: 20261021-154137-@project-manager~001
+ 
+ticket_id: UNITTEST-076
+current_status: In Progress
+status_description: Unit test work in progress; tests being written and executed.
+status_goal: Write and execute unit tests, record results and coverage.
+status_responsible_roles:
+- Developer
+allowed_transitions:
+- Resolved
+- Blocked
+- Canceled
+- Rejected
+- Duplicated
+instructions:
+- Add/update unit tests; record results.
+definitions_of_done:
+- target_statuses:
+  - Resolved
+  dod_criteria:
+  - Studied related documentation from the `.ept/docs/document_index.md`
+  - Critical thinking applied
+  - All required questions asked using the Question sub-tasks and all these sub-tasks
+    are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
+  - All unit tests written and committed
+  - Unit tests cover main scenarios and edge cases
+  - All unit tests passing (100% pass rate)
+  - Test coverage meets project standards
+  - Time reported in subtask frontmatter
+  - All links registered
+
+Ticket Details:
+================================================================================
+id             : UNITTEST-076
+type           : unittest
+title          : DEV-STORY-074 unittest versioned dataset branch and transaction lifecycle REST contracts
+status         : In Progress
+priority       : High
+assignee       : python-developer
+reporter       : tech-lead
+parent         : DEV-STORY-074
+addressed_to   : 
+path           : DEV-STORY-074/UNITTEST-076
+created        : 2026-10-07
+updated        : 2026-10-07
+estimated_hours: 8
+content:
+# DEV-STORY-074 unittest
+
+## Owned scope
+52 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 8efcd5e310fd263c31e9b81224f23458c799c29de027fdbb4b2d1f5f5eab1c8d.
+Resources: v1.datasets.Branch, v1.datasets.Dataset, v1.datasets.File, v1.datasets.Transaction, v2.datasets.Branch, v2.datasets.Dataset, v2.datasets.File, v2.datasets.Transaction, v2.datasets.View.
+Core069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/074/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_074.py.
+
+## Acceptance criteria
+Implement offline SDK-backed fake-transport serialization/response/error assertions for every owned method. Include actual async iterator/raw/stream/SSE lifetimes and finite work. Derive expected values from source; counts cannot approve behavior.
+Every operation has locally available signature/HTTP/body/typed inputs/results/nested models/errors/effects/availability/modes and bounded recovery. Every example supplies synthetic or precisely described tenant values, actual SDK call, request/response/error assertions. Use actual asynchronous return signatures, not inferred Awaitable types. Keep source silence explicit with authorized tenant verification; invent no universal scope or idempotency guarantee. Independently reconcile full model/error closure;3242 is not a cap. Owned capability workflow covers exact resources in this partition: identity/access and supported reads/mutations, version-specific availability, finite iteration, transport lifetimes, denied operations and uncertain-write effect reconciliation. Admin071 and072 share a namespace but own disjoint resources and never change central service indexes. Dataset074 separates v1/v2 branches, schemas, files and transaction operations; build075 separates schedule/trigger/build completion, checkpoint and health-report state; v1 Ontology077 stays distinct from v2 schema/object/Action contracts.
+
+## Related documentation
+BA-DES-015/SA-DES-014 revision2 and closed owner approvals QUESTION179/182. Indexed FEATURE-015-rest-authoring-contract.md and exact partition JSON. Primary SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf/OpenAPI1.1697.0. Supplement SDK silence with relevant official API references while authoring. Preserve351 CLI operations and other authors, Apache2.0 copyright/license/NOTICE. No installation/copy/internal reader links. Final independent REST acceptance093, GitHub-only integrated publication070.
+
+## Estimate and readiness
+8 contributor hours; total72h candidate8points within80h two-week budget with reviewer/QA slots. Firstthree operation/example/constraint fixtures measured before scaling; split exact exclusive IDs if capacity exceeded. No implementation before DESIGNClosed, independent lead reviews and parentDevelopmentDoD. No infrastructure change; no DEVOPS child because070 owns release.
+ 
+Updated ticket: UNITTEST-076
+UNITTEST-076    In Progress     High       python-developer     DEV-STORY-074 unittest versioned dataset branch and transaction lifecycle REST contracts
+ 
+Created comment: 20261021-154138-@project-manager
+ 
+ticket_id: CODEREVIEW-077
+current_status: Blocked
+status_description: Cannot proceed; blocker documented.
+status_goal: Verify blocking condition remains, maintain blocker links and priorities,
+  and return to prior status when unblocked.
+status_responsible_roles:
+- Current assignee
+allowed_transitions:
+- Open
+- Correction
+- Corrected
+- Canceled
+- Rejected
+- Duplicated
+instructions:
+- Confirm blocker and prior status are documented as a comment on this ticket (include
+  blocker ID and prior status).
+- Verify blocking link exists on this ticket.
+- Do not create new blocker links in this status; they must be created when the block
+  is identified.
+- IF blocking link missing THEN create QUESTION ticket addressed_to appropriate role,
+  add a Blocks link and a Question link from it to this ticket, and remain Blocked.
+- "Query blocking links on this ticket. For each blocker found, check its status:\n\
+  \  - IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated`\
+  \ THEN remove the blocking link and return to prior status\n  - IF blocker still\
+  \ active AND blocker priority lower than this ticket priority THEN raise blocker\
+  \ priority to match.\n"
+- IF all blocking links removed THEN return this ticket to prior status.
+definitions_of_done: []
+
+Ticket Details:
+================================================================================
+id             : CODEREVIEW-077
+type           : codereview
+title          : DEV-STORY-074 codereview versioned dataset branch and transaction lifecycle REST contracts
+status         : Blocked
+priority       : High
+assignee       : architect
+reporter       : tech-lead
+parent         : DEV-STORY-074
+addressed_to   : 
+path           : DEV-STORY-074/CODEREVIEW-077
+created        : 2026-10-07
+updated        : 2026-10-07
+estimated_hours: 12
+content:
+# DEV-STORY-074 codereview
+
+## Owned scope
+52 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 8efcd5e310fd263c31e9b81224f23458c799c29de027fdbb4b2d1f5f5eab1c8d.
+Resources: v1.datasets.Branch, v1.datasets.Dataset, v1.datasets.File, v1.datasets.Transaction, v2.datasets.Branch, v2.datasets.Dataset, v2.datasets.File, v2.datasets.Transaction, v2.datasets.View.
+Core069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/074/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_074.py.
+
+## Acceptance criteria
+Independent architect reviews every owned method against frozen docs/source/API references, full corrected models/errors and actual runnable examples. Record exact per-operation findings and dispositions. Do not review own content; wait paired DEV Resolved.
+Every operation has locally available signature/HTTP/body/typed inputs/results/nested models/errors/effects/availability/modes and bounded recovery. Every example supplies synthetic or precisely described tenant values, actual SDK call, request/response/error assertions. Use actual asynchronous return signatures, not inferred Awaitable types. Keep source silence explicit with authorized tenant verification; invent no universal scope or idempotency guarantee. Independently reconcile full model/error closure;3242 is not a cap. Owned capability workflow covers exact resources in this partition: identity/access and supported reads/mutations, version-specific availability, finite iteration, transport lifetimes, denied operations and uncertain-write effect reconciliation. Admin071 and072 share a namespace but own disjoint resources and never change central service indexes. Dataset074 separates v1/v2 branches, schemas, files and transaction operations; build075 separates schedule/trigger/build completion, checkpoint and health-report state; v1 Ontology077 stays distinct from v2 schema/object/Action contracts.
+
+## Related documentation
+BA-DES-015/SA-DES-014 revision2 and closed owner approvals QUESTION179/182. Indexed FEATURE-015-rest-authoring-contract.md and exact partition JSON. Primary SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf/OpenAPI1.1697.0. Supplement SDK silence with relevant official API references while authoring. Preserve351 CLI operations and other authors, Apache2.0 copyright/license/NOTICE. No installation/copy/internal reader links. Final independent REST acceptance093, GitHub-only integrated publication070.
+
+## Estimate and readiness
+12 contributor hours; total72h candidate8points within80h two-week budget with reviewer/QA slots. Firstthree operation/example/constraint fixtures measured before scaling; split exact exclusive IDs if capacity exceeded. No implementation before DESIGNClosed, independent lead reviews and parentDevelopmentDoD. No infrastructure change; no DEVOPS child because070 owns release.
+ 
+Updated ticket: CODEREVIEW-077
+CODEREVIEW-077  Blocked         High       architect            DEV-STORY-074 codereview versioned dataset branch and transaction lifecycle REST contracts
+ 
+Created comment: 20261021-154138-@project-manager~001
+ 
+ticket_id: TESTCASE-076
+current_status: Open
+status_description: Prerequisites validated; ready to start work.
+status_goal: Prepare for work once prerequisites are met.
+status_responsible_roles:
+- Assignee
+allowed_transitions:
+- In Progress
+- Blocked
+- Canceled
+- Rejected
+- Duplicated
+instructions:
+- IF ticket missing THEN create TESTCASE-XXX under DEV-STORY-XXX.
+- Set required fields for the new sub-task.
+- Add required links to parent Story (in the link index).
+- Apply critical thinking and ask questions.
+- IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md`
+  THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks
+  link and a Question link from it to this ticket, set status to Blocked until resolved,
+  and record blocker ID and prior status as a comment on this ticket.
+- 'Review answers from linked QUESTION tickets: Query Question links on this ticket.
+  For each linked QUESTION ticket found: retrieve it, read its Answer section and
+  comments, and incorporate findings/decisions into current work.'
+- Create a plan as a comment on this ticket.
+- IF scope too large THEN split into additional TESTCASE sub-tasks.
+- IF test design docs exist THEN link as a comment on this ticket.
+- 'CORRECTIVE ACTION IF IMPLEMENTATION DOES NOT EXIST: IF implementation files do
+  not exist THEN do NOT create test cases; IF DEV-XXX/UNITTEST-XXX claim completion
+  but no code exists THEN create BUG ticket for phantom implementation; IF feature
+  not testable THEN block this ticket on implementation completion.'
+definitions_of_done:
+- target_statuses:
+  - In Progress
+  dod_criteria:
+  - Studied related documentation from the `.ept/docs/document_index.md`
+  - Critical thinking applied
+  - All required questions asked using the Question sub-tasks and all these sub-tasks
+    are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
+  - 'MANDATORY VERIFICATION: Implementation exists and is accessible (verify DEV-XXX
+    and UNITTEST-XXX completed with real code)'
+  - 'MANDATORY VERIFICATION: Feature can be tested in test environment (implementation
+    deployed/runnable)'
+  - Design and requirements stable
+  - Test plan created as a comment on this ticket
+  - Related documentation linked as a comment on this ticket (when exists)
+
+Ticket Details:
+================================================================================
+id             : TESTCASE-076
+type           : testcase
+title          : DEV-STORY-074 testcase versioned dataset branch and transaction lifecycle REST contracts
+status         : Open
+priority       : High
+assignee       : qa-engineer
+reporter       : tech-lead
+parent         : DEV-STORY-074
+addressed_to   : 
+path           : DEV-STORY-074/TESTCASE-076
+created        : 2026-10-07
+updated        : 2026-10-07
+estimated_hours: 6
+content:
+# DEV-STORY-074 testcase
+
+## Owned scope
+52 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 8efcd5e310fd263c31e9b81224f23458c799c29de027fdbb4b2d1f5f5eab1c8d.
+Resources: v1.datasets.Branch, v1.datasets.Dataset, v1.datasets.File, v1.datasets.Transaction, v2.datasets.Branch, v2.datasets.Dataset, v2.datasets.File, v2.datasets.Transaction, v2.datasets.View.
+Core069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/074/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_074.py.
+
+## Acceptance criteria
+Independent QA derives source expectations before authored outputs. Formal TESTCASE stays Open until real runnable implementation exists. Define every-owned-method assertions and isolated versioned dataset branch and transaction lifecycle success/adverse cases.
+Every operation has locally available signature/HTTP/body/typed inputs/results/nested models/errors/effects/availability/modes and bounded recovery. Every example supplies synthetic or precisely described tenant values, actual SDK call, request/response/error assertions. Use actual asynchronous return signatures, not inferred Awaitable types. Keep source silence explicit with authorized tenant verification; invent no universal scope or idempotency guarantee. Independently reconcile full model/error closure;3242 is not a cap. Owned capability workflow covers exact resources in this partition: identity/access and supported reads/mutations, version-specific availability, finite iteration, transport lifetimes, denied operations and uncertain-write effect reconciliation. Admin071 and072 share a namespace but own disjoint resources and never change central service indexes. Dataset074 separates v1/v2 branches, schemas, files and transaction operations; build075 separates schedule/trigger/build completion, checkpoint and health-report state; v1 Ontology077 stays distinct from v2 schema/object/Action contracts.
+
+## Related documentation
+BA-DES-015/SA-DES-014 revision2 and closed owner approvals QUESTION179/182. Indexed FEATURE-015-rest-authoring-contract.md and exact partition JSON. Primary SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf/OpenAPI1.1697.0. Supplement SDK silence with relevant official API references while authoring. Preserve351 CLI operations and other authors, Apache2.0 copyright/license/NOTICE. No installation/copy/internal reader links. Final independent REST acceptance093, GitHub-only integrated publication070.
+
+## Estimate and readiness
+6 contributor hours; total72h candidate8points within80h two-week budget with reviewer/QA slots. Firstthree operation/example/constraint fixtures measured before scaling; split exact exclusive IDs if capacity exceeded. No implementation before DESIGNClosed, independent lead reviews and parentDevelopmentDoD. No infrastructure change; no DEVOPS child because070 owns release.
+ 
+Updated ticket: TESTCASE-076
+TESTCASE-076    Open            High       qa-engineer          DEV-STORY-074 testcase versioned dataset branch and transaction lifecycle REST contracts
+ 
+Created comment: 20261021-154139-@project-manager~001
+ 
+ticket_id: TESTEXEC-076
+current_status: Open
+status_description: Prerequisites validated; ready to start work.
+status_goal: Prepare for work once prerequisites are met.
+status_responsible_roles:
+- Assignee
+allowed_transitions:
+- In Progress
+- Blocked
+- Canceled
+- Rejected
+- Duplicated
+instructions:
+- IF ticket missing THEN create TESTEXEC-XXX under DEV-STORY-XXX.
+- Set required fields for the new sub-task.
+- Add required links to parent Story.
+- Apply critical thinking and ask questions.
+- IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md`
+  THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks
+  link and a Question link from it to this ticket, set status to Blocked until resolved,
+  and record blocker ID and prior status as a comment on this ticket.
+- 'Review answers from linked QUESTION tickets: Query Question links on this ticket.
+  For each linked QUESTION ticket found: retrieve it, read its Answer section and
+  comments, and incorporate findings/decisions into current work.'
+- Create a plan as a comment on this ticket.
+- IF scope too large THEN split into additional TESTEXEC sub-tasks.
+- IF test evidence exists THEN link as a comment on this ticket.
+- 'CORRECTIVE ACTION IF IMPLEMENTATION DOES NOT EXIST: IF implementation does not
+  exist in test environment THEN do NOT execute tests; IF feature not runnable THEN
+  block on deployment/implementation; IF test environment not functional THEN resolve
+  environment issues first.'
+definitions_of_done:
+- target_statuses:
+  - In Progress
+  dod_criteria:
+  - Studied related documentation from the `.ept/docs/document_index.md`
+  - Critical thinking applied
+  - All required questions asked using the Question sub-tasks and all these sub-tasks
+    are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
+  - 'MANDATORY VERIFICATION: Implementation physically exists and is deployed to test
+    environment'
+  - 'MANDATORY VERIFICATION: Test environment is functional and accessible'
+  - 'MANDATORY VERIFICATION: Feature is actually runnable/testable (not just documented)'
+  - Related TestCase sub-task Closed (test cases developed)
+  - Related implementation sub-tasks (DEV, UNITTEST, CODEREVIEW) in Resolved state
+  - Test execution plan created as a comment on this ticket
+  - Test environment validated and ready
+
+Ticket Details:
+================================================================================
+id             : TESTEXEC-076
+type           : testexec
+title          : DEV-STORY-074 testexec versioned dataset branch and transaction lifecycle REST contracts
+status         : Open
+priority       : High
+assignee       : qa-engineer
+reporter       : tech-lead
+parent         : DEV-STORY-074
+addressed_to   : 
+path           : DEV-STORY-074/TESTEXEC-076
+created        : 2026-10-07
+updated        : 2026-10-07
+estimated_hours: 10
+content:
+# DEV-STORY-074 testexec
+
+## Owned scope
+52 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 8efcd5e310fd263c31e9b81224f23458c799c29de027fdbb4b2d1f5f5eab1c8d.
+Resources: v1.datasets.Branch, v1.datasets.Dataset, v1.datasets.File, v1.datasets.Transaction, v2.datasets.Branch, v2.datasets.Dataset, v2.datasets.File, v2.datasets.Transaction, v2.datasets.View.
+Core069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/074/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_074.py.
+
+## Acceptance criteria
+Execute source-derived expectations for every owned operation and isolated versioned dataset branch and transaction lifecycle with public access blocked. Wait closed TESTCASE and reviewed runnable implementation. Record request/results/errors/local headings/denial probe; no live deployment claim from fixtures.
+Every operation has locally available signature/HTTP/body/typed inputs/results/nested models/errors/effects/availability/modes and bounded recovery. Every example supplies synthetic or precisely described tenant values, actual SDK call, request/response/error assertions. Use actual asynchronous return signatures, not inferred Awaitable types. Keep source silence explicit with authorized tenant verification; invent no universal scope or idempotency guarantee. Independently reconcile full model/error closure;3242 is not a cap. Owned capability workflow covers exact resources in this partition: identity/access and supported reads/mutations, version-specific availability, finite iteration, transport lifetimes, denied operations and uncertain-write effect reconciliation. Admin071 and072 share a namespace but own disjoint resources and never change central service indexes. Dataset074 separates v1/v2 branches, schemas, files and transaction operations; build075 separates schedule/trigger/build completion, checkpoint and health-report state; v1 Ontology077 stays distinct from v2 schema/object/Action contracts.
+
+## Related documentation
+BA-DES-015/SA-DES-014 revision2 and closed owner approvals QUESTION179/182. Indexed FEATURE-015-rest-authoring-contract.md and exact partition JSON. Primary SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf/OpenAPI1.1697.0. Supplement SDK silence with relevant official API references while authoring. Preserve351 CLI operations and other authors, Apache2.0 copyright/license/NOTICE. No installation/copy/internal reader links. Final independent REST acceptance093, GitHub-only integrated publication070.
+
+## Estimate and readiness
+10 contributor hours; total72h candidate8points within80h two-week budget with reviewer/QA slots. Firstthree operation/example/constraint fixtures measured before scaling; split exact exclusive IDs if capacity exceeded. No implementation before DESIGNClosed, independent lead reviews and parentDevelopmentDoD. No infrastructure change; no DEVOPS child because070 owns release.
+ 
+Updated ticket: TESTEXEC-076
+TESTEXEC-076    Open            High       qa-engineer          DEV-STORY-074 testexec versioned dataset branch and transaction lifecycle REST contracts
+ 
+Created comment: 20261021-154140-@project-manager~001
+ 
+Created comment: 20261021-154140-@project-manager
+ 
+Updated ticket: DEV-076
+DEV-076         In Progress     High       python-developer     DEV-STORY-074 development versioned dataset branch and transaction lifecycle REST contracts
+ 
+ticket_id: DEV-076
+current_status: In Progress
+status_description: Implementation in progress; code being written and reviewed.
+status_goal: Implement the assigned work and record progress.
+status_responsible_roles:
+- Developer
+allowed_transitions:
+- Resolved
+- Blocked
+- Canceled
+- Rejected
+- Duplicated
+instructions:
+- Implement changes; update tests as needed.
+- Record decisions as a comment on this ticket.
+- List created/modified/deleted files as a comment on this ticket.
+- 'VERIFICATION CHECKPOINT: Before claiming file creation, verify file exists in workspace
+  using file search.'
+- 'CORRECTIVE ACTION IF FILES DO NOT EXIST: IF claimed files do not exist in workspace
+  THEN do NOT move to Resolved; IF verification fails THEN document issue as a comment
+  on this ticket and remain In Progress; IF phantom completion detected THEN create
+  BUG ticket and revert status to Open.'
+definitions_of_done:
+- target_statuses:
+  - Resolved
+  dod_criteria:
+  - Studied related documentation from the `.ept/docs/document_index.md`
+  - Critical thinking applied
+  - All required questions asked using the Question sub-tasks and all these sub-tasks
+    are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
+  - 'MANDATORY VERIFICATION: All claimed files physically exist in workspace (use
+    file search or directory listing to verify)'
+  - 'MANDATORY VERIFICATION: Code compiles without errors (run build/compile command
+    and document output)'
+  - All code committed to repository
+  - Implementation complete and ready for review
+  - Code follows project standards
+  - All external connections has configurable timeout
+  - Test coverage as per project requirements
+  - Unit tests are really unit tests (no external connections)
+  - All unit tests passed
+  - List of created/modified/deleted files documented as a comment on this ticket
+  - Time reported in subtask frontmatter
+  - All required deliverables completed
+  - Related documents in the `.ept/docs/document_index.md` analyzed and modified to
+    incorporate ticket results
+  - '`.ept/docs/document_index.md` updated for changes in deliverables'
+  - All document changes documented as a comment on this ticket
+  - All links registered
+  - CodeReview sub-task created and relates-to link established
+
+Ticket Details:
+================================================================================
+id             : DEV-076
+type           : development
+title          : DEV-STORY-074 development versioned dataset branch and transaction lifecycle REST contracts
+status         : In Progress
+priority       : High
+assignee       : python-developer
+reporter       : tech-lead
+parent         : DEV-STORY-074
+addressed_to   : 
+path           : DEV-STORY-074/DEV-076
+created        : 2026-10-07
+updated        : 2026-10-21
+estimated_hours: 32
+time_spent_hours: 0.0014802777777782063
+content:
+# DEV-STORY-074 development
+
+## Owned scope
+52 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 8efcd5e310fd263c31e9b81224f23458c799c29de027fdbb4b2d1f5f5eab1c8d.
+Resources: v1.datasets.Branch, v1.datasets.Dataset, v1.datasets.File, v1.datasets.Transaction, v2.datasets.Branch, v2.datasets.Dataset, v2.datasets.File, v2.datasets.Transaction, v2.datasets.View.
+Core069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/074/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_074_semantics.py.
+
+## Acceptance criteria
+Author original behavior for every owned method, exact adaptable SDK-backed invocation and response/error fixture. Explain purpose, prerequisites, effects, constraints, stages, validation and recovery.
+Every operation has locally available signature/HTTP/body/typed inputs/results/nested models/errors/effects/availability/modes and bounded recovery. Every example supplies synthetic or precisely described tenant values, actual SDK call, request/response/error assertions. Use actual asynchronous return signatures, not inferred Awaitable types. Keep source silence explicit with authorized tenant verification; invent no universal scope or idempotency guarantee. Independently reconcile full model/error closure;3242 is not a cap. Owned capability workflow covers exact resources in this partition: identity/access and supported reads/mutations, version-specific availability, finite iteration, transport lifetimes, denied operations and uncertain-write effect reconciliation. Admin071 and072 share a namespace but own disjoint resources and never change central service indexes. Dataset074 separates v1/v2 branches, schemas, files and transaction operations; build075 separates schedule/trigger/build completion, checkpoint and health-report state; v1 Ontology077 stays distinct from v2 schema/object/Action contracts.
+
+## Related documentation
+BA-DES-015/SA-DES-014 revision2 and closed owner approvals QUESTION179/182. Indexed FEATURE-015-rest-authoring-contract.md and exact partition JSON. Primary SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf/OpenAPI1.1697.0. Supplement SDK silence with relevant official API references while authoring. Preserve351 CLI operations and other authors, Apache2.0 copyright/license/NOTICE. No installation/copy/internal reader links. Final independent REST acceptance093, GitHub-only integrated publication070.
+
+## Estimate and readiness
+32 contributor hours; total72h candidate8points within80h two-week budget with reviewer/QA slots. Firstthree operation/example/constraint fixtures measured before scaling; split exact exclusive IDs if capacity exceeded. No implementation before DESIGNClosed, independent lead reviews and parentDevelopmentDoD. No infrastructure change; no DEVOPS child because070 owns release.
+ 
+
+Allowed transitions from 'In Progress' (development):
+============================================================
+  -> Resolved
+  -> Blocked
+  -> Canceled [TERMINAL]
+  -> Rejected [TERMINAL]
+  -> Duplicated [TERMINAL]
+ 
+ticket_id: DEV-076
+current_status: Resolved
+status_description: Implementation complete; code ready for code review.
+status_goal: Manage blockers and prepare for closure.
+status_responsible_roles:
+- Developer
+allowed_transitions:
+- Closed
+- Canceled
+- Rejected
+- Duplicated
+- Blocked
+- In Progress
+instructions:
+- IF blocker link exists AND blocker resolved THEN remove the blocking link.
+- 'Block Development sub-task on CodeReview: add is-blocked-by/blocks links between
+  DEV and CODEREVIEW.'
+- Move CodeReview sub-task to Open and assign reviewer.
+- Ensure review readiness.
+- IF not blocked THEN ready to move to Closed.
+definitions_of_done:
+- target_statuses:
+  - Closed
+  dod_criteria:
+  - Ticket not blocked (no active is-blocked-by links)
+
+ 
+ticket_id: DEV-076
+current_status: Resolved
+status_description: Implementation complete; code ready for code review.
+status_goal: Manage blockers and prepare for closure.
+status_responsible_roles:
+- Developer
+allowed_transitions:
+- Closed
+- Canceled
+- Rejected
+- Duplicated
+- Blocked
+- In Progress
+instructions:
+- IF blocker link exists AND blocker resolved THEN remove the blocking link.
+- 'Block Development sub-task on CodeReview: add is-blocked-by/blocks links between
+  DEV and CODEREVIEW.'
+- Move CodeReview sub-task to Open and assign reviewer.
+- Ensure review readiness.
+- IF not blocked THEN ready to move to Closed.
+definitions_of_done:
+- target_statuses:
+  - Closed
+  dod_criteria:
+  - Ticket not blocked (no active is-blocked-by links)
+
+Ticket Details:
+================================================================================
+id             : DEV-076
+type           : development
+title          : DEV-STORY-074 development versioned dataset branch and transaction lifecycle REST contracts
+status         : Resolved
+priority       : High
+assignee       : python-developer
+reporter       : tech-lead
+parent         : DEV-STORY-074
+addressed_to   : 
+path           : DEV-STORY-074/DEV-076
+created        : 2026-10-07
+updated        : 2026-10-21
+estimated_hours: 32
+time_spent_hours: 0.0014802777777782063
+content:
+# DEV-STORY-074 development
+
+## Owned scope
+52 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 8efcd5e310fd263c31e9b81224f23458c799c29de027fdbb4b2d1f5f5eab1c8d.
+Resources: v1.datasets.Branch, v1.datasets.Dataset, v1.datasets.File, v1.datasets.Transaction, v2.datasets.Branch, v2.datasets.Dataset, v2.datasets.File, v2.datasets.Transaction, v2.datasets.View.
+Core069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/074/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_074_semantics.py.
+
+## Acceptance criteria
+Author original behavior for every owned method, exact adaptable SDK-backed invocation and response/error fixture. Explain purpose, prerequisites, effects, constraints, stages, validation and recovery.
+Every operation has locally available signature/HTTP/body/typed inputs/results/nested models/errors/effects/availability/modes and bounded recovery. Every example supplies synthetic or precisely described tenant values, actual SDK call, request/response/error assertions. Use actual asynchronous return signatures, not inferred Awaitable types. Keep source silence explicit with authorized tenant verification; invent no universal scope or idempotency guarantee. Independently reconcile full model/error closure;3242 is not a cap. Owned capability workflow covers exact resources in this partition: identity/access and supported reads/mutations, version-specific availability, finite iteration, transport lifetimes, denied operations and uncertain-write effect reconciliation. Admin071 and072 share a namespace but own disjoint resources and never change central service indexes. Dataset074 separates v1/v2 branches, schemas, files and transaction operations; build075 separates schedule/trigger/build completion, checkpoint and health-report state; v1 Ontology077 stays distinct from v2 schema/object/Action contracts.
+
+## Related documentation
+BA-DES-015/SA-DES-014 revision2 and closed owner approvals QUESTION179/182. Indexed FEATURE-015-rest-authoring-contract.md and exact partition JSON. Primary SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf/OpenAPI1.1697.0. Supplement SDK silence with relevant official API references while authoring. Preserve351 CLI operations and other authors, Apache2.0 copyright/license/NOTICE. No installation/copy/internal reader links. Final independent REST acceptance093, GitHub-only integrated publication070.
+
+## Estimate and readiness
+32 contributor hours; total72h candidate8points within80h two-week budget with reviewer/QA slots. Firstthree operation/example/constraint fixtures measured before scaling; split exact exclusive IDs if capacity exceeded. No implementation before DESIGNClosed, independent lead reviews and parentDevelopmentDoD. No infrastructure change; no DEVOPS child because070 owns release.
+ 
+Created comment: 20261021-154143-@project-manager
+ 
+Updated ticket: UNITTEST-076
+UNITTEST-076    In Progress     High       python-developer     DEV-STORY-074 unittest versioned dataset branch and transaction lifecycle REST contracts
+ 
+ticket_id: UNITTEST-076
+current_status: In Progress
+status_description: Unit test work in progress; tests being written and executed.
+status_goal: Write and execute unit tests, record results and coverage.
+status_responsible_roles:
+- Developer
+allowed_transitions:
+- Resolved
+- Blocked
+- Canceled
+- Rejected
+- Duplicated
+instructions:
+- Add/update unit tests; record results.
+definitions_of_done:
+- target_statuses:
+  - Resolved
+  dod_criteria:
+  - Studied related documentation from the `.ept/docs/document_index.md`
+  - Critical thinking applied
+  - All required questions asked using the Question sub-tasks and all these sub-tasks
+    are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
+  - All unit tests written and committed
+  - Unit tests cover main scenarios and edge cases
+  - All unit tests passing (100% pass rate)
+  - Test coverage meets project standards
+  - Time reported in subtask frontmatter
+  - All links registered
+
+Ticket Details:
+================================================================================
+id             : UNITTEST-076
+type           : unittest
+title          : DEV-STORY-074 unittest versioned dataset branch and transaction lifecycle REST contracts
+status         : In Progress
+priority       : High
+assignee       : python-developer
+reporter       : tech-lead
+parent         : DEV-STORY-074
+addressed_to   : 
+path           : DEV-STORY-074/UNITTEST-076
+created        : 2026-10-07
+updated        : 2026-10-21
+estimated_hours: 8
+time_spent_hours: 0.0014802777777782063
+content:
+# DEV-STORY-074 unittest
+
+## Owned scope
+52 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 8efcd5e310fd263c31e9b81224f23458c799c29de027fdbb4b2d1f5f5eab1c8d.
+Resources: v1.datasets.Branch, v1.datasets.Dataset, v1.datasets.File, v1.datasets.Transaction, v2.datasets.Branch, v2.datasets.Dataset, v2.datasets.File, v2.datasets.Transaction, v2.datasets.View.
+Core069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/074/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_074_semantics.py.
+
+## Acceptance criteria
+Implement offline SDK-backed fake-transport serialization/response/error assertions for every owned method. Include actual async iterator/raw/stream/SSE lifetimes and finite work. Derive expected values from source; counts cannot approve behavior.
+Every operation has locally available signature/HTTP/body/typed inputs/results/nested models/errors/effects/availability/modes and bounded recovery. Every example supplies synthetic or precisely described tenant values, actual SDK call, request/response/error assertions. Use actual asynchronous return signatures, not inferred Awaitable types. Keep source silence explicit with authorized tenant verification; invent no universal scope or idempotency guarantee. Independently reconcile full model/error closure;3242 is not a cap. Owned capability workflow covers exact resources in this partition: identity/access and supported reads/mutations, version-specific availability, finite iteration, transport lifetimes, denied operations and uncertain-write effect reconciliation. Admin071 and072 share a namespace but own disjoint resources and never change central service indexes. Dataset074 separates v1/v2 branches, schemas, files and transaction operations; build075 separates schedule/trigger/build completion, checkpoint and health-report state; v1 Ontology077 stays distinct from v2 schema/object/Action contracts.
+
+## Related documentation
+BA-DES-015/SA-DES-014 revision2 and closed owner approvals QUESTION179/182. Indexed FEATURE-015-rest-authoring-contract.md and exact partition JSON. Primary SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf/OpenAPI1.1697.0. Supplement SDK silence with relevant official API references while authoring. Preserve351 CLI operations and other authors, Apache2.0 copyright/license/NOTICE. No installation/copy/internal reader links. Final independent REST acceptance093, GitHub-only integrated publication070.
+
+## Estimate and readiness
+8 contributor hours; total72h candidate8points within80h two-week budget with reviewer/QA slots. Firstthree operation/example/constraint fixtures measured before scaling; split exact exclusive IDs if capacity exceeded. No implementation before DESIGNClosed, independent lead reviews and parentDevelopmentDoD. No infrastructure change; no DEVOPS child because070 owns release.
+ 
+
+Allowed transitions from 'In Progress' (unittest):
+============================================================
+  -> Resolved
+  -> Blocked
+  -> Canceled [TERMINAL]
+  -> Rejected [TERMINAL]
+  -> Duplicated [TERMINAL]
+ 
+ticket_id: UNITTEST-076
+current_status: Resolved
+status_description: Unit tests complete and passing.
+status_goal: Manage blockers and prepare for closure.
+status_responsible_roles:
+- Developer
+allowed_transitions:
+- Closed
+- Canceled
+- Rejected
+- Duplicated
+- Blocked
+- In Progress
+instructions:
+- IF blocker link exists AND blocker resolved THEN remove the blocking link.
+- Confirm all tests pass.
+- IF not blocked THEN ready to move to Closed.
+definitions_of_done:
+- target_statuses:
+  - Closed
+  dod_criteria:
+  - Ticket not blocked (no active is-blocked-by links)
+
+ 
+ticket_id: UNITTEST-076
+current_status: Resolved
+status_description: Unit tests complete and passing.
+status_goal: Manage blockers and prepare for closure.
+status_responsible_roles:
+- Developer
+allowed_transitions:
+- Closed
+- Canceled
+- Rejected
+- Duplicated
+- Blocked
+- In Progress
+instructions:
+- IF blocker link exists AND blocker resolved THEN remove the blocking link.
+- Confirm all tests pass.
+- IF not blocked THEN ready to move to Closed.
+definitions_of_done:
+- target_statuses:
+  - Closed
+  dod_criteria:
+  - Ticket not blocked (no active is-blocked-by links)
+
+Ticket Details:
+================================================================================
+id             : UNITTEST-076
+type           : unittest
+title          : DEV-STORY-074 unittest versioned dataset branch and transaction lifecycle REST contracts
+status         : Resolved
+priority       : High
+assignee       : python-developer
+reporter       : tech-lead
+parent         : DEV-STORY-074
+addressed_to   : 
+path           : DEV-STORY-074/UNITTEST-076
+created        : 2026-10-07
+updated        : 2026-10-21
+estimated_hours: 8
+time_spent_hours: 0.0014802777777782063
+content:
+# DEV-STORY-074 unittest
+
+## Owned scope
+52 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 8efcd5e310fd263c31e9b81224f23458c799c29de027fdbb4b2d1f5f5eab1c8d.
+Resources: v1.datasets.Branch, v1.datasets.Dataset, v1.datasets.File, v1.datasets.Transaction, v2.datasets.Branch, v2.datasets.Dataset, v2.datasets.File, v2.datasets.Transaction, v2.datasets.View.
+Core069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/074/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_074_semantics.py.
+
+## Acceptance criteria
+Implement offline SDK-backed fake-transport serialization/response/error assertions for every owned method. Include actual async iterator/raw/stream/SSE lifetimes and finite work. Derive expected values from source; counts cannot approve behavior.
+Every operation has locally available signature/HTTP/body/typed inputs/results/nested models/errors/effects/availability/modes and bounded recovery. Every example supplies synthetic or precisely described tenant values, actual SDK call, request/response/error assertions. Use actual asynchronous return signatures, not inferred Awaitable types. Keep source silence explicit with authorized tenant verification; invent no universal scope or idempotency guarantee. Independently reconcile full model/error closure;3242 is not a cap. Owned capability workflow covers exact resources in this partition: identity/access and supported reads/mutations, version-specific availability, finite iteration, transport lifetimes, denied operations and uncertain-write effect reconciliation. Admin071 and072 share a namespace but own disjoint resources and never change central service indexes. Dataset074 separates v1/v2 branches, schemas, files and transaction operations; build075 separates schedule/trigger/build completion, checkpoint and health-report state; v1 Ontology077 stays distinct from v2 schema/object/Action contracts.
+
+## Related documentation
+BA-DES-015/SA-DES-014 revision2 and closed owner approvals QUESTION179/182. Indexed FEATURE-015-rest-authoring-contract.md and exact partition JSON. Primary SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf/OpenAPI1.1697.0. Supplement SDK silence with relevant official API references while authoring. Preserve351 CLI operations and other authors, Apache2.0 copyright/license/NOTICE. No installation/copy/internal reader links. Final independent REST acceptance093, GitHub-only integrated publication070.
+
+## Estimate and readiness
+8 contributor hours; total72h candidate8points within80h two-week budget with reviewer/QA slots. Firstthree operation/example/constraint fixtures measured before scaling; split exact exclusive IDs if capacity exceeded. No implementation before DESIGNClosed, independent lead reviews and parentDevelopmentDoD. No infrastructure change; no DEVOPS child because070 owns release.
+ 
+
+Comment Details:
+================================================================================
+comment_id      : 20261007-101716-tech-lead
+author          : tech-lead
+subject         : Independent review prerequisite
+created         : 2026-10-07T10:17:16
+updated         : 2026-10-07T10:17:16
+text:
+PriorOpen; DEV-076 blocks architect review until Resolved. Reviewer differs from implementer. Per-operation source/model/mode/example fidelity evidence required.
+ 
+ticket_id: DEV-076
+current_status: Resolved
+status_description: Implementation complete; code ready for code review.
+status_goal: Manage blockers and prepare for closure.
+status_responsible_roles:
+- Developer
+allowed_transitions:
+- Closed
+- Canceled
+- Rejected
+- Duplicated
+- Blocked
+- In Progress
+instructions:
+- IF blocker link exists AND blocker resolved THEN remove the blocking link.
+- 'Block Development sub-task on CodeReview: add is-blocked-by/blocks links between
+  DEV and CODEREVIEW.'
+- Move CodeReview sub-task to Open and assign reviewer.
+- Ensure review readiness.
+- IF not blocked THEN ready to move to Closed.
+definitions_of_done:
+- target_statuses:
+  - Closed
+  dod_criteria:
+  - Ticket not blocked (no active is-blocked-by links)
+
+Ticket Details:
+================================================================================
+id             : DEV-076
+type           : development
+title          : DEV-STORY-074 development versioned dataset branch and transaction lifecycle REST contracts
+status         : Resolved
+priority       : High
+assignee       : python-developer
+reporter       : tech-lead
+parent         : DEV-STORY-074
+addressed_to   : 
+path           : DEV-STORY-074/DEV-076
+created        : 2026-10-07
+updated        : 2026-10-21
+estimated_hours: 32
+time_spent_hours: 0.0014802777777782063
+content:
+# DEV-STORY-074 development
+
+## Owned scope
+52 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 8efcd5e310fd263c31e9b81224f23458c799c29de027fdbb4b2d1f5f5eab1c8d.
+Resources: v1.datasets.Branch, v1.datasets.Dataset, v1.datasets.File, v1.datasets.Transaction, v2.datasets.Branch, v2.datasets.Dataset, v2.datasets.File, v2.datasets.Transaction, v2.datasets.View.
+Core069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/074/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_074_semantics.py.
+
+## Acceptance criteria
+Author original behavior for every owned method, exact adaptable SDK-backed invocation and response/error fixture. Explain purpose, prerequisites, effects, constraints, stages, validation and recovery.
+Every operation has locally available signature/HTTP/body/typed inputs/results/nested models/errors/effects/availability/modes and bounded recovery. Every example supplies synthetic or precisely described tenant values, actual SDK call, request/response/error assertions. Use actual asynchronous return signatures, not inferred Awaitable types. Keep source silence explicit with authorized tenant verification; invent no universal scope or idempotency guarantee. Independently reconcile full model/error closure;3242 is not a cap. Owned capability workflow covers exact resources in this partition: identity/access and supported reads/mutations, version-specific availability, finite iteration, transport lifetimes, denied operations and uncertain-write effect reconciliation. Admin071 and072 share a namespace but own disjoint resources and never change central service indexes. Dataset074 separates v1/v2 branches, schemas, files and transaction operations; build075 separates schedule/trigger/build completion, checkpoint and health-report state; v1 Ontology077 stays distinct from v2 schema/object/Action contracts.
+
+## Related documentation
+BA-DES-015/SA-DES-014 revision2 and closed owner approvals QUESTION179/182. Indexed FEATURE-015-rest-authoring-contract.md and exact partition JSON. Primary SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf/OpenAPI1.1697.0. Supplement SDK silence with relevant official API references while authoring. Preserve351 CLI operations and other authors, Apache2.0 copyright/license/NOTICE. No installation/copy/internal reader links. Final independent REST acceptance093, GitHub-only integrated publication070.
+
+## Estimate and readiness
+32 contributor hours; total72h candidate8points within80h two-week budget with reviewer/QA slots. Firstthree operation/example/constraint fixtures measured before scaling; split exact exclusive IDs if capacity exceeded. No implementation before DESIGNClosed, independent lead reviews and parentDevelopmentDoD. No infrastructure change; no DEVOPS child because070 owns release.
+ 
+Removed link: LINK-01815
+ 
+Created comment: 20261021-154145-@project-manager
+ 
+ticket_id: CODEREVIEW-077
+current_status: Blocked
+status_description: Cannot proceed; blocker documented.
+status_goal: Verify blocking condition remains, maintain blocker links and priorities,
+  and return to prior status when unblocked.
+status_responsible_roles:
+- Current assignee
+allowed_transitions:
+- Open
+- Correction
+- Corrected
+- Canceled
+- Rejected
+- Duplicated
+instructions:
+- Confirm blocker and prior status are documented as a comment on this ticket (include
+  blocker ID and prior status).
+- Verify blocking link exists on this ticket.
+- Do not create new blocker links in this status; they must be created when the block
+  is identified.
+- IF blocking link missing THEN create QUESTION ticket addressed_to appropriate role,
+  add a Blocks link and a Question link from it to this ticket, and remain Blocked.
+- "Query blocking links on this ticket. For each blocker found, check its status:\n\
+  \  - IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated`\
+  \ THEN remove the blocking link and return to prior status\n  - IF blocker still\
+  \ active AND blocker priority lower than this ticket priority THEN raise blocker\
+  \ priority to match.\n"
+- IF all blocking links removed THEN return this ticket to prior status.
+definitions_of_done: []
+
+Ticket Details:
+================================================================================
+id             : CODEREVIEW-077
+type           : codereview
+title          : DEV-STORY-074 codereview versioned dataset branch and transaction lifecycle REST contracts
+status         : Blocked
+priority       : High
+assignee       : architect
+reporter       : tech-lead
+parent         : DEV-STORY-074
+addressed_to   : 
+path           : DEV-STORY-074/CODEREVIEW-077
+created        : 2026-10-07
+updated        : 2026-10-21
+estimated_hours: 12
+content:
+# DEV-STORY-074 codereview
+
+## Owned scope
+52 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 8efcd5e310fd263c31e9b81224f23458c799c29de027fdbb4b2d1f5f5eab1c8d.
+Resources: v1.datasets.Branch, v1.datasets.Dataset, v1.datasets.File, v1.datasets.Transaction, v2.datasets.Branch, v2.datasets.Dataset, v2.datasets.File, v2.datasets.Transaction, v2.datasets.View.
+Core069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/074/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_074_semantics.py.
+
+## Acceptance criteria
+Independent architect reviews every owned method against frozen docs/source/API references, full corrected models/errors and actual runnable examples. Record exact per-operation findings and dispositions. Do not review own content; wait paired DEV Resolved.
+Every operation has locally available signature/HTTP/body/typed inputs/results/nested models/errors/effects/availability/modes and bounded recovery. Every example supplies synthetic or precisely described tenant values, actual SDK call, request/response/error assertions. Use actual asynchronous return signatures, not inferred Awaitable types. Keep source silence explicit with authorized tenant verification; invent no universal scope or idempotency guarantee. Independently reconcile full model/error closure;3242 is not a cap. Owned capability workflow covers exact resources in this partition: identity/access and supported reads/mutations, version-specific availability, finite iteration, transport lifetimes, denied operations and uncertain-write effect reconciliation. Admin071 and072 share a namespace but own disjoint resources and never change central service indexes. Dataset074 separates v1/v2 branches, schemas, files and transaction operations; build075 separates schedule/trigger/build completion, checkpoint and health-report state; v1 Ontology077 stays distinct from v2 schema/object/Action contracts.
+
+## Related documentation
+BA-DES-015/SA-DES-014 revision2 and closed owner approvals QUESTION179/182. Indexed FEATURE-015-rest-authoring-contract.md and exact partition JSON. Primary SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf/OpenAPI1.1697.0. Supplement SDK silence with relevant official API references while authoring. Preserve351 CLI operations and other authors, Apache2.0 copyright/license/NOTICE. No installation/copy/internal reader links. Final independent REST acceptance093, GitHub-only integrated publication070.
+
+## Estimate and readiness
+12 contributor hours; total72h candidate8points within80h two-week budget with reviewer/QA slots. Firstthree operation/example/constraint fixtures measured before scaling; split exact exclusive IDs if capacity exceeded. No implementation before DESIGNClosed, independent lead reviews and parentDevelopmentDoD. No infrastructure change; no DEVOPS child because070 owns release.
+ 
+
+Allowed transitions from 'Blocked' (codereview):
+============================================================
+  -> Open
+  -> Correction
+  -> Corrected
+  -> Canceled [TERMINAL]
+  -> Rejected [TERMINAL]
+  -> Duplicated [TERMINAL]
+ 
+ticket_id: CODEREVIEW-077
+current_status: Open
+status_description: Review in progress by reviewer.
+status_goal: Perform the review and decide whether corrections are needed or approval
+  can be granted.
+status_responsible_roles:
+- Reviewer (Architect/Business Analyst)
+allowed_transitions:
+- Correction
+- Closed
+- Blocked
+- Canceled
+- Rejected
+- Duplicated
+instructions:
+- Review code/design and log findings as a comment on this ticket.
+- Apply critical thinking.
+- IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md`
+  THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks
+  link and a Question link from it to this ticket, set status to Blocked until resolved,
+  and record blocker ID and prior status as a comment on this ticket.
+- 'Review answers from linked QUESTION tickets: Query Question links on this ticket.
+  For each linked QUESTION ticket found: retrieve it, read its Answer section and
+  comments, and incorporate findings/decisions into current work.'
+- IF review requires changes THEN move to Correction and assign to implementer.
+- IF review approved THEN move to Closed and return Development sub-task to its prior
+  status.
+- 'CORRECTIVE ACTION FOR PHANTOM REVIEWS: IF review findings don''t cite specific
+  files/lines THEN review is incomplete; IF review claims excellence but provides
+  no code examples THEN review may be phantom; IF files reviewed do not exist THEN
+  this is phantom review - create BUG ticket and revert to New; ALL review findings
+  MUST reference verifiable code locations.'
+definitions_of_done:
+- target_statuses:
+  - Correction
+  - Closed
+  dod_criteria:
+  - Studied related documentation from the `.ept/docs/document_index.md`
+  - Critical thinking applied
+  - All required questions asked using the Question sub-tasks and all these sub-tasks
+    are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
+  - Code/design reviewed thoroughly
+  - 'MANDATORY: Specific file paths and line numbers cited in review findings'
+  - 'MANDATORY: Review findings reference actual code snippets (not generic descriptions)'
+  - Review findings documented as a comment on this ticket
+  - Decision made (approve or request corrections)
+
+ 
+ticket_id: CODEREVIEW-077
+current_status: Open
+status_description: Review in progress by reviewer.
+status_goal: Perform the review and decide whether corrections are needed or approval
+  can be granted.
+status_responsible_roles:
+- Reviewer (Architect/Business Analyst)
+allowed_transitions:
+- Correction
+- Closed
+- Blocked
+- Canceled
+- Rejected
+- Duplicated
+instructions:
+- Review code/design and log findings as a comment on this ticket.
+- Apply critical thinking.
+- IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md`
+  THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks
+  link and a Question link from it to this ticket, set status to Blocked until resolved,
+  and record blocker ID and prior status as a comment on this ticket.
+- 'Review answers from linked QUESTION tickets: Query Question links on this ticket.
+  For each linked QUESTION ticket found: retrieve it, read its Answer section and
+  comments, and incorporate findings/decisions into current work.'
+- IF review requires changes THEN move to Correction and assign to implementer.
+- IF review approved THEN move to Closed and return Development sub-task to its prior
+  status.
+- 'CORRECTIVE ACTION FOR PHANTOM REVIEWS: IF review findings don''t cite specific
+  files/lines THEN review is incomplete; IF review claims excellence but provides
+  no code examples THEN review may be phantom; IF files reviewed do not exist THEN
+  this is phantom review - create BUG ticket and revert to New; ALL review findings
+  MUST reference verifiable code locations.'
+definitions_of_done:
+- target_statuses:
+  - Correction
+  - Closed
+  dod_criteria:
+  - Studied related documentation from the `.ept/docs/document_index.md`
+  - Critical thinking applied
+  - All required questions asked using the Question sub-tasks and all these sub-tasks
+    are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
+  - Code/design reviewed thoroughly
+  - 'MANDATORY: Specific file paths and line numbers cited in review findings'
+  - 'MANDATORY: Review findings reference actual code snippets (not generic descriptions)'
+  - Review findings documented as a comment on this ticket
+  - Decision made (approve or request corrections)
+
+Ticket Details:
+================================================================================
+id             : CODEREVIEW-077
+type           : codereview
+title          : DEV-STORY-074 codereview versioned dataset branch and transaction lifecycle REST contracts
+status         : Open
+priority       : High
+assignee       : architect
+reporter       : tech-lead
+parent         : DEV-STORY-074
+addressed_to   : 
+path           : DEV-STORY-074/CODEREVIEW-077
+created        : 2026-10-07
+updated        : 2026-10-21
+estimated_hours: 12
+content:
+# DEV-STORY-074 codereview
+
+## Owned scope
+52 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 8efcd5e310fd263c31e9b81224f23458c799c29de027fdbb4b2d1f5f5eab1c8d.
+Resources: v1.datasets.Branch, v1.datasets.Dataset, v1.datasets.File, v1.datasets.Transaction, v2.datasets.Branch, v2.datasets.Dataset, v2.datasets.File, v2.datasets.Transaction, v2.datasets.View.
+Core069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/074/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_074_semantics.py.
+
+## Acceptance criteria
+Independent architect reviews every owned method against frozen docs/source/API references, full corrected models/errors and actual runnable examples. Record exact per-operation findings and dispositions. Do not review own content; wait paired DEV Resolved.
+Every operation has locally available signature/HTTP/body/typed inputs/results/nested models/errors/effects/availability/modes and bounded recovery. Every example supplies synthetic or precisely described tenant values, actual SDK call, request/response/error assertions. Use actual asynchronous return signatures, not inferred Awaitable types. Keep source silence explicit with authorized tenant verification; invent no universal scope or idempotency guarantee. Independently reconcile full model/error closure;3242 is not a cap. Owned capability workflow covers exact resources in this partition: identity/access and supported reads/mutations, version-specific availability, finite iteration, transport lifetimes, denied operations and uncertain-write effect reconciliation. Admin071 and072 share a namespace but own disjoint resources and never change central service indexes. Dataset074 separates v1/v2 branches, schemas, files and transaction operations; build075 separates schedule/trigger/build completion, checkpoint and health-report state; v1 Ontology077 stays distinct from v2 schema/object/Action contracts.
+
+## Related documentation
+BA-DES-015/SA-DES-014 revision2 and closed owner approvals QUESTION179/182. Indexed FEATURE-015-rest-authoring-contract.md and exact partition JSON. Primary SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf/OpenAPI1.1697.0. Supplement SDK silence with relevant official API references while authoring. Preserve351 CLI operations and other authors, Apache2.0 copyright/license/NOTICE. No installation/copy/internal reader links. Final independent REST acceptance093, GitHub-only integrated publication070.
+
+## Estimate and readiness
+12 contributor hours; total72h candidate8points within80h two-week budget with reviewer/QA slots. Firstthree operation/example/constraint fixtures measured before scaling; split exact exclusive IDs if capacity exceeded. No implementation before DESIGNClosed, independent lead reviews and parentDevelopmentDoD. No infrastructure change; no DEVOPS child because070 owns release.
+ 

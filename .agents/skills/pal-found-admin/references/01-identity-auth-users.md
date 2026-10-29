@@ -2,6 +2,8 @@
 
 Authentication providers validate sign-in and supply user identities, attributes, and often groups from an external identity system. A provider record and a Foundry user record answer different questions: which source authenticated the person, and which Foundry principal received access. Preregistration reserves an external user or group identity before first login so grants can be prepared; it does not itself prove the person can sign in or read a resource. Enrollment roles grant broad administration. Project roles, organization membership, and mandatory markings still constrain particular resources. Use `enrollment get-current`, provider `list`, then user or provider `get` to resolve IDs before assigning roles or changing provider information. Commands here use the installed Admin CLI. Example identifiers and names are illustrative; replace them with values from your enrollment.
 
+For preregistration, role changes, provider replacement, user deletion, and token revocation, a timeout, transport failure, or exhausted retry can leave the change applied. Inspect the provider, user, assignments, or token state before replaying the request. If deletion or revocation cannot be confirmed through a read, reconcile with an authorized administrator before retrying; a failed response does not prove that nothing changed.
+
 ## Operation records
 
 ### authentication_provider.get
@@ -14,9 +16,9 @@ Required input: `enrollment_rid`, `authentication_provider_rid`. The SDK returns
 
 ### authentication_provider.list
 
-List authentication providers configured for an enrollment. Use the returned provider RIDs to inspect a provider or preregister an externally managed user or group. An empty list with no continuation token means no providers are visible to this caller.
+List authentication providers configured for an enrollment. Use the returned provider RIDs to inspect a provider or preregister an externally managed user or group. This is a nonpaged list; an empty response contains no providers visible to this caller.
 
-Required input: `enrollment_rid`; optional `--preview` enables preview API behavior when available. The SDK returns `ListAuthenticationProvidersResponse` on success. The operation does not change Foundry state. The CLI has no page-token input for this command, so it cannot resume a continuation token in the response. An empty result may still have a continuation token. Authentication or permission errors stop the read.
+Required input: `enrollment_rid`; optional `--preview` enables preview API behavior when available. The SDK returns `ListAuthenticationProvidersResponse` on success. The operation does not change Foundry state. This response contains a `data` list without a continuation token; the SDK exposes no paging inputs for this operation. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin authentication-provider list ri.multipass..enrollment.example`
 
@@ -64,7 +66,7 @@ Required input: `enrollment_rid`, `--role-assignments`. The SDK returns no resou
 
 Enrollment roles delegate platform-wide administrative permissions to users or groups. List all principals who are assigned a role for the given Enrollment.
 
-Required input: `enrollment_rid`; optional `--preview` enables preview API behavior when available. The SDK returns `ListEnrollmentRoleAssignmentsResponse` on success. The operation does not change Foundry state. The CLI has no page-token input for this command, so it cannot resume a continuation token in the response. An empty result may still have a continuation token. Authentication or permission errors stop the read.
+Required input: `enrollment_rid`; optional `--preview` enables preview API behavior when available. The SDK returns `ListEnrollmentRoleAssignmentsResponse` on success. The operation does not change Foundry state. This response contains a `data` list without a continuation token; the SDK exposes no paging inputs for this operation. Authentication or permission errors stop the read.
 
 **Example:** `pal-found-admin enrollment-role-assignment list ri.multipass..enrollment.example`
 

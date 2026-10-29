@@ -10,6 +10,88 @@ documentation](https://www.palantir.com/docs/foundry/data-connection/core-concep
 below describes the installed CLI commands and their behavior.
 Replace example identifiers and configuration values with values from your Foundry enrollment.
 
+## Choose an import mode
+
+Set `--import-mode` on create or replace; the selected mode takes effect when the import executes.
+
+| Resource / SDK type | Mode | Effect of an execution |
+|---|---|---|
+| File import / `FileImportMode` | `SNAPSHOT` | New dataset state contains only files from this execution. |
+| File import / `FileImportMode` | `APPEND` | Keeps files from earlier executions and adds new files. |
+| File import / `FileImportMode` | `UPDATE` | Replaces files from earlier executions by matching file names. |
+| Table import / `TableImportMode` | `SNAPSHOT` | New dataset state contains only data from this execution. |
+| Table import / `TableImportMode` | `APPEND` | Keeps data from earlier executions and adds new data. |
+
+Choose snapshot when each execution supplies the complete desired state; omitted files/data are
+absent from that new state. Choose append for additive inputs. Choose file update when repeated file
+names should replace earlier files. Table imports do not accept `UPDATE`; file update does not imply
+row-key merging. Re-executing an additive import can add data again; reconcile uncertain executions
+before starting another.
+
+## Observe an execution
+
+Prerequisites: preinstalled, configured `pal-found-orchestration`, an authorized identity able to read
+the build and its jobs, and the destination dataset RID/branch from the import definition. The commands
+and decisions needed here are given below; no additional skill folder is required.
+
+1. Run `file-import execute` or `table-import execute` once and retain its returned JSON string
+   `BuildRid` as `BUILD_RID` (without JSON quotes). This acknowledges asynchronous work.
+2. Run `pal-found-orchestration build get BUILD_RID --format json --timeout 30`. Check `rid`,
+   `branchName`, `status`, `jobRids`, and `finishedTime`; verify the branch matches the import.
+3. While `status` is `RUNNING`, wait at least 10 seconds between reads. Use at most 12 build reads
+   and a 5-minute overall observation budget, whichever ends first. These are reader limits, not
+   server completion guarantees. A read error consumes an attempt. On authentication/permission
+   failure, stop and obtain authorized access; missing/inaccessible data does not establish failure.
+4. `SUCCEEDED` is terminal build success. `FAILED` and `CANCELED` are terminal unsuccessful outcomes.
+   In each terminal case, inspect jobs with
+   `pal-found-orchestration build jobs BUILD_RID --format json --max-pages 2 --timeout 30`.
+   Jobs expose `rid`, `buildRid`, `jobStatus`, `outputs`, and optional `finishedTime`. `WAITING` and
+   `RUNNING` are nonterminal; `SUCCEEDED`, `FAILED`, `CANCELED`, and `DID_NOT_RUN` are terminal job
+   states. A failed, canceled, or unrun job does not prove successful output publication.
+5. In job `outputs`, match `type: "datasetJobOutput"` and `datasetRid` to the intended destination.
+   Record its `outputTransactionRid` when present. Build success plus the expected dataset/branch
+   and output evidence establishes execution success; checking expected content/schema still requires
+   authorized dataset inspection. An absent transaction RID or omitted output is insufficient evidence
+   of dataset publication. Job outputs omit unsupported resource types.
+
+For job paging, stdout contains items and stderr metadata contains `next_page_token`. Within the same
+5-minute budget, resume with `--page-token TOKEN`, allowing at most 4 job pages in total. Stop on a
+repeated token. A remaining cursor means partial observation, even when stdout is empty. Budget
+exhaustion, unknown status, inconsistent build/job states, or missing expected output means unresolved:
+retain build/import/dataset RIDs and last states for the connection owner; do not execute again to poll.
+For failed builds, the owner checks source connectivity, configuration and destination permissions
+before correcting the cause and deciding whether a new execution is appropriate.
+
+## Reconcile uncertain writes
+
+A timeout, transport loss, or exhausted retries can follow an accepted write. Preserve the intended
+connection/import/dataset/branch, payload, request time, and returned RIDs or CLI `call_id`; a client
+error alone does not establish whether Foundry changed anything.
+
+- If execute returned a build RID, follow the bounded observation procedure above. If the RID was
+  lost, search visible builds on the known branch with
+  `pal-found-orchestration build search --where-json '{"type":"eq","field":"BRANCH_NAME","value":"BRANCH_NAME"}' --format json --max-pages 2 --timeout 30`,
+  replacing the JSON value with the actual branch. Compare `createdTime`, `createdBy`, and `branchName`
+  with the request context, then inspect candidate jobs for the expected `datasetRid`. Limit this
+  recovery to 5 minutes, 2 search pages and 10 candidates, with at most 2 job pages per candidate.
+  Stop on a repeated cursor. Matches are candidates, not proof of which import request ran. If the
+  result is partial, absent, or ambiguous, ask the connection owner to correlate the request and
+  build history before any replay. These commands provide no import-execution lookup by request ID.
+- For create without a returned RID, use the matching `file-import list` or `table-import list` on
+  the original connection with `--max-pages 2`; compare name, dataset, branch, filters/configuration
+  and mode, then `get` a candidate RID. Allow at most 4 pages total, resuming with `--page-token`,
+  within 5 minutes; stop on repeated tokens. Names need not establish unique identity. For virtual
+  table create, these commands provide no virtual-table get/list reconciliation; retain request
+  context for the connection owner to inspect the parent folder through authorized tooling.
+- For replace or delete of a known import RID, use the matching import `get` to compare the current
+  definition with the intended change. Allow at most 3 reads, at least 10 seconds apart, within
+  2 minutes. A missing/inaccessible result alone cannot distinguish deletion from loss of access.
+  Stop unresolved when access, concurrent edits, or resource identity prevents reconciliation.
+
+Keep unresolved outcomes explicit and stop writes when a budget expires. Resume observation or replay
+only after the owner establishes the prior effect and confirms a further write is appropriate; none
+of these read procedures proves server authorization, source reachability, or live completion offline.
+
 ## Operation records
 
 ### file_import.create
@@ -53,8 +135,8 @@ Replace example identifiers and configuration values with values from your Found
   the import.
 - **Inputs:** positional `connection_rid`, `file_import_rid`; required none; optional none.
 - **Result:** `BuildRid`.
-- **Failure or follow-up:** A successful request starts a sync; inspect the output dataset and
-  subsequent transaction/build status for completion.
+- **Failure or follow-up:** Follow [Observe an execution](#observe-an-execution) for completion;
+  use [Reconcile uncertain writes](#reconcile-uncertain-writes) after a lost or uncertain response.
 - **Example:** `pal-found-connectivity file-import execute CONNECTION_RID FILE_IMPORT_RID`
 
 ### file_import.get
@@ -143,8 +225,8 @@ Replace example identifiers and configuration values with values from your Found
   the import.
 - **Inputs:** positional `connection_rid`, `table_import_rid`; required none; optional none.
 - **Result:** `BuildRid`.
-- **Failure or follow-up:** A successful request starts a sync; inspect the output dataset and
-  subsequent transaction/build status for completion.
+- **Failure or follow-up:** Follow [Observe an execution](#observe-an-execution) for completion;
+  use [Reconcile uncertain writes](#reconcile-uncertain-writes) after a lost or uncertain response.
 - **Example:** `pal-found-connectivity table-import execute CONNECTION_RID TABLE_IMPORT_RID`
 
 ### table_import.get

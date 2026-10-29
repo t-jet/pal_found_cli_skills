@@ -1,0 +1,4 @@
+{
+  "task": "Fresh independent J12 offline reader for FEATURE-015 / BUG-SUB-025. Snapshot entire current standalone pal-found-dev skill, use prepared SDK 1.101.0 runtime only, derive staged dataset upload/commit/build interpretation, recovery and journal. Read current TESTEXEC-064 and BUG-SUB-025 instructions/AC only; exclude previous comments/answers, old artifacts, maintainer reports, repo tests and SDK source. Use own synthetic httpx.MockTransport with public socket/DNS denied. May read adaptable staged_commit_journey example but must independently implement. Record six dimensions, own code, raw execution and SHA manifests. Own directory only; no shared tracker/source/ledger writes; separate grader decides acceptance.",
+  "controls": "caveman ultra internal/full responses; humanizer prose; work-instructions/tracking-system + public reference read"
+}

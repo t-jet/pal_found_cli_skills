@@ -19,6 +19,15 @@ IGNORED_CREDENTIAL_PATHS = (
 )
 TRACKABLE_ENV_PATHS = (".env.example", ".env.template")
 STALE_SCRIPT_RE = re.compile(r"python\s+pal_found_|pal_found_[a-z_]+_cli\.py|scripts/")
+# FEATURE-012 (DEV-STORY-046): distributed skills must not carry internal
+# tracker labels. Covers the bare sub-task forms (DEV-046, UNITTEST-013,
+# BUG-SUB-004) as well as the longer top-level and analysis/design forms.
+INTERNAL_TICKET_LABEL_RE = re.compile(
+    r"\b(?:FEATURE|EPIC|DEV-STORY|DEV|UNITTEST|CODEREVIEW|TESTCASE|TESTEXEC|"
+    r"DEVOPS|BUG-SUB|BUG|QUESTION|TASK|WORK|RESOURCE-REQ|DESIGN|UX-ANA|UX-DES|"
+    r"BA-ANA|BA-DES|SA-ANA|SA-DES)-\d+\b",
+    re.I,
+)
 
 
 def _git(*args: str) -> subprocess.CompletedProcess[str]:
@@ -65,6 +74,19 @@ def test_no_skill_md_contains_stale_python_script_references() -> None:
         text = skill_file.read_text(encoding="utf-8")
         assert not STALE_SCRIPT_RE.search(text), (
             f"{skill_file} still contains a stale python/scripts reference"
+        )
+
+
+def test_no_distributed_skill_page_contains_internal_ticket_labels() -> None:
+    # FEATURE-012 (DEV-STORY-046): distributed skill pages are reader-facing and
+    # must not carry internal tracker labels. The longer forms were already
+    # covered by test_foundry_development_skill; this gate adds the bare
+    # sub-task forms (e.g. DEV-046) that previously slipped through.
+    for page in SKILLS.rglob("*.md"):
+        text = INTERNAL_TICKET_LABEL_RE.search(page.read_text(encoding="utf-8"))
+        assert text is None, (
+            f"{page}: internal tracker label {text.group(0)!r} must not appear "
+            "in a distributed skill"
         )
 
 

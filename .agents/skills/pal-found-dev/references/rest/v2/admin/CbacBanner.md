@@ -27,7 +27,8 @@ and reconcile through authorized reads before repeating.
 
 Supply resolved marking IDs and inspect the returned banner text and colors. Use them
 for classification display; enforce access through actual resource permissions and
-markings.
+markings. This Public Beta endpoint requires `preview=true`; set `preview=True` in the
+SDK call.
 
 [Exact parameters, request, result and error models](../../contracts/v2/admin/CbacBanner/get.md).
 

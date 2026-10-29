@@ -1,7 +1,8 @@
 """v2.ontologies.OntologyObject.get: SDK request, decoded result and declared error fixtures.
 
-Synthetic identifiers do not name tenant resources. Prepared SDK 1.101.0/httpx
-required. No network connections or live mutations occur.
+Identifiers and records follow Palantir's illustrative API examples.
+Source: https://www.palantir.com/docs/foundry/api/ontologies-v2-resources/ontology-objects/get-object
+Prepared SDK 1.101.0/httpx required. No network or live mutations occur.
 """
 import json
 import sys
@@ -10,22 +11,22 @@ import datetime
 from pathlib import Path
 
 import httpx
-from foundry_sdk import PalantirRPCException
+from foundry_sdk import NotFoundError, PalantirRPCException
 from foundry_sdk.v2.ontologies.ontology_object import OntologyObjectClient
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'GET'
-EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/objects/Asset/A-1'
+EXPECTED_PATH = '/api/v2/ontologies/palantir/objects/employee/50030'
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'branch': None, 'excludeRid': None, 'sdkPackageRid': None, 'sdkVersion': None, 'select': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {}
-ERRORS = []
+SUCCESS = {'__rid': 'ri.phonograph2-objects.main.object.88a6fccb-f333-46d6-a07e-7725c5f18b61', '__primaryKey': 50030, '__apiName': 'Employee', 'id': 50030, 'firstName': 'John', 'lastName': 'Doe'}
+ERRORS = [{'status': 404, 'name': 'ObjectNotFound', 'code': 'NOT_FOUND', 'parameters': {'objectType': 'employee', 'primaryKey': {'id': 50030}}}]
 
 def invoke(client):
-    return client.with_raw_response.get(ontology='synthetic-value', object_type='Asset', primary_key='A-1', request_timeout=30)
+    return client.with_raw_response.get(ontology='palantir', object_type='employee', primary_key='50030', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -69,10 +70,12 @@ def verify():
     with mock_resource(OntologyObjectClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
         finally:
             raw.close()
     assert len(calls) == 1
+    assert decoded['__primaryKey'] == 50030 and decoded['__apiName'] == 'Employee'
     for error_case in ERRORS:
         def failure(request):
             check_request(request)
@@ -87,7 +90,8 @@ def verify():
                 raw.close()
             except PalantirRPCException as error:
                 assert error.name == error_case['name']
-                assert type(error).__name__ == error_case['name']
+                assert type(error) is NotFoundError
+                assert error.error_code == error_case['code']
                 assert normalized(error.parameters) == error_case['parameters']
             else:
                 raise AssertionError('Expected ' + error_case['name'])

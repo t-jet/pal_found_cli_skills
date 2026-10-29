@@ -28,7 +28,7 @@ SUCCESS = {'data': [{'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-
                         'messageCount': 1,
                         'estimatedExpiresTime': '2026-10-07T00:00:00+00:00'},
            'agentRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
-           'agentVersion': 'synthetic-value'}]}
+           'agentVersion': '1.1'}]}
 ERRORS = [{'name': 'GetAllSessionsAgentsPermissionDenied',
   'status': 403,
   'code': 'PERMISSION_DENIED',

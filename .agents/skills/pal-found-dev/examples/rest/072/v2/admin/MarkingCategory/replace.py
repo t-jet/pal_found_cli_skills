@@ -19,7 +19,7 @@ from mock_transport import mock_resource
 EXPECTED_METHOD = 'PUT'
 EXPECTED_PATH = '/api/v2/admin/markingCategories/synthetic-value'
 EXPECTED_BODY = {'name': 'synthetic-value', 'description': 'synthetic-value'}
-EXPECTED_QUERY = {'preview': None}
+EXPECTED_QUERY = {'preview': True}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
 SUCCESS = {'id': 'synthetic-value',
  'name': 'synthetic-value',
@@ -42,7 +42,7 @@ ERRORS = [{'name': 'GetMarkingCategoryPermissionDenied',
   'parameters': {'markingCategoryId': 'synthetic-value'}}]
 
 def invoke(client):
-    return client.with_raw_response.replace(marking_category_id='synthetic-value', description='synthetic-value', name='synthetic-value', request_timeout=30)
+    return client.with_raw_response.replace(marking_category_id='synthetic-value', description='synthetic-value', name='synthetic-value', preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

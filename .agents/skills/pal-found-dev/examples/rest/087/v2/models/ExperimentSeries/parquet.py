@@ -15,13 +15,14 @@ from foundry_sdk.v2.models.experiment_series import ExperimentSeriesClient
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
+from format_payloads import SERIES_PARQUET, check_parquet
 
 EXPECTED_METHOD = 'GET'
 EXPECTED_PATH = '/api/v2/models/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/experiments/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/series/synthetic-value/parquet'
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'preview': None}
 EXPECTED_HEADERS = {'Accept': 'application/octet-stream'}
-SUCCESS = b'offline synthetic content'
+SUCCESS = SERIES_PARQUET
 ERRORS = [{'name': 'ExperimentSeriesNotFound',
   'status': 404,
   'code': 'NOT_FOUND',
@@ -85,7 +86,9 @@ def verify():
     with mock_resource(ExperimentSeriesClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
+            check_parquet(decoded, ('step', 'value'))
         finally:
             raw.close()
     assert len(calls) == 1

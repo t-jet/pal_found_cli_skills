@@ -223,9 +223,10 @@ organization visibility.
 python -B examples/rest/071/v2/admin/Group/replace.py
 ```
 
-The example checks the serialized HTTP method, path, query, headers and body, decodes
-the synthetic success result, and checks each source-declared named error. It uses one
-raw response with a 30-second timeout and closes that response.
+The example reads the current group, carries its `multipass:` attribute into the
+replacement, and changes the `team` attribute. It checks both requests and the decoded
+replacement, including each declared error. The replacement uses a raw response with
+a 30-second timeout and closes it.
 
 Declared failures for this operation:
 

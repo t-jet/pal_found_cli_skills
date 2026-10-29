@@ -78,4 +78,4 @@ before retrying. Reuse a known query/page token only within its valid context;
 do not concatenate pages from different filters or changed security contexts.
 
 Optional provenance: [OSDK2.x query contracts](https://www.palantir.com/docs/foundry/ontology-sdk/typescript-osdk),
-[Object Set limitations](https://www.palantir.com/docs/foundry/ontologies/object-set-service-limits).
+[Object Set limitations](https://www.palantir.com/docs/foundry/ontologies/oss-limitations).

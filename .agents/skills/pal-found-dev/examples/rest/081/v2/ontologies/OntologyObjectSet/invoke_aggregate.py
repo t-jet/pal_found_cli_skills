@@ -18,15 +18,11 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/objectSets/aggregate'
-EXPECTED_BODY = {'aggregation': [{'type': 'approximateDistinct'}],
- 'objectSet': {'objectSet': {'objectSet': {'objectSet': {'type': 'methodInput'},
-                                           'link': 'synthetic-value',
-                                           'type': 'searchAround'},
-                             'link': 'synthetic-value',
-                             'type': 'searchAround'},
-               'link': 'synthetic-value',
-               'type': 'searchAround'},
- 'groupBy': [{'value': 1, 'unit': 'MILLISECONDS', 'type': 'duration'}]}
+EMPLOYEE = {'type': 'base', 'objectType': 'Employee'}
+EXPECTED_BODY = {'objectSet': {'type': 'base', 'objectType': 'Employee'},
+ 'aggregation': [{'field': 'tenure', 'name': 'avg_tenure', 'type': 'avg'}],
+ 'groupBy': [{'field': 'city', 'type': 'exact'}],
+ 'accuracy': 'REQUIRE_ACCURATE'}
 EXPECTED_QUERY = {'branch': None,
  'executeInMemoryOnly': None,
  'scenarioRid': None,
@@ -37,17 +33,16 @@ EXPECTED_HEADERS = {'traceParent': None,
  'traceState': None,
  'Content-Type': 'application/json',
  'Accept': 'application/json'}
-SUCCESS = {'accuracy': 'ACCURATE', 'data': [{'group': {}, 'metrics': [{'name': 'synthetic-value'}]}]}
-ERRORS = []
+SUCCESS = {'accuracy': 'ACCURATE',
+ 'data': [{'group': {'city': 'New York City'},
+           'metrics': [{'name': 'avg_tenure', 'value': 3.0}]}]}
+ERRORS = [{'status': 400,
+  'name': 'AggregationAccuracyNotSupported',
+  'code': 'INVALID_ARGUMENT',
+  'parameters': {}}]
 
 def invoke(client):
-    return client.with_raw_response.aggregate(ontology='synthetic-value', aggregation=[{'type': 'approximateDistinct'}], group_by=[{'value': 1, 'unit': 'MILLISECONDS', 'type': 'duration'}], object_set={'objectSet': {'objectSet': {'objectSet': {'type': 'methodInput'},
-                             'link': 'synthetic-value',
-                             'type': 'searchAround'},
-               'link': 'synthetic-value',
-               'type': 'searchAround'},
- 'link': 'synthetic-value',
- 'type': 'searchAround'}, request_timeout=30)
+    return client.with_raw_response.aggregate(ontology='synthetic-value', object_set=EMPLOYEE, aggregation=[{'field': 'tenure', 'name': 'avg_tenure', 'type': 'avg'}], group_by=[{'field': 'city', 'type': 'exact'}], accuracy='REQUIRE_ACCURATE', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -109,7 +104,8 @@ def verify():
                 raw.close()
             except PalantirRPCException as error:
                 assert error.name == error_case['name']
-                assert type(error).__name__ == error_case['name']
+                assert error.error_code == error_case['code']
+                assert type(error).__name__ == {400: 'BadRequestError', 404: 'NotFoundError', 500: 'InternalServerError'}[error_case['status']]
                 assert normalized(error.parameters) == error_case['parameters']
             else:
                 raise AssertionError('Expected ' + error_case['name'])

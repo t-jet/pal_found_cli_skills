@@ -6,8 +6,10 @@ interpret the result of any command.
 
 ## Output format: TOON vs JSON
 
-`--format` accepts `json`, `toon`, or `auto`; `FOUNDRY_AGENTIC_CLI_DEFAULT_FORMAT`
-(default `auto`) sets the same choice. Under `auto`:
+`--format` accepts `json`, `toon`, or `auto`. The shared formatter reads
+`FOUNDRY_AGENTIC_CLI_DEFAULT_FORMAT` when the flag is omitted, falling back to
+`auto`. An explicit flag, including `--format auto`, overrides the environment.
+Under `auto`:
 
 - **TOON** is used only when the top-level result is a list **and** every item
   is a dict with the identical field set.
@@ -15,9 +17,20 @@ interpret the result of any command.
   mixed-type arrays, heterogeneous-field arrays, binary download envelopes,
   and pagination metadata.
 
-Data goes to stdout. Metadata (pagination, retry info) goes to stderr,
-preceded by the separator line `# ---metadata-start---`. TOON rendering uses
-`toon-python`; data is on stdout, metadata on stderr.
+Data goes to stdout. Pagination metadata goes to stderr, preceded by the
+separator line `# ---metadata-start---`. Retry events are separate NDJSON logs
+on stderr and do not use that separator. The CLI encodes TOON with the official
+`toon-format==1.2.0` library. A two-row result can look like this:
+
+```text
+[2]{id,name}:
+  1,Ada
+  2,Bob
+```
+
+Use a TOON decoder for TOON output or `--format json` for a JSON consumer.
+An unexpected encoder failure falls back to JSON with a generic warning on
+stderr. A missing mandatory encoder dependency is a packaging failure.
 
 JSON formatting has no connection to a Foundry state change. The output shape
 only reflects what the API returned and how the CLI rendered it.
@@ -26,25 +39,35 @@ only reflects what the API returned and how the CLI rendered it.
 
 | Code | Meaning | Typical recovery |
 | --- | --- | --- |
-| 0 | Success | — |
+| 0 | Success | None |
 | 1 | User input error (bad args, validation) | Fix the command line |
-| 2 | Authentication error (missing/invalid token or hostname) | Check `FOUNDRY_TOKEN`/`FOUNDRY_HOSTNAME` |
+| 2 | Runtime authentication error | Fix credentials |
 | 3 | Permission denied (API 403) | Request access in Foundry |
 | 4 | Not found (API 404) | Check RIDs/paths |
 | 5 | Timeout (`asyncio.wait_for` exceeded) | Raise `FOUNDRY_AGENTIC_CLI_TIMEOUT_S` |
-| 6 | Server error (API 5xx, excluding retried 503) | Retry later |
+| 6 | Server error (API 5xx, including 503 after retries) | Retry later |
 | 7 | Rate limit exhausted (HTTP 429 after retries) | Back off, reduce concurrency |
 | 8 | Access control block (readonly/metadata-only/disabled) | Adjust ACL env vars |
 | 9 | Configuration error (missing env var, bad `.env` path) | Fix configuration |
 
-All failures also emit a JSON error object on stdout.
+Handled runtime failures emit a JSON error object on stdout. Invalid parser
+input exits 1 with JSON stdout across all 18 namespaces; raw invalid argument
+values are omitted even when tracebacks are enabled. Explicit `--help` exits 0
+with human-readable usage.
 
 ## Retries and timeouts
 
-Exponential backoff with jitter, max 4 total attempts (1 + 3 retries), per-call
-timeout 30 s by default (`FOUNDRY_AGENTIC_CLI_TIMEOUT_S`, range 1–3600). The
-Streams namespace uses `FOUNDRY_AGENTIC_CLI_STREAMS_TIMEOUT_S` (default 120 s)
-for long-lived record connections.
+Exponential backoff uses jitter. `FOUNDRY_AGENTIC_CLI_RETRY_MAX_ATTEMPTS`
+counts total calls, including the first; default 4 permits three retries.
+Value 1 permits one call. Malformed values use 4; nonpositive integers become 1.
+
+One effective timeout bounds both SDK requests and outer `asyncio.wait_for`
+for each attempt. CLI `--timeout` wins and accepts integer seconds from 1
+through 3600. Otherwise ordinary namespaces use `FOUNDRY_AGENTIC_CLI_TIMEOUT_S`
+(default 30 s); Streams uses `FOUNDRY_AGENTIC_CLI_STREAMS_TIMEOUT_S` (default
+120 s). Environment integers are clamped to that range; malformed values use
+the relevant default. Total command duration can include multiple attempts
+and backoff.
 
 A nonzero exit from a timeout or retry means the CLI did not get a conclusive
 response. Do **not** assume the intended Foundry change happened. Use a status
@@ -74,7 +97,7 @@ matched the scope.
 | Exit 8 on a write in read-only mode | `READONLY=true` active | Set `_READONLY=false` or remove the global flag |
 | Exit 8 in metadata-only mode | Operation blocked by allow-list | Disable metadata-only or use a permitted operation |
 | Binary download fails | Over 1.5 MiB bound (`FOUNDRY_AGENTIC_CLI_MAX_DOWNLOAD_BYTES`) | Stream the content outside the CLI |
-| Binary upload fails | Over 16 MiB bound | Split or transfer large media outside the CLI |
+| Binary upload fails in a namespace with an upload cap | Local upload cap, often 16 MiB; check the namespace record | Split the payload or use another supported transfer method |
 | Exit 7 under load | HTTP 429 after retries | Back off and retry later |
 | Exit 1 on a `-json` flag | Invalid JSON argument | Validate the JSON locally and re-run |
 
@@ -86,8 +109,8 @@ matched the scope.
    that no records matched the scope.
 3. A page token means more results may exist; continue paging or note the
    partial view.
-4. A nonzero exit has a specific meaning from the table above. Read the JSON
-   error body for the server-provided detail.
+4. A nonzero exit has a meaning from the table above. Read the JSON error body
+   and any stderr logs before choosing a recovery step.
 5. For operations that start asynchronous work (a run, a build, a session, a
    transform), a zero exit confirms the request was accepted, not that the
    work finished. Check status before claiming completion.

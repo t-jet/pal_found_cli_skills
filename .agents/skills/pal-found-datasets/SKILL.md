@@ -74,6 +74,16 @@ whether to replace, add, update, or delete files in the branch view.
 save bytes under the configured download root, then print download metadata.
 For both, `--output` is an optional filename only, not a full path.
 
+Downloads save at most 1,572,864 bytes by default. A larger response still
+returns success with a saved prefix and `truncated: true`. Before consuming
+the file, check `truncated`, `file_path`, and `file_size` in the metadata;
+checksums cover only saved bytes. Use `--format json` for JSON metadata.
+If truncated, retry with a safely chosen larger positive byte limit through
+`FOUNDRY_AGENTIC_CLI_MAX_DOWNLOAD_BYTES`, then check the new result. For table
+reads, reducing `--row-limit` or projecting fewer columns with
+`--columns-json` can also make the requested export fit. A truncated file may
+end within a row or record and must not be treated as a complete export.
+
 ### Parameter meanings
 
 All positional `dataset_rid` values identify the dataset to read or change.
@@ -87,7 +97,7 @@ when another token exists.
 | --- | --- |
 | `--name`, `--view-name` | Name of a new dataset or View in its parent folder. |
 | `--parent-folder-rid` | Existing folder in which to create the dataset or View. |
-| `--branch-name`, `--branch` | Dataset branch to use, or View branch for View operations; omit to use the enrollment default. |
+| `--branch-name`, `--branch` | Dataset branch to use, or View branch for View operations. Pass `--branch-name` explicitly for `branch get`, `branch transactions`, and `branch delete`; operations with an optional branch flag use the enrollment default when omitted. |
 | `--transaction-rid` | Existing transaction to inspect, commit, abort, or use for a file change. |
 | `--transaction-type` | How a new transaction changes the branch's file view: `SNAPSHOT`, `APPEND`, `UPDATE`, or `DELETE`. |
 | `--start-transaction-rid`, `--end-transaction-rid` | Bounds of a historical dataset view for file or table reads. |
@@ -101,18 +111,3 @@ when another token exists.
 | `--view-dataset-rid` | RID of the View to inspect or change. |
 | `--backing-datasets` | JSON array of dataset RID and branch pairs feeding a View; entries may also control marking propagation. |
 | `--primary-key` | JSON key columns and duplicate-resolution rule for a View. |
-
-## Install requirement
-
-`pal-found-datasets` is provided by the `pal_found_cli` Python package. Install it with your preferred package manager:
-
-```bash
-# conda (t-jet channel)
-conda install -c t-jet pal_found_cli
-
-# PyPI / pip
-pip install pal_found_cli
-
-# uv
-uv tool install pal_found_cli
-```

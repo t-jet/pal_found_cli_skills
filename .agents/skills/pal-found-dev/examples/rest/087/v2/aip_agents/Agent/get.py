@@ -22,7 +22,7 @@ EXPECTED_BODY = None
 EXPECTED_QUERY = {'preview': None, 'version': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
 SUCCESS = {'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
- 'version': 'synthetic-value',
+ 'version': '1.1',
  'metadata': {'displayName': 'synthetic-value', 'suggestedPrompts': ['synthetic-value']},
  'parameters': {}}
 ERRORS = [{'name': 'AgentNotFound',

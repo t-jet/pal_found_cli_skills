@@ -1,7 +1,7 @@
 # foundry_sdk.v2.filesystem.models.Organization
 
 
-An Organization is an access requirement on a Project. `organization_rid` identifies it; `is_directly_applied` distinguishes direct from inherited application. A user needs membership or guest membership in at least one Organization applied to the Project.
+An Organization is an access requirement on a Project. Each user belongs to one Organization and may be a guest member of several. To meet a Project's access requirements, the user must belong to or be a guest member of at least one Organization applied to that Project. Organizations are inherited through the file hierarchy and direct dependencies. `organization_rid` identifies the Organization; `is_directly_applied` records direct application.
 
 ## Exact SDK definition
 

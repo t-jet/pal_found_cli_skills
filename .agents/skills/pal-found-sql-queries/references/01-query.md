@@ -1,10 +1,10 @@
 # SQL query operations
 
-Dataset SQL reads Foundry datasets with Spark SQL `SELECT`. Name a dataset by its path or RID and use backticks around a path, as in the example below. The caller needs read access to every referenced dataset. This query interface reads data; it does not create a transform or change a dataset. A submitted query returns an ID and status, then runs asynchronously. Keep the ID, check status, and retrieve Apache Arrow results only after success. A client timeout during polling does not cancel server execution. Ontology SQL is a separate private-beta operation that returns Arrow bytes synchronously and has no dataset query ID.
+Dataset SQL reads Foundry datasets with Spark SQL `SELECT`. Name a dataset by its path or RID and use backticks around a path, as in the example below. The caller needs read access to every referenced dataset. This query interface reads data; it does not create a transform or change a dataset. A submitted query returns an ID and status, then runs asynchronously. Keep the ID, check status, and retrieve Apache Arrow results only after success. A client timeout during polling does not cancel server execution. Ontology SQL is a separate Public Beta operation that returns Arrow bytes synchronously and has no dataset query ID.
 
 ### sql_query.execute
 
-Submit a dataset query. `--query` is required. `--fallback-branch-ids-json` gives an ordered list of branches to try when execution on the primary branch fails. For a dataset reference without an explicit branch, Foundry uses the first listed fallback branch that exists; without a list it uses the default branch (`master` in most enrollments). A reference with an explicit branch uses that branch. The `QueryStatus` response contains an ID and current state. Submission does not guarantee completion. Results default to a one-million-row limit. Invalid SQL, non-SELECT statements, or inaccessible datasets can fail.
+Submit a dataset query. `--query` is required. `--fallback-branch-ids-json` controls branch resolution for dataset references without an explicit branch: Foundry uses the first listed branch that exists, or the default branch when no list is supplied. A reference with an explicit branch uses that branch. The `QueryStatus` response contains an ID and current state. Submission does not guarantee completion. Results default to a one-million-row limit. Invalid SQL, non-SELECT statements, or inaccessible datasets can fail.
 
 **Example:**
 ```bash
@@ -35,7 +35,7 @@ Request cancellation by query ID. Cancellation of a query that has stopped is a 
 
 ### sql_query.execute_ontology
 
-Run SQL against Ontology data. This private-beta endpoint returns Apache Arrow bytes synchronously. It provides no query ID for `get-status` or `get-results`. The CLI saves bytes and prints download metadata. `--dry-run` validates without execution; `--row-limit` caps rows. `--parameters-json` accepts the SDK's named or positional typed parameters. An inaccessible object type or unavailable beta access fails.
+Run SQL against Ontology data. This Public Beta endpoint returns Apache Arrow bytes synchronously. It provides no query ID for `get-status` or `get-results`. The CLI saves bytes and prints download metadata. `--dry-run` validates without execution; `--row-limit` caps rows. `--parameters-json` accepts the SDK's named or positional typed parameters. An inaccessible object type or unavailable beta access fails.
 
 **Example:**
 ```bash

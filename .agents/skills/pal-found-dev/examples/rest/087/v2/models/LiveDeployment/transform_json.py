@@ -18,14 +18,16 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/models/liveDeployments/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/transformJson'
-EXPECTED_BODY = {'input': {}}
+# Synthetic transform contract: one numeric feature produces one numeric score.
+# A real deployment supplies its own versioned input/output schema.
+EXPECTED_BODY = {'input': {'feature': 2.0}}
 EXPECTED_QUERY = {'preview': None}
 EXPECTED_HEADERS = {'attribution': None,
  'traceParent': None,
  'traceState': None,
  'Content-Type': 'application/json',
  'Accept': 'application/json'}
-SUCCESS = {'output': {}}
+SUCCESS = {'output': {'score': 0.75}}
 ERRORS = [{'name': 'InferenceFailure',
   'status': 400,
   'code': 'INVALID_ARGUMENT',
@@ -50,7 +52,7 @@ ERRORS = [{'name': 'InferenceFailure',
   'parameters': {'liveDeploymentRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}}]
 
 def invoke(client):
-    return client.with_raw_response.transform_json(live_deployment_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', input={}, request_timeout=30)
+    return client.with_raw_response.transform_json(live_deployment_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', input={'feature': 2.0}, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -94,7 +96,9 @@ def verify():
     with mock_resource(LiveDeploymentClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
+            assert isinstance(decoded['output']['score'], (int, float))
         finally:
             raw.close()
     assert len(calls) == 1

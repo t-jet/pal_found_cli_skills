@@ -1,0 +1,11 @@
+{
+  "story": "DEV-STORY-071",
+  "testcase": "TESTCASE-074",
+  "executor_identity": null,
+  "harness_sha256": "ecc5be0887cd27b888b1468400f8e9fd59888a32ae0144f17ba3a1334c985453",
+  "cases_sha256": "25515d476f8e719d1c5cc0ccee18913dabfd99953e66404c5925672388f43262",
+  "operations": 27,
+  "declared_errors": 74,
+  "execution": "NOT_RUN",
+  "created_at": "2026-10-21T21:16:55.767150+00:00"
+}

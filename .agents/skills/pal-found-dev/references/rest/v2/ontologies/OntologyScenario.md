@@ -14,6 +14,8 @@ Use the frozen Foundry Python SDK 1.101.0 and an authorized Ontology, branch, re
 
 Select the operation below, read its exact request/response/error model, then adapt the linked SDK fixture with authorized resource values. The fixture uses synthetic identifiers and checks serialized transport; it does not assert tenant behavior. Record branch, version, page/snapshot context, response and named errors for the actual call.
 
+The inspection fixtures share one illustrative schema: `Order` has `orderId` and `status`; `Worker` has `workerId` and `displayName`; `assignedWorker` is a many-to-many link from `Order` to `Worker`. `ORD-101` and `WRK-7` identify the same edited order and linked worker across responses. These names show how request types, returned object locators and link results fit together. Replace the schema with the enrolled Ontology's API names before a live call.
+
 ### `OntologyScenario.create_scenario`
 
 Stage: Private Beta. Required SDK arguments: `ontology`.

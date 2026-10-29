@@ -1,0 +1,105 @@
+{"case_id": "F085-01", "check": "selectors_success", "result": "PASS", "detail": "explicit preview, exact HTTP/path/body/query, typed result; cancel repeated", "at": "2026-10-20T07:27:20.051934+00:00"}
+{"case_id": "F085-01", "check": "http_401", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.051934+00:00"}
+{"case_id": "F085-01", "check": "http_403", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.052935+00:00"}
+{"case_id": "F085-01", "check": "timeout", "result": "PASS", "detail": "transport timeout surfaced; no inferred replay/business-effect guarantee", "at": "2026-10-20T07:27:20.052935+00:00"}
+{"case_id": "F085-01", "check": "missing_required", "result": "PASS", "detail": "local ValidationError before HTTP", "at": "2026-10-20T07:27:20.052935+00:00"}
+{"case_id": "F085-01", "check": "malformed", "result": "PASS", "detail": "invalid JSON or SSE payload rejected", "at": "2026-10-20T07:27:20.053934+00:00"}
+v2.functions.Execution.cancel: serialized request, decoded result and 1 named errors passed
+{"case_id": "F085-01", "check": "reader_example", "result": "PASS", "detail": "actual SDK request/result/named-source-errors passed under socket trap", "at": "2026-10-20T07:27:20.056934+00:00"}
+{"case_id": "F085-02", "check": "selectors_success", "result": "PASS", "detail": "explicit preview, exact HTTP/path/body/query and typed result", "at": "2026-10-20T07:27:20.056934+00:00"}
+{"case_id": "F085-02", "check": "http_401", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.057934+00:00"}
+{"case_id": "F085-02", "check": "http_403", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.057934+00:00"}
+{"case_id": "F085-02", "check": "timeout", "result": "PASS", "detail": "transport timeout surfaced; no inferred replay/business-effect guarantee", "at": "2026-10-20T07:27:20.057934+00:00"}
+{"case_id": "F085-02", "check": "missing_required", "result": "PASS", "detail": "local ValidationError before HTTP", "at": "2026-10-20T07:27:20.058934+00:00"}
+{"case_id": "F085-02", "check": "malformed", "result": "PASS", "detail": "invalid JSON or SSE payload rejected", "at": "2026-10-20T07:27:20.058934+00:00"}
+v2.functions.Execution.get_result: serialized request, decoded result and 1 named errors passed
+{"case_id": "F085-02", "check": "reader_example", "result": "PASS", "detail": "actual SDK request/result/named-source-errors passed under socket trap", "at": "2026-10-20T07:27:20.060935+00:00"}
+{"case_id": "F085-03", "check": "selectors_success", "result": "PASS", "detail": "explicit preview, exact HTTP/path/body/query and typed result", "at": "2026-10-20T07:27:20.061439+00:00"}
+{"case_id": "F085-03", "check": "http_401", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.061439+00:00"}
+{"case_id": "F085-03", "check": "http_403", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.062444+00:00"}
+{"case_id": "F085-03", "check": "timeout", "result": "PASS", "detail": "transport timeout surfaced; no inferred replay/business-effect guarantee", "at": "2026-10-20T07:27:20.062444+00:00"}
+{"case_id": "F085-03", "check": "missing_required", "result": "PASS", "detail": "local ValidationError before HTTP", "at": "2026-10-20T07:27:20.062444+00:00"}
+{"case_id": "F085-03", "check": "malformed", "result": "PASS", "detail": "invalid JSON or SSE payload rejected", "at": "2026-10-20T07:27:20.063444+00:00"}
+v2.functions.Query.execute: serialized request, decoded result and 1 named errors passed
+{"case_id": "F085-03", "check": "reader_example", "result": "PASS", "detail": "actual SDK request/result/named-source-errors passed under socket trap", "at": "2026-10-20T07:27:20.065444+00:00"}
+{"case_id": "F085-04", "check": "selectors_success", "result": "PASS", "detail": "explicit preview, exact HTTP/path/body/query and typed result", "at": "2026-10-20T07:27:20.066444+00:00"}
+{"case_id": "F085-04", "check": "http_401", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.066444+00:00"}
+{"case_id": "F085-04", "check": "http_403", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.066444+00:00"}
+{"case_id": "F085-04", "check": "timeout", "result": "PASS", "detail": "transport timeout surfaced; no inferred replay/business-effect guarantee", "at": "2026-10-20T07:27:20.067443+00:00"}
+{"case_id": "F085-04", "check": "missing_required", "result": "PASS", "detail": "local ValidationError before HTTP", "at": "2026-10-20T07:27:20.067443+00:00"}
+{"case_id": "F085-04", "check": "malformed", "result": "PASS", "detail": "invalid JSON or SSE payload rejected", "at": "2026-10-20T07:27:20.067443+00:00"}
+v2.functions.Query.execute_async: serialized request, decoded result and 1 named errors passed
+{"case_id": "F085-04", "check": "reader_example", "result": "PASS", "detail": "actual SDK request/result/named-source-errors passed under socket trap", "at": "2026-10-20T07:27:20.069444+00:00"}
+{"case_id": "F085-05", "check": "selectors_success", "result": "PASS", "detail": "explicit preview, exact HTTP/path/body/query and typed result", "at": "2026-10-20T07:27:20.073443+00:00"}
+{"case_id": "F085-05", "check": "http_401", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.074444+00:00"}
+{"case_id": "F085-05", "check": "http_403", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.074444+00:00"}
+{"case_id": "F085-05", "check": "timeout", "result": "PASS", "detail": "transport timeout surfaced; no inferred replay/business-effect guarantee", "at": "2026-10-20T07:27:20.074444+00:00"}
+{"case_id": "F085-05", "check": "missing_required", "result": "PASS", "detail": "local ValidationError before HTTP", "at": "2026-10-20T07:27:20.075443+00:00"}
+{"case_id": "F085-05", "check": "malformed", "result": "PASS", "detail": "invalid JSON or SSE payload rejected", "at": "2026-10-20T07:27:20.075443+00:00"}
+v2.functions.Query.get: serialized request, decoded result and 1 named errors passed
+{"case_id": "F085-05", "check": "reader_example", "result": "PASS", "detail": "actual SDK request/result/named-source-errors passed under socket trap", "at": "2026-10-20T07:27:20.077444+00:00"}
+{"case_id": "F085-06", "check": "selectors_success", "result": "PASS", "detail": "explicit preview, exact HTTP/path/body/query and typed result", "at": "2026-10-20T07:27:20.077948+00:00"}
+{"case_id": "F085-06", "check": "http_401", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.077948+00:00"}
+{"case_id": "F085-06", "check": "http_403", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.077948+00:00"}
+{"case_id": "F085-06", "check": "timeout", "result": "PASS", "detail": "transport timeout surfaced; no inferred replay/business-effect guarantee", "at": "2026-10-20T07:27:20.078953+00:00"}
+{"case_id": "F085-06", "check": "missing_required", "result": "PASS", "detail": "local ValidationError before HTTP", "at": "2026-10-20T07:27:20.078953+00:00"}
+{"case_id": "F085-06", "check": "malformed", "result": "PASS", "detail": "invalid JSON or SSE payload rejected", "at": "2026-10-20T07:27:20.078953+00:00"}
+v2.functions.Query.get_by_rid: serialized request, decoded result and 1 named errors passed
+{"case_id": "F085-06", "check": "reader_example", "result": "PASS", "detail": "actual SDK request/result/named-source-errors passed under socket trap", "at": "2026-10-20T07:27:20.080953+00:00"}
+{"case_id": "F085-07", "check": "selectors_success", "result": "PASS", "detail": "explicit preview, exact HTTP/path/body/query and typed result", "at": "2026-10-20T07:27:20.081953+00:00"}
+{"case_id": "F085-07", "check": "http_401", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.081953+00:00"}
+{"case_id": "F085-07", "check": "http_403", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.082953+00:00"}
+{"case_id": "F085-07", "check": "timeout", "result": "PASS", "detail": "transport timeout surfaced; no inferred replay/business-effect guarantee", "at": "2026-10-20T07:27:20.082953+00:00"}
+{"case_id": "F085-07", "check": "missing_required", "result": "PASS", "detail": "local ValidationError before HTTP", "at": "2026-10-20T07:27:20.082953+00:00"}
+{"case_id": "F085-07", "check": "malformed", "result": "PASS", "detail": "invalid JSON or SSE payload rejected", "at": "2026-10-20T07:27:20.082953+00:00"}
+v2.functions.Query.get_by_rid_batch: serialized request, decoded result and 0 named errors passed
+{"case_id": "F085-07", "check": "reader_example", "result": "PASS", "detail": "actual SDK request/result/named-source-errors passed under socket trap", "at": "2026-10-20T07:27:20.084953+00:00"}
+{"case_id": "F085-08", "check": "selectors_success", "result": "PASS", "detail": "explicit preview, exact HTTP/path/body/query and typed result", "at": "2026-10-20T07:27:20.084953+00:00"}
+{"case_id": "F085-08", "check": "http_401", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.086457+00:00"}
+{"case_id": "F085-08", "check": "http_403", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.086457+00:00"}
+{"case_id": "F085-08", "check": "timeout", "result": "PASS", "detail": "transport timeout surfaced; no inferred replay/business-effect guarantee", "at": "2026-10-20T07:27:20.086457+00:00"}
+{"case_id": "F085-08", "check": "missing_required", "result": "PASS", "detail": "local ValidationError before HTTP", "at": "2026-10-20T07:27:20.087463+00:00"}
+{"case_id": "F085-08", "check": "malformed", "result": "PASS", "detail": "invalid JSON or SSE payload rejected", "at": "2026-10-20T07:27:20.087463+00:00"}
+v2.functions.Query.streaming_execute: SSE fixtures passed
+{"case_id": "F085-08", "check": "reader_example", "result": "PASS", "detail": "actual SDK request/result/named-source-errors passed under socket trap", "at": "2026-10-20T07:27:20.090463+00:00"}
+{"case_id": "F085-09", "check": "selectors_success", "result": "PASS", "detail": "explicit preview, exact HTTP/path/body/query and typed result", "at": "2026-10-20T07:27:20.090463+00:00"}
+{"case_id": "F085-09", "check": "http_401", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.090463+00:00"}
+{"case_id": "F085-09", "check": "http_403", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.091463+00:00"}
+{"case_id": "F085-09", "check": "timeout", "result": "PASS", "detail": "transport timeout surfaced; no inferred replay/business-effect guarantee", "at": "2026-10-20T07:27:20.091463+00:00"}
+{"case_id": "F085-09", "check": "missing_required", "result": "PASS", "detail": "local ValidationError before HTTP", "at": "2026-10-20T07:27:20.091463+00:00"}
+{"case_id": "F085-09", "check": "malformed", "result": "PASS", "detail": "invalid JSON or SSE payload rejected", "at": "2026-10-20T07:27:20.091463+00:00"}
+v2.functions.Query.streaming_execute_events: SSE fixtures passed
+{"case_id": "F085-09", "check": "reader_example", "result": "PASS", "detail": "actual SDK request/result/named-source-errors passed under socket trap", "at": "2026-10-20T07:27:20.094463+00:00"}
+{"case_id": "F085-10", "check": "selectors_success", "result": "PASS", "detail": "explicit preview, exact HTTP/path/body/query and typed result", "at": "2026-10-20T07:27:20.099462+00:00"}
+{"case_id": "F085-10", "check": "http_401", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.100463+00:00"}
+{"case_id": "F085-10", "check": "http_403", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.100463+00:00"}
+{"case_id": "F085-10", "check": "timeout", "result": "PASS", "detail": "transport timeout surfaced; no inferred replay/business-effect guarantee", "at": "2026-10-20T07:27:20.100463+00:00"}
+{"case_id": "F085-10", "check": "missing_required", "result": "PASS", "detail": "local ValidationError before HTTP", "at": "2026-10-20T07:27:20.100463+00:00"}
+{"case_id": "F085-10", "check": "malformed", "result": "PASS", "detail": "invalid JSON or SSE payload rejected", "at": "2026-10-20T07:27:20.101462+00:00"}
+v2.functions.ValueType.get: serialized request, decoded result and 1 named errors passed
+{"case_id": "F085-10", "check": "reader_example", "result": "PASS", "detail": "actual SDK request/result/named-source-errors passed under socket trap", "at": "2026-10-20T07:27:20.103463+00:00"}
+{"case_id": "F085-11", "check": "selectors_success", "result": "PASS", "detail": "explicit preview, exact HTTP/path/body/query and typed result", "at": "2026-10-20T07:27:20.103463+00:00"}
+{"case_id": "F085-11", "check": "http_401", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.103463+00:00"}
+{"case_id": "F085-11", "check": "http_403", "result": "PASS", "detail": "service denial propagated", "at": "2026-10-20T07:27:20.104463+00:00"}
+{"case_id": "F085-11", "check": "timeout", "result": "PASS", "detail": "transport timeout surfaced; no inferred replay/business-effect guarantee", "at": "2026-10-20T07:27:20.104463+00:00"}
+{"case_id": "F085-11", "check": "missing_required", "result": "PASS", "detail": "local ValidationError before HTTP", "at": "2026-10-20T07:27:20.104463+00:00"}
+{"case_id": "F085-11", "check": "malformed", "result": "PASS", "detail": "invalid JSON or SSE payload rejected", "at": "2026-10-20T07:27:20.104463+00:00"}
+v2.functions.VersionId.get: serialized request, decoded result and 1 named errors passed
+{"case_id": "F085-11", "check": "reader_example", "result": "PASS", "detail": "actual SDK request/result/named-source-errors passed under socket trap", "at": "2026-10-20T07:27:20.107463+00:00"}
+{"case_id": "F085-07", "check": "batch_1", "result": "PASS", "detail": "valid boundary serialized; omitted records accepted without absence conclusion", "at": "2026-10-20T07:27:20.107463+00:00"}
+{"case_id": "F085-07", "check": "batch_100", "result": "PASS", "detail": "valid boundary serialized; omitted records accepted without absence conclusion", "at": "2026-10-20T07:27:20.108463+00:00"}
+{"case_id": "F085-07", "check": "batch_0", "result": "PASS", "detail": "local length validation, no request", "at": "2026-10-20T07:27:20.108463+00:00"}
+{"case_id": "F085-07", "check": "batch_101", "result": "PASS", "detail": "local length validation, no request", "at": "2026-10-20T07:27:20.108463+00:00"}
+{"case_id": "F085-02", "check": "poll_None", "result": "PASS", "detail": "exact timeout body and succeeded variant decoded", "at": "2026-10-20T07:27:20.109462+00:00"}
+{"case_id": "F085-02", "check": "poll_280", "result": "PASS", "detail": "exact timeout body and succeeded variant decoded", "at": "2026-10-20T07:27:20.109462+00:00"}
+{"case_id": "F085-04", "check": "completed", "result": "PASS", "detail": "immediate completed variant needs no polling", "at": "2026-10-20T07:27:20.109462+00:00"}
+{"case_id": "F085-06", "check": "omitted_version", "result": "PASS", "detail": "includePrerelease selector accepted with version omitted; fixture cannot prove live resolution", "at": "2026-10-20T07:27:20.110462+00:00"}
+{"case_id": "F085-08", "check": "finite_sse", "result": "PASS", "detail": "data,partial error,event/decoded-byte/deadline budgets and closed transport", "at": "2026-10-20T07:27:20.113463+00:00"}
+{"case_id": "F085-08", "check": "async_sse", "result": "PASS", "detail": "AsyncSseContextManager, typed data and async context closure", "at": "2026-10-20T07:27:20.113463+00:00"}
+{"case_id": "F085-09", "check": "finite_sse", "result": "PASS", "detail": "data,partial error,event/decoded-byte/deadline budgets and closed transport", "at": "2026-10-20T07:27:20.115463+00:00"}
+{"case_id": "F085-09", "check": "async_sse", "result": "PASS", "detail": "AsyncSseContextManager, typed data and async context closure", "at": "2026-10-20T07:27:20.116463+00:00"}
+Pinned global Query arguments/result and named denial passed; no live function executed.
+{"case_id": "F085-03", "check": "worked_example", "result": "PASS", "detail": "global_query.py ran real SDK fixtures", "at": "2026-10-20T07:27:20.118463+00:00"}
+Query submitted, running then succeeded; bounded SDK polling passed
+{"case_id": "F085-04", "check": "worked_example", "result": "PASS", "detail": "async_execution.py ran real SDK fixtures", "at": "2026-10-20T07:27:20.119463+00:00"}
+PASS: 91 independent checks; 11/11 formal cases; all current source/asset hashes matched

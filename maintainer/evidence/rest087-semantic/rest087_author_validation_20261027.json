@@ -1,0 +1,491 @@
+{
+  "author": "/root/rest087_finish_20261027",
+  "verified_at_utc": "2026-10-27T21:33:17.662601+00:00",
+  "candidate_base": "0623f5a1cad0bbd4ba9e1f37bb822cba50b61335",
+  "scope": "Author validation of ten corrected examples, seven behavior pages and focused regression suite; independent semantic approval remains separate.",
+  "sdk_release": "1.101.0",
+  "source_checks": [
+    {
+      "id": "v2.aip_agents.Agent.all_sessions",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\agent.py",
+      "sha256": "a4e8a02cd5e824228a83dd06134389f32876403cff75c5b2bc0317efd0140162",
+      "match": true
+    },
+    {
+      "id": "v2.aip_agents.Agent.get",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\agent.py",
+      "sha256": "a4e8a02cd5e824228a83dd06134389f32876403cff75c5b2bc0317efd0140162",
+      "match": true
+    },
+    {
+      "id": "v2.aip_agents.AgentVersion.get",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\agent_version.py",
+      "sha256": "800b64e68d4a3c104e76b792e3ac02d400d13a667186cfb002465417c965c3d8",
+      "match": true
+    },
+    {
+      "id": "v2.aip_agents.AgentVersion.list",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\agent_version.py",
+      "sha256": "800b64e68d4a3c104e76b792e3ac02d400d13a667186cfb002465417c965c3d8",
+      "match": true
+    },
+    {
+      "id": "v2.aip_agents.Content.get",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\content.py",
+      "sha256": "d7b4c970889956f860350a5794736869405dc81b4ac00999e91595ade4c6e0a1",
+      "match": true
+    },
+    {
+      "id": "v2.aip_agents.Session.blocking_continue",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py",
+      "sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "match": true
+    },
+    {
+      "id": "v2.aip_agents.Session.cancel",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py",
+      "sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "match": true
+    },
+    {
+      "id": "v2.aip_agents.Session.create",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py",
+      "sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "match": true
+    },
+    {
+      "id": "v2.aip_agents.Session.delete",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py",
+      "sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "match": true
+    },
+    {
+      "id": "v2.aip_agents.Session.get",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py",
+      "sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "match": true
+    },
+    {
+      "id": "v2.aip_agents.Session.list",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py",
+      "sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "match": true
+    },
+    {
+      "id": "v2.aip_agents.Session.rag_context",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py",
+      "sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "match": true
+    },
+    {
+      "id": "v2.aip_agents.Session.streaming_continue",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py",
+      "sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "match": true
+    },
+    {
+      "id": "v2.aip_agents.Session.update_title",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py",
+      "sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "match": true
+    },
+    {
+      "id": "v2.aip_agents.SessionTrace.get",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session_trace.py",
+      "sha256": "24dbb5a1290eb00d8024c12fc2ad50afed584fccc042bd7773a924a4d378df29",
+      "match": true
+    },
+    {
+      "id": "v2.language_models.AnthropicModel.messages",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\language_models\\anthropic_model.py",
+      "sha256": "23ce4366d538286c933d8a1a2c20fdc22987c8292997f317ff016ea2b1e24b02",
+      "match": true
+    },
+    {
+      "id": "v2.language_models.OpenAiModel.embeddings",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\language_models\\open_ai_model.py",
+      "sha256": "f0de3feb8825b82a89ae8442176daf1f8e664d49ec0e4bdaf7c5d9fd3d869550",
+      "match": true
+    },
+    {
+      "id": "v2.models.Experiment.get",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment.py",
+      "sha256": "afee53ef61ec8fde78a968a24ab7f7695ca85d9f8f89b06fac072eed440896e9",
+      "match": true
+    },
+    {
+      "id": "v2.models.Experiment.search",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment.py",
+      "sha256": "afee53ef61ec8fde78a968a24ab7f7695ca85d9f8f89b06fac072eed440896e9",
+      "match": true
+    },
+    {
+      "id": "v2.models.ExperimentArtifactTable.json",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment_artifact_table.py",
+      "sha256": "d0e7fe85815d7e9591ab5c382e2c068a3b0d9665b6537f8b5a5cad131db4b66d",
+      "match": true
+    },
+    {
+      "id": "v2.models.ExperimentArtifactTable.parquet",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment_artifact_table.py",
+      "sha256": "d0e7fe85815d7e9591ab5c382e2c068a3b0d9665b6537f8b5a5cad131db4b66d",
+      "match": true
+    },
+    {
+      "id": "v2.models.ExperimentSeries.json",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment_series.py",
+      "sha256": "695990e14cdef6fe9ab18fb2fa872c9e5bc8f8b4eeec904c080c735d5822d344",
+      "match": true
+    },
+    {
+      "id": "v2.models.ExperimentSeries.parquet",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment_series.py",
+      "sha256": "695990e14cdef6fe9ab18fb2fa872c9e5bc8f8b4eeec904c080c735d5822d344",
+      "match": true
+    },
+    {
+      "id": "v2.models.LiveDeployment.create",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\live_deployment.py",
+      "sha256": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa",
+      "match": true
+    },
+    {
+      "id": "v2.models.LiveDeployment.get",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\live_deployment.py",
+      "sha256": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa",
+      "match": true
+    },
+    {
+      "id": "v2.models.LiveDeployment.list",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\live_deployment.py",
+      "sha256": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa",
+      "match": true
+    },
+    {
+      "id": "v2.models.LiveDeployment.replace",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\live_deployment.py",
+      "sha256": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa",
+      "match": true
+    },
+    {
+      "id": "v2.models.LiveDeployment.transform_json",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\live_deployment.py",
+      "sha256": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa",
+      "match": true
+    },
+    {
+      "id": "v2.models.Model.create",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model.py",
+      "sha256": "420a4bd19511d5732532fb3ac4252310732e3c4b4ea418551adb2cf68a41cd20",
+      "match": true
+    },
+    {
+      "id": "v2.models.Model.get",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model.py",
+      "sha256": "420a4bd19511d5732532fb3ac4252310732e3c4b4ea418551adb2cf68a41cd20",
+      "match": true
+    },
+    {
+      "id": "v2.models.Model.promote_version",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model.py",
+      "sha256": "420a4bd19511d5732532fb3ac4252310732e3c4b4ea418551adb2cf68a41cd20",
+      "match": true
+    },
+    {
+      "id": "v2.models.ModelFunction.create",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_function.py",
+      "sha256": "9bd76546691d4b1a00b3d5dd6f0efcee90b40954c04ac32c3b74708f5a60ccf6",
+      "match": true
+    },
+    {
+      "id": "v2.models.ModelFunction.get",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_function.py",
+      "sha256": "9bd76546691d4b1a00b3d5dd6f0efcee90b40954c04ac32c3b74708f5a60ccf6",
+      "match": true
+    },
+    {
+      "id": "v2.models.ModelFunction.replace",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_function.py",
+      "sha256": "9bd76546691d4b1a00b3d5dd6f0efcee90b40954c04ac32c3b74708f5a60ccf6",
+      "match": true
+    },
+    {
+      "id": "v2.models.ModelStudio.create",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio.py",
+      "sha256": "4ece4867d0046dafdbf4eac2fad4d5348a281b3ea628809b332ff769e161b49e",
+      "match": true
+    },
+    {
+      "id": "v2.models.ModelStudio.get",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio.py",
+      "sha256": "4ece4867d0046dafdbf4eac2fad4d5348a281b3ea628809b332ff769e161b49e",
+      "match": true
+    },
+    {
+      "id": "v2.models.ModelStudio.launch",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio.py",
+      "sha256": "4ece4867d0046dafdbf4eac2fad4d5348a281b3ea628809b332ff769e161b49e",
+      "match": true
+    },
+    {
+      "id": "v2.models.ModelStudioConfigVersion.create",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_config_version.py",
+      "sha256": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2",
+      "match": true
+    },
+    {
+      "id": "v2.models.ModelStudioConfigVersion.get",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_config_version.py",
+      "sha256": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2",
+      "match": true
+    },
+    {
+      "id": "v2.models.ModelStudioConfigVersion.latest",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_config_version.py",
+      "sha256": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2",
+      "match": true
+    },
+    {
+      "id": "v2.models.ModelStudioConfigVersion.list",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_config_version.py",
+      "sha256": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2",
+      "match": true
+    },
+    {
+      "id": "v2.models.ModelStudioRun.list",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_run.py",
+      "sha256": "e7bf121ae2c96f41fbff874a53102f22c1f774812936aaf49f435e4963093513",
+      "match": true
+    },
+    {
+      "id": "v2.models.ModelStudioTrainer.get",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_trainer.py",
+      "sha256": "b4d5fd37b3cebe920077e755adb09d37c9aa499a7b25fa0f46ecc4787d5c09d0",
+      "match": true
+    },
+    {
+      "id": "v2.models.ModelStudioTrainer.list",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_trainer.py",
+      "sha256": "b4d5fd37b3cebe920077e755adb09d37c9aa499a7b25fa0f46ecc4787d5c09d0",
+      "match": true
+    },
+    {
+      "id": "v2.models.ModelVersion.create",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_version.py",
+      "sha256": "ad0514eaa6f22b4f362cc94305b395c4c8c7d3b36bd2b337fc70d57b85655dc8",
+      "match": true
+    },
+    {
+      "id": "v2.models.ModelVersion.get",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_version.py",
+      "sha256": "ad0514eaa6f22b4f362cc94305b395c4c8c7d3b36bd2b337fc70d57b85655dc8",
+      "match": true
+    },
+    {
+      "id": "v2.models.ModelVersion.list",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_version.py",
+      "sha256": "ad0514eaa6f22b4f362cc94305b395c4c8c7d3b36bd2b337fc70d57b85655dc8",
+      "match": true
+    }
+  ],
+  "files": [
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/Agent/all_sessions.py",
+      "sha256": "f567932a1da4d2100acbd29adf0c33ecefe761ab23d28b6dc111c1f561a76cec"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/Agent/get.py",
+      "sha256": "5b27f89c713433f8ac0ffe8bd8afe17835d13cc646976c30dd7b5d3b0b3255b0"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/AgentVersion/get.py",
+      "sha256": "72219d32f1394fef0fe8eee87ca045864ed4cb78c6dd0a81e3f2a33951f496d9"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/AgentVersion/list.py",
+      "sha256": "7aa23d9de3dd2a192c31d310bb0323b5eff93bece90f81270707fc8cc41ca6a9"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/Session/blocking_continue.py",
+      "sha256": "8b0c938259c89fae05906ee94b83b03f0eac30d5e6577abba12b7e296000d8de"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/Session/streaming_continue.py",
+      "sha256": "415f68e0e5e29a414fe48545b50cb91ff23c74646c95fa0ee3db993c59d1ecd8"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/087/v2/language_models/AnthropicModel/messages.py",
+      "sha256": "7f983e0b7045a3da4ab8a371bcb56d3f29ccb6bfe3e60e5f5caf0a1921ab8396"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/087/v2/models/LiveDeployment/create.py",
+      "sha256": "8c5922f078d0c60cd4c2fe7732887aefd52404aedd5655f826f9d118df1d5f95"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/087/v2/models/LiveDeployment/replace.py",
+      "sha256": "83787c0c1bdcffbb05fd4475d6c07c9acdf9655baa29dc6e26e517fae50b4311"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/087/v2/models/Model/promote_version.py",
+      "sha256": "7a629445b41d379bb6eff3172707fc6c487fd40b0f44dc4bc107433162e30d47"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v2/aip_agents/AgentVersion.md",
+      "sha256": "0bd61ef3d61b3398e9ea75883cfb0800a5caf1a0d18fc621df9b92e42e68a0a0"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v2/aip_agents/Content.md",
+      "sha256": "5579a8bde26d80b7b9e3aaa0bb8d64eb6f65995aa8959e688d57944d36c3b103"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v2/aip_agents/Session.md",
+      "sha256": "def28ab09c747be684993d210d5c1d6e0b34a62bc7cbb92e5f307ee723156329"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v2/language_models/OpenAiModel.md",
+      "sha256": "31b67da745207d50dadbde7c080d3749213e7aee91357bb063e1b7caa2c2aae0"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v2/models/Model.md",
+      "sha256": "952c2245bcc2e0af818cb3c85e91094e275b3b58a73a7b572ef0285fcf355c3e"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v2/models/ModelFunction.md",
+      "sha256": "bfc5fb2abe6ee3bbb587976343114f6fa0186f89952ad3c16c04c25e256d4651"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v2/models/ModelStudio.md",
+      "sha256": "4aa979e6b188b3fa1a157d2bc378584c723bd151f546f3a3a55c0bae1563c8fc"
+    },
+    {
+      "path": "tests/test_offline_rest_087.py",
+      "sha256": "27ee4361e54aa6d9a8fa16fa8759c416ef004f20fd3d5dc3273a084584b3c1b1"
+    }
+  ],
+  "baseline_evidence": {
+    "kind": "Preserved static source-semantic failures, not an invented pre-fix runtime failure.",
+    "initial_findings": {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_initial_semantic_findings_20261022.json",
+      "sha256": "2003dbb8dd4cb8f1dcb69304d98e3d9476d203627c1b6ad6c340f36ffd3bd512"
+    },
+    "original_assets": [
+      {
+        "id": "v2.aip_agents.Agent.all_sessions",
+        "original": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_originals\\aip_agents\\Agent\\all_sessions.py",
+        "sha256": "bccdf5132383fde43d73ebf0c62db5069af06a1050e8b2d0be548e1431bc48ef"
+      },
+      {
+        "id": "v2.aip_agents.Agent.get",
+        "original": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_originals\\aip_agents\\Agent\\get.py",
+        "sha256": "aa60b406ee9d36250921b6a9ce7c6b03c862f729c9dee212765ddd1aa9d7392c"
+      },
+      {
+        "id": "v2.aip_agents.AgentVersion.get",
+        "original": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_originals\\aip_agents\\AgentVersion\\get.py",
+        "sha256": "68e757325f9f48fde6bfadea45fc8e1bf23344d8d9912f19e318d6874ad6fe55"
+      },
+      {
+        "id": "v2.aip_agents.AgentVersion.list",
+        "original": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_originals\\aip_agents\\AgentVersion\\list.py",
+        "sha256": "cebd5347489d74d7c51304fd7fb7407ad2c87e8640046a3daa3c65d4218dc03a"
+      },
+      {
+        "id": "v2.aip_agents.Session.blocking_continue",
+        "original": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_originals\\aip_agents\\Session\\blocking_continue.py",
+        "sha256": "88257f7b43f9d9092ac283e58399acd1a5ab0359a07838a610450d149986bd0e"
+      },
+      {
+        "id": "v2.aip_agents.Session.streaming_continue",
+        "original": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_originals\\aip_agents\\Session\\streaming_continue.py",
+        "sha256": "15fd2e1f74a6a45f2a389f46f313488f22aef9e0b85ec56a702badc984235377"
+      },
+      {
+        "id": "v2.language_models.AnthropicModel.messages",
+        "original": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_originals\\language_models\\AnthropicModel\\messages.py",
+        "sha256": "c2db282f3edd8ae7fa32dad6359c149971707cd894400c424756908c7fd46353"
+      },
+      {
+        "id": "v2.models.LiveDeployment.create",
+        "original": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_originals\\models\\LiveDeployment\\create.py",
+        "sha256": "d3c74713111941724d477d1bdb3d0b1067a1999edee7b3b50feb4f639d36b20c"
+      },
+      {
+        "id": "v2.models.LiveDeployment.replace",
+        "original": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_originals\\models\\LiveDeployment\\replace.py",
+        "sha256": "b1e90f99590bfc08ea62e70781fdf6d4bf88c2a3ff8dc5bcfbd3bc4cdd272640"
+      }
+    ],
+    "promote_initial": {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_promote_version_initial.json",
+      "sha256": "d4fa80ac529ecf08a8ba63a3591f69fc90fbc393a30713f6ea6f889e147e8e51",
+      "original_sha256": "1dfcf8db56eaa1b69ce8a296276013fcbb10a03ef37235f418eda72f3d5e3f50"
+    }
+  },
+  "test_scope": {
+    "bridge_regressions": 5,
+    "promote_sdk_and_identity_mutation": 2,
+    "corrected_real_sdk_examples": 9,
+    "version_semantic_mutations": 4,
+    "invalid_error_parameter_mutations": 10,
+    "total": 30
+  },
+  "commands": [
+    {
+      "command": [
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_qa_env\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\tests\\test_offline_rest_087.py",
+        "-q",
+        "--basetemp=E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_author_pytest_20261027"
+      ],
+      "exit_code": 0,
+      "stdout": "..............................                                           [100%]\n30 passed in 0.61s\n",
+      "stderr": "D:\\app\\Python\\Lib\\site-packages\\requests\\__init__.py:113: RequestsDependencyWarning: urllib3 (2.3.0) or chardet (7.4.0.post2)/charset_normalizer (3.4.1) doesn't match a supported version!\n  warnings.warn(\nD:\\app\\Python\\Lib\\site-packages\\pytest_asyncio\\plugin.py:247: PytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\nThe event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n"
+    },
+    {
+      "command": [
+        "ruff",
+        "check",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\tests\\test_offline_rest_087.py"
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration",
+        "-c",
+        "core.whitespace=cr-at-eol",
+        "diff",
+        "--check",
+        "--",
+        ".agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/Agent/all_sessions.py",
+        ".agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/Agent/get.py",
+        ".agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/AgentVersion/get.py",
+        ".agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/AgentVersion/list.py",
+        ".agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/Session/blocking_continue.py",
+        ".agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/Session/streaming_continue.py",
+        ".agents/skills/pal-found-dev/examples/rest/087/v2/language_models/AnthropicModel/messages.py",
+        ".agents/skills/pal-found-dev/examples/rest/087/v2/models/LiveDeployment/create.py",
+        ".agents/skills/pal-found-dev/examples/rest/087/v2/models/LiveDeployment/replace.py",
+        ".agents/skills/pal-found-dev/examples/rest/087/v2/models/Model/promote_version.py",
+        ".agents/skills/pal-found-dev/references/rest/v2/aip_agents/AgentVersion.md",
+        ".agents/skills/pal-found-dev/references/rest/v2/aip_agents/Content.md",
+        ".agents/skills/pal-found-dev/references/rest/v2/aip_agents/Session.md",
+        ".agents/skills/pal-found-dev/references/rest/v2/language_models/OpenAiModel.md",
+        ".agents/skills/pal-found-dev/references/rest/v2/models/Model.md",
+        ".agents/skills/pal-found-dev/references/rest/v2/models/ModelFunction.md",
+        ".agents/skills/pal-found-dev/references/rest/v2/models/ModelStudio.md",
+        "tests/test_offline_rest_087.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "verdict": "PASS"
+}

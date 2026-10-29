@@ -1,0 +1,318 @@
+{
+  "created_at": "2026-10-21T07:01:44.287129+00:00",
+  "story": "DEV-STORY-072",
+  "testcase": "TESTCASE-075",
+  "testexec": "TESTEXEC-075",
+  "codereview": "CODEREVIEW-076",
+  "actual_terminal_children": [
+    "DESIGN-075",
+    "DEV-075",
+    "UNITTEST-075",
+    "CODEREVIEW-076",
+    "TESTCASE-075",
+    "TESTEXEC-075",
+    "BUG-SUB-029",
+    "BUG-SUB-030",
+    "BUG-SUB-031"
+  ],
+  "story_status": "Deployment",
+  "formal_verdict": "PASS",
+  "operations": 40,
+  "declared_errors": 113,
+  "check_records": 612,
+  "current_candidate_sha": "6042d1e8f9dc66b6dbda9cccdd711c0afbeb176d",
+  "current_072_assets_unchanged": true,
+  "archive_files": [
+    {
+      "file": "feature015_rest072_formal_qa.json",
+      "bytes": 118310,
+      "sha256": "bb62b4304636d200fb87dc8fc24806e141f969c61b5ed33086a9a32c426877ec"
+    },
+    {
+      "file": "rest072_case_approval.json",
+      "bytes": 5917,
+      "sha256": "d74ec004b477019fde8ebc364c80586714a0e32330f9f5e30bfa9d0c3fb1b449"
+    },
+    {
+      "file": "rest072_case_approval.py",
+      "bytes": 4680,
+      "sha256": "7f56986cac7c083b792a01bf32fb29988bee0fc435c2b6083f288b24b88f791a"
+    },
+    {
+      "file": "rest072_formal_cases.json",
+      "bytes": 1395754,
+      "sha256": "99cf3b938c7b7525bde7b9ffab42607128d1ca6e18cee183ee38e464bcc9d62c"
+    },
+    {
+      "file": "rest072_independent_codereview.json",
+      "bytes": 295861,
+      "sha256": "beb003f903cd9af8d9ab681b170c43642ad4a8bddddf79778753a168395dc187"
+    },
+    {
+      "file": "rest072_mutation_check.json",
+      "bytes": 916,
+      "sha256": "aacfee8c2d65279068803977fd7bf1d5cc49a512ff238d0a594a7b51e1b8a089"
+    },
+    {
+      "file": "rest072_mutation_check.py",
+      "bytes": 3008,
+      "sha256": "f802fcb198394bf243041ae97f6cd7a1d3796c473d6e363942f164f9a202bc48"
+    },
+    {
+      "file": "rest072_resume_archive_inventory.py",
+      "bytes": 2571,
+      "sha256": "0025e907c161f44353f7cf561189d6e30dbcefed0117d91d7e95ed0f7e6113e9"
+    },
+    {
+      "file": "rest072_resume_attempt1_formal_execute.log",
+      "bytes": 412,
+      "sha256": "0ee78c996a496c53697622ff17e50290d49a256bc321a90e0a97ae2f7a512c30"
+    },
+    {
+      "file": "rest072_resume_attempt1_formal_execute.py",
+      "bytes": 22920,
+      "sha256": "5964005abd127681e0bdce9cdd2e9328b9709f09a0df1186f2e7bba9f0f7982d"
+    },
+    {
+      "file": "rest072_resume_attempt1_formal_execution.json",
+      "bytes": 1164,
+      "sha256": "96a214cd64b6b7f2cea4f202fa69bc3e0513d91daece7e1bc16bb36b9721b181"
+    },
+    {
+      "file": "rest072_resume_attempt1_formal_runner.json",
+      "bytes": 1029,
+      "sha256": "14ac0d041500f5a10cb95b12802b2c058b440ad589040ac2054d993c9156e1fa"
+    },
+    {
+      "file": "rest072_resume_attempt1_formal_stderr.log",
+      "bytes": 4577,
+      "sha256": "b6ad5242f5c33741e13ff133543e356ef8030ae1fdde60898937ddc639589cc1"
+    },
+    {
+      "file": "rest072_resume_attempt1_formal_stdout.log",
+      "bytes": 412,
+      "sha256": "0ee78c996a496c53697622ff17e50290d49a256bc321a90e0a97ae2f7a512c30"
+    },
+    {
+      "file": "rest072_resume_attempt2_formal_execute.log",
+      "bytes": 855,
+      "sha256": "39b05004495b835f006058a89b84332b9aad5e8cbc1b2caff82cf8b0884e4dbd"
+    },
+    {
+      "file": "rest072_resume_attempt2_formal_execute.py",
+      "bytes": 23507,
+      "sha256": "5b04683a2d658432fa0671889b83113bb16c6998a148beb4290e4a05da67eb06"
+    },
+    {
+      "file": "rest072_resume_attempt2_formal_execution.json",
+      "bytes": 1794,
+      "sha256": "4d2da2177d732ad8b6f67471fa4df1bddc0d7b9fd4b5145143849cd1467ab016"
+    },
+    {
+      "file": "rest072_resume_attempt2_formal_runner.json",
+      "bytes": 1029,
+      "sha256": "34704a85e0dab7a01836a42f9f689d6b1ac4145edd5dcba9f87431f2bcdb3d76"
+    },
+    {
+      "file": "rest072_resume_attempt2_formal_stderr.log",
+      "bytes": 5321,
+      "sha256": "2985c901118dc2d1f3162f5bb5021795a2b35e3aa15d446b937b09ab1f6ae059"
+    },
+    {
+      "file": "rest072_resume_attempt2_formal_stdout.log",
+      "bytes": 855,
+      "sha256": "39b05004495b835f006058a89b84332b9aad5e8cbc1b2caff82cf8b0884e4dbd"
+    },
+    {
+      "file": "rest072_resume_attempt3_formal_execute.log",
+      "bytes": 15271,
+      "sha256": "bafce39e571a0ebbe089769795e7e6800443df0c0ce70704bafad809f0fbff61"
+    },
+    {
+      "file": "rest072_resume_attempt3_formal_execute.py",
+      "bytes": 23709,
+      "sha256": "450a2f21a91db090299caa9b16e541d0036962e0340b9b009ffe551966c3b988"
+    },
+    {
+      "file": "rest072_resume_attempt3_formal_execution.json",
+      "bytes": 22447,
+      "sha256": "59b12c94e02feebc0d57bab39f836cd5b0225adbc2acfc1ee7aa4b41e4b6d0a2"
+    },
+    {
+      "file": "rest072_resume_attempt3_formal_runner.json",
+      "bytes": 1029,
+      "sha256": "03eff17366f53d981101a53afe9e65c618eda48693bb4a4b76c6812ff5953c4a"
+    },
+    {
+      "file": "rest072_resume_attempt3_formal_stderr.log",
+      "bytes": 944,
+      "sha256": "23c55b7214910da31e47944faf8ba100b7b3bdc9556da9af52caa7f257ea2dd0"
+    },
+    {
+      "file": "rest072_resume_attempt3_formal_stdout.log",
+      "bytes": 15271,
+      "sha256": "bafce39e571a0ebbe089769795e7e6800443df0c0ce70704bafad809f0fbff61"
+    },
+    {
+      "file": "rest072_resume_attempt4_formal_execute.log",
+      "bytes": 62084,
+      "sha256": "07c5fe7ab0319d66e153f99ed38df474346c28d82531f98fb4d488ad60d6ff7c"
+    },
+    {
+      "file": "rest072_resume_attempt4_formal_execute.py",
+      "bytes": 25272,
+      "sha256": "24dbcf7bc019b2f9c64e0c137d9f63898d4344d7fcd7262ef4da49bb9222a82f"
+    },
+    {
+      "file": "rest072_resume_attempt4_formal_execution.json",
+      "bytes": 89027,
+      "sha256": "dc8048b2891be992c5ea9c9936292af76c5c14a017e0443f092597fdaf1b9821"
+    },
+    {
+      "file": "rest072_resume_attempt4_formal_runner.json",
+      "bytes": 1029,
+      "sha256": "5719e370a7c8ed2168b15b49b0b43938b6d0908e0e8431e9eefbbe28dfe2b0c9"
+    },
+    {
+      "file": "rest072_resume_attempt4_formal_stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "rest072_resume_attempt4_formal_stdout.log",
+      "bytes": 62084,
+      "sha256": "07c5fe7ab0319d66e153f99ed38df474346c28d82531f98fb4d488ad60d6ff7c"
+    },
+    {
+      "file": "rest072_resume_case_approval.json",
+      "bytes": 6933,
+      "sha256": "85f0cbb2a88c5b1ea5d37422773e288077bb15948fc6c5321f95a70dea5bc569"
+    },
+    {
+      "file": "rest072_resume_codereview_approval.json",
+      "bytes": 90128,
+      "sha256": "4a940c2ccb402e2e4cc966fdbd221157bd76925f0627b87b072d380b94de45fc"
+    },
+    {
+      "file": "rest072_resume_export_closure.py",
+      "bytes": 1661,
+      "sha256": "a08594bd31e6a4da12c499ee0f2baf9187cadc939257c5aa21830af0655cb5a7"
+    },
+    {
+      "file": "rest072_resume_fix_decode.py",
+      "bytes": 1235,
+      "sha256": "665249ed46c6ddc094ead86a7733c2072c76d62c3eafe2f0450ca38063e8e25d"
+    },
+    {
+      "file": "rest072_resume_fix_harness.py",
+      "bytes": 1384,
+      "sha256": "906c8bd8f306f146dfa7fbc0f0efaa6f7c85ef44b586a292ba813b05639f3a99"
+    },
+    {
+      "file": "rest072_resume_fix_iterator_terminal.py",
+      "bytes": 3058,
+      "sha256": "df2b332a2aa2bb2f9000fd33fe7d5ed83343bcb9fdacd8874b44caeb3c780ac3"
+    },
+    {
+      "file": "rest072_resume_fix_modes.py",
+      "bytes": 2615,
+      "sha256": "5acd0fdb88ea0b233a30726c5006da54053c0b0751a258a5ab41764de56b1a5e"
+    },
+    {
+      "file": "rest072_resume_formal_execute.log",
+      "bytes": 65374,
+      "sha256": "5f7bdd95f67818d91c6bdef464a8ecbe11d0112ecec7fd72b307df24de9aff4d"
+    },
+    {
+      "file": "rest072_resume_formal_execute.py",
+      "bytes": 26192,
+      "sha256": "e5d4cf98b03770f644fb36b4b7a71c44564c75836ec71b8832ebd0fe589873f0"
+    },
+    {
+      "file": "rest072_resume_formal_execution.json",
+      "bytes": 93905,
+      "sha256": "ed4cd99b60f914d11c38a4e6f5392f12f55dc0ab680da271a3324a80a7841518"
+    },
+    {
+      "file": "rest072_resume_formal_per_case.json",
+      "bytes": 5356,
+      "sha256": "42e10ac48c48d5758be76d0b9b96af908cac54e47fdc188c179737db38cd941b"
+    },
+    {
+      "file": "rest072_resume_formal_runner.json",
+      "bytes": 1029,
+      "sha256": "c4f8898f32dd6fbb1c373b23c944d8bb944a1752c2d27e86f481990f947d57d2"
+    },
+    {
+      "file": "rest072_resume_formal_stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "rest072_resume_formal_stdout.log",
+      "bytes": 65374,
+      "sha256": "5f7bdd95f67818d91c6bdef464a8ecbe11d0112ecec7fd72b307df24de9aff4d"
+    },
+    {
+      "file": "rest072_resume_independent_inspect.py",
+      "bytes": 6082,
+      "sha256": "e988c2eb4cf105f1c5ef718b209824f0b043fd6f8f1b869014769200a5554b10"
+    },
+    {
+      "file": "rest072_resume_independent_inspection.json",
+      "bytes": 6938,
+      "sha256": "8ec27f0c0412e5947fdf05538429368581d38a5e9a0a9629a3f1499c38505cfe"
+    },
+    {
+      "file": "rest072_resume_prepare_harness.py",
+      "bytes": 871,
+      "sha256": "2f29ad2c98ff201ecdc4b6b610b9b3122db09cc64fcfebe65e5575c78b3da529"
+    },
+    {
+      "file": "rest072_resume_readiness.json",
+      "bytes": 9666,
+      "sha256": "e439d1ccdd6d688b750918ed68ace2f917f5e58f06dd5c760284c159629c070e"
+    },
+    {
+      "file": "rest072_resume_readiness.py",
+      "bytes": 2045,
+      "sha256": "4a9f4839bc77cc313814337fed283bbe074b79bc7676f3101122c6e66098c0e7"
+    },
+    {
+      "file": "rest072_resume_record_cases.py",
+      "bytes": 6786,
+      "sha256": "f11f9972b14f7f69c88758cf897e1edb7bf552d619a8b402d7b99c83abaa24ae"
+    },
+    {
+      "file": "rest072_resume_record_execution.py",
+      "bytes": 6743,
+      "sha256": "cc282f4c92bbd0ce313a287d8e06d9cea7f1f9f0b2d71c041bca264c39c75869"
+    },
+    {
+      "file": "rest072_resume_record_readiness.py",
+      "bytes": 4853,
+      "sha256": "41b245014898db18cadfa89ad2d5bcdedc5f4395c6a5a807b76557dd976635ae"
+    },
+    {
+      "file": "rest072_resume_record_review.py",
+      "bytes": 5715,
+      "sha256": "29d4e4af2818dc3713e861a066dd4a1e79670875334ea4df550f2ab0fb439fb4"
+    },
+    {
+      "file": "rest072_resume_run_formal.py",
+      "bytes": 1822,
+      "sha256": "14221b47a021ca99b205ec5253fcf7d95194a522a6a0097f9a77668f37df844c"
+    },
+    {
+      "file": "rest072_resume_tracker_closure.json",
+      "bytes": 55563,
+      "sha256": "eb8cd05f7a8ae4243a262ec1c68b55df886d624e6d810a505661c130fb9bf2bf"
+    },
+    {
+      "file": "rest072_review_measured_timing.json",
+      "bytes": 611,
+      "sha256": "07e1abde6affa6e1478df04c064a89ca2783faebce5026c13a286cb105d567b5"
+    }
+  ],
+  "publication_note": "Archive executed harness bytes unchanged to preserve hash. Its historical local paths identify the measured environment; any portable replay wrapper must preserve these archived bytes and exact literal manifest. Final proof uses attempt5, with attempt1-3 failures and attempt4 weaker PASS retained. No live tenant or publication acceptance is implied."
+}

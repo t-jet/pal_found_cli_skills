@@ -90,3 +90,7 @@ Read [exact SDK arguments, HTTP request, result and errors](../../contracts/v2/f
 Replace a folder display name or parent. Check the returned parent RID and path; reject a move that would make the folder its own ancestor.
 
 Read [exact SDK arguments, HTTP request, result and errors](../../contracts/v2/filesystem/Folder/replace.md) and run the [offline SDK fixture](../../../../examples/rest/073/v2/filesystem/Folder/replace.py) from the skill root. The fixture checks serialization, synthetic response decoding and source-declared errors without contacting an enrollment.
+
+## Python client route
+
+With a configured `FoundryClient` named `client`, use `client.filesystem.Folder` for this resource. Each operation below is a method on that resource client; `with_raw_response` and `with_streaming_response` are wrappers available where the linked contract lists them. The offline fixture constructs the resource client directly so it can replace HTTP transport without tenant access.

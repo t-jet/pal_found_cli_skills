@@ -9,9 +9,20 @@ flag works everywhere.
 
 | Option | Meaning |
 | --- | --- |
-| `--timeout <seconds>` | Per-call timeout for the request. Overrides the `FOUNDRY_AGENTIC_CLI_TIMEOUT_S` default (30 s, range 1–3600). |
-| `--format json\|toon\|auto` | Output format. Overrides `FOUNDRY_AGENTIC_CLI_DEFAULT_FORMAT` (default `auto`). |
+| `--timeout <seconds>` | Integer seconds from 1 through 3600, applied to both SDK requests and the outer timeout for each attempt. |
+| `--format json\|toon\|auto` | Explicit output format. Use this flag when deterministic selection is required. |
 | `--pretty` | Pretty-print JSON output when JSON is selected. |
+
+An explicit `--timeout` overrides the environment for both timeout layers.
+For example, `--timeout 120` gives each attempt 120 seconds even when the
+environment default is 3 seconds. Without the flag, ordinary namespaces use
+`FOUNDRY_AGENTIC_CLI_TIMEOUT_S` (default 30); Streams uses its separate
+`FOUNDRY_AGENTIC_CLI_STREAMS_TIMEOUT_S` (default 120). Environment integers are
+clamped to 1 through 3600; malformed values use the relevant default. Invalid
+CLI values are input errors. Retries and backoff can extend total duration.
+
+When `--format` is omitted, `FOUNDRY_AGENTIC_CLI_DEFAULT_FORMAT` selects output,
+falling back to `auto`. An explicit flag overrides it, including explicit `auto`.
 
 ## Paging options
 
@@ -52,6 +63,8 @@ exact names are per namespace.
 
 ## When a flag is absent
 
-If a record does not list a flag you expect, the parser does not accept it. Do
-not pass it: exit code 1 (user input error) is returned for unknown arguments.
-Prefer reading the namespace operation record over guessing a flag name.
+Use the operation record to select meaningful options. A common parser can
+accept a flag that an operation ignores: Filesystem `project get` accepts
+`--page-size` even though it is not paginated. A truly unknown flag fails as
+input error: exit 1 with JSON stdout. `--help` remains successful usage output.
+Do not infer operation support from parser acceptance alone.

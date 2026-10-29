@@ -1,0 +1,699 @@
+{
+  "story": "DEV-STORY-087",
+  "unit_ticket": "UNITTEST-068",
+  "reviewer_identity": "/root/rest087_review_finish_20261028",
+  "reviewed_at_utc": "2026-10-28T13:39:15.843841+00:00",
+  "unit_author_identity": "/root/rest087_unit_complete_20261028",
+  "verdict": "APPROVED_FOR_DEVELOPER_HANDOFF",
+  "test_path": "tests/test_offline_rest_087.py",
+  "test_sha256": "97e814edd2a12a2e5fc39982d15c0bf1096d1c496f2c19eed2c43cc893f18b82",
+  "sdk_release": "1.101.0",
+  "oracle_sha256": "5b6926046cb5c50663f4900747353bc743b2d5799829187e481abe333e6330d1",
+  "checks": [
+    "Fresh independent pytest run passed all 135 tests; Ruff passed.",
+    "All 47 operation success requests/results are exercised through real SDK HTTP mocks with installed source-derived wire assertions and typed response checks.",
+    "All 171 source-declared exception classes are decoded and typed parameters checked; this proves envelope decoding, not service-side adverse causation.",
+    "Method/path/body mutation guards detect incorrect wire requests; earlier version identity and error-parameter semantic mutation guards remain.",
+    "Async finite iterator is distinguished from awaitable session bytes; five stream caller-budget interruptions assert response closure.",
+    "Native ModelStudioConfigVersion integer-path failure remains separate from the bounded direct-REST adapter success.",
+    "Socket and DNS guards are exercised. Windows event-loop local socket-pair initialization occurs before guards and is disclosed in test source."
+  ],
+  "commands": [
+    {
+      "command": [
+        ".ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe",
+        "-m",
+        "pytest",
+        ".ept/tmp/feature015_integration/tests/test_offline_rest_087.py",
+        "-q",
+        "--basetemp=.ept/tmp/rest087_fresh_review_basetemp",
+        "-o",
+        "cache_dir=.ept/tmp/rest087_fresh_review_pytest_cache"
+      ],
+      "exit_code": 0,
+      "observed_stdout_summary": "135 passed in 1.72s"
+    },
+    {
+      "command": [
+        "ruff",
+        "check",
+        ".ept/tmp/feature015_integration/tests/test_offline_rest_087.py"
+      ],
+      "exit_code": 0,
+      "observed_stdout_summary": "All checks passed!"
+    }
+  ],
+  "scope_limits": [
+    "Approval covers this dedicated unit-test implementation and current exact source/assets; it is not formal TESTEXEC acceptance or ticket closure.",
+    "Unit runtime mode checks cover representative actual async/stream patterns; the formal harness must independently execute its declared per-operation mode matrix.",
+    "Synthetic byte responses are transport examples, not proof of valid Parquet artifacts, model inference, server authorization or server effects.",
+    "CASE/harness approval is withheld separately pending source-authored literal corrections. No formal execution was run by this reviewer."
+  ],
+  "operations": [
+    {
+      "id": "v2.aip_agents.Agent.all_sessions",
+      "source_sha256": "a4e8a02cd5e824228a83dd06134389f32876403cff75c5b2bc0317efd0140162",
+      "behavior_sha256": "73f1ab403ff2cab0de86d6e86311c949ec9c515e35b65c9e0624940572526aee",
+      "example_sha256": "f567932a1da4d2100acbd29adf0c33ecefe761ab23d28b6dc111c1f561a76cec",
+      "contract_sha256": "b6bcd132c5ea0247ab85764c781df31d9871492bbadf9231c69aaf77c380fcad",
+      "declared_errors": [
+        "GetAllSessionsAgentsPermissionDenied",
+        "ListSessionsForAgentsPermissionDenied"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.aip_agents.Agent.get",
+      "source_sha256": "a4e8a02cd5e824228a83dd06134389f32876403cff75c5b2bc0317efd0140162",
+      "behavior_sha256": "73f1ab403ff2cab0de86d6e86311c949ec9c515e35b65c9e0624940572526aee",
+      "example_sha256": "5b27f89c713433f8ac0ffe8bd8afe17835d13cc646976c30dd7b5d3b0b3255b0",
+      "contract_sha256": "c917ade7bb0ba2a7d20e07a7c00555963d8a95884311e001592b1e5411c13b5f",
+      "declared_errors": [
+        "AgentNotFound",
+        "AgentVersionNotFound",
+        "InvalidAgentVersion",
+        "NoPublishedAgentVersion"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.aip_agents.AgentVersion.get",
+      "source_sha256": "800b64e68d4a3c104e76b792e3ac02d400d13a667186cfb002465417c965c3d8",
+      "behavior_sha256": "0bd61ef3d61b3398e9ea75883cfb0800a5caf1a0d18fc621df9b92e42e68a0a0",
+      "example_sha256": "72219d32f1394fef0fe8eee87ca045864ed4cb78c6dd0a81e3f2a33951f496d9",
+      "contract_sha256": "5de9bc44272c0702b1f8fb9d3fd288dfe36dc7e1fb77d45aa5396df8710d8a6a",
+      "declared_errors": [
+        "AgentNotFound",
+        "AgentVersionNotFound",
+        "InvalidAgentVersion",
+        "NoPublishedAgentVersion"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.aip_agents.AgentVersion.list",
+      "source_sha256": "800b64e68d4a3c104e76b792e3ac02d400d13a667186cfb002465417c965c3d8",
+      "behavior_sha256": "0bd61ef3d61b3398e9ea75883cfb0800a5caf1a0d18fc621df9b92e42e68a0a0",
+      "example_sha256": "7aa23d9de3dd2a192c31d310bb0323b5eff93bece90f81270707fc8cc41ca6a9",
+      "contract_sha256": "57da694d4438d3ab6c2172a506f323d2ebf9e0998bb20db27878cc233e9034ba",
+      "declared_errors": [
+        "AgentNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.aip_agents.Content.get",
+      "source_sha256": "d7b4c970889956f860350a5794736869405dc81b4ac00999e91595ade4c6e0a1",
+      "behavior_sha256": "5579a8bde26d80b7b9e3aaa0bb8d64eb6f65995aa8959e688d57944d36c3b103",
+      "example_sha256": "333af48692463c5e7dada36241631e7a4a0cc147a80b7e4c4891e3562858d20e",
+      "contract_sha256": "3a32d90fe5357437228207c85e4a6bb53f91af653c89db821774c963d9a0cc21",
+      "declared_errors": [
+        "AgentNotFound",
+        "ContentNotFound",
+        "SessionNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.aip_agents.Session.blocking_continue",
+      "source_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "behavior_sha256": "def28ab09c747be684993d210d5c1d6e0b34a62bc7cbb92e5f307ee723156329",
+      "example_sha256": "8b0c938259c89fae05906ee94b83b03f0eac30d5e6577abba12b7e296000d8de",
+      "contract_sha256": "64b98fd4a08795d5b237b41fb32eb10f6116f0c95aafc03d6f341329c6b864ed",
+      "declared_errors": [
+        "ActionTypeNotFound",
+        "AgentIterationsExceededLimit",
+        "AgentNotFound",
+        "BlockingContinueSessionPermissionDenied",
+        "ContextSizeExceededLimit",
+        "FunctionLocatorNotFound",
+        "InvalidParameter",
+        "InvalidParameterType",
+        "ObjectTypeIdsNotFound",
+        "ObjectTypeRidsNotFound",
+        "OntologyEntitiesNotFound",
+        "RateLimitExceeded",
+        "RetryAttemptsExceeded",
+        "RetryDeadlineExceeded",
+        "SessionExecutionFailed",
+        "SessionNotFound",
+        "SessionTraceIdAlreadyExists",
+        "UnsupportedLanguageModelRid"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.aip_agents.Session.cancel",
+      "source_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "behavior_sha256": "def28ab09c747be684993d210d5c1d6e0b34a62bc7cbb92e5f307ee723156329",
+      "example_sha256": "ce5a88b8d67d1f1a6d178a94022b5a38bc8fdf2d47990488b9e4fc1eea0e5f7c",
+      "contract_sha256": "7fa297fce0400611b9631a44f60a742782ccd47d2dd657547e91ea886e831949",
+      "declared_errors": [
+        "AgentNotFound",
+        "CancelSessionFailedMessageNotInProgress",
+        "CancelSessionPermissionDenied",
+        "SessionNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.aip_agents.Session.create",
+      "source_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "behavior_sha256": "def28ab09c747be684993d210d5c1d6e0b34a62bc7cbb92e5f307ee723156329",
+      "example_sha256": "d76ebc427b958989cb3530cc78482876167addc79ab6000ab0847ae2de2e0985",
+      "contract_sha256": "0bf3c0e7812cea2143bf9a8dd3f062a708018f9ecd048a1b0de9c1c89034e4ae",
+      "declared_errors": [
+        "ActionTypeNotFound",
+        "AgentNotFound",
+        "AgentVersionNotFound",
+        "CreateSessionPermissionDenied",
+        "FunctionLocatorNotFound",
+        "InvalidAgentVersion",
+        "NoPublishedAgentVersion",
+        "ObjectTypeIdsNotFound",
+        "ObjectTypeRidsNotFound",
+        "OntologyEntitiesNotFound",
+        "SessionNotFound",
+        "UnsupportedLanguageModelRid"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.aip_agents.Session.delete",
+      "source_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "behavior_sha256": "def28ab09c747be684993d210d5c1d6e0b34a62bc7cbb92e5f307ee723156329",
+      "example_sha256": "69746a1599f0d11dda08f573ed8e0620fc9b3090f86a45c088f6269fa2b31500",
+      "contract_sha256": "e5425e34833fc4cb791b5d121e053ce24217eb7e5bd603b6b575170bc1ae36c6",
+      "declared_errors": [
+        "AgentNotFound",
+        "DeleteSessionPermissionDenied",
+        "SessionNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.aip_agents.Session.get",
+      "source_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "behavior_sha256": "def28ab09c747be684993d210d5c1d6e0b34a62bc7cbb92e5f307ee723156329",
+      "example_sha256": "d76ebc427b958989cb3530cc78482876167addc79ab6000ab0847ae2de2e0985",
+      "contract_sha256": "33e1147bb5e8d15241303c4cd3a045aa33c4a02215fca8f098ffd79ba67e0526",
+      "declared_errors": [
+        "AgentNotFound",
+        "SessionNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.aip_agents.Session.list",
+      "source_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "behavior_sha256": "def28ab09c747be684993d210d5c1d6e0b34a62bc7cbb92e5f307ee723156329",
+      "example_sha256": "d76ebc427b958989cb3530cc78482876167addc79ab6000ab0847ae2de2e0985",
+      "contract_sha256": "bf3213d061008e41f4b1126ae0c4323e5ebfe829ca51dae0ccdabdf7c7f0dc41",
+      "declared_errors": [
+        "AgentNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.aip_agents.Session.rag_context",
+      "source_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "behavior_sha256": "def28ab09c747be684993d210d5c1d6e0b34a62bc7cbb92e5f307ee723156329",
+      "example_sha256": "55bec996b954d9743d9fe5fa15a6a9c9cc5293e3d261a8fdd4b5ceace083e853",
+      "contract_sha256": "770f91558477846f7e76c39137d1b437cefc95635f19c178d92d6181d1098be9",
+      "declared_errors": [
+        "AgentNotFound",
+        "FunctionLocatorNotFound",
+        "GetRagContextForSessionPermissionDenied",
+        "ObjectTypeIdsNotFound",
+        "ObjectTypeRidsNotFound",
+        "OntologyEntitiesNotFound",
+        "SessionNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.aip_agents.Session.streaming_continue",
+      "source_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "behavior_sha256": "def28ab09c747be684993d210d5c1d6e0b34a62bc7cbb92e5f307ee723156329",
+      "example_sha256": "415f68e0e5e29a414fe48545b50cb91ff23c74646c95fa0ee3db993c59d1ecd8",
+      "contract_sha256": "e6b6e8c9b111a9da6c1cba49a9f21b8e4b5ac2966306418bc02f6e30f73c8118",
+      "declared_errors": [
+        "ActionTypeNotFound",
+        "AgentNotFound",
+        "FunctionLocatorNotFound",
+        "InvalidParameter",
+        "InvalidParameterType",
+        "ObjectTypeIdsNotFound",
+        "ObjectTypeRidsNotFound",
+        "OntologyEntitiesNotFound",
+        "SessionNotFound",
+        "SessionTraceIdAlreadyExists",
+        "StreamingContinueSessionPermissionDenied",
+        "UnsupportedLanguageModelRid"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.aip_agents.Session.update_title",
+      "source_sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "behavior_sha256": "def28ab09c747be684993d210d5c1d6e0b34a62bc7cbb92e5f307ee723156329",
+      "example_sha256": "2aa51c5d3f7861fe3f9d148902c6310d47121485c2078d19208bca88a79a37ee",
+      "contract_sha256": "11efc7027bcfb70f83ebf2a0a1e94766d6cfa501715ea1cf860df29150defc85",
+      "declared_errors": [
+        "AgentNotFound",
+        "SessionNotFound",
+        "UpdateSessionTitlePermissionDenied"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.aip_agents.SessionTrace.get",
+      "source_sha256": "24dbb5a1290eb00d8024c12fc2ad50afed584fccc042bd7773a924a4d378df29",
+      "behavior_sha256": "d75a85f1eadf9fc8adae03ced4773fd2eea23b71446d50d55856bacb3de7333e",
+      "example_sha256": "0af811c5057a47548e8512ab02961040c48426ef67b32c60a84a9ee534214c80",
+      "contract_sha256": "109e442b841a15d0e94a5ba7dfca434a3250917f3cc45a7ea0fc90ee1db24413",
+      "declared_errors": [
+        "AgentNotFound",
+        "SessionNotFound",
+        "SessionTraceNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.language_models.AnthropicModel.messages",
+      "source_sha256": "23ce4366d538286c933d8a1a2c20fdc22987c8292997f317ff016ea2b1e24b02",
+      "behavior_sha256": "d09d1d4c9a1155054e3bccb7d7dfd55cc96429a598b6c80d52b45eb7b1a04f93",
+      "example_sha256": "7f983e0b7045a3da4ab8a371bcb56d3f29ccb6bfe3e60e5f5caf0a1921ab8396",
+      "contract_sha256": "f4574d8ad7de1b2931983cbfe16261e1dcca66e3901d412e23e295970899e1d4",
+      "declared_errors": [
+        "AnthropicMessagesPermissionDenied",
+        "MultipleSystemPromptsNotSupported",
+        "MultipleToolResultContentsNotSupported"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.language_models.OpenAiModel.embeddings",
+      "source_sha256": "f0de3feb8825b82a89ae8442176daf1f8e664d49ec0e4bdaf7c5d9fd3d869550",
+      "behavior_sha256": "31b67da745207d50dadbde7c080d3749213e7aee91357bb063e1b7caa2c2aae0",
+      "example_sha256": "936d477b3ee52922457d9171f71799ab3c55165e91d170877b05d802b75f7682",
+      "contract_sha256": "0aeb614c92c3f6b051ff5a4f035d949f9c8dbaa2b626aee3adcf1ff63280e058",
+      "declared_errors": [
+        "OpenAiEmbeddingsPermissionDenied"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.Experiment.get",
+      "source_sha256": "afee53ef61ec8fde78a968a24ab7f7695ca85d9f8f89b06fac072eed440896e9",
+      "behavior_sha256": "a66e9b624c0ca8feeb7d97dbef05ea8944612bfcd9b65d0f295c80275e0d2085",
+      "example_sha256": "04ef9f4f0613fa28ca562dd70b1982742faec3be0c24022c0ca54e4781e9cadc",
+      "contract_sha256": "5258b3ab14cbec7fdd758052c0836e29f03103c7bad80993d447da710dee39e2",
+      "declared_errors": [
+        "ExperimentNotFound",
+        "ModelExperimentNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.Experiment.search",
+      "source_sha256": "afee53ef61ec8fde78a968a24ab7f7695ca85d9f8f89b06fac072eed440896e9",
+      "behavior_sha256": "a66e9b624c0ca8feeb7d97dbef05ea8944612bfcd9b65d0f295c80275e0d2085",
+      "example_sha256": "f4ba220971a8f9f9d8e5dc70962f29026593c19f75b565fa3c22599f8b1c02cc",
+      "contract_sha256": "1187c711605a07b761201e3d938f63625ef883903235e310c257a023ffb32d73",
+      "declared_errors": [
+        "InvalidExperimentSearchFilter",
+        "SearchExperimentsPermissionDenied"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ExperimentArtifactTable.json",
+      "source_sha256": "d0e7fe85815d7e9591ab5c382e2c068a3b0d9665b6537f8b5a5cad131db4b66d",
+      "behavior_sha256": "2411a843790965dd35e7e606bde40926a4c96bd0203d038a9f8d74cdc6fca43f",
+      "example_sha256": "3f0ec81e1f8c10cd5d5edeee099f363887e5d7052ba337cfc8b6cd1103752645",
+      "contract_sha256": "38f088a40aad85bc88fcbb09ce2d26d894aff4486a49cce9f0822e548e58d2a6",
+      "declared_errors": [
+        "ExperimentArtifactNotFound",
+        "JsonExperimentArtifactTablePermissionDenied",
+        "ModelExperimentNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ExperimentArtifactTable.parquet",
+      "source_sha256": "d0e7fe85815d7e9591ab5c382e2c068a3b0d9665b6537f8b5a5cad131db4b66d",
+      "behavior_sha256": "2411a843790965dd35e7e606bde40926a4c96bd0203d038a9f8d74cdc6fca43f",
+      "example_sha256": "9113795992bccca038ab722aef5582374bb2b697c8435329af88c73a600a74ef",
+      "contract_sha256": "ed0f00356f94725b5ac619bb2216047cd3f3b277046a98eeee737d686916ba9a",
+      "declared_errors": [
+        "ExperimentArtifactNotFound",
+        "ModelExperimentNotFound",
+        "ParquetExperimentArtifactTablePermissionDenied"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ExperimentSeries.json",
+      "source_sha256": "695990e14cdef6fe9ab18fb2fa872c9e5bc8f8b4eeec904c080c735d5822d344",
+      "behavior_sha256": "cea1435b232f5eafceee779f6a3973998d78c5b2b93dd8fa0837914759a59ff9",
+      "example_sha256": "9c0cef4f03df2c67fde00a32a8bf99f84ff0b2ea9d5665c092a8efedf6bac23f",
+      "contract_sha256": "a6e4b0f7af3170c3c9217b75bf0d48de83232d05ed1324381301dc738f23e3f8",
+      "declared_errors": [
+        "ExperimentSeriesNotFound",
+        "JsonExperimentSeriesPermissionDenied",
+        "ModelExperimentNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ExperimentSeries.parquet",
+      "source_sha256": "695990e14cdef6fe9ab18fb2fa872c9e5bc8f8b4eeec904c080c735d5822d344",
+      "behavior_sha256": "cea1435b232f5eafceee779f6a3973998d78c5b2b93dd8fa0837914759a59ff9",
+      "example_sha256": "6db275817357550185dee3ec88c13a6fb750c9a61e4417440db4b5f140134388",
+      "contract_sha256": "94afc1edafc3941bc59e28fc045f9c97e84f79a9c40443537f10b85f562d748e",
+      "declared_errors": [
+        "ExperimentSeriesNotFound",
+        "ModelExperimentNotFound",
+        "ParquetExperimentSeriesPermissionDenied"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.LiveDeployment.create",
+      "source_sha256": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa",
+      "behavior_sha256": "122b0981d2b88708f66c961c8575887eba3cdd637869ee17004bc709973fe502",
+      "example_sha256": "8c5922f078d0c60cd4c2fe7732887aefd52404aedd5655f826f9d118df1d5f95",
+      "contract_sha256": "e5fec6b4dffe076b99515e002634127cdabd66c9ed8ac1101edbcc8f3a9040d8",
+      "declared_errors": [
+        "CreateLiveDeploymentPermissionDenied",
+        "GpuTypeNotAvailable",
+        "InvalidGpuCount",
+        "ModelNotFound",
+        "ThreadCountTooHigh"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.LiveDeployment.get",
+      "source_sha256": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa",
+      "behavior_sha256": "122b0981d2b88708f66c961c8575887eba3cdd637869ee17004bc709973fe502",
+      "example_sha256": "50d71d41daaa88a8535f1c22383b30e7be2f5d78617a9c736a719ce6351ab48f",
+      "contract_sha256": "195d6d987b23fe5123cfef32cb7dc4d932f4ca87f99dd0742fe3395d043b4579",
+      "declared_errors": [
+        "LiveDeploymentNotFound",
+        "UnsupportedLiveDeployment"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.LiveDeployment.list",
+      "source_sha256": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa",
+      "behavior_sha256": "122b0981d2b88708f66c961c8575887eba3cdd637869ee17004bc709973fe502",
+      "example_sha256": "0515ff6c0f172d2f680ebac66e684520af96f8d1c53d63b31a4b3925fdb578db",
+      "contract_sha256": "36f1ec79d552c3f203db3832f2577e04a857ff8b53556abf5e14eb6ae305a432",
+      "declared_errors": [
+        "ModelNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.LiveDeployment.replace",
+      "source_sha256": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa",
+      "behavior_sha256": "122b0981d2b88708f66c961c8575887eba3cdd637869ee17004bc709973fe502",
+      "example_sha256": "83787c0c1bdcffbb05fd4475d6c07c9acdf9655baa29dc6e26e517fae50b4311",
+      "contract_sha256": "a2b2352c747b87685ef19218bf7912d2494106ae62decad717cccfa0f5f0b139",
+      "declared_errors": [
+        "GpuTypeNotAvailable",
+        "InvalidGpuCount",
+        "LiveDeploymentNotFound",
+        "ReplaceLiveDeploymentPermissionDenied",
+        "ThreadCountTooHigh",
+        "UnsupportedLiveDeployment"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.LiveDeployment.transform_json",
+      "source_sha256": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa",
+      "behavior_sha256": "122b0981d2b88708f66c961c8575887eba3cdd637869ee17004bc709973fe502",
+      "example_sha256": "4bb0f46c1cf1b23ecf939d223732453fb05ced84472ac2e5ce5a6d92d3888e0b",
+      "contract_sha256": "cf65f09ca679f728fb878f5db93d102a4524e02508ab3ab0a4b9bc7e1f1616e1",
+      "declared_errors": [
+        "InferenceFailure",
+        "InferenceInvalidInput",
+        "InferenceTimeout",
+        "LiveDeploymentNotFound",
+        "TransformJsonLiveDeploymentPermissionDenied"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.Model.create",
+      "source_sha256": "420a4bd19511d5732532fb3ac4252310732e3c4b4ea418551adb2cf68a41cd20",
+      "behavior_sha256": "952c2245bcc2e0af818cb3c85e91094e275b3b58a73a7b572ef0285fcf355c3e",
+      "example_sha256": "dd03624b56503e0e4fa50245c9b4108a6a27980f4fbb68d050b517bf954ed459",
+      "contract_sha256": "fd12cd9788ba15a8973381d60734f725ad05d5415ba05817d647f9d39f35fda7",
+      "declared_errors": [
+        "CreateModelPermissionDenied",
+        "InvalidDisplayName",
+        "ResourceNameAlreadyExists"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.Model.get",
+      "source_sha256": "420a4bd19511d5732532fb3ac4252310732e3c4b4ea418551adb2cf68a41cd20",
+      "behavior_sha256": "952c2245bcc2e0af818cb3c85e91094e275b3b58a73a7b572ef0285fcf355c3e",
+      "example_sha256": "620123e171c793e76339e952251c3c8a52665a2bebbbfedb21fdd0cddf28af72",
+      "contract_sha256": "33bb0585480acf8f4acc2a7e4665e510dd859b16a9fcd7c895a2236d10f410d8",
+      "declared_errors": [
+        "ModelNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.Model.promote_version",
+      "source_sha256": "420a4bd19511d5732532fb3ac4252310732e3c4b4ea418551adb2cf68a41cd20",
+      "behavior_sha256": "952c2245bcc2e0af818cb3c85e91094e275b3b58a73a7b572ef0285fcf355c3e",
+      "example_sha256": "7a629445b41d379bb6eff3172707fc6c487fd40b0f44dc4bc107433162e30d47",
+      "contract_sha256": "13b65d428977f5d167a67eb75f0aa2090d1b30c8ec262b9d120289ec23853931",
+      "declared_errors": [
+        "ModelNotFound",
+        "ModelVersionNotFound",
+        "PromoteVersionModelPermissionDenied",
+        "UnsupportedModelSource"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ModelFunction.create",
+      "source_sha256": "9bd76546691d4b1a00b3d5dd6f0efcee90b40954c04ac32c3b74708f5a60ccf6",
+      "behavior_sha256": "bfc5fb2abe6ee3bbb587976343114f6fa0186f89952ad3c16c04c25e256d4651",
+      "example_sha256": "b7143adfbca358ec0942c37bfb2867d8587d368dbc77d71adf215b24f1d8d3a6",
+      "contract_sha256": "228cece256b3e6284f153285da6f1ec4e79248845de8a195b7e86a01d4f79cc2",
+      "declared_errors": [
+        "CreateModelFunctionPermissionDenied",
+        "FunctionAlreadyExists",
+        "InvalidFunctionApiName",
+        "ModelApiTypeUnsupportedForFunction",
+        "ModelNotFound",
+        "OntologyBindingRequired",
+        "OntologyNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ModelFunction.get",
+      "source_sha256": "9bd76546691d4b1a00b3d5dd6f0efcee90b40954c04ac32c3b74708f5a60ccf6",
+      "behavior_sha256": "bfc5fb2abe6ee3bbb587976343114f6fa0186f89952ad3c16c04c25e256d4651",
+      "example_sha256": "4a61788396c69d32a868bdaa86c5822d8ce096373603a9f41d2dde79feced13b",
+      "contract_sha256": "b55dc199df5115089ae4f90805802dc6c9f6d196e83562e8a6b1e615c5a82098",
+      "declared_errors": [
+        "ModelFunctionNotFound",
+        "ModelNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ModelFunction.replace",
+      "source_sha256": "9bd76546691d4b1a00b3d5dd6f0efcee90b40954c04ac32c3b74708f5a60ccf6",
+      "behavior_sha256": "bfc5fb2abe6ee3bbb587976343114f6fa0186f89952ad3c16c04c25e256d4651",
+      "example_sha256": "9705d3f24fd58bf023e7b931d3a48a5b3768f9f5cc902f14ac8dc1fbda43ec35",
+      "contract_sha256": "1a8ac7c70ae24683a1273a3bce8ba14315561ab9a250723fcf824cce02674e1a",
+      "declared_errors": [
+        "InvalidFunctionApiName",
+        "ModelApiTypeUnsupportedForFunction",
+        "ModelFunctionNotFound",
+        "ModelNotFound",
+        "OntologyBindingRequired",
+        "OntologyNotFound",
+        "ReplaceModelFunctionPermissionDenied"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ModelStudio.create",
+      "source_sha256": "4ece4867d0046dafdbf4eac2fad4d5348a281b3ea628809b332ff769e161b49e",
+      "behavior_sha256": "4aa979e6b188b3fa1a157d2bc378584c723bd151f546f3a3a55c0bae1563c8fc",
+      "example_sha256": "e009753016d83de6e567db5476206c686d8a1d03f9489e59454954914b1f2d74",
+      "contract_sha256": "1fda272f7444973f9c728ccbb167e531800a551cf7f9c82b840976a53fd96e13",
+      "declared_errors": [
+        "CreateModelStudioPermissionDenied",
+        "InvalidDisplayName",
+        "InvalidModelStudioCreateRequest",
+        "ResourceNameAlreadyExists"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ModelStudio.get",
+      "source_sha256": "4ece4867d0046dafdbf4eac2fad4d5348a281b3ea628809b332ff769e161b49e",
+      "behavior_sha256": "4aa979e6b188b3fa1a157d2bc378584c723bd151f546f3a3a55c0bae1563c8fc",
+      "example_sha256": "8fad7e7037b8812795a548f7a840ecc9cab637c0174de1a6354fdf897af746a4",
+      "contract_sha256": "11d5e84ea3fa68239a2108059d86b5005e31c7df9a55193c8d7023095f753fb4",
+      "declared_errors": [
+        "ModelStudioNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ModelStudio.launch",
+      "source_sha256": "4ece4867d0046dafdbf4eac2fad4d5348a281b3ea628809b332ff769e161b49e",
+      "behavior_sha256": "4aa979e6b188b3fa1a157d2bc378584c723bd151f546f3a3a55c0bae1563c8fc",
+      "example_sha256": "a56d6644ec040ef60136c8e544cb0ddf5b7f8202d04580979a42e8fe1bc6b71a",
+      "contract_sha256": "0e8c25af187a5d56d6c6a06be75228703f12427111f845d6cdc1c6b15c666571",
+      "declared_errors": [
+        "LaunchModelStudioPermissionDenied",
+        "ModelStudioNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ModelStudioConfigVersion.create",
+      "source_sha256": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2",
+      "behavior_sha256": "4622b5cdcd13de36b07db9bb8ac4891d6bb6a87f87d18229b8d5207740097e43",
+      "example_sha256": "3212a5645d29e30a3b37dd617219a3022d19fad1ed20e50def496b8307fbaf8a",
+      "contract_sha256": "6597c89e7997ae6329f8d21645aca459169d9a58dcd1b64161b16941e88a1a4f",
+      "declared_errors": [
+        "CreateConfigValidationError",
+        "CreateModelStudioConfigVersionPermissionDenied",
+        "ModelStudioNotFound",
+        "TrainerNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ModelStudioConfigVersion.get",
+      "source_sha256": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2",
+      "behavior_sha256": "4622b5cdcd13de36b07db9bb8ac4891d6bb6a87f87d18229b8d5207740097e43",
+      "example_sha256": "bca2e06ea53cb591617dccfc8109550bb67e2a87a0ba5c8df61861407589487b",
+      "contract_sha256": "d4e36787f4f7e1630b4783553e6848b35119eb0533d588fee53bfe6a8317fb97",
+      "declared_errors": [
+        "ModelStudioConfigVersionNotFound",
+        "ModelStudioNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ModelStudioConfigVersion.latest",
+      "source_sha256": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2",
+      "behavior_sha256": "4622b5cdcd13de36b07db9bb8ac4891d6bb6a87f87d18229b8d5207740097e43",
+      "example_sha256": "79f9640ebe37b503ac9dc86e15183f96ac188245320bd23b4b5aedec8efbc38c",
+      "contract_sha256": "6eaef912a230c348c780e6afc63bdfb116b0f3e66c85d15d0a73cdf40822150e",
+      "declared_errors": [
+        "LatestModelStudioConfigVersionsPermissionDenied",
+        "ModelStudioNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ModelStudioConfigVersion.list",
+      "source_sha256": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2",
+      "behavior_sha256": "4622b5cdcd13de36b07db9bb8ac4891d6bb6a87f87d18229b8d5207740097e43",
+      "example_sha256": "d0d3ffcb9333b14a83a686dad38fc72d02e2e43a582ccb3ea0ec7d464b640966",
+      "contract_sha256": "d9e9480eb93c985cdeda0e406303f792daead42e7658bf01198ab5f1805ae2f3",
+      "declared_errors": [
+        "ModelStudioNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ModelStudioRun.list",
+      "source_sha256": "e7bf121ae2c96f41fbff874a53102f22c1f774812936aaf49f435e4963093513",
+      "behavior_sha256": "3e51c788aba7064b0bb4812092bc2879b94de26ba6fc7559d28c4e1c74ea27c8",
+      "example_sha256": "686b7ccfd196a5e94b79ca13b502599532eabd0357f0aaf1afee1695e4c05ee2",
+      "contract_sha256": "310dd71ccfdd76ac9c56f82d3327db15d68cd59bc97e3c26f537b8d342fd3fd5",
+      "declared_errors": [
+        "ModelStudioConfigVersionNotFound",
+        "ModelStudioNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ModelStudioTrainer.get",
+      "source_sha256": "b4d5fd37b3cebe920077e755adb09d37c9aa499a7b25fa0f46ecc4787d5c09d0",
+      "behavior_sha256": "5b7defcc76ad5af5ebe95f016a5965d07ef5bd62304ff003f8452dc18c4a9892",
+      "example_sha256": "f602c0436c666e6ac762b8c2b236ca6449a7ca5b7180fb3e3a6c24b03ce7060d",
+      "contract_sha256": "2b12a7629ccfc221eb144f859025e0dc09b1517821e68acd00ae8d1beb039425",
+      "declared_errors": [
+        "ModelStudioTrainerNotFound",
+        "TrainerNotFound"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ModelStudioTrainer.list",
+      "source_sha256": "b4d5fd37b3cebe920077e755adb09d37c9aa499a7b25fa0f46ecc4787d5c09d0",
+      "behavior_sha256": "5b7defcc76ad5af5ebe95f016a5965d07ef5bd62304ff003f8452dc18c4a9892",
+      "example_sha256": "a8e366d5caf5ed27c46dd8a1ae1d37b25202ccf2fa36a25e237e0fa890ca95d6",
+      "contract_sha256": "da4257b77376b1b23d96ffe95deabb422064a425d303e36052fce4b49add2181",
+      "declared_errors": [],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ModelVersion.create",
+      "source_sha256": "ad0514eaa6f22b4f362cc94305b395c4c8c7d3b36bd2b337fc70d57b85655dc8",
+      "behavior_sha256": "e0aaacfb7624d34a942bd609ad488ffe66967ac8ce020cba8d9b1a61de3c9a4c",
+      "example_sha256": "a9348c71e54f13c5a3f12b4bd6f4580eb78136b2dc713048894cce11fe7261ed",
+      "contract_sha256": "7cad9fe9c0f69ebe598237597edd1f6e4f7c8dcebb39aa5e060c53430eb837dc",
+      "declared_errors": [
+        "CondaSolveFailureForProvidedPackages",
+        "CreateModelVersionPermissionDenied",
+        "InvalidModelApi",
+        "ModelNotFound",
+        "UnsupportedModelSource"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ModelVersion.get",
+      "source_sha256": "ad0514eaa6f22b4f362cc94305b395c4c8c7d3b36bd2b337fc70d57b85655dc8",
+      "behavior_sha256": "e0aaacfb7624d34a942bd609ad488ffe66967ac8ce020cba8d9b1a61de3c9a4c",
+      "example_sha256": "470489e75af3d0d1871c4267e65eec3823ed988685b4653a3a48ff531788a1a0",
+      "contract_sha256": "e2fda127d732080227d3a4434f86cf32b469318203d601d21e6fda711e08d449",
+      "declared_errors": [
+        "ModelVersionNotFound",
+        "UnsupportedModelSource"
+      ],
+      "source_bound": true
+    },
+    {
+      "id": "v2.models.ModelVersion.list",
+      "source_sha256": "ad0514eaa6f22b4f362cc94305b395c4c8c7d3b36bd2b337fc70d57b85655dc8",
+      "behavior_sha256": "e0aaacfb7624d34a942bd609ad488ffe66967ac8ce020cba8d9b1a61de3c9a4c",
+      "example_sha256": "18885841c0b08efd51ac0b22140426e3d888df4e0c5881b5e7b5b6fbebe05a9d",
+      "contract_sha256": "d2f78f543c10cd45eab9b8f3f079ef0e5e4c97078a785035e6df6596581ccd81",
+      "declared_errors": [
+        "ModelNotFound",
+        "UnsupportedModelSource"
+      ],
+      "source_bound": true
+    }
+  ],
+  "counts": {
+    "operations": 47,
+    "declared_error_classes": 171,
+    "tests_passed": 135
+  }
+}

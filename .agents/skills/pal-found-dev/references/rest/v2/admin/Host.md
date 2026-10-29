@@ -29,6 +29,8 @@ Enumerate visible hosts within finite page and item budgets. Retain supplied hos
 metadata and continuation state; do not infer capability enablement from host
 visibility.
 
+This Public Beta endpoint requires `preview=true`; set `preview=True` in the SDK call.
+
 [Exact parameters, request, result and error models](../../contracts/v2/admin/Host/list.md).
 
 [Executable SDK example](../../../../examples/rest/072/v2/admin/Host/list.py):

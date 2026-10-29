@@ -1,0 +1,50 @@
+{
+  "dataset": "ri.reader.main.dataset.00000000-0000-0000-0000-000000000012",
+  "branch": "reader-j12",
+  "path": "reader/batch.csv",
+  "payload_sha256": "6792ae698138948d10bd6f171ab7f876e4f2abaa761f0b472c8af3fadfad950a",
+  "events": [
+    {
+      "at": "2026-10-28T07:45:59.083241+00:00",
+      "event": "create_intent",
+      "create_intent": true,
+      "original_branch_rid": "ri.reader.main.transaction.00000000-0000-0000-0000-000000000011"
+    },
+    {
+      "at": "2026-10-28T07:45:59.084744+00:00",
+      "event": "transaction_known",
+      "transaction_rid": "ri.reader.main.transaction.00000000-0000-0000-0000-000000000012"
+    },
+    {
+      "at": "2026-10-28T07:45:59.087747+00:00",
+      "event": "upload_intent",
+      "upload_intent": true
+    },
+    {
+      "at": "2026-10-28T07:45:59.089747+00:00",
+      "event": "upload_acknowledged"
+    },
+    {
+      "at": "2026-10-28T07:45:59.092255+00:00",
+      "event": "abort_intent",
+      "reason": "file content mismatch"
+    },
+    {
+      "at": "2026-10-28T07:45:59.094255+00:00",
+      "event": "aborted"
+    },
+    {
+      "at": "2026-10-28T07:45:59.095255+00:00",
+      "event": "stopped",
+      "reason": "file content mismatch",
+      "outcome": "stopped"
+    }
+  ],
+  "commit_attempts": 0,
+  "create_intent": true,
+  "original_branch_rid": "ri.reader.main.transaction.00000000-0000-0000-0000-000000000011",
+  "transaction_rid": "ri.reader.main.transaction.00000000-0000-0000-0000-000000000012",
+  "upload_intent": true,
+  "reason": "file content mismatch",
+  "outcome": "stopped"
+}

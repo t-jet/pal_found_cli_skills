@@ -21,7 +21,7 @@ EXPECTED_PATH = '/api/v2/admin/organizations'
 EXPECTED_BODY = {'administrators': ['00000000-0000-0000-0000-000000000001'],
  'enrollmentRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
  'name': 'synthetic-value'}
-EXPECTED_QUERY = {'preview': None}
+EXPECTED_QUERY = {'preview': True}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
 SUCCESS = {'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
  'name': 'synthetic-value',
@@ -52,7 +52,7 @@ ERRORS = [{'name': 'CreateOrganizationMissingInitialAdminRole',
   'parameters': {'principalId': '00000000-0000-0000-0000-000000000001'}}]
 
 def invoke(client):
-    return client.with_raw_response.create(administrators=['00000000-0000-0000-0000-000000000001'], enrollment_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', name='synthetic-value', request_timeout=30)
+    return client.with_raw_response.create(administrators=['00000000-0000-0000-0000-000000000001'], enrollment_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', name='synthetic-value', preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

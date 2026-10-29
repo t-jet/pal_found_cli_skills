@@ -24,6 +24,14 @@ and reconcile through authorized reads before repeating.
 
 ## Operations and outcome checks
 
+After an explicit dataset transaction commits, read
+`client.datasets.Dataset.Branch.get(dataset_rid, branch_name)` and compare
+`transaction_rid` with the committed transaction. Then read the file on the
+same named branch. The [staged-commit procedure](Transaction.md) shows both
+checks; a branch pointer alone does not prove the intended file bytes are
+visible. If a commit response is lost, inspect the transaction and branch
+before any retry.
+
 ### create
 
 Create a named branch on an existing dataset. If selecting an initial transaction, use a

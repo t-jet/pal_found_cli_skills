@@ -1,0 +1,86 @@
+{
+  "executed_utc": "2026-10-11T19:31:21.102897+00:00",
+  "snapshot_tree_sha256": "790d67ad9a291e4810ad97dfdc3ad2d6c8a62fe1237b2f34a47b615dcf6adb4f",
+  "source_path": "examples/rest/073/v2/audit/LogFile/list_pagination.py",
+  "source_sha256": "3c5338c907c588aa9163ab2db81dee90db33bd9b1e98a5d108ed551bc922a0db",
+  "mode": "SDK 1.101.0 MockTransport, synthetic clock, cooperative public DNS/socket denial",
+  "cases": [
+    {
+      "case": "complete_through_empty_page",
+      "expected": [
+        null,
+        "A",
+        "B"
+      ],
+      "actual": [
+        null,
+        "A",
+        "B"
+      ],
+      "status": "PASS"
+    },
+    {
+      "case": "page_budget",
+      "expected": [
+        null,
+        "A"
+      ],
+      "actual": [
+        null,
+        "A"
+      ],
+      "status": "PASS"
+    },
+    {
+      "case": "item_budget",
+      "expected": [
+        null
+      ],
+      "actual": [
+        null
+      ],
+      "status": "PASS"
+    },
+    {
+      "case": "repeated_token",
+      "expected": [
+        null,
+        "A"
+      ],
+      "actual": [
+        null,
+        "A"
+      ],
+      "status": "PASS"
+    },
+    {
+      "case": "expired_before_request",
+      "expected": [],
+      "actual": [],
+      "status": "PASS"
+    },
+    {
+      "case": "subsecond_no_request",
+      "expected": [],
+      "actual": [],
+      "status": "PASS"
+    },
+    {
+      "case": "response_overrun_partial",
+      "expected": [
+        null
+      ],
+      "actual": [
+        null
+      ],
+      "status": "PASS"
+    },
+    {
+      "case": "missing_start_date_named_error",
+      "expected": "MissingStartDate",
+      "actual": "MissingStartDate",
+      "status": "PASS"
+    }
+  ],
+  "live_tenant_tested": false
+}

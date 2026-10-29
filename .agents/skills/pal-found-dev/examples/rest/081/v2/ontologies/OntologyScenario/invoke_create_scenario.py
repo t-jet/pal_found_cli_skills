@@ -19,13 +19,13 @@ from mock_transport import mock_resource
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/scenarios/create'
 EXPECTED_BODY = {}
-EXPECTED_QUERY = {'preview': None}
+EXPECTED_QUERY = {'preview': True}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
 SUCCESS = {'scenarioRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.create_scenario(ontology='synthetic-value', request_timeout=30)
+    return client.with_raw_response.create_scenario(ontology='synthetic-value', preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

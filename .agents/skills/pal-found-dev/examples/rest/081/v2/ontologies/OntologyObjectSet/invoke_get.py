@@ -17,25 +17,19 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'GET'
-EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/objectSets/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'
+OBJECT_SET_RID = 'ri.object-set.main.temporary-object-set.00000000-0000-0000-0000-000000000001'
+EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/objectSets/' + OBJECT_SET_RID
 EXPECTED_BODY = None
-EXPECTED_QUERY = {'preview': None}
+EXPECTED_QUERY = {'preview': True}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'objectSet': {'type': 'methodInput'},
-                                                         'link': 'synthetic-value',
-                                                         'type': 'searchAround'},
-                                           'link': 'synthetic-value',
-                                           'type': 'searchAround'},
-                             'link': 'synthetic-value',
-                             'type': 'searchAround'},
-               'link': 'synthetic-value',
-               'type': 'searchAround'},
- 'link': 'synthetic-value',
- 'type': 'searchAround'}
-ERRORS = []
+SUCCESS = {'type': 'base', 'objectType': 'Asset'}
+ERRORS = [{'status': 404,
+  'name': 'ObjectSetNotFound',
+  'code': 'NOT_FOUND',
+  'parameters': {'objectSetRid': 'ri.object-set.main.temporary-object-set.00000000-0000-0000-0000-000000000001'}}]
 
 def invoke(client):
-    return client.with_raw_response.get(ontology='synthetic-value', object_set_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', request_timeout=30)
+    return client.with_raw_response.get(ontology='synthetic-value', object_set_rid=OBJECT_SET_RID, preview=True, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -97,7 +91,8 @@ def verify():
                 raw.close()
             except PalantirRPCException as error:
                 assert error.name == error_case['name']
-                assert type(error).__name__ == error_case['name']
+                assert error.error_code == error_case['code']
+                assert type(error).__name__ == {400: 'BadRequestError', 404: 'NotFoundError', 500: 'InternalServerError'}[error_case['status']]
                 assert normalized(error.parameters) == error_case['parameters']
             else:
                 raise AssertionError('Expected ' + error_case['name'])

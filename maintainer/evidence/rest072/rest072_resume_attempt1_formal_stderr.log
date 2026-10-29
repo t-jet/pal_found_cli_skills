@@ -1,0 +1,70 @@
+Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\rest072_resume_formal_execute.py", line 208, in failure
+    invoke(client, method, kwargs or case['request']['kwargs'])
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\rest072_resume_formal_execute.py", line 134, in invoke
+    return getattr(client, method)(**copy.deepcopy(kwargs), request_timeout=7)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\utils.py", line 96, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\pydantic\_internal\_validate_call.py", line 39, in wrapper_function
+    return wrapper(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\pydantic\_internal\_validate_call.py", line 136, in __call__
+    res = self.__pydantic_validator__.validate_python(pydantic_core.ArgsKwargs(args, kwargs))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_errors\sdk_internal_error.py", line 43, in validate
+    raise e
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_errors\sdk_internal_error.py", line 37, in validate
+    return __func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\v2\admin\authentication_provider.py", line 85, in get
+    return self._api_client.call_api(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\api_client.py", line 739, in call_api
+    return apply_middleware(self._middleware, self._call_api)(request_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\api_client.py", line 655, in <lambda>
+    lambda next_fn, mw: lambda req: mw.call_api(req, next_fn),
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\api_client.py", line 691, in call_api
+    return call_api_retrying()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\retrying.py", line 55, in wrapped_f
+    return Retrying(*dargs, **dkw).call(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\retrying.py", line 279, in call
+    return attempt.get(self._wrap_exception)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\retrying.py", line 326, in get
+    raise exc.with_traceback(tb)
+  File "D:\app\Python\Lib\site-packages\retrying.py", line 273, in call
+    attempt = Attempt(fn(*args, **kwargs), attempt_number, False)
+                      ^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\api_client.py", line 689, in call_api_retrying
+    return next_call(request_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\api_client.py", line 657, in <lambda>
+    lambda req: next_call(req),
+                ^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\api_client.py", line 785, in _call_api
+    self._check_for_errors(request_info, res)
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\api_client.py", line 820, in _check_for_errors
+    self._handle_error(request_info, res)
+  File "D:\app\Python\Lib\site-packages\foundry_sdk\_core\api_client.py", line 584, in _handle_error
+    raise error_instance
+foundry_sdk.v2.admin.errors.AuthenticationProviderNotFound
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\rest072_resume_formal_execute.py", line 424, in <module>
+    main()
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\rest072_resume_formal_execute.py", line 411, in main
+    execute(manifest)
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\rest072_resume_formal_execute.py", line 231, in execute
+    failure(case, cls, method, error['status'], error['name'], error['errorCode'],
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\rest072_resume_formal_execute.py", line 216, in failure
+    assert error.error_code == code
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'AuthenticationProviderNotFound' object has no attribute 'error_code'

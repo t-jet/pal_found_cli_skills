@@ -1,0 +1,627 @@
+{
+  "actor": "/root/j12_independent_grade_20261028",
+  "role": "qa-engineer",
+  "started_at_utc": "2026-10-28T13:43:56.519928+00:00",
+  "ticket": "BUG-SUB-025",
+  "committed_evidence_revision": "e44b97ed51f438ea495096287565cd064c77b150",
+  "commands": [
+    {
+      "args": [
+        "get",
+        "BUG-SUB-025",
+        "--author",
+        "qa-engineer"
+      ],
+      "exit_code": 0,
+      "stdout": "ticket_id: BUG-SUB-025\ncurrent_status: Resolved\nstatus_description: Fix implemented; ready for verification.\nstatus_goal: Manage blockers and prepare for closure.\nstatus_responsible_roles:\n- Developer\nallowed_transitions:\n- Closed\n- Canceled\n- Rejected\n- Duplicated\n- Blocked\n- In Progress\ninstructions:\n- QA verifies fix and records evidence.\n- IF this ticket blocks any other tickets with the source_role=Blocks link(s) THEN\n  remove these links.\n- IF not blocked THEN ready to move to Closed.\ndefinitions_of_done:\n- target_statuses:\n  - Closed\n  dod_criteria:\n  - Fix verified by QA\n  - Ticket not blocked (no active `blocks` links)\n\nTicket Details:\n================================================================================\nid             : BUG-SUB-025\ntype           : bug_subtask\ntitle          : J12 guide lacks integrated transaction file verification and build outcome\nstatus         : Resolved\npriority       : High\nassignee       : python-developer\nreporter       : qa-engineer\nparent         : DEV-STORY-075\naddressed_to   : \npath           : DEV-STORY-075/BUG-SUB-025\ncreated        : 2026-10-09\nupdated        : 2026-10-28\ntime_spent_hours: untracked\ncontent:\n## Severity and version\nHigh; SDK 1.101.0; pal_found_cli_skills candidate based on HEAD b40d0be, 2026-10-09.\n\n## Reproduction\nSource-blind J12 reader .ept/tmp/feature015-j12-reader/reader-results.md scored 4/6 in .ept/tmp/feature015_rest_semantic_review/j12_independent_score.md. It followed local Transaction.md lines 91-99 and 125-160, File.md upload section, and Build.md lines 59-90. The composed code omits staged File.get/content before commit and postcommit branch/file verification; it exits on any terminal Build state without marking FAILED/CANCELED unsuccessful. Six individual SDK fake-transport examples pass, but no composed sequence runs.\n\n## Expected behavior\nOffline guidance and a runnable root-client fixture verify transaction-view file state before commit, committed branch/file state afterward, and RUNNING/SUCCEEDED/FAILED/CANCELED/poll-exhaustion separately. Upload or commit timeout is reconciled before replay.\n\n## Acceptance criteria\n- Coordinate dataset-view portion with DEV-STORY-074; keep integrated Build journey under DEV-STORY-075.\n- Add composed SDK1.101.0 fake-transport example and regression for all listed states and checks.\n- Fresh source-blind reader passes all six J12 dimensions using only standalone skill/prepared runtime.\n- Preserve failed artifact and distinguish fixture from tenant operation.\n\n## Test reference\nTESTEXEC-064 comment 20261009-092807-qa-engineer. Related to DEV-STORY-074; Blocks TESTEXEC-064. No FileImport or unrelated namespace scope.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "link",
+        "list",
+        "BUG-SUB-025",
+        "--author",
+        "qa-engineer"
+      ],
+      "exit_code": 0,
+      "stdout": "\nFound 2 link(s) for BUG-SUB-025:\n====================================================================================================\nLink ID         Source             Target          Type            Role\n----------------------------------------------------------------------------------------------------\nLINK-01893      BUG-SUB-025     -> DEV-STORY-074   RelatesTo       (Relates To)\nLINK-01894      BUG-SUB-025     -> TESTEXEC-064    Blocks          (Blocks)\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "list",
+        "--parent",
+        "BUG-SUB-025",
+        "--type",
+        "question",
+        "--author",
+        "qa-engineer"
+      ],
+      "exit_code": 0,
+      "stdout": "\nFound 0 ticket(s):\n============================================================================================================================================\nID              Status          Priority   Assignee             Reporter        Blocked  Title\n--------------------------------------------------------------------------------------------------------------------------------------------\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "type-info",
+        "bug_subtask",
+        "--author",
+        "qa-engineer"
+      ],
+      "exit_code": 0,
+      "stdout": "﻿type: bug_subtask\nid_prefix: BUG-SUB\ndescription: >-\n  Bug sub-task: defect investigation and fix activity nested under a DEV-STORY, created when defects are found during QA testing.\nrequired_fields: [id, type, title, status, parent, created, updated]\noptional_fields: [priority, resolution, assignee, reporter, component, labels,\n                  estimated_hours, time_spent_hours, due_date]\ninitial_status: New\nterminal_statuses: [Closed, Canceled, Rejected, Duplicated]\nstatuses:\n  New:\n    description: Created; triage and prerequisites validation.\n    stage_goal: Triage the sub-task, validate readiness, and move to Open.\n    responsible_roles:\n      - Creator (Assignee)\n  Open:\n    description: Prerequisites validated; ready to start work.\n    stage_goal: Prepare for work once prerequisites are met.\n    responsible_roles:\n      - Assignee\n  In Progress:\n    description: Bug investigation and fix in progress.\n    stage_goal: Investigate root cause and implement fix.\n    responsible_roles:\n      - Developer\n  Blocked:\n    description: Cannot proceed; blocker documented.\n    stage_goal: Verify blocking condition remains, maintain blocker links and priorities, and return to prior status when unblocked.\n    responsible_roles:\n      - Current assignee\n  Resolved:\n    description: Fix implemented; ready for verification.\n    stage_goal: Manage blockers and prepare for closure.\n    responsible_roles:\n      - Developer\n  Closed:\n    description: Verified and archived.\n    stage_goal: Archive the completed sub-task.\n    responsible_roles:\n      - Assignee\n  Canceled:\n    description: Sub-task canceled before completion.\n    stage_goal: Record cancellation rationale and archive.\n    responsible_roles:\n      - Assignee\n      - Reporter\n  Rejected:\n    description: Sub-task rejected as invalid or out of scope.\n    stage_goal: Record rejection reason and archive.\n    responsible_roles:\n      - Assignee\n      - Reporter\n  Duplicated:\n    description: Sub-task is a duplicate of another ticket.\n    stage_goal: Link to original ticket and archive.\n    responsible_roles:\n      - Assignee\n      - Reporter\nallowed_transitions:\n  New:         [Open, Canceled, Rejected, Duplicated]\n  Open:        [In Progress, Blocked, Canceled, Rejected, Duplicated]\n  In Progress: [Resolved, Blocked, Canceled, Rejected, Duplicated]\n  Blocked:     [Open, In Progress, Canceled, Rejected, Duplicated, Resolved]\n  Resolved:    [Closed, Canceled, Rejected, Duplicated, Blocked, In Progress]\n  Closed:      [Resolved]\n  Canceled:    []\n  Rejected:    []\n  Duplicated:  []\nautomatic_transitions:\n  # AT-4: block when a Question sub-task with a Blocks link is created\n  - rule: child_blocker_created\n    child_filter:\n      types: [question]\n      link_type: Blocks\n    target_status: Blocked\n\n  # AT-5: restore prior status when all blockers are cleared\n  - rule: all_blockers_cleared\n    blocker_terminal_statuses: [Closed, Done, Canceled, Rejected, Duplicated]\n    source_status: Blocked\n    target_status: prior_status\n\nticket_instructions:\n  New:\n    instructions:\n      - Set assignee to ticket creator.\n      - Review related documentation and parent Story context.\n      - Apply critical thinking and ask questions.\n      - IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket.\n      - Identify blockers and add a blocking link.\n      - Move to Open.\n    transition_dods:\n      - target_statuses: [Open]\n        dod_criteria:\n          - Studied related documentation from the `.ept/docs/document_index.md`\n          - Critical thinking applied\n          - All required questions asked using the Question sub-tasks and all these sub-tasks are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)\n          - Assignee set to creator\n          - Parent Story context reviewed\n          - Blockers identified and recorded (links or question)\n          - Required fields validated (status, assignee, priority, dates)\n\n  Open:\n    instructions:\n      - Apply critical thinking and ask questions.\n      - IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket.\n      - IF ticket missing THEN create a BUG-SUB ticket under appropriate DEV-STORY.\n      - Set required fields for the new sub-task.\n      - Add required links to parent Story.\n      - ELSE create a plan as a comment on this ticket.\n      - IF scope too large THEN split into additional BUG-SUB sub-tasks.\n      - IF test evidence exists THEN link as a comment on this ticket.\n    transition_dods:\n      - target_statuses: [In Progress]\n        dod_criteria:\n          - Studied related documentation from the `.ept/docs/document_index.md`\n          - Critical thinking applied\n          - All required questions asked using the Question sub-tasks and all these sub-tasks are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)\n          - Specific unsatisfied requirement identified OR detailed error message provided\n          - Steps to reproduce documented\n          - Expected vs actual behavior described\n          - Environment details captured\n          - Application logs attached\n          - Fix plan created as a comment on this ticket\n\n  In Progress:\n    instructions:\n      - Apply critical thinking and ask questions.\n      - IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket.\n      - IF blocked by dependency THEN add a blocking link, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket.\n      - IF lower-priority blocker blocks higher-priority Bug THEN raise blocker priority.\n      - ELSE investigate root cause and document as a comment on this ticket.\n      - Apply fix and document implementation.\n    transition_dods:\n      - target_statuses: [Resolved]\n        dod_criteria:\n          - Studied related documentation from the `.ept/docs/document_index.md`\n          - Critical thinking applied\n          - All required questions asked using the Question sub-tasks and all these sub-tasks are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)\n          - Fix implemented and tested\n          - Root cause documented\n          - Regression test performed\n          - Time reported in subtask frontmatter\n          - All links registered\n\n  Resolved:\n    instructions:\n      - QA verifies fix and records evidence.\n      - IF this ticket blocks any other tickets with the source_role=Blocks link(s) THEN remove these links.\n      - IF not blocked THEN ready to move to Closed.\n    transition_dods:\n      - target_statuses: [Closed]\n        dod_criteria:\n          - Fix verified by QA\n          - Ticket not blocked (no active `blocks` links)\n\n  Closed:\n    instructions:\n      - Terminal status. Archive only; no edits.\n    transition_dods: []\n\n  Blocked:\n    instructions:\n      - Confirm blocker and prior status are documented as a comment on this ticket (include blocker ID and prior status).\n      - Verify blocking link exists on this ticket.\n      - Do not create new blocker links in this status; they must be created when the block is identified.\n      - IF blocking link missing THEN create QUESTION ticket addressed_to appropriate role, add a Blocks link and a Question link from it to this ticket, and remain Blocked.\n      - |\n        Query blocking links on this ticket. For each blocker found, check its status:\n          - IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link and return to prior status\n          - IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match.\n      - IF all blocking links removed THEN return this ticket to prior status.\n    transition_dods: []\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "workflow",
+        "transitions",
+        "bug_subtask",
+        "Resolved",
+        "--author",
+        "qa-engineer"
+      ],
+      "exit_code": 0,
+      "stdout": "\nAllowed transitions from 'Resolved' (bug_subtask):\n============================================================\n  -> Closed [TERMINAL]\n  -> Canceled [TERMINAL]\n  -> Rejected [TERMINAL]\n  -> Duplicated [TERMINAL]\n  -> Blocked\n  -> In Progress\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "comment",
+        "create",
+        "BUG-SUB-025",
+        "--author",
+        "qa-engineer",
+        "--subject",
+        "Independent J12 six-dimension QA verified against committed immutable evidence",
+        "--text",
+        "## Independent verification\nSeparate reader /root/j12_reader_recover_20261028 and grader /root/j12_independent_grade_20261028 passed all six approved J12 dimensions. The fresh reader composes SDK1.101 root-client transaction/file/branch calls plus Build.create; independent byte-identical reproduction matched all 12 synthetic outcomes. Staged metadata/content precede commit; COMMITTED transaction, branch pointer and visible file metadata/content follow it. SUCCEEDED, FAILED, CANCELED and bounded pending are distinct. Lost upload/applied-commit replies do not duplicate mutations; safe no-effect commit retry requires transaction/branch/content reconciliation, and pending journal resume does not resubmit a build.\n\n## Committed evidence\nEvidence is committed in skills revision e44b97ed51f438ea495096287565cd064c77b150. QA independently checked all 90 archived artifacts against that Git commit, acceptance SHA256 6acb2c856d19e3478879cb984b9ac62f2352b5b9ddd33f0044f58fa2ac54cae9, archive-context SHA256 5fc3edf93369f1ab06466fe00e4ef44073da7dd77b4f03f8f3cfaaaabe781828, and separate grade SHA256 0b81f4c254d2f21cf19217e4eb9c158a2430d2d4a5809718d96e899b0a0f582c. All 23 consulted skill sources still match their reviewed hashes. Reader answer SHA256 65cc2f91075a54a5902e948801d706c87a119ec404f6044bcb04bee559015fe8; 32 original artifact hashes and the 4437-file snapshot remain bound by retained manifests. Original 4/6 failure artifacts are preserved in the archive. The current b260986e composed example regression also has seven passing synthetic outcomes, recorded separately from the fresh reader.\n\n## Closure scope\nCurrent Resolved DoD is satisfied: fix independently verified; no linked Question or incoming blocker exists. Remove only its outgoing Blocks LINK-01894 and preserve RelatesTo LINK-01893 before Closed/Done. Developer root-cause, fix, regression and time reporting were checked; unmeasured contributor hours remain untracked. This closes BUG-SUB-025 only. Full TESTEXEC-064, REST075 formal acceptance, FEATURE-015 and release publication remain separate. Mock SDK/HTTP and per-process network denial do not establish live tenant effects, permissions, OS-wide isolation or concurrency safety."
+      ],
+      "exit_code": 0,
+      "stdout": "Created comment: 20261028-154400-@qa-engineer\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "link",
+        "remove",
+        "LINK-01894",
+        "--author",
+        "qa-engineer"
+      ],
+      "exit_code": 0,
+      "stdout": "Removed link: LINK-01894\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "link",
+        "list",
+        "BUG-SUB-025",
+        "--author",
+        "qa-engineer"
+      ],
+      "exit_code": 0,
+      "stdout": "\nFound 1 link(s) for BUG-SUB-025:\n====================================================================================================\nLink ID         Source             Target          Type            Role\n----------------------------------------------------------------------------------------------------\nLINK-01893      BUG-SUB-025     -> DEV-STORY-074   RelatesTo       (Relates To)\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "get",
+        "BUG-SUB-025",
+        "--author",
+        "qa-engineer"
+      ],
+      "exit_code": 0,
+      "stdout": "ticket_id: BUG-SUB-025\ncurrent_status: Resolved\nstatus_description: Fix implemented; ready for verification.\nstatus_goal: Manage blockers and prepare for closure.\nstatus_responsible_roles:\n- Developer\nallowed_transitions:\n- Closed\n- Canceled\n- Rejected\n- Duplicated\n- Blocked\n- In Progress\ninstructions:\n- QA verifies fix and records evidence.\n- IF this ticket blocks any other tickets with the source_role=Blocks link(s) THEN\n  remove these links.\n- IF not blocked THEN ready to move to Closed.\ndefinitions_of_done:\n- target_statuses:\n  - Closed\n  dod_criteria:\n  - Fix verified by QA\n  - Ticket not blocked (no active `blocks` links)\n\nTicket Details:\n================================================================================\nid             : BUG-SUB-025\ntype           : bug_subtask\ntitle          : J12 guide lacks integrated transaction file verification and build outcome\nstatus         : Resolved\npriority       : High\nassignee       : python-developer\nreporter       : qa-engineer\nparent         : DEV-STORY-075\naddressed_to   : \npath           : DEV-STORY-075/BUG-SUB-025\ncreated        : 2026-10-09\nupdated        : 2026-10-28\ntime_spent_hours: untracked\ncontent:\n## Severity and version\nHigh; SDK 1.101.0; pal_found_cli_skills candidate based on HEAD b40d0be, 2026-10-09.\n\n## Reproduction\nSource-blind J12 reader .ept/tmp/feature015-j12-reader/reader-results.md scored 4/6 in .ept/tmp/feature015_rest_semantic_review/j12_independent_score.md. It followed local Transaction.md lines 91-99 and 125-160, File.md upload section, and Build.md lines 59-90. The composed code omits staged File.get/content before commit and postcommit branch/file verification; it exits on any terminal Build state without marking FAILED/CANCELED unsuccessful. Six individual SDK fake-transport examples pass, but no composed sequence runs.\n\n## Expected behavior\nOffline guidance and a runnable root-client fixture verify transaction-view file state before commit, committed branch/file state afterward, and RUNNING/SUCCEEDED/FAILED/CANCELED/poll-exhaustion separately. Upload or commit timeout is reconciled before replay.\n\n## Acceptance criteria\n- Coordinate dataset-view portion with DEV-STORY-074; keep integrated Build journey under DEV-STORY-075.\n- Add composed SDK1.101.0 fake-transport example and regression for all listed states and checks.\n- Fresh source-blind reader passes all six J12 dimensions using only standalone skill/prepared runtime.\n- Preserve failed artifact and distinguish fixture from tenant operation.\n\n## Test reference\nTESTEXEC-064 comment 20261009-092807-qa-engineer. Related to DEV-STORY-074; Blocks TESTEXEC-064. No FileImport or unrelated namespace scope.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "update",
+        "BUG-SUB-025",
+        "--status",
+        "Closed",
+        "--field",
+        "resolution=Done",
+        "--author",
+        "qa-engineer"
+      ],
+      "exit_code": 0,
+      "stdout": "ticket_id: BUG-SUB-025\ncurrent_status: Closed\nstatus_description: Verified and archived.\nstatus_goal: Archive the completed sub-task.\nstatus_responsible_roles:\n- Assignee\nallowed_transitions:\n- Resolved\ninstructions:\n- Terminal status. Archive only; no edits.\ndefinitions_of_done: []\n\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "get",
+        "BUG-SUB-025",
+        "--author",
+        "qa-engineer"
+      ],
+      "exit_code": 0,
+      "stdout": "ticket_id: BUG-SUB-025\ncurrent_status: Closed\nstatus_description: Verified and archived.\nstatus_goal: Archive the completed sub-task.\nstatus_responsible_roles:\n- Assignee\nallowed_transitions:\n- Resolved\ninstructions:\n- Terminal status. Archive only; no edits.\ndefinitions_of_done: []\n\nTicket Details:\n================================================================================\nid             : BUG-SUB-025\ntype           : bug_subtask\ntitle          : J12 guide lacks integrated transaction file verification and build outcome\nstatus         : Closed\npriority       : High\nassignee       : python-developer\nreporter       : qa-engineer\nparent         : DEV-STORY-075\naddressed_to   : \npath           : DEV-STORY-075/BUG-SUB-025\ncreated        : 2026-10-09\nupdated        : 2026-10-28\nresolution     : Done\ntime_spent_hours: untracked\ncontent:\n## Severity and version\nHigh; SDK 1.101.0; pal_found_cli_skills candidate based on HEAD b40d0be, 2026-10-09.\n\n## Reproduction\nSource-blind J12 reader .ept/tmp/feature015-j12-reader/reader-results.md scored 4/6 in .ept/tmp/feature015_rest_semantic_review/j12_independent_score.md. It followed local Transaction.md lines 91-99 and 125-160, File.md upload section, and Build.md lines 59-90. The composed code omits staged File.get/content before commit and postcommit branch/file verification; it exits on any terminal Build state without marking FAILED/CANCELED unsuccessful. Six individual SDK fake-transport examples pass, but no composed sequence runs.\n\n## Expected behavior\nOffline guidance and a runnable root-client fixture verify transaction-view file state before commit, committed branch/file state afterward, and RUNNING/SUCCEEDED/FAILED/CANCELED/poll-exhaustion separately. Upload or commit timeout is reconciled before replay.\n\n## Acceptance criteria\n- Coordinate dataset-view portion with DEV-STORY-074; keep integrated Build journey under DEV-STORY-075.\n- Add composed SDK1.101.0 fake-transport example and regression for all listed states and checks.\n- Fresh source-blind reader passes all six J12 dimensions using only standalone skill/prepared runtime.\n- Preserve failed artifact and distinguish fixture from tenant operation.\n\n## Test reference\nTESTEXEC-064 comment 20261009-092807-qa-engineer. Related to DEV-STORY-074; Blocks TESTEXEC-064. No FileImport or unrelated namespace scope.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "link",
+        "list",
+        "TESTEXEC-064",
+        "--author",
+        "qa-engineer"
+      ],
+      "exit_code": 0,
+      "stdout": "\nFound 2 link(s) for TESTEXEC-064:\n====================================================================================================\nLink ID         Source             Target          Type            Role\n----------------------------------------------------------------------------------------------------\nLINK-01690      DEV-STORY-093   -> TESTEXEC-064    Contains        (Contains)\nLINK-01703      TESTCASE-064    -> TESTEXEC-064    RelatesTo       (Relates To)\n",
+      "stderr": ""
+    }
+  ],
+  "writer_done": true,
+  "developer_resolution_sha256": "af11c7aeac283ab56d4eda8e6f8411b6c2a07dfc45bd7fae3c3603c6f770dd25",
+  "immutable_proof_verification": {
+    "acceptance_sha256": "6acb2c856d19e3478879cb984b9ac62f2352b5b9ddd33f0044f58fa2ac54cae9",
+    "context_sha256": "5fc3edf93369f1ab06466fe00e4ef44073da7dd77b4f03f8f3cfaaaabe781828",
+    "grade_sha256": "0b81f4c254d2f21cf19217e4eb9c158a2430d2d4a5809718d96e899b0a0f582c",
+    "committed_artifacts_verified": [
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/artifact_hash_manifest.json",
+        "sha256": "0cf2442dfe39a706feb414a30ae76d4407a3054539b104a3deb26c9d84150215"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/consulted_sources.json",
+        "sha256": "9b02410c5c8e7d664f4a1e05836d8bb60c5d5c0b47e6b5e27dcb3e4e93bf23bc"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/execution_results.json",
+        "sha256": "9970dec9de823847d7dbe60a62a229d209e882977414d2cc20966dc527a17aad"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/journal_branch_mismatch.json",
+        "sha256": "4d289914475c30f063c30bd4c3ba1e85169cda662874dc5f4c26343d70a39bd6"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/journal_canceled.json",
+        "sha256": "1f5c3d977499267767b5f3fed59fefa8c00b66415b33158a95e196c1a42127f5"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/journal_commit_recovery.json",
+        "sha256": "3511a84a80fa2d65bca81db6bb911af8b2e4e6ae3bd15c4914640d27c09e95f5"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/journal_commit_safe_retry.json",
+        "sha256": "ff0c166b3a6cce25b651f79eaeffdf9b5eb7622849b9a7a7edf4f46c0b4deadf"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/journal_failed.json",
+        "sha256": "e592c5f1dfb7ac9e6468ae118382362c2f7ffe35f72f3110926253273a2f4b04"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/journal_pending.json",
+        "sha256": "29160234ec4e926997952aead1c19d55bc3c26637118d658d507eaec8ff64f52"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/journal_pending_resume.json",
+        "sha256": "2341e6fa29df65de4b61414550707d682551b6dd20324eb0b3ba44912bd62be7"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/journal_reconciliation_unavailable.json",
+        "sha256": "10c0e3e888f5cc905f34afc8a2e803102e62817106ce09b6f8734c25d599e667"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/journal_staging_corruption.json",
+        "sha256": "08ed8ddaaeb3c2f613c52b0d48318a0ed4e8da9ab0a45b70a51cc08a00abce2a"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/journal_success.json",
+        "sha256": "a048da640c88f8e50ffcfd00458d7a9c47afe1be84fd361f51592101ced0e74a"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/journal_upload_recovery.json",
+        "sha256": "2741c4c0846b93a7ac414dca6a91870c6c42d456e545e50d018819c8dfd710fd"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/journal_visible_corruption.json",
+        "sha256": "35f2aa8d6ea06abd2ef5df6dc3037cdf92b8d920f86d97fc93c55b1cf8900915"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/package_evidence.py",
+        "sha256": "1f773bd6066298efa2a1a154e634f285bfca5071e3e640092b26dfd67de1928f"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/raw_execution_output.txt",
+        "sha256": "15c9ea5f68c0562a50ad6b654ec44f3bc5444d36ba09f7a85fc0dcc58a69c372"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/reader_answer.json",
+        "sha256": "65cc2f91075a54a5902e948801d706c87a119ec404f6044bcb04bee559015fe8"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/reader_prompt.json",
+        "sha256": "4171b8aad75bf1055c3c43217ccbd93d660ad449b07509daa0585ee293a23c4d"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/reader_workflow.py",
+        "sha256": "54c339eb4eafc889b9d849ed40c3e70bff25133ed066dfa39dbe0f6ef017710a"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/snapshot_manifest.json",
+        "sha256": "33b05039a68cf46d124f03372d353c8c61fe93bedf174171ff938783a552ea4d"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/trace_branch_mismatch.json",
+        "sha256": "a1a7de61f3cf4fa8002d560a6e5af35ab3e79a0d251442ccac81feaef087be1b"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/trace_canceled.json",
+        "sha256": "30c9c0cecee5289d60d642a1ce928f20060bafabcb8235a9edea4abc61b41e54"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/trace_commit_recovery.json",
+        "sha256": "713f98b3ded031e396077c780f31f2e1e7f9596c220e7bb37d80943da25615ee"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/trace_commit_safe_retry.json",
+        "sha256": "f1a56f3cca66f38c389e7e24590ea9a74b6bcadcd107a0e64b9488d46f0e2829"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/trace_failed.json",
+        "sha256": "1ab7e4f5055982b60cd776f19d3beb25bfb1cacf0236406398e66d4e3ff0411d"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/trace_pending.json",
+        "sha256": "ec18c7653ad1dd627507351652dfcba259edb66bfb8aae81f845aeb3c8d7782e"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/trace_pending_resume.json",
+        "sha256": "325af4bbfb41555a4cb9448e70ccd1b3aaa2a64d740ae1d83a018ce73f8a8cc7"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/trace_reconciliation_unavailable.json",
+        "sha256": "af358d90ba34777e0da746d3c8ceff6ed4481955be1ce42592dc605f22f6db52"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/trace_staging_corruption.json",
+        "sha256": "e5d17b516ff521ed8cf4611003f12154ddcf5e71ea8fba7bd91b37e30e63d82f"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/trace_success.json",
+        "sha256": "cd409f84e771a73132edaf6763522e50ebfaddcdcd63087214a7b9d8214e1fcf"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/trace_upload_recovery.json",
+        "sha256": "ca8dd45d2c454176116e5a15ffadff06853f7e5db610803b097d2c5510c473ad"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/reader/trace_visible_corruption.json",
+        "sha256": "429f080919ca752f075d6cbec155a402ebbd5df63ec9dd6fa7a0bb6820d08331"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/execution_results.json",
+        "sha256": "9f46be10672dedf3f82dad3eae02c077d751210bf6e74eec3fc6af7083ef667f"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_branch_mismatch.json",
+        "sha256": "bc29fdde04cf7b652ae93240342434cfed5e466967749a05f1b01682c103eeaf"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_canceled.json",
+        "sha256": "c2d98082577a7e2238056f8cc51eb90ff5e51df5a2cbd7123a267c394f408e30"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_commit_recovery.json",
+        "sha256": "4891a20ce56d7f0da59b0122b0aa57b690c79b6e94c0f586f4c69131a2d9d919"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_commit_safe_retry.json",
+        "sha256": "ab645c309f3441f0821e1cca1615b035c9c78f61ab50a3d5706a224dc9b0086d"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_failed.json",
+        "sha256": "07a2d53683dffad0078d521e9a0fd3fa7de41c52219d3c3baa02bf7090d220b6"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_pending.json",
+        "sha256": "82f3ff2593b4ab3169602010b1ce60bc88a60f80b254c13c9eee2d3d4b1dbf35"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_pending_resume.json",
+        "sha256": "7dae2c28dcc561106c7a5d2d4c6d4bf113292cb183b93bc946320d6be7ec4eba"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_reconciliation_unavailable.json",
+        "sha256": "a938586f1c6664498cca6b878ae53bb8389e0db7556146a1f0107384dcba00fc"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_staging_corruption.json",
+        "sha256": "02407b070d20f47612caa154cc70dc8103c3013c67de1b06010a482581bb35fb"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_success.json",
+        "sha256": "aad378a0cf2a6e8e609e1da7f12b79b0dd6b001c7b6f94c73c7254436627e5af"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_upload_recovery.json",
+        "sha256": "5fd8fa147976f86c1576a53a11333e9f1bf4db241a8c0d32ab585ab12964bf3a"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/journal_visible_corruption.json",
+        "sha256": "467bf7f816bc4ac9c11331562eae868016443c282481a3402489d1e98b1075b2"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/reader_workflow.py",
+        "sha256": "54c339eb4eafc889b9d849ed40c3e70bff25133ed066dfa39dbe0f6ef017710a"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/stdout.log",
+        "sha256": "b3ac936bf344f646be80242a3dfce41cdf695549cd39a0aa6f8cff161ec394d9"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_branch_mismatch.json",
+        "sha256": "11fce16ebc1e35c1260076b89dab2f2ac5530f240714df3807f662bb05aa03ba"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_canceled.json",
+        "sha256": "c6416b50b31483c018b409b073ee8259be595bd8ded94da5464dd6d70c33d7ab"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_commit_recovery.json",
+        "sha256": "53b19a0a898c931b30b5a7c677ee55a946cf2ea40903e126506ecb0ad616b3ef"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_commit_safe_retry.json",
+        "sha256": "a3464766e61b69e3cf3871e7e48617aa489cbf4ea04638bc33b77d846960693f"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_failed.json",
+        "sha256": "57ae9f2c280d69f40a06486ed853da1a86ce5c1e68a44dc45842fcd2374c4a20"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_pending.json",
+        "sha256": "64b7aed28f956b33bffe947b886ca5699cdb20927132b4d510da438a0c5c9a0d"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_pending_resume.json",
+        "sha256": "c1898a0cd04195e702832ce71d3d7ea222ddd79749154d49203b9eb8180799ba"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_reconciliation_unavailable.json",
+        "sha256": "10e1b1175f581347a5ddaae6fe7ccf4f306b926f6e639f876d71da1203beaa57"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_staging_corruption.json",
+        "sha256": "2e490db8a3bff92e76f4ce3eda37c33aa121e2cd942ef105e53e27eea9cd389b"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_success.json",
+        "sha256": "3b4f268b52759ea4a592ba318581526b9b64be70f54ef7293195e6add1ef15e6"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_upload_recovery.json",
+        "sha256": "0b4a9dbd9f226c0f32e79d93b8dca66ab6cc1bff707d0099377ce1fab593e74f"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader-reproduction/trace_visible_corruption.json",
+        "sha256": "cfd49ba0589ee20ab511ea6c348d64707afdfc9e00f85a3347e3067cd787547b"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader/independent-grade.json",
+        "sha256": "0b81f4c254d2f21cf19217e4eb9c158a2430d2d4a5809718d96e899b0a0f582c"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/grader/independent-grade.py",
+        "sha256": "1d6caec6dfad649e20e53968f5277a0bfd79b8b70a32572cf89a87310ce3a77b"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/regression/current-composed-regression.json",
+        "sha256": "c899180b39cf2a309b3382ef4d42d014b547f2caf25ff93242ce182f8b78b5e1"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/rubric/verification-and-delivery.md",
+        "sha256": "e75f9388890c84a61e987b79112a3d8caa85aad6afddd700da9060599180e62a"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/SKILL.md",
+        "sha256": "2495f974d0c9ba4f9811530fe5f2aa031cfe5912230f6b8624601ef692fbc0fe"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest-api.md",
+        "sha256": "af3562db0dc7f4a45d684b837ce5ba4364af65c0bf4380f74b322fdfca0597ff"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/authentication.md",
+        "sha256": "21cf5c0319011cf8603358d08b10205b6e92f247da4e6ec871f7526a01618a7c"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/client-behavior.md",
+        "sha256": "57826178f9a203bbe1eb3de24832bef82dc457ecb167f1208a3ba177a93dbcc2"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/v2/datasets/Transaction.md",
+        "sha256": "d16435f483e07e822d7b79fd13b06744ca196c1f594f985a490f5b8c6c51c3ef"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/v2/datasets/File.md",
+        "sha256": "7a0bf6c4a67c5024a7ecd11184d584a2c02271d4d997fef8b99f0be71204fee0"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/v2/orchestration/Build.md",
+        "sha256": "ad26f97daf4f9b9a117c28f343794e5eb710e0967d85072976985d4541b64499"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/examples/rest/074/v2/datasets/staged_commit_journey.py",
+        "sha256": "b260986ea80bb57f0e25c72b728918291484eab242b4bf1ab8ff63622fdf076e"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/contracts/v2/datasets/File/upload.md",
+        "sha256": "4df6acf02e7f13927225887cb6cf5a067707b421ad469e91fe0ede5fd3437e22"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/contracts/v2/datasets/File/get.md",
+        "sha256": "c73dab3b9b26c60673295ab7166383504ef487d0fae4fabdb6d46c5065fced43"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/contracts/v2/datasets/File/content.md",
+        "sha256": "2203e18b0699eef77ca8a0ded49d191a92ee6acf5e1fdae49222291a252ca838"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/contracts/v2/datasets/Branch/get.md",
+        "sha256": "39386d73c05a76659e13bc87dbc3241fba13a4d196f85f8822df84f940b14a60"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/contracts/v2/datasets/Transaction/create.md",
+        "sha256": "5e99f61292552bea170c6fd3597be096dfc59ff535f0b49b91cbc59022193e8c"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/contracts/v2/datasets/Transaction/commit.md",
+        "sha256": "649a05bc5bf73263e2c73fb65b8cc07650ab2c71ec1c6585d2550a405cdfa4e2"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/contracts/v2/orchestration/Build/create.md",
+        "sha256": "f2d0d140d01fec67c4411a5eaa262c87131185437a4dcadfe5b054fe09e93f64"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/contracts/v2/orchestration/Build/get.md",
+        "sha256": "a3e8bf7a0ec6d0e1549042796286f7183ccfab194f2bb156902fca42a2e412d0"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/models/v2/orchestration/models/BuildTarget.md",
+        "sha256": "052bc31af2406ef5de0076c4f249b85a6f2d0b5ce156326a5b452777d42e7ddb"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/models/v2/orchestration/models/ManualTarget.md",
+        "sha256": "6d1fe072e94c063b35c663c8a27eacf0ce1b3e544f5e2aebeffac5a9829c9e28"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/models/v2/orchestration/models/Build.md",
+        "sha256": "08eead343da308cdb094fa145f54cb868a4a6a14a048dd881bfce5e298216415"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/models/v2/datasets/models/Transaction.md",
+        "sha256": "7935cd1d197bec46d3b8ac9ae52665aa8e426e4aae6ea5ae924f46ffa9f31312"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/models/v2/datasets/models/File.md",
+        "sha256": "33b8c79a93e12880a80447260fd27985aad8b75543560e3420139d333d395f10"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/rest/models/v2/datasets/errors/FileNotFoundOnTransactionRangeParameters.md",
+        "sha256": "09aa437f9f652bbb29bd01dade9f923520775bd665271e707d58e3d714f38951"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/consulted-snapshot/references/pipelines/transactions.md",
+        "sha256": "b84dfb7cc285039527ed3c14e0bb908c1a1aa8d9ce4b98053278c9458d21d367"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/historical-failure/reader-results.md",
+        "sha256": "62e3859100af2ff4ea12427a6e7931a0e338a023e467004266391f499e1467cd"
+      },
+      {
+        "path": "maintainer/evidence/j12-20261028/historical-failure/j12_independent_score.md",
+        "sha256": "a503dd80baccd1c84f389c6e40c6e622775960a530c6c16ec8737acf5b21df05"
+      }
+    ],
+    "current_consulted_sources": [
+      {
+        "path": "SKILL.md",
+        "sha256": "2495f974d0c9ba4f9811530fe5f2aa031cfe5912230f6b8624601ef692fbc0fe"
+      },
+      {
+        "path": "references/rest-api.md",
+        "sha256": "af3562db0dc7f4a45d684b837ce5ba4364af65c0bf4380f74b322fdfca0597ff"
+      },
+      {
+        "path": "references/rest/authentication.md",
+        "sha256": "21cf5c0319011cf8603358d08b10205b6e92f247da4e6ec871f7526a01618a7c"
+      },
+      {
+        "path": "references/rest/client-behavior.md",
+        "sha256": "57826178f9a203bbe1eb3de24832bef82dc457ecb167f1208a3ba177a93dbcc2"
+      },
+      {
+        "path": "references/rest/v2/datasets/Transaction.md",
+        "sha256": "d16435f483e07e822d7b79fd13b06744ca196c1f594f985a490f5b8c6c51c3ef"
+      },
+      {
+        "path": "references/rest/v2/datasets/File.md",
+        "sha256": "7a0bf6c4a67c5024a7ecd11184d584a2c02271d4d997fef8b99f0be71204fee0"
+      },
+      {
+        "path": "references/rest/v2/orchestration/Build.md",
+        "sha256": "ad26f97daf4f9b9a117c28f343794e5eb710e0967d85072976985d4541b64499"
+      },
+      {
+        "path": "examples/rest/074/v2/datasets/staged_commit_journey.py",
+        "sha256": "b260986ea80bb57f0e25c72b728918291484eab242b4bf1ab8ff63622fdf076e"
+      },
+      {
+        "path": "references/rest/contracts/v2/datasets/File/upload.md",
+        "sha256": "4df6acf02e7f13927225887cb6cf5a067707b421ad469e91fe0ede5fd3437e22"
+      },
+      {
+        "path": "references/rest/contracts/v2/datasets/File/get.md",
+        "sha256": "c73dab3b9b26c60673295ab7166383504ef487d0fae4fabdb6d46c5065fced43"
+      },
+      {
+        "path": "references/rest/contracts/v2/datasets/File/content.md",
+        "sha256": "2203e18b0699eef77ca8a0ded49d191a92ee6acf5e1fdae49222291a252ca838"
+      },
+      {
+        "path": "references/rest/contracts/v2/datasets/Branch/get.md",
+        "sha256": "39386d73c05a76659e13bc87dbc3241fba13a4d196f85f8822df84f940b14a60"
+      },
+      {
+        "path": "references/rest/contracts/v2/datasets/Transaction/create.md",
+        "sha256": "5e99f61292552bea170c6fd3597be096dfc59ff535f0b49b91cbc59022193e8c"
+      },
+      {
+        "path": "references/rest/contracts/v2/datasets/Transaction/commit.md",
+        "sha256": "649a05bc5bf73263e2c73fb65b8cc07650ab2c71ec1c6585d2550a405cdfa4e2"
+      },
+      {
+        "path": "references/rest/contracts/v2/orchestration/Build/create.md",
+        "sha256": "f2d0d140d01fec67c4411a5eaa262c87131185437a4dcadfe5b054fe09e93f64"
+      },
+      {
+        "path": "references/rest/contracts/v2/orchestration/Build/get.md",
+        "sha256": "a3e8bf7a0ec6d0e1549042796286f7183ccfab194f2bb156902fca42a2e412d0"
+      },
+      {
+        "path": "references/rest/models/v2/orchestration/models/BuildTarget.md",
+        "sha256": "052bc31af2406ef5de0076c4f249b85a6f2d0b5ce156326a5b452777d42e7ddb"
+      },
+      {
+        "path": "references/rest/models/v2/orchestration/models/ManualTarget.md",
+        "sha256": "6d1fe072e94c063b35c663c8a27eacf0ce1b3e544f5e2aebeffac5a9829c9e28"
+      },
+      {
+        "path": "references/rest/models/v2/orchestration/models/Build.md",
+        "sha256": "08eead343da308cdb094fa145f54cb868a4a6a14a048dd881bfce5e298216415"
+      },
+      {
+        "path": "references/rest/models/v2/datasets/models/Transaction.md",
+        "sha256": "7935cd1d197bec46d3b8ac9ae52665aa8e426e4aae6ea5ae924f46ffa9f31312"
+      },
+      {
+        "path": "references/rest/models/v2/datasets/models/File.md",
+        "sha256": "33b8c79a93e12880a80447260fd27985aad8b75543560e3420139d333d395f10"
+      },
+      {
+        "path": "references/rest/models/v2/datasets/errors/FileNotFoundOnTransactionRangeParameters.md",
+        "sha256": "09aa437f9f652bbb29bd01dade9f923520775bd665271e707d58e3d714f38951"
+      },
+      {
+        "path": "references/pipelines/transactions.md",
+        "sha256": "b84dfb7cc285039527ed3c14e0bb908c1a1aa8d9ce4b98053278c9458d21d367"
+      }
+    ]
+  },
+  "finished_at_utc": "2026-10-28T13:44:02.681538+00:00",
+  "closure_export": {
+    "path": ".ept/tmp/BUG-SUB-025-closure-20261028.txt",
+    "sha256": "30fcd3d04a8f776cb12f0e0c1a6a10c9d30b21876899ad7067c390e3bca5d65f"
+  }
+}

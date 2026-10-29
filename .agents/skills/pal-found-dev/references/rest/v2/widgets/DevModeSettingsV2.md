@@ -8,7 +8,7 @@ single document. It does not publish a release.
 
 ## enable
 
-Call `client.widgets.dev_mode_settings_v2.enable(preview=True)` with an
+Call `client.widgets.DevModeSettingsV2.enable(preview=True)` with an
 identity permitted to preview the widget set. Check the returned
 `DevModeSettingsV2` before applying a manifest. A
 `EnableDevModeSettingsV2PermissionDenied` result calls for checking the user's
@@ -26,7 +26,7 @@ for the available version before adapting the manifest. The source does not
 promise that an arbitrary remote URL or arbitrary count of CSS/JavaScript
 entrypoints will work.
 
-Call `client.widgets.dev_mode_settings_v2.set_widget_set_manifest(
+Call `client.widgets.DevModeSettingsV2.set_widget_set_manifest(
 widget_set_rid=..., manifest=..., preview=True)` and compare the returned
 settings with the target set. Invalid base URL, file path, entrypoint count or
 widget count errors should be fixed in the manifest before retry. For a
