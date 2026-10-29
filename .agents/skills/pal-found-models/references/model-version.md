@@ -2,6 +2,43 @@
 
 These records describe the `model_version` commands in `pal-found-models`. Each record gives inputs, behavior, results, and examples.
 
+## API and serialization scope
+
+SDK 1.101.0 `modelApi` has `inputs` and `outputs` arrays. Each input/output is
+`parameter` or `tabular` (the SDK also carries an `unsupported` marker).
+A parameter has `name`, optional `required` (default true), and `dataType`:
+`{"type":"parameter","name":"threshold","dataType":{"type":"double"}}`.
+A tabular entry has `name`, optional `required`, `columns`, and optional
+`format` (`PANDAS`, the default, or `SPARK`). Columns have `name`, optional
+`required` (default true), and `dataType`; false allows null/omitted values.
+
+Data type objects use `type`: `date`, `boolean`, `string`, `double`, `integer`,
+`float`, `long`, `timestamp`, or `any`. Arrays add recursive `itemType`:
+`{"type":"array","itemType":{"type":"double"}}`. Maps add recursive
+`keyType` and `valueType`:
+`{"type":"map","keyType":{"type":"string"},"valueType":{"type":"any"}}`.
+`any` has no additional fields. The SDK's `unsupported` marker represents a type
+it cannot describe; it does not promise a usable model interface. Type-shape
+validation does not establish adapter compatibility or runtime value semantics.
+
+`ModelFiles` in this baseline is **only** `DillModelFiles`, with `type=dill`
+and required `serializedModelFunction` containing base64 dill-serialized model
+function bytes. There are no alternative model-files variants in this create
+contract. Other lifecycle integration sources do not imply this command accepts
+container images or external endpoint configuration.
+
+Version responses contain `rid`, `modelApi`, `condaRequirements`,
+`backingRepositories`, `createdTime`, optional `source`, and optional
+`linkedExperiment`. The source discriminator may be `sdk`, `external`,
+`importedContainerizedModel`, `modelStudio` (with `modelStudioRid`),
+`codeRepository` (with `repositoryRid`, `branch`), `codeWorkspace` (with
+`codeWorkspaceRid`, `branch`), or `promoted` (with `previousModelRid` and
+`previousModelVersionRid`). Missing source/link fields leave provenance or
+experiment association unspecified. Read a linked experiment using the owning
+model and returned experiment RID. Creation/get success establishes a version
+record; artifact loadability, training quality, and deployment readiness still
+require validation in the intended runtime.
+
 ### model_version.create
 
 - **Purpose and behavior:** Creates a new Model Version on an existing model.

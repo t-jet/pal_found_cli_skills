@@ -31,6 +31,6 @@ These records describe the `model_studio` commands in `pal-found-models`. Each r
 - **Input meaning:** `model_studio_rid`: Resource identifier (RID) of the named Foundry resource.
 - **Input guide:** [Identifiers and JSON payloads](./inputs.md).
 - **Preconditions:** The Model Studio exists, has a configuration version, and the caller can launch training.
-- **Result:** Returns a `ModelStudioRun` for the new training run. Inspect run state later to determine whether training finished.
+- **Result:** Returns a `ModelStudioRun` for the new training run. Follow [completion and recovery](./model-studio-run.md#completion-and-recovery): correlate `runId`, inspect optional `buildStatus` within a finite check budget, and read `resolvedOutputs`. An absent status leaves completion unknown.
 - **Failure:** A launch timeout does not establish whether a run started; list runs before retrying.
 - **Example:** `pal-found-models model-studio launch <MODEL_STUDIO_RID>`

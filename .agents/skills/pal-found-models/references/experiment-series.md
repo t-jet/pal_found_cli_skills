@@ -2,6 +2,20 @@
 
 These records describe the `experiment_series` commands in `pal-found-models`. Each record gives inputs, behavior, results, and examples.
 
+## Reading series data
+
+SDK 1.101.0 `Series` is `DoubleSeriesV1`: `type` is `doubleV1` and
+`series` is a list of entries containing numeric `value`, integer `timestamp`
+(milliseconds since Unix epoch), and integer `step`. For example,
+`{"type":"doubleV1","series":[{"value":0.25,"timestamp":1000,"step":0}]}`
+records value 0.25 at one second after the epoch with step 0. `step` is a
+recorded sequence coordinate; the SDK does not define its unit or establish that
+it counts epochs or seconds. Use the producer's meaning. Discover names in
+`experiment get`'s `series[].name`. An empty series slice contains no entries;
+it does not establish that the whole experiment has no series data. Increase
+`--offset` by the number of entries consumed to read subsequent slices; stop
+when an empty slice is returned or your chosen entry/request budget is reached.
+
 ### experiment_series.json
 
 - **Purpose and behavior:** Retrieve raw time-series data for a single series in JSON format. Results are paginated with a default page size of 200 and a maximum of 1000.
