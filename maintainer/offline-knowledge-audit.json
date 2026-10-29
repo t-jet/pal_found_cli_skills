@@ -1121,67 +1121,139 @@
       "path": "pal-found-connectivity\\references\\01-connection.md",
       "sha256": "752b98c17df36201da35c91ed55d0fbf4e37c5f2281c1c02f90d994ee69ba650",
       "lines": 107,
-      "review_status": "author context review; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+        "reviewer_agent": "/root/connectivity_retest_20261029",
+        "review_date": "2026-10-29",
         "page_sha256": "752b98c17df36201da35c91ed55d0fbf4e37c5f2281c1c02f90d994ee69ba650",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 0",
-          "reachable from owning SKILL.md"
+          "Independent whole-page source and semantic retest at exact bytes; resource-specific completion, modes and recovery checks are in the linked report.",
+          "All 20 original examples retained; 30 new actual CLI and SDK HTTP probes pass.",
+          "Offline synthetic acceptance only; no tenant source reachability or execution completion claimed."
         ],
-        "url_contexts_in_current_audit": 1,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-connectivity.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-connectivity\\references\\01-connection.md",
+          "sha256": "752b98c17df36201da35c91ed55d0fbf4e37c5f2281c1c02f90d994ee69ba650",
+          "lines": 107,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "752b98c17df36201da35c91ed55d0fbf4e37c5f2281c1c02f90d994ee69ba650",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 0",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 1,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-connectivity\\references\\02-imports.md",
-      "sha256": "e56612fd619237e28abd76e33474b0ef8eaa8b929f656d17663f921a17365887",
-      "lines": 207,
-      "review_status": "author context review; independent semantic review pending",
+      "sha256": "3e4ed1bdbc8f0a68ab191c64920b8e3bfa23c2051c04fa2cc2e563264602e0a3",
+      "lines": 289,
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "e56612fd619237e28abd76e33474b0ef8eaa8b929f656d17663f921a17365887",
+        "reviewer_agent": "/root/connectivity_retest_20261029",
+        "review_date": "2026-10-29",
+        "page_sha256": "3e4ed1bdbc8f0a68ab191c64920b8e3bfa23c2051c04fa2cc2e563264602e0a3",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 0",
-          "reachable from owning SKILL.md"
+          "Independent whole-page source and semantic retest at exact bytes; resource-specific completion, modes and recovery checks are in the linked report.",
+          "All 20 original examples retained; 30 new actual CLI and SDK HTTP probes pass.",
+          "Offline synthetic acceptance only; no tenant source reachability or execution completion claimed."
         ],
-        "url_contexts_in_current_audit": 1,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-connectivity.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-connectivity\\references\\02-imports.md",
+          "sha256": "e56612fd619237e28abd76e33474b0ef8eaa8b929f656d17663f921a17365887",
+          "lines": 207,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "e56612fd619237e28abd76e33474b0ef8eaa8b929f656d17663f921a17365887",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 0",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 1,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-connectivity\\SKILL.md",
       "sha256": "8844c6204a7c2e048c27b9d076a9d4011de08af4e4bcca8aa9dc5bf0a38525ab",
       "lines": 64,
-      "review_status": "author context review; independent semantic review pending",
+      "review_status": "accepted",
       "owner": "DEV-STORY-061",
-      "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
-      "qa_verdict": "UNCERTAIN",
+      "disposition": "Whole-page independent review accepted at exact current bytes; tool requirement gaps remain separate release blockers.",
+      "qa_verdict": "PASS",
       "review_evidence": {
         "reviewer": "qa-engineer",
-        "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
-        "page_sha256": "98a3d2b81e5c47f55ad2e5c5fcd0680b6c37c526ff1b1a97f568186d11395a89",
+        "reviewer_agent": "/root/connectivity_retest_20261029",
+        "review_date": "2026-10-29",
+        "page_sha256": "8844c6204a7c2e048c27b9d076a9d4011de08af4e4bcca8aa9dc5bf0a38525ab",
         "checks": [
-          "inventory hash and line count",
-          "direct Markdown links resolved in owning skill: 7",
-          "reachable from owning SKILL.md"
+          "Independent whole-page source and semantic retest at exact bytes; resource-specific completion, modes and recovery checks are in the linked report.",
+          "All 20 original examples retained; 30 new actual CLI and SDK HTTP probes pass.",
+          "Offline synthetic acceptance only; no tenant source reachability or execution completion claimed."
         ],
-        "url_contexts_in_current_audit": 3,
-        "pending": "Independent CLI behavior and source review against prepared runtime",
-        "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
-      }
+        "evidence_file": "maintainer/skill-independent-review-connectivity.json",
+        "scope_limit": "Offline whole-page acceptance only; no live tenant execution or release approval."
+      },
+      "review_history": [
+        {
+          "path": "pal-found-connectivity\\SKILL.md",
+          "sha256": "8844c6204a7c2e048c27b9d076a9d4011de08af4e4bcca8aa9dc5bf0a38525ab",
+          "lines": 64,
+          "review_status": "author context review; independent semantic review pending",
+          "owner": "DEV-STORY-061",
+          "disposition": "Preserve existing local resource/operation guidance; assess semantic completeness independently.",
+          "qa_verdict": "UNCERTAIN",
+          "review_evidence": {
+            "reviewer": "qa-engineer",
+            "candidate_sha": "f30c97242c8fef553b72984bdaf02b3fe52d34db",
+            "page_sha256": "98a3d2b81e5c47f55ad2e5c5fcd0680b6c37c526ff1b1a97f568186d11395a89",
+            "checks": [
+              "inventory hash and line count",
+              "direct Markdown links resolved in owning skill: 7",
+              "reachable from owning SKILL.md"
+            ],
+            "url_contexts_in_current_audit": 3,
+            "pending": "Independent CLI behavior and source review against prepared runtime",
+            "scope_limit": "Structural checks and public URL triage do not prove semantic completeness."
+          }
+        }
+      ]
     },
     {
       "path": "pal-found-data-health\\references\\01-check-report.md",
@@ -13049,7 +13121,7 @@
   },
   "independent_reviewer": "qa-engineer",
   "independent_review_counts": {
-    "PASS": 134,
-    "UNCERTAIN": 58
+    "PASS": 137,
+    "UNCERTAIN": 55
   }
 }

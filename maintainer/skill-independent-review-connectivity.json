@@ -1,0 +1,2088 @@
+{
+  "owner": "DEV-STORY-061",
+  "reviewer": "/root/connectivity_retest_20261029",
+  "date": "2026-10-29",
+  "initial_review": {
+    "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_connectivity_pages_review_20261028.json",
+    "sha256": "8781761818e1bc7e7fee614e2ab123703d6126d2aa38e3c83829dc1fb4f72b9a",
+    "verdict": "FAIL",
+    "findings": [
+      {
+        "id": "CNT-PAGE-01",
+        "severity": "essential knowledge gap",
+        "page": "references/02-imports.md",
+        "lines": [
+          48,
+          57,
+          138,
+          147
+        ],
+        "decision": "FAIL",
+        "description": "Both execute records require later Orchestration/build observation but provide no concrete local observation procedure, returned build/job fields or pending/success/failure decisions. Reader cannot complete stated verification using this standalone folder.",
+        "scope_basis": "DEV-STORY-061 requires all required steps/examples/contracts in owning standalone skill. BA-DES-015 section3.2 explicitly requires immediate result, later completion observation and bounded recovery. Content architecture audit requires essential namespace concepts repaired in owning skill.",
+        "existing_guidance": "Sibling pal-found-orchestration/references/01-build-job.md contains build get/jobs and ambiguous-write reconciliation, but is outside this independently distributed folder. Separate pal-found-dev REST pages are also outside folder and do not approve CLI pages.",
+        "repair": "Add locally sufficient authorized observation recipe for returned BuildRid with state/next-action guidance and output-dataset checks. Explicitly state installed additional tooling/prerequisites if observation needs it; do not invent a connectivity status command."
+      },
+      {
+        "id": "CNT-PAGE-02",
+        "severity": "essential knowledge gap",
+        "page": "references/02-imports.md",
+        "lines": [
+          17,
+          21,
+          109,
+          112
+        ],
+        "decision": "FAIL",
+        "description": "Import mode governs destructive snapshot replacement versus appending/updating, but prose omits accepted enum choices and their mapping. Examples only show SNAPSHOT. Table mode supports SNAPSHOT/APPEND; file mode additionally supports UPDATE. Reader lacks safe local variation decision.",
+        "source": "foundry_sdk.v2.connectivity.models FileImportMode and TableImportMode; semantic intent already named by current page.",
+        "repair": "Document file/table allowed modes separately and supported effect/selection meaning, including UPDATE matching/replacement behavior sourced before publishing."
+      },
+      {
+        "id": "CNT-PAGE-03",
+        "severity": "essential knowledge gap",
+        "page": "references/02-imports.md",
+        "lines": [
+          55,
+          145
+        ],
+        "decision": "FAIL",
+        "description": "Execute follow-up covers successful request only. No local recovery explains that timeout/transport loss can follow accepted execution or how to reconcile before replaying non-idempotent execute/create operations.",
+        "source": "Approved API guidance requires bounded recovery; existing sibling Orchestration page explicitly warns that client failure does not establish build state.",
+        "repair": "Explain safe observation/reconciliation after uncertain result; avoid unconditional rerun and avoid claiming that a client failure proves no platform effect."
+      }
+    ]
+  },
+  "harness_failures": [],
+  "new_probes": [
+    {
+      "name": "build state RUNNING",
+      "argv": [
+        "build",
+        "get",
+        "ri.foundry.main.build.synthetic",
+        "--format",
+        "json",
+        "--timeout",
+        "30"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.foundry.main.build.synthetic\", \"branchName\": \"master\", \"createdTime\": \"2026-10-29 00:00:00+00:00\", \"createdBy\": \"00000000-0000-0000-0000-000000000001\", \"fallbackBranches\": [], \"jobRids\": [\"ri.foundry.main.job.synthetic\"], \"retryCount\": 0, \"retryBackoffDuration\": {\"value\": 1, \"unit\": \"SECONDS\"}, \"abortOnFailure\": false, \"status\": \"RUNNING\"}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic",
+          "query": "",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "build state SUCCEEDED",
+      "argv": [
+        "build",
+        "get",
+        "ri.foundry.main.build.synthetic",
+        "--format",
+        "json",
+        "--timeout",
+        "30"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.foundry.main.build.synthetic\", \"branchName\": \"master\", \"createdTime\": \"2026-10-29 00:00:00+00:00\", \"createdBy\": \"00000000-0000-0000-0000-000000000001\", \"fallbackBranches\": [], \"jobRids\": [\"ri.foundry.main.job.synthetic\"], \"retryCount\": 0, \"retryBackoffDuration\": {\"value\": 1, \"unit\": \"SECONDS\"}, \"abortOnFailure\": false, \"status\": \"SUCCEEDED\"}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic",
+          "query": "",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "build state FAILED",
+      "argv": [
+        "build",
+        "get",
+        "ri.foundry.main.build.synthetic",
+        "--format",
+        "json",
+        "--timeout",
+        "30"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.foundry.main.build.synthetic\", \"branchName\": \"master\", \"createdTime\": \"2026-10-29 00:00:00+00:00\", \"createdBy\": \"00000000-0000-0000-0000-000000000001\", \"fallbackBranches\": [], \"jobRids\": [\"ri.foundry.main.job.synthetic\"], \"retryCount\": 0, \"retryBackoffDuration\": {\"value\": 1, \"unit\": \"SECONDS\"}, \"abortOnFailure\": false, \"status\": \"FAILED\"}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic",
+          "query": "",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "build state CANCELED",
+      "argv": [
+        "build",
+        "get",
+        "ri.foundry.main.build.synthetic",
+        "--format",
+        "json",
+        "--timeout",
+        "30"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.foundry.main.build.synthetic\", \"branchName\": \"master\", \"createdTime\": \"2026-10-29 00:00:00+00:00\", \"createdBy\": \"00000000-0000-0000-0000-000000000001\", \"fallbackBranches\": [], \"jobRids\": [\"ri.foundry.main.job.synthetic\"], \"retryCount\": 0, \"retryBackoffDuration\": {\"value\": 1, \"unit\": \"SECONDS\"}, \"abortOnFailure\": false, \"status\": \"CANCELED\"}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic",
+          "query": "",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "job state WAITING",
+      "argv": [
+        "build",
+        "jobs",
+        "ri.foundry.main.build.synthetic",
+        "--format",
+        "json",
+        "--max-pages",
+        "2",
+        "--timeout",
+        "30"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"WAITING\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+      "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+          "query": "pageSize=100",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "job state RUNNING",
+      "argv": [
+        "build",
+        "jobs",
+        "ri.foundry.main.build.synthetic",
+        "--format",
+        "json",
+        "--max-pages",
+        "2",
+        "--timeout",
+        "30"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"RUNNING\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+      "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+          "query": "pageSize=100",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "job state SUCCEEDED",
+      "argv": [
+        "build",
+        "jobs",
+        "ri.foundry.main.build.synthetic",
+        "--format",
+        "json",
+        "--max-pages",
+        "2",
+        "--timeout",
+        "30"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"SUCCEEDED\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+      "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+          "query": "pageSize=100",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "job state FAILED",
+      "argv": [
+        "build",
+        "jobs",
+        "ri.foundry.main.build.synthetic",
+        "--format",
+        "json",
+        "--max-pages",
+        "2",
+        "--timeout",
+        "30"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"FAILED\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+      "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+          "query": "pageSize=100",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "job state CANCELED",
+      "argv": [
+        "build",
+        "jobs",
+        "ri.foundry.main.build.synthetic",
+        "--format",
+        "json",
+        "--max-pages",
+        "2",
+        "--timeout",
+        "30"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"CANCELED\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+      "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+          "query": "pageSize=100",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "job state DID_NOT_RUN",
+      "argv": [
+        "build",
+        "jobs",
+        "ri.foundry.main.build.synthetic",
+        "--format",
+        "json",
+        "--max-pages",
+        "2",
+        "--timeout",
+        "30"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"DID_NOT_RUN\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+      "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+          "query": "pageSize=100",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "missing publication evidence []",
+      "argv": [
+        "build",
+        "jobs",
+        "ri.foundry.main.build.synthetic",
+        "--format",
+        "json",
+        "--max-pages",
+        "2",
+        "--timeout",
+        "30"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"SUCCEEDED\", \"outputs\": []}]\n",
+      "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+          "query": "pageSize=100",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "missing publication evidence [{'type': 'datasetJobOutput', 'datasetRid': 'ri.foundry.main.dataset.synthetic'}]",
+      "argv": [
+        "build",
+        "jobs",
+        "ri.foundry.main.build.synthetic",
+        "--format",
+        "json",
+        "--max-pages",
+        "2",
+        "--timeout",
+        "30"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"SUCCEEDED\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+      "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+          "query": "pageSize=100",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "lost execute branch searchFalse",
+      "argv": [
+        "build",
+        "search",
+        "--where-json",
+        "{\"type\": \"eq\", \"field\": \"BRANCH_NAME\", \"value\": \"master\"}",
+        "--format",
+        "json",
+        "--max-pages",
+        "2",
+        "--timeout",
+        "30"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"rid\": \"ri.foundry.main.build.synthetic\", \"branchName\": \"master\", \"createdTime\": \"2026-10-29 00:00:00+00:00\", \"createdBy\": \"00000000-0000-0000-0000-000000000001\", \"fallbackBranches\": [], \"jobRids\": [\"ri.foundry.main.job.synthetic\"], \"retryCount\": 0, \"retryBackoffDuration\": {\"value\": 1, \"unit\": \"SECONDS\"}, \"abortOnFailure\": false, \"status\": \"RUNNING\"}]\n",
+      "stderr": "# ---metadata-start---\n{\"pages_fetched\": 2, \"total_items\": 1, \"next_page_token\": \"remaining\", \"page_size\": 100}\n",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/orchestration/builds/search",
+          "query": "",
+          "body": "{\"where\": {\"field\": \"BRANCH_NAME\", \"value\": \"master\", \"type\": \"eq\"}, \"pageSize\": 100}"
+        },
+        {
+          "method": "POST",
+          "path": "/api/v2/orchestration/builds/search",
+          "query": "",
+          "body": "{\"where\": {\"field\": \"BRANCH_NAME\", \"value\": \"master\", \"type\": \"eq\"}, \"pageToken\": \"next-page\", \"pageSize\": 100}"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "lost execute branch searchTrue",
+      "argv": [
+        "build",
+        "search",
+        "--where-json",
+        "{\"type\": \"eq\", \"field\": \"BRANCH_NAME\", \"value\": \"master\"}",
+        "--format",
+        "json",
+        "--max-pages",
+        "2",
+        "--timeout",
+        "30",
+        "--page-token",
+        "resume-token"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"rid\": \"ri.foundry.main.build.synthetic\", \"branchName\": \"master\", \"createdTime\": \"2026-10-29 00:00:00+00:00\", \"createdBy\": \"00000000-0000-0000-0000-000000000001\", \"fallbackBranches\": [], \"jobRids\": [\"ri.foundry.main.job.synthetic\"], \"retryCount\": 0, \"retryBackoffDuration\": {\"value\": 1, \"unit\": \"SECONDS\"}, \"abortOnFailure\": false, \"status\": \"RUNNING\"}]\n",
+      "stderr": "# ---metadata-start---\n{\"pages_fetched\": 2, \"total_items\": 1, \"next_page_token\": \"remaining\", \"page_size\": 100}\n",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/orchestration/builds/search",
+          "query": "",
+          "body": "{\"where\": {\"field\": \"BRANCH_NAME\", \"value\": \"master\", \"type\": \"eq\"}, \"pageToken\": \"resume-token\", \"pageSize\": 100}"
+        },
+        {
+          "method": "POST",
+          "path": "/api/v2/orchestration/builds/search",
+          "query": "",
+          "body": "{\"where\": {\"field\": \"BRANCH_NAME\", \"value\": \"master\", \"type\": \"eq\"}, \"pageToken\": \"next-page\", \"pageSize\": 100}"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "jobs empty cursor and bounded continuation",
+      "argv": [
+        "build",
+        "jobs",
+        "ri.foundry.main.build.synthetic",
+        "--format",
+        "json",
+        "--max-pages",
+        "2",
+        "--page-token",
+        "resume-token",
+        "--timeout",
+        "30"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"SUCCEEDED\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+      "stderr": "# ---metadata-start---\n{\"pages_fetched\": 2, \"total_items\": 1, \"next_page_token\": \"remaining\", \"page_size\": 100}\n",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+          "query": "pageSize=100&pageToken=resume-token",
+          "body": ""
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+          "query": "pageSize=100&pageToken=next-page",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "file-import mode SNAPSHOT",
+      "argv": [
+        "file-import",
+        "replace",
+        "ri.magritte.main.source.synthetic",
+        "ri.magritte.main.file-import.synthetic",
+        "--display-name",
+        "Orders",
+        "--import-mode",
+        "SNAPSHOT",
+        "--filters-json",
+        "[]"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.magritte.main.file-import.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"branchName\": \"master\", \"displayName\": \"Orders\", \"fileImportFilters\": [], \"importMode\": \"SNAPSHOT\"}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "PUT",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports/ri.magritte.main.file-import.synthetic",
+          "query": "",
+          "body": "{\"importMode\": \"SNAPSHOT\", \"displayName\": \"Orders\", \"fileImportFilters\": []}"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "file-import mode APPEND",
+      "argv": [
+        "file-import",
+        "replace",
+        "ri.magritte.main.source.synthetic",
+        "ri.magritte.main.file-import.synthetic",
+        "--display-name",
+        "Orders",
+        "--import-mode",
+        "APPEND",
+        "--filters-json",
+        "[]"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.magritte.main.file-import.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"branchName\": \"master\", \"displayName\": \"Orders\", \"fileImportFilters\": [], \"importMode\": \"APPEND\"}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "PUT",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports/ri.magritte.main.file-import.synthetic",
+          "query": "",
+          "body": "{\"importMode\": \"APPEND\", \"displayName\": \"Orders\", \"fileImportFilters\": []}"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "file-import mode UPDATE",
+      "argv": [
+        "file-import",
+        "replace",
+        "ri.magritte.main.source.synthetic",
+        "ri.magritte.main.file-import.synthetic",
+        "--display-name",
+        "Orders",
+        "--import-mode",
+        "UPDATE",
+        "--filters-json",
+        "[]"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.magritte.main.file-import.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"branchName\": \"master\", \"displayName\": \"Orders\", \"fileImportFilters\": [], \"importMode\": \"UPDATE\"}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "PUT",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports/ri.magritte.main.file-import.synthetic",
+          "query": "",
+          "body": "{\"importMode\": \"UPDATE\", \"displayName\": \"Orders\", \"fileImportFilters\": []}"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "file-import uncertain create list recovery",
+      "argv": [
+        "file-import",
+        "list",
+        "ri.magritte.main.source.synthetic",
+        "--max-pages",
+        "2",
+        "--page-token",
+        "resume-token"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"rid\": \"ri.magritte.main.file-import.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"branchName\": \"master\", \"displayName\": \"Orders\", \"fileImportFilters\": [], \"importMode\": \"SNAPSHOT\"}]\n",
+      "stderr": "# ---metadata-start---\n{\"pages_fetched\": 2, \"total_items\": 1, \"next_page_token\": \"remaining\", \"page_size\": 100}\n",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports",
+          "query": "pageSize=100&pageToken=resume-token",
+          "body": ""
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports",
+          "query": "pageSize=100&pageToken=next-page",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "file-import known RID read recovery",
+      "argv": [
+        "file-import",
+        "get",
+        "ri.magritte.main.source.synthetic",
+        "ri.magritte.main.file-import.synthetic"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.magritte.main.file-import.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"branchName\": \"master\", \"displayName\": \"Orders\", \"fileImportFilters\": [], \"importMode\": \"SNAPSHOT\"}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports/ri.magritte.main.file-import.synthetic",
+          "query": "",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "file-import inaccessible/missing read 403",
+      "argv": [
+        "file-import",
+        "get",
+        "ri.magritte.main.source.synthetic",
+        "ri.magritte.main.file-import.synthetic"
+      ],
+      "exit_code": 3,
+      "stdout": "{\"error\": true, \"exit_code\": 3, \"exit_code_name\": \"PermissionDeniedError\", \"message\": \"Connectivity operation failed\", \"exception_type\": \"PermissionDeniedError\", \"traceback\": \"\", \"call_id\": \"5e8caabe-30f7-46ca-af45-8b83759bd9c1\", \"http_status\": 403}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports/ri.magritte.main.file-import.synthetic",
+          "query": "",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "file-import inaccessible/missing read 404",
+      "argv": [
+        "file-import",
+        "get",
+        "ri.magritte.main.source.synthetic",
+        "ri.magritte.main.file-import.synthetic"
+      ],
+      "exit_code": 4,
+      "stdout": "{\"error\": true, \"exit_code\": 4, \"exit_code_name\": \"NotFoundError\", \"message\": \"Connectivity operation failed\", \"exception_type\": \"NotFoundError\", \"traceback\": \"\", \"call_id\": \"f1b88a49-c8d3-40a8-a11d-f4245dcec721\", \"http_status\": 404}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports/ri.magritte.main.file-import.synthetic",
+          "query": "",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "table-import mode SNAPSHOT",
+      "argv": [
+        "table-import",
+        "replace",
+        "ri.magritte.main.source.synthetic",
+        "ri.magritte.main.table-import.synthetic",
+        "--display-name",
+        "Orders",
+        "--import-mode",
+        "SNAPSHOT",
+        "--config-json",
+        "{\"type\": \"jdbcImportConfig\", \"query\": \"SELECT * FROM table\"}"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.magritte.main.table-import.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"branchName\": \"master\", \"displayName\": \"Orders\", \"importMode\": \"SNAPSHOT\", \"allowSchemaChanges\": false, \"config\": {\"query\": \"SELECT * FROM table\", \"type\": \"jdbcImportConfig\"}}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "PUT",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports/ri.magritte.main.table-import.synthetic",
+          "query": "",
+          "body": "{\"importMode\": \"SNAPSHOT\", \"displayName\": \"Orders\", \"config\": {\"query\": \"SELECT * FROM table\", \"type\": \"jdbcImportConfig\"}}"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "table-import mode APPEND",
+      "argv": [
+        "table-import",
+        "replace",
+        "ri.magritte.main.source.synthetic",
+        "ri.magritte.main.table-import.synthetic",
+        "--display-name",
+        "Orders",
+        "--import-mode",
+        "APPEND",
+        "--config-json",
+        "{\"type\": \"jdbcImportConfig\", \"query\": \"SELECT * FROM table\"}"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.magritte.main.table-import.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"branchName\": \"master\", \"displayName\": \"Orders\", \"importMode\": \"APPEND\", \"allowSchemaChanges\": false, \"config\": {\"query\": \"SELECT * FROM table\", \"type\": \"jdbcImportConfig\"}}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "PUT",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports/ri.magritte.main.table-import.synthetic",
+          "query": "",
+          "body": "{\"importMode\": \"APPEND\", \"displayName\": \"Orders\", \"config\": {\"query\": \"SELECT * FROM table\", \"type\": \"jdbcImportConfig\"}}"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "table-import uncertain create list recovery",
+      "argv": [
+        "table-import",
+        "list",
+        "ri.magritte.main.source.synthetic",
+        "--max-pages",
+        "2",
+        "--page-token",
+        "resume-token"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"rid\": \"ri.magritte.main.table-import.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"branchName\": \"master\", \"displayName\": \"Orders\", \"importMode\": \"SNAPSHOT\", \"allowSchemaChanges\": false, \"config\": {\"query\": \"SELECT * FROM table\", \"type\": \"jdbcImportConfig\"}}]\n",
+      "stderr": "# ---metadata-start---\n{\"pages_fetched\": 2, \"total_items\": 1, \"next_page_token\": \"remaining\", \"page_size\": 100}\n",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports",
+          "query": "pageSize=100&pageToken=resume-token",
+          "body": ""
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports",
+          "query": "pageSize=100&pageToken=next-page",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "table-import known RID read recovery",
+      "argv": [
+        "table-import",
+        "get",
+        "ri.magritte.main.source.synthetic",
+        "ri.magritte.main.table-import.synthetic"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.magritte.main.table-import.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"branchName\": \"master\", \"displayName\": \"Orders\", \"importMode\": \"SNAPSHOT\", \"allowSchemaChanges\": false, \"config\": {\"query\": \"SELECT * FROM table\", \"type\": \"jdbcImportConfig\"}}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports/ri.magritte.main.table-import.synthetic",
+          "query": "",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "table-import inaccessible/missing read 403",
+      "argv": [
+        "table-import",
+        "get",
+        "ri.magritte.main.source.synthetic",
+        "ri.magritte.main.table-import.synthetic"
+      ],
+      "exit_code": 3,
+      "stdout": "{\"error\": true, \"exit_code\": 3, \"exit_code_name\": \"PermissionDeniedError\", \"message\": \"Connectivity operation failed\", \"exception_type\": \"PermissionDeniedError\", \"traceback\": \"\", \"call_id\": \"955f4146-6dc5-4ac8-8df5-e1da07094306\", \"http_status\": 403}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports/ri.magritte.main.table-import.synthetic",
+          "query": "",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "table-import inaccessible/missing read 404",
+      "argv": [
+        "table-import",
+        "get",
+        "ri.magritte.main.source.synthetic",
+        "ri.magritte.main.table-import.synthetic"
+      ],
+      "exit_code": 4,
+      "stdout": "{\"error\": true, \"exit_code\": 4, \"exit_code_name\": \"NotFoundError\", \"message\": \"Connectivity operation failed\", \"exception_type\": \"NotFoundError\", \"traceback\": \"\", \"call_id\": \"88050ca4-102a-4685-93b7-c0053442f025\", \"http_status\": 404}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports/ri.magritte.main.table-import.synthetic",
+          "query": "",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "build access stop 401",
+      "argv": [
+        "build",
+        "get",
+        "ri.foundry.main.build.synthetic",
+        "--format",
+        "json",
+        "--timeout",
+        "30"
+      ],
+      "exit_code": 2,
+      "stdout": "{\"error\": true, \"exit_code\": 2, \"exit_code_name\": \"AuthenticationError\", \"message\": \"Orchestration operation failed\", \"exception_type\": \"UnauthorizedError\", \"traceback\": \"\", \"call_id\": \"8b7897fd-ed4c-4b9b-86f1-c8a146bbd6a9\", \"http_status\": 401}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic",
+          "query": "",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "build access stop 403",
+      "argv": [
+        "build",
+        "get",
+        "ri.foundry.main.build.synthetic",
+        "--format",
+        "json",
+        "--timeout",
+        "30"
+      ],
+      "exit_code": 3,
+      "stdout": "{\"error\": true, \"exit_code\": 3, \"exit_code_name\": \"PermissionDeniedError\", \"message\": \"Orchestration operation failed\", \"exception_type\": \"PermissionDeniedError\", \"traceback\": \"\", \"call_id\": \"a9ddc973-4947-4c2f-bf3e-cd6b6fc5b8ad\", \"http_status\": 403}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic",
+          "query": "",
+          "body": ""
+        }
+      ],
+      "status": "PASS"
+    }
+  ],
+  "previous_harness_runs": [
+    {
+      "overall_verdict": "UNCERTAIN",
+      "harness_failures": [
+        "Traceback (most recent call last):\n  File \"E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_connectivity_pages_retest_20261029.py\", line 83, in <module>\n    try: loop.run_until_complete(main())\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\app\\Python\\Lib\\asyncio\\base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_connectivity_pages_retest_20261029.py\", line 50, in main\n    row=await probe('build state '+state,oc,['build','get',B,'--format','json','--timeout','30'],[dict(build,status=state)],'/api/v2/orchestration/builds/'+B)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_connectivity_pages_retest_20261029.py\", line 44, in probe\n    assert actual==code,row\n           ^^^^^^^^^^^^\nAssertionError: {'name': 'build state RUNNING', 'argv': ['build', 'get', 'ri.foundry.main.build.synthetic', '--format', 'json', '--timeout', '30'], 'exit_code': 9, 'stdout': '{\"error\": true, \"exit_code\": 9, \"exit_code_name\": \"ConfigurationError\", \"message\": \"Explicit .env file not found: E:\\\\\\\\learn\\\\\\\\GenAI_Foundations_DA\\\\\\\\git\\\\\\\\foundry_cli\\\\\\\\.ept\\\\\\\\tmp\\\\\\\\feature015_connectivity_pages_retest_20261029.env\", \"exception_type\": \"ConfigurationError\", \"traceback\": \"\", \"call_id\": \"851115fe-365a-4661-b6c9-2f8aa4201531\"}\\n', 'stderr': 'Orchestration operation failed\\n', 'requests': [], 'status': 'FAIL'}\n"
+      ],
+      "new_probes": [
+        {
+          "name": "build state RUNNING",
+          "argv": [
+            "build",
+            "get",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 9,
+          "stdout": "{\"error\": true, \"exit_code\": 9, \"exit_code_name\": \"ConfigurationError\", \"message\": \"Explicit .env file not found: E:\\\\learn\\\\GenAI_Foundations_DA\\\\git\\\\foundry_cli\\\\.ept\\\\tmp\\\\feature015_connectivity_pages_retest_20261029.env\", \"exception_type\": \"ConfigurationError\", \"traceback\": \"\", \"call_id\": \"851115fe-365a-4661-b6c9-2f8aa4201531\"}\n",
+          "stderr": "Orchestration operation failed\n",
+          "requests": [],
+          "status": "FAIL"
+        }
+      ]
+    },
+    {
+      "overall_verdict": "UNCERTAIN",
+      "harness_failures": [
+        "Traceback (most recent call last):\n  File \"E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_connectivity_pages_retest_20261029.py\", line 86, in <module>\n    try: loop.run_until_complete(main())\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\app\\Python\\Lib\\asyncio\\base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_connectivity_pages_retest_20261029.py\", line 66, in main\n    assert 'pageToken=next-page' in row['requests'][1]['query'] and 'remaining' in row['stderr']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      ],
+      "new_probes": [
+        {
+          "name": "build state RUNNING",
+          "argv": [
+            "build",
+            "get",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "{\"rid\": \"ri.foundry.main.build.synthetic\", \"branchName\": \"master\", \"createdTime\": \"2026-10-29 00:00:00+00:00\", \"createdBy\": \"00000000-0000-0000-0000-000000000001\", \"fallbackBranches\": [], \"jobRids\": [\"ri.foundry.main.job.synthetic\"], \"retryCount\": 0, \"retryBackoffDuration\": {\"value\": 1, \"unit\": \"SECONDS\"}, \"abortOnFailure\": false, \"status\": \"RUNNING\"}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic",
+              "query": "",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "build state SUCCEEDED",
+          "argv": [
+            "build",
+            "get",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "{\"rid\": \"ri.foundry.main.build.synthetic\", \"branchName\": \"master\", \"createdTime\": \"2026-10-29 00:00:00+00:00\", \"createdBy\": \"00000000-0000-0000-0000-000000000001\", \"fallbackBranches\": [], \"jobRids\": [\"ri.foundry.main.job.synthetic\"], \"retryCount\": 0, \"retryBackoffDuration\": {\"value\": 1, \"unit\": \"SECONDS\"}, \"abortOnFailure\": false, \"status\": \"SUCCEEDED\"}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic",
+              "query": "",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "build state FAILED",
+          "argv": [
+            "build",
+            "get",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "{\"rid\": \"ri.foundry.main.build.synthetic\", \"branchName\": \"master\", \"createdTime\": \"2026-10-29 00:00:00+00:00\", \"createdBy\": \"00000000-0000-0000-0000-000000000001\", \"fallbackBranches\": [], \"jobRids\": [\"ri.foundry.main.job.synthetic\"], \"retryCount\": 0, \"retryBackoffDuration\": {\"value\": 1, \"unit\": \"SECONDS\"}, \"abortOnFailure\": false, \"status\": \"FAILED\"}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic",
+              "query": "",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "build state CANCELED",
+          "argv": [
+            "build",
+            "get",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "{\"rid\": \"ri.foundry.main.build.synthetic\", \"branchName\": \"master\", \"createdTime\": \"2026-10-29 00:00:00+00:00\", \"createdBy\": \"00000000-0000-0000-0000-000000000001\", \"fallbackBranches\": [], \"jobRids\": [\"ri.foundry.main.job.synthetic\"], \"retryCount\": 0, \"retryBackoffDuration\": {\"value\": 1, \"unit\": \"SECONDS\"}, \"abortOnFailure\": false, \"status\": \"CANCELED\"}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic",
+              "query": "",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "job state WAITING",
+          "argv": [
+            "build",
+            "jobs",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"WAITING\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+              "query": "pageSize=100",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "job state RUNNING",
+          "argv": [
+            "build",
+            "jobs",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"RUNNING\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+              "query": "pageSize=100",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "job state SUCCEEDED",
+          "argv": [
+            "build",
+            "jobs",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"SUCCEEDED\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+              "query": "pageSize=100",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "job state FAILED",
+          "argv": [
+            "build",
+            "jobs",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"FAILED\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+              "query": "pageSize=100",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "job state CANCELED",
+          "argv": [
+            "build",
+            "jobs",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"CANCELED\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+              "query": "pageSize=100",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "job state DID_NOT_RUN",
+          "argv": [
+            "build",
+            "jobs",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"DID_NOT_RUN\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+              "query": "pageSize=100",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "missing publication evidence []",
+          "argv": [
+            "build",
+            "jobs",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"SUCCEEDED\", \"outputs\": []}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+              "query": "pageSize=100",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "missing publication evidence [{'type': 'datasetJobOutput', 'datasetRid': 'ri.foundry.main.dataset.synthetic'}]",
+          "argv": [
+            "build",
+            "jobs",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"SUCCEEDED\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+              "query": "pageSize=100",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "lost execute branch searchFalse",
+          "argv": [
+            "build",
+            "search",
+            "--where-json",
+            "{\"type\": \"eq\", \"field\": \"BRANCH_NAME\", \"value\": \"master\"}",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.build.synthetic\", \"branchName\": \"master\", \"createdTime\": \"2026-10-29 00:00:00+00:00\", \"createdBy\": \"00000000-0000-0000-0000-000000000001\", \"fallbackBranches\": [], \"jobRids\": [\"ri.foundry.main.job.synthetic\"], \"retryCount\": 0, \"retryBackoffDuration\": {\"value\": 1, \"unit\": \"SECONDS\"}, \"abortOnFailure\": false, \"status\": \"RUNNING\"}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 2, \"total_items\": 1, \"next_page_token\": \"remaining\", \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "POST",
+              "path": "/api/v2/orchestration/builds/search",
+              "query": "",
+              "body": "{\"where\": {\"field\": \"BRANCH_NAME\", \"value\": \"master\", \"type\": \"eq\"}, \"pageSize\": 100}"
+            },
+            {
+              "method": "POST",
+              "path": "/api/v2/orchestration/builds/search",
+              "query": "",
+              "body": "{\"where\": {\"field\": \"BRANCH_NAME\", \"value\": \"master\", \"type\": \"eq\"}, \"pageToken\": \"next-page\", \"pageSize\": 100}"
+            }
+          ],
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "overall_verdict": "PASS",
+      "harness_failures": [],
+      "new_probes": [
+        {
+          "name": "build state RUNNING",
+          "argv": [
+            "build",
+            "get",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "{\"rid\": \"ri.foundry.main.build.synthetic\", \"branchName\": \"master\", \"createdTime\": \"2026-10-29 00:00:00+00:00\", \"createdBy\": \"00000000-0000-0000-0000-000000000001\", \"fallbackBranches\": [], \"jobRids\": [\"ri.foundry.main.job.synthetic\"], \"retryCount\": 0, \"retryBackoffDuration\": {\"value\": 1, \"unit\": \"SECONDS\"}, \"abortOnFailure\": false, \"status\": \"RUNNING\"}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic",
+              "query": "",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "build state SUCCEEDED",
+          "argv": [
+            "build",
+            "get",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "{\"rid\": \"ri.foundry.main.build.synthetic\", \"branchName\": \"master\", \"createdTime\": \"2026-10-29 00:00:00+00:00\", \"createdBy\": \"00000000-0000-0000-0000-000000000001\", \"fallbackBranches\": [], \"jobRids\": [\"ri.foundry.main.job.synthetic\"], \"retryCount\": 0, \"retryBackoffDuration\": {\"value\": 1, \"unit\": \"SECONDS\"}, \"abortOnFailure\": false, \"status\": \"SUCCEEDED\"}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic",
+              "query": "",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "build state FAILED",
+          "argv": [
+            "build",
+            "get",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "{\"rid\": \"ri.foundry.main.build.synthetic\", \"branchName\": \"master\", \"createdTime\": \"2026-10-29 00:00:00+00:00\", \"createdBy\": \"00000000-0000-0000-0000-000000000001\", \"fallbackBranches\": [], \"jobRids\": [\"ri.foundry.main.job.synthetic\"], \"retryCount\": 0, \"retryBackoffDuration\": {\"value\": 1, \"unit\": \"SECONDS\"}, \"abortOnFailure\": false, \"status\": \"FAILED\"}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic",
+              "query": "",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "build state CANCELED",
+          "argv": [
+            "build",
+            "get",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "{\"rid\": \"ri.foundry.main.build.synthetic\", \"branchName\": \"master\", \"createdTime\": \"2026-10-29 00:00:00+00:00\", \"createdBy\": \"00000000-0000-0000-0000-000000000001\", \"fallbackBranches\": [], \"jobRids\": [\"ri.foundry.main.job.synthetic\"], \"retryCount\": 0, \"retryBackoffDuration\": {\"value\": 1, \"unit\": \"SECONDS\"}, \"abortOnFailure\": false, \"status\": \"CANCELED\"}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic",
+              "query": "",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "job state WAITING",
+          "argv": [
+            "build",
+            "jobs",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"WAITING\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+              "query": "pageSize=100",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "job state RUNNING",
+          "argv": [
+            "build",
+            "jobs",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"RUNNING\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+              "query": "pageSize=100",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "job state SUCCEEDED",
+          "argv": [
+            "build",
+            "jobs",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"SUCCEEDED\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+              "query": "pageSize=100",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "job state FAILED",
+          "argv": [
+            "build",
+            "jobs",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"FAILED\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+              "query": "pageSize=100",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "job state CANCELED",
+          "argv": [
+            "build",
+            "jobs",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"CANCELED\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+              "query": "pageSize=100",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "job state DID_NOT_RUN",
+          "argv": [
+            "build",
+            "jobs",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"DID_NOT_RUN\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+              "query": "pageSize=100",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "missing publication evidence []",
+          "argv": [
+            "build",
+            "jobs",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"SUCCEEDED\", \"outputs\": []}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+              "query": "pageSize=100",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "missing publication evidence [{'type': 'datasetJobOutput', 'datasetRid': 'ri.foundry.main.dataset.synthetic'}]",
+          "argv": [
+            "build",
+            "jobs",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"SUCCEEDED\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 1, \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+              "query": "pageSize=100",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "lost execute branch searchFalse",
+          "argv": [
+            "build",
+            "search",
+            "--where-json",
+            "{\"type\": \"eq\", \"field\": \"BRANCH_NAME\", \"value\": \"master\"}",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.build.synthetic\", \"branchName\": \"master\", \"createdTime\": \"2026-10-29 00:00:00+00:00\", \"createdBy\": \"00000000-0000-0000-0000-000000000001\", \"fallbackBranches\": [], \"jobRids\": [\"ri.foundry.main.job.synthetic\"], \"retryCount\": 0, \"retryBackoffDuration\": {\"value\": 1, \"unit\": \"SECONDS\"}, \"abortOnFailure\": false, \"status\": \"RUNNING\"}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 2, \"total_items\": 1, \"next_page_token\": \"remaining\", \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "POST",
+              "path": "/api/v2/orchestration/builds/search",
+              "query": "",
+              "body": "{\"where\": {\"field\": \"BRANCH_NAME\", \"value\": \"master\", \"type\": \"eq\"}, \"pageSize\": 100}"
+            },
+            {
+              "method": "POST",
+              "path": "/api/v2/orchestration/builds/search",
+              "query": "",
+              "body": "{\"where\": {\"field\": \"BRANCH_NAME\", \"value\": \"master\", \"type\": \"eq\"}, \"pageToken\": \"next-page\", \"pageSize\": 100}"
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "lost execute branch searchTrue",
+          "argv": [
+            "build",
+            "search",
+            "--where-json",
+            "{\"type\": \"eq\", \"field\": \"BRANCH_NAME\", \"value\": \"master\"}",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--timeout",
+            "30",
+            "--page-token",
+            "resume-token"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.build.synthetic\", \"branchName\": \"master\", \"createdTime\": \"2026-10-29 00:00:00+00:00\", \"createdBy\": \"00000000-0000-0000-0000-000000000001\", \"fallbackBranches\": [], \"jobRids\": [\"ri.foundry.main.job.synthetic\"], \"retryCount\": 0, \"retryBackoffDuration\": {\"value\": 1, \"unit\": \"SECONDS\"}, \"abortOnFailure\": false, \"status\": \"RUNNING\"}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 2, \"total_items\": 1, \"next_page_token\": \"remaining\", \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "POST",
+              "path": "/api/v2/orchestration/builds/search",
+              "query": "",
+              "body": "{\"where\": {\"field\": \"BRANCH_NAME\", \"value\": \"master\", \"type\": \"eq\"}, \"pageToken\": \"resume-token\", \"pageSize\": 100}"
+            },
+            {
+              "method": "POST",
+              "path": "/api/v2/orchestration/builds/search",
+              "query": "",
+              "body": "{\"where\": {\"field\": \"BRANCH_NAME\", \"value\": \"master\", \"type\": \"eq\"}, \"pageToken\": \"next-page\", \"pageSize\": 100}"
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "jobs empty cursor and bounded continuation",
+          "argv": [
+            "build",
+            "jobs",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--max-pages",
+            "2",
+            "--page-token",
+            "resume-token",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.foundry.main.job.synthetic\", \"buildRid\": \"ri.foundry.main.build.synthetic\", \"startedTime\": \"2026-10-29 00:00:00+00:00\", \"jobStatus\": \"SUCCEEDED\", \"outputs\": [{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"outputTransactionRid\": \"ri.foundry.main.transaction.synthetic\", \"type\": \"datasetJobOutput\"}]}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 2, \"total_items\": 1, \"next_page_token\": \"remaining\", \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+              "query": "pageSize=100&pageToken=resume-token",
+              "body": ""
+            },
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic/jobs",
+              "query": "pageSize=100&pageToken=next-page",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "file-import mode SNAPSHOT",
+          "argv": [
+            "file-import",
+            "replace",
+            "ri.magritte.main.source.synthetic",
+            "ri.magritte.main.file-import.synthetic",
+            "--display-name",
+            "Orders",
+            "--import-mode",
+            "SNAPSHOT",
+            "--filters-json",
+            "[]"
+          ],
+          "exit_code": 0,
+          "stdout": "{\"rid\": \"ri.magritte.main.file-import.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"branchName\": \"master\", \"displayName\": \"Orders\", \"fileImportFilters\": [], \"importMode\": \"SNAPSHOT\"}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "PUT",
+              "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports/ri.magritte.main.file-import.synthetic",
+              "query": "",
+              "body": "{\"importMode\": \"SNAPSHOT\", \"displayName\": \"Orders\", \"fileImportFilters\": []}"
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "file-import mode APPEND",
+          "argv": [
+            "file-import",
+            "replace",
+            "ri.magritte.main.source.synthetic",
+            "ri.magritte.main.file-import.synthetic",
+            "--display-name",
+            "Orders",
+            "--import-mode",
+            "APPEND",
+            "--filters-json",
+            "[]"
+          ],
+          "exit_code": 0,
+          "stdout": "{\"rid\": \"ri.magritte.main.file-import.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"branchName\": \"master\", \"displayName\": \"Orders\", \"fileImportFilters\": [], \"importMode\": \"APPEND\"}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "PUT",
+              "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports/ri.magritte.main.file-import.synthetic",
+              "query": "",
+              "body": "{\"importMode\": \"APPEND\", \"displayName\": \"Orders\", \"fileImportFilters\": []}"
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "file-import mode UPDATE",
+          "argv": [
+            "file-import",
+            "replace",
+            "ri.magritte.main.source.synthetic",
+            "ri.magritte.main.file-import.synthetic",
+            "--display-name",
+            "Orders",
+            "--import-mode",
+            "UPDATE",
+            "--filters-json",
+            "[]"
+          ],
+          "exit_code": 0,
+          "stdout": "{\"rid\": \"ri.magritte.main.file-import.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"branchName\": \"master\", \"displayName\": \"Orders\", \"fileImportFilters\": [], \"importMode\": \"UPDATE\"}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "PUT",
+              "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports/ri.magritte.main.file-import.synthetic",
+              "query": "",
+              "body": "{\"importMode\": \"UPDATE\", \"displayName\": \"Orders\", \"fileImportFilters\": []}"
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "file-import uncertain create list recovery",
+          "argv": [
+            "file-import",
+            "list",
+            "ri.magritte.main.source.synthetic",
+            "--max-pages",
+            "2",
+            "--page-token",
+            "resume-token"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.magritte.main.file-import.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"branchName\": \"master\", \"displayName\": \"Orders\", \"fileImportFilters\": [], \"importMode\": \"SNAPSHOT\"}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 2, \"total_items\": 1, \"next_page_token\": \"remaining\", \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports",
+              "query": "pageSize=100&pageToken=resume-token",
+              "body": ""
+            },
+            {
+              "method": "GET",
+              "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports",
+              "query": "pageSize=100&pageToken=next-page",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "file-import known RID read recovery",
+          "argv": [
+            "file-import",
+            "get",
+            "ri.magritte.main.source.synthetic",
+            "ri.magritte.main.file-import.synthetic"
+          ],
+          "exit_code": 0,
+          "stdout": "{\"rid\": \"ri.magritte.main.file-import.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"branchName\": \"master\", \"displayName\": \"Orders\", \"fileImportFilters\": [], \"importMode\": \"SNAPSHOT\"}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports/ri.magritte.main.file-import.synthetic",
+              "query": "",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "file-import inaccessible/missing read 403",
+          "argv": [
+            "file-import",
+            "get",
+            "ri.magritte.main.source.synthetic",
+            "ri.magritte.main.file-import.synthetic"
+          ],
+          "exit_code": 3,
+          "stdout": "{\"error\": true, \"exit_code\": 3, \"exit_code_name\": \"PermissionDeniedError\", \"message\": \"Connectivity operation failed\", \"exception_type\": \"PermissionDeniedError\", \"traceback\": \"\", \"call_id\": \"d5393604-04d9-4794-a0b5-e9f5813efe68\", \"http_status\": 403}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports/ri.magritte.main.file-import.synthetic",
+              "query": "",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "file-import inaccessible/missing read 404",
+          "argv": [
+            "file-import",
+            "get",
+            "ri.magritte.main.source.synthetic",
+            "ri.magritte.main.file-import.synthetic"
+          ],
+          "exit_code": 4,
+          "stdout": "{\"error\": true, \"exit_code\": 4, \"exit_code_name\": \"NotFoundError\", \"message\": \"Connectivity operation failed\", \"exception_type\": \"NotFoundError\", \"traceback\": \"\", \"call_id\": \"bb5c7453-146d-48f7-bb7c-e3b1953e06cb\", \"http_status\": 404}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports/ri.magritte.main.file-import.synthetic",
+              "query": "",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "table-import mode SNAPSHOT",
+          "argv": [
+            "table-import",
+            "replace",
+            "ri.magritte.main.source.synthetic",
+            "ri.magritte.main.table-import.synthetic",
+            "--display-name",
+            "Orders",
+            "--import-mode",
+            "SNAPSHOT",
+            "--config-json",
+            "{\"type\": \"jdbcImportConfig\", \"query\": \"SELECT * FROM table\"}"
+          ],
+          "exit_code": 0,
+          "stdout": "{\"rid\": \"ri.magritte.main.table-import.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"branchName\": \"master\", \"displayName\": \"Orders\", \"importMode\": \"SNAPSHOT\", \"allowSchemaChanges\": false, \"config\": {\"query\": \"SELECT * FROM table\", \"type\": \"jdbcImportConfig\"}}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "PUT",
+              "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports/ri.magritte.main.table-import.synthetic",
+              "query": "",
+              "body": "{\"importMode\": \"SNAPSHOT\", \"displayName\": \"Orders\", \"config\": {\"query\": \"SELECT * FROM table\", \"type\": \"jdbcImportConfig\"}}"
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "table-import mode APPEND",
+          "argv": [
+            "table-import",
+            "replace",
+            "ri.magritte.main.source.synthetic",
+            "ri.magritte.main.table-import.synthetic",
+            "--display-name",
+            "Orders",
+            "--import-mode",
+            "APPEND",
+            "--config-json",
+            "{\"type\": \"jdbcImportConfig\", \"query\": \"SELECT * FROM table\"}"
+          ],
+          "exit_code": 0,
+          "stdout": "{\"rid\": \"ri.magritte.main.table-import.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"branchName\": \"master\", \"displayName\": \"Orders\", \"importMode\": \"APPEND\", \"allowSchemaChanges\": false, \"config\": {\"query\": \"SELECT * FROM table\", \"type\": \"jdbcImportConfig\"}}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "PUT",
+              "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports/ri.magritte.main.table-import.synthetic",
+              "query": "",
+              "body": "{\"importMode\": \"APPEND\", \"displayName\": \"Orders\", \"config\": {\"query\": \"SELECT * FROM table\", \"type\": \"jdbcImportConfig\"}}"
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "table-import uncertain create list recovery",
+          "argv": [
+            "table-import",
+            "list",
+            "ri.magritte.main.source.synthetic",
+            "--max-pages",
+            "2",
+            "--page-token",
+            "resume-token"
+          ],
+          "exit_code": 0,
+          "stdout": "[{\"rid\": \"ri.magritte.main.table-import.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"branchName\": \"master\", \"displayName\": \"Orders\", \"importMode\": \"SNAPSHOT\", \"allowSchemaChanges\": false, \"config\": {\"query\": \"SELECT * FROM table\", \"type\": \"jdbcImportConfig\"}}]\n",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 2, \"total_items\": 1, \"next_page_token\": \"remaining\", \"page_size\": 100}\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports",
+              "query": "pageSize=100&pageToken=resume-token",
+              "body": ""
+            },
+            {
+              "method": "GET",
+              "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports",
+              "query": "pageSize=100&pageToken=next-page",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "table-import known RID read recovery",
+          "argv": [
+            "table-import",
+            "get",
+            "ri.magritte.main.source.synthetic",
+            "ri.magritte.main.table-import.synthetic"
+          ],
+          "exit_code": 0,
+          "stdout": "{\"rid\": \"ri.magritte.main.table-import.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"branchName\": \"master\", \"displayName\": \"Orders\", \"importMode\": \"SNAPSHOT\", \"allowSchemaChanges\": false, \"config\": {\"query\": \"SELECT * FROM table\", \"type\": \"jdbcImportConfig\"}}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports/ri.magritte.main.table-import.synthetic",
+              "query": "",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "table-import inaccessible/missing read 403",
+          "argv": [
+            "table-import",
+            "get",
+            "ri.magritte.main.source.synthetic",
+            "ri.magritte.main.table-import.synthetic"
+          ],
+          "exit_code": 3,
+          "stdout": "{\"error\": true, \"exit_code\": 3, \"exit_code_name\": \"PermissionDeniedError\", \"message\": \"Connectivity operation failed\", \"exception_type\": \"PermissionDeniedError\", \"traceback\": \"\", \"call_id\": \"c9d523d0-9834-4eb0-b834-848cbc1da0e7\", \"http_status\": 403}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports/ri.magritte.main.table-import.synthetic",
+              "query": "",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "table-import inaccessible/missing read 404",
+          "argv": [
+            "table-import",
+            "get",
+            "ri.magritte.main.source.synthetic",
+            "ri.magritte.main.table-import.synthetic"
+          ],
+          "exit_code": 4,
+          "stdout": "{\"error\": true, \"exit_code\": 4, \"exit_code_name\": \"NotFoundError\", \"message\": \"Connectivity operation failed\", \"exception_type\": \"NotFoundError\", \"traceback\": \"\", \"call_id\": \"517c164f-df33-4bfa-9d1f-63488c240908\", \"http_status\": 404}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports/ri.magritte.main.table-import.synthetic",
+              "query": "",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "build access stop 401",
+          "argv": [
+            "build",
+            "get",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 2,
+          "stdout": "{\"error\": true, \"exit_code\": 2, \"exit_code_name\": \"AuthenticationError\", \"message\": \"Orchestration operation failed\", \"exception_type\": \"UnauthorizedError\", \"traceback\": \"\", \"call_id\": \"63e385cb-3129-458d-ad52-8c8d9c6e781f\", \"http_status\": 401}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic",
+              "query": "",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "name": "build access stop 403",
+          "argv": [
+            "build",
+            "get",
+            "ri.foundry.main.build.synthetic",
+            "--format",
+            "json",
+            "--timeout",
+            "30"
+          ],
+          "exit_code": 3,
+          "stdout": "{\"error\": true, \"exit_code\": 3, \"exit_code_name\": \"PermissionDeniedError\", \"message\": \"Orchestration operation failed\", \"exception_type\": \"PermissionDeniedError\", \"traceback\": \"\", \"call_id\": \"b81ddac4-410d-42c3-ab18-b3302b6876ec\", \"http_status\": 403}\n",
+          "stderr": "",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v2/orchestration/builds/ri.foundry.main.build.synthetic",
+              "query": "",
+              "body": ""
+            }
+          ],
+          "status": "PASS"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "page": "references/01-connection.md",
+      "sha256": "752b98c17df36201da35c91ed55d0fbf4e37c5f2281c1c02f90d994ee69ba650",
+      "prior_sha256": "752b98c17df36201da35c91ed55d0fbf4e37c5f2281c1c02f90d994ee69ba650",
+      "prior_verdict": "PASS",
+      "verdict": "PASS",
+      "example_continuity": true,
+      "unchanged_original_examples": 7
+    },
+    {
+      "page": "references/02-imports.md",
+      "sha256": "3e4ed1bdbc8f0a68ab191c64920b8e3bfa23c2051c04fa2cc2e563264602e0a3",
+      "prior_sha256": "e56612fd619237e28abd76e33474b0ef8eaa8b929f656d17663f921a17365887",
+      "prior_verdict": "FAIL",
+      "verdict": "PASS",
+      "example_continuity": true,
+      "unchanged_original_examples": 13
+    },
+    {
+      "page": "SKILL.md",
+      "sha256": "8844c6204a7c2e048c27b9d076a9d4011de08af4e4bcca8aa9dc5bf0a38525ab",
+      "prior_sha256": "8844c6204a7c2e048c27b9d076a9d4011de08af4e4bcca8aa9dc5bf0a38525ab",
+      "prior_verdict": "PASS",
+      "verdict": "PASS",
+      "example_continuity": true,
+      "unchanged_original_examples": 0
+    }
+  ],
+  "cli_commit": "a3a38ec434fdb046c329b850e716dc541fa87ecd",
+  "sdk_version": "1.101.0",
+  "source_continuity": {
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\connectivity\\scripts\\pal_found_connectivity_cli.py": {
+      "expected_sha256": "d92b3a9127fefc4ea3b8d17ae90a6f5fe3983e6f9653af9f2fec3bbd8627e20d",
+      "actual_sha256": "d92b3a9127fefc4ea3b8d17ae90a6f5fe3983e6f9653af9f2fec3bbd8627e20d",
+      "matches": true
+    },
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\connectivity\\connection.py": {
+      "expected_sha256": "8500b89d6d94e9254d0bffc7faba12df6b47888a770329c16584f2484393a71a",
+      "actual_sha256": "8500b89d6d94e9254d0bffc7faba12df6b47888a770329c16584f2484393a71a",
+      "matches": true
+    },
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\connectivity\\file_import.py": {
+      "expected_sha256": "9c22dcd023eba7deba20bbd6d04acdcbeb8cefffb1211e47a8c1cca2c2f9dffc",
+      "actual_sha256": "9c22dcd023eba7deba20bbd6d04acdcbeb8cefffb1211e47a8c1cca2c2f9dffc",
+      "matches": true
+    },
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\connectivity\\table_import.py": {
+      "expected_sha256": "37c27065c8fc496100e35d3d340a49194c7be51496c12b091fa877b45b3c9f52",
+      "actual_sha256": "37c27065c8fc496100e35d3d340a49194c7be51496c12b091fa877b45b3c9f52",
+      "matches": true
+    },
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\connectivity\\virtual_table.py": {
+      "expected_sha256": "85b7529ce79d215b920e0b58bbc92a3cdb64c98df13a751090b0402634798325",
+      "actual_sha256": "85b7529ce79d215b920e0b58bbc92a3cdb64c98df13a751090b0402634798325",
+      "matches": true
+    },
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\connectivity\\models.py": {
+      "expected_sha256": "b587c5d464af6aaf30cbc52be2bc2a6dacca06105f2ad414a5415e3b43faf59b",
+      "actual_sha256": "b587c5d464af6aaf30cbc52be2bc2a6dacca06105f2ad414a5415e3b43faf59b",
+      "matches": true
+    },
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\docs\\deliverables\\business_design\\BA-DES-015-offline-development-knowledge.md": {
+      "expected_sha256": "baaca7d5ec93d2ed01351d0d8fe3e99521366b7661ac7353e25a6b13d2ee2d20",
+      "actual_sha256": "baaca7d5ec93d2ed01351d0d8fe3e99521366b7661ac7353e25a6b13d2ee2d20",
+      "matches": true
+    },
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\docs\\deliverables\\architecture\\SA-DES-014-offline-development-knowledge\\content-architecture.md": {
+      "expected_sha256": "881af0ed64c21a8244ca8aff59513dd39bf4032e645921e454683960036a3441",
+      "actual_sha256": "881af0ed64c21a8244ca8aff59513dd39bf4032e645921e454683960036a3441",
+      "matches": true
+    },
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-orchestration\\references\\01-build-job.md": {
+      "expected_sha256": "ad78f8b1ed6409c1cdca609fc7028e5f86aa70fd90bddcdc615353f7b885213d",
+      "actual_sha256": "ad78f8b1ed6409c1cdca609fc7028e5f86aa70fd90bddcdc615353f7b885213d",
+      "matches": true
+    }
+  },
+  "new_source_hashes": {
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\connectivity\\scripts\\pal_found_connectivity_cli.py": "d92b3a9127fefc4ea3b8d17ae90a6f5fe3983e6f9653af9f2fec3bbd8627e20d",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\orchestration\\scripts\\pal_found_orchestration_cli.py": "8174661a2e8233ee01b5afa854493e0bdcfe2dfd23a4dd3134d45a948b90942a",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\connectivity\\models.py": "b587c5d464af6aaf30cbc52be2bc2a6dacca06105f2ad414a5415e3b43faf59b",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\models.py": "18168769192c0f7ae0978ffd32a1b53ce95c350062533c29798919c9b5497323"
+  },
+  "harness_sha256": "0226aa09445579126d872a3c8f71a0e2b25cf6e8308f7c23632e220a1f0f9416",
+  "harness_command": ".ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe .ept/tmp/feature015_connectivity_pages_retest_20261029.py",
+  "harness_failure_resolution": "First run used an absent explicit env file; corrected to existing isolated fixture env. Second run incorrectly expected POST build search pageToken in query; source and captured HTTP confirm JSON-body pagination, so assertion corrected. Both original runs retained in previous_harness_runs. Neither failure identifies a candidate defect.",
+  "prior_HTTP_evidence_reused": {
+    "examples": 20,
+    "extras": 4,
+    "basis": "All original examples identical. Previously reviewed source hashes checked below; corrected imports adds local knowledge and follow-up commands only."
+  },
+  "semantic_review": {
+    "CNT-PAGE-01": "PASS: Local build get/jobs commands, exact four build and six job states, branch/output/transaction evidence, bounded polling/paging, access stop and unresolved outcomes present. Orchestration installation/auth prerequisite explicit; no sibling skill required.",
+    "CNT-PAGE-02": "PASS: File SNAPSHOT/APPEND/UPDATE and Table SNAPSHOT/APPEND match SDK literal aliases and adjacent mode docstrings; UPDATE matches file names, not row keys.",
+    "CNT-PAGE-03": "PASS: Uncertain write warns accepted writes may precede client failure; known RID observation, branch search candidates without false request attribution, finite list/get recovery and explicit no-replay/owner resolution guidance cover create/replace/delete/execute. Virtual create lookup limitation explicit.",
+    "finite_budgets": "PASS: Observation 12 reads/5min with 10sec spacing, 4 job pages; uncertain execute 5min/2search pages/10candidates/2job pages each; create 4pages/5min; replace/delete 3reads/2min with 10sec spacing. Repeated cursor stops; partial/absent/ambiguous evidence unresolved.",
+    "full_page": "All three complete pages reviewed; unchanged operation contracts retain previous reviewed evidence. No invented Connectivity status command, unconditional retry advice or live tenant claim found."
+  },
+  "limits": "Actual CLI main, installed SDK1.101.0 and MockTransport prove command parsing, typed responses, serialization, state/field exposure and recovery reads. Manual source-backed prose review proves stated budgets and decisions; no automated workflow/poll implementation claimed. No live permissions, source reachability, real import completion or dataset content validated. Initial FAIL retained; source/ledger/tracker untouched.",
+  "overall_verdict": "PASS"
+}
