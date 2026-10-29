@@ -1,0 +1,24 @@
+[
+  {
+    "command": [
+      "D:/app/Python/Scripts/ruff.exe",
+      "check",
+      "--no-cache",
+      "tests"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "All checks passed!\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "scripts/verify_feature015_release.py"
+    ],
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "stdout": "FEATURE-015 release gate: BLOCKED\n  operation_qa_pending: 219\n    v1.ontologies.Action.apply\n    v1.ontologies.Action.apply_batch\n    v1.ontologies.Action.validate\n  operation_qa_provenance: 219\n    v1.ontologies.Action.apply\n    v1.ontologies.Action.apply_batch\n    v1.ontologies.Action.validate\n  operation_review_provenance: 66\n    v2.filesystem.Resource.restore\n    v2.media_sets.MediaSet.abort\n    v2.media_sets.MediaSet.calculate\n  operation_semantic_pending: 66\n    v2.filesystem.Resource.restore\n    v2.media_sets.MediaSet.abort\n    v2.media_sets.MediaSet.calculate\n  skill_review_pending: 42\n    pal-found-dev\\references\\applications-branching-security.md\n    pal-found-dev\\references\\ontology-compute.md\n    pal-found-dev\\references\\operations.md\n",
+    "stderr": ""
+  }
+]
