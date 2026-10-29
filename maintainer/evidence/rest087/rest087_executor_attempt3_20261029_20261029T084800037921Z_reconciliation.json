@@ -1,0 +1,2624 @@
+{
+  "executor_identity": "/root/rest087_executor_recover_20261029",
+  "execution": "PASS",
+  "generated_at_utc": "2026-10-29T08:48:32.733780+00:00",
+  "started_at_utc": "2026-10-29T08:48:00.037921+00:00",
+  "completed_at_utc": "2026-10-29T08:48:03.189140+00:00",
+  "duration_seconds": 3.1512851999723352,
+  "exit_code": 0,
+  "environment": {
+    "python": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_qa_env\\Scripts\\python.exe",
+    "python_version": "3.11.9",
+    "foundry_sdk": "1.101.0"
+  },
+  "runner_sha256": "5df004b9f468406e4293a9108cb31a28c8a636366444d80185cc5eba716120c8",
+  "original_runner_sha256": "4d6f8c8546e7958af7722c8618b0e71fc20c4d92b29ab47e96113a168922e222",
+  "approved_artifact_hashes": {
+    "rest087_formal_cases.json": "ec9fd434dfe521e02cfbf421f538e28e4f3ff031cd4ea38d4cd6ef8950244b37",
+    "rest087_formal_execute.py": "081ad5038dc56cb4992d08a347adcf83c715d5483598b9d1f38a70c12f599b53",
+    "rest087_integer_independent_review_clean_20261029.json": "5afc4a833decfbe8b3dcc6d2ac191e68b3e3764394cc8d473cdf769570cdc878",
+    "rest087_runtime_independent_review_20261029.json": "fe9e554d8457e375c21e85cc4d7903f8906cf4c776a04dd65f57ed51ce86c5cb",
+    "rest087_fresh_review_cases_20261028.json": "3450e7c120ceb83b9a60ac50a109422447d983e1bafd3208a02e598134120196"
+  },
+  "approved_artifacts_unchanged": true,
+  "current_bindings": {
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\errors.py": "e66acca9ecbf01f88ee23c429084b8db06599475ccfb2c4fc9032c8681bc5ab5",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\agent.py": "a4e8a02cd5e824228a83dd06134389f32876403cff75c5b2bc0317efd0140162",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\aip_agents\\Agent.md": "73f1ab403ff2cab0de86d6e86311c949ec9c515e35b65c9e0624940572526aee",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Agent\\all_sessions.py": "f567932a1da4d2100acbd29adf0c33ecefe761ab23d28b6dc111c1f561a76cec",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Agent\\all_sessions.md": "b6bcd132c5ea0247ab85764c781df31d9871492bbadf9231c69aaf77c380fcad",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Agent\\get.py": "5b27f89c713433f8ac0ffe8bd8afe17835d13cc646976c30dd7b5d3b0b3255b0",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Agent\\get.md": "c917ade7bb0ba2a7d20e07a7c00555963d8a95884311e001592b1e5411c13b5f",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\agent_version.py": "800b64e68d4a3c104e76b792e3ac02d400d13a667186cfb002465417c965c3d8",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\aip_agents\\AgentVersion.md": "0bd61ef3d61b3398e9ea75883cfb0800a5caf1a0d18fc621df9b92e42e68a0a0",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\AgentVersion\\get.py": "72219d32f1394fef0fe8eee87ca045864ed4cb78c6dd0a81e3f2a33951f496d9",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\AgentVersion\\get.md": "5de9bc44272c0702b1f8fb9d3fd288dfe36dc7e1fb77d45aa5396df8710d8a6a",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\AgentVersion\\list.py": "7aa23d9de3dd2a192c31d310bb0323b5eff93bece90f81270707fc8cc41ca6a9",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\AgentVersion\\list.md": "57da694d4438d3ab6c2172a506f323d2ebf9e0998bb20db27878cc233e9034ba",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\content.py": "d7b4c970889956f860350a5794736869405dc81b4ac00999e91595ade4c6e0a1",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\aip_agents\\Content.md": "5579a8bde26d80b7b9e3aaa0bb8d64eb6f65995aa8959e688d57944d36c3b103",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Content\\get.py": "333af48692463c5e7dada36241631e7a4a0cc147a80b7e4c4891e3562858d20e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Content\\get.md": "3a32d90fe5357437228207c85e4a6bb53f91af653c89db821774c963d9a0cc21",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\aip_agents\\Session.md": "def28ab09c747be684993d210d5c1d6e0b34a62bc7cbb92e5f307ee723156329",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Session\\blocking_continue.py": "8b0c938259c89fae05906ee94b83b03f0eac30d5e6577abba12b7e296000d8de",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Session\\blocking_continue.md": "64b98fd4a08795d5b237b41fb32eb10f6116f0c95aafc03d6f341329c6b864ed",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Session\\cancel.py": "ce5a88b8d67d1f1a6d178a94022b5a38bc8fdf2d47990488b9e4fc1eea0e5f7c",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Session\\cancel.md": "7fa297fce0400611b9631a44f60a742782ccd47d2dd657547e91ea886e831949",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\sessions.py": "d76ebc427b958989cb3530cc78482876167addc79ab6000ab0847ae2de2e0985",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Session\\create.md": "0bf3c0e7812cea2143bf9a8dd3f062a708018f9ecd048a1b0de9c1c89034e4ae",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Session\\delete.py": "69746a1599f0d11dda08f573ed8e0620fc9b3090f86a45c088f6269fa2b31500",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Session\\delete.md": "e5425e34833fc4cb791b5d121e053ce24217eb7e5bd603b6b575170bc1ae36c6",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Session\\get.md": "33e1147bb5e8d15241303c4cd3a045aa33c4a02215fca8f098ffd79ba67e0526",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Session\\list.md": "bf3213d061008e41f4b1126ae0c4323e5ebfe829ca51dae0ccdabdf7c7f0dc41",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Session\\rag_context.py": "55bec996b954d9743d9fe5fa15a6a9c9cc5293e3d261a8fdd4b5ceace083e853",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Session\\rag_context.md": "770f91558477846f7e76c39137d1b437cefc95635f19c178d92d6181d1098be9",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Session\\streaming_continue.py": "415f68e0e5e29a414fe48545b50cb91ff23c74646c95fa0ee3db993c59d1ecd8",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Session\\streaming_continue.md": "e6b6e8c9b111a9da6c1cba49a9f21b8e4b5ac2966306418bc02f6e30f73c8118",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Session\\update_title.py": "2aa51c5d3f7861fe3f9d148902c6310d47121485c2078d19208bca88a79a37ee",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Session\\update_title.md": "11efc7027bcfb70f83ebf2a0a1e94766d6cfa501715ea1cf860df29150defc85",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session_trace.py": "24dbb5a1290eb00d8024c12fc2ad50afed584fccc042bd7773a924a4d378df29",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\aip_agents\\SessionTrace.md": "d75a85f1eadf9fc8adae03ced4773fd2eea23b71446d50d55856bacb3de7333e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\SessionTrace\\get.py": "0af811c5057a47548e8512ab02961040c48426ef67b32c60a84a9ee534214c80",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\SessionTrace\\get.md": "109e442b841a15d0e94a5ba7dfca434a3250917f3cc45a7ea0fc90ee1db24413",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\language_models\\errors.py": "8c378be6a526cb11f7abab4fb55574a11ff82efb25924493c547c10e3e825b22",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\language_models\\anthropic_model.py": "23ce4366d538286c933d8a1a2c20fdc22987c8292997f317ff016ea2b1e24b02",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\language_models\\AnthropicModel.md": "d09d1d4c9a1155054e3bccb7d7dfd55cc96429a598b6c80d52b45eb7b1a04f93",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\language_models\\AnthropicModel\\messages.py": "7f983e0b7045a3da4ab8a371bcb56d3f29ccb6bfe3e60e5f5caf0a1921ab8396",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\language_models\\AnthropicModel\\messages.md": "f4574d8ad7de1b2931983cbfe16261e1dcca66e3901d412e23e295970899e1d4",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\language_models\\open_ai_model.py": "f0de3feb8825b82a89ae8442176daf1f8e664d49ec0e4bdaf7c5d9fd3d869550",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\language_models\\OpenAiModel.md": "31b67da745207d50dadbde7c080d3749213e7aee91357bb063e1b7caa2c2aae0",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\language_models\\OpenAiModel\\embeddings.py": "936d477b3ee52922457d9171f71799ab3c55165e91d170877b05d802b75f7682",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\language_models\\OpenAiModel\\embeddings.md": "0aeb614c92c3f6b051ff5a4f035d949f9c8dbaa2b626aee3adcf1ff63280e058",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\errors.py": "cb3fc366b550378dd850c272b53138fc2f0f3fa3cb490ef1b756219431df64c2",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment.py": "afee53ef61ec8fde78a968a24ab7f7695ca85d9f8f89b06fac072eed440896e9",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\Experiment.md": "a66e9b624c0ca8feeb7d97dbef05ea8944612bfcd9b65d0f295c80275e0d2085",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\Experiment\\get.py": "04ef9f4f0613fa28ca562dd70b1982742faec3be0c24022c0ca54e4781e9cadc",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\Experiment\\get.md": "5258b3ab14cbec7fdd758052c0836e29f03103c7bad80993d447da710dee39e2",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\Experiment\\search.py": "f4ba220971a8f9f9d8e5dc70962f29026593c19f75b565fa3c22599f8b1c02cc",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\Experiment\\search.md": "1187c711605a07b761201e3d938f63625ef883903235e310c257a023ffb32d73",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment_artifact_table.py": "d0e7fe85815d7e9591ab5c382e2c068a3b0d9665b6537f8b5a5cad131db4b66d",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\ExperimentArtifactTable.md": "2411a843790965dd35e7e606bde40926a4c96bd0203d038a9f8d74cdc6fca43f",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ExperimentArtifactTable\\invoke_json.py": "3f0ec81e1f8c10cd5d5edeee099f363887e5d7052ba337cfc8b6cd1103752645",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ExperimentArtifactTable\\json.md": "38f088a40aad85bc88fcbb09ce2d26d894aff4486a49cce9f0822e548e58d2a6",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ExperimentArtifactTable\\parquet.py": "9113795992bccca038ab722aef5582374bb2b697c8435329af88c73a600a74ef",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ExperimentArtifactTable\\parquet.md": "ed0f00356f94725b5ac619bb2216047cd3f3b277046a98eeee737d686916ba9a",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment_series.py": "695990e14cdef6fe9ab18fb2fa872c9e5bc8f8b4eeec904c080c735d5822d344",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\ExperimentSeries.md": "cea1435b232f5eafceee779f6a3973998d78c5b2b93dd8fa0837914759a59ff9",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ExperimentSeries\\invoke_json.py": "9c0cef4f03df2c67fde00a32a8bf99f84ff0b2ea9d5665c092a8efedf6bac23f",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ExperimentSeries\\json.md": "a6e4b0f7af3170c3c9217b75bf0d48de83232d05ed1324381301dc738f23e3f8",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ExperimentSeries\\parquet.py": "6db275817357550185dee3ec88c13a6fb750c9a61e4417440db4b5f140134388",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ExperimentSeries\\parquet.md": "94afc1edafc3941bc59e28fc045f9c97e84f79a9c40443537f10b85f562d748e",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\live_deployment.py": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\LiveDeployment.md": "122b0981d2b88708f66c961c8575887eba3cdd637869ee17004bc709973fe502",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\LiveDeployment\\create.py": "8c5922f078d0c60cd4c2fe7732887aefd52404aedd5655f826f9d118df1d5f95",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\LiveDeployment\\create.md": "e5fec6b4dffe076b99515e002634127cdabd66c9ed8ac1101edbcc8f3a9040d8",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\LiveDeployment\\get.py": "50d71d41daaa88a8535f1c22383b30e7be2f5d78617a9c736a719ce6351ab48f",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\LiveDeployment\\get.md": "195d6d987b23fe5123cfef32cb7dc4d932f4ca87f99dd0742fe3395d043b4579",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\LiveDeployment\\list.py": "0515ff6c0f172d2f680ebac66e684520af96f8d1c53d63b31a4b3925fdb578db",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\LiveDeployment\\list.md": "36f1ec79d552c3f203db3832f2577e04a857ff8b53556abf5e14eb6ae305a432",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\LiveDeployment\\replace.py": "83787c0c1bdcffbb05fd4475d6c07c9acdf9655baa29dc6e26e517fae50b4311",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\LiveDeployment\\replace.md": "a2b2352c747b87685ef19218bf7912d2494106ae62decad717cccfa0f5f0b139",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\LiveDeployment\\transform_json.py": "4bb0f46c1cf1b23ecf939d223732453fb05ced84472ac2e5ce5a6d92d3888e0b",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\LiveDeployment\\transform_json.md": "cf65f09ca679f728fb878f5db93d102a4524e02508ab3ab0a4b9bc7e1f1616e1",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\filesystem\\errors.py": "5748ed8cf5b09f681cddb751a115ce513a632b63d1d81381fa924bb779ba55f4",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model.py": "420a4bd19511d5732532fb3ac4252310732e3c4b4ea418551adb2cf68a41cd20",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\Model.md": "952c2245bcc2e0af818cb3c85e91094e275b3b58a73a7b572ef0285fcf355c3e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\Model\\create.py": "dd03624b56503e0e4fa50245c9b4108a6a27980f4fbb68d050b517bf954ed459",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\Model\\create.md": "fd12cd9788ba15a8973381d60734f725ad05d5415ba05817d647f9d39f35fda7",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\Model\\get.py": "620123e171c793e76339e952251c3c8a52665a2bebbbfedb21fdd0cddf28af72",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\Model\\get.md": "33bb0585480acf8f4acc2a7e4665e510dd859b16a9fcd7c895a2236d10f410d8",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\Model\\promote_version.py": "7a629445b41d379bb6eff3172707fc6c487fd40b0f44dc4bc107433162e30d47",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\Model\\promote_version.md": "13b65d428977f5d167a67eb75f0aa2090d1b30c8ec262b9d120289ec23853931",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_function.py": "9bd76546691d4b1a00b3d5dd6f0efcee90b40954c04ac32c3b74708f5a60ccf6",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\ModelFunction.md": "bfc5fb2abe6ee3bbb587976343114f6fa0186f89952ad3c16c04c25e256d4651",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelFunction\\create.py": "b7143adfbca358ec0942c37bfb2867d8587d368dbc77d71adf215b24f1d8d3a6",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelFunction\\create.md": "228cece256b3e6284f153285da6f1ec4e79248845de8a195b7e86a01d4f79cc2",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelFunction\\get.py": "4a61788396c69d32a868bdaa86c5822d8ce096373603a9f41d2dde79feced13b",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelFunction\\get.md": "b55dc199df5115089ae4f90805802dc6c9f6d196e83562e8a6b1e615c5a82098",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelFunction\\replace.py": "9705d3f24fd58bf023e7b931d3a48a5b3768f9f5cc902f14ac8dc1fbda43ec35",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelFunction\\replace.md": "1a8ac7c70ae24683a1273a3bce8ba14315561ab9a250723fcf824cce02674e1a",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio.py": "4ece4867d0046dafdbf4eac2fad4d5348a281b3ea628809b332ff769e161b49e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\ModelStudio.md": "4aa979e6b188b3fa1a157d2bc378584c723bd151f546f3a3a55c0bae1563c8fc",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelStudio\\create.py": "e009753016d83de6e567db5476206c686d8a1d03f9489e59454954914b1f2d74",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudio\\create.md": "1fda272f7444973f9c728ccbb167e531800a551cf7f9c82b840976a53fd96e13",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelStudio\\get.py": "8fad7e7037b8812795a548f7a840ecc9cab637c0174de1a6354fdf897af746a4",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudio\\get.md": "11d5e84ea3fa68239a2108059d86b5005e31c7df9a55193c8d7023095f753fb4",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelStudio\\launch.py": "a56d6644ec040ef60136c8e544cb0ddf5b7f8202d04580979a42e8fe1bc6b71a",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudio\\launch.md": "0e8c25af187a5d56d6c6a06be75228703f12427111f845d6cdc1c6b15c666571",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_config_version.py": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\ModelStudioConfigVersion.md": "4622b5cdcd13de36b07db9bb8ac4891d6bb6a87f87d18229b8d5207740097e43",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelStudioConfigVersion\\create.py": "3212a5645d29e30a3b37dd617219a3022d19fad1ed20e50def496b8307fbaf8a",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudioConfigVersion\\create.md": "6597c89e7997ae6329f8d21645aca459169d9a58dcd1b64161b16941e88a1a4f",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\model_studio_config_version.py": "bca2e06ea53cb591617dccfc8109550bb67e2a87a0ba5c8df61861407589487b",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudioConfigVersion\\get.md": "d4e36787f4f7e1630b4783553e6848b35119eb0533d588fee53bfe6a8317fb97",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelStudioConfigVersion\\latest.py": "79f9640ebe37b503ac9dc86e15183f96ac188245320bd23b4b5aedec8efbc38c",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudioConfigVersion\\latest.md": "6eaef912a230c348c780e6afc63bdfb116b0f3e66c85d15d0a73cdf40822150e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelStudioConfigVersion\\list.py": "d0d3ffcb9333b14a83a686dad38fc72d02e2e43a582ccb3ea0ec7d464b640966",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudioConfigVersion\\list.md": "d9e9480eb93c985cdeda0e406303f792daead42e7658bf01198ab5f1805ae2f3",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_run.py": "e7bf121ae2c96f41fbff874a53102f22c1f774812936aaf49f435e4963093513",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\ModelStudioRun.md": "3e51c788aba7064b0bb4812092bc2879b94de26ba6fc7559d28c4e1c74ea27c8",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelStudioRun\\list.py": "686b7ccfd196a5e94b79ca13b502599532eabd0357f0aaf1afee1695e4c05ee2",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudioRun\\list.md": "310dd71ccfdd76ac9c56f82d3327db15d68cd59bc97e3c26f537b8d342fd3fd5",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_trainer.py": "b4d5fd37b3cebe920077e755adb09d37c9aa499a7b25fa0f46ecc4787d5c09d0",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\ModelStudioTrainer.md": "5b7defcc76ad5af5ebe95f016a5965d07ef5bd62304ff003f8452dc18c4a9892",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelStudioTrainer\\get.py": "f602c0436c666e6ac762b8c2b236ca6449a7ca5b7180fb3e3a6c24b03ce7060d",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudioTrainer\\get.md": "2b12a7629ccfc221eb144f859025e0dc09b1517821e68acd00ae8d1beb039425",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelStudioTrainer\\list.py": "a8e366d5caf5ed27c46dd8a1ae1d37b25202ccf2fa36a25e237e0fa890ca95d6",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudioTrainer\\list.md": "da4257b77376b1b23d96ffe95deabb422064a425d303e36052fce4b49add2181",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_version.py": "ad0514eaa6f22b4f362cc94305b395c4c8c7d3b36bd2b337fc70d57b85655dc8",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\ModelVersion.md": "e0aaacfb7624d34a942bd609ad488ffe66967ac8ce020cba8d9b1a61de3c9a4c",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelVersion\\create.py": "a9348c71e54f13c5a3f12b4bd6f4580eb78136b2dc713048894cce11fe7261ed",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelVersion\\create.md": "7cad9fe9c0f69ebe598237597edd1f6e4f7c8dcebb39aa5e060c53430eb837dc",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelVersion\\get.py": "470489e75af3d0d1871c4267e65eec3823ed988685b4653a3a48ff531788a1a0",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelVersion\\get.md": "e2fda127d732080227d3a4434f86cf32b469318203d601d21e6fda711e08d449",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelVersion\\list.py": "18885841c0b08efd51ac0b22140426e3d888df4e0c5881b5e7b5b6fbebe05a9d",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelVersion\\list.md": "d2f78f543c10cd45eab9b8f3f079ef0e5e4c97078a785035e6df6596581ccd81"
+  },
+  "bindings_unchanged": true,
+  "raw_artifact_sha256": {
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt3_20261029_20261029T084800037921Z.reserved": "9003d14bb5849a6d29947e2c34aac81bbdf53263a558559977126de30cf91aca",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt3_20261029_20261029T084800037921Z_checks.jsonl": "750c0727731ced76fb9bb2e42dfa47f787e372386507a8a546b2dee118fec82b",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt3_20261029_20261029T084800037921Z_inventory.json": "9d3b3d2bf13e238074e87499532422048e467aaa270b28a0623ca24a7b8ec744",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt3_20261029_20261029T084800037921Z_outcome.json": "ea0c0e10acbc093a30949c072d2281189a7f7cb5f6739b2c5c01bc82efcb2326",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt3_20261029_20261029T084800037921Z_results.json": "57ce3f6e24b423f03762ac71745974219ff4f312da452007ffece95b3a8315f4",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt3_20261029_20261029T084800037921Z_stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt3_20261029_20261029T084800037921Z_stdout.log": "750c0727731ced76fb9bb2e42dfa47f787e372386507a8a546b2dee118fec82b"
+  },
+  "raw_artifact_hashes_match_outcome": true,
+  "gate_exit_codes": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "counts": {
+    "operations": 47,
+    "operations_with_recorded_checks": 47,
+    "failed_operation": 0,
+    "operations_not_reached": 0,
+    "declared_errors": 171,
+    "declared_errors_verified": 171,
+    "declared_errors_not_reached": 0,
+    "recorded_pass_checks": 894
+  },
+  "native_sdk_and_direct_rest_checks": [
+    {
+      "case_id": "F087-39",
+      "check": "native_sync_integer_path_denied",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F087-39",
+      "check": "native_raw_integer_path_denied",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F087-39",
+      "check": "native_async_integer_path_denied",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F087-39",
+      "check": "native_async_raw_integer_path_denied",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F087-39",
+      "check": "direct_rest_typed_success_closed",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F087-39",
+      "check": "direct_rest_error_ModelStudioConfigVersionNotFound",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F087-39",
+      "check": "direct_rest_error_ModelStudioNotFound",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F087-39",
+      "check": "direct_rest_unknown_permission_error",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F087-39",
+      "check": "direct_rest_byte_budget",
+      "result": "PASS",
+      "requests": 1
+    },
+    {
+      "case_id": "F087-39",
+      "check": "direct_rest_chunk_budget",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F087-39",
+      "check": "direct_rest_malformed_json",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F087-39",
+      "check": "direct_rest_invalid_version_bool",
+      "result": "PASS",
+      "requests": 0
+    },
+    {
+      "case_id": "F087-39",
+      "check": "direct_rest_invalid_version_str",
+      "result": "PASS",
+      "requests": 0
+    }
+  ],
+  "preserved_attempt1_artifact_sha256": {
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_recover_20261029_20261028T231111547638Z.reserved": "9003d14bb5849a6d29947e2c34aac81bbdf53263a558559977126de30cf91aca",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_recover_20261029_20261028T231111547638Z_checks.jsonl": "59af1ee7c4dfc3f74a56d74e83c9100ce856748c25afd038d76876be58cfd9a0",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_recover_20261029_20261028T231111547638Z_inventory.json": "9f29cd80f2c0c0d7e5ebc9f1a18ad2f608ca3102c5a0d4f2e52430bfacc42d20",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_recover_20261029_20261028T231111547638Z_outcome.json": "6e6e9f2f92dd6517cae1986d5b2b1fee37401f4b23145f1c8db9e190bafb234c",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_recover_20261029_20261028T231111547638Z_results.json": "06f9213dddfc925f929f45344a3932c3468da763646c984bde7ca0eeaffd7c0e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_recover_20261029_20261028T231111547638Z_stderr.log": "8324836840ee72063d5759ad021fd8b8636ac8fcfdb19c8e4584f7107c0a1bc7",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_recover_20261029_20261028T231111547638Z_stdout.log": "59af1ee7c4dfc3f74a56d74e83c9100ce856748c25afd038d76876be58cfd9a0"
+  },
+  "preserved_attempt2_artifact_sha256": {
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt2_20261029_20261028T231809401476Z.reserved": "9003d14bb5849a6d29947e2c34aac81bbdf53263a558559977126de30cf91aca",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt2_20261029_20261028T231809401476Z_checks.jsonl": "cbea62daf675c239bd20a23a4a44d2fa7159b81d7d78cac5c0794e5e454de40f",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt2_20261029_20261028T231809401476Z_inventory.json": "40efb3d41a4f03259c850d545c9a554b352c0fc08e8ed9a2c8cf0fc306947f49",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt2_20261029_20261028T231809401476Z_outcome.json": "f41ef8b61c9d79d0351dcd7b65713cf870953afc6c6daa4cdd3f0e1fbf94335e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt2_20261029_20261028T231809401476Z_results.json": "af806ce9f1c1a28513a7e5257166efc85550a2f73ef12df8c5f6e264044562a0",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt2_20261029_20261028T231809401476Z_stderr.log": "2818564fa16f4b73e7e4d78d7864849a18aa1dfc0af61f6b0507ec310b837d76",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt2_20261029_20261028T231809401476Z_stdout.log": "cbea62daf675c239bd20a23a4a44d2fa7159b81d7d78cac5c0794e5e454de40f"
+  },
+  "preserved_attempt1_reconciliation_sha256": "08175ea940da74527c21f6268b2ad1032347b073d312ddc4ef0954e359cc431f",
+  "preserved_attempt2_reconciliation_sha256": "2762fb91fe305f1567691292e684ad0d56ee1e9cd9e125f5a3cdff66f588eb8c",
+  "prior_failures_unchanged": true,
+  "j14_checks": [
+    {
+      "case_id": "J14",
+      "check": "v2.aip_agents.Agent.get",
+      "result": "PASS",
+      "state": {
+        "session": false,
+        "continued": false,
+        "renamed": false,
+        "deleted": false
+      }
+    },
+    {
+      "case_id": "J14",
+      "check": "v2.aip_agents.AgentVersion.get",
+      "result": "PASS",
+      "state": {
+        "session": false,
+        "continued": false,
+        "renamed": false,
+        "deleted": false
+      }
+    },
+    {
+      "case_id": "J14",
+      "check": "v2.aip_agents.Session.create",
+      "result": "PASS",
+      "state": {
+        "session": true,
+        "continued": false,
+        "renamed": false,
+        "deleted": false
+      }
+    },
+    {
+      "case_id": "J14",
+      "check": "v2.aip_agents.Session.blocking_continue",
+      "result": "PASS",
+      "state": {
+        "session": true,
+        "continued": true,
+        "renamed": false,
+        "deleted": false
+      }
+    },
+    {
+      "case_id": "J14",
+      "check": "v2.aip_agents.Content.get",
+      "result": "PASS",
+      "state": {
+        "session": true,
+        "continued": true,
+        "renamed": false,
+        "deleted": false
+      }
+    },
+    {
+      "case_id": "J14",
+      "check": "v2.aip_agents.SessionTrace.get",
+      "result": "PASS",
+      "state": {
+        "session": true,
+        "continued": true,
+        "renamed": false,
+        "deleted": false
+      }
+    },
+    {
+      "case_id": "J14",
+      "check": "v2.aip_agents.Session.update_title",
+      "result": "PASS",
+      "state": {
+        "session": true,
+        "continued": true,
+        "renamed": true,
+        "deleted": false
+      }
+    },
+    {
+      "case_id": "J14",
+      "check": "v2.aip_agents.Session.get",
+      "result": "PASS",
+      "state": {
+        "session": true,
+        "continued": true,
+        "renamed": true,
+        "deleted": false
+      }
+    },
+    {
+      "case_id": "J14",
+      "check": "v2.aip_agents.Session.delete",
+      "result": "PASS",
+      "state": {
+        "session": true,
+        "continued": true,
+        "renamed": true,
+        "deleted": true
+      }
+    },
+    {
+      "case_id": "J14",
+      "check": "permission_denial_stops_before_mutation",
+      "result": "PASS",
+      "requests": 1,
+      "session_mutations": 0
+    }
+  ],
+  "socket_denial_checks": [
+    {
+      "case_id": "REST087",
+      "check": "socket_traps_active",
+      "result": "PASS"
+    }
+  ],
+  "operations": [
+    {
+      "case_id": "F087-01",
+      "operation": "v2.aip_agents.Agent.all_sessions",
+      "status": "PASS",
+      "recorded_checks": [
+        "ordinary_sync_iterator_terminal_closed",
+        "ordinary_async_iterator_terminal_closed",
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_GetAllSessionsAgentsPermissionDenied",
+        "error_ListSessionsForAgentsPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "finite continuation"
+      ],
+      "declared_errors": [
+        {
+          "name": "GetAllSessionsAgentsPermissionDenied",
+          "expected_check": "error_GetAllSessionsAgentsPermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "ListSessionsForAgentsPermissionDenied",
+          "expected_check": "error_ListSessionsForAgentsPermissionDenied",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-02",
+      "operation": "v2.aip_agents.Agent.get",
+      "status": "PASS",
+      "recorded_checks": [
+        "error_IndependentDenied087",
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_AgentNotFound",
+        "error_AgentVersionNotFound",
+        "error_InvalidAgentVersion",
+        "error_NoPublishedAgentVersion",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_agent_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "AgentNotFound",
+          "expected_check": "error_AgentNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "AgentVersionNotFound",
+          "expected_check": "error_AgentVersionNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "InvalidAgentVersion",
+          "expected_check": "error_InvalidAgentVersion",
+          "recorded_pass": true
+        },
+        {
+          "name": "NoPublishedAgentVersion",
+          "expected_check": "error_NoPublishedAgentVersion",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-03",
+      "operation": "v2.aip_agents.AgentVersion.get",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_AgentNotFound",
+        "error_AgentVersionNotFound",
+        "error_InvalidAgentVersion",
+        "error_NoPublishedAgentVersion",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_agent_rid",
+        "missing_required_agent_version_string",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "AgentNotFound",
+          "expected_check": "error_AgentNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "AgentVersionNotFound",
+          "expected_check": "error_AgentVersionNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "InvalidAgentVersion",
+          "expected_check": "error_InvalidAgentVersion",
+          "recorded_pass": true
+        },
+        {
+          "name": "NoPublishedAgentVersion",
+          "expected_check": "error_NoPublishedAgentVersion",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-04",
+      "operation": "v2.aip_agents.AgentVersion.list",
+      "status": "PASS",
+      "recorded_checks": [
+        "ordinary_sync_iterator_terminal_closed",
+        "ordinary_async_iterator_terminal_closed",
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_AgentNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_agent_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted",
+        "finite continuation"
+      ],
+      "declared_errors": [
+        {
+          "name": "AgentNotFound",
+          "expected_check": "error_AgentNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-05",
+      "operation": "v2.aip_agents.Content.get",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_AgentNotFound",
+        "error_ContentNotFound",
+        "error_SessionNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_agent_rid",
+        "missing_required_session_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "AgentNotFound",
+          "expected_check": "error_AgentNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "ContentNotFound",
+          "expected_check": "error_ContentNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "SessionNotFound",
+          "expected_check": "error_SessionNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-06",
+      "operation": "v2.aip_agents.Session.blocking_continue",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_ActionTypeNotFound",
+        "error_AgentIterationsExceededLimit",
+        "error_AgentNotFound",
+        "error_BlockingContinueSessionPermissionDenied",
+        "error_ContextSizeExceededLimit",
+        "error_FunctionLocatorNotFound",
+        "error_InvalidParameter",
+        "error_InvalidParameterType",
+        "error_ObjectTypeIdsNotFound",
+        "error_ObjectTypeRidsNotFound",
+        "error_OntologyEntitiesNotFound",
+        "error_RateLimitExceeded",
+        "error_RetryAttemptsExceeded",
+        "error_RetryDeadlineExceeded",
+        "error_SessionExecutionFailed",
+        "error_SessionNotFound",
+        "error_SessionTraceIdAlreadyExists",
+        "error_UnsupportedLanguageModelRid",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_agent_rid",
+        "missing_required_session_rid",
+        "missing_required_parameter_inputs",
+        "missing_required_user_input",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "ActionTypeNotFound",
+          "expected_check": "error_ActionTypeNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "AgentIterationsExceededLimit",
+          "expected_check": "error_AgentIterationsExceededLimit",
+          "recorded_pass": true
+        },
+        {
+          "name": "AgentNotFound",
+          "expected_check": "error_AgentNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "BlockingContinueSessionPermissionDenied",
+          "expected_check": "error_BlockingContinueSessionPermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "ContextSizeExceededLimit",
+          "expected_check": "error_ContextSizeExceededLimit",
+          "recorded_pass": true
+        },
+        {
+          "name": "FunctionLocatorNotFound",
+          "expected_check": "error_FunctionLocatorNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "InvalidParameter",
+          "expected_check": "error_InvalidParameter",
+          "recorded_pass": true
+        },
+        {
+          "name": "InvalidParameterType",
+          "expected_check": "error_InvalidParameterType",
+          "recorded_pass": true
+        },
+        {
+          "name": "ObjectTypeIdsNotFound",
+          "expected_check": "error_ObjectTypeIdsNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "ObjectTypeRidsNotFound",
+          "expected_check": "error_ObjectTypeRidsNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "OntologyEntitiesNotFound",
+          "expected_check": "error_OntologyEntitiesNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "RateLimitExceeded",
+          "expected_check": "error_RateLimitExceeded",
+          "recorded_pass": true
+        },
+        {
+          "name": "RetryAttemptsExceeded",
+          "expected_check": "error_RetryAttemptsExceeded",
+          "recorded_pass": true
+        },
+        {
+          "name": "RetryDeadlineExceeded",
+          "expected_check": "error_RetryDeadlineExceeded",
+          "recorded_pass": true
+        },
+        {
+          "name": "SessionExecutionFailed",
+          "expected_check": "error_SessionExecutionFailed",
+          "recorded_pass": true
+        },
+        {
+          "name": "SessionNotFound",
+          "expected_check": "error_SessionNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "SessionTraceIdAlreadyExists",
+          "expected_check": "error_SessionTraceIdAlreadyExists",
+          "recorded_pass": true
+        },
+        {
+          "name": "UnsupportedLanguageModelRid",
+          "expected_check": "error_UnsupportedLanguageModelRid",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-07",
+      "operation": "v2.aip_agents.Session.cancel",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_AgentNotFound",
+        "error_CancelSessionFailedMessageNotInProgress",
+        "error_CancelSessionPermissionDenied",
+        "error_SessionNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_agent_rid",
+        "missing_required_session_rid",
+        "missing_required_message_id",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "AgentNotFound",
+          "expected_check": "error_AgentNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "CancelSessionFailedMessageNotInProgress",
+          "expected_check": "error_CancelSessionFailedMessageNotInProgress",
+          "recorded_pass": true
+        },
+        {
+          "name": "CancelSessionPermissionDenied",
+          "expected_check": "error_CancelSessionPermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "SessionNotFound",
+          "expected_check": "error_SessionNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-08",
+      "operation": "v2.aip_agents.Session.create",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_ActionTypeNotFound",
+        "error_AgentNotFound",
+        "error_AgentVersionNotFound",
+        "error_CreateSessionPermissionDenied",
+        "error_FunctionLocatorNotFound",
+        "error_InvalidAgentVersion",
+        "error_NoPublishedAgentVersion",
+        "error_ObjectTypeIdsNotFound",
+        "error_ObjectTypeRidsNotFound",
+        "error_OntologyEntitiesNotFound",
+        "error_SessionNotFound",
+        "error_UnsupportedLanguageModelRid",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_agent_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "ActionTypeNotFound",
+          "expected_check": "error_ActionTypeNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "AgentNotFound",
+          "expected_check": "error_AgentNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "AgentVersionNotFound",
+          "expected_check": "error_AgentVersionNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "CreateSessionPermissionDenied",
+          "expected_check": "error_CreateSessionPermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "FunctionLocatorNotFound",
+          "expected_check": "error_FunctionLocatorNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "InvalidAgentVersion",
+          "expected_check": "error_InvalidAgentVersion",
+          "recorded_pass": true
+        },
+        {
+          "name": "NoPublishedAgentVersion",
+          "expected_check": "error_NoPublishedAgentVersion",
+          "recorded_pass": true
+        },
+        {
+          "name": "ObjectTypeIdsNotFound",
+          "expected_check": "error_ObjectTypeIdsNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "ObjectTypeRidsNotFound",
+          "expected_check": "error_ObjectTypeRidsNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "OntologyEntitiesNotFound",
+          "expected_check": "error_OntologyEntitiesNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "SessionNotFound",
+          "expected_check": "error_SessionNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "UnsupportedLanguageModelRid",
+          "expected_check": "error_UnsupportedLanguageModelRid",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-09",
+      "operation": "v2.aip_agents.Session.delete",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "error_AgentNotFound",
+        "error_DeleteSessionPermissionDenied",
+        "error_SessionNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "missing_required_agent_rid",
+        "missing_required_session_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "AgentNotFound",
+          "expected_check": "error_AgentNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "DeleteSessionPermissionDenied",
+          "expected_check": "error_DeleteSessionPermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "SessionNotFound",
+          "expected_check": "error_SessionNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-10",
+      "operation": "v2.aip_agents.Session.get",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_AgentNotFound",
+        "error_SessionNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_agent_rid",
+        "missing_required_session_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "AgentNotFound",
+          "expected_check": "error_AgentNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "SessionNotFound",
+          "expected_check": "error_SessionNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-11",
+      "operation": "v2.aip_agents.Session.list",
+      "status": "PASS",
+      "recorded_checks": [
+        "ordinary_sync_iterator_terminal_closed",
+        "ordinary_async_iterator_terminal_closed",
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_AgentNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_agent_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted",
+        "finite continuation"
+      ],
+      "declared_errors": [
+        {
+          "name": "AgentNotFound",
+          "expected_check": "error_AgentNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-12",
+      "operation": "v2.aip_agents.Session.rag_context",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_AgentNotFound",
+        "error_FunctionLocatorNotFound",
+        "error_GetRagContextForSessionPermissionDenied",
+        "error_ObjectTypeIdsNotFound",
+        "error_ObjectTypeRidsNotFound",
+        "error_OntologyEntitiesNotFound",
+        "error_SessionNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_agent_rid",
+        "missing_required_session_rid",
+        "missing_required_parameter_inputs",
+        "missing_required_user_input",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "AgentNotFound",
+          "expected_check": "error_AgentNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "FunctionLocatorNotFound",
+          "expected_check": "error_FunctionLocatorNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "GetRagContextForSessionPermissionDenied",
+          "expected_check": "error_GetRagContextForSessionPermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "ObjectTypeIdsNotFound",
+          "expected_check": "error_ObjectTypeIdsNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "ObjectTypeRidsNotFound",
+          "expected_check": "error_ObjectTypeRidsNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "OntologyEntitiesNotFound",
+          "expected_check": "error_OntologyEntitiesNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "SessionNotFound",
+          "expected_check": "error_SessionNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-13",
+      "operation": "v2.aip_agents.Session.streaming_continue",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_ActionTypeNotFound",
+        "error_AgentNotFound",
+        "error_FunctionLocatorNotFound",
+        "error_InvalidParameter",
+        "error_InvalidParameterType",
+        "error_ObjectTypeIdsNotFound",
+        "error_ObjectTypeRidsNotFound",
+        "error_OntologyEntitiesNotFound",
+        "error_SessionNotFound",
+        "error_SessionTraceIdAlreadyExists",
+        "error_StreamingContinueSessionPermissionDenied",
+        "error_UnsupportedLanguageModelRid",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "missing_required_agent_rid",
+        "missing_required_session_rid",
+        "missing_required_parameter_inputs",
+        "missing_required_user_input",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "ActionTypeNotFound",
+          "expected_check": "error_ActionTypeNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "AgentNotFound",
+          "expected_check": "error_AgentNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "FunctionLocatorNotFound",
+          "expected_check": "error_FunctionLocatorNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "InvalidParameter",
+          "expected_check": "error_InvalidParameter",
+          "recorded_pass": true
+        },
+        {
+          "name": "InvalidParameterType",
+          "expected_check": "error_InvalidParameterType",
+          "recorded_pass": true
+        },
+        {
+          "name": "ObjectTypeIdsNotFound",
+          "expected_check": "error_ObjectTypeIdsNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "ObjectTypeRidsNotFound",
+          "expected_check": "error_ObjectTypeRidsNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "OntologyEntitiesNotFound",
+          "expected_check": "error_OntologyEntitiesNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "SessionNotFound",
+          "expected_check": "error_SessionNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "SessionTraceIdAlreadyExists",
+          "expected_check": "error_SessionTraceIdAlreadyExists",
+          "recorded_pass": true
+        },
+        {
+          "name": "StreamingContinueSessionPermissionDenied",
+          "expected_check": "error_StreamingContinueSessionPermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "UnsupportedLanguageModelRid",
+          "expected_check": "error_UnsupportedLanguageModelRid",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-14",
+      "operation": "v2.aip_agents.Session.update_title",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "error_AgentNotFound",
+        "error_SessionNotFound",
+        "error_UpdateSessionTitlePermissionDenied",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "missing_required_agent_rid",
+        "missing_required_session_rid",
+        "missing_required_title",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "AgentNotFound",
+          "expected_check": "error_AgentNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "SessionNotFound",
+          "expected_check": "error_SessionNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "UpdateSessionTitlePermissionDenied",
+          "expected_check": "error_UpdateSessionTitlePermissionDenied",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-15",
+      "operation": "v2.aip_agents.SessionTrace.get",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_AgentNotFound",
+        "error_SessionNotFound",
+        "error_SessionTraceNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_agent_rid",
+        "missing_required_session_rid",
+        "missing_required_session_trace_id",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "AgentNotFound",
+          "expected_check": "error_AgentNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "SessionNotFound",
+          "expected_check": "error_SessionNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "SessionTraceNotFound",
+          "expected_check": "error_SessionTraceNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-16",
+      "operation": "v2.language_models.AnthropicModel.messages",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_AnthropicMessagesPermissionDenied",
+        "error_MultipleSystemPromptsNotSupported",
+        "error_MultipleToolResultContentsNotSupported",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_anthropic_model_model_id",
+        "missing_required_max_tokens",
+        "missing_required_messages",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "AnthropicMessagesPermissionDenied",
+          "expected_check": "error_AnthropicMessagesPermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "MultipleSystemPromptsNotSupported",
+          "expected_check": "error_MultipleSystemPromptsNotSupported",
+          "recorded_pass": true
+        },
+        {
+          "name": "MultipleToolResultContentsNotSupported",
+          "expected_check": "error_MultipleToolResultContentsNotSupported",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-17",
+      "operation": "v2.language_models.OpenAiModel.embeddings",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_OpenAiEmbeddingsPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_open_ai_model_model_id",
+        "missing_required_input",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "OpenAiEmbeddingsPermissionDenied",
+          "expected_check": "error_OpenAiEmbeddingsPermissionDenied",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-18",
+      "operation": "v2.models.Experiment.get",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_ExperimentNotFound",
+        "error_ModelExperimentNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_model_rid",
+        "missing_required_experiment_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "ExperimentNotFound",
+          "expected_check": "error_ExperimentNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "ModelExperimentNotFound",
+          "expected_check": "error_ModelExperimentNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-19",
+      "operation": "v2.models.Experiment.search",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_InvalidExperimentSearchFilter",
+        "error_SearchExperimentsPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_model_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted",
+        "finite continuation"
+      ],
+      "declared_errors": [
+        {
+          "name": "InvalidExperimentSearchFilter",
+          "expected_check": "error_InvalidExperimentSearchFilter",
+          "recorded_pass": true
+        },
+        {
+          "name": "SearchExperimentsPermissionDenied",
+          "expected_check": "error_SearchExperimentsPermissionDenied",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-20",
+      "operation": "v2.models.ExperimentArtifactTable.json",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_ExperimentArtifactNotFound",
+        "error_JsonExperimentArtifactTablePermissionDenied",
+        "error_ModelExperimentNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "missing_required_model_rid",
+        "missing_required_experiment_rid",
+        "missing_required_experiment_artifact_table_name",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "ExperimentArtifactNotFound",
+          "expected_check": "error_ExperimentArtifactNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "JsonExperimentArtifactTablePermissionDenied",
+          "expected_check": "error_JsonExperimentArtifactTablePermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "ModelExperimentNotFound",
+          "expected_check": "error_ModelExperimentNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-21",
+      "operation": "v2.models.ExperimentArtifactTable.parquet",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_ExperimentArtifactNotFound",
+        "error_ModelExperimentNotFound",
+        "error_ParquetExperimentArtifactTablePermissionDenied",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "missing_required_model_rid",
+        "missing_required_experiment_rid",
+        "missing_required_experiment_artifact_table_name",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "ExperimentArtifactNotFound",
+          "expected_check": "error_ExperimentArtifactNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "ModelExperimentNotFound",
+          "expected_check": "error_ModelExperimentNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "ParquetExperimentArtifactTablePermissionDenied",
+          "expected_check": "error_ParquetExperimentArtifactTablePermissionDenied",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-22",
+      "operation": "v2.models.ExperimentSeries.json",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_ExperimentSeriesNotFound",
+        "error_JsonExperimentSeriesPermissionDenied",
+        "error_ModelExperimentNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_model_rid",
+        "missing_required_experiment_rid",
+        "missing_required_experiment_series_name",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "ExperimentSeriesNotFound",
+          "expected_check": "error_ExperimentSeriesNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "JsonExperimentSeriesPermissionDenied",
+          "expected_check": "error_JsonExperimentSeriesPermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "ModelExperimentNotFound",
+          "expected_check": "error_ModelExperimentNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-23",
+      "operation": "v2.models.ExperimentSeries.parquet",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_ExperimentSeriesNotFound",
+        "error_ModelExperimentNotFound",
+        "error_ParquetExperimentSeriesPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "missing_required_model_rid",
+        "missing_required_experiment_rid",
+        "missing_required_experiment_series_name",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "ExperimentSeriesNotFound",
+          "expected_check": "error_ExperimentSeriesNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "ModelExperimentNotFound",
+          "expected_check": "error_ModelExperimentNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "ParquetExperimentSeriesPermissionDenied",
+          "expected_check": "error_ParquetExperimentSeriesPermissionDenied",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-24",
+      "operation": "v2.models.LiveDeployment.create",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_CreateLiveDeploymentPermissionDenied",
+        "error_GpuTypeNotAvailable",
+        "error_InvalidGpuCount",
+        "error_ModelNotFound",
+        "error_ThreadCountTooHigh",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_deployment_type",
+        "missing_required_runtime_configuration",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "CreateLiveDeploymentPermissionDenied",
+          "expected_check": "error_CreateLiveDeploymentPermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "GpuTypeNotAvailable",
+          "expected_check": "error_GpuTypeNotAvailable",
+          "recorded_pass": true
+        },
+        {
+          "name": "InvalidGpuCount",
+          "expected_check": "error_InvalidGpuCount",
+          "recorded_pass": true
+        },
+        {
+          "name": "ModelNotFound",
+          "expected_check": "error_ModelNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "ThreadCountTooHigh",
+          "expected_check": "error_ThreadCountTooHigh",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-25",
+      "operation": "v2.models.LiveDeployment.get",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_LiveDeploymentNotFound",
+        "error_UnsupportedLiveDeployment",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_live_deployment_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "LiveDeploymentNotFound",
+          "expected_check": "error_LiveDeploymentNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "UnsupportedLiveDeployment",
+          "expected_check": "error_UnsupportedLiveDeployment",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-26",
+      "operation": "v2.models.LiveDeployment.list",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_ModelNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_model_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "ModelNotFound",
+          "expected_check": "error_ModelNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-27",
+      "operation": "v2.models.LiveDeployment.replace",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_GpuTypeNotAvailable",
+        "error_InvalidGpuCount",
+        "error_LiveDeploymentNotFound",
+        "error_ReplaceLiveDeploymentPermissionDenied",
+        "error_ThreadCountTooHigh",
+        "error_UnsupportedLiveDeployment",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_live_deployment_rid",
+        "missing_required_runtime_configuration",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "GpuTypeNotAvailable",
+          "expected_check": "error_GpuTypeNotAvailable",
+          "recorded_pass": true
+        },
+        {
+          "name": "InvalidGpuCount",
+          "expected_check": "error_InvalidGpuCount",
+          "recorded_pass": true
+        },
+        {
+          "name": "LiveDeploymentNotFound",
+          "expected_check": "error_LiveDeploymentNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "ReplaceLiveDeploymentPermissionDenied",
+          "expected_check": "error_ReplaceLiveDeploymentPermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "ThreadCountTooHigh",
+          "expected_check": "error_ThreadCountTooHigh",
+          "recorded_pass": true
+        },
+        {
+          "name": "UnsupportedLiveDeployment",
+          "expected_check": "error_UnsupportedLiveDeployment",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-28",
+      "operation": "v2.models.LiveDeployment.transform_json",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_InferenceFailure",
+        "error_InferenceInvalidInput",
+        "error_InferenceTimeout",
+        "error_LiveDeploymentNotFound",
+        "error_TransformJsonLiveDeploymentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_live_deployment_rid",
+        "missing_required_input",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "InferenceFailure",
+          "expected_check": "error_InferenceFailure",
+          "recorded_pass": true
+        },
+        {
+          "name": "InferenceInvalidInput",
+          "expected_check": "error_InferenceInvalidInput",
+          "recorded_pass": true
+        },
+        {
+          "name": "InferenceTimeout",
+          "expected_check": "error_InferenceTimeout",
+          "recorded_pass": true
+        },
+        {
+          "name": "LiveDeploymentNotFound",
+          "expected_check": "error_LiveDeploymentNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "TransformJsonLiveDeploymentPermissionDenied",
+          "expected_check": "error_TransformJsonLiveDeploymentPermissionDenied",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-29",
+      "operation": "v2.models.Model.create",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_CreateModelPermissionDenied",
+        "error_InvalidDisplayName",
+        "error_ResourceNameAlreadyExists",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_name",
+        "missing_required_parent_folder_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "CreateModelPermissionDenied",
+          "expected_check": "error_CreateModelPermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "InvalidDisplayName",
+          "expected_check": "error_InvalidDisplayName",
+          "recorded_pass": true
+        },
+        {
+          "name": "ResourceNameAlreadyExists",
+          "expected_check": "error_ResourceNameAlreadyExists",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-30",
+      "operation": "v2.models.Model.get",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_ModelNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_model_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "ModelNotFound",
+          "expected_check": "error_ModelNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-31",
+      "operation": "v2.models.Model.promote_version",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_ModelNotFound",
+        "error_ModelVersionNotFound",
+        "error_PromoteVersionModelPermissionDenied",
+        "error_UnsupportedModelSource",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_model_rid",
+        "missing_required_source_model_version_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "ModelNotFound",
+          "expected_check": "error_ModelNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "ModelVersionNotFound",
+          "expected_check": "error_ModelVersionNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "PromoteVersionModelPermissionDenied",
+          "expected_check": "error_PromoteVersionModelPermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "UnsupportedModelSource",
+          "expected_check": "error_UnsupportedModelSource",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-32",
+      "operation": "v2.models.ModelFunction.create",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_CreateModelFunctionPermissionDenied",
+        "error_FunctionAlreadyExists",
+        "error_InvalidFunctionApiName",
+        "error_ModelApiTypeUnsupportedForFunction",
+        "error_ModelNotFound",
+        "error_OntologyBindingRequired",
+        "error_OntologyNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_model_rid",
+        "missing_required_api_name",
+        "missing_required_display_name",
+        "missing_required_is_row_wise",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "CreateModelFunctionPermissionDenied",
+          "expected_check": "error_CreateModelFunctionPermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "FunctionAlreadyExists",
+          "expected_check": "error_FunctionAlreadyExists",
+          "recorded_pass": true
+        },
+        {
+          "name": "InvalidFunctionApiName",
+          "expected_check": "error_InvalidFunctionApiName",
+          "recorded_pass": true
+        },
+        {
+          "name": "ModelApiTypeUnsupportedForFunction",
+          "expected_check": "error_ModelApiTypeUnsupportedForFunction",
+          "recorded_pass": true
+        },
+        {
+          "name": "ModelNotFound",
+          "expected_check": "error_ModelNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "OntologyBindingRequired",
+          "expected_check": "error_OntologyBindingRequired",
+          "recorded_pass": true
+        },
+        {
+          "name": "OntologyNotFound",
+          "expected_check": "error_OntologyNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-33",
+      "operation": "v2.models.ModelFunction.get",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_ModelFunctionNotFound",
+        "error_ModelNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_model_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "ModelFunctionNotFound",
+          "expected_check": "error_ModelFunctionNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "ModelNotFound",
+          "expected_check": "error_ModelNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-34",
+      "operation": "v2.models.ModelFunction.replace",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_InvalidFunctionApiName",
+        "error_ModelApiTypeUnsupportedForFunction",
+        "error_ModelFunctionNotFound",
+        "error_ModelNotFound",
+        "error_OntologyBindingRequired",
+        "error_OntologyNotFound",
+        "error_ReplaceModelFunctionPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_model_rid",
+        "missing_required_api_name",
+        "missing_required_is_row_wise",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "InvalidFunctionApiName",
+          "expected_check": "error_InvalidFunctionApiName",
+          "recorded_pass": true
+        },
+        {
+          "name": "ModelApiTypeUnsupportedForFunction",
+          "expected_check": "error_ModelApiTypeUnsupportedForFunction",
+          "recorded_pass": true
+        },
+        {
+          "name": "ModelFunctionNotFound",
+          "expected_check": "error_ModelFunctionNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "ModelNotFound",
+          "expected_check": "error_ModelNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "OntologyBindingRequired",
+          "expected_check": "error_OntologyBindingRequired",
+          "recorded_pass": true
+        },
+        {
+          "name": "OntologyNotFound",
+          "expected_check": "error_OntologyNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "ReplaceModelFunctionPermissionDenied",
+          "expected_check": "error_ReplaceModelFunctionPermissionDenied",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-35",
+      "operation": "v2.models.ModelStudio.create",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_CreateModelStudioPermissionDenied",
+        "error_InvalidDisplayName",
+        "error_InvalidModelStudioCreateRequest",
+        "error_ResourceNameAlreadyExists",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_name",
+        "missing_required_parent_folder_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "CreateModelStudioPermissionDenied",
+          "expected_check": "error_CreateModelStudioPermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "InvalidDisplayName",
+          "expected_check": "error_InvalidDisplayName",
+          "recorded_pass": true
+        },
+        {
+          "name": "InvalidModelStudioCreateRequest",
+          "expected_check": "error_InvalidModelStudioCreateRequest",
+          "recorded_pass": true
+        },
+        {
+          "name": "ResourceNameAlreadyExists",
+          "expected_check": "error_ResourceNameAlreadyExists",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-36",
+      "operation": "v2.models.ModelStudio.get",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_ModelStudioNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_model_studio_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "ModelStudioNotFound",
+          "expected_check": "error_ModelStudioNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-37",
+      "operation": "v2.models.ModelStudio.launch",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_LaunchModelStudioPermissionDenied",
+        "error_ModelStudioNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_model_studio_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "LaunchModelStudioPermissionDenied",
+          "expected_check": "error_LaunchModelStudioPermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "ModelStudioNotFound",
+          "expected_check": "error_ModelStudioNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-38",
+      "operation": "v2.models.ModelStudioConfigVersion.create",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_CreateConfigValidationError",
+        "error_CreateModelStudioConfigVersionPermissionDenied",
+        "error_ModelStudioNotFound",
+        "error_TrainerNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_model_studio_rid",
+        "missing_required_name",
+        "missing_required_resources",
+        "missing_required_trainer_id",
+        "missing_required_worker_config",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "CreateConfigValidationError",
+          "expected_check": "error_CreateConfigValidationError",
+          "recorded_pass": true
+        },
+        {
+          "name": "CreateModelStudioConfigVersionPermissionDenied",
+          "expected_check": "error_CreateModelStudioConfigVersionPermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "ModelStudioNotFound",
+          "expected_check": "error_ModelStudioNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "TrainerNotFound",
+          "expected_check": "error_TrainerNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-39",
+      "operation": "v2.models.ModelStudioConfigVersion.get",
+      "status": "PASS",
+      "recorded_checks": [
+        "native_sync_integer_path_denied",
+        "native_raw_integer_path_denied",
+        "native_async_integer_path_denied",
+        "native_async_raw_integer_path_denied",
+        "direct_rest_typed_success_closed",
+        "direct_rest_error_ModelStudioConfigVersionNotFound",
+        "direct_rest_error_ModelStudioNotFound",
+        "direct_rest_unknown_permission_error",
+        "direct_rest_byte_budget",
+        "direct_rest_chunk_budget",
+        "direct_rest_malformed_json",
+        "direct_rest_invalid_version_bool",
+        "direct_rest_invalid_version_str"
+      ],
+      "declared_errors": [
+        {
+          "name": "ModelStudioConfigVersionNotFound",
+          "expected_check": "direct_rest_error_ModelStudioConfigVersionNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "ModelStudioNotFound",
+          "expected_check": "direct_rest_error_ModelStudioNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": {
+        "expected_exception": "foundry_sdk._errors.SDKInternalError",
+        "message_contains": "quote_from_bytes() expected bytes",
+        "expected_request_count": 0,
+        "cause": "Pinned SDK integer path is passed to urllib quote without conversion.",
+        "expected_cause": "TypeError",
+        "async_expected_exception": "TypeError",
+        "exact_message": "quote_from_bytes() expected bytes"
+      }
+    },
+    {
+      "case_id": "F087-40",
+      "operation": "v2.models.ModelStudioConfigVersion.latest",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_LatestModelStudioConfigVersionsPermissionDenied",
+        "error_ModelStudioNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_model_studio_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "LatestModelStudioConfigVersionsPermissionDenied",
+          "expected_check": "error_LatestModelStudioConfigVersionsPermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "ModelStudioNotFound",
+          "expected_check": "error_ModelStudioNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-41",
+      "operation": "v2.models.ModelStudioConfigVersion.list",
+      "status": "PASS",
+      "recorded_checks": [
+        "ordinary_sync_iterator_terminal_closed",
+        "ordinary_async_iterator_terminal_closed",
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_ModelStudioNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_model_studio_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted",
+        "finite continuation"
+      ],
+      "declared_errors": [
+        {
+          "name": "ModelStudioNotFound",
+          "expected_check": "error_ModelStudioNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-42",
+      "operation": "v2.models.ModelStudioRun.list",
+      "status": "PASS",
+      "recorded_checks": [
+        "ordinary_sync_iterator_terminal_closed",
+        "ordinary_async_iterator_terminal_closed",
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_ModelStudioConfigVersionNotFound",
+        "error_ModelStudioNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_model_studio_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted",
+        "finite continuation"
+      ],
+      "declared_errors": [
+        {
+          "name": "ModelStudioConfigVersionNotFound",
+          "expected_check": "error_ModelStudioConfigVersionNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "ModelStudioNotFound",
+          "expected_check": "error_ModelStudioNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-43",
+      "operation": "v2.models.ModelStudioTrainer.get",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_ModelStudioTrainerNotFound",
+        "error_TrainerNotFound",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_model_studio_trainer_trainer_id",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "ModelStudioTrainerNotFound",
+          "expected_check": "error_ModelStudioTrainerNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "TrainerNotFound",
+          "expected_check": "error_TrainerNotFound",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-44",
+      "operation": "v2.models.ModelStudioTrainer.list",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "optional omission_typed",
+        "optional omission_raw_closed"
+      ],
+      "declared_errors": [],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-45",
+      "operation": "v2.models.ModelVersion.create",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_CondaSolveFailureForProvidedPackages",
+        "error_CreateModelVersionPermissionDenied",
+        "error_InvalidModelApi",
+        "error_ModelNotFound",
+        "error_UnsupportedModelSource",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_model_rid",
+        "missing_required_backing_repositories",
+        "missing_required_conda_requirements",
+        "missing_required_model_api",
+        "missing_required_model_files",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "CondaSolveFailureForProvidedPackages",
+          "expected_check": "error_CondaSolveFailureForProvidedPackages",
+          "recorded_pass": true
+        },
+        {
+          "name": "CreateModelVersionPermissionDenied",
+          "expected_check": "error_CreateModelVersionPermissionDenied",
+          "recorded_pass": true
+        },
+        {
+          "name": "InvalidModelApi",
+          "expected_check": "error_InvalidModelApi",
+          "recorded_pass": true
+        },
+        {
+          "name": "ModelNotFound",
+          "expected_check": "error_ModelNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "UnsupportedModelSource",
+          "expected_check": "error_UnsupportedModelSource",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-46",
+      "operation": "v2.models.ModelVersion.get",
+      "status": "PASS",
+      "recorded_checks": [
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_ModelVersionNotFound",
+        "error_UnsupportedModelSource",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_model_rid",
+        "missing_required_model_version_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted"
+      ],
+      "declared_errors": [
+        {
+          "name": "ModelVersionNotFound",
+          "expected_check": "error_ModelVersionNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "UnsupportedModelSource",
+          "expected_check": "error_UnsupportedModelSource",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    },
+    {
+      "case_id": "F087-47",
+      "operation": "v2.models.ModelVersion.list",
+      "status": "PASS",
+      "recorded_checks": [
+        "ordinary_sync_iterator_terminal_closed",
+        "ordinary_async_iterator_terminal_closed",
+        "success_typed",
+        "success_raw_closed",
+        "async_typed",
+        "async_raw_closed",
+        "sync_stream_closed",
+        "async_stream_closed",
+        "error_ModelNotFound",
+        "error_UnsupportedModelSource",
+        "error_IndependentPermissionDenied",
+        "error_IndependentPermissionDenied",
+        "timeout_no_retry",
+        "malformed_json",
+        "missing_required_model_rid",
+        "optional omission_typed",
+        "optional omission_raw_closed",
+        "required argument omitted",
+        "finite continuation"
+      ],
+      "declared_errors": [
+        {
+          "name": "ModelNotFound",
+          "expected_check": "error_ModelNotFound",
+          "recorded_pass": true
+        },
+        {
+          "name": "UnsupportedModelSource",
+          "expected_check": "error_UnsupportedModelSource",
+          "recorded_pass": true
+        }
+      ],
+      "native_sdk_limitation": null
+    }
+  ],
+  "limits": [
+    "Passing evidence covers synthetic local HTTP contracts, not live tenant authorization, inference, deployment, billing, idempotency, or server lifecycle effects.",
+    "F087-39 native sync calls raise SDKInternalError with a direct TypeError cause; async calls raise TypeError. All four modes fail before HTTP.",
+    "F087-39 bounded typed direct REST bridge succeeds separately and verifies typed errors, byte and chunk limits, malformed JSON, and invalid version rejection.",
+    "J14 verifies nine synthetic journey steps and denial before mutation.",
+    "The two earlier failed formal attempts remain separate immutable evidence."
+  ]
+}
