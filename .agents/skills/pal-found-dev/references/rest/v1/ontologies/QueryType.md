@@ -23,6 +23,15 @@ and reconcile through authorized reads before repeating.
 
 ## Operations and outcome checks
 
+## Synthetic query schema
+
+Get/list metadata describes `asset-status`, Function version `1.2.3`, with required
+string parameter `assetId`. Its struct output has required string fields `assetId`
+and `status`, matching the [Query execution example](Query.md). A function version
+uses `<major>.<minor>.<patch>` with an optional `-tag`, such as `1.2.3-rc1`.
+The SDK accepts a string alias, so decoding alone cannot establish version validity.
+Compare requested API name with returned metadata before using its parameter schema.
+
 ### get
 
 Read query-type metadata by API name and inspect argument/result schemas before writing

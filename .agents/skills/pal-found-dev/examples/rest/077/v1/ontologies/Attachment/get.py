@@ -22,9 +22,9 @@ EXPECTED_BODY = None
 EXPECTED_QUERY = {}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
 SUCCESS = {'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
- 'filename': 'synthetic-value',
- 'sizeBytes': '1',
- 'mediaType': 'synthetic-value'}
+ 'filename': 'inspection.txt',
+ 'sizeBytes': '19',
+ 'mediaType': 'text/plain'}
 ERRORS = []
 
 def invoke(client):
@@ -46,6 +46,17 @@ def check_request(request):
     elif EXPECTED_BODY is not None:
         assert json.loads(request.content) == EXPECTED_BODY
 
+def check_result(result, request):
+    from email.message import Message
+    media = Message()
+    media['content-type'] = result['mediaType']
+    assert '/' in result['mediaType'] and '*' not in result['mediaType'], 'Expected concrete MIME type'
+    assert media.get_content_type() == 'text/plain', 'Expected text attachment'
+    assert result['filename'] == 'inspection.txt', 'Attachment filename differs from request'
+    assert int(result['sizeBytes']) == len(b'Inspection evidence'), 'Attachment size differs from content'
+    assert result['rid'] == request.url.path.rsplit('/', 1)[-1], 'Attachment RID differs from request'
+
+
 def normalized(value):
     if isinstance(value, dict):
         return {key: normalized(child) for key,child in value.items()}
@@ -63,7 +74,7 @@ def verify():
     calls = []
     def success(request):
         check_request(request)
-        calls.append(True)
+        calls.append(request)
         if isinstance(SUCCESS, bytes):
             return httpx.Response(200, content=SUCCESS)
         if SUCCESS is None:
@@ -72,7 +83,9 @@ def verify():
     with mock_resource(AttachmentClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = normalized(raw.decode())
+            check_result(result, calls[-1])
+            assert result == SUCCESS
         finally:
             raw.close()
     assert len(calls) == 1

@@ -21,9 +21,11 @@ EXPECTED_PATH = '/api/v1/ontologies/ri.synthetic.main.resource.00000000-0000-000
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'orderBy': None, 'pageSize': None, 'pageToken': None, 'properties': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'data': [{'properties': {},
+SUCCESS = {'data': [{'properties': {'assetId': 'A-1',
+                          'status': 'ready',
+                          'inspectionDate': '2026-10-01'},
            'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}],
- 'totalCount': '1'}
+           'totalCount': '1'}
 ERRORS = []
 
 def invoke(client):
@@ -45,6 +47,15 @@ def check_request(request):
     elif EXPECTED_BODY is not None:
         assert json.loads(request.content) == EXPECTED_BODY
 
+def check_result(result, request):
+    objects = result.get('data', [result])
+    for item in objects:
+        props = item['properties']
+        assert props['assetId'] == 'A-1', 'Missing or wrong Asset identity'
+        assert props['status'] == 'ready'
+        datetime.date.fromisoformat(props['inspectionDate'])
+
+
 def normalized(value):
     if isinstance(value, dict):
         return {key: normalized(child) for key,child in value.items()}
@@ -62,7 +73,7 @@ def verify():
     calls = []
     def success(request):
         check_request(request)
-        calls.append(True)
+        calls.append(request)
         if isinstance(SUCCESS, bytes):
             return httpx.Response(200, content=SUCCESS)
         if SUCCESS is None:
@@ -71,7 +82,9 @@ def verify():
     with mock_resource(OntologyObjectClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = normalized(raw.decode())
+            check_result(result, calls[-1])
+            assert result == SUCCESS
         finally:
             raw.close()
     assert len(calls) == 1
