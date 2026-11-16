@@ -627,5 +627,3 @@ def test_native_iterator_or_manual_response_pagination_stops_after_finite_final_
                 actual = normalized(first.data + second.data)
     assert actual == expected_rows
     assert calls == [None, "next-fixture"] and all(response.is_closed for response in responses)
-
-
