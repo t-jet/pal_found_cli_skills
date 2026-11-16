@@ -1,0 +1,71 @@
+{
+  "scope": "Core source-conflict qualifier plus frozen REST073 author correction; independent QA pending",
+  "worktree": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes",
+  "base_sha": "3d5536cfe024bed6d8dbfbdc27cc65f700b7e95f",
+  "core_files": {
+    "scripts/offline_rest_catalog.py": "029c62981c4c5fafced71435a0eb91d695798b326b6685618a8a932265d4d050",
+    ".agents/skills/pal-found-dev/references/rest/contracts/v2/filesystem/Resource/restore.md": "937bc251854f753f89657b04f30c97bfe1479f7c1e7bda7a1ac162e7a88e3b7d",
+    "tests/test_offline_rest_catalog_restore.py": "30061d0a3d6e2126e8f9ea9d3c84d3b65494f440de93ca81d07e3cf3e43ec431"
+  },
+  "frozen_author_files_unchanged": {
+    ".agents/skills/pal-found-dev/examples/rest/073/v2/filesystem/Resource/restore.py": "aa2495ac330d8a7b9f3499b1a8e2ac142242f2c0c714918de8a9ab7b556ff89f",
+    ".agents/skills/pal-found-dev/references/rest/v2/filesystem/Resource.md": "675410c8fa6ea907c387b23f2304758777ed292294cb87bc65c9ad165910e2d1",
+    "tests/test_offline_rest_073_restore.py": "1894b8e223a0febc80b71f57302e14bc23eec4dfa9f586d9717d8879d26500af"
+  },
+  "combined_dirty_manifest": {
+    ".agents/skills/pal-found-dev/examples/rest/073/v2/filesystem/Resource/restore.py": "aa2495ac330d8a7b9f3499b1a8e2ac142242f2c0c714918de8a9ab7b556ff89f",
+    ".agents/skills/pal-found-dev/references/rest/contracts/v2/filesystem/Resource/restore.md": "937bc251854f753f89657b04f30c97bfe1479f7c1e7bda7a1ac162e7a88e3b7d",
+    ".agents/skills/pal-found-dev/references/rest/v2/filesystem/Resource.md": "675410c8fa6ea907c387b23f2304758777ed292294cb87bc65c9ad165910e2d1",
+    "scripts/offline_rest_catalog.py": "029c62981c4c5fafced71435a0eb91d695798b326b6685618a8a932265d4d050",
+    "tests/test_offline_rest_073_restore.py": "1894b8e223a0febc80b71f57302e14bc23eec4dfa9f586d9717d8879d26500af",
+    "tests/test_offline_rest_catalog_restore.py": "30061d0a3d6e2126e8f9ea9d3c84d3b65494f440de93ca81d07e3cf3e43ec431"
+  },
+  "source_bindings": {
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\filesystem\\resource.py": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\filesystem\\errors.py": "5748ed8cf5b09f681cddb751a115ce513a632b63d1d81381fa924bb779ba55f4",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\filesystem\\models.py": "5e0103eb015b029d099a5dd40ebd42c3f23dacd487c26c2115a9f3a54b1d322f",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\api_client.py": "7e6ba19fa9732b18b6f22d69f46c40b1a10af4533ce720c39df52c60ca191225",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_errors\\timeout_error.py": "021d667b182719932504f572298f479ded4e44dcdde9d518d900a349c0d8aae2"
+  },
+  "restore_method_sha256": "7237227e650865e900f80f1b86a0b46f5f8bb44ee8a2087b4d7b392bc6e71007",
+  "sdk_release": "1.101.0",
+  "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+  "proofs": {
+    "feature015_restore_core_regeneration_20261116.json": "1a5f8e47d3e553ad857a4810075ff813d696241c532174be2208cf4725f17bf7",
+    "feature015_restore_core_baseline_comparison_20261116.json": "b651b2487767a4b3af6702e08cde576eff8f5bf6a25e37a9f7d8fa3c2076e4da",
+    "feature015_restore_core_tests_20261116.xml": "cce1d03f43746abd02d72733f43bf0d9b995a49693e00bacbf2d3a588ffba026"
+  },
+  "core_compile": "PASS in memory",
+  "contract_local_links_verified": 16,
+  "test_proof": {
+    "command": "prepared QA Python -m pytest tests/test_offline_rest_catalog_restore.py tests/test_offline_rest_073_restore.py -q",
+    "passed": 33,
+    "exit_code": 0,
+    "network": "DNS/connect/connect_ex denied"
+  },
+  "regeneration": {
+    "full_frozen_output_idempotent": true,
+    "baseline_to_patch_delta": [
+      ".agents/skills/pal-found-dev/references/rest/contracts/v2/filesystem/Resource/restore.md"
+    ],
+    "preexisting_full_tree_drift": [
+      ".agents/skills/pal-found-dev/references/rest/contracts/v2/admin/Marking/parse_classifications.md",
+      ".agents/skills/pal-found-dev/references/rest/models/v2/filesystem/models/FolderType.md",
+      ".agents/skills/pal-found-dev/references/rest/models/v2/filesystem/models/Organization.md",
+      ".agents/skills/pal-found-dev/references/rest/models/v2/filesystem/models/ProjectResourceReferenceUnion.md",
+      ".agents/skills/pal-found-dev/references/rest/models/v2/ontologies/models/QueryAggregationValueType.md",
+      "maintainer/rest-model-register.json",
+      "maintainer/rest-model-semantic-matrix.json"
+    ],
+    "claim": "Patch reproduces only restore qualifier; full current tree has seven preexisting regeneration differences, left unchanged."
+  },
+  "boundaries": {
+    "tracker_writes": 0,
+    "live_calls": 0,
+    "commits": 0,
+    "pushes": 0,
+    "review_register_changes": 0,
+    "semantic_promotion": false,
+    "server_policy": "unverified"
+  }
+}

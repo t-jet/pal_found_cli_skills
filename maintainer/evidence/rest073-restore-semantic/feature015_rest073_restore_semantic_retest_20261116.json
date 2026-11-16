@@ -1,0 +1,1650 @@
+{
+  "story": "DEV-STORY-073",
+  "development": "DEV-068",
+  "core_development": "DEV-064",
+  "reviewer": "/root/restore_last_qa_recover_20261116",
+  "candidate_sha": "3d5536cfe024bed6d8dbfbdc27cc65f700b7e95f",
+  "manifest_sha256": "659afb12a6877eed8ea3f26f2ba6cf6cef8ed6974851a8e1b5f02263cca81467",
+  "sdk_version": "1.101.0",
+  "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+  "operations": [
+    {
+      "id": "v2.filesystem.Resource.restore",
+      "verdict": "PASS",
+      "runtime_contract_verdict": "PASS",
+      "server_policy_verdict": "UNCERTAIN",
+      "acceptance_assessment": {
+        "decision_and_prerequisites": "PASS: exact identity, enrollment, owner-confirmed RID/parent/path and three TrashStatus states are explicit",
+        "expected_result_and_validation": "PASS: None is separated from observed exact-RID state; ancestor state requires separate authorized reads",
+        "reconciliation": "PASS: one write and at most two reads, bounded retries/timeouts, denial/missing/conflict stops, no blind replay",
+        "source_difference": "PASS: original SDK purpose retained and paired with ResourceNotDirectlyTrashed; policy remains unverified",
+        "local_models_errors_modes": "PASS: complete reachable definition closure checked against installed frozen SDK, wrappers and cleanup locally described"
+      },
+      "source_conflict": {
+        "disposition": "Explained bounded uncertainty; no server no-op or idempotency guarantee asserted",
+        "source_method_sha256": "7237227e650865e900f80f1b86a0b46f5f8bb44ee8a2087b4d7b392bc6e71007",
+        "server_policy": "UNCERTAIN",
+        "waiver": false
+      }
+    }
+  ],
+  "raw_proof": [
+    {
+      "case": "ordinary success 204",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": null
+    },
+    {
+      "case": "raw success closes response",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "204/None/closed"
+    },
+    {
+      "case": "exact SDK error ResourceNotDirectlyTrashed",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "ResourceNotDirectlyTrashed"
+    },
+    {
+      "case": "exact SDK error ResourceNotFound",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "ResourceNotFound"
+    },
+    {
+      "case": "exact SDK error RestoreResourcePermissionDenied",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "RestoreResourcePermissionDenied"
+    },
+    {
+      "case": "active preflight skips write",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "Desired state observed; no restore sent"
+    },
+    {
+      "case": "ancestor preflight stops",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "STOP: authorized owner must reconcile original folder restoration"
+    },
+    {
+      "case": "204 readback NOT_TRASHED",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "Desired state observed after attempt; no replay"
+    },
+    {
+      "case": "204 readback ANCESTOR_TRASHED",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "STOP: authorized owner must reconcile original folder restoration"
+    },
+    {
+      "case": "204 readback DIRECTLY_TRASHED",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "STOP: still directly trashed; reconcile outcome/policy with authorized owner"
+    },
+    {
+      "case": "not-direct readback NOT_TRASHED",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "Desired state observed after attempt; no replay"
+    },
+    {
+      "case": "not-direct readback ANCESTOR_TRASHED",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "STOP: authorized owner must reconcile original folder restoration"
+    },
+    {
+      "case": "not-direct readback DIRECTLY_TRASHED",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "STOP: still directly trashed; reconcile outcome/policy with authorized owner"
+    },
+    {
+      "case": "timeout readback NOT_TRASHED",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "Desired state observed after attempt; no replay"
+    },
+    {
+      "case": "timeout readback ANCESTOR_TRASHED",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "STOP: authorized owner must reconcile original folder restoration"
+    },
+    {
+      "case": "timeout readback DIRECTLY_TRASHED",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "STOP: still directly trashed; reconcile outcome/policy with authorized owner"
+    },
+    {
+      "case": "mismatch rid after=False",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "STOP: reconcile RID, parent and path with authorized owner"
+    },
+    {
+      "case": "mismatch rid after=True",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "STOP: reconcile RID, parent and path with authorized owner"
+    },
+    {
+      "case": "mismatch parentFolderRid after=False",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "STOP: reconcile RID, parent and path with authorized owner"
+    },
+    {
+      "case": "mismatch parentFolderRid after=True",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "STOP: reconcile RID, parent and path with authorized owner"
+    },
+    {
+      "case": "mismatch path after=False",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "STOP: reconcile RID, parent and path with authorized owner"
+    },
+    {
+      "case": "mismatch path after=True",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "STOP: reconcile RID, parent and path with authorized owner"
+    },
+    {
+      "case": "read denied after=False",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "PermissionDeniedError"
+    },
+    {
+      "case": "read missing after=False",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "ResourceNotFound"
+    },
+    {
+      "case": "read timeout after=False",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "ReadTimeout"
+    },
+    {
+      "case": "read denied after=True",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "PermissionDeniedError"
+    },
+    {
+      "case": "read missing after=True",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "ResourceNotFound"
+    },
+    {
+      "case": "read timeout after=True",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "ReadTimeout"
+    },
+    {
+      "case": "restore stops ResourceNotFound",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "ResourceNotFound"
+    },
+    {
+      "case": "restore stops RestoreResourcePermissionDenied",
+      "verdict": "PASS",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+          "timeout": {
+            "connect": 30,
+            "read": 30,
+            "write": 30,
+            "pool": 30
+          }
+        }
+      ],
+      "outcome": "RestoreResourcePermissionDenied"
+    }
+  ],
+  "model_closure": {
+    "documents": 28,
+    "unresolved": [],
+    "exact_source_checks": [
+      {
+        "symbol": "foundry_sdk._core.utils.AwareDatetime",
+        "exact_definition": "PASS",
+        "page_sha256": "cb790e832ad9c9da79d728855fa1eef3ad96bfdc2862da210fb943c7a3f370e1",
+        "source_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded"
+      },
+      {
+        "symbol": "foundry_sdk._core.model_base.ModelBase",
+        "exact_definition": "PASS",
+        "page_sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587",
+        "source_sha256": "9991688d13830547f029b78995d0b822d1ac63b2f99911d876277515c44dbb1e"
+      },
+      {
+        "symbol": "foundry_sdk._core.api_client.ResponseMode",
+        "exact_definition": "PASS",
+        "page_sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f",
+        "source_sha256": "7e6ba19fa9732b18b6f22d69f46c40b1a10af4533ce720c39df52c60ca191225"
+      },
+      {
+        "symbol": "foundry_sdk._core.utils.RID",
+        "exact_definition": "PASS",
+        "page_sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2",
+        "source_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded"
+      },
+      {
+        "symbol": "foundry_sdk._core.api_client.SdkInternal",
+        "exact_definition": "PASS",
+        "page_sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca",
+        "source_sha256": "7e6ba19fa9732b18b6f22d69f46c40b1a10af4533ce720c39df52c60ca191225"
+      },
+      {
+        "symbol": "foundry_sdk._core.utils.Timeout",
+        "exact_definition": "PASS",
+        "page_sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a",
+        "source_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded"
+      },
+      {
+        "symbol": "foundry_sdk._core.utils.UUID",
+        "exact_definition": "PASS",
+        "page_sha256": "19c51bc4bb69f8689a41de36b7f68d411988537c89900a13e8675de0cabc34c4",
+        "source_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded"
+      },
+      {
+        "symbol": "foundry_sdk.v2.core.models.CreatedBy",
+        "exact_definition": "PASS",
+        "page_sha256": "5ee1daea100d445e01481221aa10283603707d9e0df524c62b7236bc41c73fb1",
+        "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d"
+      },
+      {
+        "symbol": "foundry_sdk.v2.core.models.CreatedTime",
+        "exact_definition": "PASS",
+        "page_sha256": "e288b4d67bf0f7dc74de03e72e5cd0113bbc64ae131fa129d7bd57c9cbd785a1",
+        "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d"
+      },
+      {
+        "symbol": "foundry_sdk.v2.core.models.PrincipalId",
+        "exact_definition": "PASS",
+        "page_sha256": "4be55b5727e53d75356a4f4e424fc5055c3b652dfbf7b130364fff09d101ed33",
+        "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d"
+      },
+      {
+        "symbol": "foundry_sdk.v2.core.models.UpdatedBy",
+        "exact_definition": "PASS",
+        "page_sha256": "7adc3c3c96047827219053e5bf254d7d2bc5e55bbe1c5842f43bcae088d56208",
+        "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d"
+      },
+      {
+        "symbol": "foundry_sdk.v2.core.models.UpdatedTime",
+        "exact_definition": "PASS",
+        "page_sha256": "8fd017c97221c6afa227ca0e080cb44438a722425bea315b0ba30e86e9716fbd",
+        "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d"
+      },
+      {
+        "symbol": "foundry_sdk.v2.core.models.UserId",
+        "exact_definition": "PASS",
+        "page_sha256": "57fb64cb33f7cb4ade4f3fe5cb989205a17171115a91d9478322d857c5a15e3e",
+        "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d"
+      },
+      {
+        "symbol": "foundry_sdk.v2.filesystem.errors.ResourceNotDirectlyTrashed",
+        "exact_definition": "PASS",
+        "page_sha256": "eb47fdfc9cf54825790a6defee44ad833025bc9c3b90d591f442efe71fe9b8ac",
+        "source_sha256": "5748ed8cf5b09f681cddb751a115ce513a632b63d1d81381fa924bb779ba55f4"
+      },
+      {
+        "symbol": "foundry_sdk.v2.filesystem.errors.ResourceNotDirectlyTrashedParameters",
+        "exact_definition": "PASS",
+        "page_sha256": "aa933d7d745d50f9623ca16f7ef35f8f12f6245ad8df9d3990676a1c1d780891",
+        "source_sha256": "5748ed8cf5b09f681cddb751a115ce513a632b63d1d81381fa924bb779ba55f4"
+      },
+      {
+        "symbol": "foundry_sdk.v2.filesystem.errors.ResourceNotFound",
+        "exact_definition": "PASS",
+        "page_sha256": "b88b63430cad545431397b8d0840717199d9a2af4c6aa1ab2df42f67e7510e0e",
+        "source_sha256": "5748ed8cf5b09f681cddb751a115ce513a632b63d1d81381fa924bb779ba55f4"
+      },
+      {
+        "symbol": "foundry_sdk.v2.filesystem.errors.ResourceNotFoundParameters",
+        "exact_definition": "PASS",
+        "page_sha256": "e8e9d51a788aa68cd5dc286ce0f9320ff5b388350fc09e25671f2a921344696f",
+        "source_sha256": "5748ed8cf5b09f681cddb751a115ce513a632b63d1d81381fa924bb779ba55f4"
+      },
+      {
+        "symbol": "foundry_sdk.v2.filesystem.errors.RestoreResourcePermissionDenied",
+        "exact_definition": "PASS",
+        "page_sha256": "e56023ed98a362f2e471fff863540d95525ecb0865d4bad3f7bf8256b37d3f45",
+        "source_sha256": "5748ed8cf5b09f681cddb751a115ce513a632b63d1d81381fa924bb779ba55f4"
+      },
+      {
+        "symbol": "foundry_sdk.v2.filesystem.errors.RestoreResourcePermissionDeniedParameters",
+        "exact_definition": "PASS",
+        "page_sha256": "0f757259ef9a74d27ccbf9eaf18d26bce7adb02ad406da9ed59e7c06e22da23e",
+        "source_sha256": "5748ed8cf5b09f681cddb751a115ce513a632b63d1d81381fa924bb779ba55f4"
+      },
+      {
+        "symbol": "foundry_sdk.v2.filesystem.models.FolderRid",
+        "exact_definition": "PASS",
+        "page_sha256": "dc80c8e77a2660742e20098a3d9170f1c125cd33f4b98bbced4ccafd442843cd",
+        "source_sha256": "5e0103eb015b029d099a5dd40ebd42c3f23dacd487c26c2115a9f3a54b1d322f"
+      },
+      {
+        "symbol": "foundry_sdk.v2.filesystem.models.ProjectRid",
+        "exact_definition": "PASS",
+        "page_sha256": "c1580e34fdd77106033f7fd5ce1b56a436e644e443d461b98458b1d3c20afca5",
+        "source_sha256": "5e0103eb015b029d099a5dd40ebd42c3f23dacd487c26c2115a9f3a54b1d322f"
+      },
+      {
+        "symbol": "foundry_sdk.v2.filesystem.models.Resource",
+        "exact_definition": "PASS",
+        "page_sha256": "e4acdd2fe9f25ca58d7743ed4fe63e2626357323c221b18476e85041305cfdda",
+        "source_sha256": "5e0103eb015b029d099a5dd40ebd42c3f23dacd487c26c2115a9f3a54b1d322f"
+      },
+      {
+        "symbol": "foundry_sdk.v2.filesystem.models.ResourceDisplayName",
+        "exact_definition": "PASS",
+        "page_sha256": "2839c930e7660f94316d47974b2e9817b975c0d6b055af9d585eaa869b0f8b6e",
+        "source_sha256": "5e0103eb015b029d099a5dd40ebd42c3f23dacd487c26c2115a9f3a54b1d322f"
+      },
+      {
+        "symbol": "foundry_sdk.v2.filesystem.models.ResourcePath",
+        "exact_definition": "PASS",
+        "page_sha256": "0711c42897ec1e06373270645ddeacfae47b5f1d567cb5baff74c006af0b52e5",
+        "source_sha256": "5e0103eb015b029d099a5dd40ebd42c3f23dacd487c26c2115a9f3a54b1d322f"
+      },
+      {
+        "symbol": "foundry_sdk.v2.filesystem.models.ResourceRid",
+        "exact_definition": "PASS",
+        "page_sha256": "6719a3f6c961567c1fd4baff9d5f67953a7e0a544a95812c574c3de433e24390",
+        "source_sha256": "5e0103eb015b029d099a5dd40ebd42c3f23dacd487c26c2115a9f3a54b1d322f"
+      },
+      {
+        "symbol": "foundry_sdk.v2.filesystem.models.ResourceType",
+        "exact_definition": "PASS",
+        "page_sha256": "f95aa7c401926b1205262680cc039c721c81756a5d85b0667a3b42d8cf85f49c",
+        "source_sha256": "5e0103eb015b029d099a5dd40ebd42c3f23dacd487c26c2115a9f3a54b1d322f"
+      },
+      {
+        "symbol": "foundry_sdk.v2.filesystem.models.SpaceRid",
+        "exact_definition": "PASS",
+        "page_sha256": "7582bdf25f7d630bf31f4097cbe5bc005411737589cc56f3a6b5b34f4a062fa0",
+        "source_sha256": "5e0103eb015b029d099a5dd40ebd42c3f23dacd487c26c2115a9f3a54b1d322f"
+      },
+      {
+        "symbol": "foundry_sdk.v2.filesystem.models.TrashStatus",
+        "exact_definition": "PASS",
+        "page_sha256": "f4ef4cdf7458343f560e1f0cef203bf1c530cb485e095387c38e3b698d921b1b",
+        "source_sha256": "5e0103eb015b029d099a5dd40ebd42c3f23dacd487c26c2115a9f3a54b1d322f"
+      }
+    ]
+  },
+  "local_links": [
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "../../../_core/ModelBase.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "../../core/models/CreatedBy.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "../../core/models/CreatedTime.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "../../core/models/UpdatedBy.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "../../core/models/UpdatedTime.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "FolderRid.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "ProjectRid.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "ResourceDisplayName.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "ResourcePath.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "ResourceRid.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "ResourceType.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "SpaceRid.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "TrashStatus.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "Resource.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "../../../_core/ModelBase.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "../../core/models/CreatedBy.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "../../core/models/CreatedTime.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "../../core/models/UpdatedBy.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "../../core/models/UpdatedTime.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "FolderRid.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "ProjectRid.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "ResourceDisplayName.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "ResourcePath.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "ResourceRid.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "ResourceType.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "SpaceRid.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "TrashStatus.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\Resource.md",
+      "target": "Resource.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\TrashStatus.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\TrashStatus.md",
+      "target": "TrashStatus.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\SpaceRid.md",
+      "target": "../../../_core/RID.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\SpaceRid.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\SpaceRid.md",
+      "target": "SpaceRid.md"
+    },
+    {
+      "from": "references\\rest\\models\\_core\\RID.md",
+      "target": "../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\_core\\RID.md",
+      "target": "RID.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\ResourceType.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\ResourceType.md",
+      "target": "ResourceType.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\ResourceRid.md",
+      "target": "../../../_core/RID.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\ResourceRid.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\ResourceRid.md",
+      "target": "ResourceRid.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\ResourcePath.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\ResourcePath.md",
+      "target": "ResourcePath.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\ResourceDisplayName.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\ResourceDisplayName.md",
+      "target": "ResourceDisplayName.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\ProjectRid.md",
+      "target": "../../../_core/RID.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\ProjectRid.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\ProjectRid.md",
+      "target": "ProjectRid.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\FolderRid.md",
+      "target": "../../../_core/RID.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\FolderRid.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\models\\FolderRid.md",
+      "target": "FolderRid.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\core\\models\\UpdatedTime.md",
+      "target": "../../../_core/AwareDatetime.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\core\\models\\UpdatedTime.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\core\\models\\UpdatedTime.md",
+      "target": "UpdatedTime.md"
+    },
+    {
+      "from": "references\\rest\\models\\_core\\AwareDatetime.md",
+      "target": "../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\_core\\AwareDatetime.md",
+      "target": "AwareDatetime.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\core\\models\\UpdatedBy.md",
+      "target": "UserId.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\core\\models\\UpdatedBy.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\core\\models\\UpdatedBy.md",
+      "target": "UpdatedBy.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\core\\models\\UserId.md",
+      "target": "../../../_core/UUID.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\core\\models\\UserId.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\core\\models\\UserId.md",
+      "target": "UserId.md"
+    },
+    {
+      "from": "references\\rest\\models\\_core\\UUID.md",
+      "target": "../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\_core\\UUID.md",
+      "target": "UUID.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\core\\models\\CreatedTime.md",
+      "target": "../../../_core/AwareDatetime.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\core\\models\\CreatedTime.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\core\\models\\CreatedTime.md",
+      "target": "CreatedTime.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\core\\models\\CreatedBy.md",
+      "target": "PrincipalId.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\core\\models\\CreatedBy.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\core\\models\\CreatedBy.md",
+      "target": "CreatedBy.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\core\\models\\PrincipalId.md",
+      "target": "../../../_core/UUID.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\core\\models\\PrincipalId.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\core\\models\\PrincipalId.md",
+      "target": "PrincipalId.md"
+    },
+    {
+      "from": "references\\rest\\models\\_core\\ModelBase.md",
+      "target": "../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\_core\\ModelBase.md",
+      "target": "ModelBase.md"
+    },
+    {
+      "from": "references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md",
+      "target": "../../../../v2/filesystem/Resource.md#restore"
+    },
+    {
+      "from": "references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md",
+      "target": "../../../../client-behavior.md"
+    },
+    {
+      "from": "references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md",
+      "target": "../../../../models/_core/ResponseMode.md"
+    },
+    {
+      "from": "references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md",
+      "target": "../../../../models/_core/SdkInternal.md"
+    },
+    {
+      "from": "references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md",
+      "target": "../../../../models/_core/RID.md"
+    },
+    {
+      "from": "references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md",
+      "target": "../../../../models/_core/Timeout.md"
+    },
+    {
+      "from": "references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md",
+      "target": "../../../../models/v2/filesystem/errors/ResourceNotDirectlyTrashed.md"
+    },
+    {
+      "from": "references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md",
+      "target": "../../../../models/v2/filesystem/errors/ResourceNotDirectlyTrashedParameters.md"
+    },
+    {
+      "from": "references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md",
+      "target": "../../../../models/v2/filesystem/errors/ResourceNotFound.md"
+    },
+    {
+      "from": "references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md",
+      "target": "../../../../models/v2/filesystem/errors/ResourceNotFoundParameters.md"
+    },
+    {
+      "from": "references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md",
+      "target": "../../../../models/v2/filesystem/errors/RestoreResourcePermissionDenied.md"
+    },
+    {
+      "from": "references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md",
+      "target": "../../../../models/v2/filesystem/errors/RestoreResourcePermissionDeniedParameters.md"
+    },
+    {
+      "from": "references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md",
+      "target": "../../../../models/v2/filesystem/models/ResourceRid.md"
+    },
+    {
+      "from": "references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md",
+      "target": "../../../../authentication.md"
+    },
+    {
+      "from": "references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md",
+      "target": "../../../../v2/filesystem/Resource.md"
+    },
+    {
+      "from": "references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md",
+      "target": "restore.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\errors\\RestoreResourcePermissionDeniedParameters.md",
+      "target": "../models/ResourceRid.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\errors\\RestoreResourcePermissionDeniedParameters.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\errors\\RestoreResourcePermissionDeniedParameters.md",
+      "target": "RestoreResourcePermissionDeniedParameters.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\errors\\RestoreResourcePermissionDenied.md",
+      "target": "RestoreResourcePermissionDeniedParameters.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\errors\\RestoreResourcePermissionDenied.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\errors\\RestoreResourcePermissionDenied.md",
+      "target": "RestoreResourcePermissionDenied.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotFoundParameters.md",
+      "target": "../models/ResourceRid.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotFoundParameters.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotFoundParameters.md",
+      "target": "ResourceNotFoundParameters.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotFound.md",
+      "target": "ResourceNotFoundParameters.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotFound.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotFound.md",
+      "target": "ResourceNotFound.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotDirectlyTrashedParameters.md",
+      "target": "../models/ResourceRid.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotDirectlyTrashedParameters.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotDirectlyTrashedParameters.md",
+      "target": "ResourceNotDirectlyTrashedParameters.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotDirectlyTrashed.md",
+      "target": "ResourceNotDirectlyTrashedParameters.md"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotDirectlyTrashed.md",
+      "target": "../../../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotDirectlyTrashed.md",
+      "target": "ResourceNotDirectlyTrashed.md"
+    },
+    {
+      "from": "references\\rest\\models\\_core\\Timeout.md",
+      "target": "../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\_core\\Timeout.md",
+      "target": "Timeout.md"
+    },
+    {
+      "from": "references\\rest\\models\\_core\\SdkInternal.md",
+      "target": "ResponseMode.md"
+    },
+    {
+      "from": "references\\rest\\models\\_core\\SdkInternal.md",
+      "target": "../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\_core\\SdkInternal.md",
+      "target": "SdkInternal.md"
+    },
+    {
+      "from": "references\\rest\\models\\_core\\ResponseMode.md",
+      "target": "../../../../assets/rest/LICENSE"
+    },
+    {
+      "from": "references\\rest\\models\\_core\\ResponseMode.md",
+      "target": "ResponseMode.md"
+    }
+  ],
+  "bindings_before": {
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\examples\\rest\\073\\v2\\filesystem\\Resource\\restore.py": "aa2495ac330d8a7b9f3499b1a8e2ac142242f2c0c714918de8a9ab7b556ff89f",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md": "937bc251854f753f89657b04f30c97bfe1479f7c1e7bda7a1ac162e7a88e3b7d",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\filesystem\\Resource.md": "675410c8fa6ea907c387b23f2304758777ed292294cb87bc65c9ad165910e2d1",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\scripts\\offline_rest_catalog.py": "029c62981c4c5fafced71435a0eb91d695798b326b6685618a8a932265d4d050",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\tests\\test_offline_rest_073_restore.py": "1894b8e223a0febc80b71f57302e14bc23eec4dfa9f586d9717d8879d26500af",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\tests\\test_offline_rest_catalog_restore.py": "30061d0a3d6e2126e8f9ea9d3c84d3b65494f440de93ca81d07e3cf3e43ec431",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\filesystem\\resource.py": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\filesystem\\errors.py": "5748ed8cf5b09f681cddb751a115ce513a632b63d1d81381fa924bb779ba55f4",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\filesystem\\models.py": "5e0103eb015b029d099a5dd40ebd42c3f23dacd487c26c2115a9f3a54b1d322f",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\api_client.py": "7e6ba19fa9732b18b6f22d69f46c40b1a10af4533ce720c39df52c60ca191225",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_errors\\timeout_error.py": "021d667b182719932504f572298f479ded4e44dcdde9d518d900a349c0d8aae2",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_restore_core_regeneration_20261116.json": "1a5f8e47d3e553ad857a4810075ff813d696241c532174be2208cf4725f17bf7",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_restore_core_baseline_comparison_20261116.json": "b651b2487767a4b3af6702e08cde576eff8f5bf6a25e37a9f7d8fa3c2076e4da",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_restore_core_tests_20261116.xml": "cce1d03f43746abd02d72733f43bf0d9b995a49693e00bacbf2d3a588ffba026",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_combined_manifest_20261116.json": "659afb12a6877eed8ea3f26f2ba6cf6cef8ed6974851a8e1b5f02263cca81467",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073restore_recover_proof_20261116.py": "39ce79e37ffc57b65758514bc719cf88d74450c7dda1cfa30d9cf1c63c54f265",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\Resource.md": "e4acdd2fe9f25ca58d7743ed4fe63e2626357323c221b18476e85041305cfdda",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\TrashStatus.md": "f4ef4cdf7458343f560e1f0cef203bf1c530cb485e095387c38e3b698d921b1b",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\SpaceRid.md": "7582bdf25f7d630bf31f4097cbe5bc005411737589cc56f3a6b5b34f4a062fa0",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\RID.md": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ResourceType.md": "f95aa7c401926b1205262680cc039c721c81756a5d85b0667a3b42d8cf85f49c",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ResourceRid.md": "6719a3f6c961567c1fd4baff9d5f67953a7e0a544a95812c574c3de433e24390",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ResourcePath.md": "0711c42897ec1e06373270645ddeacfae47b5f1d567cb5baff74c006af0b52e5",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ResourceDisplayName.md": "2839c930e7660f94316d47974b2e9817b975c0d6b055af9d585eaa869b0f8b6e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ProjectRid.md": "c1580e34fdd77106033f7fd5ce1b56a436e644e443d461b98458b1d3c20afca5",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\FolderRid.md": "dc80c8e77a2660742e20098a3d9170f1c125cd33f4b98bbced4ccafd442843cd",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\UpdatedTime.md": "8fd017c97221c6afa227ca0e080cb44438a722425bea315b0ba30e86e9716fbd",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\AwareDatetime.md": "cb790e832ad9c9da79d728855fa1eef3ad96bfdc2862da210fb943c7a3f370e1",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\UpdatedBy.md": "7adc3c3c96047827219053e5bf254d7d2bc5e55bbe1c5842f43bcae088d56208",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\UserId.md": "57fb64cb33f7cb4ade4f3fe5cb989205a17171115a91d9478322d857c5a15e3e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\UUID.md": "19c51bc4bb69f8689a41de36b7f68d411988537c89900a13e8675de0cabc34c4",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\CreatedTime.md": "e288b4d67bf0f7dc74de03e72e5cd0113bbc64ae131fa129d7bd57c9cbd785a1",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\CreatedBy.md": "5ee1daea100d445e01481221aa10283603707d9e0df524c62b7236bc41c73fb1",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\PrincipalId.md": "4be55b5727e53d75356a4f4e424fc5055c3b652dfbf7b130364fff09d101ed33",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\ModelBase.md": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\RestoreResourcePermissionDeniedParameters.md": "0f757259ef9a74d27ccbf9eaf18d26bce7adb02ad406da9ed59e7c06e22da23e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\RestoreResourcePermissionDenied.md": "e56023ed98a362f2e471fff863540d95525ecb0865d4bad3f7bf8256b37d3f45",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotFoundParameters.md": "e8e9d51a788aa68cd5dc286ce0f9320ff5b388350fc09e25671f2a921344696f",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotFound.md": "b88b63430cad545431397b8d0840717199d9a2af4c6aa1ab2df42f67e7510e0e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotDirectlyTrashedParameters.md": "aa933d7d745d50f9623ca16f7ef35f8f12f6245ad8df9d3990676a1c1d780891",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotDirectlyTrashed.md": "eb47fdfc9cf54825790a6defee44ad833025bc9c3b90d591f442efe71fe9b8ac",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\Timeout.md": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\SdkInternal.md": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\ResponseMode.md": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\model_base.py": "9991688d13830547f029b78995d0b822d1ac63b2f99911d876277515c44dbb1e",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d"
+  },
+  "bindings_after": {
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\examples\\rest\\073\\v2\\filesystem\\Resource\\restore.py": "aa2495ac330d8a7b9f3499b1a8e2ac142242f2c0c714918de8a9ab7b556ff89f",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md": "937bc251854f753f89657b04f30c97bfe1479f7c1e7bda7a1ac162e7a88e3b7d",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\filesystem\\Resource.md": "675410c8fa6ea907c387b23f2304758777ed292294cb87bc65c9ad165910e2d1",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\scripts\\offline_rest_catalog.py": "029c62981c4c5fafced71435a0eb91d695798b326b6685618a8a932265d4d050",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\tests\\test_offline_rest_073_restore.py": "1894b8e223a0febc80b71f57302e14bc23eec4dfa9f586d9717d8879d26500af",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\tests\\test_offline_rest_catalog_restore.py": "30061d0a3d6e2126e8f9ea9d3c84d3b65494f440de93ca81d07e3cf3e43ec431",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\filesystem\\resource.py": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\filesystem\\errors.py": "5748ed8cf5b09f681cddb751a115ce513a632b63d1d81381fa924bb779ba55f4",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\filesystem\\models.py": "5e0103eb015b029d099a5dd40ebd42c3f23dacd487c26c2115a9f3a54b1d322f",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\api_client.py": "7e6ba19fa9732b18b6f22d69f46c40b1a10af4533ce720c39df52c60ca191225",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_errors\\timeout_error.py": "021d667b182719932504f572298f479ded4e44dcdde9d518d900a349c0d8aae2",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_restore_core_regeneration_20261116.json": "1a5f8e47d3e553ad857a4810075ff813d696241c532174be2208cf4725f17bf7",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_restore_core_baseline_comparison_20261116.json": "b651b2487767a4b3af6702e08cde576eff8f5bf6a25e37a9f7d8fa3c2076e4da",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_restore_core_tests_20261116.xml": "cce1d03f43746abd02d72733f43bf0d9b995a49693e00bacbf2d3a588ffba026",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_combined_manifest_20261116.json": "659afb12a6877eed8ea3f26f2ba6cf6cef8ed6974851a8e1b5f02263cca81467",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073restore_recover_proof_20261116.py": "39ce79e37ffc57b65758514bc719cf88d74450c7dda1cfa30d9cf1c63c54f265",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\Resource.md": "e4acdd2fe9f25ca58d7743ed4fe63e2626357323c221b18476e85041305cfdda",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\TrashStatus.md": "f4ef4cdf7458343f560e1f0cef203bf1c530cb485e095387c38e3b698d921b1b",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\SpaceRid.md": "7582bdf25f7d630bf31f4097cbe5bc005411737589cc56f3a6b5b34f4a062fa0",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\RID.md": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ResourceType.md": "f95aa7c401926b1205262680cc039c721c81756a5d85b0667a3b42d8cf85f49c",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ResourceRid.md": "6719a3f6c961567c1fd4baff9d5f67953a7e0a544a95812c574c3de433e24390",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ResourcePath.md": "0711c42897ec1e06373270645ddeacfae47b5f1d567cb5baff74c006af0b52e5",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ResourceDisplayName.md": "2839c930e7660f94316d47974b2e9817b975c0d6b055af9d585eaa869b0f8b6e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ProjectRid.md": "c1580e34fdd77106033f7fd5ce1b56a436e644e443d461b98458b1d3c20afca5",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\FolderRid.md": "dc80c8e77a2660742e20098a3d9170f1c125cd33f4b98bbced4ccafd442843cd",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\UpdatedTime.md": "8fd017c97221c6afa227ca0e080cb44438a722425bea315b0ba30e86e9716fbd",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\AwareDatetime.md": "cb790e832ad9c9da79d728855fa1eef3ad96bfdc2862da210fb943c7a3f370e1",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\UpdatedBy.md": "7adc3c3c96047827219053e5bf254d7d2bc5e55bbe1c5842f43bcae088d56208",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\UserId.md": "57fb64cb33f7cb4ade4f3fe5cb989205a17171115a91d9478322d857c5a15e3e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\UUID.md": "19c51bc4bb69f8689a41de36b7f68d411988537c89900a13e8675de0cabc34c4",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\CreatedTime.md": "e288b4d67bf0f7dc74de03e72e5cd0113bbc64ae131fa129d7bd57c9cbd785a1",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\CreatedBy.md": "5ee1daea100d445e01481221aa10283603707d9e0df524c62b7236bc41c73fb1",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\PrincipalId.md": "4be55b5727e53d75356a4f4e424fc5055c3b652dfbf7b130364fff09d101ed33",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\ModelBase.md": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\RestoreResourcePermissionDeniedParameters.md": "0f757259ef9a74d27ccbf9eaf18d26bce7adb02ad406da9ed59e7c06e22da23e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\RestoreResourcePermissionDenied.md": "e56023ed98a362f2e471fff863540d95525ecb0865d4bad3f7bf8256b37d3f45",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotFoundParameters.md": "e8e9d51a788aa68cd5dc286ce0f9320ff5b388350fc09e25671f2a921344696f",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotFound.md": "b88b63430cad545431397b8d0840717199d9a2af4c6aa1ab2df42f67e7510e0e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotDirectlyTrashedParameters.md": "aa933d7d745d50f9623ca16f7ef35f8f12f6245ad8df9d3990676a1c1d780891",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotDirectlyTrashed.md": "eb47fdfc9cf54825790a6defee44ad833025bc9c3b90d591f442efe71fe9b8ac",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\Timeout.md": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\SdkInternal.md": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_fixes\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\ResponseMode.md": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\model_base.py": "9991688d13830547f029b78995d0b822d1ac63b2f99911d876277515c44dbb1e",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d"
+  },
+  "all_bindings_unchanged": true,
+  "network": {
+    "native_DNS_connect_connect_ex_denied": true,
+    "attempts": 0,
+    "live_calls": 0
+  },
+  "tests": {
+    "exit_code": 0,
+    "passed": 33
+  },
+  "generator_evidence": {
+    "proofs": {
+      "feature015_restore_core_regeneration_20261116.json": "1a5f8e47d3e553ad857a4810075ff813d696241c532174be2208cf4725f17bf7",
+      "feature015_restore_core_baseline_comparison_20261116.json": "b651b2487767a4b3af6702e08cde576eff8f5bf6a25e37a9f7d8fa3c2076e4da",
+      "feature015_restore_core_tests_20261116.xml": "cce1d03f43746abd02d72733f43bf0d9b995a49693e00bacbf2d3a588ffba026"
+    },
+    "patch_only_delta": [
+      ".agents/skills/pal-found-dev/references/rest/contracts/v2/filesystem/Resource/restore.md"
+    ],
+    "preexisting_drift": [
+      ".agents/skills/pal-found-dev/references/rest/contracts/v2/admin/Marking/parse_classifications.md",
+      ".agents/skills/pal-found-dev/references/rest/models/v2/filesystem/models/FolderType.md",
+      ".agents/skills/pal-found-dev/references/rest/models/v2/filesystem/models/Organization.md",
+      ".agents/skills/pal-found-dev/references/rest/models/v2/filesystem/models/ProjectResourceReferenceUnion.md",
+      ".agents/skills/pal-found-dev/references/rest/models/v2/ontologies/models/QueryAggregationValueType.md",
+      "maintainer/rest-model-register.json",
+      "maintainer/rest-model-semantic-matrix.json"
+    ],
+    "whole_tree_canonical_claim": false,
+    "review": "Generator regression independently rerun; full-render and baseline comparison evidence hash-verified and reviewed"
+  },
+  "prior_failure": {
+    "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_semantic_review_20261029.json",
+    "sha256": "aa5eef88a468e9d38b0ab1f74315b41ddf5058e4aff67484071fce1bc44190d7",
+    "preserved": true
+  },
+  "boundaries": {
+    "formal_QA": "pending",
+    "review_register_promotion": false,
+    "tracker_writes": 0,
+    "author_changes": 0,
+    "commits": 0,
+    "pushes": 0,
+    "live_claim": false
+  }
+}
