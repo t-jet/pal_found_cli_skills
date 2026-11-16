@@ -19,17 +19,17 @@ from mock_transport import mock_resource
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/ontologies/attachments/upload/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'
 EXPECTED_BODY = b'synthetic-response'
-EXPECTED_QUERY = {'filename': 'synthetic-value', 'preview': None}
-EXPECTED_HEADERS = {'Content-Length': 1, 'Content-Type': '*/*', 'Accept': 'application/json'}
+EXPECTED_QUERY = {'filename': 'inspection-rid.txt', 'preview': None}
+EXPECTED_HEADERS = {'Content-Length': len(EXPECTED_BODY), 'Content-Type': '*/*', 'Accept': 'application/json'}
 SUCCESS = {'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
- 'filename': 'synthetic-value',
- 'sizeBytes': '1',
- 'mediaType': 'synthetic-value',
+ 'filename': 'inspection-rid.txt',
+ 'sizeBytes': '18',
+ 'mediaType': 'text/plain',
  'type': 'single'}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.upload_with_rid(attachment_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', body=b'synthetic-response', content_length=1, content_type='synthetic-value', filename='synthetic-value', request_timeout=30)
+    return client.with_raw_response.upload_with_rid(attachment_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', body=EXPECTED_BODY, content_length=len(EXPECTED_BODY), content_type='text/plain', filename='inspection-rid.txt', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -73,7 +73,12 @@ def verify():
     with mock_resource(AttachmentClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = raw.decode()
+            assert normalized(result) == SUCCESS
+            assert int(result.size_bytes) == len(EXPECTED_BODY)
+            assert result.filename == EXPECTED_QUERY['filename']
+            assert result.media_type == 'text/plain'
+            assert result.rid == SUCCESS['rid']
         finally:
             raw.close()
     assert len(calls) == 1

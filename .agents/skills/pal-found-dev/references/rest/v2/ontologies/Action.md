@@ -97,6 +97,17 @@ The linked operation fixtures show actual SDK method invocation, serialized requ
 
 ## Expected result and checks
 
+The four fixtures request `returnEdits="ALL"` and check a synthetic modification
+to Asset `A-1`. Single-apply fixtures also require `validation.result == "VALID"`;
+an empty response is model-valid but provides no evidence for this example's
+task. Batch responses expose edits without a per-item validation field. Verify
+the requested changes and downstream effects separately in the enrollment.
+Override fixtures use a UUID-to-UUID `uniqueIdentifierLinkIdValues` map and an
+aware `actionExecutionTime` timestamp, including per-item batch overrides. Map
+keys identify configured UniqueIdentifier links; obtain those IDs from the
+approved Action configuration before replacing the synthetic values. The
+timestamp overrides CurrentTime generation; it does not schedule a future run.
+
 Record exact operation ID, API version, release stage, branch, requested IDs, returned IDs, page/snapshot token, response mode and decoded result. For effectful calls, inspect validation/commit state and fresh target data; a successful HTTP response alone may not establish the business result. For lists, finish pagination before claiming completeness.
 
 ## Failures and recovery

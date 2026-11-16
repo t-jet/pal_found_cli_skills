@@ -4,7 +4,7 @@
 
 ## Concept and lifecycle
 
-A geotemporal series reference loads time-bounded entries for one object's property. The result is an ordered, typed series, not an ordinary scalar object field.
+A geotemporal series reference loads entries for one object's property. Each entry is a map of property names to values. The SDK does not promise response ordering; compare timestamps when order matters.
 
 ## Prerequisites
 
@@ -25,6 +25,17 @@ Read [exact contract](../../contracts/v2/ontologies/GeotemporalSeriesProperty/lo
 ## Worked example
 
 Resolve an accessible asset's series property, request a narrow timestamp interval, inspect returned entries and pagination/limits, and distinguish an empty time window from missing property access.
+
+The linked fixture requests a two-minute absolute interval and one entry per page.
+Both absolute bounds are optional in the model; this example supplies them to
+limit work. Start is inclusive and end is exclusive. It follows `nextPageToken`
+to a second page, checks `time` and `position`, and stops after three pages or
+rejects repeated tokens. Exhausting that budget means results are incomplete.
+The synthetic `position` is a GeoJSON point and `speed` is numeric; verify actual
+integration property types before adapting these values. Requested additional
+properties can be omitted when unavailable. Time and position are always
+included according to the method documentation. An empty page can still have a
+continuation token, so it does not establish completion.
 
 The linked operation fixtures show actual SDK method invocation, serialized request and decoded response/error using a local mock transport. Their synthetic values are test data. Replace them with authorized identifiers and typed payloads from each linked contract; verify the live result under the intended identity before asserting a platform effect.
 

@@ -18,16 +18,50 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/objects/Asset/A-1/geotemporalSeries/synthetic-value/loadEntries'
-EXPECTED_BODY = {'range': {'type': 'absolute'}, 'additionalProperties': ['synthetic-value']}
+EXPECTED_BODY = {'range': {'type': 'absolute',
+           'startTime': '2026-01-01T00:00:00+00:00',
+           'endTime': '2026-01-01T00:02:00+00:00'},
+ 'additionalProperties': ['speed'],
+ 'pageSize': 1}
 EXPECTED_QUERY = {'preview': None, 'sdkPackageRid': None, 'sdkVersion': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'data': [{}]}
+SUCCESS = {'data': [{'time': '2026-01-01T00:00:00+00:00',
+           'position': {'type': 'Point', 'coordinates': [23.3, 42.7]},
+           'speed': 12.5}],
+ 'nextPageToken': 'next-synthetic-page'}
 ERRORS = []
 
-def invoke(client):
-    return client.with_raw_response.load_geotemporal_series_entries(ontology='synthetic-value', object_type='Asset', primary_key='A-1', property='synthetic-value', additional_properties=['synthetic-value'], range={'type': 'absolute'}, request_timeout=30)
+def invoke(client, page_token=None):
+    return client.with_raw_response.load_geotemporal_series_entries(
+        ontology='synthetic-value', object_type='Asset', primary_key='A-1',
+        property='synthetic-value', additional_properties=['speed'],
+        range=EXPECTED_BODY['range'], page_size=1, page_token=page_token,
+        request_timeout=30)
 
-def check_request(request):
+def load_entries(client, page_budget=3):
+    """Return complete bounded results, or fail without claiming completeness."""
+    token = None
+    seen = set()
+    entries = []
+    for _ in range(page_budget):
+        raw = invoke(client, token)
+        try:
+            page = raw.decode()
+        finally:
+            raw.close()
+        for entry in page.data:
+            if 'time' not in entry or 'position' not in entry:
+                raise ValueError('Expected time and position in geotemporal entry')
+        entries.extend(page.data)
+        token = page.next_page_token
+        if token is None:
+            return entries
+        if token in seen:
+            raise ValueError('Repeated geotemporal page token')
+        seen.add(token)
+    raise ValueError('Geotemporal page budget exceeded; result incomplete')
+
+def check_request(request, page_token=None):
     assert request.method == EXPECTED_METHOD
     assert urllib.parse.unquote(request.url.path) == EXPECTED_PATH
     assert request.headers['Authorization'] == 'Bearer offline-fixture-token'
@@ -41,7 +75,10 @@ def check_request(request):
     if isinstance(EXPECTED_BODY, bytes):
         assert request.content == EXPECTED_BODY
     elif EXPECTED_BODY is not None:
-        assert json.loads(request.content) == EXPECTED_BODY
+        body = dict(EXPECTED_BODY)
+        if page_token is not None:
+            body['pageToken'] = page_token
+        assert json.loads(request.content) == body
 
 def normalized(value):
     if isinstance(value, dict):
@@ -58,21 +95,18 @@ def normalized(value):
 
 def verify():
     calls = []
+    second = {'time': '2026-01-01T00:01:00Z',
+              'position': {'type': 'Point', 'coordinates': [23.31, 42.71]},
+              'speed': 13.0}
     def success(request):
-        check_request(request)
-        calls.append(True)
-        if isinstance(SUCCESS, bytes):
-            return httpx.Response(200, content=SUCCESS)
-        if SUCCESS is None:
-            return httpx.Response(204)
-        return httpx.Response(200, json=SUCCESS)
+        token = None if not calls else 'next-synthetic-page'
+        check_request(request, token)
+        calls.append(token)
+        return httpx.Response(200, json=SUCCESS if token is None else {'data': [second]})
     with mock_resource(GeotemporalSeriesPropertyClient, success) as client:
-        raw = invoke(client)
-        try:
-            assert normalized(raw.decode()) == SUCCESS
-        finally:
-            raw.close()
-    assert len(calls) == 1
+        entries = load_entries(client)
+    assert calls == [None, 'next-synthetic-page']
+    assert entries == SUCCESS['data'] + [second]
     for error_case in ERRORS:
         def failure(request):
             check_request(request)
