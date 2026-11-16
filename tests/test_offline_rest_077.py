@@ -1,6 +1,7 @@
 """Legacy Ontology fixtures checked against SDK source and application schemas."""
 
 import ast
+import asyncio
 import copy
 import hashlib
 import importlib
@@ -9,13 +10,17 @@ import inspect
 import json
 import runpy
 import socket
+import textwrap
+from functools import lru_cache
 from pathlib import Path
 from typing import Any, get_args, get_origin, get_type_hints
 
 import httpx
 import pytest
+from foundry_sdk import PalantirRPCException, ReadTimeout
 from foundry_sdk.v1.ontologies import models as v1
 from foundry_sdk.v2.ontologies import models as v2
+from pydantic import TypeAdapter
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / '.agents/skills/pal-found-dev/examples/rest/077/v1/ontologies'
@@ -24,7 +29,7 @@ CASES = [(path.parent.name, path.stem) for path in sorted(BASE.glob('*/*.py'))]
 
 
 @pytest.fixture(autouse=True)
-def deny_network(monkeypatch):
+def deny_network(monkeypatch, offline_event_loop):
     def denied(*args, **kwargs):
         raise AssertionError('REST077 external network denied')
 
@@ -34,6 +39,14 @@ def deny_network(monkeypatch):
         monkeypatch.setattr(socket, name, denied)
     monkeypatch.setattr(httpx.HTTPTransport, 'handle_request', denied)
     monkeypatch.setattr(httpx.AsyncHTTPTransport, 'handle_async_request', denied)
+
+
+@pytest.fixture(scope='module')
+def offline_event_loop():
+    # Windows needs its local socket pair before network denial starts.
+    loop = asyncio.new_event_loop()
+    yield loop
+    loop.close()
 
 
 def example(resource, operation):
@@ -235,3 +248,384 @@ def test_semantic_checker_rejects_invalid_request_even_if_mirrored(operation, se
     request = httpx.Request('POST', 'https://offline.example.invalid', json=body)
     with pytest.raises(AssertionError):
         case['check_result'](case['SUCCESS'], request)
+
+
+def operation_arguments(namespace):
+    """Read adaptable example inputs; installed SDK remains the response oracle."""
+    class Arguments:
+        @property
+        def with_raw_response(self):
+            return self
+
+        def __getattr__(self, name):
+            return lambda **arguments: arguments
+
+    return copy.deepcopy(namespace["invoke"](Arguments()))
+
+
+def async_client(source):
+    module = importlib.import_module(source["client"].__module__)
+    return getattr(module, "Async" + source["client"].__name__)
+
+
+def synthetic_response(payload):
+    if isinstance(payload, bytes):
+        return httpx.Response(200, content=payload)
+    return httpx.Response(204) if payload is None else httpx.Response(200, json=payload)
+
+
+@lru_cache
+def contract(resource, operation):
+    frozen = ORACLE['operations'][f'v1.ontologies.{resource}.{operation}']
+    module = importlib.import_module(frozen['module'])
+    assert hashlib.sha256(Path(module.__file__).read_bytes()).hexdigest() == frozen['source_sha256']
+    client = getattr(module, resource + 'Client')
+    tree = ast.parse(textwrap.dedent(inspect.getsource(getattr(client, operation))))
+    calls = [node for node in ast.walk(tree) if isinstance(node, ast.Call)
+             and isinstance(node.func, ast.Attribute) and node.func.attr == 'RequestInfo']
+    assert len(calls) == 1
+    fields = {kw.arg: kw.value for kw in calls[0].keywords}
+
+    def value(node, arguments=None):
+        return eval(compile(ast.Expression(node), '<installed SDK contract>', 'eval'),
+                    vars(module), arguments or {})
+
+    arguments = operation_arguments(example(resource, operation))
+    return {
+        'client': client,
+        'method': value(fields['method']),
+        'path': value(fields['resource_path']).format(**value(fields['path_params'], arguments)),
+        'response': value(fields['response_type']),
+        'errors': value(fields['throwable_errors']),
+        'iterator': any(isinstance(node, ast.Constant) and node.value == 'ITERATOR'
+                        for node in ast.walk(fields['response_mode'])),
+    }
+
+
+def normalized(value):
+    if hasattr(value, 'model_dump'):
+        return value.model_dump(mode='json', by_alias=True, exclude_none=True)
+    if isinstance(value, (list, tuple)):
+        return [normalized(item) for item in value]
+    return value
+
+
+def check_wire(source, request):
+    assert request.method == source['method']
+    assert request.url.path == '/api' + source['path']
+    assert request.headers['Authorization'] == 'Bearer offline-fixture-token'
+    assert request.extensions['timeout']['read'] == 30
+
+
+async def consume_async(client, operation, arguments, mode, iterator):
+    if mode == 'stream':
+        async with getattr(client.with_streaming_response, operation)(**arguments) as response:
+            return b''.join([chunk async for chunk in response.aiter_bytes()])
+    target = client.with_raw_response if mode == 'raw' else client
+    pending = getattr(target, operation)(**arguments)
+    if mode == 'native' and iterator:
+        assert hasattr(pending, '__aiter__') and not inspect.isawaitable(pending)
+        return [normalized(row) async for row in pending]
+    assert inspect.isawaitable(pending)
+    result = await pending
+    if mode == 'raw':
+        try:
+            assert not inspect.iscoroutinefunction(result.decode)
+            return normalized(result.decode())
+        finally:
+            await result.aclose()
+    return normalized(result)
+
+
+def consume_sync(client, operation, arguments, mode, iterator):
+    if mode == 'stream':
+        with getattr(client.with_streaming_response, operation)(**arguments) as response:
+            return b''.join(response.iter_bytes())
+    target = client.with_raw_response if mode == 'raw' else client
+    result = getattr(target, operation)(**arguments)
+    if mode == 'native' and iterator:
+        assert hasattr(result, '__next__')
+        return [normalized(row) for row in result]
+    if mode == 'raw':
+        try:
+            return normalized(result.decode())
+        finally:
+            result.close()
+    return normalized(result)
+
+
+def exercise_mode(resource, operation, mode, asynchronous, handler, loop):
+    namespace = example(resource, operation)
+    source = contract(resource, operation)
+    arguments = operation_arguments(namespace)
+    if asynchronous:
+        async def run():
+            mock_async = importlib.import_module('mock_transport').mock_async_resource
+            async with mock_async(async_client(source), handler) as client:
+                return await consume_async(client, operation, arguments, mode, source['iterator'])
+        return loop.run_until_complete(run())
+    with namespace['mock_resource'](source['client'], handler) as client:
+        return consume_sync(client, operation, arguments, mode, source['iterator'])
+
+
+@pytest.mark.parametrize('resource,operation', CASES)
+@pytest.mark.parametrize('mode', ('native', 'raw', 'stream'))
+@pytest.mark.parametrize('asynchronous', (False, True))
+def test_every_source_mode_decodes_and_releases_response(
+        resource, operation, mode, asynchronous, offline_event_loop):
+    namespace = example(resource, operation)
+    source = contract(resource, operation)
+    responses = []
+
+    def handler(request):
+        check_wire(source, request)
+        namespace['check_request'](request)
+        response = synthetic_response(namespace['SUCCESS'])
+        responses.append(response)
+        return response
+
+    result = exercise_mode(resource, operation, mode, asynchronous, handler, offline_event_loop)
+    expected = normalized(TypeAdapter(source['response']).validate_python(namespace['SUCCESS']))
+    if mode == 'stream':
+        result = result if isinstance(expected, bytes) else json.loads(result)
+    elif mode == 'native' and source['iterator']:
+        expected = expected['data']
+    assert result == expected
+    assert len(responses) == 1 and responses[0].is_closed
+
+
+@pytest.mark.parametrize('resource,operation', CASES)
+@pytest.mark.parametrize('mode', ('native', 'raw', 'stream'))
+@pytest.mark.parametrize('asynchronous', (False, True))
+def test_declared_errors_and_generic_denial_stop_before_mock_effect(
+        resource, operation, mode, asynchronous, offline_event_loop):
+    namespace = example(resource, operation)
+    source = contract(resource, operation)
+    fixtures = {case['name']: case for case in namespace['ERRORS']}
+    assert fixtures.keys() == source['errors'].keys()
+    cases = [(case, source['errors'][name]) for name, case in fixtures.items()]
+    cases.append(({'status': 403, 'code': 'PERMISSION_DENIED',
+                   'name': 'PermissionDenied', 'parameters': {}}, PalantirRPCException))
+    for case, error_type in cases:
+        responses, effects = [], []
+
+        def denied(request):
+            check_wire(source, request)
+            namespace['check_request'](request)
+            response = httpx.Response(case['status'], json={
+                'errorName': case['name'], 'errorCode': case['code'],
+                'parameters': case['parameters'],
+                'errorInstanceId': '00000000-0000-0000-0000-000000000004',
+            })
+            responses.append(response)
+            if response.is_success:
+                effects.append(request)
+            return response
+
+        with pytest.raises(error_type) as raised:
+            exercise_mode(resource, operation, mode, asynchronous, denied, offline_event_loop)
+        assert raised.value.name == case['name']
+        assert normalized(raised.value.parameters) == case['parameters']
+        assert raised.value.error_instance_id == '00000000-0000-0000-0000-000000000004'
+        if case['name'] in source['errors']:
+            assert type(raised.value) is error_type
+        assert len(responses) == 1 and responses[0].is_closed and not effects
+
+
+@pytest.mark.parametrize('resource,operation', CASES)
+@pytest.mark.parametrize('mode', ('native', 'raw', 'stream'))
+@pytest.mark.parametrize('asynchronous', (False, True))
+def test_timeout_keeps_cause_without_repeating_uncertain_request(
+        resource, operation, mode, asynchronous, offline_event_loop):
+    calls = []
+
+    def stalled(request):
+        check_wire(contract(resource, operation), request)
+        calls.append(request)
+        raise httpx.ReadTimeout('Synthetic request deadline', request=request)
+
+    with pytest.raises(ReadTimeout, match='Synthetic request deadline') as raised:
+        exercise_mode(resource, operation, mode, asynchronous, stalled, offline_event_loop)
+    assert isinstance(raised.value.__cause__, httpx.ReadTimeout)
+    assert len(calls) == 1
+
+
+
+STREAM_CASES = [case for case in CASES if contract(*case)["response"] is not None]
+PAGED_CASES = [case for case in CASES
+               if "page_token" in inspect.signature(getattr(contract(*case)["client"], case[1])).parameters]
+
+
+class TrackedSyncStream(httpx.SyncByteStream):
+    def __init__(self):
+        self.chunks_read = 0
+        self.closed = False
+
+    def __iter__(self):
+        for chunk in (b"part", b"two!", b"unread"):
+            self.chunks_read += 1
+            yield chunk
+
+    def close(self):
+        self.closed = True
+
+
+class TrackedAsyncStream(httpx.AsyncByteStream):
+    def __init__(self):
+        self.chunks_read = 0
+        self.closed = False
+
+    async def __aiter__(self):
+        for chunk in (b"part", b"two!", b"unread"):
+            self.chunks_read += 1
+            yield chunk
+
+    async def aclose(self):
+        self.closed = True
+
+
+@pytest.mark.parametrize("resource,operation", STREAM_CASES)
+@pytest.mark.parametrize("asynchronous", (False, True))
+def test_stream_context_releases_response_when_caller_byte_budget_interrupts(
+        resource, operation, asynchronous, offline_event_loop):
+    namespace = example(resource, operation)
+    source = contract(resource, operation)
+    responses = []
+    body = TrackedAsyncStream() if asynchronous else TrackedSyncStream()
+
+    def handler(request):
+        check_wire(source, request)
+        assert request.extensions["timeout"]["read"] == 30
+        response = httpx.Response(200, stream=body)
+        assert not response.is_closed and not body.closed
+        responses.append(response)
+        return response
+
+    arguments = operation_arguments(namespace)
+    if asynchronous:
+        async def exercise():
+            mock_async = importlib.import_module("mock_transport").mock_async_resource
+            async with mock_async(async_client(source), handler) as client:
+                with pytest.raises(RuntimeError, match="Caller byte budget exhausted"):
+                    async with getattr(client.with_streaming_response, operation)(**arguments) as response:
+                        count = 0
+                        async for chunk in response.aiter_bytes(chunk_size=4):
+                            count += len(chunk)
+                            if count > 4:
+                                raise RuntimeError("Caller byte budget exhausted")
+        offline_event_loop.run_until_complete(exercise())
+    else:
+        with namespace["mock_resource"](source["client"], handler) as client:
+            with pytest.raises(RuntimeError, match="Caller byte budget exhausted"):
+                with getattr(client.with_streaming_response, operation)(**arguments) as response:
+                    count = 0
+                    for chunk in response.iter_bytes(chunk_size=4):
+                        count += len(chunk)
+                        if count > 4:
+                            raise RuntimeError("Caller byte budget exhausted")
+    assert len(responses) == 1 and responses[0].is_closed
+    assert body.closed and body.chunks_read == 2
+
+
+@pytest.mark.parametrize('resource,operation', STREAM_CASES)
+def test_async_cancellation_closes_stream_with_unread_bytes(
+        resource, operation, offline_event_loop):
+    namespace = example(resource, operation)
+    source = contract(resource, operation)
+    body = TrackedAsyncStream()
+    responses = []
+
+    def handler(request):
+        check_wire(source, request)
+        response = httpx.Response(200, stream=body)
+        responses.append(response)
+        return response
+
+    async def exercise():
+        mock_async = importlib.import_module('mock_transport').mock_async_resource
+        started = asyncio.Event()
+        hold_open = asyncio.Event()
+
+        async def reader(client):
+            async with getattr(client.with_streaming_response, operation)(
+                    **operation_arguments(namespace)) as response:
+                async for chunk in response.aiter_bytes(chunk_size=4):
+                    assert chunk == b'part'
+                    started.set()
+                    await hold_open.wait()
+
+        async with mock_async(async_client(source), handler) as client:
+            task = asyncio.create_task(reader(client))
+            try:
+                await asyncio.wait_for(started.wait(), timeout=1)
+                assert not body.closed and body.chunks_read == 1
+                task.cancel()
+                with pytest.raises(asyncio.CancelledError):
+                    await task
+            finally:
+                if not task.done():
+                    task.cancel()
+                    await asyncio.gather(task, return_exceptions=True)
+
+    offline_event_loop.run_until_complete(exercise())
+    assert len(responses) == 1 and responses[0].is_closed
+    assert body.closed and body.chunks_read == 1
+
+
+@pytest.mark.parametrize("resource,operation", PAGED_CASES)
+@pytest.mark.parametrize("asynchronous", (False, True))
+def test_native_iterator_or_manual_response_pagination_stops_after_finite_final_page(
+        resource, operation, asynchronous, offline_event_loop):
+    namespace = example(resource, operation)
+    source = contract(resource, operation)
+    arguments = operation_arguments(namespace)
+    calls, responses = [], []
+
+    def handler(request):
+        check_wire(source, request)
+        body = json.loads(request.content) if request.content else {}
+        token = request.url.params.get("pageToken", body.get("pageToken"))
+        calls.append(token)
+        assert calls == ([None] if len(calls) == 1 else [None, "next-fixture"])
+        assert len(calls) <= 2, "Pagination must stop after the finite final page"
+        assert request.extensions["timeout"]["read"] == 30
+        payload = copy.deepcopy(namespace["SUCCESS"])
+        if len(calls) == 1:
+            payload["nextPageToken"] = "next-fixture"
+        else:
+            payload["data"] = []
+            payload.pop("nextPageToken", None)
+        response = httpx.Response(200, json=payload)
+        responses.append(response)
+        return response
+
+    expected_rows = normalized(TypeAdapter(source["response"]).validate_python(namespace["SUCCESS"]))["data"]
+    if asynchronous:
+        async def exercise():
+            mock_async = importlib.import_module("mock_transport").mock_async_resource
+            async with mock_async(async_client(source), handler) as client:
+                pending = getattr(client, operation)(**arguments)
+                if hasattr(pending, "__aiter__"):
+                    assert not inspect.isawaitable(pending)
+                    return [normalized(row) async for row in pending]
+                assert inspect.isawaitable(pending)
+                first = await pending
+                assert first.next_page_token == "next-fixture"
+                second = await getattr(client, operation)(**dict(arguments, page_token=first.next_page_token))
+                assert second.next_page_token is None
+                return normalized(first.data + second.data)
+        actual = offline_event_loop.run_until_complete(exercise())
+    else:
+        with namespace["mock_resource"](source["client"], handler) as client:
+            first = getattr(client, operation)(**arguments)
+            if hasattr(first, "__next__"):
+                actual = [normalized(row) for row in first]
+            else:
+                assert first.next_page_token == "next-fixture"
+                second = getattr(client, operation)(**dict(arguments, page_token=first.next_page_token))
+                assert second.next_page_token is None
+                actual = normalized(first.data + second.data)
+    assert actual == expected_rows
+    assert calls == [None, "next-fixture"] and all(response.is_closed for response in responses)
+
+
