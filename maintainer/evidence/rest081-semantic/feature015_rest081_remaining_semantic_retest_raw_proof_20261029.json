@@ -1,0 +1,75 @@
+{
+  "command": ".ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe -B .ept/tmp/feature015_rest081_remaining_semantic_edges_20261029.py",
+  "process_exit_code": 0,
+  "counts": {
+    "PASS": 11,
+    "FAIL": 0,
+    "UNCERTAIN": 0
+  },
+  "operation_mode_checks": 66,
+  "operation_semantic_edge_checks": {
+    "v2.ontologies.OntologyObject.count": [
+      "async generic 403 propagated; no endpoint-specific error invented",
+      "sync/async unread streamed responses close on consumer exception",
+      "source-derived result/body edge variants: 2"
+    ],
+    "v2.ontologies.OntologyObjectSet.get": [
+      "async generic 403 propagated; no endpoint-specific error invented",
+      "sync/async unread streamed responses close on consumer exception",
+      "source-derived result/body edge variants: 1"
+    ],
+    "v2.ontologies.OntologyObjectSet.load_links": [
+      "async generic 403 propagated; no endpoint-specific error invented",
+      "sync/async unread streamed responses close on consumer exception",
+      "source-derived result/body edge variants: 1"
+    ],
+    "v2.ontologies.OntologyScenario.create_scenario": [
+      "async generic 403 propagated; no endpoint-specific error invented",
+      "sync/async unread streamed responses close on consumer exception",
+      "source-derived result/body edge variants: 1"
+    ],
+    "v2.ontologies.OntologyScenario.list_scenario_conflicting_objects": [
+      "async generic 403 propagated; no endpoint-specific error invented",
+      "sync/async unread streamed responses close on consumer exception",
+      "sync/async iterators follow empty intermediate page token; preserve locator/object/link shapes"
+    ],
+    "v2.ontologies.OntologyScenario.list_scenario_edited_entity_types": [
+      "async generic 403 propagated; no endpoint-specific error invented",
+      "sync/async unread streamed responses close on consumer exception",
+      "source-derived result/body edge variants: 1"
+    ],
+    "v2.ontologies.OntologyScenario.list_scenario_edited_link_types": [
+      "async generic 403 propagated; no endpoint-specific error invented",
+      "sync/async unread streamed responses close on consumer exception",
+      "source-derived result/body edge variants: 1"
+    ],
+    "v2.ontologies.OntologyScenario.list_scenario_edited_links": [
+      "async generic 403 propagated; no endpoint-specific error invented",
+      "sync/async unread streamed responses close on consumer exception",
+      "sync/async iterators follow empty intermediate page token; preserve locator/object/link shapes"
+    ],
+    "v2.ontologies.OntologyScenario.list_scenario_edited_object_types": [
+      "async generic 403 propagated; no endpoint-specific error invented",
+      "sync/async unread streamed responses close on consumer exception",
+      "source-derived result/body edge variants: 1"
+    ],
+    "v2.ontologies.OntologyScenario.list_scenario_edited_objects": [
+      "async generic 403 propagated; no endpoint-specific error invented",
+      "sync/async unread streamed responses close on consumer exception",
+      "sync/async iterators follow empty intermediate page token; preserve locator/object/link shapes"
+    ],
+    "v2.ontologies.OntologyTransaction.post_edits": [
+      "async generic 403 propagated; no endpoint-specific error invented",
+      "sync/async unread streamed responses close on consumer exception",
+      "source-derived result/body edge variants: 1"
+    ]
+  },
+  "model_count": 164,
+  "model_gaps": [],
+  "report_sha256": "f3cccf9f0291190f67c5ecad77a2e736652335e69f825f73f292cf95f566ec8d",
+  "provenance_sha256": "562124f69da59bb2a17fc5fa1ccd122f7617fde189ef99b9e2528be855a508fd",
+  "original_artifacts_unchanged": true,
+  "candidate_sha": "6df64cce16bf0619bee124f831e1e8686c08cccf",
+  "hash_stability": true,
+  "formal_qa_status": "not promoted; TESTEXEC prerequisites remain tracker-gated"
+}

@@ -1,0 +1,22 @@
+{
+  "artifacts": [
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest077_unit_qa_20261116.json",
+      "archived_path": "maintainer/evidence/rest077-unit/rest077_unit_qa_20261116.json",
+      "sha256": "bc8d1eeca73f57343a0a6b4e903738f611e12777562abb46bbb1b8c29634a38d"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest077_unit_qa_20261116.py",
+      "archived_path": "maintainer/evidence/rest077-unit/rest077_unit_qa_20261116.py",
+      "sha256": "d0cea8de184726df648dedd7f6309b5243a5e97178aedae9d5bf1d4d2552e612"
+    },
+    {
+      "archived_path": "maintainer/evidence/rest077-unit/test_offline_rest_077.reviewed.py",
+      "sha256": "9210d28d61695dc6dc4ebf6488d86690e4d3f9627b888381c70176d07e96b0f6"
+    },
+    {
+      "archived_path": "maintainer/evidence/rest077-unit/terminal-newline-continuity.json",
+      "sha256": "b7eb941022380407bb93a14215b7c3b1d4fa14a112aa5615cb42ff015e519710"
+    }
+  ]
+}
