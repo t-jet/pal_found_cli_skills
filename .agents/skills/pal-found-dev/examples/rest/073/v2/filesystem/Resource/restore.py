@@ -10,8 +10,9 @@ import datetime
 from pathlib import Path
 
 import httpx
-from foundry_sdk import PalantirRPCException
+from foundry_sdk import PalantirRPCException, TimeoutError as SDKTimeoutError
 from foundry_sdk.v2.filesystem.resource import ResourceClient
+from foundry_sdk.v2.filesystem.errors import ResourceNotDirectlyTrashed
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
@@ -42,6 +43,8 @@ def check_request(request):
     assert request.method == EXPECTED_METHOD
     assert urllib.parse.unquote(request.url.path) == EXPECTED_PATH
     assert request.headers['Authorization'] == 'Bearer offline-fixture-token'
+    assert request.content == b''
+    assert request.extensions['timeout'] == dict.fromkeys(('connect', 'read', 'write', 'pool'), 30)
     for key, value in EXPECTED_HEADERS.items():
         if value is None:
             assert key not in request.headers
@@ -67,6 +70,49 @@ def normalized(value):
         return value.model_dump(mode='json', by_alias=True, exclude_none=True)
     return value
 
+
+def restore_once(client, resource_rid, *, expected_parent_rid, expected_path):
+    """Use only with an authorized identity and owner-confirmed RID/parent/path.
+
+    At most one restore and two reads. Read failures propagate: stop and ask an
+    authorized owner to reconcile access/state. No path lookup or ancestor write
+    is performed. The SDK's active-resource no-op prose conflicts with its
+    ResourceNotDirectlyTrashed declaration; this example promises neither server
+    policy nor idempotency. A timeout can leave the write outcome unknown.
+    """
+    def inspect_state():
+        resource = client.get(resource_rid, request_timeout=30)
+        if (resource.rid != resource_rid
+                or resource.parent_folder_rid != expected_parent_rid
+                or resource.path != expected_path):
+            return 'STOP: reconcile RID, parent and path with authorized owner'
+        return resource.trash_status
+
+    before = inspect_state()
+    if before == 'NOT_TRASHED':
+        return 'Desired state observed; no restore sent'
+    if before == 'ANCESTOR_TRASHED':
+        return 'STOP: authorized owner must reconcile original folder restoration'
+    if before != 'DIRECTLY_TRASHED':
+        return before if before.startswith('STOP:') else 'STOP: unknown trash status'
+
+    # Other SDK errors propagate and stop. In particular ResourceNotFound and
+    # RestoreResourcePermissionDenied do not authorize a different RID or identity.
+    try:
+        result = client.restore(resource_rid, request_timeout=30)
+        assert result is None  # 204 contains no restored Resource or hierarchy.
+    except (ResourceNotDirectlyTrashed, SDKTimeoutError):
+        pass  # Reconcile once; never replay this mutation automatically.
+
+    after = inspect_state()
+    if after == 'NOT_TRASHED':
+        return 'Desired state observed after attempt; no replay'
+    if after == 'ANCESTOR_TRASHED':
+        return 'STOP: authorized owner must reconcile original folder restoration'
+    if after == 'DIRECTLY_TRASHED':
+        return 'STOP: still directly trashed; reconcile outcome/policy with authorized owner'
+    return after if after.startswith('STOP:') else 'STOP: unknown trash status'
+
 def verify():
     calls = []
     def success(request):
@@ -80,9 +126,11 @@ def verify():
     with mock_resource(ResourceClient, success) as client:
         raw = invoke(client)
         try:
+            assert raw.status_code == 204
             assert normalized(raw.decode()) == SUCCESS
         finally:
             raw.close()
+        assert raw._response.is_closed
     assert len(calls) == 1
     for error_case in ERRORS:
         def failure(request):

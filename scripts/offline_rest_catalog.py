@@ -1226,6 +1226,16 @@ def render(root: Path, files: dict[str, str], operations, symbols, limit: int | 
                   + "). Method source does not enumerate universal OAuth scopes or an idempotency guarantee. "
                   "Use configured application grants and resource permissions; verify tenant-specific prerequisites. "
                   "The domain guide supplies authored workflows, examples and outcome reconciliation."]
+        if row["id"] == "v2.filesystem.Resource.restore":
+            blocks.insert(2, "## SDK source disagreement\n\n"
+                          "SDK 1.101.0 contains a source disagreement: the purpose above says a "
+                          "non-trashed resource is ignored, while the same method declares "
+                          "`ResourceNotDirectlyTrashed` (the resource is not directly trashed). "
+                          "Live server policy is unverified. These source declarations and synthetic "
+                          "fixture responses do not establish an active-resource no-op, idempotency, "
+                          "or a universal ancestor-state outcome. Follow the "
+                          "[restore prerequisites, state checks and bounded reconciliation]("
+                          + relative_link(path, behavior) + "#restore) before planning a write.")
         if behavior.exists():
             blocks.append("## Application workflow\n\nRead the [local resource guide]("
                           + relative_link(path, behavior)
