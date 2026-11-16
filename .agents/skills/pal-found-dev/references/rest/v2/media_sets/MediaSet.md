@@ -23,7 +23,14 @@ Prepare SDK 1.101.0 and an accessible media set. Inspect its `media_schema`,
 `default_branch_name`, `transaction_policy` and `paths_required`. Select exactly one
 supported branch name, branch RID or view RID when an operation permits that
 selection; omitting them uses the default branch. Confirm supported content format
-and path requirements. Binary upload bodies use `application/octet-stream`.
+and path requirements. Upload documentation requires `application/octet-stream`,
+but SDK 1.101.0 serializes `Content-Type: */*` for both `upload` and `upload_media`.
+The offline examples assert that observed discrepancy; a mock acknowledgment does
+not establish that a live server accepts it. Their `require_verified_upload`
+preflight stops live adaptation until an authorized owner has verified this
+transport against the enrollment. Do not patch SDK internals or retry with
+guessed headers. If verification is unavailable or the server rejects the header,
+stop and obtain a supported client/transport choice before uploading.
 
 For transformations, SDK source requires item read access through
 `api:mediasets-read` or a `MediaItemReadToken`. Temporary `upload_media` documents
@@ -81,6 +88,20 @@ Adapt set/item RIDs from approved metadata. The separate operation fixtures unde
 `examples/rest/091/v2/media_sets/MediaSet/` exercise the exact SDK arguments and
 declared error contracts. Complete model and error fields remain linked from each
 local operation contract; do not interpret binary responses as JSON.
+
+The upload examples send a complete PNG. Before adapting `upload`, confirm an
+IMAGERY-compatible set, required item path and transaction policy; supply a
+transaction ID when required. The temporary example names the file `pixel.png`
+and returns `image/png`; its one-hour persistence deadline still applies.
+Federated `register` uses `inspections/pixel.png`, relative to the configured
+store, with a schema that accepts PNG imagery and a returned MIME type of
+`image/png`. Registration reads existing store content; this fixture does not
+create that content. `reference` returns MIME metadata, not file bytes.
+
+The path-lookup example demonstrates a found RID and an absent optional RID in
+an HTTP 200 response. `require_item_rid` raises `LookupError` for absence, stopping
+downstream item calls. Check the selected branch/view and path before another
+lookup; do not fabricate an identity from a missing result.
 
 ## Expected result and checks
 

@@ -18,18 +18,20 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/widgets/devModeSettings/setWidgetSetById'
-EXPECTED_BODY = {'widgetSetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
- 'settings': {'baseHref': 'synthetic-value', 'widgetSettings': {}}}
+EXPECTED_BODY = {'widgetSetRid': 'ri.widgets.main.widget-set.00000000-0000-0000-0000-000000000001',
+ 'settings': {'baseHref': 'http://localhost:5173/', 'widgetSettings': {'inspection-summary': {'scriptEntrypoints': [{'filePath': 'assets/inspection.js', 'scriptType': 'MODULE'}], 'stylesheetEntrypoints': [{'filePath': 'assets/inspection.css'}]}}}}
 EXPECTED_QUERY = {'preview': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'status': 'ENABLED', 'widgetSetSettings': {}}
+SUCCESS = {'status': 'ENABLED', 'widgetSetSettings': {'ri.widgets.main.widget-set.00000000-0000-0000-0000-000000000001': {'baseHref': 'http://localhost:5173/', 'widgetSettings': {'ri.widgets.main.widget.00000000-0000-0000-0000-000000000002': {'scriptEntrypoints': [{'filePath': 'assets/inspection.js', 'scriptType': 'MODULE'}], 'stylesheetEntrypoints': [{'filePath': 'assets/inspection.css'}]}}}}}
 ERRORS = [{'name': 'SetWidgetSetDevModeSettingsByIdPermissionDenied',
   'status': 403,
   'code': 'PERMISSION_DENIED',
   'parameters': {}}]
 
+# Published widget ID inspection-summary maps to the fixture widget RID in the response.
+# Obtain this mapping from the authorized widget-set manifest before adapting.
 def invoke(client):
-    return client.with_raw_response.set_widget_set_by_id(settings={'baseHref': 'synthetic-value', 'widgetSettings': {}}, widget_set_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', request_timeout=30)
+    return client.with_raw_response.set_widget_set_by_id(settings={'baseHref': 'http://localhost:5173/', 'widgetSettings': {'inspection-summary': {'scriptEntrypoints': [{'filePath': 'assets/inspection.js', 'scriptType': 'MODULE'}], 'stylesheetEntrypoints': [{'filePath': 'assets/inspection.css'}]}}}, widget_set_rid='ri.widgets.main.widget-set.00000000-0000-0000-0000-000000000001', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

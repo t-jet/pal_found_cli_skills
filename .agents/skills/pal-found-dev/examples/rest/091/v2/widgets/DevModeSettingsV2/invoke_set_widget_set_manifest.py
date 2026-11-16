@@ -18,8 +18,8 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/widgets/devModeSettingsV2/setWidgetSetManifest'
-EXPECTED_BODY = {'widgetSetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
- 'manifest': 'synthetic-value'}
+EXPECTED_BODY = {'widgetSetRid': 'ri.widgets.main.widget-set.00000000-0000-0000-0000-000000000001',
+ 'manifest': {'manifestVersion': '1.0.0', 'devSettings': {'baseHref': 'http://localhost:5173/', 'widgets': {'inspection-summary': {'id': 'inspection-summary', 'name': 'Inspection summary', 'type': 'workshopWidgetV1', 'entrypointJs': [{'path': 'http://localhost:5173/assets/inspection.js', 'type': 'module'}], 'entrypointCss': [{'path': 'http://localhost:5173/assets/inspection.css'}], 'parameters': {}, 'events': {}}}, 'inputSpec': {'discovered': {'sdks': []}}}}}
 EXPECTED_QUERY = {'preview': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
 SUCCESS = {'status': 'ENABLED'}
@@ -54,11 +54,13 @@ ERRORS = [{'name': 'InvalidDevModeBaseHref',
  {'name': 'WidgetIdNotFound',
   'status': 404,
   'code': 'NOT_FOUND',
-  'parameters': {'widgetSetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
+  'parameters': {'widgetSetRid': 'ri.widgets.main.widget-set.00000000-0000-0000-0000-000000000001',
                  'widgetId': 'synthetic-value'}}]
 
+# SDK documents the envelope; nested fields follow the official osdk-ts widget API.
+# This fixture uses a published widget without Ontology SDK dependencies.
 def invoke(client):
-    return client.with_raw_response.set_widget_set_manifest(manifest='synthetic-value', widget_set_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', request_timeout=30)
+    return client.with_raw_response.set_widget_set_manifest(manifest={'manifestVersion': '1.0.0', 'devSettings': {'baseHref': 'http://localhost:5173/', 'widgets': {'inspection-summary': {'id': 'inspection-summary', 'name': 'Inspection summary', 'type': 'workshopWidgetV1', 'entrypointJs': [{'path': 'http://localhost:5173/assets/inspection.js', 'type': 'module'}], 'entrypointCss': [{'path': 'http://localhost:5173/assets/inspection.css'}], 'parameters': {}, 'events': {}}}, 'inputSpec': {'discovered': {'sdks': []}}}}, widget_set_rid='ri.widgets.main.widget-set.00000000-0000-0000-0000-000000000001', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
