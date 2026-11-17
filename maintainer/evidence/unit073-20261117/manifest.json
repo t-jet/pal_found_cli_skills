@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "ticket": "TASK-022",
+  "date": "2026-11-18",
+  "candidate_base": "4de1e23e98017536bcff0eef2aa1d057e576e056",
+  "candidate_file": {
+    "path": "tests/test_offline_rest_073.py",
+    "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_unit_modes_20261117\\tests\\test_offline_rest_073.py",
+    "sha256": "d61e7750211d7ef7bb688c46579e75ed732a340e5ccbe71cfe13a9894feece17",
+    "bytes": 27231
+  },
+  "identities": {
+    "author": "/root/rest073_unit_native_modes_author_20261117",
+    "independent_peer": "/root/rest073_formal_readiness_20261117",
+    "archive_publisher": "/root/checkpoint022_recover_publish_20261118"
+  },
+  "preserved_original_artifacts": {
+    "rest073_unit_author_proof.json": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest073_unit_author_proof.json",
+      "sha256": "a478684134157fc1e31b12926603eaaea8e3b0f8ed75e1a83459e6b31f9ac709",
+      "bytes": 1480
+    },
+    "rest073_unit_source_proof.json": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest073_unit_source_proof.json",
+      "sha256": "e84ea97a88a2c7aa27b713fd4eca5779c04b848d7042b54979975c4ed3b9d2e2",
+      "bytes": 2572
+    },
+    "rest073_unit_native_junit.xml": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest073_unit_native_junit.xml",
+      "sha256": "9d32447bb51e5b9c1adc6b7dd4fd5fbdabd2d05e92c7ac67790a3417b4889b10",
+      "bytes": 334164
+    },
+    "rest073_unit_full_junit.xml": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest073_unit_full_junit.xml",
+      "sha256": "fa0e4833aa5a37d0ca5a0d0ed75e057037c89bc65e4c49465535068d30da4465",
+      "bytes": 1051105
+    },
+    "rest073_unit_full_pytest.log": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest073_unit_full_pytest.log",
+      "sha256": "c681bedbc22dee28570d02fb44026a04186b219d0236708f21833e185402a240",
+      "bytes": 7936
+    },
+    "feature015_rest073_unit_independent_qa_20261117.json": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_unit_independent_qa_20261117.json",
+      "sha256": "13678bfc19389e0a2243c11335170e861db05da49a70bd4240c63230a9938d83",
+      "bytes": 2947
+    },
+    "rest073_peer_independent_probe_20261117.py": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest073_peer_independent_probe_20261117.py",
+      "sha256": "537088020b06a8b5c64ace97eaf09642a9e450f3d5d7d6d294ff9e072ee98cf2",
+      "bytes": 17383
+    },
+    "rest073_peer_independent_probe_20261117.json": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest073_peer_independent_probe_20261117.json",
+      "sha256": "eda2c2de7bbf52cc3f6e074a53efdc015701660176151c4bc8126b4f6305f2e9",
+      "bytes": 2365
+    },
+    "rest073_peer_unit_junit_20261117.xml": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest073_peer_unit_junit_20261117.xml",
+      "sha256": "10e5bce0d9ea59a75df23ebbb99f9d89a8cc27c45932cdb15e755dffd854aadc",
+      "bytes": 334164
+    }
+  },
+  "original_commands": {
+    "peer_focused_pytest": ".ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe -m pytest -q .ept/tmp/feature015_rest073_unit_modes_20261117/tests/test_offline_rest_073.py .ept/tmp/feature015_rest073_unit_modes_20261117/tests/test_offline_rest_073_semantics.py .ept/tmp/feature015_rest073_unit_modes_20261117/tests/test_offline_rest_073_restore.py --basetemp=.ept/tmp/rest073_peer_pytest_temp_20261117 -o cache_dir=.ept/tmp/rest073_peer_pytest_cache_20261117 --junitxml=.ept/tmp/rest073_peer_unit_junit_20261117.xml",
+    "author_focused_pytest": null,
+    "author_full_pytest": null,
+    "author_command_boundary": "Exact author pytest command lines are not recorded in retained proof or log. Original paths, JUnit timestamps, counts, duration and author-reported exit code remain preserved; no command is reconstructed.",
+    "author_ruff_as_recorded": "ruff check tests/test_offline_rest_073.py",
+    "peer_probe_invocation": null,
+    "peer_probe_boundary": "Original executable retains original workspace paths; invocation command is not recorded in peer report."
+  },
+  "source_binding": {
+    "sdk_version": "1.101.0",
+    "sdk_source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+    "eleven_module_hashes": "rest073_unit_source_proof.json and rest073_peer_independent_probe_20261117.json",
+    "candidate_base_binding": "Original author and peer reports bind candidate hash to candidate_base above."
+  },
+  "original_results": {
+    "author_full_suite_passed": 6134,
+    "author_full_suite_console_seconds": 256.14,
+    "author_focused_passed": 1911,
+    "native_tests": 1866,
+    "existing_guard_tests": 45,
+    "peer_focused_passed": 1911,
+    "peer_focused_console_seconds": 17.77,
+    "independent_literal_wire_pass": 258,
+    "generic_403_pass": 258,
+    "faults_detected": 357,
+    "prebuffered_unfinished_guard_detected": 1
+  },
+  "preparation_checks": {
+    "preserved_product_fixture_existing_guard_files": 4639,
+    "all_preserved_hashes_match": true,
+    "prior_preservation_manifest": "maintainer/evidence/unit079089-20261117/preserved-product-fixture-byte-hashes.json",
+    "prior_preservation_manifest_sha256": "08771d682077396fb760a29a2e5c2f1e2596314fff3ae8c53c7d7d7ef45c29aa",
+    "prior_preservation_file_count": 4637,
+    "additional_existing_tests": {
+      "tests/test_offline_rest_073_semantics.py": "dad83070878f9c98b73f9083fe3301d362db4c7983455cab3fcb6515836ed788",
+      "tests/test_offline_rest_073_restore.py": "1894b8e223a0febc80b71f57302e14bc23eec4dfa9f586d9717d8879d26500af"
+    },
+    "tracked_diff_before_copy": "clean at candidate_base; no tracked edits",
+    "preservation_scope": "4637 product/fixture files from prior manifest plus both existing REST073 semantic and restore guard tests. All other tracked baseline bytes remain unchanged as verified by clean tracked diff."
+  },
+  "acceptance_boundary": {
+    "kind": "Independent unit peer acceptance only",
+    "semantic_operations": 425,
+    "formal_accepted": 229,
+    "formal_pending": 196,
+    "pages_accepted": 153,
+    "pages_pending": 39,
+    "overall_pending": 1,
+    "formal_acceptance_added": false,
+    "live_tenant_claimed": false
+  },
+  "archive_boundary": "Nine original artifacts copied byte-for-byte. Archiving is not a new run. Executable peer probe retains original workspace paths and baseline preconditions; relocation is not a portable replay claim. Author full-suite evidence and independent peer focused evidence remain distinct. Integration validation and publication are pending root review.",
+  "qualified_limitations": [
+    "Independent unit peer acceptance only; no formal TESTEXEC or live tenant claims.",
+    "Distributed synthetic response fixtures reused; literal HTTP expectations and SDK source reconciliation authored independently.",
+    "Author full-suite result is separate provenance; peer fresh run covers 1911 focused tests.",
+    "Restore source no-op versus ResourceNotDirectlyTrashed conflict remains qualified; server policy unknown.",
+    "Existing product fixtures and guard tests unchanged byte-for-byte; seven pre-existing generator differences unaffected.",
+    "No source edits, tracker writes, commits or pushes by peer."
+  ]
+}

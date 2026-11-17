@@ -1,0 +1,54 @@
+{
+  "reviewer": "/root/rest073_formal_readiness_20261117",
+  "role": "qa-engineer",
+  "ticket": "UNITTEST-067",
+  "story": "DEV-STORY-073",
+  "verdict": "PASS",
+  "candidate_base": "4de1e23e98017536bcff0eef2aa1d057e576e056",
+  "candidate_file": "tests/test_offline_rest_073.py",
+  "candidate_sha256": "d61e7750211d7ef7bb688c46579e75ed732a340e5ccbe71cfe13a9894feece17",
+  "fresh_pytest": {
+    "passed": 1911,
+    "console_duration_seconds": 17.77,
+    "class_counts": {
+      "tests.test_offline_rest_073": 1866,
+      "tests.test_offline_rest_073_semantics": 13,
+      "tests.test_offline_rest_073_restore": 32
+    },
+    "junit_path": ".ept\\tmp\\rest073_peer_unit_junit_20261117.xml",
+    "junit_sha256": "10e5bce0d9ea59a75df23ebbb99f9d89a8cc27c45932cdb15e755dffd854aadc",
+    "command": ".ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe -m pytest -q .ept/tmp/feature015_rest073_unit_modes_20261117/tests/test_offline_rest_073.py .ept/tmp/feature015_rest073_unit_modes_20261117/tests/test_offline_rest_073_semantics.py .ept/tmp/feature015_rest073_unit_modes_20261117/tests/test_offline_rest_073_restore.py --basetemp=.ept/tmp/rest073_peer_pytest_temp_20261117 -o cache_dir=.ept/tmp/rest073_peer_pytest_cache_20261117 --junitxml=.ept/tmp/rest073_peer_unit_junit_20261117.xml",
+    "exit_code": 0
+  },
+  "ruff": "PASS; ruff check --no-cache candidate",
+  "diff_check": "PASS; git diff --check exit0",
+  "independent_probe": {
+    "script_path": ".ept\\tmp\\rest073_peer_independent_probe_20261117.py",
+    "script_sha256": "537088020b06a8b5c64ace97eaf09642a9e450f3d5d7d6d294ff9e072ee98cf2",
+    "result_path": ".ept\\tmp\\rest073_peer_independent_probe_20261117.json",
+    "result_sha256": "eda2c2de7bbf52cc3f6e074a53efdc015701660176151c4bc8126b4f6305f2e9",
+    "counts": {
+      "operations": 48,
+      "forms": 258,
+      "void": 15,
+      "pagers": 8,
+      "stream_operations": 33,
+      "named_error_entries": 165,
+      "independent_literal_wire_pass": 258,
+      "native_path_faults_detected": 258,
+      "independent_generic_403_pass": 258,
+      "sync_omitted_close_detected": 33,
+      "async_omitted_close_detected": 33,
+      "cancel_omitted_close_detected": 33,
+      "prebuffered_unfinished_guard_detected": 1
+    }
+  },
+  "boundary": [
+    "Independent unit peer acceptance only; no formal TESTEXEC or live tenant claims.",
+    "Distributed synthetic response fixtures reused; literal HTTP expectations and SDK source reconciliation authored independently.",
+    "Author full-suite result is separate provenance; peer fresh run covers 1911 focused tests.",
+    "Restore source no-op versus ResourceNotDirectlyTrashed conflict remains qualified; server policy unknown.",
+    "Existing product fixtures and guard tests unchanged byte-for-byte; seven pre-existing generator differences unaffected.",
+    "No source edits, tracker writes, commits or pushes by peer."
+  ]
+}

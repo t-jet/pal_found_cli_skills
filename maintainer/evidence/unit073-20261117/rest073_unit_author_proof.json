@@ -1,0 +1,37 @@
+{
+  "author_identity": "/root/rest073_unit_native_modes_author_20261117",
+  "base_commit": "4de1e23e98017536bcff0eef2aa1d057e576e056",
+  "owned_file": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_unit_modes_20261117\\tests\\test_offline_rest_073.py",
+  "sha256": "d61e7750211d7ef7bb688c46579e75ed732a340e5ccbe71cfe13a9894feece17",
+  "bytes": 27231,
+  "git_status": "?? tests/test_offline_rest_073.py",
+  "tracked_diff_exit_code": 0,
+  "focused_test_counts": {
+    "tests.test_offline_rest_073": 1866,
+    "tests.test_offline_rest_073_semantics": 13,
+    "tests.test_offline_rest_073_restore": 32
+  },
+  "focused_tests_passed": 1911,
+  "native_forms": 258,
+  "operations": 48,
+  "stream_operations": 33,
+  "void_operations": 15,
+  "pagers": 8,
+  "named_error_entries": 165,
+  "source_proof": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest073_unit_source_proof.json",
+  "independent_acceptance_claimed": false,
+  "publication_or_commit": false,
+  "full_suite": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "6134",
+    "time": "255.801",
+    "timestamp": "2026-11-17T19:39:26.982678+02:00",
+    "hostname": "EPAMEVNW0000473",
+    "process_exit_code": 0,
+    "log": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest073_unit_full_pytest.log"
+  },
+  "lint": "ruff check tests/test_offline_rest_073.py: all checks passed"
+}
