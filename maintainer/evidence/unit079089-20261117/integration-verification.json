@@ -1,0 +1,19 @@
+{
+  "integration_test_input_head": "2d86ba25ec0ac762430b836f079103647083508f",
+  "executor_agent": "/root/publish_formal077_units_checkpoint_20261117",
+  "test_command": "python -m pytest -q tests/test_offline_rest_079.py tests/test_offline_rest_089.py --junitxml=../unit079089_combined_20261117.xml",
+  "result": "2391 passed in 11.04s",
+  "metadata_acceptance_tests": "44 passed in 5.78s: test_offline_rest_acceptance.py, test_offline_rest_acceptance_guards.py, test_offline_topic_acceptance_guards.py, test_feature015_release_gate.py",
+  "ruff": "ruff check tests/test_offline_rest_079.py tests/test_offline_rest_089.py: exit 0",
+  "release_gate": {
+    "exit_code": 1,
+    "expected_unmet_gates_only": {
+      "operation_qa_pending": 196,
+      "operation_qa_provenance": 196,
+      "skill_review_pending": 40
+    }
+  },
+  "protected_tracked_files_byte_equal_to_published_base": 4637,
+  "boundary": "Integration checks only. No new formal QA execution, semantic acceptance, live Foundry run or ticket closure. Existing formal counts remain 229 accepted and 196 pending; accepted semantic operations 425; accepted pages 153 and pending skill gates 40.",
+  "diff_check": "git -c core.whitespace=cr-at-eol diff --cached --check: exit 0; original CRLF evidence preserved byte-for-byte"
+}
