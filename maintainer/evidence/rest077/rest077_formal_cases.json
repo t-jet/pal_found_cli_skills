@@ -1,0 +1,2672 @@
+{
+  "story": "DEV-STORY-077",
+  "testcase": "TESTCASE-078",
+  "testexec": "TESTEXEC-078",
+  "author_identity": "/root/rest077_case_correct_20261116",
+  "sdk_release": "1.101.0",
+  "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+  "approval": "PENDING_INDEPENDENT_REVIEW",
+  "execution": "NOT_FORMAL_EXECUTION",
+  "oracle_method": "Independent literal Flight/Airport expectations derive from frozen SDK AST, model fields and documentation. Register supplies identities and asset locations. Distributed verify executes separately as acceptance coverage; its expected constants never supply source-oracle fixtures. Its invocation literal inputs are observed through a separate frozen-source SDK client to check actual wire behavior.",
+  "semantic_schema": {
+    "Flight": {
+      "apiName": "Flight",
+      "status": "ACTIVE",
+      "rid": "ri.qa.main.object-type.flight077",
+      "primaryKey": [
+        "flightId"
+      ],
+      "properties": {
+        "flightId": {
+          "baseType": "String"
+        },
+        "status": {
+          "baseType": "String"
+        }
+      }
+    },
+    "Airport": {
+      "primaryKey": [
+        "airportId"
+      ],
+      "properties": {
+        "airportId": {
+          "baseType": "String",
+          "required": true
+        },
+        "name": {
+          "baseType": "String",
+          "required": true
+        }
+      }
+    },
+    "ActionType": {
+      "apiName": "schedule-flight",
+      "status": "ACTIVE",
+      "rid": "ri.qa.main.action-type.flight077",
+      "parameters": {
+        "flightId": {
+          "baseType": "String",
+          "required": true
+        },
+        "status": {
+          "baseType": "String",
+          "required": true
+        }
+      },
+      "operations": [
+        {
+          "type": "modifyObject",
+          "objectTypeApiName": "Flight"
+        }
+      ]
+    },
+    "QueryType": {
+      "apiName": "countScheduledFlights",
+      "rid": "ri.qa.main.query-type.flight077",
+      "version": "1.0.0",
+      "parameters": {
+        "status": {
+          "baseType": "String",
+          "required": true
+        }
+      },
+      "output": {
+        "type": "integer"
+      }
+    }
+  },
+  "invalid_action_result": {
+    "result": "INVALID",
+    "submissionCriteria": [
+      {
+        "result": "INVALID",
+        "configuredFailureMessage": "Flight locked"
+      }
+    ],
+    "parameters": {
+      "status": {
+        "result": "INVALID",
+        "required": true,
+        "evaluatedConstraints": [
+          {
+            "type": "oneOf",
+            "options": [
+              {
+                "value": "scheduled"
+              }
+            ],
+            "otherValuesAllowed": false
+          }
+        ]
+      }
+    }
+  },
+  "operations": [
+    {
+      "operation": "v1.ontologies.Action.apply",
+      "kwargs": {
+        "ontology_rid": "ri.qa.main.ontology.flight077",
+        "action_type": "schedule-flight",
+        "parameters": {
+          "flightId": "QA-077",
+          "status": "scheduled"
+        }
+      },
+      "wire": {
+        "method": "POST",
+        "path": "/v1/ontologies/ri.qa.main.ontology.flight077/actions/schedule-flight/apply",
+        "query": {},
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "parameters": {
+            "flightId": "QA-077",
+            "status": "scheduled"
+          }
+        }
+      },
+      "response": {},
+      "paged": false,
+      "case_id": "F077-01",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.action",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action.py",
+        "sha256": "ca1f0a33164f1453b335a11c2c6e82ed1f792bd0235257ce248d062097ca6090",
+        "methods": {
+          "ActionClient": {
+            "line": 58,
+            "ast_sha256": "23d4ffccf9e88f97155cebf2c08a73ceeedd160e6dac4c751c866b51e6bc23b6",
+            "return": "ontologies_models.ApplyActionResponse",
+            "doc": "Applies an action using the given parameters.\n\nChanges to objects or links stored in Object Storage V1 are eventually consistent and may take some time to be visible.\nEdits to objects or links in Object Storage V2 will be visible immediately after the action completes.\n\nNote that [parameter default values](https://palantir.com/docs/foundry/action-types/parameters-default-value/) are not currently supported by\nthis endpoint.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the action. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param action_type: The API name of the action to apply. To find the API name for your action, use the **List action types** endpoint or check the **Ontology Manager**.\n:type action_type: ActionTypeApiName\n:param parameters:\n:type parameters: Dict[ParameterId, Optional[DataValue]]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: ontologies_models.ApplyActionResponse",
+            "request": {
+              "method": "'POST'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/actions/{actionType}/apply'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'actionType': action_type}",
+              "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+              "body": "ontologies_models.ApplyActionRequest(parameters=parameters)",
+              "response_type": "ontologies_models.ApplyActionResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          },
+          "AsyncActionClient": {
+            "line": 284,
+            "ast_sha256": "ce692e04f8261a05dc9f4093c7abd94a897e76b5f082973d23d8c7779c96b2e8",
+            "return": "typing.Awaitable[ontologies_models.ApplyActionResponse]",
+            "doc": "Applies an action using the given parameters.\n\nChanges to objects or links stored in Object Storage V1 are eventually consistent and may take some time to be visible.\nEdits to objects or links in Object Storage V2 will be visible immediately after the action completes.\n\nNote that [parameter default values](https://palantir.com/docs/foundry/action-types/parameters-default-value/) are not currently supported by\nthis endpoint.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the action. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param action_type: The API name of the action to apply. To find the API name for your action, use the **List action types** endpoint or check the **Ontology Manager**.\n:type action_type: ActionTypeApiName\n:param parameters:\n:type parameters: Dict[ParameterId, Optional[DataValue]]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: typing.Awaitable[ontologies_models.ApplyActionResponse]",
+            "request": {
+              "method": "'POST'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/actions/{actionType}/apply'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'actionType': action_type}",
+              "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+              "body": "ontologies_models.ApplyActionRequest(parameters=parameters)",
+              "response_type": "ontologies_models.ApplyActionResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/Action.md",
+        "references/rest/contracts/v1/ontologies/Action/apply.md",
+        "examples/rest/077/v1/ontologies/Action/apply.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.ApplyActionResponse",
+        "element": null
+      }
+    },
+    {
+      "operation": "v1.ontologies.Action.apply_batch",
+      "kwargs": {
+        "ontology_rid": "ri.qa.main.ontology.flight077",
+        "action_type": "schedule-flight",
+        "requests": [
+          {
+            "parameters": {
+              "flightId": "QA-077",
+              "status": "scheduled"
+            }
+          },
+          {
+            "parameters": {
+              "flightId": "QA-078",
+              "status": "scheduled"
+            }
+          }
+        ]
+      },
+      "wire": {
+        "method": "POST",
+        "path": "/v1/ontologies/ri.qa.main.ontology.flight077/actions/schedule-flight/applyBatch",
+        "query": {},
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "requests": [
+            {
+              "parameters": {
+                "flightId": "QA-077",
+                "status": "scheduled"
+              }
+            },
+            {
+              "parameters": {
+                "flightId": "QA-078",
+                "status": "scheduled"
+              }
+            }
+          ]
+        }
+      },
+      "response": {},
+      "paged": false,
+      "case_id": "F077-02",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.action",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action.py",
+        "sha256": "ca1f0a33164f1453b335a11c2c6e82ed1f792bd0235257ce248d062097ca6090",
+        "methods": {
+          "ActionClient": {
+            "line": 116,
+            "ast_sha256": "6abbe2d72ffd26d65bfb085375421cf5aa5f165cbddbd2baf3d6c7c7a84bdeb6",
+            "return": "ontologies_models.BatchApplyActionResponse",
+            "doc": "Applies multiple actions (of the same Action Type) using the given parameters.\nChanges to objects or links stored in Object Storage V1 are eventually consistent and may take some time to be visible.\nEdits to objects or links in Object Storage V2 will be visible immediately after the action completes.\n\nUp to 20 actions may be applied in one call. Actions that only modify objects in Object Storage v2 and do not\ncall Functions may receive a higher limit.\n\nNote that [parameter default values](https://palantir.com/docs/foundry/action-types/parameters-default-value/) and\n[notifications](https://palantir.com/docs/foundry/action-types/notifications/) are not currently supported by this endpoint.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the action. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param action_type: The API name of the action to apply. To find the API name for your action, use the **List action types** endpoint or check the **Ontology Manager**.\n:type action_type: ActionTypeApiName\n:param requests:\n:type requests: List[ApplyActionRequest]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: ontologies_models.BatchApplyActionResponse",
+            "request": {
+              "method": "'POST'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/actions/{actionType}/applyBatch'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'actionType': action_type}",
+              "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+              "body": "ontologies_models.BatchApplyActionRequest(requests=requests)",
+              "response_type": "ontologies_models.BatchApplyActionResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          },
+          "AsyncActionClient": {
+            "line": 342,
+            "ast_sha256": "07b478b1cee5cda89f2d765714d80327d78167307d8e8fd16ab8ae41e8c0f2fc",
+            "return": "typing.Awaitable[ontologies_models.BatchApplyActionResponse]",
+            "doc": "Applies multiple actions (of the same Action Type) using the given parameters.\nChanges to objects or links stored in Object Storage V1 are eventually consistent and may take some time to be visible.\nEdits to objects or links in Object Storage V2 will be visible immediately after the action completes.\n\nUp to 20 actions may be applied in one call. Actions that only modify objects in Object Storage v2 and do not\ncall Functions may receive a higher limit.\n\nNote that [parameter default values](https://palantir.com/docs/foundry/action-types/parameters-default-value/) and\n[notifications](https://palantir.com/docs/foundry/action-types/notifications/) are not currently supported by this endpoint.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the action. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param action_type: The API name of the action to apply. To find the API name for your action, use the **List action types** endpoint or check the **Ontology Manager**.\n:type action_type: ActionTypeApiName\n:param requests:\n:type requests: List[ApplyActionRequest]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: typing.Awaitable[ontologies_models.BatchApplyActionResponse]",
+            "request": {
+              "method": "'POST'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/actions/{actionType}/applyBatch'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'actionType': action_type}",
+              "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+              "body": "ontologies_models.BatchApplyActionRequest(requests=requests)",
+              "response_type": "ontologies_models.BatchApplyActionResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/Action.md",
+        "references/rest/contracts/v1/ontologies/Action/apply_batch.md",
+        "examples/rest/077/v1/ontologies/Action/apply_batch.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.BatchApplyActionResponse",
+        "element": null
+      }
+    },
+    {
+      "operation": "v1.ontologies.Action.validate",
+      "kwargs": {
+        "ontology_rid": "ri.qa.main.ontology.flight077",
+        "action_type": "schedule-flight",
+        "parameters": {
+          "flightId": "QA-077",
+          "status": "scheduled"
+        }
+      },
+      "wire": {
+        "method": "POST",
+        "path": "/v1/ontologies/ri.qa.main.ontology.flight077/actions/schedule-flight/validate",
+        "query": {},
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "parameters": {
+            "flightId": "QA-077",
+            "status": "scheduled"
+          }
+        }
+      },
+      "response": {
+        "result": "VALID",
+        "submissionCriteria": [
+          {
+            "result": "VALID"
+          }
+        ],
+        "parameters": {
+          "flightId": {
+            "result": "VALID",
+            "required": true,
+            "evaluatedConstraints": []
+          },
+          "status": {
+            "result": "VALID",
+            "required": true,
+            "evaluatedConstraints": []
+          }
+        }
+      },
+      "paged": false,
+      "case_id": "F077-03",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.action",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action.py",
+        "sha256": "ca1f0a33164f1453b335a11c2c6e82ed1f792bd0235257ce248d062097ca6090",
+        "methods": {
+          "ActionClient": {
+            "line": 174,
+            "ast_sha256": "5318bc6514c3487139154e1bd7f5b1469440638f8b50993f9a77a50de72b91d3",
+            "return": "ontologies_models.ValidateActionResponse",
+            "doc": "Validates if an action can be run with the given set of parameters.\nThe response contains the evaluation of parameters and **submission criteria**\nthat determine if the request is `VALID` or `INVALID`.\nFor performance reasons, validations will not consider existing objects or other data in Foundry.\nFor example, the uniqueness of a primary key or the existence of a user ID will not be checked.\nNote that [parameter default values](https://palantir.com/docs/foundry/action-types/parameters-default-value/) are not currently supported by\nthis endpoint. Unspecified parameters will be given a default value of `null`.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the action. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param action_type: The API name of the action to validate. To find the API name for your action, use the **List action types** endpoint or check the **Ontology Manager**.\n:type action_type: ActionTypeApiName\n:param parameters:\n:type parameters: Dict[ParameterId, Optional[DataValue]]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: ontologies_models.ValidateActionResponse",
+            "request": {
+              "method": "'POST'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/actions/{actionType}/validate'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'actionType': action_type}",
+              "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+              "body": "ontologies_models.ValidateActionRequest(parameters=parameters)",
+              "response_type": "ontologies_models.ValidateActionResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          },
+          "AsyncActionClient": {
+            "line": 400,
+            "ast_sha256": "2a431f834df8180290fb3be0bdd66720bf06b389ab3fa4c4098a0d96d85273d1",
+            "return": "typing.Awaitable[ontologies_models.ValidateActionResponse]",
+            "doc": "Validates if an action can be run with the given set of parameters.\nThe response contains the evaluation of parameters and **submission criteria**\nthat determine if the request is `VALID` or `INVALID`.\nFor performance reasons, validations will not consider existing objects or other data in Foundry.\nFor example, the uniqueness of a primary key or the existence of a user ID will not be checked.\nNote that [parameter default values](https://palantir.com/docs/foundry/action-types/parameters-default-value/) are not currently supported by\nthis endpoint. Unspecified parameters will be given a default value of `null`.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the action. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param action_type: The API name of the action to validate. To find the API name for your action, use the **List action types** endpoint or check the **Ontology Manager**.\n:type action_type: ActionTypeApiName\n:param parameters:\n:type parameters: Dict[ParameterId, Optional[DataValue]]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: typing.Awaitable[ontologies_models.ValidateActionResponse]",
+            "request": {
+              "method": "'POST'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/actions/{actionType}/validate'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'actionType': action_type}",
+              "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+              "body": "ontologies_models.ValidateActionRequest(parameters=parameters)",
+              "response_type": "ontologies_models.ValidateActionResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/Action.md",
+        "references/rest/contracts/v1/ontologies/Action/validate.md",
+        "examples/rest/077/v1/ontologies/Action/validate.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.ValidateActionResponse",
+        "element": null
+      }
+    },
+    {
+      "operation": "v1.ontologies.ActionType.get",
+      "kwargs": {
+        "ontology_rid": "ri.qa.main.ontology.flight077",
+        "action_type_api_name": "schedule-flight"
+      },
+      "wire": {
+        "method": "GET",
+        "path": "/v1/ontologies/ri.qa.main.ontology.flight077/actionTypes/schedule-flight",
+        "query": {},
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": null
+      },
+      "response": {
+        "apiName": "schedule-flight",
+        "status": "ACTIVE",
+        "rid": "ri.qa.main.action-type.flight077",
+        "parameters": {
+          "flightId": {
+            "baseType": "String",
+            "required": true
+          },
+          "status": {
+            "baseType": "String",
+            "required": true
+          }
+        },
+        "operations": [
+          {
+            "type": "modifyObject",
+            "objectTypeApiName": "Flight"
+          }
+        ]
+      },
+      "paged": false,
+      "case_id": "F077-04",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.action_type",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action_type.py",
+        "sha256": "eb2877e1c6ec8e5fa687ffca459fc79483d05d9dabcf283a91f43135a13acc61",
+        "methods": {
+          "ActionTypeClient": {
+            "line": 59,
+            "ast_sha256": "b3a7423bb94ecdcaa618e08d23d75ff3f5beebfd2514cdf531998e6885d5984d",
+            "return": "ontologies_models.ActionType",
+            "doc": "Gets a specific action type with the given API name.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the action type.\n:type ontology_rid: OntologyRid\n:param action_type_api_name: The name of the action type in the API.\n:type action_type_api_name: ActionTypeApiName\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: ontologies_models.ActionType",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/actionTypes/{actionTypeApiName}'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'actionTypeApiName': action_type_api_name}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.ActionType",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          },
+          "AsyncActionTypeClient": {
+            "line": 203,
+            "ast_sha256": "35e414b1314130e2a12a57cca807ace8d864f157b92ffbbe58eefc831b65571e",
+            "return": "typing.Awaitable[ontologies_models.ActionType]",
+            "doc": "Gets a specific action type with the given API name.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the action type.\n:type ontology_rid: OntologyRid\n:param action_type_api_name: The name of the action type in the API.\n:type action_type_api_name: ActionTypeApiName\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: typing.Awaitable[ontologies_models.ActionType]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/actionTypes/{actionTypeApiName}'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'actionTypeApiName': action_type_api_name}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.ActionType",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/ActionType.md",
+        "references/rest/contracts/v1/ontologies/ActionType/get.md",
+        "examples/rest/077/v1/ontologies/ActionType/get.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.ActionType",
+        "element": null
+      }
+    },
+    {
+      "operation": "v1.ontologies.ActionType.list",
+      "kwargs": {
+        "ontology_rid": "ri.qa.main.ontology.flight077",
+        "page_size": 1
+      },
+      "wire": {
+        "method": "GET",
+        "path": "/v1/ontologies/ri.qa.main.ontology.flight077/actionTypes",
+        "query": {
+          "pageSize": 1
+        },
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": null
+      },
+      "response": {
+        "data": [
+          {
+            "apiName": "schedule-flight",
+            "status": "ACTIVE",
+            "rid": "ri.qa.main.action-type.flight077",
+            "parameters": {
+              "flightId": {
+                "baseType": "String",
+                "required": true
+              },
+              "status": {
+                "baseType": "String",
+                "required": true
+              }
+            },
+            "operations": [
+              {
+                "type": "modifyObject",
+                "objectTypeApiName": "Flight"
+              }
+            ]
+          }
+        ]
+      },
+      "paged": true,
+      "case_id": "F077-05",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.action_type",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action_type.py",
+        "sha256": "eb2877e1c6ec8e5fa687ffca459fc79483d05d9dabcf283a91f43135a13acc61",
+        "methods": {
+          "ActionTypeClient": {
+            "line": 103,
+            "ast_sha256": "3a86bbc01043d742a96f404916f77043b3041d3560186663370601def2d807e7",
+            "return": "core.ResourceIterator[ontologies_models.ActionType]",
+            "doc": "Lists the action types for the given Ontology.\n\nEach page may be smaller than the requested page size. However, it is guaranteed that if there are more\nresults available, at least one result will be present in the response.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the action types. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param page_size: The desired size of the page to be returned. Defaults to 500. See [page sizes](https://palantir.com/docs/foundry/api/general/overview/paging/#page-sizes) for details.\n:type page_size: Optional[PageSize]\n:param page_token:\n:type page_token: Optional[PageToken]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core.ResourceIterator[ontologies_models.ActionType]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/actionTypes'",
+              "query_params": "{'pageSize': page_size, 'pageToken': page_token}",
+              "path_params": "{'ontologyRid': ontology_rid}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.ListActionTypesResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode', 'ITERATOR')"
+            },
+            "named_errors": []
+          },
+          "AsyncActionTypeClient": {
+            "line": 247,
+            "ast_sha256": "cf11918cd967c34312775c5de9aec4f7b79a24560a2dccf30b2b6993edb290b5",
+            "return": "core.AsyncResourceIterator[ontologies_models.ActionType]",
+            "doc": "Lists the action types for the given Ontology.\n\nEach page may be smaller than the requested page size. However, it is guaranteed that if there are more\nresults available, at least one result will be present in the response.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the action types. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param page_size: The desired size of the page to be returned. Defaults to 500. See [page sizes](https://palantir.com/docs/foundry/api/general/overview/paging/#page-sizes) for details.\n:type page_size: Optional[PageSize]\n:param page_token:\n:type page_token: Optional[PageToken]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core.AsyncResourceIterator[ontologies_models.ActionType]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/actionTypes'",
+              "query_params": "{'pageSize': page_size, 'pageToken': page_token}",
+              "path_params": "{'ontologyRid': ontology_rid}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.ListActionTypesResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode', 'ITERATOR')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/ActionType.md",
+        "references/rest/contracts/v1/ontologies/ActionType/list.md",
+        "examples/rest/077/v1/ontologies/ActionType/list.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.ListActionTypesResponse",
+        "element": "foundry_sdk.v1.ontologies.models.ActionType"
+      }
+    },
+    {
+      "operation": "v1.ontologies.Attachment.get",
+      "kwargs": {
+        "attachment_rid": "ri.qa.main.attachment.flight077"
+      },
+      "wire": {
+        "method": "GET",
+        "path": "/v1/attachments/ri.qa.main.attachment.flight077",
+        "query": {},
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": null
+      },
+      "response": {
+        "rid": "ri.qa.main.attachment.flight077",
+        "filename": "flight-qa.txt",
+        "sizeBytes": 19,
+        "mediaType": "text/plain"
+      },
+      "paged": false,
+      "case_id": "F077-06",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.attachment",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\attachment.py",
+        "sha256": "9606789cb634d59d99886e7ffcd6c2e5aeaab099496c3771979a6c05ba5d2357",
+        "methods": {
+          "AttachmentClient": {
+            "line": 59,
+            "ast_sha256": "6330e36da8974a4987914500c9c6655072389220d229a1bbe474d9d71db8bf47",
+            "return": "ontologies_models.Attachment",
+            "doc": "Get the metadata of an attachment.\n\n:param attachment_rid: The RID of the attachment.\n:type attachment_rid: AttachmentRid\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: ontologies_models.Attachment",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/attachments/{attachmentRid}'",
+              "query_params": "{}",
+              "path_params": "{'attachmentRid': attachment_rid}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.Attachment",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          },
+          "AsyncAttachmentClient": {
+            "line": 247,
+            "ast_sha256": "5d43c5070838b571cc221313d87b597f5f9e78cb3822f693bf0b600dbb178aad",
+            "return": "typing.Awaitable[ontologies_models.Attachment]",
+            "doc": "Get the metadata of an attachment.\n\n:param attachment_rid: The RID of the attachment.\n:type attachment_rid: AttachmentRid\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: typing.Awaitable[ontologies_models.Attachment]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/attachments/{attachmentRid}'",
+              "query_params": "{}",
+              "path_params": "{'attachmentRid': attachment_rid}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.Attachment",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/Attachment.md",
+        "references/rest/contracts/v1/ontologies/Attachment/get.md",
+        "examples/rest/077/v1/ontologies/Attachment/get.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.Attachment",
+        "element": null
+      }
+    },
+    {
+      "operation": "v1.ontologies.Attachment.read",
+      "kwargs": {
+        "attachment_rid": "ri.qa.main.attachment.flight077"
+      },
+      "wire": {
+        "method": "GET",
+        "path": "/v1/attachments/ri.qa.main.attachment.flight077/content",
+        "query": {},
+        "headers": {
+          "Accept": "*/*"
+        },
+        "body": null
+      },
+      "response": {
+        "$bytes": "Flight QA evidence\n"
+      },
+      "paged": false,
+      "case_id": "F077-07",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.attachment",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\attachment.py",
+        "sha256": "9606789cb634d59d99886e7ffcd6c2e5aeaab099496c3771979a6c05ba5d2357",
+        "methods": {
+          "AttachmentClient": {
+            "line": 99,
+            "ast_sha256": "533988e0f4b2d0625bae9ebdb50587ef90fb6be8ced4117a877d91c139a9d320",
+            "return": "bytes",
+            "doc": "Get the content of an attachment.\n\n:param attachment_rid: The RID of the attachment.\n:type attachment_rid: AttachmentRid\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: bytes",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/attachments/{attachmentRid}/content'",
+              "query_params": "{}",
+              "path_params": "{'attachmentRid': attachment_rid}",
+              "header_params": "{'Accept': '*/*'}",
+              "body": "None",
+              "response_type": "bytes",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          },
+          "AsyncAttachmentClient": {
+            "line": 287,
+            "ast_sha256": "3ace6ade38b6a11326bb47022edc8fdc55d5e1aba3be3ed153b121a48d6eaa9a",
+            "return": "typing.Awaitable[bytes]",
+            "doc": "Get the content of an attachment.\n\n:param attachment_rid: The RID of the attachment.\n:type attachment_rid: AttachmentRid\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: typing.Awaitable[bytes]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/attachments/{attachmentRid}/content'",
+              "query_params": "{}",
+              "path_params": "{'attachmentRid': attachment_rid}",
+              "header_params": "{'Accept': '*/*'}",
+              "body": "None",
+              "response_type": "bytes",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/Attachment.md",
+        "references/rest/contracts/v1/ontologies/Attachment/read.md",
+        "examples/rest/077/v1/ontologies/Attachment/read.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "builtins.bytes",
+        "element": null
+      }
+    },
+    {
+      "operation": "v1.ontologies.Attachment.upload",
+      "kwargs": {
+        "body": {
+          "$bytes": "Flight QA evidence\n"
+        },
+        "content_length": 19,
+        "content_type": "application/octet-stream",
+        "filename": "flight-qa.txt"
+      },
+      "wire": {
+        "method": "POST",
+        "path": "/v1/attachments/upload",
+        "query": {
+          "filename": "flight-qa.txt"
+        },
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "*/*",
+          "Content-Length": "19"
+        },
+        "body": {
+          "$bytes": "Flight QA evidence\n"
+        }
+      },
+      "response": {
+        "rid": "ri.qa.main.attachment.flight077",
+        "filename": "flight-qa.txt",
+        "sizeBytes": 19,
+        "mediaType": "text/plain"
+      },
+      "paged": false,
+      "case_id": "F077-08",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.attachment",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\attachment.py",
+        "sha256": "9606789cb634d59d99886e7ffcd6c2e5aeaab099496c3771979a6c05ba5d2357",
+        "methods": {
+          "AttachmentClient": {
+            "line": 139,
+            "ast_sha256": "8936082917ba7288c7ca9ad1dcfeefe2c7369ed48308e05837d454629b758fc1",
+            "return": "ontologies_models.Attachment",
+            "doc": "Upload an attachment to use in an action. Any attachment which has not been linked to an object via\nan action within one hour after upload will be removed.\nPreviously mapped attachments which are not connected to any object anymore are also removed on\na biweekly basis.\nThe body of the request must contain the binary content of the file and the `Content-Type` header must be `application/octet-stream`.\n\n:param body: Body of the request\n:type body: bytes\n:param content_length: The size in bytes of the file content being uploaded.\n:type content_length: ContentLength\n:param content_type: The media type of the file being uploaded.\n:type content_type: ContentType\n:param filename: The name of the file being uploaded.\n:type filename: Filename\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: ontologies_models.Attachment",
+            "request": {
+              "method": "'POST'",
+              "resource_path": "'/v1/attachments/upload'",
+              "query_params": "{'filename': filename}",
+              "path_params": "{}",
+              "header_params": "{'Content-Length': content_length, 'Content-Type': content_type, 'Content-Type': '*/*', 'Accept': 'application/json'}",
+              "body": "body",
+              "response_type": "ontologies_models.Attachment",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          },
+          "AsyncAttachmentClient": {
+            "line": 327,
+            "ast_sha256": "1a555d1e7c305b41171b9482ff59abd57e766256984c72a262e4f1369f5daca6",
+            "return": "typing.Awaitable[ontologies_models.Attachment]",
+            "doc": "Upload an attachment to use in an action. Any attachment which has not been linked to an object via\nan action within one hour after upload will be removed.\nPreviously mapped attachments which are not connected to any object anymore are also removed on\na biweekly basis.\nThe body of the request must contain the binary content of the file and the `Content-Type` header must be `application/octet-stream`.\n\n:param body: Body of the request\n:type body: bytes\n:param content_length: The size in bytes of the file content being uploaded.\n:type content_length: ContentLength\n:param content_type: The media type of the file being uploaded.\n:type content_type: ContentType\n:param filename: The name of the file being uploaded.\n:type filename: Filename\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: typing.Awaitable[ontologies_models.Attachment]",
+            "request": {
+              "method": "'POST'",
+              "resource_path": "'/v1/attachments/upload'",
+              "query_params": "{'filename': filename}",
+              "path_params": "{}",
+              "header_params": "{'Content-Length': content_length, 'Content-Type': content_type, 'Content-Type': '*/*', 'Accept': 'application/json'}",
+              "body": "body",
+              "response_type": "ontologies_models.Attachment",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/Attachment.md",
+        "references/rest/contracts/v1/ontologies/Attachment/upload.md",
+        "examples/rest/077/v1/ontologies/Attachment/upload.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.Attachment",
+        "element": null
+      }
+    },
+    {
+      "operation": "v1.ontologies.ObjectType.get",
+      "kwargs": {
+        "ontology_rid": "ri.qa.main.ontology.flight077",
+        "object_type": "Flight"
+      },
+      "wire": {
+        "method": "GET",
+        "path": "/v1/ontologies/ri.qa.main.ontology.flight077/objectTypes/Flight",
+        "query": {},
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": null
+      },
+      "response": {
+        "apiName": "Flight",
+        "status": "ACTIVE",
+        "rid": "ri.qa.main.object-type.flight077",
+        "primaryKey": [
+          "flightId"
+        ],
+        "properties": {
+          "flightId": {
+            "baseType": "String"
+          },
+          "status": {
+            "baseType": "String"
+          }
+        }
+      },
+      "paged": false,
+      "case_id": "F077-09",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.object_type",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\object_type.py",
+        "sha256": "f9d98265021a7e0275d47e182aa6bcade2b01ac427cc281a9c83e88b831fdf97",
+        "methods": {
+          "ObjectTypeClient": {
+            "line": 59,
+            "ast_sha256": "690321a74e96ee3ede63fe3a00f00fbd6520a17abae1bd530c959ed1e6fd4a9a",
+            "return": "ontologies_models.ObjectType",
+            "doc": "Gets a specific object type with the given API name.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the object type. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param object_type: The API name of the object type. To find the API name, use the **List object types** endpoint or check the **Ontology Manager**.\n:type object_type: ObjectTypeApiName\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: ontologies_models.ObjectType",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objectTypes/{objectType}'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'objectType': object_type}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.ObjectType",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          },
+          "AsyncObjectTypeClient": {
+            "line": 321,
+            "ast_sha256": "7d3f4e10c5a87a32ff9efbe4587886ecec2652e727d885e906e2bfa2598e8300",
+            "return": "typing.Awaitable[ontologies_models.ObjectType]",
+            "doc": "Gets a specific object type with the given API name.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the object type. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param object_type: The API name of the object type. To find the API name, use the **List object types** endpoint or check the **Ontology Manager**.\n:type object_type: ObjectTypeApiName\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: typing.Awaitable[ontologies_models.ObjectType]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objectTypes/{objectType}'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'objectType': object_type}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.ObjectType",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/ObjectType.md",
+        "references/rest/contracts/v1/ontologies/ObjectType/get.md",
+        "examples/rest/077/v1/ontologies/ObjectType/get.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.ObjectType",
+        "element": null
+      }
+    },
+    {
+      "operation": "v1.ontologies.ObjectType.get_outgoing_link_type",
+      "kwargs": {
+        "ontology_rid": "ri.qa.main.ontology.flight077",
+        "object_type": "Flight",
+        "link_type": "destination"
+      },
+      "wire": {
+        "method": "GET",
+        "path": "/v1/ontologies/ri.qa.main.ontology.flight077/objectTypes/Flight/outgoingLinkTypes/destination",
+        "query": {},
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": null
+      },
+      "response": {
+        "apiName": "destination",
+        "displayName": "Destination",
+        "status": "ACTIVE",
+        "objectTypeApiName": "Airport",
+        "cardinality": "ONE",
+        "foreignKeyPropertyApiName": "destinationId"
+      },
+      "paged": false,
+      "case_id": "F077-10",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.object_type",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\object_type.py",
+        "sha256": "f9d98265021a7e0275d47e182aa6bcade2b01ac427cc281a9c83e88b831fdf97",
+        "methods": {
+          "ObjectTypeClient": {
+            "line": 103,
+            "ast_sha256": "8574981f6c3b1ee238702a52285092ad3b6ce7b59a8e6bcc1e035503845f58e2",
+            "return": "ontologies_models.LinkTypeSide",
+            "doc": "Get an outgoing link for an object type.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the object type. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager** application.\n:type ontology_rid: OntologyRid\n:param object_type: The API name of the object type. To find the API name, use the **List object types** endpoint or check the **Ontology Manager** application.\n:type object_type: ObjectTypeApiName\n:param link_type: The API name of the outgoing link. To find the API name for your link type, check the **Ontology Manager**.\n:type link_type: LinkTypeApiName\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: ontologies_models.LinkTypeSide",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objectTypes/{objectType}/outgoingLinkTypes/{linkType}'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'objectType': object_type, 'linkType': link_type}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.LinkTypeSide",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          },
+          "AsyncObjectTypeClient": {
+            "line": 365,
+            "ast_sha256": "9ed3b65aaae017105891126f614331c58fd0ec7fab76e6ff739dd275714672cd",
+            "return": "typing.Awaitable[ontologies_models.LinkTypeSide]",
+            "doc": "Get an outgoing link for an object type.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the object type. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager** application.\n:type ontology_rid: OntologyRid\n:param object_type: The API name of the object type. To find the API name, use the **List object types** endpoint or check the **Ontology Manager** application.\n:type object_type: ObjectTypeApiName\n:param link_type: The API name of the outgoing link. To find the API name for your link type, check the **Ontology Manager**.\n:type link_type: LinkTypeApiName\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: typing.Awaitable[ontologies_models.LinkTypeSide]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objectTypes/{objectType}/outgoingLinkTypes/{linkType}'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'objectType': object_type, 'linkType': link_type}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.LinkTypeSide",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/ObjectType.md",
+        "references/rest/contracts/v1/ontologies/ObjectType/get_outgoing_link_type.md",
+        "examples/rest/077/v1/ontologies/ObjectType/get_outgoing_link_type.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.LinkTypeSide",
+        "element": null
+      }
+    },
+    {
+      "operation": "v1.ontologies.ObjectType.list",
+      "kwargs": {
+        "ontology_rid": "ri.qa.main.ontology.flight077",
+        "page_size": 1
+      },
+      "wire": {
+        "method": "GET",
+        "path": "/v1/ontologies/ri.qa.main.ontology.flight077/objectTypes",
+        "query": {
+          "pageSize": 1
+        },
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": null
+      },
+      "response": {
+        "data": [
+          {
+            "apiName": "Flight",
+            "status": "ACTIVE",
+            "rid": "ri.qa.main.object-type.flight077",
+            "primaryKey": [
+              "flightId"
+            ],
+            "properties": {
+              "flightId": {
+                "baseType": "String"
+              },
+              "status": {
+                "baseType": "String"
+              }
+            }
+          }
+        ]
+      },
+      "paged": true,
+      "case_id": "F077-11",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.object_type",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\object_type.py",
+        "sha256": "f9d98265021a7e0275d47e182aa6bcade2b01ac427cc281a9c83e88b831fdf97",
+        "methods": {
+          "ObjectTypeClient": {
+            "line": 151,
+            "ast_sha256": "d1573158224ce478d84f2f3a2b4a28070bb9d617ccfdea81878f9cc8a8eac844",
+            "return": "core.ResourceIterator[ontologies_models.ObjectType]",
+            "doc": "Lists the object types for the given Ontology.\n\nEach page may be smaller or larger than the requested page size. However, it is guaranteed that if there are\nmore results available, at least one result will be present in the\nresponse.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the object types. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param page_size: The desired size of the page to be returned. Defaults to 500. See [page sizes](https://palantir.com/docs/foundry/api/general/overview/paging/#page-sizes) for details.\n:type page_size: Optional[PageSize]\n:param page_token:\n:type page_token: Optional[PageToken]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core.ResourceIterator[ontologies_models.ObjectType]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objectTypes'",
+              "query_params": "{'pageSize': page_size, 'pageToken': page_token}",
+              "path_params": "{'ontologyRid': ontology_rid}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.ListObjectTypesResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode', 'ITERATOR')"
+            },
+            "named_errors": []
+          },
+          "AsyncObjectTypeClient": {
+            "line": 413,
+            "ast_sha256": "8b5661296347df30e87e037c8dd5b54d86d7e145bb0710a3c1f95bb8ec2b9322",
+            "return": "core.AsyncResourceIterator[ontologies_models.ObjectType]",
+            "doc": "Lists the object types for the given Ontology.\n\nEach page may be smaller or larger than the requested page size. However, it is guaranteed that if there are\nmore results available, at least one result will be present in the\nresponse.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the object types. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param page_size: The desired size of the page to be returned. Defaults to 500. See [page sizes](https://palantir.com/docs/foundry/api/general/overview/paging/#page-sizes) for details.\n:type page_size: Optional[PageSize]\n:param page_token:\n:type page_token: Optional[PageToken]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core.AsyncResourceIterator[ontologies_models.ObjectType]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objectTypes'",
+              "query_params": "{'pageSize': page_size, 'pageToken': page_token}",
+              "path_params": "{'ontologyRid': ontology_rid}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.ListObjectTypesResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode', 'ITERATOR')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/ObjectType.md",
+        "references/rest/contracts/v1/ontologies/ObjectType/list.md",
+        "examples/rest/077/v1/ontologies/ObjectType/list.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.ListObjectTypesResponse",
+        "element": "foundry_sdk.v1.ontologies.models.ObjectType"
+      }
+    },
+    {
+      "operation": "v1.ontologies.ObjectType.list_outgoing_link_types",
+      "kwargs": {
+        "ontology_rid": "ri.qa.main.ontology.flight077",
+        "object_type": "Flight",
+        "page_size": 1
+      },
+      "wire": {
+        "method": "GET",
+        "path": "/v1/ontologies/ri.qa.main.ontology.flight077/objectTypes/Flight/outgoingLinkTypes",
+        "query": {
+          "pageSize": 1
+        },
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": null
+      },
+      "response": {
+        "data": [
+          {
+            "apiName": "destination",
+            "displayName": "Destination",
+            "status": "ACTIVE",
+            "objectTypeApiName": "Airport",
+            "cardinality": "ONE",
+            "foreignKeyPropertyApiName": "destinationId"
+          }
+        ]
+      },
+      "paged": true,
+      "case_id": "F077-12",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.object_type",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\object_type.py",
+        "sha256": "f9d98265021a7e0275d47e182aa6bcade2b01ac427cc281a9c83e88b831fdf97",
+        "methods": {
+          "ObjectTypeClient": {
+            "line": 204,
+            "ast_sha256": "f46b2db43f9837bc83c333f4dc69fea2b18679f8220beacd4bdf113a1e0d2c3f",
+            "return": "core.ResourceIterator[ontologies_models.LinkTypeSide]",
+            "doc": "List the outgoing links for an object type.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the object type. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager** application.\n:type ontology_rid: OntologyRid\n:param object_type: The API name of the object type. To find the API name, use the **List object types** endpoint or check the **Ontology Manager** application.\n:type object_type: ObjectTypeApiName\n:param page_size: The desired size of the page to be returned.\n:type page_size: Optional[PageSize]\n:param page_token:\n:type page_token: Optional[PageToken]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core.ResourceIterator[ontologies_models.LinkTypeSide]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objectTypes/{objectType}/outgoingLinkTypes'",
+              "query_params": "{'pageSize': page_size, 'pageToken': page_token}",
+              "path_params": "{'ontologyRid': ontology_rid, 'objectType': object_type}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.ListOutgoingLinkTypesResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode', 'ITERATOR')"
+            },
+            "named_errors": []
+          },
+          "AsyncObjectTypeClient": {
+            "line": 466,
+            "ast_sha256": "c4772b9d6d15808a0fdfef7a4eec6097abd61e9455f9cab6da2be7f387813a70",
+            "return": "core.AsyncResourceIterator[ontologies_models.LinkTypeSide]",
+            "doc": "List the outgoing links for an object type.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the object type. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager** application.\n:type ontology_rid: OntologyRid\n:param object_type: The API name of the object type. To find the API name, use the **List object types** endpoint or check the **Ontology Manager** application.\n:type object_type: ObjectTypeApiName\n:param page_size: The desired size of the page to be returned.\n:type page_size: Optional[PageSize]\n:param page_token:\n:type page_token: Optional[PageToken]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core.AsyncResourceIterator[ontologies_models.LinkTypeSide]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objectTypes/{objectType}/outgoingLinkTypes'",
+              "query_params": "{'pageSize': page_size, 'pageToken': page_token}",
+              "path_params": "{'ontologyRid': ontology_rid, 'objectType': object_type}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.ListOutgoingLinkTypesResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode', 'ITERATOR')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/ObjectType.md",
+        "references/rest/contracts/v1/ontologies/ObjectType/list_outgoing_link_types.md",
+        "examples/rest/077/v1/ontologies/ObjectType/list_outgoing_link_types.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.ListOutgoingLinkTypesResponse",
+        "element": "foundry_sdk.v1.ontologies.models.LinkTypeSide"
+      }
+    },
+    {
+      "operation": "v1.ontologies.Ontology.get",
+      "kwargs": {
+        "ontology_rid": "ri.qa.main.ontology.flight077"
+      },
+      "wire": {
+        "method": "GET",
+        "path": "/v1/ontologies/ri.qa.main.ontology.flight077",
+        "query": {},
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": null
+      },
+      "response": {
+        "apiName": "FlightQA",
+        "displayName": "Flight QA",
+        "description": "Synthetic QA ontology",
+        "rid": "ri.qa.main.ontology.flight077"
+      },
+      "paged": false,
+      "case_id": "F077-13",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.ontology",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology.py",
+        "sha256": "52e99cd05010464a4f2dc0b1978da17d9a8863f4fdda8f4c7491875f3fc4be2d",
+        "methods": {
+          "OntologyClient": {
+            "line": 89,
+            "ast_sha256": "85fc1982118df2d4e231e368427291e3322b12c71163ad950aeefdb7ca49b87f",
+            "return": "ontologies_models.Ontology",
+            "doc": "Gets a specific ontology with the given Ontology RID.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: ontologies_models.Ontology",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.Ontology",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          },
+          "AsyncOntologyClient": {
+            "line": 242,
+            "ast_sha256": "e0490a3b9bf9409961e6dea48e5ce5a4651615c6cc8012ead073da425c937ac3",
+            "return": "typing.Awaitable[ontologies_models.Ontology]",
+            "doc": "Gets a specific ontology with the given Ontology RID.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: typing.Awaitable[ontologies_models.Ontology]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.Ontology",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/Ontology.md",
+        "references/rest/contracts/v1/ontologies/Ontology/get.md",
+        "examples/rest/077/v1/ontologies/Ontology/get.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.Ontology",
+        "element": null
+      }
+    },
+    {
+      "operation": "v1.ontologies.Ontology.list",
+      "kwargs": {},
+      "wire": {
+        "method": "GET",
+        "path": "/v1/ontologies",
+        "query": {},
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": null
+      },
+      "response": {
+        "data": [
+          {
+            "apiName": "FlightQA",
+            "displayName": "Flight QA",
+            "description": "Synthetic QA ontology",
+            "rid": "ri.qa.main.ontology.flight077"
+          }
+        ]
+      },
+      "paged": false,
+      "case_id": "F077-14",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.ontology",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology.py",
+        "sha256": "52e99cd05010464a4f2dc0b1978da17d9a8863f4fdda8f4c7491875f3fc4be2d",
+        "methods": {
+          "OntologyClient": {
+            "line": 129,
+            "ast_sha256": "6a33ec9074250517cf501e458a7374bad01da3b7cba67b9b05f059080c4336b6",
+            "return": "ontologies_models.ListOntologiesResponse",
+            "doc": "Lists the Ontologies visible to the current user.\n\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: ontologies_models.ListOntologiesResponse",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies'",
+              "query_params": "{}",
+              "path_params": "{}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.ListOntologiesResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          },
+          "AsyncOntologyClient": {
+            "line": 282,
+            "ast_sha256": "bca3dac14554165c9abd0e739bdfdbb1fe4f47810012bfa6cd30bba9e2924968",
+            "return": "typing.Awaitable[ontologies_models.ListOntologiesResponse]",
+            "doc": "Lists the Ontologies visible to the current user.\n\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: typing.Awaitable[ontologies_models.ListOntologiesResponse]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies'",
+              "query_params": "{}",
+              "path_params": "{}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.ListOntologiesResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/Ontology.md",
+        "references/rest/contracts/v1/ontologies/Ontology/list.md",
+        "examples/rest/077/v1/ontologies/Ontology/list.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.ListOntologiesResponse",
+        "element": null
+      }
+    },
+    {
+      "operation": "v1.ontologies.OntologyObject.aggregate",
+      "kwargs": {
+        "ontology_rid": "ri.qa.main.ontology.flight077",
+        "object_type": "Flight",
+        "aggregation": [
+          {
+            "type": "count",
+            "name": "flightCount"
+          }
+        ],
+        "group_by": []
+      },
+      "wire": {
+        "method": "POST",
+        "path": "/v1/ontologies/ri.qa.main.ontology.flight077/objects/Flight/aggregate",
+        "query": {},
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "aggregation": [
+            {
+              "type": "count",
+              "name": "flightCount"
+            }
+          ],
+          "groupBy": []
+        }
+      },
+      "response": {
+        "data": [
+          {
+            "group": {},
+            "metrics": [
+              {
+                "name": "flightCount",
+                "value": 1.0
+              }
+            ]
+          }
+        ],
+        "excludedItems": 0
+      },
+      "paged": false,
+      "case_id": "F077-15",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.ontology_object",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+        "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f",
+        "methods": {
+          "OntologyObjectClient": {
+            "line": 59,
+            "ast_sha256": "2947bfdba039992a98db1604c94e4f248e441510dfb1232c8e5084a3775b7cfc",
+            "return": "ontologies_models.AggregateObjectsResponse",
+            "doc": "Perform functions on object fields in the specified ontology and object type.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the objects.\n:type ontology_rid: OntologyRid\n:param object_type: The type of the object to aggregate on.\n:type object_type: ObjectTypeApiName\n:param aggregation:\n:type aggregation: List[Aggregation]\n:param group_by:\n:type group_by: List[AggregationGroupBy]\n:param query:\n:type query: Optional[SearchJsonQuery]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: ontologies_models.AggregateObjectsResponse",
+            "request": {
+              "method": "'POST'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objects/{objectType}/aggregate'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'objectType': object_type}",
+              "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+              "body": "ontologies_models.AggregateObjectsRequest(aggregation=aggregation, query=query, group_by=group_by)",
+              "response_type": "ontologies_models.AggregateObjectsResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          },
+          "AsyncOntologyObjectClient": {
+            "line": 549,
+            "ast_sha256": "1b35948a09f39dceb379584ba572c4c1625afcb06c4bfe709992d440abca6702",
+            "return": "typing.Awaitable[ontologies_models.AggregateObjectsResponse]",
+            "doc": "Perform functions on object fields in the specified ontology and object type.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the objects.\n:type ontology_rid: OntologyRid\n:param object_type: The type of the object to aggregate on.\n:type object_type: ObjectTypeApiName\n:param aggregation:\n:type aggregation: List[Aggregation]\n:param group_by:\n:type group_by: List[AggregationGroupBy]\n:param query:\n:type query: Optional[SearchJsonQuery]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: typing.Awaitable[ontologies_models.AggregateObjectsResponse]",
+            "request": {
+              "method": "'POST'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objects/{objectType}/aggregate'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'objectType': object_type}",
+              "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+              "body": "ontologies_models.AggregateObjectsRequest(aggregation=aggregation, query=query, group_by=group_by)",
+              "response_type": "ontologies_models.AggregateObjectsResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/OntologyObject.md",
+        "references/rest/contracts/v1/ontologies/OntologyObject/aggregate.md",
+        "examples/rest/077/v1/ontologies/OntologyObject/aggregate.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.AggregateObjectsResponse",
+        "element": null
+      }
+    },
+    {
+      "operation": "v1.ontologies.OntologyObject.get",
+      "kwargs": {
+        "ontology_rid": "ri.qa.main.ontology.flight077",
+        "object_type": "Flight",
+        "primary_key": "QA-077",
+        "properties": [
+          "flightId",
+          "status"
+        ]
+      },
+      "wire": {
+        "method": "GET",
+        "path": "/v1/ontologies/ri.qa.main.ontology.flight077/objects/Flight/QA-077",
+        "query": {
+          "properties": [
+            "flightId",
+            "status"
+          ]
+        },
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": null
+      },
+      "response": {
+        "rid": "ri.qa.main.object.flight077",
+        "properties": {
+          "flightId": "QA-077",
+          "status": "scheduled"
+        }
+      },
+      "paged": false,
+      "case_id": "F077-16",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.ontology_object",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+        "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f",
+        "methods": {
+          "OntologyObjectClient": {
+            "line": 117,
+            "ast_sha256": "a88f5592cdf556234706207fd8ea0f2b1095b75ae35b11ed64ecf8c5360374d1",
+            "return": "ontologies_models.OntologyObject",
+            "doc": "Gets a specific object with the given primary key.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the object. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param object_type: The API name of the object type. To find the API name, use the **List object types** endpoint or check the **Ontology Manager**.\n:type object_type: ObjectTypeApiName\n:param primary_key: The primary key of the requested object. To look up the expected primary key for your object type, use the `Get object type` endpoint or the **Ontology Manager**.\n:type primary_key: PropertyValueEscapedString\n:param properties: The properties of the object type that should be included in the response. Omit this parameter to get all the properties.\n:type properties: Optional[List[SelectedPropertyApiName]]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: ontologies_models.OntologyObject",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objects/{objectType}/{primaryKey}'",
+              "query_params": "{'properties': properties}",
+              "path_params": "{'ontologyRid': ontology_rid, 'objectType': object_type, 'primaryKey': primary_key}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.OntologyObject",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          },
+          "AsyncOntologyObjectClient": {
+            "line": 607,
+            "ast_sha256": "16007f22e37ac9ed12459f0336b2459a1f4d0b14a3b7d6337cfd40d07da7b805",
+            "return": "typing.Awaitable[ontologies_models.OntologyObject]",
+            "doc": "Gets a specific object with the given primary key.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the object. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param object_type: The API name of the object type. To find the API name, use the **List object types** endpoint or check the **Ontology Manager**.\n:type object_type: ObjectTypeApiName\n:param primary_key: The primary key of the requested object. To look up the expected primary key for your object type, use the `Get object type` endpoint or the **Ontology Manager**.\n:type primary_key: PropertyValueEscapedString\n:param properties: The properties of the object type that should be included in the response. Omit this parameter to get all the properties.\n:type properties: Optional[List[SelectedPropertyApiName]]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: typing.Awaitable[ontologies_models.OntologyObject]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objects/{objectType}/{primaryKey}'",
+              "query_params": "{'properties': properties}",
+              "path_params": "{'ontologyRid': ontology_rid, 'objectType': object_type, 'primaryKey': primary_key}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.OntologyObject",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/OntologyObject.md",
+        "references/rest/contracts/v1/ontologies/OntologyObject/get.md",
+        "examples/rest/077/v1/ontologies/OntologyObject/get.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.OntologyObject",
+        "element": null
+      }
+    },
+    {
+      "operation": "v1.ontologies.OntologyObject.get_linked_object",
+      "kwargs": {
+        "ontology_rid": "ri.qa.main.ontology.flight077",
+        "object_type": "Flight",
+        "primary_key": "QA-077",
+        "link_type": "destination",
+        "linked_object_primary_key": "SOF",
+        "properties": [
+          "airportId",
+          "name"
+        ]
+      },
+      "wire": {
+        "method": "GET",
+        "path": "/v1/ontologies/ri.qa.main.ontology.flight077/objects/Flight/QA-077/links/destination/SOF",
+        "query": {
+          "properties": [
+            "airportId",
+            "name"
+          ]
+        },
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": null
+      },
+      "response": {
+        "rid": "ri.qa.main.object.airport077",
+        "properties": {
+          "airportId": "SOF",
+          "name": "Sofia"
+        }
+      },
+      "paged": false,
+      "case_id": "F077-17",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.ontology_object",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+        "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f",
+        "methods": {
+          "OntologyObjectClient": {
+            "line": 170,
+            "ast_sha256": "e3f255cda0f0fdbd18c6d98d24eae329f656598c4fa6388a134eeb24b67ed446",
+            "return": "ontologies_models.OntologyObject",
+            "doc": "Get a specific linked object that originates from another object. If there is no link between the two objects,\nLinkedObjectNotFound is thrown.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the object. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param object_type: The API name of the object from which the links originate. To find the API name, use the **List object types** endpoint or check the **Ontology Manager**.\n:type object_type: ObjectTypeApiName\n:param primary_key: The primary key of the object from which the link originates. To look up the expected primary key for your object type, use the `Get object type` endpoint or the **Ontology Manager**.\n:type primary_key: PropertyValueEscapedString\n:param link_type: The API name of the link that exists between the object and the requested objects. To find the API name for your link type, check the **Ontology Manager**.\n:type link_type: LinkTypeApiName\n:param linked_object_primary_key: The primary key of the requested linked object. To look up the expected primary key for your object type, use the `Get object type` endpoint (passing the linked object type) or the **Ontology Manager**.\n:type linked_object_primary_key: PropertyValueEscapedString\n:param properties: The properties of the object type that should be included in the response. Omit this parameter to get all the properties.\n:type properties: Optional[List[SelectedPropertyApiName]]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: ontologies_models.OntologyObject",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objects/{objectType}/{primaryKey}/links/{linkType}/{linkedObjectPrimaryKey}'",
+              "query_params": "{'properties': properties}",
+              "path_params": "{'ontologyRid': ontology_rid, 'objectType': object_type, 'primaryKey': primary_key, 'linkType': link_type, 'linkedObjectPrimaryKey': linked_object_primary_key}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.OntologyObject",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          },
+          "AsyncOntologyObjectClient": {
+            "line": 660,
+            "ast_sha256": "c37a206bbbb6aca05bb94012697feba34f765b8d73cd7401b4345dd2bb51a523",
+            "return": "typing.Awaitable[ontologies_models.OntologyObject]",
+            "doc": "Get a specific linked object that originates from another object. If there is no link between the two objects,\nLinkedObjectNotFound is thrown.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the object. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param object_type: The API name of the object from which the links originate. To find the API name, use the **List object types** endpoint or check the **Ontology Manager**.\n:type object_type: ObjectTypeApiName\n:param primary_key: The primary key of the object from which the link originates. To look up the expected primary key for your object type, use the `Get object type` endpoint or the **Ontology Manager**.\n:type primary_key: PropertyValueEscapedString\n:param link_type: The API name of the link that exists between the object and the requested objects. To find the API name for your link type, check the **Ontology Manager**.\n:type link_type: LinkTypeApiName\n:param linked_object_primary_key: The primary key of the requested linked object. To look up the expected primary key for your object type, use the `Get object type` endpoint (passing the linked object type) or the **Ontology Manager**.\n:type linked_object_primary_key: PropertyValueEscapedString\n:param properties: The properties of the object type that should be included in the response. Omit this parameter to get all the properties.\n:type properties: Optional[List[SelectedPropertyApiName]]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: typing.Awaitable[ontologies_models.OntologyObject]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objects/{objectType}/{primaryKey}/links/{linkType}/{linkedObjectPrimaryKey}'",
+              "query_params": "{'properties': properties}",
+              "path_params": "{'ontologyRid': ontology_rid, 'objectType': object_type, 'primaryKey': primary_key, 'linkType': link_type, 'linkedObjectPrimaryKey': linked_object_primary_key}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.OntologyObject",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/OntologyObject.md",
+        "references/rest/contracts/v1/ontologies/OntologyObject/get_linked_object.md",
+        "examples/rest/077/v1/ontologies/OntologyObject/get_linked_object.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.OntologyObject",
+        "element": null
+      }
+    },
+    {
+      "operation": "v1.ontologies.OntologyObject.list",
+      "kwargs": {
+        "ontology_rid": "ri.qa.main.ontology.flight077",
+        "object_type": "Flight",
+        "page_size": 1,
+        "properties": [
+          "flightId",
+          "status"
+        ]
+      },
+      "wire": {
+        "method": "GET",
+        "path": "/v1/ontologies/ri.qa.main.ontology.flight077/objects/Flight",
+        "query": {
+          "pageSize": 1,
+          "properties": [
+            "flightId",
+            "status"
+          ]
+        },
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": null
+      },
+      "response": {
+        "data": [
+          {
+            "rid": "ri.qa.main.object.flight077",
+            "properties": {
+              "flightId": "QA-077",
+              "status": "scheduled"
+            }
+          }
+        ],
+        "totalCount": 1
+      },
+      "paged": true,
+      "case_id": "F077-18",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.ontology_object",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+        "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f",
+        "methods": {
+          "OntologyObjectClient": {
+            "line": 232,
+            "ast_sha256": "711b5ad5fb8531c05b863dcbf91dc185649e5dc8c39cc48e2fbbf89287e594d3",
+            "return": "core.ResourceIterator[ontologies_models.OntologyObject]",
+            "doc": "Lists the objects for the given Ontology and object type.\n\nThis endpoint supports filtering objects.\nSee the [Filtering Objects documentation](https://palantir.com/docs/foundry/api/ontology-resources/objects/ontology-object-basics#filter-objects) for details.\n\nNote that this endpoint does not guarantee consistency. Changes to the data could result in missing or\nrepeated objects in the response pages.\n\nFor Object Storage V1 backed objects, this endpoint returns a maximum of 10,000 objects. After 10,000 objects have been returned and if more objects\nare available, attempting to load another page will result in an `ObjectsExceededLimit` error being returned. There is no limit on Object Storage V2 backed objects.\n\nEach page may be smaller or larger than the requested page size. However, it\nis guaranteed that if there are more results available, at least one result will be present\nin the response.\n\nNote that null value properties will not be returned.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the objects. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param object_type: The API name of the object type. To find the API name, use the **List object types** endpoint or check the **Ontology Manager**.\n:type object_type: ObjectTypeApiName\n:param order_by:\n:type order_by: Optional[OrderBy]\n:param page_size: The desired size of the page to be returned. Defaults to 1,000. See [page sizes](https://palantir.com/docs/foundry/api/general/overview/paging/#page-sizes) for details.\n:type page_size: Optional[PageSize]\n:param page_token:\n:type page_token: Optional[PageToken]\n:param properties: The properties of the object type that should be included in the response. Omit this parameter to get all the properties.\n:type properties: Optional[List[SelectedPropertyApiName]]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core.ResourceIterator[ontologies_models.OntologyObject]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objects/{objectType}'",
+              "query_params": "{'orderBy': order_by, 'pageSize': page_size, 'pageToken': page_token, 'properties': properties}",
+              "path_params": "{'ontologyRid': ontology_rid, 'objectType': object_type}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.ListObjectsResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode', 'ITERATOR')"
+            },
+            "named_errors": []
+          },
+          "AsyncOntologyObjectClient": {
+            "line": 722,
+            "ast_sha256": "4468927ea88fd258d6ccee9c4dea4b468c9a291b9a7e384deea13ed4b1a7f91f",
+            "return": "core.AsyncResourceIterator[ontologies_models.OntologyObject]",
+            "doc": "Lists the objects for the given Ontology and object type.\n\nThis endpoint supports filtering objects.\nSee the [Filtering Objects documentation](https://palantir.com/docs/foundry/api/ontology-resources/objects/ontology-object-basics#filter-objects) for details.\n\nNote that this endpoint does not guarantee consistency. Changes to the data could result in missing or\nrepeated objects in the response pages.\n\nFor Object Storage V1 backed objects, this endpoint returns a maximum of 10,000 objects. After 10,000 objects have been returned and if more objects\nare available, attempting to load another page will result in an `ObjectsExceededLimit` error being returned. There is no limit on Object Storage V2 backed objects.\n\nEach page may be smaller or larger than the requested page size. However, it\nis guaranteed that if there are more results available, at least one result will be present\nin the response.\n\nNote that null value properties will not be returned.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the objects. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param object_type: The API name of the object type. To find the API name, use the **List object types** endpoint or check the **Ontology Manager**.\n:type object_type: ObjectTypeApiName\n:param order_by:\n:type order_by: Optional[OrderBy]\n:param page_size: The desired size of the page to be returned. Defaults to 1,000. See [page sizes](https://palantir.com/docs/foundry/api/general/overview/paging/#page-sizes) for details.\n:type page_size: Optional[PageSize]\n:param page_token:\n:type page_token: Optional[PageToken]\n:param properties: The properties of the object type that should be included in the response. Omit this parameter to get all the properties.\n:type properties: Optional[List[SelectedPropertyApiName]]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core.AsyncResourceIterator[ontologies_models.OntologyObject]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objects/{objectType}'",
+              "query_params": "{'orderBy': order_by, 'pageSize': page_size, 'pageToken': page_token, 'properties': properties}",
+              "path_params": "{'ontologyRid': ontology_rid, 'objectType': object_type}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.ListObjectsResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode', 'ITERATOR')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/OntologyObject.md",
+        "references/rest/contracts/v1/ontologies/OntologyObject/list.md",
+        "examples/rest/077/v1/ontologies/OntologyObject/list.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.ListObjectsResponse",
+        "element": "foundry_sdk.v1.ontologies.models.OntologyObject"
+      }
+    },
+    {
+      "operation": "v1.ontologies.OntologyObject.list_linked_objects",
+      "kwargs": {
+        "ontology_rid": "ri.qa.main.ontology.flight077",
+        "object_type": "Flight",
+        "page_size": 1,
+        "properties": [
+          "airportId",
+          "name"
+        ],
+        "primary_key": "QA-077",
+        "link_type": "destination"
+      },
+      "wire": {
+        "method": "GET",
+        "path": "/v1/ontologies/ri.qa.main.ontology.flight077/objects/Flight/QA-077/links/destination",
+        "query": {
+          "pageSize": 1,
+          "properties": [
+            "airportId",
+            "name"
+          ]
+        },
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": null
+      },
+      "response": {
+        "data": [
+          {
+            "rid": "ri.qa.main.object.airport077",
+            "properties": {
+              "airportId": "SOF",
+              "name": "Sofia"
+            }
+          }
+        ]
+      },
+      "paged": true,
+      "case_id": "F077-19",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.ontology_object",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+        "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f",
+        "methods": {
+          "OntologyObjectClient": {
+            "line": 308,
+            "ast_sha256": "2eeffe29f1b818f8f9640dc0a288402a8f364cb6387bb49f50fe7d3be4d1a485",
+            "return": "core.ResourceIterator[ontologies_models.OntologyObject]",
+            "doc": "Lists the linked objects for a specific object and the given link type.\n\nThis endpoint supports filtering objects.\nSee the [Filtering Objects documentation](https://palantir.com/docs/foundry/api/ontology-resources/objects/ontology-object-basics#filter-objects) for details.\n\nNote that this endpoint does not guarantee consistency. Changes to the data could result in missing or\nrepeated objects in the response pages.\n\nFor Object Storage V1 backed objects, this endpoint returns a maximum of 10,000 objects. After 10,000 objects have been returned and if more objects\nare available, attempting to load another page will result in an `ObjectsExceededLimit` error being returned. There is no limit on Object Storage V2 backed objects.\n\nEach page may be smaller or larger than the requested page size. However, it\nis guaranteed that if there are more results available, at least one result will be present\nin the response.\n\nNote that null value properties will not be returned.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the objects. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param object_type: The API name of the object from which the links originate. To find the API name, use the **List object types** endpoint or check the **Ontology Manager**.\n:type object_type: ObjectTypeApiName\n:param primary_key: The primary key of the object from which the links originate. To look up the expected primary key for your object type, use the `Get object type` endpoint or the **Ontology Manager**.\n:type primary_key: PropertyValueEscapedString\n:param link_type: The API name of the link that exists between the object and the requested objects. To find the API name for your link type, check the **Ontology Manager**.\n:type link_type: LinkTypeApiName\n:param order_by:\n:type order_by: Optional[OrderBy]\n:param page_size: The desired size of the page to be returned. Defaults to 1,000. See [page sizes](https://palantir.com/docs/foundry/api/general/overview/paging/#page-sizes) for details.\n:type page_size: Optional[PageSize]\n:param page_token:\n:type page_token: Optional[PageToken]\n:param properties: The properties of the object type that should be included in the response. Omit this parameter to get all the properties.\n:type properties: Optional[List[SelectedPropertyApiName]]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core.ResourceIterator[ontologies_models.OntologyObject]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objects/{objectType}/{primaryKey}/links/{linkType}'",
+              "query_params": "{'orderBy': order_by, 'pageSize': page_size, 'pageToken': page_token, 'properties': properties}",
+              "path_params": "{'ontologyRid': ontology_rid, 'objectType': object_type, 'primaryKey': primary_key, 'linkType': link_type}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.ListLinkedObjectsResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode', 'ITERATOR')"
+            },
+            "named_errors": []
+          },
+          "AsyncOntologyObjectClient": {
+            "line": 798,
+            "ast_sha256": "787742adc69140b01125b99493b671ed0ab34737d9a4f6aba7023e651294706c",
+            "return": "core.AsyncResourceIterator[ontologies_models.OntologyObject]",
+            "doc": "Lists the linked objects for a specific object and the given link type.\n\nThis endpoint supports filtering objects.\nSee the [Filtering Objects documentation](https://palantir.com/docs/foundry/api/ontology-resources/objects/ontology-object-basics#filter-objects) for details.\n\nNote that this endpoint does not guarantee consistency. Changes to the data could result in missing or\nrepeated objects in the response pages.\n\nFor Object Storage V1 backed objects, this endpoint returns a maximum of 10,000 objects. After 10,000 objects have been returned and if more objects\nare available, attempting to load another page will result in an `ObjectsExceededLimit` error being returned. There is no limit on Object Storage V2 backed objects.\n\nEach page may be smaller or larger than the requested page size. However, it\nis guaranteed that if there are more results available, at least one result will be present\nin the response.\n\nNote that null value properties will not be returned.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the objects. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param object_type: The API name of the object from which the links originate. To find the API name, use the **List object types** endpoint or check the **Ontology Manager**.\n:type object_type: ObjectTypeApiName\n:param primary_key: The primary key of the object from which the links originate. To look up the expected primary key for your object type, use the `Get object type` endpoint or the **Ontology Manager**.\n:type primary_key: PropertyValueEscapedString\n:param link_type: The API name of the link that exists between the object and the requested objects. To find the API name for your link type, check the **Ontology Manager**.\n:type link_type: LinkTypeApiName\n:param order_by:\n:type order_by: Optional[OrderBy]\n:param page_size: The desired size of the page to be returned. Defaults to 1,000. See [page sizes](https://palantir.com/docs/foundry/api/general/overview/paging/#page-sizes) for details.\n:type page_size: Optional[PageSize]\n:param page_token:\n:type page_token: Optional[PageToken]\n:param properties: The properties of the object type that should be included in the response. Omit this parameter to get all the properties.\n:type properties: Optional[List[SelectedPropertyApiName]]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core.AsyncResourceIterator[ontologies_models.OntologyObject]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objects/{objectType}/{primaryKey}/links/{linkType}'",
+              "query_params": "{'orderBy': order_by, 'pageSize': page_size, 'pageToken': page_token, 'properties': properties}",
+              "path_params": "{'ontologyRid': ontology_rid, 'objectType': object_type, 'primaryKey': primary_key, 'linkType': link_type}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.ListLinkedObjectsResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode', 'ITERATOR')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/OntologyObject.md",
+        "references/rest/contracts/v1/ontologies/OntologyObject/list_linked_objects.md",
+        "examples/rest/077/v1/ontologies/OntologyObject/list_linked_objects.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.ListLinkedObjectsResponse",
+        "element": "foundry_sdk.v1.ontologies.models.OntologyObject"
+      }
+    },
+    {
+      "operation": "v1.ontologies.OntologyObject.search",
+      "kwargs": {
+        "ontology_rid": "ri.qa.main.ontology.flight077",
+        "object_type": "Flight",
+        "query": {
+          "type": "eq",
+          "field": "properties.status",
+          "value": "scheduled"
+        },
+        "fields": [
+          "flightId",
+          "status"
+        ],
+        "page_size": 1
+      },
+      "wire": {
+        "method": "POST",
+        "path": "/v1/ontologies/ri.qa.main.ontology.flight077/objects/Flight/search",
+        "query": {},
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "query": {
+            "type": "eq",
+            "field": "properties.status",
+            "value": "scheduled"
+          },
+          "fields": [
+            "flightId",
+            "status"
+          ],
+          "pageSize": 1
+        }
+      },
+      "response": {
+        "data": [
+          {
+            "rid": "ri.qa.main.object.flight077",
+            "properties": {
+              "flightId": "QA-077",
+              "status": "scheduled"
+            }
+          }
+        ],
+        "totalCount": 1
+      },
+      "paged": true,
+      "case_id": "F077-20",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.ontology_object",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+        "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f",
+        "methods": {
+          "OntologyObjectClient": {
+            "line": 392,
+            "ast_sha256": "c2aedd7408774bb831a617ec442507702e348da72b664979165c4e56bded02f3",
+            "return": "ontologies_models.SearchObjectsResponse",
+            "doc": "Search for objects in the specified ontology and object type. The request body is used\nto filter objects based on the specified query. The supported queries are:\n\n| Query type            | Description                                                                       | Supported Types                 |\n|----------|-----------------------------------------------------------------------------------|---------------------------------|\n| lt       | The provided property is less than the provided value.                            | number, string, date, timestamp |\n| gt       | The provided property is greater than the provided value.                         | number, string, date, timestamp |\n| lte      | The provided property is less than or equal to the provided value.                | number, string, date, timestamp |\n| gte      | The provided property is greater than or equal to the provided value.             | number, string, date, timestamp |\n| eq       | The provided property is exactly equal to the provided value.                     | number, string, date, timestamp |\n| isNull   | The provided property is (or is not) null.                                        | all                             |\n| contains | The provided property contains the provided value.                                | array                           |\n| not      | The sub-query does not match.                                                     | N/A (applied on a query)        |\n| and      | All the sub-queries match.                                                        | N/A (applied on queries)        |\n| or       | At least one of the sub-queries match.                                            | N/A (applied on queries)        |\n| prefix   | The provided property starts with the provided term.                              | string                          |\n| phrase   | The provided property contains the provided term as a substring.                  | string                          |\n| anyTerm  | The provided property contains at least one of the terms separated by whitespace. | string                          |\n| allTerms | The provided property contains all the terms separated by whitespace.             | string                          |\n\nQueries can be at most three levels deep. By default, terms are separated by whitespace or punctuation (`?!,:;-[](){}'\"~`). Periods (`.`) on their own are ignored.\nPartial terms are not matched by terms filters except where explicitly noted.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the objects.\n:type ontology_rid: OntologyRid\n:param object_type: The type of the requested objects.\n:type object_type: ObjectTypeApiName\n:param fields: The API names of the object type properties to include in the response.\n:type fields: List[PropertyApiName]\n:param query:\n:type query: SearchJsonQuery\n:param order_by:\n:type order_by: Optional[SearchOrderBy]\n:param page_size:\n:type page_size: Optional[PageSize]\n:param page_token:\n:type page_token: Optional[PageToken]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: ontologies_models.SearchObjectsResponse",
+            "request": {
+              "method": "'POST'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objects/{objectType}/search'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'objectType': object_type}",
+              "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+              "body": "ontologies_models.SearchObjectsRequest(query=query, order_by=order_by, page_size=page_size, page_token=page_token, fields=fields)",
+              "response_type": "ontologies_models.SearchObjectsResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          },
+          "AsyncOntologyObjectClient": {
+            "line": 882,
+            "ast_sha256": "52f989ccb56314a9027cd244523422ce2baa67b97c3568c48eb6a91553763f8e",
+            "return": "typing.Awaitable[ontologies_models.SearchObjectsResponse]",
+            "doc": "Search for objects in the specified ontology and object type. The request body is used\nto filter objects based on the specified query. The supported queries are:\n\n| Query type            | Description                                                                       | Supported Types                 |\n|----------|-----------------------------------------------------------------------------------|---------------------------------|\n| lt       | The provided property is less than the provided value.                            | number, string, date, timestamp |\n| gt       | The provided property is greater than the provided value.                         | number, string, date, timestamp |\n| lte      | The provided property is less than or equal to the provided value.                | number, string, date, timestamp |\n| gte      | The provided property is greater than or equal to the provided value.             | number, string, date, timestamp |\n| eq       | The provided property is exactly equal to the provided value.                     | number, string, date, timestamp |\n| isNull   | The provided property is (or is not) null.                                        | all                             |\n| contains | The provided property contains the provided value.                                | array                           |\n| not      | The sub-query does not match.                                                     | N/A (applied on a query)        |\n| and      | All the sub-queries match.                                                        | N/A (applied on queries)        |\n| or       | At least one of the sub-queries match.                                            | N/A (applied on queries)        |\n| prefix   | The provided property starts with the provided term.                              | string                          |\n| phrase   | The provided property contains the provided term as a substring.                  | string                          |\n| anyTerm  | The provided property contains at least one of the terms separated by whitespace. | string                          |\n| allTerms | The provided property contains all the terms separated by whitespace.             | string                          |\n\nQueries can be at most three levels deep. By default, terms are separated by whitespace or punctuation (`?!,:;-[](){}'\"~`). Periods (`.`) on their own are ignored.\nPartial terms are not matched by terms filters except where explicitly noted.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the objects.\n:type ontology_rid: OntologyRid\n:param object_type: The type of the requested objects.\n:type object_type: ObjectTypeApiName\n:param fields: The API names of the object type properties to include in the response.\n:type fields: List[PropertyApiName]\n:param query:\n:type query: SearchJsonQuery\n:param order_by:\n:type order_by: Optional[SearchOrderBy]\n:param page_size:\n:type page_size: Optional[PageSize]\n:param page_token:\n:type page_token: Optional[PageToken]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: typing.Awaitable[ontologies_models.SearchObjectsResponse]",
+            "request": {
+              "method": "'POST'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/objects/{objectType}/search'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'objectType': object_type}",
+              "header_params": "{'Content-Type': 'application/json', 'Accept': 'application/json'}",
+              "body": "ontologies_models.SearchObjectsRequest(query=query, order_by=order_by, page_size=page_size, page_token=page_token, fields=fields)",
+              "response_type": "ontologies_models.SearchObjectsResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/OntologyObject.md",
+        "references/rest/contracts/v1/ontologies/OntologyObject/search.md",
+        "examples/rest/077/v1/ontologies/OntologyObject/search.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.SearchObjectsResponse",
+        "element": null
+      }
+    },
+    {
+      "operation": "v1.ontologies.Query.execute",
+      "kwargs": {
+        "ontology_rid": "ri.qa.main.ontology.flight077",
+        "query_api_name": "countScheduledFlights",
+        "parameters": {
+          "status": "scheduled"
+        }
+      },
+      "wire": {
+        "method": "POST",
+        "path": "/v1/ontologies/ri.qa.main.ontology.flight077/queries/countScheduledFlights/execute",
+        "query": {},
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "parameters": {
+            "status": "scheduled"
+          }
+        }
+      },
+      "response": {
+        "value": 1
+      },
+      "paged": false,
+      "case_id": "F077-21",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.query",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\query.py",
+        "sha256": "9b6b1152611e85245ce5db06e10d90650e644485316b4c5e9a3206049bfc050e",
+        "methods": {
+          "QueryClient": {
+            "line": 59,
+            "ast_sha256": "a8e1dc8f5705c177fd23d573a89ffcb9e2821e1bf3147beca7ea1900a94df0be",
+            "return": "ontologies_models.ExecuteQueryResponse",
+            "doc": "Executes a Query using the given parameters. Optional parameters do not need to be supplied.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the Query. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param query_api_name: The API name of the Query to execute.\n:type query_api_name: QueryApiName\n:param parameters:\n:type parameters: Dict[ParameterId, Optional[DataValue]]\n:param attribution: The Attribution to be used when executing this request.\n:type attribution: Optional[Attribution]\n:param trace_parent: The W3C trace parent header included in the request.\n:type trace_parent: Optional[TraceParent]\n:param trace_state: The W3C trace state header included in the request.\n:type trace_state: Optional[TraceState]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: ontologies_models.ExecuteQueryResponse",
+            "request": {
+              "method": "'POST'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/queries/{queryApiName}/execute'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'queryApiName': query_api_name}",
+              "header_params": "{'attribution': attribution, 'traceParent': trace_parent, 'traceState': trace_state, 'Content-Type': 'application/json', 'Accept': 'application/json'}",
+              "body": "ontologies_models.ExecuteQueryRequest(parameters=parameters)",
+              "response_type": "ontologies_models.ExecuteQueryResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          },
+          "AsyncQueryClient": {
+            "line": 167,
+            "ast_sha256": "1881e0e9a5e83bb94eadb78619f15cc67a04ad9bd7ac97e35b7c244bcce21666",
+            "return": "typing.Awaitable[ontologies_models.ExecuteQueryResponse]",
+            "doc": "Executes a Query using the given parameters. Optional parameters do not need to be supplied.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the Query. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param query_api_name: The API name of the Query to execute.\n:type query_api_name: QueryApiName\n:param parameters:\n:type parameters: Dict[ParameterId, Optional[DataValue]]\n:param attribution: The Attribution to be used when executing this request.\n:type attribution: Optional[Attribution]\n:param trace_parent: The W3C trace parent header included in the request.\n:type trace_parent: Optional[TraceParent]\n:param trace_state: The W3C trace state header included in the request.\n:type trace_state: Optional[TraceState]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: typing.Awaitable[ontologies_models.ExecuteQueryResponse]",
+            "request": {
+              "method": "'POST'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/queries/{queryApiName}/execute'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'queryApiName': query_api_name}",
+              "header_params": "{'attribution': attribution, 'traceParent': trace_parent, 'traceState': trace_state, 'Content-Type': 'application/json', 'Accept': 'application/json'}",
+              "body": "ontologies_models.ExecuteQueryRequest(parameters=parameters)",
+              "response_type": "ontologies_models.ExecuteQueryResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/Query.md",
+        "references/rest/contracts/v1/ontologies/Query/execute.md",
+        "examples/rest/077/v1/ontologies/Query/execute.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.ExecuteQueryResponse",
+        "element": null
+      }
+    },
+    {
+      "operation": "v1.ontologies.QueryType.get",
+      "kwargs": {
+        "ontology_rid": "ri.qa.main.ontology.flight077",
+        "query_api_name": "countScheduledFlights"
+      },
+      "wire": {
+        "method": "GET",
+        "path": "/v1/ontologies/ri.qa.main.ontology.flight077/queryTypes/countScheduledFlights",
+        "query": {},
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": null
+      },
+      "response": {
+        "apiName": "countScheduledFlights",
+        "rid": "ri.qa.main.query-type.flight077",
+        "version": "1.0.0",
+        "parameters": {
+          "status": {
+            "baseType": "String",
+            "required": true
+          }
+        },
+        "output": {
+          "type": "integer"
+        }
+      },
+      "paged": false,
+      "case_id": "F077-22",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.query_type",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\query_type.py",
+        "sha256": "5fc6464e93bd6153963c8d98eb9013d7cb7c521831866379a3829cee6d1dcedb",
+        "methods": {
+          "QueryTypeClient": {
+            "line": 59,
+            "ast_sha256": "1ce860afe89060bd0d7aaa0db0ed91a112c0e529f75601bb7cbef89e58f7b568",
+            "return": "ontologies_models.QueryType",
+            "doc": "Gets a specific query type with the given API name.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the query type. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param query_api_name: The API name of the query type. To find the API name, use the **List query types** endpoint or check the **Ontology Manager**.\n:type query_api_name: QueryApiName\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: ontologies_models.QueryType",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/queryTypes/{queryApiName}'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'queryApiName': query_api_name}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.QueryType",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          },
+          "AsyncQueryTypeClient": {
+            "line": 203,
+            "ast_sha256": "a76d250304203401b08d559b5acf4eac11819adee9e2d6398e7a98717c89eb76",
+            "return": "typing.Awaitable[ontologies_models.QueryType]",
+            "doc": "Gets a specific query type with the given API name.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the query type. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param query_api_name: The API name of the query type. To find the API name, use the **List query types** endpoint or check the **Ontology Manager**.\n:type query_api_name: QueryApiName\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: typing.Awaitable[ontologies_models.QueryType]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/queryTypes/{queryApiName}'",
+              "query_params": "{}",
+              "path_params": "{'ontologyRid': ontology_rid, 'queryApiName': query_api_name}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.QueryType",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/QueryType.md",
+        "references/rest/contracts/v1/ontologies/QueryType/get.md",
+        "examples/rest/077/v1/ontologies/QueryType/get.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.QueryType",
+        "element": null
+      }
+    },
+    {
+      "operation": "v1.ontologies.QueryType.list",
+      "kwargs": {
+        "ontology_rid": "ri.qa.main.ontology.flight077",
+        "page_size": 1
+      },
+      "wire": {
+        "method": "GET",
+        "path": "/v1/ontologies/ri.qa.main.ontology.flight077/queryTypes",
+        "query": {
+          "pageSize": 1
+        },
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": null
+      },
+      "response": {
+        "data": [
+          {
+            "apiName": "countScheduledFlights",
+            "rid": "ri.qa.main.query-type.flight077",
+            "version": "1.0.0",
+            "parameters": {
+              "status": {
+                "baseType": "String",
+                "required": true
+              }
+            },
+            "output": {
+              "type": "integer"
+            }
+          }
+        ]
+      },
+      "paged": true,
+      "case_id": "F077-23",
+      "source": {
+        "module": "foundry_sdk.v1.ontologies.query_type",
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\query_type.py",
+        "sha256": "5fc6464e93bd6153963c8d98eb9013d7cb7c521831866379a3829cee6d1dcedb",
+        "methods": {
+          "QueryTypeClient": {
+            "line": 103,
+            "ast_sha256": "b86ce7bc3a3daaa519596b769a1c793634e58bf805a0126952f690edea970941",
+            "return": "core.ResourceIterator[ontologies_models.QueryType]",
+            "doc": "Lists the query types for the given Ontology.\n\nEach page may be smaller than the requested page size. However, it is guaranteed that if there are more\nresults available, at least one result will be present in the response.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the query types. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param page_size: The desired size of the page to be returned. Defaults to 100. See [page sizes](https://palantir.com/docs/foundry/api/general/overview/paging/#page-sizes) for details.\n:type page_size: Optional[PageSize]\n:param page_token:\n:type page_token: Optional[PageToken]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core.ResourceIterator[ontologies_models.QueryType]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/queryTypes'",
+              "query_params": "{'pageSize': page_size, 'pageToken': page_token}",
+              "path_params": "{'ontologyRid': ontology_rid}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.ListQueryTypesResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode', 'ITERATOR')"
+            },
+            "named_errors": []
+          },
+          "AsyncQueryTypeClient": {
+            "line": 247,
+            "ast_sha256": "a8c7a12ce9d309895fa2455f7569cd2dab0715459a076c3ac4de09a88aec33cf",
+            "return": "core.AsyncResourceIterator[ontologies_models.QueryType]",
+            "doc": "Lists the query types for the given Ontology.\n\nEach page may be smaller than the requested page size. However, it is guaranteed that if there are more\nresults available, at least one result will be present in the response.\n\n:param ontology_rid: The unique Resource Identifier (RID) of the Ontology that contains the query types. To look up your Ontology RID, please use the **List ontologies** endpoint or check the **Ontology Manager**.\n:type ontology_rid: OntologyRid\n:param page_size: The desired size of the page to be returned. Defaults to 100. See [page sizes](https://palantir.com/docs/foundry/api/general/overview/paging/#page-sizes) for details.\n:type page_size: Optional[PageSize]\n:param page_token:\n:type page_token: Optional[PageToken]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core.AsyncResourceIterator[ontologies_models.QueryType]",
+            "request": {
+              "method": "'GET'",
+              "resource_path": "'/v1/ontologies/{ontologyRid}/queryTypes'",
+              "query_params": "{'pageSize': page_size, 'pageToken': page_token}",
+              "path_params": "{'ontologyRid': ontology_rid}",
+              "header_params": "{'Accept': 'application/json'}",
+              "body": "None",
+              "response_type": "ontologies_models.ListQueryTypesResponse",
+              "request_timeout": "request_timeout",
+              "throwable_errors": "{}",
+              "response_mode": "_sdk_internal.get('response_mode', 'ITERATOR')"
+            },
+            "named_errors": []
+          }
+        }
+      },
+      "assets": [
+        "references/rest/v1/ontologies/QueryType.md",
+        "references/rest/contracts/v1/ontologies/QueryType/list.md",
+        "examples/rest/077/v1/ontologies/QueryType/list.py"
+      ],
+      "modes": [
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming"
+      ],
+      "adverse": [
+        "generic_403",
+        "timeout",
+        "invalid_timeout",
+        "stream_exception_cleanup",
+        "async_cancellation_cleanup"
+      ],
+      "runtime_types": {
+        "response": "foundry_sdk.v1.ontologies.models.ListQueryTypesResponse",
+        "element": "foundry_sdk.v1.ontologies.models.QueryType"
+      }
+    }
+  ],
+  "review_corrections": {
+    "R077-01": "Final correction: guard stops before metric computation if any group key lacks operator-confirmed mapping. Mixed confirmed plus unknown payload retains full raw data and yields derived=None. Targeted old presence/type-only mutant yields use/1.0 and must fail mixed-label contract. Existing schema and full bypass controls retained. This is a local reader decision; SDK/server opaque group data remains allowed.",
+    "R077-02": "Actual SDK lost-response mutation transport; bounded authorized object reads retain partial observations; no RID upload escalates; no mutation replay. Server retention/consistency is documentation only.",
+    "R077-03": "Exact runtime ordinary/raw response and iterator element class before normalization; byte identity for attachment content.",
+    "R077-04": "Seven explicit item-bound partial-retention tests in sync/async; six automatic iterator early stops in sync/async; search is explicit response pager. All seven explicit response pagers also execute async two-page, repeated-token and page-limit cases with preserved rows/token; search uses awaited response, never automatic iteration.",
+    "R077-05": "Six success modes close; ordinary generic403/timeout sync/async; sync/async raw consumer/decode failure; sync/async streaming exception; async streaming cancellation; sync/async zero-timeout. No all-mode cancellation claim.",
+    "R077-06": "Execute each unmodified frozen distributed verify under denied sockets, independently inspect actual SDK invocation AST/runtime result type, and corrupt decoded result to prove example assertions fail. Independent source-SDK request capture uses invocation literal inputs only, compares observed method/path/query/body/headers without loading distributed expected constants; corruption retains payload structure."
+  },
+  "policy_attribution": {
+    "Action": {
+      "reader_asset": "references/rest/v1/ontologies/Action.md",
+      "primary_sources": [
+        "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action.py",
+        "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action.py",
+        "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action.py"
+      ],
+      "scope": "Review frozen SDK method documentation and reader prose; no runtime retention/visibility claim",
+      "reader_sha256": "a249598cda6dcca5fc11f38b9896c258868ee4e0ab7e1299234ddac4d484b9d4",
+      "primary_source_methods": [
+        {
+          "operation": "v1.ontologies.Action.apply",
+          "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action.py",
+          "sha256": "ca1f0a33164f1453b335a11c2c6e82ed1f792bd0235257ce248d062097ca6090",
+          "line": 58,
+          "doc_sha256": "2efe4071e4331a2ad18a2046fa35d8cf316bfeb1cfc934b7a9ccf9b62df407be"
+        },
+        {
+          "operation": "v1.ontologies.Action.apply_batch",
+          "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action.py",
+          "sha256": "ca1f0a33164f1453b335a11c2c6e82ed1f792bd0235257ce248d062097ca6090",
+          "line": 116,
+          "doc_sha256": "12f4bc0c921119ceffbb716ab57f4ee064ac63fcd9cd74e6bcec2ee3b6c1d7b7"
+        },
+        {
+          "operation": "v1.ontologies.Action.validate",
+          "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action.py",
+          "sha256": "ca1f0a33164f1453b335a11c2c6e82ed1f792bd0235257ce248d062097ca6090",
+          "line": 174,
+          "doc_sha256": "04d47ebf1a404c03d1da1e2e73d745ccdfa1c4723054fef3866e086ee4cc1cec"
+        }
+      ]
+    },
+    "Attachment": {
+      "reader_asset": "references/rest/v1/ontologies/Attachment.md",
+      "primary_sources": [
+        "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\attachment.py",
+        "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\attachment.py",
+        "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\attachment.py"
+      ],
+      "scope": "Review frozen SDK method documentation and reader prose; no runtime retention/visibility claim",
+      "reader_sha256": "fd3774a1f7ea7375a99e678b0e463536cc62d6e2d11e9a70fd8008aa4fdd624f",
+      "primary_source_methods": [
+        {
+          "operation": "v1.ontologies.Attachment.get",
+          "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\attachment.py",
+          "sha256": "9606789cb634d59d99886e7ffcd6c2e5aeaab099496c3771979a6c05ba5d2357",
+          "line": 59,
+          "doc_sha256": "17387b2911c2dfbbd7ed814526dfa6d159f352dd70e560fc2e4526b9eb3c70f0"
+        },
+        {
+          "operation": "v1.ontologies.Attachment.read",
+          "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\attachment.py",
+          "sha256": "9606789cb634d59d99886e7ffcd6c2e5aeaab099496c3771979a6c05ba5d2357",
+          "line": 99,
+          "doc_sha256": "a057abffd84033c610d19ac25cff44c44dd086d96705eb383687b3ab2f34c1b1"
+        },
+        {
+          "operation": "v1.ontologies.Attachment.upload",
+          "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\attachment.py",
+          "sha256": "9606789cb634d59d99886e7ffcd6c2e5aeaab099496c3771979a6c05ba5d2357",
+          "line": 139,
+          "doc_sha256": "02aef4ce0f317abb731f7718ab13aa12ba94118474672a051286a7b9fef07844"
+        }
+      ]
+    },
+    "OntologyObject": {
+      "reader_asset": "references/rest/v1/ontologies/OntologyObject.md",
+      "primary_sources": [
+        "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+        "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+        "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+        "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+        "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+        "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py"
+      ],
+      "scope": "Review frozen SDK method documentation and reader prose; no runtime retention/visibility claim",
+      "reader_sha256": "31777ffb665c569cc6de5245909193eb8a942cd4d9d8a392c8e6fda33bcc02d7",
+      "primary_source_methods": [
+        {
+          "operation": "v1.ontologies.OntologyObject.aggregate",
+          "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+          "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f",
+          "line": 59,
+          "doc_sha256": "d3d85970c58443a240a3e054b00b30b6aa1051d4ab293d30677eed05f07d353f"
+        },
+        {
+          "operation": "v1.ontologies.OntologyObject.get",
+          "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+          "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f",
+          "line": 117,
+          "doc_sha256": "4874109ae7aee84c7f1c820aeb70c358926a5a6bbf9c5651ef80acf3b58ec918"
+        },
+        {
+          "operation": "v1.ontologies.OntologyObject.get_linked_object",
+          "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+          "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f",
+          "line": 170,
+          "doc_sha256": "9b5370cd7fc22bb4cee109ad8fe67d1de730f6f0ed90ae6f2e1d8a8c09adf299"
+        },
+        {
+          "operation": "v1.ontologies.OntologyObject.list",
+          "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+          "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f",
+          "line": 232,
+          "doc_sha256": "ccc99e40a740927692d89ed15e14317ac89809da4b81e356eefdd41b60efe386"
+        },
+        {
+          "operation": "v1.ontologies.OntologyObject.list_linked_objects",
+          "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+          "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f",
+          "line": 308,
+          "doc_sha256": "efca001460f21d09fdee3f3687adad03eb9f95226e399235b6098b3e4eaa3f49"
+        },
+        {
+          "operation": "v1.ontologies.OntologyObject.search",
+          "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+          "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f",
+          "line": 392,
+          "doc_sha256": "f9e7c9972f2b0ff8f71818afafdd6a99a271adcea6d36e2672e81f3949a050b3"
+        }
+      ]
+    }
+  },
+  "aggregation_guard_cases": {
+    "mixed_confirmed_unknown": {
+      "group": {
+        "confirmedLabel": "2026-10-01",
+        "unconfirmed-server-label": {
+          "raw": 7
+        }
+      },
+      "metrics": [
+        {
+          "name": "flightCount",
+          "value": 1.0
+        }
+      ]
+    },
+    "confirmed_mapping": {
+      "confirmedLabel": "builtins.str"
+    },
+    "expected_decision": "stop",
+    "expected_derived": null,
+    "scope": "Local reader calculation guard only. SDK group Dict[str, Any] accepts opaque values; no SDK/server rejection policy is asserted."
+  }
+}

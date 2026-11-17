@@ -1,0 +1,2006 @@
+{
+  "reviewer_identity": "/root/rest077_corrected_cases_fresh_peer_20261116b",
+  "author_identity": "/root/rest077_case_correct_20261116",
+  "review_kind": "FINAL_ALLOWED_INDEPENDENT_TESTCASE_CORRECTION_REVIEW",
+  "disposition": "APPROVED",
+  "formal_execution": false,
+  "testcase_closed": true,
+  "testexec_prerequisites_verified": true,
+  "tracker_mutations": [],
+  "cases_sha256": "d8348cc55625780dc53c7a91872a2d3519dd289ccef58555d8cf2ea59decc20b",
+  "harness_sha256": "a2fd951f64ceb2081426e59d73d31ad37224387de61a4fd9dd5580513642a460",
+  "feature_sha256": "2a40f1fd8dabdc09d61b1446ae18c1dc305ebb8b970b136a26fe7450c3540296",
+  "freeze_sha256": "886bdab398540b1d8fd04f0ef1cb263bd88e1f18931808854bb8a2c0926f9659",
+  "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+  "source_sources_count": 42,
+  "reader_assets_count": 855,
+  "original_maps_preserved": true,
+  "actual_sources_and_assets_match": true,
+  "dry_run": {
+    "label": "CASE-REVIEW-DRYRUN-ONLY",
+    "command": ".ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe .ept/tmp/rest077_formal_corrected_v2_20261116/rest077_formal_execute.py --author-check --output .ept/tmp/rest077_case_review_final_dryrun_20261116b.json",
+    "exit_code": 0,
+    "checks": 597,
+    "elapsed_seconds": 0.39735400000063237,
+    "outcome": "AUTHOR_DRY_RUN_PASS",
+    "evidence": ".ept\\tmp\\rest077_case_review_final_dryrun_20261116b.json",
+    "sha256": "d2ec937cd39d681e00d4c10d2db635df2b2f273323f5c4b22acf00fc98c6e13b",
+    "formal_execution": false
+  },
+  "correction_judgment": {
+    "R077-01": "PASS; mixed known/unknown labels stop before metrics access, preserve raw data, old presence-only mutant detected; SDK opaque group data accepted",
+    "R077-02": "PASS; actual lost response, bounded authorized observations, retained unknown outcome, no replay; upload no-RID escalation",
+    "R077-03": "PASS; exact model/element/bytes identity with wrong-type controls",
+    "R077-04": "PASS; seven sync/async explicit response pagers, item and page bounds, repeated-token retention, six sync/async automatic iterator early stops",
+    "R077-05": "PASS; claims narrowed to executed cleanup modes, raw decode/consumer failures, streaming exceptions/cancellation, async403 closure and zero-timeout before HTTP",
+    "R077-06": "PASS; all23 verify routines execute, invocation SDK binding/wire/runtime type checked, corrupt decoded results rejected"
+  },
+  "independent_controls": [
+    {
+      "check": "exact_candidate_hashes",
+      "result": "PASS"
+    },
+    {
+      "check": "original_bundle_immutable",
+      "result": "PASS"
+    },
+    {
+      "check": "original_source_asset_register_maps_unchanged",
+      "result": "PASS"
+    },
+    {
+      "check": "all855_assets_and42_primary_sources_match",
+      "result": "PASS"
+    },
+    {
+      "check": "exact23_partition_ids",
+      "result": "PASS"
+    },
+    {
+      "check": "immutable_tag_commit",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-01_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-01_ActionClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-01_AsyncActionClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-01_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-02_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-02_ActionClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-02_AsyncActionClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-02_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-03_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-03_ActionClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-03_AsyncActionClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-03_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-04_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-04_ActionTypeClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-04_AsyncActionTypeClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-04_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-05_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-05_ActionTypeClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-05_AsyncActionTypeClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-05_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-06_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-06_AttachmentClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-06_AsyncAttachmentClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-06_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-07_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-07_AttachmentClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-07_AsyncAttachmentClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-07_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-08_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-08_AttachmentClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-08_AsyncAttachmentClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-08_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-09_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-09_ObjectTypeClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-09_AsyncObjectTypeClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-09_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-10_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-10_ObjectTypeClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-10_AsyncObjectTypeClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-10_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-11_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-11_ObjectTypeClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-11_AsyncObjectTypeClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-11_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-12_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-12_ObjectTypeClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-12_AsyncObjectTypeClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-12_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-13_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-13_OntologyClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-13_AsyncOntologyClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-13_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-14_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-14_OntologyClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-14_AsyncOntologyClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-14_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-15_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-15_OntologyObjectClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-15_AsyncOntologyObjectClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-15_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-16_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-16_OntologyObjectClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-16_AsyncOntologyObjectClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-16_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-17_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-17_OntologyObjectClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-17_AsyncOntologyObjectClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-17_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-18_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-18_OntologyObjectClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-18_AsyncOntologyObjectClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-18_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-19_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-19_OntologyObjectClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-19_AsyncOntologyObjectClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-19_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-20_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-20_OntologyObjectClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-20_AsyncOntologyObjectClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-20_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-21_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-21_QueryClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-21_AsyncQueryClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-21_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-22_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-22_QueryTypeClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-22_AsyncQueryTypeClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-22_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-23_installed_module_ast",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-23_QueryTypeClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-23_AsyncQueryTypeClient_immutable_source_bindings",
+      "result": "PASS"
+    },
+    {
+      "check": "F077-23_runtime_type_source_binding",
+      "result": "PASS"
+    },
+    {
+      "check": "schema_guard_bypass_detected",
+      "result": "PASS",
+      "mutation_detected": true
+    },
+    {
+      "check": "group_guard_bypass_detected",
+      "result": "PASS",
+      "mutation_detected": true
+    },
+    {
+      "check": "runtime_identity_bypass_detected",
+      "result": "PASS",
+      "mutation_detected": true
+    },
+    {
+      "check": "mutation_replay_detected",
+      "result": "PASS",
+      "mutation_detected": true
+    },
+    {
+      "check": "distributed_corruption_bypass_detected",
+      "result": "PASS",
+      "mutation_detected": true
+    },
+    {
+      "check": "prior_review_preserved",
+      "result": "PASS"
+    },
+    {
+      "check": "prior_corrected_bundle_preserved",
+      "result": "PASS"
+    },
+    {
+      "check": "only_two_approved_functions_changed",
+      "result": "PASS"
+    },
+    {
+      "check": "all23_operation_records_unchanged",
+      "result": "PASS"
+    },
+    {
+      "check": "mixed_unknown_stops_and_retains",
+      "result": "PASS"
+    },
+    {
+      "check": "original_input_untouched",
+      "result": "PASS"
+    },
+    {
+      "check": "unknown_stops_before_metrics_access",
+      "result": "PASS"
+    },
+    {
+      "check": "old_presence_mutant_reproduces_original_bug",
+      "result": "PASS"
+    },
+    {
+      "check": "targeted_old_presence_mutant_detected_by_full_semantic_suite",
+      "result": "PASS",
+      "mutation_detected": true
+    },
+    {
+      "check": "sdk_accepts_opaque_unknown_keys",
+      "result": "PASS"
+    },
+    {
+      "check": "independent597_dryrun_success",
+      "result": "PASS"
+    },
+    {
+      "check": "gherkin_local_reader_sdk_boundary_explicit",
+      "result": "PASS"
+    }
+  ],
+  "findings": [],
+  "per_case": [
+    {
+      "case_id": "F077-01",
+      "operation": "v1.ontologies.Action.apply",
+      "bindings": [
+        {
+          "class": "ActionClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "ontologies_models.ApplyActionResponse",
+          "response_type": "ontologies_models.ApplyActionResponse",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncActionClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "typing.Awaitable[ontologies_models.ApplyActionResponse]",
+          "response_type": "ontologies_models.ApplyActionResponse",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "lost_response_bounded_reconciliation_no_replay",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 23
+    },
+    {
+      "case_id": "F077-02",
+      "operation": "v1.ontologies.Action.apply_batch",
+      "bindings": [
+        {
+          "class": "ActionClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "ontologies_models.BatchApplyActionResponse",
+          "response_type": "ontologies_models.BatchApplyActionResponse",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncActionClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "typing.Awaitable[ontologies_models.BatchApplyActionResponse]",
+          "response_type": "ontologies_models.BatchApplyActionResponse",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "lost_response_bounded_reconciliation_no_replay",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 23
+    },
+    {
+      "case_id": "F077-03",
+      "operation": "v1.ontologies.Action.validate",
+      "bindings": [
+        {
+          "class": "ActionClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "ontologies_models.ValidateActionResponse",
+          "response_type": "ontologies_models.ValidateActionResponse",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncActionClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "typing.Awaitable[ontologies_models.ValidateActionResponse]",
+          "response_type": "ontologies_models.ValidateActionResponse",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 22
+    },
+    {
+      "case_id": "F077-04",
+      "operation": "v1.ontologies.ActionType.get",
+      "bindings": [
+        {
+          "class": "ActionTypeClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "ontologies_models.ActionType",
+          "response_type": "ontologies_models.ActionType",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncActionTypeClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "typing.Awaitable[ontologies_models.ActionType]",
+          "response_type": "ontologies_models.ActionType",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 22
+    },
+    {
+      "case_id": "F077-05",
+      "operation": "v1.ontologies.ActionType.list",
+      "bindings": [
+        {
+          "class": "ActionTypeClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "core.ResourceIterator[ontologies_models.ActionType]",
+          "response_type": "ontologies_models.ListActionTypesResponse",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncActionTypeClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "core.AsyncResourceIterator[ontologies_models.ActionType]",
+          "response_type": "ontologies_models.ListActionTypesResponse",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "finite_pages_complete",
+        "finite_pages_repeated-token",
+        "finite_pages_page-limit",
+        "iterator_two_pages",
+        "iterator_early_stop",
+        "async_iterator_two_pages",
+        "sync_explicit_item_bound_partial_retention",
+        "async_explicit_item_bound_partial_retention",
+        "async_automatic_iterator_early_stop",
+        "async_finite_pages_complete",
+        "async_finite_pages_repeated-token",
+        "async_finite_pages_page-limit",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 34
+    },
+    {
+      "case_id": "F077-06",
+      "operation": "v1.ontologies.Attachment.get",
+      "bindings": [
+        {
+          "class": "AttachmentClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "ontologies_models.Attachment",
+          "response_type": "ontologies_models.Attachment",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncAttachmentClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "typing.Awaitable[ontologies_models.Attachment]",
+          "response_type": "ontologies_models.Attachment",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 22
+    },
+    {
+      "case_id": "F077-07",
+      "operation": "v1.ontologies.Attachment.read",
+      "bindings": [
+        {
+          "class": "AttachmentClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "bytes",
+          "response_type": "bytes",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncAttachmentClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "typing.Awaitable[bytes]",
+          "response_type": "bytes",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 20
+    },
+    {
+      "case_id": "F077-08",
+      "operation": "v1.ontologies.Attachment.upload",
+      "bindings": [
+        {
+          "class": "AttachmentClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "ontologies_models.Attachment",
+          "response_type": "ontologies_models.Attachment",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncAttachmentClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "typing.Awaitable[ontologies_models.Attachment]",
+          "response_type": "ontologies_models.Attachment",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "lost_response_bounded_reconciliation_no_replay",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 23
+    },
+    {
+      "case_id": "F077-09",
+      "operation": "v1.ontologies.ObjectType.get",
+      "bindings": [
+        {
+          "class": "ObjectTypeClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "ontologies_models.ObjectType",
+          "response_type": "ontologies_models.ObjectType",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncObjectTypeClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "typing.Awaitable[ontologies_models.ObjectType]",
+          "response_type": "ontologies_models.ObjectType",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 22
+    },
+    {
+      "case_id": "F077-10",
+      "operation": "v1.ontologies.ObjectType.get_outgoing_link_type",
+      "bindings": [
+        {
+          "class": "ObjectTypeClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "ontologies_models.LinkTypeSide",
+          "response_type": "ontologies_models.LinkTypeSide",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncObjectTypeClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "typing.Awaitable[ontologies_models.LinkTypeSide]",
+          "response_type": "ontologies_models.LinkTypeSide",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 22
+    },
+    {
+      "case_id": "F077-11",
+      "operation": "v1.ontologies.ObjectType.list",
+      "bindings": [
+        {
+          "class": "ObjectTypeClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "core.ResourceIterator[ontologies_models.ObjectType]",
+          "response_type": "ontologies_models.ListObjectTypesResponse",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncObjectTypeClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "core.AsyncResourceIterator[ontologies_models.ObjectType]",
+          "response_type": "ontologies_models.ListObjectTypesResponse",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "finite_pages_complete",
+        "finite_pages_repeated-token",
+        "finite_pages_page-limit",
+        "iterator_two_pages",
+        "iterator_early_stop",
+        "async_iterator_two_pages",
+        "sync_explicit_item_bound_partial_retention",
+        "async_explicit_item_bound_partial_retention",
+        "async_automatic_iterator_early_stop",
+        "async_finite_pages_complete",
+        "async_finite_pages_repeated-token",
+        "async_finite_pages_page-limit",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 34
+    },
+    {
+      "case_id": "F077-12",
+      "operation": "v1.ontologies.ObjectType.list_outgoing_link_types",
+      "bindings": [
+        {
+          "class": "ObjectTypeClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "core.ResourceIterator[ontologies_models.LinkTypeSide]",
+          "response_type": "ontologies_models.ListOutgoingLinkTypesResponse",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncObjectTypeClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "core.AsyncResourceIterator[ontologies_models.LinkTypeSide]",
+          "response_type": "ontologies_models.ListOutgoingLinkTypesResponse",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "finite_pages_complete",
+        "finite_pages_repeated-token",
+        "finite_pages_page-limit",
+        "iterator_two_pages",
+        "iterator_early_stop",
+        "async_iterator_two_pages",
+        "sync_explicit_item_bound_partial_retention",
+        "async_explicit_item_bound_partial_retention",
+        "async_automatic_iterator_early_stop",
+        "async_finite_pages_complete",
+        "async_finite_pages_repeated-token",
+        "async_finite_pages_page-limit",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 34
+    },
+    {
+      "case_id": "F077-13",
+      "operation": "v1.ontologies.Ontology.get",
+      "bindings": [
+        {
+          "class": "OntologyClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "ontologies_models.Ontology",
+          "response_type": "ontologies_models.Ontology",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncOntologyClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "typing.Awaitable[ontologies_models.Ontology]",
+          "response_type": "ontologies_models.Ontology",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 22
+    },
+    {
+      "case_id": "F077-14",
+      "operation": "v1.ontologies.Ontology.list",
+      "bindings": [
+        {
+          "class": "OntologyClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "ontologies_models.ListOntologiesResponse",
+          "response_type": "ontologies_models.ListOntologiesResponse",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncOntologyClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "typing.Awaitable[ontologies_models.ListOntologiesResponse]",
+          "response_type": "ontologies_models.ListOntologiesResponse",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 22
+    },
+    {
+      "case_id": "F077-15",
+      "operation": "v1.ontologies.OntologyObject.aggregate",
+      "bindings": [
+        {
+          "class": "OntologyObjectClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "ontologies_models.AggregateObjectsResponse",
+          "response_type": "ontologies_models.AggregateObjectsResponse",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncOntologyObjectClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "typing.Awaitable[ontologies_models.AggregateObjectsResponse]",
+          "response_type": "ontologies_models.AggregateObjectsResponse",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 22
+    },
+    {
+      "case_id": "F077-16",
+      "operation": "v1.ontologies.OntologyObject.get",
+      "bindings": [
+        {
+          "class": "OntologyObjectClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "ontologies_models.OntologyObject",
+          "response_type": "ontologies_models.OntologyObject",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncOntologyObjectClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "typing.Awaitable[ontologies_models.OntologyObject]",
+          "response_type": "ontologies_models.OntologyObject",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 22
+    },
+    {
+      "case_id": "F077-17",
+      "operation": "v1.ontologies.OntologyObject.get_linked_object",
+      "bindings": [
+        {
+          "class": "OntologyObjectClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "ontologies_models.OntologyObject",
+          "response_type": "ontologies_models.OntologyObject",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncOntologyObjectClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "typing.Awaitable[ontologies_models.OntologyObject]",
+          "response_type": "ontologies_models.OntologyObject",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 22
+    },
+    {
+      "case_id": "F077-18",
+      "operation": "v1.ontologies.OntologyObject.list",
+      "bindings": [
+        {
+          "class": "OntologyObjectClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "core.ResourceIterator[ontologies_models.OntologyObject]",
+          "response_type": "ontologies_models.ListObjectsResponse",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncOntologyObjectClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "core.AsyncResourceIterator[ontologies_models.OntologyObject]",
+          "response_type": "ontologies_models.ListObjectsResponse",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "finite_pages_complete",
+        "finite_pages_repeated-token",
+        "finite_pages_page-limit",
+        "iterator_two_pages",
+        "iterator_early_stop",
+        "async_iterator_two_pages",
+        "sync_explicit_item_bound_partial_retention",
+        "async_explicit_item_bound_partial_retention",
+        "async_automatic_iterator_early_stop",
+        "async_finite_pages_complete",
+        "async_finite_pages_repeated-token",
+        "async_finite_pages_page-limit",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 34
+    },
+    {
+      "case_id": "F077-19",
+      "operation": "v1.ontologies.OntologyObject.list_linked_objects",
+      "bindings": [
+        {
+          "class": "OntologyObjectClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "core.ResourceIterator[ontologies_models.OntologyObject]",
+          "response_type": "ontologies_models.ListLinkedObjectsResponse",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncOntologyObjectClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "core.AsyncResourceIterator[ontologies_models.OntologyObject]",
+          "response_type": "ontologies_models.ListLinkedObjectsResponse",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "finite_pages_complete",
+        "finite_pages_repeated-token",
+        "finite_pages_page-limit",
+        "iterator_two_pages",
+        "iterator_early_stop",
+        "async_iterator_two_pages",
+        "sync_explicit_item_bound_partial_retention",
+        "async_explicit_item_bound_partial_retention",
+        "async_automatic_iterator_early_stop",
+        "async_finite_pages_complete",
+        "async_finite_pages_repeated-token",
+        "async_finite_pages_page-limit",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 34
+    },
+    {
+      "case_id": "F077-20",
+      "operation": "v1.ontologies.OntologyObject.search",
+      "bindings": [
+        {
+          "class": "OntologyObjectClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "ontologies_models.SearchObjectsResponse",
+          "response_type": "ontologies_models.SearchObjectsResponse",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncOntologyObjectClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "typing.Awaitable[ontologies_models.SearchObjectsResponse]",
+          "response_type": "ontologies_models.SearchObjectsResponse",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "finite_pages_complete",
+        "finite_pages_repeated-token",
+        "finite_pages_page-limit",
+        "sync_explicit_item_bound_partial_retention",
+        "async_explicit_item_bound_partial_retention",
+        "async_finite_pages_complete",
+        "async_finite_pages_repeated-token",
+        "async_finite_pages_page-limit",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 30
+    },
+    {
+      "case_id": "F077-21",
+      "operation": "v1.ontologies.Query.execute",
+      "bindings": [
+        {
+          "class": "QueryClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "ontologies_models.ExecuteQueryResponse",
+          "response_type": "ontologies_models.ExecuteQueryResponse",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncQueryClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "typing.Awaitable[ontologies_models.ExecuteQueryResponse]",
+          "response_type": "ontologies_models.ExecuteQueryResponse",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 22
+    },
+    {
+      "case_id": "F077-22",
+      "operation": "v1.ontologies.QueryType.get",
+      "bindings": [
+        {
+          "class": "QueryTypeClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "ontologies_models.QueryType",
+          "response_type": "ontologies_models.QueryType",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncQueryTypeClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "typing.Awaitable[ontologies_models.QueryType]",
+          "response_type": "ontologies_models.QueryType",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 22
+    },
+    {
+      "case_id": "F077-23",
+      "operation": "v1.ontologies.QueryType.list",
+      "bindings": [
+        {
+          "class": "QueryTypeClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "core.ResourceIterator[ontologies_models.QueryType]",
+          "response_type": "ontologies_models.ListQueryTypesResponse",
+          "named_errors": {}
+        },
+        {
+          "class": "AsyncQueryTypeClient",
+          "method_ast_equal": true,
+          "request_binding_equal": true,
+          "method_equal": true,
+          "path_equal": true,
+          "query_equal": true,
+          "headers_equal": true,
+          "return": "core.AsyncResourceIterator[ontologies_models.QueryType]",
+          "response_type": "ontologies_models.ListQueryTypesResponse",
+          "named_errors": {}
+        }
+      ],
+      "source_literal_contract_review": "PASS",
+      "case_approval": "APPROVED",
+      "findings": [],
+      "dry_run_checks": [
+        "runtime_model_identity_negative_control",
+        "sync_ordinary",
+        "sync_raw",
+        "sync_streaming",
+        "async_ordinary",
+        "async_raw",
+        "async_streaming",
+        "generic_403",
+        "timeout",
+        "invalid_timeout_no_http",
+        "stream_exception_cleanup",
+        "async_generic_403",
+        "async_timeout",
+        "async_invalid_timeout_no_http",
+        "async_cancellation_cleanup",
+        "sync_raw_consumer_exception_cleanup",
+        "sync_streaming_consumer_exception_cleanup",
+        "async_raw_consumer_exception_cleanup",
+        "async_streaming_consumer_exception_cleanup",
+        "sync_raw_decode_failure_cleanup",
+        "async_raw_decode_failure_cleanup",
+        "finite_pages_complete",
+        "finite_pages_repeated-token",
+        "finite_pages_page-limit",
+        "iterator_two_pages",
+        "iterator_early_stop",
+        "async_iterator_two_pages",
+        "sync_explicit_item_bound_partial_retention",
+        "async_explicit_item_bound_partial_retention",
+        "async_automatic_iterator_early_stop",
+        "async_finite_pages_complete",
+        "async_finite_pages_repeated-token",
+        "async_finite_pages_page-limit",
+        "distributed_example_execute_and_corrupt_decode_control"
+      ],
+      "checks_count": 34
+    }
+  ],
+  "workflow_snapshot": {
+    "TESTCASE-078": "Open",
+    "TESTEXEC-078": "Open",
+    "DEV-STORY-077": "Development"
+  },
+  "limits": [
+    "Synthetic process-level socket/DNS denial only.",
+    "No live Foundry request, server retention timer, visibility guarantee, formal execution, final REST acceptance, or tracker transition.",
+    "Original bundle and previous reports remain unchanged."
+  ],
+  "bundle": ".ept\\tmp\\rest077_formal_corrected_v2_20261116",
+  "previous_review": {
+    "path": ".ept\\tmp\\feature015_rest077_case_peer_retest_20261116b.json",
+    "sha256": "d5ebe719cb58908d97673833b23fad83d46eb9bb09c4cafce4106bbb705342f0",
+    "immutable": true
+  },
+  "final_residual_proof": {
+    "input": {
+      "group": {
+        "confirmedLabel": "2026-10-01",
+        "unconfirmed-server-label": {
+          "raw": 7
+        }
+      },
+      "metrics": [
+        {
+          "name": "flightCount",
+          "value": 1.0
+        }
+      ]
+    },
+    "guarded": {
+      "decision": "stop",
+      "retained": {
+        "group": {
+          "confirmedLabel": "2026-10-01",
+          "unconfirmed-server-label": {
+            "raw": 7
+          }
+        },
+        "metrics": [
+          {
+            "name": "flightCount",
+            "value": 1.0
+          }
+        ]
+      },
+      "derived": null
+    },
+    "old_presence_mutant": {
+      "decision": "use",
+      "retained": {
+        "group": {
+          "confirmedLabel": "2026-10-01",
+          "unconfirmed-server-label": {
+            "raw": 7
+          }
+        },
+        "metrics": [
+          {
+            "name": "flightCount",
+            "value": 1.0
+          }
+        ]
+      },
+      "derived": 1.0
+    },
+    "targeted_mutant_detected": true,
+    "unknown_before_metrics_access": true,
+    "sdk_accepts_opaque_group_keys": true
+  },
+  "changed_functions": [
+    "semantic_boundaries",
+    "group_guard"
+  ],
+  "approval_scope": "Exact frozen TESTCASE bundle only. Approval is independent case peer review. Workflow closure and TESTEXEC prerequisite attestation remain separate required actions.",
+  "executor_prerequisite_attestation": {
+    "executor_identity": "/root/rest077_distinct_formal_executor_20261116",
+    "peer_original_sha256": "b7f2aff835e3f61a06fb45a4bec61721ddc11de455613f8da87a4beb94b5b21f",
+    "workflow_state": "In Progress",
+    "evidence": "transcript.jsonl"
+  }
+}

@@ -1,0 +1,1112 @@
+{
+  "story": "DEV-STORY-077",
+  "formal_qa_status": "accepted",
+  "independent_qa_agent": "/root/rest077_distinct_formal_executor_20261116",
+  "case_author": "/root/rest077_case_correct_20261116",
+  "case_reviewer": "/root/rest077_corrected_cases_fresh_peer_20261116b",
+  "source_reviewer": "/root/rest077_architect_review_20261116",
+  "workflow_recovery_agent": "/root/rest077_formal_close_recover_20261117",
+  "integration_agent": "/root/accept_formal077_20261117",
+  "observed_at_utc": "2026-11-17T07:36:50.408171+00:00",
+  "operations": 23,
+  "checks": 597,
+  "declared_errors": 0,
+  "canonical_evidence": {
+    "path": "maintainer/rest-domain-formal-qa-077.json",
+    "sha256": "2b134b865f00d52ad6c0cf3f9253dbdc9ecc8ea3536388fb9eb8626612e3fa2b"
+  },
+  "artifacts": {
+    "feature015_rest077_formal_qa_archive_20261117.zip": {
+      "path": "maintainer/evidence/rest077/feature015_rest077_formal_qa_archive_20261117.zip",
+      "sha256": "1cb482bba019ad7f7f5956581dc32aab0129ac585c836d98ea5f8ccfe4f9e6c2"
+    },
+    "feature015_rest077_formal_qa_inventory.json": {
+      "path": "maintainer/evidence/rest077/feature015_rest077_formal_qa_inventory.json",
+      "sha256": "48a0267866ed7f78306e73b12fb179e52d6221f92d5dc3c0a1cf0f66fb6b8c9e"
+    },
+    "rest077_formal_cases.json": {
+      "path": "maintainer/evidence/rest077/rest077_formal_cases.json",
+      "sha256": "d8348cc55625780dc53c7a91872a2d3519dd289ccef58555d8cf2ea59decc20b"
+    },
+    "rest077_formal_cases.feature": {
+      "path": "maintainer/evidence/rest077/rest077_formal_cases.feature",
+      "sha256": "2a40f1fd8dabdc09d61b1446ae18c1dc305ebb8b970b136a26fe7450c3540296"
+    },
+    "rest077_formal_execute.py": {
+      "path": "maintainer/evidence/rest077/rest077_formal_execute.py",
+      "sha256": "a2fd951f64ceb2081426e59d73d31ad37224387de61a4fd9dd5580513642a460"
+    },
+    "rest077_assets_freeze.json": {
+      "path": "maintainer/evidence/rest077/rest077_assets_freeze.json",
+      "sha256": "886bdab398540b1d8fd04f0ef1cb263bd88e1f18931808854bb8a2c0926f9659"
+    },
+    "feature015_rest077_case_peer_final_20261116b.json": {
+      "path": "maintainer/evidence/rest077/feature015_rest077_case_peer_final_20261116b.json",
+      "sha256": "b7f2aff835e3f61a06fb45a4bec61721ddc11de455613f8da87a4beb94b5b21f"
+    },
+    "formal-run.json": {
+      "path": "maintainer/evidence/rest077/formal-run.json",
+      "sha256": "dc3ad00a3c0827a3dfde3f4604072ba989e58423e4482dea19190408cd8c3265"
+    },
+    "formal-command.json": {
+      "path": "maintainer/evidence/rest077/formal-command.json",
+      "sha256": "b48da8214de1a015a2c4e17ab4c835931efe1d081f7328588f6b4fcd579b6527"
+    },
+    "formal-stdout.txt": {
+      "path": "maintainer/evidence/rest077/formal-stdout.txt",
+      "sha256": "4cc7163ca2da3d29b6c9bb36802c50b8e33f25b9f74fa3e6e0dc68e7f933446d"
+    },
+    "formal-stderr.txt": {
+      "path": "maintainer/evidence/rest077/formal-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "before-verification.json": {
+      "path": "maintainer/evidence/rest077/before-verification.json",
+      "sha256": "6655dc85f189047bb5997546690adaf3840cb540b72c6d9bf13107053dd4bcff"
+    },
+    "after-verification.json": {
+      "path": "maintainer/evidence/rest077/after-verification.json",
+      "sha256": "ef9bfe15c957f41576853f5a415ca14a19a7de9261bab36b256f197f719eec9a"
+    },
+    "execution-approval.json": {
+      "path": "maintainer/evidence/rest077/execution-approval.json",
+      "sha256": "c45e821403df7781c67ab990dc0b816439eacb789a235f39cbfd21316d79fa99"
+    },
+    "independent-binding-and-diff-proof.json": {
+      "path": "maintainer/evidence/rest077/independent-binding-and-diff-proof.json",
+      "sha256": "e9e1de7022634d365f69e1f7b1246d5ba7cc88603d547eb8818808aca9980658"
+    },
+    "fresh-cli.json": {
+      "path": "maintainer/evidence/rest077/fresh-cli.json",
+      "sha256": "e8a1467680dcec7c4b6fd870d80789e9d404065d4c803f2c08ceda1deb3b49de"
+    },
+    "closure-summary.json": {
+      "path": "maintainer/evidence/rest077/closure-summary.json",
+      "sha256": "77a1385d31ebd73a65a312817836f4513d42c91a16b45ff7750f473ed9314061"
+    },
+    "CODEREVIEW-079-get.txt": {
+      "path": "maintainer/evidence/rest077/CODEREVIEW-079-get.txt",
+      "sha256": "130b48c24f0899ddfeeb6d0cd0749d987b7b4f6db843ef866d775c0b3d5f2666"
+    },
+    "DESIGN-078-get.txt": {
+      "path": "maintainer/evidence/rest077/DESIGN-078-get.txt",
+      "sha256": "75f092468765688e2157a064f1f97820f0f416a6e8e130688be23d670084f6c5"
+    },
+    "DEV-078-get.txt": {
+      "path": "maintainer/evidence/rest077/DEV-078-get.txt",
+      "sha256": "0059ea00353a35f1e3ea288d324b2ed64e5e38a86adce87b7c9cb6518c790091"
+    },
+    "DEV-STORY-077-get.txt": {
+      "path": "maintainer/evidence/rest077/DEV-STORY-077-get.txt",
+      "sha256": "a8bc1d67b648331fadad151e5e4d1c0ab643700bb8a798229f69a07a392fddd9"
+    },
+    "TESTCASE-078-get.txt": {
+      "path": "maintainer/evidence/rest077/TESTCASE-078-get.txt",
+      "sha256": "3c04130147a64195c3b4e4ca8e6a011ceac0939fe5044a5f24fb7f1d645e1134"
+    },
+    "TESTEXEC-078-get.txt": {
+      "path": "maintainer/evidence/rest077/TESTEXEC-078-get.txt",
+      "sha256": "f1d6798f66b4c73850f49a56783428c0c16fcdf6976af51f0e5cf02f72dd0748"
+    },
+    "UNITTEST-078-get.txt": {
+      "path": "maintainer/evidence/rest077/UNITTEST-078-get.txt",
+      "sha256": "63336db50cff47731d19ee06cfed638359976dc31eccfbbdd118f5f5c138d782"
+    },
+    "CODEREVIEW-079-links.txt": {
+      "path": "maintainer/evidence/rest077/CODEREVIEW-079-links.txt",
+      "sha256": "052376fe639384827fdba5f41c54c4317724e708f84898bd2a2e5c66768da858"
+    },
+    "DESIGN-078-links.txt": {
+      "path": "maintainer/evidence/rest077/DESIGN-078-links.txt",
+      "sha256": "eb1038f70c6b33c2f40f89baca25cb66f2754fedb16048aee6e51b5394e2c672"
+    },
+    "DEV-078-links.txt": {
+      "path": "maintainer/evidence/rest077/DEV-078-links.txt",
+      "sha256": "2d0e45a173e9f2963bb9d0c84d61025651d29b52995acd6869eb823d305686e2"
+    },
+    "DEV-STORY-077-links.txt": {
+      "path": "maintainer/evidence/rest077/DEV-STORY-077-links.txt",
+      "sha256": "45bdef8ef088b9efe17766d3791c9f29dbf2106ea078aef2bf99b71d8529ed87"
+    },
+    "TESTCASE-078-links.txt": {
+      "path": "maintainer/evidence/rest077/TESTCASE-078-links.txt",
+      "sha256": "30cb6ca05841386331ec1391535fc78b25006310dc1114628376c188b5436a02"
+    },
+    "TESTEXEC-078-links.txt": {
+      "path": "maintainer/evidence/rest077/TESTEXEC-078-links.txt",
+      "sha256": "1eea773f0942a6c839e23eebebcef35dfb1dc5ff1bf488dea8b2bfbe0df966e6"
+    },
+    "UNITTEST-078-links.txt": {
+      "path": "maintainer/evidence/rest077/UNITTEST-078-links.txt",
+      "sha256": "5347b3f434d362e298a929d8e7bee80c4cdb7900edbb8cb193aa281177c97b30"
+    },
+    "CODEREVIEW-079-comments.txt": {
+      "path": "maintainer/evidence/rest077/CODEREVIEW-079-comments.txt",
+      "sha256": "08accbb54cf4714af930968bca6aee7707aa2d5c18feffe361020edba3428e3d"
+    },
+    "DESIGN-078-comments.txt": {
+      "path": "maintainer/evidence/rest077/DESIGN-078-comments.txt",
+      "sha256": "7bc8ab8a797cb9ffb328580d3e093bfda7b56f3eb63febc4008d93b4c54130e6"
+    },
+    "DEV-078-comments.txt": {
+      "path": "maintainer/evidence/rest077/DEV-078-comments.txt",
+      "sha256": "50bcbd0957cf4d14dc7d3eb6e432893a2ae319bf50c127d31e4290992d37e64e"
+    },
+    "DEV-STORY-077-comments.txt": {
+      "path": "maintainer/evidence/rest077/DEV-STORY-077-comments.txt",
+      "sha256": "987212f3114fa2cb02efb02f85e33790af816fc2128645df081de7a8105fe393"
+    },
+    "TESTCASE-078-comments.txt": {
+      "path": "maintainer/evidence/rest077/TESTCASE-078-comments.txt",
+      "sha256": "c58d5e60a01c1d1096fdc8bfe18f4fbb87d3ac7c9491de32d2eb59326d3ef633"
+    },
+    "TESTEXEC-078-comments.txt": {
+      "path": "maintainer/evidence/rest077/TESTEXEC-078-comments.txt",
+      "sha256": "b208001459fc2151e342c476dac66ac91ec192fe90ef42f1355f107678be4b8a"
+    },
+    "UNITTEST-078-comments.txt": {
+      "path": "maintainer/evidence/rest077/UNITTEST-078-comments.txt",
+      "sha256": "c355af663ad0c43f28165c3dcb4413a2e9debfe12e51c9e060a93ea16d171f11"
+    },
+    "TESTEXEC-078-20261117-092540-@qa-engineer.txt": {
+      "path": "maintainer/evidence/rest077/TESTEXEC-078-20261117-092540-@qa-engineer.txt",
+      "sha256": "c1349275d3daa82eacd7915df645699291b7fd0a870bac6028c85029d145dfac"
+    },
+    "TESTEXEC-078-20261117-092548-@qa-engineer.txt": {
+      "path": "maintainer/evidence/rest077/TESTEXEC-078-20261117-092548-@qa-engineer.txt",
+      "sha256": "197159be77d64697ee8e514fde5519ea77ec3f21a61f025a18dfffe496778395"
+    },
+    "TESTEXEC-078-20261117-092559-@qa-engineer.txt": {
+      "path": "maintainer/evidence/rest077/TESTEXEC-078-20261117-092559-@qa-engineer.txt",
+      "sha256": "b35c3008fe08ac4e997891bf73c79b4ccf76a77076e68c9c82001917d431d586"
+    },
+    "TESTCASE-078-20261116-230432-@qa-engineer.txt": {
+      "path": "maintainer/evidence/rest077/TESTCASE-078-20261116-230432-@qa-engineer.txt",
+      "sha256": "4b169a9f8f7b10b45df9a234d3895e94d933f3a36863c833c47f3b0b8ad13d3d"
+    }
+  },
+  "verification": {
+    "verdict": "PASS",
+    "source_head": "77b101fb7c5e51fa5f785b2147d97cdfff703133",
+    "source_assets_checked": 855,
+    "primary_sources_checked": 42,
+    "primary_source_tag_bindings": [
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action.py",
+        "sha256": "ca1f0a33164f1453b335a11c2c6e82ed1f792bd0235257ce248d062097ca6090",
+        "tag_path": "foundry_sdk/v1/ontologies/action.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action_type.py",
+        "sha256": "eb2877e1c6ec8e5fa687ffca459fc79483d05d9dabcf283a91f43135a13acc61",
+        "tag_path": "foundry_sdk/v1/ontologies/action_type.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\attachment.py",
+        "sha256": "9606789cb634d59d99886e7ffcd6c2e5aeaab099496c3771979a6c05ba5d2357",
+        "tag_path": "foundry_sdk/v1/ontologies/attachment.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\object_type.py",
+        "sha256": "f9d98265021a7e0275d47e182aa6bcade2b01ac427cc281a9c83e88b831fdf97",
+        "tag_path": "foundry_sdk/v1/ontologies/object_type.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology.py",
+        "sha256": "52e99cd05010464a4f2dc0b1978da17d9a8863f4fdda8f4c7491875f3fc4be2d",
+        "tag_path": "foundry_sdk/v1/ontologies/ontology.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+        "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f",
+        "tag_path": "foundry_sdk/v1/ontologies/ontology_object.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\query.py",
+        "sha256": "9b6b1152611e85245ce5db06e10d90650e644485316b4c5e9a3206049bfc050e",
+        "tag_path": "foundry_sdk/v1/ontologies/query.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\query_type.py",
+        "sha256": "5fc6464e93bd6153963c8d98eb9013d7cb7c521831866379a3829cee6d1dcedb",
+        "tag_path": "foundry_sdk/v1/ontologies/query_type.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\models.py",
+        "sha256": "b60c1303e827e001c99c2be02bc27be5d5553f029aab9f68165d5056c00f9b28",
+        "tag_path": "foundry_sdk/v1/ontologies/models.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\core\\models.py",
+        "sha256": "87e65f41ae4ee4cb315b0f8a1b7cb7f6e166e2945510ae536fde553cf7697a65",
+        "tag_path": "foundry_sdk/v1/core/models.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\api_client.py",
+        "sha256": "7e6ba19fa9732b18b6f22d69f46c40b1a10af4533ce720c39df52c60ca191225",
+        "tag_path": "foundry_sdk/_core/api_client.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\resource_iterator.py",
+        "sha256": "ac10f040fdcca1c22f71283af026dcc600bb3289aac180e476f25ecc123d039c",
+        "tag_path": "foundry_sdk/_core/resource_iterator.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\model_base.py",
+        "sha256": "9991688d13830547f029b78995d0b822d1ac63b2f99911d876277515c44dbb1e",
+        "tag_path": "foundry_sdk/_core/model_base.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_errors\\__init__.py",
+        "sha256": "d00e12372e3bc2c99bd3b1fc7ddcc2f314e90e1e9203de917fb696040f849f7d",
+        "tag_path": "foundry_sdk/_errors/__init__.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\auth_utils.py",
+        "sha256": "96b9fca62a0f10473d34fe9c98df85d902f715e25b26c708f3cc3571860fa486",
+        "tag_path": "foundry_sdk/_core/auth_utils.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\client_init_helpers.py",
+        "sha256": "a1ec11ab3de6da6d687fca38cfd764011b2f5f2d76d1e8a2134523bfb49615c0",
+        "tag_path": "foundry_sdk/_core/client_init_helpers.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\compute_module_pipeline_auth.py",
+        "sha256": "622171272b559dbdf45b028b268d751976d630b02388bcad675b4f6059ce62cf",
+        "tag_path": "foundry_sdk/_core/compute_module_pipeline_auth.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\confidential_client_auth.py",
+        "sha256": "fe0459a04f20daf2ddbb5d68933746047cfc0747779b253806ddffb8f26354a9",
+        "tag_path": "foundry_sdk/_core/confidential_client_auth.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\config.py",
+        "sha256": "bc99eb3d6e1db24f833cbca693f35a56dfb1245afe3af049d1529e46b13f4cec",
+        "tag_path": "foundry_sdk/_core/config.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\context_and_environment_vars.py",
+        "sha256": "3d32588f38e7bac2eaf03654d61066e7105e13987cc8ffa6493bb72a47b91da9",
+        "tag_path": "foundry_sdk/_core/context_and_environment_vars.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\hostname_supplier.py",
+        "sha256": "40a60b51b0c03a2c139ab9bdecc0004ca4f5091dde460cb059f5eb4f03ee8de5",
+        "tag_path": "foundry_sdk/_core/hostname_supplier.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\http_client.py",
+        "sha256": "245337872750dca3dd8c7ab1a314df57b3628627602d8222de94e2dfde40f681",
+        "tag_path": "foundry_sdk/_core/http_client.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\oauth_utils.py",
+        "sha256": "536a9802dac8d11aeb64358933fbee05544c818630953ed2dc0e7c032aaca96a",
+        "tag_path": "foundry_sdk/_core/oauth_utils.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\page_iterator.py",
+        "sha256": "5c098e41d916561368e5545e6a7a17d12addbc93bd5417482163be739e5e3a34",
+        "tag_path": "foundry_sdk/_core/page_iterator.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\public_client_auth.py",
+        "sha256": "b5e105e947074d671402be846b9495be49a18f5f172cddee7812626b01c58dc3",
+        "tag_path": "foundry_sdk/_core/public_client_auth.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\sse.py",
+        "sha256": "546cb6b7c9c998fd832c68346564450ad40ca4440d0602dda0071e03b4626313",
+        "tag_path": "foundry_sdk/_core/sse.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\table.py",
+        "sha256": "8c4cf3717e6bc45f508cd8f6ade9d47ad527a07b514563e8ed97583e221d04f5",
+        "tag_path": "foundry_sdk/_core/table.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\user_token_auth_client.py",
+        "sha256": "c71898a90ba0b9460d6fa850602a0527fd92cb01c8bf3b2c262b3c1f675a3e4e",
+        "tag_path": "foundry_sdk/_core/user_token_auth_client.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+        "sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+        "tag_path": "foundry_sdk/_core/utils.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\__init__.py",
+        "sha256": "9e88a60d47e38f8d5b7eecb3566d7d260e309f1c2c26740542f12be763b1a5d3",
+        "tag_path": "foundry_sdk/_core/__init__.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_errors\\api_not_found.py",
+        "sha256": "f155784d3fed3cfddb7bee14649f7f0a16369a63b2a23ac479735e6b3f08b6d1",
+        "tag_path": "foundry_sdk/_errors/api_not_found.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_errors\\connection_error.py",
+        "sha256": "a167df843c4cf35b1fd8a93fd33db4b651ec695e108913eade9af64705567f0c",
+        "tag_path": "foundry_sdk/_errors/connection_error.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_errors\\environment_not_configured.py",
+        "sha256": "a21d17a4cefb1540cd887d17f327fea70f3c06efcfe9eeea962e440aca06dffd",
+        "tag_path": "foundry_sdk/_errors/environment_not_configured.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_errors\\not_authenticated.py",
+        "sha256": "ddc74fbd5633294f10143040d2e2d08264cd806543d97e52af4fa14f6d944cd5",
+        "tag_path": "foundry_sdk/_errors/not_authenticated.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_errors\\palantir_exception.py",
+        "sha256": "cd0f0d25699e13e6c1d91208b39e3bbbb7369266cf11464fc73d55b44867b458",
+        "tag_path": "foundry_sdk/_errors/palantir_exception.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_errors\\palantir_qos_exception.py",
+        "sha256": "41733aafb9d823a1295119273a19a9824aefa2c1ec8e0e06568de70be004e650",
+        "tag_path": "foundry_sdk/_errors/palantir_qos_exception.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_errors\\palantir_rpc_exception.py",
+        "sha256": "6b2644b4b7574148dbecaee58db4827999012f0c86a1d122c94d16f189441855",
+        "tag_path": "foundry_sdk/_errors/palantir_rpc_exception.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_errors\\sdk_internal_error.py",
+        "sha256": "2ab6ac541ee2f06c259296d522a23735a77fb99cb4cfe78453cf1ddffa82177d",
+        "tag_path": "foundry_sdk/_errors/sdk_internal_error.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_errors\\sse_error.py",
+        "sha256": "363e590cae12900bd10fe203143360727563e61dce0417cf67e5756239f429db",
+        "tag_path": "foundry_sdk/_errors/sse_error.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_errors\\stream_error.py",
+        "sha256": "83572e2ef7b4a1f18aa71ede1d77cf0dbe01c9db7db26aa8bd06526dd5f71f1c",
+        "tag_path": "foundry_sdk/_errors/stream_error.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_errors\\timeout_error.py",
+        "sha256": "021d667b182719932504f572298f479ded4e44dcdde9d518d900a349c0d8aae2",
+        "tag_path": "foundry_sdk/_errors/timeout_error.py",
+        "tag_ast_equal": true
+      },
+      {
+        "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_errors\\utils.py",
+        "sha256": "7dd89fb2b3f4d499d2e93730d091f9061173974d045208962dc7fda5bdf82870",
+        "tag_path": "foundry_sdk/_errors/utils.py",
+        "tag_ast_equal": true
+      }
+    ],
+    "method_bindings": [
+      {
+        "operation": "v1.ontologies.Action.apply",
+        "class": "ActionClient",
+        "ast_sha256": "23d4ffccf9e88f97155cebf2c08a73ceeedd160e6dac4c751c866b51e6bc23b6",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.Action.apply",
+        "class": "AsyncActionClient",
+        "ast_sha256": "ce692e04f8261a05dc9f4093c7abd94a897e76b5f082973d23d8c7779c96b2e8",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.Action.apply_batch",
+        "class": "ActionClient",
+        "ast_sha256": "6abbe2d72ffd26d65bfb085375421cf5aa5f165cbddbd2baf3d6c7c7a84bdeb6",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.Action.apply_batch",
+        "class": "AsyncActionClient",
+        "ast_sha256": "07b478b1cee5cda89f2d765714d80327d78167307d8e8fd16ab8ae41e8c0f2fc",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.Action.validate",
+        "class": "ActionClient",
+        "ast_sha256": "5318bc6514c3487139154e1bd7f5b1469440638f8b50993f9a77a50de72b91d3",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.Action.validate",
+        "class": "AsyncActionClient",
+        "ast_sha256": "2a431f834df8180290fb3be0bdd66720bf06b389ab3fa4c4098a0d96d85273d1",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.ActionType.get",
+        "class": "ActionTypeClient",
+        "ast_sha256": "b3a7423bb94ecdcaa618e08d23d75ff3f5beebfd2514cdf531998e6885d5984d",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.ActionType.get",
+        "class": "AsyncActionTypeClient",
+        "ast_sha256": "35e414b1314130e2a12a57cca807ace8d864f157b92ffbbe58eefc831b65571e",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.ActionType.list",
+        "class": "ActionTypeClient",
+        "ast_sha256": "3a86bbc01043d742a96f404916f77043b3041d3560186663370601def2d807e7",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.ActionType.list",
+        "class": "AsyncActionTypeClient",
+        "ast_sha256": "cf11918cd967c34312775c5de9aec4f7b79a24560a2dccf30b2b6993edb290b5",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.Attachment.get",
+        "class": "AttachmentClient",
+        "ast_sha256": "6330e36da8974a4987914500c9c6655072389220d229a1bbe474d9d71db8bf47",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.Attachment.get",
+        "class": "AsyncAttachmentClient",
+        "ast_sha256": "5d43c5070838b571cc221313d87b597f5f9e78cb3822f693bf0b600dbb178aad",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.Attachment.read",
+        "class": "AttachmentClient",
+        "ast_sha256": "533988e0f4b2d0625bae9ebdb50587ef90fb6be8ced4117a877d91c139a9d320",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.Attachment.read",
+        "class": "AsyncAttachmentClient",
+        "ast_sha256": "3ace6ade38b6a11326bb47022edc8fdc55d5e1aba3be3ed153b121a48d6eaa9a",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.Attachment.upload",
+        "class": "AttachmentClient",
+        "ast_sha256": "8936082917ba7288c7ca9ad1dcfeefe2c7369ed48308e05837d454629b758fc1",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.Attachment.upload",
+        "class": "AsyncAttachmentClient",
+        "ast_sha256": "1a555d1e7c305b41171b9482ff59abd57e766256984c72a262e4f1369f5daca6",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.ObjectType.get",
+        "class": "ObjectTypeClient",
+        "ast_sha256": "690321a74e96ee3ede63fe3a00f00fbd6520a17abae1bd530c959ed1e6fd4a9a",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.ObjectType.get",
+        "class": "AsyncObjectTypeClient",
+        "ast_sha256": "7d3f4e10c5a87a32ff9efbe4587886ecec2652e727d885e906e2bfa2598e8300",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.ObjectType.get_outgoing_link_type",
+        "class": "ObjectTypeClient",
+        "ast_sha256": "8574981f6c3b1ee238702a52285092ad3b6ce7b59a8e6bcc1e035503845f58e2",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.ObjectType.get_outgoing_link_type",
+        "class": "AsyncObjectTypeClient",
+        "ast_sha256": "9ed3b65aaae017105891126f614331c58fd0ec7fab76e6ff739dd275714672cd",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.ObjectType.list",
+        "class": "ObjectTypeClient",
+        "ast_sha256": "d1573158224ce478d84f2f3a2b4a28070bb9d617ccfdea81878f9cc8a8eac844",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.ObjectType.list",
+        "class": "AsyncObjectTypeClient",
+        "ast_sha256": "8b5661296347df30e87e037c8dd5b54d86d7e145bb0710a3c1f95bb8ec2b9322",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.ObjectType.list_outgoing_link_types",
+        "class": "ObjectTypeClient",
+        "ast_sha256": "f46b2db43f9837bc83c333f4dc69fea2b18679f8220beacd4bdf113a1e0d2c3f",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.ObjectType.list_outgoing_link_types",
+        "class": "AsyncObjectTypeClient",
+        "ast_sha256": "c4772b9d6d15808a0fdfef7a4eec6097abd61e9455f9cab6da2be7f387813a70",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.Ontology.get",
+        "class": "OntologyClient",
+        "ast_sha256": "85fc1982118df2d4e231e368427291e3322b12c71163ad950aeefdb7ca49b87f",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.Ontology.get",
+        "class": "AsyncOntologyClient",
+        "ast_sha256": "e0490a3b9bf9409961e6dea48e5ce5a4651615c6cc8012ead073da425c937ac3",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.Ontology.list",
+        "class": "OntologyClient",
+        "ast_sha256": "6a33ec9074250517cf501e458a7374bad01da3b7cba67b9b05f059080c4336b6",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.Ontology.list",
+        "class": "AsyncOntologyClient",
+        "ast_sha256": "bca3dac14554165c9abd0e739bdfdbb1fe4f47810012bfa6cd30bba9e2924968",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.OntologyObject.aggregate",
+        "class": "OntologyObjectClient",
+        "ast_sha256": "2947bfdba039992a98db1604c94e4f248e441510dfb1232c8e5084a3775b7cfc",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.OntologyObject.aggregate",
+        "class": "AsyncOntologyObjectClient",
+        "ast_sha256": "1b35948a09f39dceb379584ba572c4c1625afcb06c4bfe709992d440abca6702",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.OntologyObject.get",
+        "class": "OntologyObjectClient",
+        "ast_sha256": "a88f5592cdf556234706207fd8ea0f2b1095b75ae35b11ed64ecf8c5360374d1",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.OntologyObject.get",
+        "class": "AsyncOntologyObjectClient",
+        "ast_sha256": "16007f22e37ac9ed12459f0336b2459a1f4d0b14a3b7d6337cfd40d07da7b805",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.OntologyObject.get_linked_object",
+        "class": "OntologyObjectClient",
+        "ast_sha256": "e3f255cda0f0fdbd18c6d98d24eae329f656598c4fa6388a134eeb24b67ed446",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.OntologyObject.get_linked_object",
+        "class": "AsyncOntologyObjectClient",
+        "ast_sha256": "c37a206bbbb6aca05bb94012697feba34f765b8d73cd7401b4345dd2bb51a523",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.OntologyObject.list",
+        "class": "OntologyObjectClient",
+        "ast_sha256": "711b5ad5fb8531c05b863dcbf91dc185649e5dc8c39cc48e2fbbf89287e594d3",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.OntologyObject.list",
+        "class": "AsyncOntologyObjectClient",
+        "ast_sha256": "4468927ea88fd258d6ccee9c4dea4b468c9a291b9a7e384deea13ed4b1a7f91f",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.OntologyObject.list_linked_objects",
+        "class": "OntologyObjectClient",
+        "ast_sha256": "2eeffe29f1b818f8f9640dc0a288402a8f364cb6387bb49f50fe7d3be4d1a485",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.OntologyObject.list_linked_objects",
+        "class": "AsyncOntologyObjectClient",
+        "ast_sha256": "787742adc69140b01125b99493b671ed0ab34737d9a4f6aba7023e651294706c",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.OntologyObject.search",
+        "class": "OntologyObjectClient",
+        "ast_sha256": "c2aedd7408774bb831a617ec442507702e348da72b664979165c4e56bded02f3",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.OntologyObject.search",
+        "class": "AsyncOntologyObjectClient",
+        "ast_sha256": "52f989ccb56314a9027cd244523422ce2baa67b97c3568c48eb6a91553763f8e",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.Query.execute",
+        "class": "QueryClient",
+        "ast_sha256": "a8e1dc8f5705c177fd23d573a89ffcb9e2821e1bf3147beca7ea1900a94df0be",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.Query.execute",
+        "class": "AsyncQueryClient",
+        "ast_sha256": "1881e0e9a5e83bb94eadb78619f15cc67a04ad9bd7ac97e35b7c244bcce21666",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.QueryType.get",
+        "class": "QueryTypeClient",
+        "ast_sha256": "1ce860afe89060bd0d7aaa0db0ed91a112c0e529f75601bb7cbef89e58f7b568",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.QueryType.get",
+        "class": "AsyncQueryTypeClient",
+        "ast_sha256": "a76d250304203401b08d559b5acf4eac11819adee9e2d6398e7a98717c89eb76",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.QueryType.list",
+        "class": "QueryTypeClient",
+        "ast_sha256": "b86ce7bc3a3daaa519596b769a1c793634e58bf805a0126952f690edea970941",
+        "named_errors": 0
+      },
+      {
+        "operation": "v1.ontologies.QueryType.list",
+        "class": "AsyncQueryTypeClient",
+        "ast_sha256": "a8c7a12ce9d309895fa2455f7569cd2dab0715459a076c3ac4de09a88aec33cf",
+        "named_errors": 0
+      }
+    ],
+    "checks": 597,
+    "per_operation_checks": 587,
+    "annex_checks": 10,
+    "unique_case_check_pairs": 597,
+    "declared_errors": 0,
+    "full_archive_crc_and_1642_payload_hashes_verified": true,
+    "archive_members": 1644,
+    "fresh_cli_commands": 163,
+    "fresh_full_comment_bodies": 142,
+    "closure": {
+      "TESTEXEC-078": {
+        "status": "Closed",
+        "comment_count": 41
+      },
+      "TESTCASE-078": {
+        "status": "Closed",
+        "comment_count": 36
+      },
+      "DEV-078": {
+        "status": "Closed",
+        "comment_count": 17
+      },
+      "UNITTEST-078": {
+        "status": "Closed",
+        "comment_count": 10
+      },
+      "CODEREVIEW-079": {
+        "status": "Closed",
+        "comment_count": 10
+      },
+      "DESIGN-078": {
+        "status": "Closed",
+        "comment_count": 10
+      },
+      "DEV-STORY-077": {
+        "status": "Deployment",
+        "comment_count": 18
+      }
+    },
+    "exact_row_diff": [
+      {
+        "id": "v1.ontologies.Action.apply",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.Action.apply_batch",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.Action.validate",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.ActionType.get",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.ActionType.list",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.Attachment.get",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.Attachment.read",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.Attachment.upload",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.ObjectType.get",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.ObjectType.get_outgoing_link_type",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.ObjectType.list",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.ObjectType.list_outgoing_link_types",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.Ontology.get",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.Ontology.list",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.OntologyObject.aggregate",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.OntologyObject.get",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.OntologyObject.get_linked_object",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.OntologyObject.list",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.OntologyObject.list_linked_objects",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.OntologyObject.search",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.Query.execute",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.QueryType.get",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      },
+      {
+        "id": "v1.ontologies.QueryType.list",
+        "fields": {
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          },
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest077_distinct_formal_executor_20261116"
+          }
+        }
+      }
+    ],
+    "formal_accepted_before": 206,
+    "formal_accepted_after": 229,
+    "formal_pending_before": 219,
+    "formal_pending_after": 196,
+    "semantic_pending": 0,
+    "all425ids_and_semantic_history_preserved": true,
+    "prior206formal_rows_unchanged": true,
+    "no_execution_repeated": true,
+    "limits": [
+      "No new formal execution during recovery.",
+      "Socket connect/create_connection/getaddrinfo patched in original run; direct create_connection negative probe recorded. Separate native HTTP/DNS negative probes and OS-wide firewall verification not recorded.",
+      "Policy checks assert documentation only; no live Foundry server-policy execution.",
+      "CPU time and historical human effort unmeasured.",
+      "Original successful harness asserted installed distribution version1.101.0; current package metadata not inferred.",
+      "Approved immutable case JSON retains pending approval label; final independent peer report and separate executor attestation carry actual approval/prerequisites."
+    ]
+  },
+  "archive_context": {
+    "inventory": {
+      "path": "maintainer/evidence/rest077/feature015_rest077_formal_qa_inventory.json",
+      "sha256": "48a0267866ed7f78306e73b12fb179e52d6221f92d5dc3c0a1cf0f66fb6b8c9e"
+    },
+    "archive": {
+      "path": "maintainer/evidence/rest077/feature015_rest077_formal_qa_archive_20261117.zip",
+      "sha256": "1cb482bba019ad7f7f5956581dc32aab0129ac585c836d98ea5f8ccfe4f9e6c2"
+    },
+    "member_resolution": "Inventory entry member resolves preserved bytes inside retained ZIP. Source records original absolute input path. Reader asset and primary source maps retain execution bindings.",
+    "payload_members": 1642,
+    "total_members": 1644,
+    "original_bytes_preserved": true,
+    "readable_license": {
+      "path": "maintainer/evidence/rest077/LICENSE",
+      "sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+      "source": ".agents/skills/pal-found-dev/assets/rest/LICENSE"
+    },
+    "source_notices": "Original copyright headers remain inside source copies. Owning REST assets and upstream SDK supply Apache-2.0 LICENSE; no separate NOTICE file present."
+  },
+  "no_execution_repeated": true,
+  "limits": [
+    "No new formal execution during recovery.",
+    "Socket connect/create_connection/getaddrinfo patched in original run; direct create_connection negative probe recorded. Separate native HTTP/DNS negative probes and OS-wide firewall verification not recorded.",
+    "Policy checks assert documentation only; no live Foundry server-policy execution.",
+    "CPU time and historical human effort unmeasured.",
+    "Original successful harness asserted installed distribution version1.101.0; current package metadata not inferred.",
+    "Approved immutable case JSON retains pending approval label; final independent peer report and separate executor attestation carry actual approval/prerequisites."
+  ],
+  "validation_evidence": "maintainer/evidence/rest077/acceptance-validation.json"
+}

@@ -1,0 +1,62 @@
+{
+  "verdict": "PASS",
+  "validation_agent": "/root/accept_formal077_20261117",
+  "targeted_release_gate_tests": {
+    "command": "python -m pytest .ept/tmp/feature015_integration/tests/test_feature015_release_gate.py -q --basetemp=.ept/tmp/rest077_acceptance_20261117/pytest -o cache_dir=.ept/tmp/rest077_acceptance_20261117/pytest-cache",
+    "exit_code": 0,
+    "passed": 4
+  },
+  "acceptance_invariants": {
+    "exact_23_row_two_field_diff": true,
+    "all425ids_preserved": true,
+    "all425_semantic_acceptance_and_history_preserved": true,
+    "prior206formal_accepted_rows_unchanged": true,
+    "formal_accepted": 229,
+    "formal_pending": 196,
+    "all3251_model_reviews_unchanged": true,
+    "all36_topic_reviews_unchanged": true,
+    "offline153_page_register_unchanged": true,
+    "skill_review_pending": 40,
+    "all_retained_artifact_hashes_match": true,
+    "canonical_byte_preservation": true,
+    "candidate_header_unchanged": true,
+    "no_product_guide_test_or_live_ticket_changes": true
+  },
+  "release_gate_expected_blockers": {
+    "operation_qa_pending": 196,
+    "operation_qa_provenance": 196,
+    "skill_review_pending": 40
+  },
+  "source_baseline": "77b101fb7c5e51fa5f785b2147d97cdfff703133",
+  "changed_operations": [
+    "v1.ontologies.Action.apply",
+    "v1.ontologies.Action.apply_batch",
+    "v1.ontologies.Action.validate",
+    "v1.ontologies.ActionType.get",
+    "v1.ontologies.ActionType.list",
+    "v1.ontologies.Attachment.get",
+    "v1.ontologies.Attachment.read",
+    "v1.ontologies.Attachment.upload",
+    "v1.ontologies.ObjectType.get",
+    "v1.ontologies.ObjectType.get_outgoing_link_type",
+    "v1.ontologies.ObjectType.list",
+    "v1.ontologies.ObjectType.list_outgoing_link_types",
+    "v1.ontologies.Ontology.get",
+    "v1.ontologies.Ontology.list",
+    "v1.ontologies.OntologyObject.aggregate",
+    "v1.ontologies.OntologyObject.get",
+    "v1.ontologies.OntologyObject.get_linked_object",
+    "v1.ontologies.OntologyObject.list",
+    "v1.ontologies.OntologyObject.list_linked_objects",
+    "v1.ontologies.OntologyObject.search",
+    "v1.ontologies.Query.execute",
+    "v1.ontologies.QueryType.get",
+    "v1.ontologies.QueryType.list"
+  ],
+  "no_formal_execution_repeated": true,
+  "diff_whitespace": {
+    "metadata": "PASS with core.whitespace=cr-at-eol; original register CRLF preserved",
+    "raw_cli_exports": "Seven original addressed_to blank lines contain trailing spaces. Kept byte-for-byte to preserve captured CLI output.",
+    "original_evidence": "Canonical, inventory, ZIP and selected execution inputs retained byte-for-byte."
+  }
+}

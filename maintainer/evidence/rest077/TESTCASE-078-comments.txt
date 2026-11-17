@@ -1,0 +1,41 @@
+
+Found 36 comment(s) for TESTCASE-078:
+========================================================================================================================
+Comment ID                     Author               Created              Updated              Subject
+------------------------------------------------------------------------------------------------------------------------
+20261007-101822-tech-lead      tech-lead            2026-10-07T10:18:22  2026-10-07T10:18:22  Ticket created
+20261007-101824-tech-lead      tech-lead            2026-10-07T10:18:24  2026-10-07T10:18:24  Ticket updated
+20261007-101825-tech-lead      tech-lead            2026-10-07T10:18:25  2026-10-07T10:18:25  Ticket updated
+20261116-095144-@qa-engineer   qa-engineer          2026-11-16T09:51:44  2026-11-16T09:51:44  Independent formal case preparation plan 2026-11-16
+20261116-230241-@qa-engineer   qa-engineer          2026-11-16T23:02:41  2026-11-16T23:02:41  Open readiness verified and approved bundle frozen 2026-11-16
+20261116-230247-@qa-engineer   qa-engineer          2026-11-16T23:02:47  2026-11-16T23:02:47  Ticket updated
+20261116-230248-@qa-engineer   qa-engineer          2026-11-16T23:02:48  2026-11-16T23:02:48  F077-01 v1.ontologies.Action.apply approved BDD case
+20261116-230249-@qa-engineer   qa-engineer          2026-11-16T23:02:49  2026-11-16T23:02:49  F077-02 v1.ontologies.Action.apply_batch approved BDD case
+20261116-230249-@qa-engineer~001 qa-engineer          2026-11-16T23:02:49  2026-11-16T23:02:49  F077-03 v1.ontologies.Action.validate approved BDD case
+20261116-230250-@qa-engineer   qa-engineer          2026-11-16T23:02:50  2026-11-16T23:02:50  F077-04 v1.ontologies.ActionType.get approved BDD case
+20261116-230250-@qa-engineer~001 qa-engineer          2026-11-16T23:02:50  2026-11-16T23:02:50  F077-05 v1.ontologies.ActionType.list approved BDD case
+20261116-230251-@qa-engineer   qa-engineer          2026-11-16T23:02:51  2026-11-16T23:02:51  F077-06 v1.ontologies.Attachment.get approved BDD case
+20261116-230251-@qa-engineer~001 qa-engineer          2026-11-16T23:02:51  2026-11-16T23:04:19  F077-07 v1.ontologies.Attachment.read approved BDD case
+20261116-230252-@qa-engineer   qa-engineer          2026-11-16T23:02:52  2026-11-16T23:04:20  F077-08 v1.ontologies.Attachment.upload approved BDD case
+20261116-230252-@qa-engineer~001 qa-engineer          2026-11-16T23:02:52  2026-11-16T23:02:52  F077-09 v1.ontologies.ObjectType.get approved BDD case
+20261116-230253-@qa-engineer   qa-engineer          2026-11-16T23:02:53  2026-11-16T23:02:53  F077-10 v1.ontologies.ObjectType.get_outgoing_link_type approved BDD case
+20261116-230254-@qa-engineer   qa-engineer          2026-11-16T23:02:54  2026-11-16T23:02:54  F077-11 v1.ontologies.ObjectType.list approved BDD case
+20261116-230254-@qa-engineer~001 qa-engineer          2026-11-16T23:02:54  2026-11-16T23:02:54  F077-12 v1.ontologies.ObjectType.list_outgoing_link_types approved BDD case
+20261116-230255-@qa-engineer   qa-engineer          2026-11-16T23:02:55  2026-11-16T23:02:55  F077-13 v1.ontologies.Ontology.get approved BDD case
+20261116-230255-@qa-engineer~001 qa-engineer          2026-11-16T23:02:55  2026-11-16T23:02:55  F077-14 v1.ontologies.Ontology.list approved BDD case
+20261116-230256-@qa-engineer   qa-engineer          2026-11-16T23:02:56  2026-11-16T23:02:56  F077-15 v1.ontologies.OntologyObject.aggregate approved BDD case
+20261116-230256-@qa-engineer~001 qa-engineer          2026-11-16T23:02:56  2026-11-16T23:02:56  F077-16 v1.ontologies.OntologyObject.get approved BDD case
+20261116-230257-@qa-engineer   qa-engineer          2026-11-16T23:02:57  2026-11-16T23:02:57  F077-17 v1.ontologies.OntologyObject.get_linked_object approved BDD case
+20261116-230257-@qa-engineer~001 qa-engineer          2026-11-16T23:02:57  2026-11-16T23:02:57  F077-18 v1.ontologies.OntologyObject.list approved BDD case
+20261116-230258-@qa-engineer   qa-engineer          2026-11-16T23:02:58  2026-11-16T23:02:58  F077-19 v1.ontologies.OntologyObject.list_linked_objects approved BDD case
+20261116-230258-@qa-engineer~001 qa-engineer          2026-11-16T23:02:58  2026-11-16T23:02:58  F077-20 v1.ontologies.OntologyObject.search approved BDD case
+20261116-230259-@qa-engineer   qa-engineer          2026-11-16T23:02:59  2026-11-16T23:02:59  F077-21 v1.ontologies.Query.execute approved BDD case
+20261116-230259-@qa-engineer~001 qa-engineer          2026-11-16T23:02:59  2026-11-16T23:02:59  F077-22 v1.ontologies.QueryType.get approved BDD case
+20261116-230300-@qa-engineer   qa-engineer          2026-11-16T23:03:00  2026-11-16T23:03:00  F077-23 v1.ontologies.QueryType.list approved BDD case
+20261116-230301-@qa-engineer   qa-engineer          2026-11-16T23:03:01  2026-11-16T23:03:01  Approved BDD annex: lifecycle guards paging and model decisions
+20261116-230301-@qa-engineer~001 qa-engineer          2026-11-16T23:03:01  2026-11-16T23:03:01  Approved coverage provenance and formal execution handoff boundaries
+20261116-230425-@qa-engineer   qa-engineer          2026-11-16T23:04:25  2026-11-16T23:04:25  Ticket updated
+20261116-230425-@qa-engineer~001 qa-engineer          2026-11-16T23:04:25  2026-11-16T23:04:25  In Progress DoD complete: 23 approved cases read back 2026-11-16
+20261116-230426-@qa-engineer   qa-engineer          2026-11-16T23:04:26  2026-11-16T23:04:26  Ticket updated
+20261116-230432-@qa-engineer   qa-engineer          2026-11-16T23:04:32  2026-11-16T23:04:32  Resolved closure verification and distinct executor handoff 2026-11-16
+20261116-230433-@qa-engineer   qa-engineer          2026-11-16T23:04:33  2026-11-16T23:04:33  Ticket updated
