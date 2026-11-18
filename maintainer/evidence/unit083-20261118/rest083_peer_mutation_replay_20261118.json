@@ -1,0 +1,60 @@
+{
+  "test_file": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest083_peer_20261118\\tests\\test_offline_rest_083.py",
+  "sha256": "fa1045d8c3c6b7e714dd43f4534555d88ee633b76589af97c08a7ffbe57611ec",
+  "base_commit": "ff70c30c99410b3b0784bcad934625b88d5e6e5c",
+  "baseline_prefix_bytes_preserved": true,
+  "changed_files": [
+    "tests/test_offline_rest_083.py"
+  ],
+  "operation_count": 25,
+  "available_form_count": 150,
+  "source_resource_hashes": {
+    "Action": "97d67d3a550ce372d2b39363e7373afc32ade7ecd803c022098a9d3ffca48ad5",
+    "Attachment": "9e98375a9a5c81554e08b0ba84ee5a19443a05a987d288aded730b315ae72902",
+    "AttachmentProperty": "85d69f0af4a9c4aeade893a39867cf826c58d3fcdf3ccd81c0b4097cb39e5af2",
+    "CipherTextProperty": "e65e4718460fb27bc864cf40127f1e71bb619ae0720edc68b350b744ed356f28",
+    "GeotemporalSeriesProperty": "9181bfce75792d85e8bc112a2d386e2b76e57f725e2922ccbb7e85bff159d72a",
+    "MediaReferenceProperty": "e769b3499240f98d9342c20b2b1e1e3c3f5c43e4f12002ae17e5463381992180",
+    "Query": "2c7c151396abb7f7c57850e7b435c6118c20091563ee8b19cd2cb4bbda38fa91",
+    "TimeSeriesPropertyV2": "ab169537962d6af9ed747be3c2a2ee8707fa2432efadb2d0f5a15b49be574e55",
+    "TimeSeriesValueBankProperty": "59d0d58422b167c574a9714bfe19fc628dccd317be841ff0b7c3ef4dc8f3ba38"
+  },
+  "mutations": [
+    {
+      "mutation": "wrong escaped resource path",
+      "killed": true,
+      "exception": "SDKInternalError",
+      "root_exception": "AssertionError"
+    },
+    {
+      "mutation": "wrong bearer identity",
+      "killed": true,
+      "exception": "SDKInternalError",
+      "root_exception": "AssertionError"
+    },
+    {
+      "mutation": "discard serialized request body",
+      "killed": true,
+      "exception": "SDKInternalError",
+      "root_exception": "AssertionError"
+    },
+    {
+      "mutation": "ignore request timeout",
+      "killed": true,
+      "exception": "SDKInternalError",
+      "root_exception": "AssertionError"
+    },
+    {
+      "mutation": "skip response close",
+      "killed": true,
+      "exception": "AssertionError",
+      "root_exception": "AssertionError"
+    },
+    {
+      "mutation": "prebuffer streaming body",
+      "killed": true,
+      "exception": "AssertionError",
+      "root_exception": "AssertionError"
+    }
+  ]
+}
