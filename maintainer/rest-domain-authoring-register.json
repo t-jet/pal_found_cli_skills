@@ -7075,12 +7075,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7099,12 +7099,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7123,12 +7123,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7147,12 +7147,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7171,12 +7171,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7195,12 +7195,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7219,12 +7219,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7673,12 +7673,12 @@
       "author_agent": "/root/offline_implementation_manager/groom_rest",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7697,12 +7697,12 @@
       "author_agent": "/root/offline_implementation_manager/groom_rest",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7721,12 +7721,12 @@
       "author_agent": "/root/offline_implementation_manager/groom_rest",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7745,12 +7745,12 @@
       "author_agent": "/root/offline_implementation_manager/groom_rest",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7769,12 +7769,12 @@
       "author_agent": "/root/offline_implementation_manager/groom_rest",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7793,12 +7793,12 @@
       "author_agent": "/root/offline_implementation_manager/groom_rest",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7817,12 +7817,12 @@
       "author_agent": "/root/offline_implementation_manager/groom_rest",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7841,12 +7841,12 @@
       "author_agent": "/root/offline_implementation_manager/groom_rest",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK synthetic transport; semantic/protocol review pending. Native SDK failure plus direct REST bridge retained for ModelStudioConfigVersion.get.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7865,12 +7865,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7889,12 +7889,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7913,12 +7913,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7937,12 +7937,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7961,12 +7961,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -7985,12 +7985,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -8009,12 +8009,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -8033,12 +8033,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -8057,12 +8057,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -8081,12 +8081,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -8105,12 +8105,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -8129,12 +8129,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -8732,12 +8732,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -8756,12 +8756,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -8804,12 +8804,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -8828,12 +8828,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {
@@ -8852,12 +8852,12 @@
       "author_agent": "/root/feature015_manager_resume/topic_journeys",
       "independent_reviewer": "qa-engineer",
       "reviewer_agent": "/root/rest079_retest_20261029",
-      "independent_qa_agent": null,
+      "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake transport; actual operation fixture passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
-      "independent_qa_status": "pending",
+      "independent_qa_status": "accepted",
       "live_enrollment_status": "not exercised"
     },
     {

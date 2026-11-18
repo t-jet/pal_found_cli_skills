@@ -1,0 +1,84 @@
+{
+  "testcase": "TESTCASE-079",
+  "reviewer_identity": "/root/rest079_formal_case_independent_peer_20261118",
+  "reviewer_role": "Independent QA case peer",
+  "outcome": "PASS",
+  "disposition": "QA_PEER_APPROVED_CASE_CONTENT",
+  "formal_execution": false,
+  "testcase_closed": false,
+  "testexec_prerequisites_verified": false,
+  "reviewed_candidate_hashes": {
+    "rest079_formal_cases.json": "1587b936fc129eab6b91fb86ae276f181b031b4a4d55256c6d33885b1ecfebbe",
+    "rest079_formal_cases.feature": "5a146376ce28c3b077e4c19e5fce9372e0cb1d7027a01f84eb632b214e82e7e3",
+    "rest079_formal_execute.py": "b7fc8a404cfd5f883c2339955517e5763d34481fb54f8106392df7201d004cb6",
+    "additional_checks.py": "90da13bfae5c685a22319d58301e1ddd2ab7c20b48b71ebcf8a466698cbf9044",
+    "rest079_assets_freeze.json": "7f6f42060c4cc18535dd4009cf335cf6a8355eb0d80ea44e69ccb36e2563cd8f",
+    "review_candidate_proof_v2.json": "d42963e19e7ef33b89dfffa81247ac0382420b28265b7f692aa669df700c2bd2"
+  },
+  "fresh_dry_checks": 1564,
+  "source_operations": 32,
+  "forms_per_operation": 6,
+  "pagers": 11,
+  "ordinary_async_iterators": 8,
+  "source_fault_controls_rejected": 6,
+  "approval_gate_controls_rejected": 6,
+  "correction_fault_controls_rejected": 3,
+  "source_model_definitions": 483,
+  "prior_semantic_page_hashes_unchanged": 483,
+  "reader_assets_hash_checked": 4371,
+  "resolved_findings": [
+    {
+      "id": "PEER-079-01",
+      "issue": "Declared three-page budget previously exercised one page",
+      "result": "PASS",
+      "verified_checks": 22,
+      "expected": "Three requests with distinct cursors, page-limit, three retained items and cursor079-budget-3 continuation"
+    },
+    {
+      "id": "PEER-079-02",
+      "issue": "Only terminal empty pages tested",
+      "result": "PASS",
+      "verified_raw_checks": 22,
+      "verified_native_iterator_checks": 16,
+      "expected": "Empty intermediate page retains continuation, second request returns one item"
+    },
+    {
+      "id": "PEER-079-03",
+      "issue": "Declared four-byte stream budget unused",
+      "result": "PASS",
+      "verified_checks": 64,
+      "expected": "Caller retains four bytes, upstream chunk may contain eight bytes, response closes"
+    }
+  ],
+  "open_case_content_findings": [],
+  "evidence_hashes": {
+    "independent_dry_run.json": "bb5e2872f83e14d168ba359e33b5d40303fad5d738a402c2c1c425a1a1645be1",
+    "source_probe_initial.json": "f84238f2b09979b7626533962bdd86adc83177981b5350f86620f08dfce2910c",
+    "gate_probe_initial.json": "b80332c10b9f8f83e069a8f88c7090453daf2b28241ec606a403549351293887",
+    "independent_dry_run_v2.json": "5cf5b9cbf2c007516e253c97dbb96d5ea9ef70448df70774186f58a678bf995b",
+    "source_probe.py": "aeaa2e6c87a7a0c77fb80ceeba4b8efad0dbd132bb732e9808705322e6517d18",
+    "source_probe.json": "f84238f2b09979b7626533962bdd86adc83177981b5350f86620f08dfce2910c",
+    "gate_probe.py": "b9e8d6a88ecdf322b3aa5f1898ad1a0f30b0ea3edd065e5d21654746c68e34d5",
+    "gate_probe.json": "b80332c10b9f8f83e069a8f88c7090453daf2b28241ec606a403549351293887",
+    "corrections_probe.py": "42b2c64963a22e204058238cb5ccdbb458b6e1b5f930ac0ecd7e986f94d63659",
+    "corrections_probe.json": "1d862abdfe263006844c957247a145ecb1d1e6d9b9dbd3e904f5233e74d8084e"
+  },
+  "preserved_initial_candidate_proof_sha256": "6770fbe9996c81f822160b4fdab8192cc1a0d18cef38f3d89f9439dcf229b6fb",
+  "prior_semantic_review": {
+    "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest079_semantic_retest_20261029.json",
+    "sha256": "1e5716c50d17749339f0a6369607c0a1fa3102ad25a2cf2dfd930e89a94183c1",
+    "reviewer": "/root/rest079_retest_20261029",
+    "exact_membership": 483,
+    "unchanged_model_pages": 483,
+    "reuse_boundary": "Prior independent semantic coverage retained by exact membership and byte continuity. Fresh review parsed all483 reader definitions and checked source graph; no fresh exhaustive483-page prose review is claimed."
+  },
+  "limits": [
+    "QA case-content peer approval only. Tech Lead or Architect approval remains required before formal execution.",
+    "Tracker Gherkin recording, DoD evidence, links and time reporting remain authorized-owner responsibilities. TESTCASE was In Progress at review.",
+    "Different formal executor must verify closed TESTCASE and TESTEXEC prerequisites, then execute approved immutable hashes.",
+    "All fresh runs were author-check dry runs. No formal TESTEXEC, live enrollment, server permissions, schema enforcement or platform effect is claimed.",
+    "Distributed invoke functions use independent wire and response expectations. Shipped verify/SUCCESS semantics rely on separately retained source and semantic evidence.",
+    "Empty-intermediate fixtures test defensive continuation behavior; they do not assert live server behavior contrary to documented guarantees.",
+    "Four-byte limit bounds caller consumption. It does not bound upstream transport chunk size."
+  ]
+}

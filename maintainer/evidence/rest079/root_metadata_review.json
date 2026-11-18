@@ -1,0 +1,12 @@
+{
+  "outcome": "ROOT_METADATA_REVIEW_PASS",
+  "base": "51f594c08403ac49d848e0d8c4af9986377f64d2",
+  "archive_payload_hashes_verified": 9118,
+  "changed_qa_rows": 32,
+  "non_target_rows_preserved": 393,
+  "formal_proposed": 261,
+  "formal_pending": 164,
+  "whole_bundle_execution_claim": false,
+  "formal_reruns": 0,
+  "publication_approval": false
+}
