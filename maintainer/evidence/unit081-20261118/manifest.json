@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "ticket": "TASK-024",
+  "date": "2026-11-18",
+  "archive_publisher": "/root/publish073_checkpoint_recover_20261118b",
+  "publication_base": "51f594c08403ac49d848e0d8c4af9986377f64d2",
+  "original_author_peer_base": "ff70c30c99410b3b0784bcad934625b88d5e6e5c",
+  "candidate": {
+    "path": "tests/test_offline_rest_081.py",
+    "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest081_unit_modes_20261118\\tests\\test_offline_rest_081.py",
+    "sha256": "ca2b92fd7d72ac43ce625e21bcb650a37bbf7dea2a697edf00c7c221a4ef0c12"
+  },
+  "source_binding": {
+    "sdk_release": "1.101.0",
+    "sdk_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf"
+  },
+  "identities": {
+    "author": "/root/rest081_unit_native_author_20261118",
+    "independent_peer": "/root/unit081_independent_peer_20261118",
+    "identity_provenance": "PM-confirmed original delegation identities supplied to publisher by root; publication-time provenance, not inserted into original artifacts."
+  },
+  "preserved_original_artifacts": {
+    "rest081_authorproof_20261118.json": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest081_authorproof_20261118.json",
+      "sha256": "f6832a438db66be869977c765573e998d4b2d511311ff5b6aa93e593dd8cf359",
+      "bytes": 4224
+    },
+    "rest081_author_run1.xml": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest081_author_run1.xml",
+      "sha256": "d668e157137cd045a34cfe280cd7c05c5863e8eae3c2549d470e409b61e1ceb0",
+      "bytes": 174552,
+      "junit_totals": {
+        "tests": 821,
+        "failures": 4,
+        "errors": 0,
+        "skipped": 0
+      },
+      "boundary": "Historical author iteration retained unchanged; earlier candidate hash and exact command not recorded here. Not a result for final candidate."
+    },
+    "rest081_author_run2.xml": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest081_author_run2.xml",
+      "sha256": "96850656e569b8afdb26deff073227a64406b734c5f7a78b0bdda284edbcda0f",
+      "bytes": 161725,
+      "junit_totals": {
+        "tests": 821,
+        "failures": 2,
+        "errors": 0,
+        "skipped": 0
+      },
+      "boundary": "Historical author iteration retained unchanged; earlier candidate hash and exact command not recorded here. Not a result for final candidate."
+    },
+    "rest081_author_run3.xml": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest081_author_run3.xml",
+      "sha256": "257531f5d79d388922cc9cf46f4c90fc3ab9ece7b23e9fd3c2c8077e3cf73429",
+      "bytes": 159387,
+      "junit_totals": {
+        "tests": 877,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "boundary": "Historical author iteration retained unchanged; earlier candidate hash and exact command not recorded here. Not a result for final candidate."
+    },
+    "rest081_author_run4.xml": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest081_author_run4.xml",
+      "sha256": "9d75b8d009a180d624674a1bd0295e0996bae3ff172855a6fb412a1692740e30",
+      "bytes": 183965,
+      "junit_totals": {
+        "tests": 1019,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "rest081_peer_fresh.xml": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest081_peer_fresh.xml",
+      "sha256": "0ab5af305c6b87303547c84be649034f8f900d9e48fee650726d17ef6593bfb3",
+      "bytes": 183965,
+      "junit_totals": {
+        "tests": 1019,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "rest081_peer_probes.py": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest081_peer_probes.py",
+      "sha256": "3c50a0653cda9967d85bf260dd57ad73071cd73b99d0a2e9b4e4d0484e9b5624",
+      "bytes": 3683
+    },
+    "rest081_peer_probe_results.json": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest081_peer_probe_results.json",
+      "sha256": "4b565cc6d61fe91581351089ec5c7b1ce356290748161dc36ec87e923a99d825",
+      "bytes": 4850
+    }
+  },
+  "publication_time_cli_captures": {
+    "author-comment-cli-capture.txt": {
+      "sha256": "0c92217b10c7434520701229f7b2036e8bb626f61e602643a5c271eca4c1e9e5",
+      "bytes": 1898,
+      "ticket": "UNITTEST-080",
+      "comment_id": "20261118-132018-@python-developer",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "comment",
+        "get",
+        "UNITTEST-080",
+        "20261118-132018-@python-developer",
+        "--author",
+        "devops-engineer"
+      ],
+      "kind": "Publication-time CLI capture of existing original comment; not an original run artifact"
+    },
+    "independent_peer-comment-cli-capture.txt": {
+      "sha256": "5d52df855ae4951199a639040081a44221457a21b049ca7a3fc278511064345c",
+      "bytes": 2628,
+      "ticket": "UNITTEST-080",
+      "comment_id": "20261118-182542-@qa-engineer",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "comment",
+        "get",
+        "UNITTEST-080",
+        "20261118-182542-@qa-engineer",
+        "--author",
+        "devops-engineer"
+      ],
+      "kind": "Publication-time CLI capture of existing original comment; not an original run artifact"
+    }
+  },
+  "original_results": {
+    "final_author_tests": 1019,
+    "peer_tests": 1019,
+    "independent_mutants_killed": 5
+  },
+  "commands_boundary": "Use only commands recorded in preserved originals or CLI captures. Missing exact original argv is not reconstructed.",
+  "replay_boundary": "Original executable paths and source/base preconditions are preserved. Archiving is not rerunning; relocation is not a portable replay claim.",
+  "integration_boundary": "Fresh combined integration and exact published-head CI are pending; original author/peer results remain tied to original content.",
+  "acceptance_boundary": {
+    "unit_readiness_only": true,
+    "no_formal_acceptance_added": true,
+    "no_reader_product_changes": true,
+    "no_live_tenant_claim": true,
+    "no_all_sdk_versions_claim": true
+  },
+  "qualifications": [
+    "The two foreign third-party guides changed after original ff70c30 runs; owned081/083 inputs are unchanged at publication baseline.",
+    "Formal261/164 counters, if integrated, come only from separately approved REST079 execution/metadata, not these unit tests.",
+    "Earlier author failures and corrected harness observations remain preserved and qualified in original evidence."
+  ]
+}
