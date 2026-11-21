@@ -1,0 +1,71 @@
+{
+  "kind": "ROOT_APPROVED_REST079_DOMAIN_QA_ACCEPTANCE_OVERLAY",
+  "story": "DEV-STORY-079",
+  "acceptance_task": "TASK-023",
+  "formal_qa_status": "accepted",
+  "integration_acceptance": "ROOT_METADATA_APPROVED",
+  "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
+  "retention_and_acceptance_agent": "/root/rest079_independent_formal_acceptance_20261118",
+  "metadata_approval_agent": "/root",
+  "approved_base": "51f594c08403ac49d848e0d8c4af9986377f64d2",
+  "recorded_utc": "2026-11-18T17:18:30.144182+00:00",
+  "approval_boundary": "Root approved independent metadata gate and isolated domain acceptance. Shared-source promotion and publication require their owning task; no publication approval is conveyed.",
+  "supersession": "This overlay replaces only the pending-root-metadata decision in the exact original proposal artifacts linked below. Original proposal, ZIP, inventory, formal outputs and historical flags remain byte-preserved.",
+  "root_review": {
+    "path": "maintainer/evidence/rest079/root_metadata_review.json",
+    "sha256": "f1d6ebe80c0d2efde45a5cd43e3cfd5649058dd4bee77ac1540dbedaa048d494"
+  },
+  "root_review_tool": {
+    "path": "maintainer/evidence/rest079/rest079_root_metadata_review_20261118.py",
+    "sha256": "16d090347d3fe9ff9af7590cdab3253c3a9d8298942c69471a90ccbf51f31dad"
+  },
+  "preserved_invariants": {
+    "path": "maintainer/evidence/rest079/preserved_invariants.json",
+    "sha256": "ff1ba1efdd3eb22aa66cdabb74dbeccef6c52eeb706788495b16ad35064a1326"
+  },
+  "approved_proposal_artifacts": {
+    "canonical": {
+      "path": "maintainer/rest-domain-formal-qa-079.json",
+      "sha256": "91eaaa83ed7cad5158b2a68478f611bd953a341dd4177afd6b9f513479db6deb"
+    },
+    "acceptance": {
+      "path": "maintainer/rest-domain-formal-qa-079-acceptance.json",
+      "sha256": "f3ddb6f617dd099381fe97fd5ed101a55fe52b9c324c33fb6dc86fc1e732648a"
+    },
+    "archive": {
+      "path": "maintainer/evidence/rest079/feature015_rest079_formal_qa_archive_20261118.zip",
+      "sha256": "07fb91884de249771a3f8bcfe1a7f07001a38bf9fb50e99a667191333d81c38b"
+    },
+    "inventory": {
+      "path": "maintainer/evidence/rest079/feature015_rest079_formal_qa_inventory.json",
+      "sha256": "808c25038ffe8d491002395ac7c56dbead0028632d45c906e8f183b228e4a652"
+    },
+    "metadata_validation": {
+      "path": "maintainer/evidence/rest079/proposal_metadata_validation.json",
+      "sha256": "000a98c3a5fbcd4b253015de5c448a5958609eb04172cc3f6206891a5571dac9"
+    }
+  },
+  "checks": 1564,
+  "pass_checks": 1564,
+  "fail_checks": 0,
+  "operations": 32,
+  "annex_scenarios": 25,
+  "exact_qa_rows_changed": 32,
+  "non_target_rows_preserved": 393,
+  "previous229accepted_rows_preserved": true,
+  "formal_accepted": 261,
+  "formal_pending": 164,
+  "semantic_accepted": 425,
+  "model_accepted": 3251,
+  "topic_accepted": 36,
+  "audit_file_rows_accepted": 153,
+  "audit_file_rows_pending": 39,
+  "overall_audit_status_pending": true,
+  "release_skill_review_pending_gate_count": 40,
+  "all_bindings_current_and_unchanged": false,
+  "relevant_domain_bindings_current": true,
+  "current_whole_reader_execution_claim": false,
+  "formal_reruns_added": 0,
+  "publication_approval": false,
+  "limits": "Retained synthetic native-SDK/MockTransport result only. Six safely blocked Python DNS/socket/HTTP probes; no OS firewall, all-process airgap, live Foundry permission/effect, or whole-current-reader execution claim. Prior483 semantic definition coverage reused through exact membership and byte continuity; no fresh exhaustive483-page prose review."
+}

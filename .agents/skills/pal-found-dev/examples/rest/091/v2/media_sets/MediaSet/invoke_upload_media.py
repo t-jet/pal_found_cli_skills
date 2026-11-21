@@ -18,18 +18,26 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'PUT'
 EXPECTED_PATH = '/api/v2/mediasets/media/upload'
-EXPECTED_BODY = b'synthetic-response'
-EXPECTED_QUERY = {'filename': 'synthetic-value', 'mediaItemRid': None, 'preview': None}
+EXPECTED_BODY = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x02\x00\x00\x00\x90wS\xde\x00\x00\x00\x0cIDATx\x9cc\xf8\xcf\xc0\x00\x00\x03\x01\x01\x00\xc9\xfe\x92\xef\x00\x00\x00\x00IEND\xaeB`\x82'
+EXPECTED_QUERY = {'filename': 'pixel.png', 'mediaItemRid': None, 'preview': None}
 EXPECTED_HEADERS = {'attribution': None, 'Content-Type': '*/*', 'Accept': 'application/json'}
-SUCCESS = {'mimeType': 'synthetic-value',
+SUCCESS = {'mimeType': 'image/png',
  'reference': {'mediaSetViewItem': {'mediaSetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
                                     'mediaSetViewRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
                                     'mediaItemRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'},
                'type': 'mediaSetViewItem'}}
 ERRORS = []
 
+def require_verified_upload(*, authorized_transport_verified=False):
+    """Stop live adaptation until this SDK/header discrepancy is verified."""
+    if not authorized_transport_verified:
+        raise RuntimeError('SDK 1.101.0 sends */*; documented upload requires application/octet-stream. Obtain authorized transport verification before live upload.')
+
+
+# Offline invoke runs only inside mock_resource. Live adaptation first calls
+# require_verified_upload after checking actual enrollment schema and policy.
 def invoke(client):
-    return client.with_raw_response.upload_media(body=b'synthetic-response', filename='synthetic-value', request_timeout=30)
+    return client.with_raw_response.upload_media(body=b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x02\x00\x00\x00\x90wS\xde\x00\x00\x00\x0cIDATx\x9cc\xf8\xcf\xc0\x00\x00\x03\x01\x01\x00\xc9\xfe\x92\xef\x00\x00\x00\x00IEND\xaeB`\x82', filename='pixel.png', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

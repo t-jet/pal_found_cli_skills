@@ -1,0 +1,22 @@
+{
+  "record_kind": "New integration provenance record from PM-confirmed author handoff; no prior author-freeze JSON existed.",
+  "identity_basis": "PM-confirmed final handoff identifies author agent, base b7a0cbe, exact two hashes and 141/207 line counts. Independent frozen pages and report bind reviewed content.",
+  "author_agent": "/root/bug049_guidance_correct_20261116",
+  "reviewer_agent": "/root/thirdparty_independent_retest_20261116",
+  "guidance_base": "b7a0cbe66657c3e6218503150de19ec6182d5b4d",
+  "isolated_content_commit": "1ed98bbc7985c3f9df41906fedb65a34f9b7b66e",
+  "integration_content_commit": "d311cf3555536c1b153b8509774f6c7a6b93c899",
+  "scope": "Exactly two reviewed pages; author and reviewer identities are distinct.",
+  "pages": [
+    {
+      "path": "pal-found-third-party-applications/SKILL.md",
+      "sha256": "7fbaac4c12a901ebf887dafc35b32197fb374120a4256cdf0c631399bd935e76",
+      "lines": 141
+    },
+    {
+      "path": "pal-found-third-party-applications/references/01-applications.md",
+      "sha256": "6d4744cce3d4e19caad2ba956926d34814c38ff3a833e5b4c93de7e73bf6d2b1",
+      "lines": 207
+    }
+  ]
+}

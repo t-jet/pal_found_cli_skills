@@ -1,0 +1,15 @@
+
+Found 10 comment(s) for UNITTEST-078:
+========================================================================================================================
+Comment ID                     Author               Created              Updated              Subject
+------------------------------------------------------------------------------------------------------------------------
+20261007-101812-tech-lead      tech-lead            2026-10-07T10:18:12  2026-10-07T10:18:12  Ticket created
+20261007-101814-tech-lead      tech-lead            2026-10-07T10:18:14  2026-10-07T10:18:14  Ticket updated
+20261007-101815-tech-lead      tech-lead            2026-10-07T10:18:15  2026-10-07T10:18:15  Ticket updated
+20261007-231744-python-developer python-developer     2026-10-07T23:17:44  2026-10-07T23:17:44  Hermetic SDK collector implementation plan
+20261007-231746-python-developer python-developer     2026-10-07T23:17:46  2026-10-07T23:17:46  Ticket updated
+20261116-145918-@python-developer python-developer     2026-11-16T14:59:18  2026-11-16T14:59:18  Dedicated unit readiness and measured validation evidence 2026-11-16
+20261116-145919-@python-developer python-developer     2026-11-16T14:59:19  2026-11-16T14:59:19  Ticket updated
+20261116-145919-@python-developer~001 python-developer     2026-11-16T14:59:19  2026-11-16T14:59:19  Ticket updated
+20261116-150428-@qa-engineer   qa-engineer          2026-11-16T15:04:28  2026-11-16T15:04:28  Independent QA closure verification 2026-11-16
+20261116-150429-@qa-engineer   qa-engineer          2026-11-16T15:04:29  2026-11-16T15:04:29  Ticket updated

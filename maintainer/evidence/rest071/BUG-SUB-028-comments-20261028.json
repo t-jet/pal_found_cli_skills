@@ -1,0 +1,59 @@
+{
+  "ticket": "BUG-SUB-028",
+  "comment_count": 13,
+  "listing": "\nFound 13 comment(s) for BUG-SUB-028:\n========================================================================================================================\nComment ID                     Author               Created              Updated              Subject\n------------------------------------------------------------------------------------------------------------------------\n20261016-150421-@qa-engineer   qa-engineer          2026-10-16T15:04:21  2026-10-16T15:04:21  Ticket created\n20261016-150441-@qa-engineer   qa-engineer          2026-10-16T15:04:41  2026-10-16T15:04:41  Ticket updated\n20261016-150448-@qa-engineer   qa-engineer          2026-10-16T15:04:48  2026-10-16T15:04:48  Ticket updated\n20261017-010945-@qa-engineer   qa-engineer          2026-10-17T01:09:45  2026-10-17T01:09:45  Independent offline retest passed; developer workflow pending\n20261022-151256-@build-queue   build-queue          2026-10-22T15:12:56  2026-10-22T15:12:56  Ticket updated\n20261028-094616-@python-developer python-developer     2026-10-28T09:46:16  2026-10-28T09:46:16  Ticket updated\n20261028-094616-@python-developer~001 python-developer     2026-10-28T09:46:16  2026-10-28T09:46:16  Correction and regression evidence plan\n20261028-094617-@python-developer python-developer     2026-10-28T09:46:17  2026-10-28T09:46:17  Ticket updated\n20261028-094618-@python-developer python-developer     2026-10-28T09:46:18  2026-10-28T09:46:18  Implemented correction verified against current independent evidence\n20261028-094618-@python-developer~001 python-developer     2026-10-28T09:46:18  2026-10-28T09:46:18  Ticket updated\n20261028-094619-@python-developer python-developer     2026-10-28T09:46:19  2026-10-28T09:46:19  Ticket updated\n20261028-094620-@qa-engineer   qa-engineer          2026-10-28T09:46:20  2026-10-28T09:46:20  Independent offline regression accepted for closure\n20261028-094621-@qa-engineer   qa-engineer          2026-10-28T09:46:21  2026-10-28T09:46:21  Ticket updated\n",
+  "comments": [
+    {
+      "comment_id": "20261016-150421-@qa-engineer",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261016-150421-@qa-engineer\nauthor          : qa-engineer\nsubject         : Ticket created\ncreated         : 2026-10-16T15:04:21\nupdated         : 2026-10-16T15:04:21\ntext:\nCreated ticket of type 'bug_subtask'\n"
+    },
+    {
+      "comment_id": "20261016-150441-@qa-engineer",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261016-150441-@qa-engineer\nauthor          : qa-engineer\nsubject         : Ticket updated\ncreated         : 2026-10-16T15:04:41\nupdated         : 2026-10-16T15:04:41\ntext:\nUpdated fields: status=Open\n"
+    },
+    {
+      "comment_id": "20261016-150448-@qa-engineer",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261016-150448-@qa-engineer\nauthor          : qa-engineer\nsubject         : Ticket updated\ncreated         : 2026-10-16T15:04:48\nupdated         : 2026-10-16T15:04:48\ntext:\nUpdated fields: assignee=python-developer\n"
+    },
+    {
+      "comment_id": "20261017-010945-@qa-engineer",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261017-010945-@qa-engineer\nauthor          : qa-engineer\nsubject         : Independent offline retest passed; developer workflow pending\ncreated         : 2026-10-17T01:09:45\nupdated         : 2026-10-17T01:09:45\ntext:\n## Retest\nCorrected assets commit 27b147f; independent review commit d9ce9ba. Group.get_batch and User.get_batch now return maps keyed by the requested IDs with matching object IDs. Network-denied SDK fixtures and targeted semantic assertions pass; all 27 story fixtures pass. Formal TESTEXEC-074 and live enrollment verification remain pending. Developer owns status progression; QA sign-off withheld.\n"
+    },
+    {
+      "comment_id": "20261022-151256-@build-queue",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261022-151256-@build-queue\nauthor          : build-queue\nsubject         : Ticket updated\ncreated         : 2026-10-22T15:12:56\nupdated         : 2026-10-22T15:12:56\ntext:\nUpdated fields: priority=High\n"
+    },
+    {
+      "comment_id": "20261028-094616-@python-developer",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261028-094616-@python-developer\nauthor          : python-developer\nsubject         : Ticket updated\ncreated         : 2026-10-28T09:46:16\nupdated         : 2026-10-28T09:46:16\ntext:\nUpdated fields: description=<updated>\n"
+    },
+    {
+      "comment_id": "20261028-094616-@python-developer~001",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261028-094616-@python-developer~001\nauthor          : python-developer\nsubject         : Correction and regression evidence plan\ncreated         : 2026-10-28T09:46:16\nupdated         : 2026-10-28T09:46:16\ntext:\n## Existing fix and verification plan\nOriginal reproducible defect and environment are recorded in the ticket. Corrected content landed in27b147f and remains exact in current candidate. No new code change is needed. Use independent current unit/source review and formal cases F071-04, F071-19 for QA verification, preserve all RelatesTo links, then close through the normal bug workflow. Root cause was an uninformative empty success fixture rather than a demonstrated SDK transport defect. No linked Question or Blocks link exists; documentation index and REST authoring handoff were checked.\n"
+    },
+    {
+      "comment_id": "20261028-094617-@python-developer",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261028-094617-@python-developer\nauthor          : python-developer\nsubject         : Ticket updated\ncreated         : 2026-10-28T09:46:17\nupdated         : 2026-10-28T09:46:17\ntext:\nUpdated fields: status=In Progress\n"
+    },
+    {
+      "comment_id": "20261028-094618-@python-developer",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261028-094618-@python-developer\nauthor          : python-developer\nsubject         : Implemented correction verified against current independent evidence\ncreated         : 2026-10-28T09:46:18\nupdated         : 2026-10-28T09:46:18\ntext:\n## Developer resolution\nExisting source fix27b147f and meaningful dedicated regressions in0623f5a were independently reviewed. Fresh unit review9a96e3f17cdcc5e5c57cd24fed53efe4bc7ae3c887f6cf8937f63058066fd831 records72PASS and source/oracle equality for27operations/74errors; mutation guards detect the original defect. TESTEXEC-074 is now Closed/Done after actual executor PASS for F071-04, F071-19. No execution was repeated during this administrative recovery. Frontmatter time0 means no additional measured implementation/test runtime on this bug; shared formal runtime is accounted on TESTEXEC-074 and historical repair effort is not inferred. Recovery proofSHA256c095defef41020fbdd1605696e2b08159f6423ff25c5dcc54c5838e15a3e1d33. QA closure uses separate original executor/reviewer evidence, not this recorder as a substitute author.\n"
+    },
+    {
+      "comment_id": "20261028-094618-@python-developer~001",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261028-094618-@python-developer~001\nauthor          : python-developer\nsubject         : Ticket updated\ncreated         : 2026-10-28T09:46:18\nupdated         : 2026-10-28T09:46:18\ntext:\nUpdated fields: time_spent_hours=0\n"
+    },
+    {
+      "comment_id": "20261028-094619-@python-developer",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261028-094619-@python-developer\nauthor          : python-developer\nsubject         : Ticket updated\ncreated         : 2026-10-28T09:46:19\nupdated         : 2026-10-28T09:46:19\ntext:\nUpdated fields: status=Resolved\n"
+    },
+    {
+      "comment_id": "20261028-094620-@qa-engineer",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261028-094620-@qa-engineer\nauthor          : qa-engineer\nsubject         : Independent offline regression accepted for closure\ncreated         : 2026-10-28T09:46:20\nupdated         : 2026-10-28T09:46:20\ntext:\n## QA verification\nRecorder independently checked the immutable original executor proof and all72 current bindings. The case author, correction author, independent reviewer and executor are distinct. Formal cases F071-04, F071-19 PASS, and the independently reviewed unit mutation guards cover this original defect. QA evidence is exact current offline content; no live tenant or publication claim is made. All incoming/outgoing links were reviewed: no Blocks link exists, so none will be removed. All RelatesTo links, including BUG-SUB-030 relation where present, are preserved. Acceptance criteria are satisfied; resolution Done is approved for this bug only.\n"
+    },
+    {
+      "comment_id": "20261028-094621-@qa-engineer",
+      "output": "\nComment Details:\n================================================================================\ncomment_id      : 20261028-094621-@qa-engineer\nauthor          : qa-engineer\nsubject         : Ticket updated\ncreated         : 2026-10-28T09:46:21\nupdated         : 2026-10-28T09:46:21\ntext:\nUpdated fields: status=Closed, resolution=Done\n"
+    }
+  ]
+}

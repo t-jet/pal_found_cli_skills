@@ -1,0 +1,226 @@
+{
+  "story": "DEV-STORY-075",
+  "formal_qa_status": "accepted",
+  "independent_qa_agent": "/root/rest075_execute_20261029",
+  "case_author": "/root/rest075_formal_recover_20261029",
+  "case_reviewer": "/root/rest075_cases_review_20261029",
+  "source_reviewer": "/root/rest075_qa_20261028",
+  "integration_agent": "/root/recover_accept_publish_skills_20261029",
+  "operations": 29,
+  "checks": 1012,
+  "declared_errors": 44,
+  "closure": {
+    "DEV-STORY-075": {
+      "status": "Deployment",
+      "command": [
+        "D:\\app\\Python\\python.exe",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tools\\tracker\\tracker_cli.py",
+        "get",
+        "DEV-STORY-075",
+        "--author",
+        "tech-lead"
+      ],
+      "exit_code": 0,
+      "evidence": "maintainer/evidence/rest075/DEV-STORY-075-integration-closure.txt",
+      "sha256": "5a5a2f0171749824507ccb09a8a5ac73cf2da8c922e90de843e640f319fe500e"
+    },
+    "DESIGN-077": {
+      "status": "Closed",
+      "command": [
+        "D:\\app\\Python\\python.exe",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tools\\tracker\\tracker_cli.py",
+        "get",
+        "DESIGN-077",
+        "--author",
+        "tech-lead"
+      ],
+      "exit_code": 0,
+      "evidence": "maintainer/evidence/rest075/DESIGN-077-integration-closure.txt",
+      "sha256": "5550ac31d50960957e088f6dec6bf570149748b9e169f45c5be20f701bf18f54"
+    },
+    "DEV-077": {
+      "status": "Closed",
+      "command": [
+        "D:\\app\\Python\\python.exe",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tools\\tracker\\tracker_cli.py",
+        "get",
+        "DEV-077",
+        "--author",
+        "tech-lead"
+      ],
+      "exit_code": 0,
+      "evidence": "maintainer/evidence/rest075/DEV-077-integration-closure.txt",
+      "sha256": "74b9d19f6f40a7af15a70cf272bac974a4707a0c1b23668071cdcd2647fd4b10"
+    },
+    "UNITTEST-077": {
+      "status": "Closed",
+      "command": [
+        "D:\\app\\Python\\python.exe",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tools\\tracker\\tracker_cli.py",
+        "get",
+        "UNITTEST-077",
+        "--author",
+        "tech-lead"
+      ],
+      "exit_code": 0,
+      "evidence": "maintainer/evidence/rest075/UNITTEST-077-integration-closure.txt",
+      "sha256": "e390c824a429d5abe6fe0d72423d99d81ec307be0d27de092c0dbd3cd56ff758"
+    },
+    "CODEREVIEW-078": {
+      "status": "Closed",
+      "command": [
+        "D:\\app\\Python\\python.exe",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tools\\tracker\\tracker_cli.py",
+        "get",
+        "CODEREVIEW-078",
+        "--author",
+        "tech-lead"
+      ],
+      "exit_code": 0,
+      "evidence": "maintainer/evidence/rest075/CODEREVIEW-078-integration-closure.txt",
+      "sha256": "41f1fc7ff28bc739fdcc6ca75794c04363de6ae1ef4c784103d3df690bf75458"
+    },
+    "TESTCASE-077": {
+      "status": "Closed",
+      "command": [
+        "D:\\app\\Python\\python.exe",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tools\\tracker\\tracker_cli.py",
+        "get",
+        "TESTCASE-077",
+        "--author",
+        "tech-lead"
+      ],
+      "exit_code": 0,
+      "evidence": "maintainer/evidence/rest075/TESTCASE-077-integration-closure.txt",
+      "sha256": "632ab9c121a7bbd9f9749721e1399a60cba2885d5918f7c0bd46e4d84d6fda81"
+    },
+    "TESTEXEC-077": {
+      "status": "Closed",
+      "command": [
+        "D:\\app\\Python\\python.exe",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tools\\tracker\\tracker_cli.py",
+        "get",
+        "TESTEXEC-077",
+        "--author",
+        "tech-lead"
+      ],
+      "exit_code": 0,
+      "evidence": "maintainer/evidence/rest075/TESTEXEC-077-integration-closure.txt",
+      "sha256": "0fb4d11039f5a050721fde6841681c8769370bed0a0128e1aab564107b3e873f"
+    },
+    "BUG-SUB-025": {
+      "status": "Closed",
+      "command": [
+        "D:\\app\\Python\\python.exe",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tools\\tracker\\tracker_cli.py",
+        "get",
+        "BUG-SUB-025",
+        "--author",
+        "tech-lead"
+      ],
+      "exit_code": 0,
+      "evidence": "maintainer/evidence/rest075/BUG-SUB-025-integration-closure.txt",
+      "sha256": "30fcd3d04a8f776cb12f0e0c1a6a10c9d30b21876899ad7067c390e3bca5d65f"
+    }
+  },
+  "artifacts": {
+    "feature015_rest075_formal_qa_inventory.json": {
+      "path": "maintainer/evidence/rest075/feature015_rest075_formal_qa_inventory.json",
+      "sha256": "4e8e9469eeaf6f684dc50e142c106b9e16bb368587893c6474baa3dcd8e3fe48"
+    },
+    "feature015_rest075_formal_qa_archive_20261029.zip": {
+      "path": "maintainer/evidence/rest075/feature015_rest075_formal_qa_archive_20261029.zip",
+      "sha256": "fc1ffe75b5fbac7de2205f4520a9a9a234d56670414d74f93c4a2cae76a5ae1b"
+    },
+    "rest075_formal_cases.json": {
+      "path": "maintainer/evidence/rest075/rest075_formal_cases.json",
+      "sha256": "f7f7a19d1a34aa3ce3ff2816398c721cd29f458c3e76c38d5c52424c8aa85346"
+    },
+    "rest075_formal_execute.py": {
+      "path": "maintainer/evidence/rest075/rest075_formal_execute.py",
+      "sha256": "f5e876ca5ed6d1d0b479d1214a49ed0704ac1b08e7043ba37f03ce216171bc8d"
+    },
+    "rest075_executor_20261029_attempt01_checks.jsonl": {
+      "path": "maintainer/evidence/rest075/rest075_executor_20261029_attempt01_checks.jsonl",
+      "sha256": "c0347290141a301fdb9ef7280550470551ceb97350efd0b80171dec61be85e8d"
+    }
+  },
+  "canonical_evidence": {
+    "path": "maintainer/rest-domain-formal-qa-075.json",
+    "sha256": "d8172b746e9a11d24f17d10e9b959edeeb72975957b1bda943b11d1e74099b54"
+  },
+  "archive_context_mapping": "maintainer/evidence/rest075/archive-context-mapping.json",
+  "inventory_files_preserved": 241,
+  "archive_members_including_inventory": 242,
+  "rejected_bundle_preserved": {
+    "finding": "Unconditional streaming error invocation on five methods with no streaming wrapper: Check.delete, Build.cancel, Schedule.delete, Schedule.pause, Schedule.unpause. No formal execution run.",
+    "files": [
+      {
+        "original": ".ept\\tmp\\rest075_formal_cases.json",
+        "preserved": ".ept\\tmp\\rest075_formal_rejected01_cases.json",
+        "sha256": "28012f9ef63a5a6f3fdb60da3a99f2cc05e40851b265ae9f946d15816c20828b"
+      },
+      {
+        "original": ".ept\\tmp\\rest075_formal_execute.py",
+        "preserved": ".ept\\tmp\\rest075_formal_rejected01_execute.py",
+        "sha256": "ee6c63a9946d81c9ce63699b83a861d1419bdc4a8af597870761c8f0dded3ab7"
+      },
+      {
+        "original": ".ept\\tmp\\rest075_formal_readiness.json",
+        "preserved": ".ept\\tmp\\rest075_formal_rejected01_readiness.json",
+        "sha256": "6eb9b03bde75915be8ff460eca549afdcbcc46d19ab363fafa5ff65b1d5f794d"
+      },
+      {
+        "original": ".ept\\tmp\\rest075_formal_static_validation.json",
+        "preserved": ".ept\\tmp\\rest075_formal_rejected01_static_validation.json",
+        "sha256": "bd2a0efcd7035eaa777ee4bb799ec3c32f475684cf2d12f26e131295ebfbe85e"
+      },
+      {
+        "original": ".ept\\tmp\\rest075_formal_execution.json",
+        "preserved": ".ept\\tmp\\rest075_formal_rejected01_execution.json",
+        "sha256": "4881f23ab2e60632e5ccac818c4f9c62462fbfb7e0f69f53cec92f1d5eb2102e"
+      },
+      {
+        "original": ".ept\\tmp\\rest075_formal_prepare_harness.py",
+        "preserved": ".ept\\tmp\\rest075_formal_rejected01_prepare_harness.py",
+        "sha256": "8c7e90be0d1b89aef8bd3406a81085c1bab86eafe9e0801915af5fdc036f78ca"
+      },
+      {
+        "original": ".ept\\tmp\\rest075_formal_harness_extra.py",
+        "preserved": ".ept\\tmp\\rest075_formal_rejected01_harness_extra.py",
+        "sha256": "265db5d68ff8c5a01575f2a92cc5412d56e1fb9ece260304c2ed78b247858d15"
+      },
+      {
+        "original": ".ept\\tmp\\rest075_formal_build_cases.py",
+        "preserved": ".ept\\tmp\\rest075_formal_rejected01_build_cases.py",
+        "sha256": "32711193ab7a5fa72f98db53c4bf30354263cbd7ba2d9773231b6c8f0b685b35"
+      },
+      {
+        "original": ".ept\\tmp\\rest075_formal_prepare.py",
+        "preserved": ".ept\\tmp\\rest075_formal_rejected01_prepare.py",
+        "sha256": "d2b5736870f2fef4c6f29a86492fb1b027aa740cb6f2866685224a8b580cbab1"
+      },
+      {
+        "original": ".ept\\tmp\\rest075_formal_semantics.py",
+        "preserved": ".ept\\tmp\\rest075_formal_rejected01_semantics.py",
+        "sha256": "1c23adc72f4cf0c6a285cb9c9d14bdd0621a38d261e2a256091ca873d3dec95c"
+      },
+      {
+        "original": ".ept\\tmp\\rest075_formal_validate.py",
+        "preserved": ".ept\\tmp\\rest075_formal_rejected01_validate.py",
+        "sha256": "3cbeb7b742f138e84b1b5ef09090c9e27eda980ffafa9728a6a90a0d7b471ee9"
+      },
+      {
+        "original": ".ept\\tmp\\rest075_case_approval_20261029.json",
+        "preserved": ".ept\\tmp\\rest075_formal_rejected01_review.json",
+        "sha256": "57612ed6c8158f7878dfb7669291a962e51a96ea7e33ef65776181ceb1b867d9"
+      }
+    ]
+  },
+  "no_execution_repeated": true,
+  "limits": [
+    "No live tenant authorization, persistence, enrollment, deployment, idempotency or service default claim.",
+    "STARTED_TIME checks use separate synthetic server metadata, not Build.createdTime.",
+    "Integrated REST acceptance belongs to DEV-STORY-093 and release belongs to DEV-STORY-070."
+  ]
+}

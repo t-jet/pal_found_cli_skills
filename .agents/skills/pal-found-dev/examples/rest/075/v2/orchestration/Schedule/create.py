@@ -30,7 +30,7 @@ SUCCESS = {'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-0000000000
  'updatedBy': '00000000-0000-0000-0000-000000000001',
  'paused': True,
  'action': {'target': {'targetRids': ['ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'],
-                       'ignoredRids': ['ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'],
+                       'ignoredRids': [],
                        'type': 'upstream'},
             'branchName': 'synthetic-value',
             'fallbackBranches': ['synthetic-value'],
@@ -91,6 +91,8 @@ def verify():
         raw = invoke(client)
         try:
             assert normalized(raw.decode()) == SUCCESS
+            assert SUCCESS['action']['target']['targetRids'] == EXPECTED_BODY['action']['target']['targetRids']
+            assert SUCCESS['action']['target']['ignoredRids'] == []
         finally:
             raw.close()
     assert len(calls) == 1

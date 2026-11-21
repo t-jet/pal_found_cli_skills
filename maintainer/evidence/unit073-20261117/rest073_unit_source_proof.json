@@ -1,0 +1,72 @@
+{
+  "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+  "modules": [
+    {
+      "module": "foundry_sdk.v2.audit.log_file",
+      "sha256": "e1d7f069854638f47c24ff0ff517fdeca6f5880501feee9a66c7dcaf9533a93e",
+      "bytes": 14952,
+      "frozen_matches_installed": true
+    },
+    {
+      "module": "foundry_sdk.v2.filesystem.folder",
+      "sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0",
+      "bytes": 34069,
+      "frozen_matches_installed": true
+    },
+    {
+      "module": "foundry_sdk.v2.filesystem.project",
+      "sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "bytes": 59002,
+      "frozen_matches_installed": true
+    },
+    {
+      "module": "foundry_sdk.v2.filesystem.project_resource_reference",
+      "sha256": "0c267f65d32a266ec83c33d04a992e51af8481791062bbafee9d1e90cc1c258d",
+      "bytes": 20622,
+      "frozen_matches_installed": true
+    },
+    {
+      "module": "foundry_sdk.v2.filesystem.resource",
+      "sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "bytes": 58673,
+      "frozen_matches_installed": true
+    },
+    {
+      "module": "foundry_sdk.v2.filesystem.resource_role",
+      "sha256": "71c9a83326cc70948e2935ae9e980eec333dd9ccc7cc40da838e823802194486",
+      "bytes": 18594,
+      "frozen_matches_installed": true
+    },
+    {
+      "module": "foundry_sdk.v2.filesystem.resource_tag",
+      "sha256": "2d85f9e0eb8bec58caa49088038b0b8558731c59cc749a8960693245eac67ff1",
+      "bytes": 18942,
+      "frozen_matches_installed": true
+    },
+    {
+      "module": "foundry_sdk.v2.filesystem.space",
+      "sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317",
+      "bytes": 37516,
+      "frozen_matches_installed": true
+    },
+    {
+      "module": "foundry_sdk.v2.third_party_applications.third_party_application",
+      "sha256": "73fa294649bb5f2af81991107a5f3ff495055490cefa909f8cd14bed5d3fa6df",
+      "bytes": 9108,
+      "frozen_matches_installed": true
+    },
+    {
+      "module": "foundry_sdk.v2.third_party_applications.version",
+      "sha256": "81a26d8e4ce0876f3b98323657ee99a97883c3b146f5a741521e7f871803ba73",
+      "bytes": 30710,
+      "frozen_matches_installed": true
+    },
+    {
+      "module": "foundry_sdk.v2.third_party_applications.website",
+      "sha256": "2a78443d6b01bb6f612ae6bd2fb4713d9282c98171f2fd25a9f94b30570c5815",
+      "bytes": 17176,
+      "frozen_matches_installed": true
+    }
+  ],
+  "count": 11
+}

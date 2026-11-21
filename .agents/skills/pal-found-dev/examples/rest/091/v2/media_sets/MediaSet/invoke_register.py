@@ -18,15 +18,16 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/mediasets/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/items/register'
-EXPECTED_BODY = {'physicalItemName': 'synthetic-value'}
+EXPECTED_BODY = {'physicalItemName': 'inspections/pixel.png'}
 EXPECTED_QUERY = {'branchName': None, 'preview': None, 'transactionId': None, 'viewRid': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
 SUCCESS = {'mediaItemRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
- 'mediaType': 'synthetic-value'}
+ 'mediaType': 'image/png'}
 ERRORS = []
 
+# Requires this PNG to exist in the configured federated store and an IMAGERY-compatible schema.
 def invoke(client):
-    return client.with_raw_response.register(media_set_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', physical_item_name='synthetic-value', request_timeout=30)
+    return client.with_raw_response.register(media_set_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', physical_item_name='inspections/pixel.png', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

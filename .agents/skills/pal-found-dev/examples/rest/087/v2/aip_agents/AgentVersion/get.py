@@ -17,11 +17,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'GET'
-EXPECTED_PATH = '/api/v2/aipAgents/agents/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/agentVersions/synthetic-value'
+EXPECTED_PATH = '/api/v2/aipAgents/agents/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/agentVersions/1.1'
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'preview': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'string': 'synthetic-value', 'version': {'major': 1, 'minor': 1}}
+SUCCESS = {'string': '1.1', 'version': {'major': 1, 'minor': 1}}
 ERRORS = [{'name': 'AgentNotFound',
   'status': 404,
   'code': 'NOT_FOUND',
@@ -30,7 +30,7 @@ ERRORS = [{'name': 'AgentNotFound',
   'status': 404,
   'code': 'NOT_FOUND',
   'parameters': {'agentRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
-                 'agentVersionString': 'synthetic-value'}},
+                 'agentVersionString': '1.1'}},
  {'name': 'InvalidAgentVersion',
   'status': 400,
   'code': 'INVALID_ARGUMENT',
@@ -42,7 +42,7 @@ ERRORS = [{'name': 'AgentNotFound',
   'parameters': {'agentRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}}]
 
 def invoke(client):
-    return client.with_raw_response.get(agent_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', agent_version_string='synthetic-value', request_timeout=30)
+    return client.with_raw_response.get(agent_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', agent_version_string='1.1', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

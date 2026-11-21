@@ -18,14 +18,23 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/actions/set-asset-status/applyBatch'
-EXPECTED_BODY = {'requests': [{'parameters': {'assetId': 'A-1', 'status': 'ready'}}]}
+EXPECTED_BODY = {'requests': [{'parameters': {'assetId': 'A-1', 'status': 'ready'}}],
+ 'options': {'returnEdits': 'ALL'}}
 EXPECTED_QUERY = {'branch': None, 'sdkPackageRid': None, 'sdkVersion': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {}
+SUCCESS = {'edits': {'edits': [{'primaryKey': 'A-1',
+                      'objectType': 'Asset',
+                      'type': 'modifyObject'}],
+           'addedObjectCount': 0,
+           'modifiedObjectsCount': 1,
+           'deletedObjectsCount': 0,
+           'addedLinksCount': 0,
+           'deletedLinksCount': 0,
+           'type': 'edits'}}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.apply_batch(ontology='synthetic-value', action='set-asset-status', requests=[{'parameters': {'assetId': 'A-1', 'status': 'ready'}}], request_timeout=30)
+    return client.with_raw_response.apply_batch(ontology='synthetic-value', action='set-asset-status', requests=[{'parameters': {'assetId': 'A-1', 'status': 'ready'}}], options={'returnEdits': 'ALL'}, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -56,6 +65,15 @@ def normalized(value):
         return value.model_dump(mode='json', by_alias=True, exclude_none=True)
     return value
 
+def check_outcome(result):
+    """Require the outcome this example needs; absent fields are schema-valid."""
+    if result.edits is None or result.edits.type != 'edits':
+        raise ValueError('Requested edit evidence is absent')
+    if result.edits.modified_objects_count != 1:
+        raise ValueError('Expected one modified Asset')
+    assert any(edit.type == 'modifyObject' and edit.object_type == 'Asset'
+               and edit.primary_key == 'A-1' for edit in result.edits.edits)
+
 def verify():
     calls = []
     def success(request):
@@ -69,7 +87,9 @@ def verify():
     with mock_resource(ActionClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = raw.decode()
+            assert normalized(result) == SUCCESS
+            check_outcome(result)
         finally:
             raw.close()
     assert len(calls) == 1

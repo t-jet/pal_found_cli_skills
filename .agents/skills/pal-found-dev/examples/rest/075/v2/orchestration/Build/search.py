@@ -18,12 +18,7 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/orchestration/builds/search'
-EXPECTED_BODY = {'where': {'value': {'value': {'value': {'field': 'STARTED_TIME',
-                                         'value': 'synthetic-value',
-                                         'type': 'lt'},
-                               'type': 'not'},
-                     'type': 'not'},
-           'type': 'not'}}
+EXPECTED_BODY = {'where': {'field': 'STARTED_TIME', 'value': '2026-10-01T00:00:00Z', 'type': 'gte'}}
 EXPECTED_QUERY = {'preview': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
 SUCCESS = {'data': [{'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
@@ -42,12 +37,8 @@ ERRORS = [{'name': 'SearchBuildsPermissionDenied',
   'parameters': {}}]
 
 def invoke(client):
-    return client.with_raw_response.search(where={'value': {'value': {'value': {'field': 'STARTED_TIME',
-                               'value': 'synthetic-value',
-                               'type': 'lt'},
-                     'type': 'not'},
-           'type': 'not'},
- 'type': 'not'}, request_timeout=30)
+    # SDK filter value is Any; validate this illustrative UTC literal in the target enrollment.
+    return client.with_raw_response.search(where=EXPECTED_BODY['where'], request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

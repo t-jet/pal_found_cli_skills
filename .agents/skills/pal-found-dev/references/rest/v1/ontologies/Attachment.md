@@ -80,9 +80,30 @@ retrying.
 
 ### upload
 
-Upload bytes with application/octet-stream, retain the attachment RID and connect it
-through an action within one hour. Unlinked new uploads are removed; previously mapped
-but disconnected attachments are removed biweekly.
+The endpoint documentation requires binary bytes with `Content-Type:
+application/octet-stream`. SDK 1.101.0 has a conflicting implementation: its upload
+header dictionary assigns `Content-Type` twice, so the final `*/*` overwrites the
+supplied `content_type`. Both synchronous and asynchronous upload paths have this
+behavior. Passing `content_type='application/octet-stream'` does not send that MIME
+type on the wire. The example checks the actual `*/*` header and leaves the SDK intact;
+its mocked success does not prove that an enrollment accepts that request.
+
+Before a live upload, use an approved client/version whose serialized header meets
+the endpoint contract, and verify it against a controlled transport. Do not infer a
+working live upload from this frozen SDK example. A failed or ambiguous upload needs
+reconciliation before another attempt. Retain the returned attachment RID and connect
+it through an action within one hour. Unlinked new uploads are removed; previously
+mapped but disconnected attachments are removed biweekly.
+
+The synthetic file is `inspection.txt`, containing 19 bytes (`Inspection evidence`).
+Returned metadata uses `mediaType='text/plain'`, the file's media type; it is separate
+from the upload transport header. Compare filename and size with the submitted bytes,
+and compare a metadata-read RID with the requested RID. The read example returns the
+same content. An upload creates its RID, so no caller-provided RID exists to compare.
+
+Source: SDK 1.101.0 `v1/ontologies/attachment.py`, `AttachmentClient.upload` and
+`AsyncAttachmentClient.upload`; local [upload contract](../../contracts/v1/ontologies/Attachment/upload.md)
+records the frozen request shape.
 
 [Exact parameters, request, result and error models](../../contracts/v1/ontologies/Attachment/upload.md).
 

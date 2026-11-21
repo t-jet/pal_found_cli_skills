@@ -21,10 +21,10 @@ EXPECTED_PATH = '/api/v1/ontologies/ri.synthetic.main.resource.00000000-0000-000
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'pageSize': None, 'pageToken': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'data': [{'apiName': 'synthetic-value',
-           'displayName': 'synthetic-value',
+SUCCESS = {'data': [{'apiName': 'facility',
+           'displayName': 'Facility',
            'status': 'ACTIVE',
-           'objectTypeApiName': 'synthetic-value',
+           'objectTypeApiName': 'Facility',
            'cardinality': 'ONE'}]}
 ERRORS = []
 

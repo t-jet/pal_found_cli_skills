@@ -1,0 +1,80 @@
+{
+  "kind": "INDEPENDENT_RETENTION_AND_INPUT_BINDING_REVIEW",
+  "reviewer_identity": "/root/rest079_independent_formal_acceptance_20261118",
+  "task": "TASK-023",
+  "reviewed_utc": "2026-11-18T16:22:51.437313+00:00",
+  "executed_candidate": "4de1e23e98017536bcff0eef2aa1d057e576e056",
+  "integration_candidate": "51f594c08403ac49d848e0d8c4af9986377f64d2",
+  "formal_result_sha256": "22b773edfc5db4a88cce4d7ead4fbd4b78e7bec133d1ccbdd3a926e21004068a",
+  "formal_invocations_added_by_acceptance": 0,
+  "formal_executor": "/root/rest079_distinct_formal_executor_20261118",
+  "pass_checks": 1564,
+  "fail_checks": 0,
+  "operation_scenarios": 32,
+  "annex_scenarios": 25,
+  "scenario_count_boundary": "Scenario evidence overlaps: nested annex checks are also operation checks. Do not sum scenario check counts as independent checks. Formal result array is authoritative total.",
+  "original_manifest_artifacts_verified": 17,
+  "approved_input_hashes_verified": 6,
+  "executed_reader_files_verified": 4371,
+  "unchanged_current_reader_files": 4369,
+  "current_reader_differences": [
+    {
+      "path": "references/rest/v2/third_party_applications/ThirdPartyApplication.md",
+      "executed_sha256": "0447d9e00397870bff2c8d66032d072ba372b4532dd47b3cc0e6a5bf531fb854",
+      "current_sha256": "404a325dbf71df04cb2405550d6362b81be6180dc361093389f79507b470d868"
+    },
+    {
+      "path": "references/rest/v2/third_party_applications/Version.md",
+      "executed_sha256": "2abe8d1bbeeb8f7020c99d25591caa325102276bb224f4125dbed8ab83a46bd5",
+      "current_sha256": "f49aaab995d1b363eb084ae7e5f89420402ef0f735baa6b25e3742efb5de880d"
+    }
+  ],
+  "all_4371_current_reader_inputs_executed": false,
+  "all_bindings_current_and_unchanged": false,
+  "relevant_domain_bindings_current": true,
+  "model_definition_pages_unchanged": 483,
+  "frozen_sdk_runtime_source_files_verified": 14,
+  "binding_reason": "Only two ThirdpartyApplication/Version behavior guides differ. All REST079 behavior, examples, fixtures, structural contracts, complete 483-member model pages, navigation and shared input bytes remain identical. SAD 3.4 requires repeat affected gates; these foreign guides have their own six-operation independent correction review. No current whole-reader execution is claimed.",
+  "validator_boundary": "verify_domain_acceptance requires current register input_bundle_sha256 and optional candidate_sha. These are integration metadata anchors. Formal079 original full-reader freeze remains retained and differs by two foreign guides; no original global hash is replaced or declared current.",
+  "acceptance_status": "PROPOSED_DOMAIN_ACCEPTANCE_PENDING_ROOT_METADATA_GATE",
+  "measurement": {
+    "start_utc": "2026-11-18T11:37:39.020913+00:00",
+    "end_utc": "2026-11-18T11:37:41.772682+00:00",
+    "elapsed_seconds": 2.7516640000103507,
+    "process_cpu_seconds": 2.296875,
+    "cpu_boundary": "time.process_time of this Python process including imported harness only; child git process CPU excluded. Wall time includes local child git execution. Human effort excluded.",
+    "exit_code": 0,
+    "argv": [
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest079_formal_cases_20261118\\rest079_formal_execute.py",
+      "--executor",
+      "/root/rest079_distinct_formal_executor_20261118",
+      "--approval",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest079_formal_execution_20261118\\current_execution_readiness.json",
+      "--output",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest079_formal_execution_20261118\\formal_result.json"
+    ],
+    "sdk_version": "1.101.0",
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "executable": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_qa_env\\Scripts\\python.exe",
+    "assertions_enabled": true,
+    "result_sha256": "22b773edfc5db4a88cce4d7ead4fbd4b78e7bec133d1ccbdd3a926e21004068a",
+    "actual_checks": 1564,
+    "outcome": "FORMAL_EXECUTION_PASS",
+    "formal_execution": true,
+    "pass_checks": 1564,
+    "fail_checks": 0
+  },
+  "limits": [
+    "Prior483-definition semantic review reused through exact membership and unchanged page hashes; fresh complete definition AST reconciliation, not fresh exhaustive483-page prose review.",
+    "Native SDK/mock-transport fixture validation only. No live enrollment, permissions, platform effects, global current-guide correctness, integrated QA acceptance or publication approval.",
+    "Python-process DNS/socket/httpx patches demonstrated six safely blocked probes. Child git show executes locally; no OS firewall or all-process disconnection claim.",
+    "Shipped invocation fidelity uses independent wire/response expectations; shipped SUCCESS/verify payload meanings rely on separately preserved source/semantic review.",
+    "Scenario evidence overlaps; the authoritative formal total is1564 result-array rows.",
+    "Unrelated Thirdparty guide changes were not inputs to these frozen Ontology cases.",
+    "Process CPU excludes child git CPU; measured elapsed runtime excludes human and historical contributor effort."
+  ],
+  "prior_semantic_review_boundary": "Exact483 membership and unchanged model page hashes preserve earlier semantic review; no fresh exhaustive483-page prose review.",
+  "license_files": [
+    "LICENSE"
+  ]
+}

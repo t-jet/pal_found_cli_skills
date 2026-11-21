@@ -1,7 +1,14 @@
 """v2.sql_queries.SqlQuery.execute_ontology: SDK request, decoded result and declared error fixtures.
 
 Synthetic identifiers do not name tenant resources. Prepared SDK 1.101.0/httpx
-required. No network connections or live mutations occur.
+and pyarrow required. No network connections or live mutations occur.
+
+Assume example-ontology exposes an Orders object type with string orderId,
+backed by Object Storage V2 and visible to the caller. Replace these names with
+authorized ontology/type/property API names. This synchronous route returns
+Arrow IPC bytes directly. rowLimit and LIMIT bound rows; the decoder rejects
+oversized payloads before Arrow parsing. SDK bytes are already buffered, so this
+check bounds decode work, not transport memory. The fixture does not run SQL.
 """
 import json
 import sys
@@ -10,6 +17,7 @@ import datetime
 from pathlib import Path
 
 import httpx
+import pyarrow as pa
 from foundry_sdk import PalantirRPCException
 from foundry_sdk.v2.sql_queries.sql_query import SqlQueryClient
 
@@ -18,10 +26,24 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/sqlQueries/executeOntology'
-EXPECTED_BODY = {'query': 'synthetic-value'}
+QUERY = 'SELECT orderId FROM Orders LIMIT 10'
+EXPECTED_BODY = {'query': QUERY, 'ontologyIdentifier': 'example-ontology', 'rowLimit': 10}
 EXPECTED_QUERY = {'preview': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/octet-stream'}
-SUCCESS = b'offline synthetic content'
+sink = pa.BufferOutputStream()
+with pa.ipc.new_stream(sink, pa.schema([('orderId', pa.string())])) as writer:
+    writer.write_table(pa.table({'orderId': ['order-001']}))
+SUCCESS = sink.getvalue().to_pybytes()
+MAX_RESULT_BYTES = 65536
+
+def decode_result(payload):
+    if len(payload) > MAX_RESULT_BYTES:
+        raise ValueError('Ontology result exceeds byte budget')
+    table = pa.ipc.open_stream(payload).read_all()
+    if table.num_rows > 10:
+        raise ValueError('Ontology result exceeds row budget')
+    assert table.schema == pa.schema([('orderId', pa.string())])
+    return table.to_pylist()
 ERRORS = [{'name': 'ExecuteOntologySqlQueryPermissionDenied',
   'status': 403,
   'code': 'PERMISSION_DENIED',
@@ -53,7 +75,7 @@ ERRORS = [{'name': 'ExecuteOntologySqlQueryPermissionDenied',
   'parameters': {'errorMessage': 'synthetic-value'}}]
 
 def invoke(client):
-    return client.with_raw_response.execute_ontology(query='synthetic-value', request_timeout=30)
+    return client.with_raw_response.execute_ontology(query=QUERY, ontology_identifier='example-ontology', row_limit=10, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -97,7 +119,9 @@ def verify():
     with mock_resource(SqlQueryClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            payload = raw.decode()
+            assert normalized(payload) == SUCCESS
+            assert decode_result(payload) == [{'orderId': 'order-001'}]
         finally:
             raw.close()
     assert len(calls) == 1

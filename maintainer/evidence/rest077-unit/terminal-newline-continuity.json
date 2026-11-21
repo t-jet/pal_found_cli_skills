@@ -1,0 +1,14 @@
+{
+  "author_candidate_commit": "1d96e1b54854c19ca073235def594ba1e528d6a7",
+  "integrated_reviewed_commit": "9c57704",
+  "reviewed_sha256": "9210d28d61695dc6dc4ebf6488d86690e4d3f9627b888381c70176d07e96b0f6",
+  "product_sha256": "01e180383eaa903bb5f75510ff5a50145d179f3a2405b411f67f0645ea1b8930",
+  "reviewed_archive": "maintainer/evidence/rest077-unit/test_offline_rest_077.reviewed.py",
+  "product_path": "tests/test_offline_rest_077.py",
+  "change": "Remove only terminal blank line; preserve final line ending.",
+  "removed_bytes": 4,
+  "exact_byte_prefix": true,
+  "ast_identical": true,
+  "authorization": "Parent integration manager authorized terminal-blank-line normalization on 2026-11-16.",
+  "scope": "Independent QA verdict binds archived reviewed bytes; unchanged AST and byte-prefix continuity bind product cleanup. No new formal QA promotion."
+}

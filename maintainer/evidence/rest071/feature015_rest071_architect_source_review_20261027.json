@@ -1,0 +1,445 @@
+{
+  "reviewer": "/root/rest071_code_qa_20261027",
+  "role": "architect",
+  "created_at_utc": "2026-10-27T21:34:49.922384+00:00",
+  "operations": [
+    {
+      "id": "v2.admin.Group.create",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "admin_models.Group",
+        "async_ordinary": "typing.Awaitable[admin_models.Group]",
+        "sync_raw": "ApiResponse[admin_models.Group]",
+        "sync_streaming": "StreamingContextManager[admin_models.Group]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.Group]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.Group]]"
+      },
+      "source_method_line": 95,
+      "source_sha256": "60010cfe82e39f188d0599c63d28e42d0a0b32d1b28c0565948442471c9c0176",
+      "contract": "references/rest/contracts/v2/admin/Group/create.md"
+    },
+    {
+      "id": "v2.admin.Group.delete",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "None",
+        "async_ordinary": "typing.Awaitable[None]",
+        "sync_raw": "ApiResponse[None]",
+        "sync_streaming": null,
+        "async_raw": "Awaitable[AsyncApiResponse[None]]",
+        "async_streaming": null
+      },
+      "source_method_line": 157,
+      "source_sha256": "60010cfe82e39f188d0599c63d28e42d0a0b32d1b28c0565948442471c9c0176",
+      "contract": "references/rest/contracts/v2/admin/Group/delete.md"
+    },
+    {
+      "id": "v2.admin.Group.get",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "admin_models.Group",
+        "async_ordinary": "typing.Awaitable[admin_models.Group]",
+        "sync_raw": "ApiResponse[admin_models.Group]",
+        "sync_streaming": "StreamingContextManager[admin_models.Group]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.Group]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.Group]]"
+      },
+      "source_method_line": 200,
+      "source_sha256": "60010cfe82e39f188d0599c63d28e42d0a0b32d1b28c0565948442471c9c0176",
+      "contract": "references/rest/contracts/v2/admin/Group/get.md"
+    },
+    {
+      "id": "v2.admin.Group.get_batch",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "admin_models.GetGroupsBatchResponse",
+        "async_ordinary": "typing.Awaitable[admin_models.GetGroupsBatchResponse]",
+        "sync_raw": "ApiResponse[admin_models.GetGroupsBatchResponse]",
+        "sync_streaming": "StreamingContextManager[admin_models.GetGroupsBatchResponse]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.GetGroupsBatchResponse]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.GetGroupsBatchResponse]]"
+      },
+      "source_method_line": 243,
+      "source_sha256": "60010cfe82e39f188d0599c63d28e42d0a0b32d1b28c0565948442471c9c0176",
+      "contract": "references/rest/contracts/v2/admin/Group/get_batch.md"
+    },
+    {
+      "id": "v2.admin.Group.list",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "core.ResourceIterator[admin_models.Group]",
+        "async_ordinary": "core.AsyncResourceIterator[admin_models.Group]",
+        "sync_raw": "ApiResponse[admin_models.ListGroupsResponse]",
+        "sync_streaming": "StreamingContextManager[admin_models.ListGroupsResponse]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.ListGroupsResponse]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.ListGroupsResponse]]"
+      },
+      "source_method_line": 286,
+      "source_sha256": "60010cfe82e39f188d0599c63d28e42d0a0b32d1b28c0565948442471c9c0176",
+      "contract": "references/rest/contracts/v2/admin/Group/list.md"
+    },
+    {
+      "id": "v2.admin.Group.list_current",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "admin_models.ListCurrentGroupsResponse",
+        "async_ordinary": "typing.Awaitable[admin_models.ListCurrentGroupsResponse]",
+        "sync_raw": "ApiResponse[admin_models.ListCurrentGroupsResponse]",
+        "sync_streaming": "StreamingContextManager[admin_models.ListCurrentGroupsResponse]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.ListCurrentGroupsResponse]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.ListCurrentGroupsResponse]]"
+      },
+      "source_method_line": 335,
+      "source_sha256": "60010cfe82e39f188d0599c63d28e42d0a0b32d1b28c0565948442471c9c0176",
+      "contract": "references/rest/contracts/v2/admin/Group/list_current.md"
+    },
+    {
+      "id": "v2.admin.Group.replace",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "admin_models.Group",
+        "async_ordinary": "typing.Awaitable[admin_models.Group]",
+        "sync_raw": "ApiResponse[admin_models.Group]",
+        "sync_streaming": "StreamingContextManager[admin_models.Group]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.Group]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.Group]]"
+      },
+      "source_method_line": 383,
+      "source_sha256": "60010cfe82e39f188d0599c63d28e42d0a0b32d1b28c0565948442471c9c0176",
+      "contract": "references/rest/contracts/v2/admin/Group/replace.md"
+    },
+    {
+      "id": "v2.admin.Group.search",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "admin_models.SearchGroupsResponse",
+        "async_ordinary": "typing.Awaitable[admin_models.SearchGroupsResponse]",
+        "sync_raw": "ApiResponse[admin_models.SearchGroupsResponse]",
+        "sync_streaming": "StreamingContextManager[admin_models.SearchGroupsResponse]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.SearchGroupsResponse]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.SearchGroupsResponse]]"
+      },
+      "source_method_line": 452,
+      "source_sha256": "60010cfe82e39f188d0599c63d28e42d0a0b32d1b28c0565948442471c9c0176",
+      "contract": "references/rest/contracts/v2/admin/Group/search.md"
+    },
+    {
+      "id": "v2.admin.GroupMember.add",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "None",
+        "async_ordinary": "typing.Awaitable[None]",
+        "sync_raw": "ApiResponse[None]",
+        "sync_streaming": null,
+        "async_raw": "Awaitable[AsyncApiResponse[None]]",
+        "async_streaming": null
+      },
+      "source_method_line": 61,
+      "source_sha256": "accf5143e289576d0eef922d7db9dd506bbb1e1aeebf0a04cb5616062beee5bf",
+      "contract": "references/rest/contracts/v2/admin/GroupMember/add.md"
+    },
+    {
+      "id": "v2.admin.GroupMember.list",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "core.ResourceIterator[admin_models.GroupMember]",
+        "async_ordinary": "core.AsyncResourceIterator[admin_models.GroupMember]",
+        "sync_raw": "ApiResponse[admin_models.ListGroupMembersResponse]",
+        "sync_streaming": "StreamingContextManager[admin_models.ListGroupMembersResponse]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.ListGroupMembersResponse]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.ListGroupMembersResponse]]"
+      },
+      "source_method_line": 119,
+      "source_sha256": "accf5143e289576d0eef922d7db9dd506bbb1e1aeebf0a04cb5616062beee5bf",
+      "contract": "references/rest/contracts/v2/admin/GroupMember/list.md"
+    },
+    {
+      "id": "v2.admin.GroupMember.remove",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "None",
+        "async_ordinary": "typing.Awaitable[None]",
+        "sync_raw": "ApiResponse[None]",
+        "sync_streaming": null,
+        "async_raw": "Awaitable[AsyncApiResponse[None]]",
+        "async_streaming": null
+      },
+      "source_method_line": 192,
+      "source_sha256": "accf5143e289576d0eef922d7db9dd506bbb1e1aeebf0a04cb5616062beee5bf",
+      "contract": "references/rest/contracts/v2/admin/GroupMember/remove.md"
+    },
+    {
+      "id": "v2.admin.GroupMembership.list",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "core.ResourceIterator[admin_models.GroupMembership]",
+        "async_ordinary": "core.AsyncResourceIterator[admin_models.GroupMembership]",
+        "sync_raw": "ApiResponse[admin_models.ListGroupMembershipsResponse]",
+        "sync_streaming": "StreamingContextManager[admin_models.ListGroupMembershipsResponse]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.ListGroupMembershipsResponse]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.ListGroupMembershipsResponse]]"
+      },
+      "source_method_line": 61,
+      "source_sha256": "f60b76558c93183c2efb1200725e4bb490fc4a99d4ce0e54c2308e9c88166636",
+      "contract": "references/rest/contracts/v2/admin/GroupMembership/list.md"
+    },
+    {
+      "id": "v2.admin.GroupMembershipExpirationPolicy.get",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "admin_models.GroupMembershipExpirationPolicy",
+        "async_ordinary": "typing.Awaitable[admin_models.GroupMembershipExpirationPolicy]",
+        "sync_raw": "ApiResponse[admin_models.GroupMembershipExpirationPolicy]",
+        "sync_streaming": "StreamingContextManager[admin_models.GroupMembershipExpirationPolicy]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.GroupMembershipExpirationPolicy]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.GroupMembershipExpirationPolicy]]"
+      },
+      "source_method_line": 60,
+      "source_sha256": "0841e5adf0b6e22863fa8edda7c612cd911961f7b96c6bc40b7cf8cf1ffcbd57",
+      "contract": "references/rest/contracts/v2/admin/GroupMembershipExpirationPolicy/get.md"
+    },
+    {
+      "id": "v2.admin.GroupMembershipExpirationPolicy.replace",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "admin_models.GroupMembershipExpirationPolicy",
+        "async_ordinary": "typing.Awaitable[admin_models.GroupMembershipExpirationPolicy]",
+        "sync_raw": "ApiResponse[admin_models.GroupMembershipExpirationPolicy]",
+        "sync_streaming": "StreamingContextManager[admin_models.GroupMembershipExpirationPolicy]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.GroupMembershipExpirationPolicy]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.GroupMembershipExpirationPolicy]]"
+      },
+      "source_method_line": 110,
+      "source_sha256": "0841e5adf0b6e22863fa8edda7c612cd911961f7b96c6bc40b7cf8cf1ffcbd57",
+      "contract": "references/rest/contracts/v2/admin/GroupMembershipExpirationPolicy/replace.md"
+    },
+    {
+      "id": "v2.admin.GroupProviderInfo.get",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "admin_models.GroupProviderInfo",
+        "async_ordinary": "typing.Awaitable[admin_models.GroupProviderInfo]",
+        "sync_raw": "ApiResponse[admin_models.GroupProviderInfo]",
+        "sync_streaming": "StreamingContextManager[admin_models.GroupProviderInfo]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.GroupProviderInfo]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.GroupProviderInfo]]"
+      },
+      "source_method_line": 60,
+      "source_sha256": "c5d14a72ae364100378600704aa88ff26842f920de16c4129c1ab6c208d69ccd",
+      "contract": "references/rest/contracts/v2/admin/GroupProviderInfo/get.md"
+    },
+    {
+      "id": "v2.admin.GroupProviderInfo.replace",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "admin_models.GroupProviderInfo",
+        "async_ordinary": "typing.Awaitable[admin_models.GroupProviderInfo]",
+        "sync_raw": "ApiResponse[admin_models.GroupProviderInfo]",
+        "sync_streaming": "StreamingContextManager[admin_models.GroupProviderInfo]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.GroupProviderInfo]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.GroupProviderInfo]]"
+      },
+      "source_method_line": 107,
+      "source_sha256": "c5d14a72ae364100378600704aa88ff26842f920de16c4129c1ab6c208d69ccd",
+      "contract": "references/rest/contracts/v2/admin/GroupProviderInfo/replace.md"
+    },
+    {
+      "id": "v2.admin.User.delete",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "None",
+        "async_ordinary": "typing.Awaitable[None]",
+        "sync_raw": "ApiResponse[None]",
+        "sync_streaming": null,
+        "async_raw": "Awaitable[AsyncApiResponse[None]]",
+        "async_streaming": null
+      },
+      "source_method_line": 83,
+      "source_sha256": "f010b1ecf9b43f246240b8e13c34e05b37036f6febe48794e29b77dbef91cd0b",
+      "contract": "references/rest/contracts/v2/admin/User/delete.md"
+    },
+    {
+      "id": "v2.admin.User.get",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "admin_models.User",
+        "async_ordinary": "typing.Awaitable[admin_models.User]",
+        "sync_raw": "ApiResponse[admin_models.User]",
+        "sync_streaming": "StreamingContextManager[admin_models.User]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.User]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.User]]"
+      },
+      "source_method_line": 128,
+      "source_sha256": "f010b1ecf9b43f246240b8e13c34e05b37036f6febe48794e29b77dbef91cd0b",
+      "contract": "references/rest/contracts/v2/admin/User/get.md"
+    },
+    {
+      "id": "v2.admin.User.get_batch",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "admin_models.GetUsersBatchResponse",
+        "async_ordinary": "typing.Awaitable[admin_models.GetUsersBatchResponse]",
+        "sync_raw": "ApiResponse[admin_models.GetUsersBatchResponse]",
+        "sync_streaming": "StreamingContextManager[admin_models.GetUsersBatchResponse]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.GetUsersBatchResponse]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.GetUsersBatchResponse]]"
+      },
+      "source_method_line": 180,
+      "source_sha256": "f010b1ecf9b43f246240b8e13c34e05b37036f6febe48794e29b77dbef91cd0b",
+      "contract": "references/rest/contracts/v2/admin/User/get_batch.md"
+    },
+    {
+      "id": "v2.admin.User.get_current",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "admin_models.User",
+        "async_ordinary": "typing.Awaitable[admin_models.User]",
+        "sync_raw": "ApiResponse[admin_models.User]",
+        "sync_streaming": "StreamingContextManager[admin_models.User]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.User]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.User]]"
+      },
+      "source_method_line": 223,
+      "source_sha256": "f010b1ecf9b43f246240b8e13c34e05b37036f6febe48794e29b77dbef91cd0b",
+      "contract": "references/rest/contracts/v2/admin/User/get_current.md"
+    },
+    {
+      "id": "v2.admin.User.get_markings",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "admin_models.GetUserMarkingsResponse",
+        "async_ordinary": "typing.Awaitable[admin_models.GetUserMarkingsResponse]",
+        "sync_raw": "ApiResponse[admin_models.GetUserMarkingsResponse]",
+        "sync_streaming": "StreamingContextManager[admin_models.GetUserMarkingsResponse]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.GetUserMarkingsResponse]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.GetUserMarkingsResponse]]"
+      },
+      "source_method_line": 261,
+      "source_sha256": "f010b1ecf9b43f246240b8e13c34e05b37036f6febe48794e29b77dbef91cd0b",
+      "contract": "references/rest/contracts/v2/admin/User/get_markings.md"
+    },
+    {
+      "id": "v2.admin.User.list",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "core.ResourceIterator[admin_models.User]",
+        "async_ordinary": "core.AsyncResourceIterator[admin_models.User]",
+        "sync_raw": "ApiResponse[admin_models.ListUsersResponse]",
+        "sync_streaming": "StreamingContextManager[admin_models.ListUsersResponse]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.ListUsersResponse]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.ListUsersResponse]]"
+      },
+      "source_method_line": 308,
+      "source_sha256": "f010b1ecf9b43f246240b8e13c34e05b37036f6febe48794e29b77dbef91cd0b",
+      "contract": "references/rest/contracts/v2/admin/User/list.md"
+    },
+    {
+      "id": "v2.admin.User.profile_picture",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "typing.Optional[bytes]",
+        "async_ordinary": "typing.Awaitable[typing.Optional[bytes]]",
+        "sync_raw": "ApiResponse[typing.Optional[bytes]]",
+        "sync_streaming": "StreamingContextManager[typing.Optional[bytes]]",
+        "async_raw": "Awaitable[AsyncApiResponse[typing.Optional[bytes]]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[typing.Optional[bytes]]]"
+      },
+      "source_method_line": 363,
+      "source_sha256": "f010b1ecf9b43f246240b8e13c34e05b37036f6febe48794e29b77dbef91cd0b",
+      "contract": "references/rest/contracts/v2/admin/User/profile_picture.md"
+    },
+    {
+      "id": "v2.admin.User.revoke_all_tokens",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "None",
+        "async_ordinary": "typing.Awaitable[None]",
+        "sync_raw": "ApiResponse[None]",
+        "sync_streaming": null,
+        "async_raw": "Awaitable[AsyncApiResponse[None]]",
+        "async_streaming": null
+      },
+      "source_method_line": 414,
+      "source_sha256": "f010b1ecf9b43f246240b8e13c34e05b37036f6febe48794e29b77dbef91cd0b",
+      "contract": "references/rest/contracts/v2/admin/User/revoke_all_tokens.md"
+    },
+    {
+      "id": "v2.admin.User.search",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "admin_models.SearchUsersResponse",
+        "async_ordinary": "typing.Awaitable[admin_models.SearchUsersResponse]",
+        "sync_raw": "ApiResponse[admin_models.SearchUsersResponse]",
+        "sync_streaming": "StreamingContextManager[admin_models.SearchUsersResponse]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.SearchUsersResponse]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.SearchUsersResponse]]"
+      },
+      "source_method_line": 463,
+      "source_sha256": "f010b1ecf9b43f246240b8e13c34e05b37036f6febe48794e29b77dbef91cd0b",
+      "contract": "references/rest/contracts/v2/admin/User/search.md"
+    },
+    {
+      "id": "v2.admin.UserProviderInfo.get",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "admin_models.UserProviderInfo",
+        "async_ordinary": "typing.Awaitable[admin_models.UserProviderInfo]",
+        "sync_raw": "ApiResponse[admin_models.UserProviderInfo]",
+        "sync_streaming": "StreamingContextManager[admin_models.UserProviderInfo]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.UserProviderInfo]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.UserProviderInfo]]"
+      },
+      "source_method_line": 60,
+      "source_sha256": "fb259c30a15f817ffea0feffd1b226fed745f8ba94053b62f2815f0175d1364c",
+      "contract": "references/rest/contracts/v2/admin/UserProviderInfo/get.md"
+    },
+    {
+      "id": "v2.admin.UserProviderInfo.replace",
+      "signature": "PASS",
+      "wire_keywords": 10,
+      "response_modes": {
+        "sync_ordinary": "admin_models.UserProviderInfo",
+        "async_ordinary": "typing.Awaitable[admin_models.UserProviderInfo]",
+        "sync_raw": "ApiResponse[admin_models.UserProviderInfo]",
+        "sync_streaming": "StreamingContextManager[admin_models.UserProviderInfo]",
+        "async_raw": "Awaitable[AsyncApiResponse[admin_models.UserProviderInfo]]",
+        "async_streaming": "AsyncStreamingContextManager[Awaitable[admin_models.UserProviderInfo]]"
+      },
+      "source_method_line": 109,
+      "source_sha256": "fb259c30a15f817ffea0feffd1b226fed745f8ba94053b62f2815f0175d1364c",
+      "contract": "references/rest/contracts/v2/admin/UserProviderInfo/replace.md"
+    }
+  ],
+  "operation_count": 27,
+  "source_signature_wire_response_modes": "PASS",
+  "method": "Independently derive AST method signatures, every RequestInfo keyword expression, sync/async ordinary annotations and raw/stream wrapper pseudo-function annotations from frozen installed SDK modules; compare every authored contract, including absent wrappers as None. This is structural/source review, not extra runtime tests.",
+  "initial_harness_error": "Initial comparison omitted absent wrapper keys; contracts explicitly record them as None. Fixed this review harness only; candidate unchanged.",
+  "runtime_evidence": ".ept/tmp/feature015_rest071_code_review_20261027.json",
+  "runtime_evidence_sha256": "9a96e3f17cdcc5e5c57cd24fed53efe4bc7ae3c887f6cf8937f63058066fd831"
+}

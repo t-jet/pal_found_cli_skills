@@ -18,15 +18,22 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v1/ontologies/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/objects/Asset/aggregate'
-EXPECTED_BODY = {'aggregation': [{'field': 'synthetic-value', 'type': 'approximateDistinct'}],
- 'groupBy': [{'field': 'synthetic-value', 'duration': 'synthetic-value', 'type': 'duration'}]}
+EXPECTED_BODY = {'aggregation': [{'field': 'properties.assetId',
+                  'name': 'distinctAssets',
+                  'type': 'approximateDistinct'}],
+ 'groupBy': [{'field': 'properties.inspectionDate',
+              'duration': 'P1D',
+              'type': 'duration'}]}
 EXPECTED_QUERY = {}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'data': [{'group': {}, 'metrics': [{'name': 'synthetic-value'}]}]}
+SUCCESS = {'data': [{'group': {'properties.inspectionDate': '2026-10-01'},
+           'metrics': [{'name': 'distinctAssets', 'value': 1.0}]}]}
+# This mock chooses a request-like label and ISO date value. The SDK response
+# group is Dict[str, Any]; it specifies neither convention nor bucket boundaries.
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.aggregate(ontology_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', object_type='Asset', aggregation=[{'field': 'synthetic-value', 'type': 'approximateDistinct'}], group_by=[{'field': 'synthetic-value', 'duration': 'synthetic-value', 'type': 'duration'}], request_timeout=30)
+    return client.with_raw_response.aggregate(ontology_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', object_type='Asset', aggregation=[{'field': 'properties.assetId', 'name': 'distinctAssets', 'type': 'approximateDistinct'}], group_by=[{'field': 'properties.inspectionDate', 'duration': 'P1D', 'type': 'duration'}], request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -43,6 +50,24 @@ def check_request(request):
         assert request.content == EXPECTED_BODY
     elif EXPECTED_BODY is not None:
         assert json.loads(request.content) == EXPECTED_BODY
+
+def check_result(result, request):
+    body = json.loads(request.content)
+    group = body['groupBy'][0]
+    assert group['field'] == 'properties.inspectionDate', 'Duration grouping needs declared date field'
+    assert group['duration'] == 'P1D', 'Expected ISO 8601 one-day duration'
+    metric = body['aggregation'][0]
+    assert metric['field'] == 'properties.assetId', 'Metric field missing from Asset schema'
+    for bucket in result['data']:
+        # Inspect actual returned labels without mapping them to request fields.
+        assert isinstance(bucket['group'], dict)
+        for label in bucket['group']:
+            assert isinstance(label, str), 'SDK group labels are strings'
+            # Values remain opaque until the application confirms their meaning.
+        assert bucket['metrics'][0]['name'] == metric['name'], 'Metric alias differs from request'
+        value = bucket['metrics'][0]['value']
+        assert isinstance(value, (int, float)) and value >= 0, 'Distinct count needs nonnegative numeric value'
+
 
 def normalized(value):
     if isinstance(value, dict):
@@ -61,7 +86,7 @@ def verify():
     calls = []
     def success(request):
         check_request(request)
-        calls.append(True)
+        calls.append(request)
         if isinstance(SUCCESS, bytes):
             return httpx.Response(200, content=SUCCESS)
         if SUCCESS is None:
@@ -70,7 +95,9 @@ def verify():
     with mock_resource(OntologyObjectClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = normalized(raw.decode())
+            check_result(result, calls[-1])
+            assert result == SUCCESS
         finally:
             raw.close()
     assert len(calls) == 1

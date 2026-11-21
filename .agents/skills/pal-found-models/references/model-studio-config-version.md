@@ -11,9 +11,19 @@ These records describe the `model_studio_config_version` commands in `pal-found-
 - **Preconditions:** The Model Studio exists; creation needs a valid trainer, compute resources, and worker configuration.
 - **Result:** Returns the created `ModelStudioConfigVersion` with its server-assigned identifier.
 - **Failure:** Unknown trainer or invalid resources/worker config prevents version creation; check existing versions after a timeout.
-- **Example:** `pal-found-models model-studio-config-version create <MODEL_STUDIO_RID> --name 'Order forecast' --resources-json '{"memory":"4G","cpu":"2","gpu":"V100"}' --trainer-id autogluon --worker-config-json '{"inputs":{},"outputs":{}}'`
+- **Example:** `pal-found-models model-studio-config-version create <MODEL_STUDIO_RID> --name 'Order forecast' --resources-json '{"memory":"4G","cpu":"2","gpu":"V100"}' --trainer-id <MODEL_STUDIO_TRAINER_TRAINER_ID> --worker-config-json '{"inputs":{},"outputs":{}}'`
 
 The trainer determines which input and output aliases are required. Replace the empty maps with those aliases and their configurations before creating a version.
+The trainer ID must be a RID returned by trainer discovery, not a display name.
+See [worker configuration](./inputs.md#model-studio-worker-configuration) for
+dataset bindings, output model bindings, and source limits. A requested GPU must
+be available in the project's resource queue; the resource example grants none.
+
+Configuration responses contain `name`, integer `version`, `trainerId`,
+`trainer` (trainer ID and version locator), `workerConfig`, `resources`,
+optional `changelog`, `createdBy`, and `createdTime`. Record the returned
+version and trainer locator so you can correlate a later run to its actual
+configuration. `latest` may return `null`; a configuration is required to launch.
 
 ### model_studio_config_version.get
 

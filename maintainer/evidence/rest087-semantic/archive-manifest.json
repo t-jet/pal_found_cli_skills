@@ -1,0 +1,29 @@
+{
+  "archive_role": "Original semantic review and author evidence; archived harnesses retain historical absolute paths and are not portable test entrypoints.",
+  "files": [
+    {
+      "file": "rest087_review_current_20261027.py",
+      "sha256": "a45aa19b1c5bba751bf8a7d964407835ae3045f1333dd61089d6a22324610de3"
+    },
+    {
+      "file": "rest087_independent_review.py",
+      "sha256": "b6e70fdc31e049e02bee86961178dd6c7024bcb8ad17c205a319df198b4aa25e"
+    },
+    {
+      "file": "rest087_author_validation_20261027.json",
+      "sha256": "6245bd2ce0fff12efb0ad44793b74e472422878a7e129aeba73ac4c68ced70d1"
+    },
+    {
+      "file": "rest087_initial_semantic_findings_20261022.json",
+      "sha256": "2003dbb8dd4cb8f1dcb69304d98e3d9476d203627c1b6ad6c340f36ffd3bd512"
+    },
+    {
+      "file": "rest087_promote_version_initial.json",
+      "sha256": "d4fa80ac529ecf08a8ba63a3591f69fc90fbc393a30713f6ea6f889e147e8e51"
+    },
+    {
+      "file": "rest087_promote_version_original.py",
+      "sha256": "1dfcf8db56eaa1b69ce8a296276013fcbb10a03ef37235f418eda72f3d5e3f50"
+    }
+  ]
+}

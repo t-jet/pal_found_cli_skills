@@ -1,0 +1,565 @@
+{
+  "reviewer_agent": "/root/j12_independent_grade_20261028",
+  "review_date": "2026-10-28",
+  "started_at_utc": "2026-10-28T07:52:56.291890+00:00",
+  "finished_at_utc": "2026-10-28T07:53:00.220077+00:00",
+  "ticket": "BUG-SUB-025",
+  "journey": "J12",
+  "verdict": "PASS",
+  "score": "6/6",
+  "reader_agent": "/root/j12_reader_recover_20261028",
+  "reader_answer_sha256": "65cc2f91075a54a5902e948801d706c87a119ec404f6044bcb04bee559015fe8",
+  "rubric_source": ".ept/docs/deliverables/architecture/SA-DES-014-offline-development-knowledge/verification-and-delivery.md:40",
+  "rubric_source_sha256": "e75f9388890c84a61e987b79112a3d8caa85aad6afddd700da9060599180e62a",
+  "dimensions": [
+    {
+      "dimension": "capability/lifecycle choice",
+      "verdict": "PASS",
+      "reason": "APPEND transaction on an explicit existing branch; transaction-view checks precede commit; separate Build.create uses locally documented ManualTarget. RUNNING is incomplete, only SUCCEEDED succeeds.",
+      "evidence": [
+        "reader_workflow.py:Workflow.dataset_commit",
+        "reader_workflow.py:Workflow.build",
+        "trace_success.json"
+      ]
+    },
+    {
+      "dimension": "prerequisites/version/identity",
+      "verdict": "PASS",
+      "reason": "Prepared SDK1.101, UserTokenAuth with synthetic token, synthetic host and explicit dataset/branch/path/RIDs are recorded. Fixture transport supplies only local synthetic responses. Reader identifies authorized enrollment identity and resource permissions as prerequisites for live calls; no live credential, administrator enablement or tenant effect is inferred.",
+      "evidence": [
+        "reader_answer.json:dimensions.choices",
+        "reader_answer.json:dimensions.code_config.runtime",
+        "reader_answer.json:dimensions.validation.limits",
+        "consulted_sources.json"
+      ]
+    },
+    {
+      "dimension": "exact steps/configuration",
+      "verdict": "PASS",
+      "reason": "Reader-authored root-client calls use exact staged transaction bounds, committed branch selector, three-second request limits, bounded streams, at most two commit attempts and three polls. Journal records intent and returned identities.",
+      "evidence": [
+        "reader_workflow.py:Workflow.verify_file",
+        "reader_workflow.py:Workflow.dataset_commit",
+        "reader_workflow.py:Workflow.build",
+        "journal_success.json"
+      ]
+    },
+    {
+      "dimension": "complete example inputs/results",
+      "verdict": "PASS",
+      "reason": "Complete executable code includes explicit CSV bytes, synthetic identities, stateful HTTP fixture, exact request body/query assertions and expected/actual outputs for twelve scenarios. Independent reproduction matches all semantic outcome/count fields.",
+      "evidence": [
+        "reader_workflow.py",
+        "execution_results.json",
+        "raw_execution_output.txt"
+      ]
+    },
+    {
+      "dimension": "success checks",
+      "verdict": "PASS",
+      "reason": "Metadata, transaction-view bytes and size checked before commit; transaction COMMITTED, branch pointer and visible file metadata/content checked after commit. Build success/failure/cancel/pending classified separately; trace ordering independently verified.",
+      "evidence": [
+        "trace_success.json",
+        "trace_failed.json",
+        "trace_canceled.json",
+        "trace_pending.json"
+      ]
+    },
+    {
+      "dimension": "failure/recovery",
+      "verdict": "PASS",
+      "reason": "Lost upload or applied commit replies do not duplicate writes. A no-effect commit timeout is retried only after OPEN transaction, unchanged branch and staged-content reconciliation. Pending resumes from journal without another create; corruption and wrong branch stop before build, confirmed OPEN bad staging aborts.",
+      "evidence": [
+        "trace_upload_recovery.json",
+        "trace_commit_recovery.json",
+        "trace_commit_safe_retry.json",
+        "trace_pending_resume.json",
+        "trace_staging_corruption.json",
+        "trace_branch_mismatch.json"
+      ]
+    }
+  ],
+  "independence": {
+    "reader_was_forked_without_parent_history": true,
+    "reader_declares_no_previous_answers_sdk_source_or_repo_tests": true,
+    "reader_code_not_shipped_example_import": true,
+    "grader_distinct_from_reader_and_content_author": true,
+    "limit": "Reader knowledge isolation is based on the separate task instructions and reader declaration, not an OS capability sandbox."
+  },
+  "integrity": {
+    "verified_reader_artifact_count": 32,
+    "snapshot_files": 4437,
+    "snapshot_tree_sha256": "adaaf3919f98e423ac2224cd1646b43236bc7e2580f895fe7f697ca63e9600d0",
+    "snapshot_manifest_sha256": "33b05039a68cf46d124f03372d353c8c61fe93bedf174171ff938783a552ea4d",
+    "artifact_manifest_sha256": "0cf2442dfe39a706feb414a30ae76d4407a3054539b104a3deb26c9d84150215",
+    "consulted_current_continuity": [
+      {
+        "path": "SKILL.md",
+        "sha256": "2495f974d0c9ba4f9811530fe5f2aa031cfe5912230f6b8624601ef692fbc0fe",
+        "current_match": true,
+        "headings_or_scope": "Read by task; Evidence before delivery"
+      },
+      {
+        "path": "references/rest-api.md",
+        "sha256": "af3562db0dc7f4a45d684b837ce5ba4364af65c0bf4380f74b322fdfca0597ff",
+        "current_match": true,
+        "headings_or_scope": "Discover and author any frozen SDK REST operation; Failures and recovery"
+      },
+      {
+        "path": "references/rest/authentication.md",
+        "sha256": "21cf5c0319011cf8603358d08b10205b6e92f247da4e6ec871f7526a01618a7c",
+        "current_match": true,
+        "headings_or_scope": "Prepared client; Resolve authorization prerequisites locally"
+      },
+      {
+        "path": "references/rest/client-behavior.md",
+        "sha256": "57826178f9a203bbe1eb3de24832bef82dc457ecb167f1208a3ba177a93dbcc2",
+        "current_match": true,
+        "headings_or_scope": "Client and API version; Timeouts, throttling and uncertain writes; Errors and cleanup"
+      },
+      {
+        "path": "references/rest/v2/datasets/Transaction.md",
+        "sha256": "d16435f483e07e822d7b79fd13b06744ca196c1f594f985a490f5b8c6c51c3ef",
+        "current_match": true,
+        "headings_or_scope": "Stage a file, commit, and verify the branch; commit; create; get; abort"
+      },
+      {
+        "path": "references/rest/v2/datasets/File.md",
+        "sha256": "7a0bf6c4a67c5024a7ecd11184d584a2c02271d4d997fef8b99f0be71204fee0",
+        "current_match": true,
+        "headings_or_scope": "Client route and bounded content read; upload; Operations and outcome checks"
+      },
+      {
+        "path": "references/rest/v2/orchestration/Build.md",
+        "sha256": "ad26f97daf4f9b9a117c28f343794e5eb710e0967d85072976985d4541b64499",
+        "current_match": true,
+        "headings_or_scope": "Wait for a submitted build; create; get"
+      },
+      {
+        "path": "examples/rest/074/v2/datasets/staged_commit_journey.py",
+        "sha256": "b260986ea80bb57f0e25c72b728918291484eab242b4bf1ab8ff63622fdf076e",
+        "current_match": true,
+        "headings_or_scope": "Read adaptable exercise implementation; did not execute or import it"
+      },
+      {
+        "path": "references/rest/contracts/v2/datasets/File/upload.md",
+        "sha256": "4df6acf02e7f13927225887cb6cf5a067707b421ad469e91fe0ede5fd3437e22",
+        "current_match": true,
+        "headings_or_scope": "SDK invocation contract; Wire request; Documented operation errors"
+      },
+      {
+        "path": "references/rest/contracts/v2/datasets/File/get.md",
+        "sha256": "c73dab3b9b26c60673295ab7166383504ef487d0fae4fabdb6d46c5065fced43",
+        "current_match": true,
+        "headings_or_scope": "Purpose and parameter meaning; SDK invocation contract; Wire request (first 145 lines)"
+      },
+      {
+        "path": "references/rest/contracts/v2/datasets/File/content.md",
+        "sha256": "2203e18b0699eef77ca8a0ded49d191a92ee6acf5e1fdae49222291a252ca838",
+        "current_match": true,
+        "headings_or_scope": "Purpose and parameter meaning; SDK invocation contract; Wire request (first 125 lines)"
+      },
+      {
+        "path": "references/rest/contracts/v2/datasets/Branch/get.md",
+        "sha256": "39386d73c05a76659e13bc87dbc3241fba13a4d196f85f8822df84f940b14a60",
+        "current_match": true,
+        "headings_or_scope": "SDK invocation contract; Wire request (first 110 lines)"
+      },
+      {
+        "path": "references/rest/contracts/v2/datasets/Transaction/create.md",
+        "sha256": "5e99f61292552bea170c6fd3597be096dfc59ff535f0b49b91cbc59022193e8c",
+        "current_match": true,
+        "headings_or_scope": "SDK invocation contract; Wire request (first 110 lines)"
+      },
+      {
+        "path": "references/rest/contracts/v2/datasets/Transaction/commit.md",
+        "sha256": "649a05bc5bf73263e2c73fb65b8cc07650ab2c71ec1c6585d2550a405cdfa4e2",
+        "current_match": true,
+        "headings_or_scope": "SDK invocation contract; Wire request (first 110 lines)"
+      },
+      {
+        "path": "references/rest/contracts/v2/orchestration/Build/create.md",
+        "sha256": "f2d0d140d01fec67c4411a5eaa262c87131185437a4dcadfe5b054fe09e93f64",
+        "current_match": true,
+        "headings_or_scope": "SDK invocation contract; Wire request; Complete referenced models and errors"
+      },
+      {
+        "path": "references/rest/contracts/v2/orchestration/Build/get.md",
+        "sha256": "a3e8bf7a0ec6d0e1549042796286f7183ccfab194f2bb156902fca42a2e412d0",
+        "current_match": true,
+        "headings_or_scope": "Purpose and parameter meaning; SDK invocation contract; Wire request"
+      },
+      {
+        "path": "references/rest/models/v2/orchestration/models/BuildTarget.md",
+        "sha256": "052bc31af2406ef5de0076c4f249b85a6f2d0b5ce156326a5b452777d42e7ddb",
+        "current_match": true,
+        "headings_or_scope": "Exact SDK definition"
+      },
+      {
+        "path": "references/rest/models/v2/orchestration/models/ManualTarget.md",
+        "sha256": "6d1fe072e94c063b35c663c8a27eacf0ce1b3e544f5e2aebeffac5a9829c9e28",
+        "current_match": true,
+        "headings_or_scope": "Fields and wire names; Exact SDK definition"
+      },
+      {
+        "path": "references/rest/models/v2/orchestration/models/Build.md",
+        "sha256": "08eead343da308cdb094fa145f54cb868a4a6a14a048dd881bfce5e298216415",
+        "current_match": true,
+        "headings_or_scope": "Fields and wire names; Exact SDK definition"
+      },
+      {
+        "path": "references/rest/models/v2/datasets/models/Transaction.md",
+        "sha256": "7935cd1d197bec46d3b8ac9ae52665aa8e426e4aae6ea5ae924f46ffa9f31312",
+        "current_match": true,
+        "headings_or_scope": "Fields and wire names; Exact SDK definition"
+      },
+      {
+        "path": "references/rest/models/v2/datasets/models/File.md",
+        "sha256": "33b8c79a93e12880a80447260fd27985aad8b75543560e3420139d333d395f10",
+        "current_match": true,
+        "headings_or_scope": "Fields and wire names; Exact SDK definition"
+      },
+      {
+        "path": "references/rest/models/v2/datasets/errors/FileNotFoundOnTransactionRangeParameters.md",
+        "sha256": "09aa437f9f652bbb29bd01dade9f923520775bd665271e707d58e3d714f38951",
+        "current_match": true,
+        "headings_or_scope": "Exact SDK definition; consulted while planning, no missing-file error fabricated in execution"
+      },
+      {
+        "path": "references/pipelines/transactions.md",
+        "sha256": "b84dfb7cc285039527ed3c14e0bb908c1a1aa8d9ce4b98053278c9458d21d367",
+        "current_match": true,
+        "headings_or_scope": "Concept and lifecycle; Failures and recovery"
+      }
+    ]
+  },
+  "reproduction": {
+    "command": [
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_qa_env\\Scripts\\python.exe",
+      "-B",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_j12_grade_repro_20261028\\reader_workflow.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 3.9199153000081424,
+    "output_directory": ".ept\\tmp\\feature015_j12_grade_repro_20261028",
+    "reader_code_sha256": "54c339eb4eafc889b9d849ed40c3e70bff25133ed066dfa39dbe0f6ef017710a",
+    "stdout_sha256": "b3ac936bf344f646be80242a3dfce41cdf695549cd39a0aa6f8cff161ec394d9",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cases": 12,
+    "semantic_outcomes_counts_equal_original": true
+  },
+  "trace_checks": [
+    {
+      "case": "success",
+      "trace_sha256": "cd409f84e771a73132edaf6763522e50ebfaddcdcd63087214a7b9d8214e1fcf",
+      "journal_sha256": "a048da640c88f8e50ffcfd00458d7a9c47afe1be84fd361f51592101ced0e74a",
+      "requests": 19,
+      "staged_read_before_commit": true,
+      "postcommit_branch_file_read": true,
+      "verdict": "PASS"
+    },
+    {
+      "case": "failed",
+      "trace_sha256": "1ab7e4f5055982b60cd776f19d3beb25bfb1cacf0236406398e66d4e3ff0411d",
+      "journal_sha256": "e592c5f1dfb7ac9e6468ae118382362c2f7ffe35f72f3110926253273a2f4b04",
+      "requests": 20,
+      "staged_read_before_commit": true,
+      "postcommit_branch_file_read": true,
+      "verdict": "PASS"
+    },
+    {
+      "case": "canceled",
+      "trace_sha256": "30c9c0cecee5289d60d642a1ce928f20060bafabcb8235a9edea4abc61b41e54",
+      "journal_sha256": "1f5c3d977499267767b5f3fed59fefa8c00b66415b33158a95e196c1a42127f5",
+      "requests": 20,
+      "staged_read_before_commit": true,
+      "postcommit_branch_file_read": true,
+      "verdict": "PASS"
+    },
+    {
+      "case": "pending",
+      "trace_sha256": "ec18c7653ad1dd627507351652dfcba259edb66bfb8aae81f845aeb3c8d7782e",
+      "journal_sha256": "29160234ec4e926997952aead1c19d55bc3c26637118d658d507eaec8ff64f52",
+      "requests": 20,
+      "staged_read_before_commit": true,
+      "postcommit_branch_file_read": true,
+      "verdict": "PASS"
+    },
+    {
+      "case": "upload_recovery",
+      "trace_sha256": "ca8dd45d2c454176116e5a15ffadff06853f7e5db610803b097d2c5510c473ad",
+      "journal_sha256": "2741c4c0846b93a7ac414dca6a91870c6c42d456e545e50d018819c8dfd710fd",
+      "requests": 19,
+      "staged_read_before_commit": true,
+      "postcommit_branch_file_read": true,
+      "verdict": "PASS"
+    },
+    {
+      "case": "commit_recovery",
+      "trace_sha256": "713f98b3ded031e396077c780f31f2e1e7f9596c220e7bb37d80943da25615ee",
+      "journal_sha256": "3511a84a80fa2d65bca81db6bb911af8b2e4e6ae3bd15c4914640d27c09e95f5",
+      "requests": 21,
+      "staged_read_before_commit": true,
+      "postcommit_branch_file_read": true,
+      "verdict": "PASS"
+    },
+    {
+      "case": "commit_safe_retry",
+      "trace_sha256": "f1a56f3cca66f38c389e7e24590ea9a74b6bcadcd107a0e64b9488d46f0e2829",
+      "journal_sha256": "ff0c166b3a6cce25b651f79eaeffdf9b5eb7622849b9a7a7edf4f46c0b4deadf",
+      "requests": 24,
+      "staged_read_before_commit": true,
+      "postcommit_branch_file_read": true,
+      "verdict": "PASS"
+    },
+    {
+      "case": "pending_resume",
+      "trace_sha256": "325af4bbfb41555a4cb9448e70ccd1b3aaa2a64d740ae1d83a018ce73f8a8cc7",
+      "journal_sha256": "2341e6fa29df65de4b61414550707d682551b6dd20324eb0b3ba44912bd62be7",
+      "requests": 26,
+      "staged_read_before_commit": true,
+      "postcommit_branch_file_read": true,
+      "verdict": "PASS"
+    },
+    {
+      "case": "staging_corruption",
+      "trace_sha256": "e5d17b516ff521ed8cf4611003f12154ddcf5e71ea8fba7bd91b37e30e63d82f",
+      "journal_sha256": "08ed8ddaaeb3c2f613c52b0d48318a0ed4e8da9ab0a45b70a51cc08a00abce2a",
+      "requests": 10,
+      "staged_read_before_commit": "no commit",
+      "postcommit_branch_file_read": false,
+      "verdict": "PASS"
+    },
+    {
+      "case": "visible_corruption",
+      "trace_sha256": "429f080919ca752f075d6cbec155a402ebbd5df63ec9dd6fa7a0bb6820d08331",
+      "journal_sha256": "35f2aa8d6ea06abd2ef5df6dc3037cdf92b8d920f86d97fc93c55b1cf8900915",
+      "requests": 16,
+      "staged_read_before_commit": true,
+      "postcommit_branch_file_read": true,
+      "verdict": "PASS"
+    },
+    {
+      "case": "branch_mismatch",
+      "trace_sha256": "a1a7de61f3cf4fa8002d560a6e5af35ab3e79a0d251442ccac81feaef087be1b",
+      "journal_sha256": "4d289914475c30f063c30bd4c3ba1e85169cda662874dc5f4c26343d70a39bd6",
+      "requests": 14,
+      "staged_read_before_commit": true,
+      "postcommit_branch_file_read": false,
+      "verdict": "PASS"
+    },
+    {
+      "case": "reconciliation_unavailable",
+      "trace_sha256": "af358d90ba34777e0da746d3c8ceff6ed4481955be1ce42592dc605f22f6db52",
+      "journal_sha256": "10c0e3e888f5cc905f34afc8a2e803102e62817106ce09b6f8734c25d599e667",
+      "requests": 10,
+      "staged_read_before_commit": "no commit",
+      "postcommit_branch_file_read": false,
+      "verdict": "PASS"
+    }
+  ],
+  "closure_preconditions": [
+    "Archive and commit this grade, reader code/output, manifests, consulted-source hashes and original failure references before BUG-SUB-025 resolution; the prior developer comment explicitly requires durable committed QA evidence.",
+    "Developer checks current In Progress DoD and documents root cause/fix/regression/time with no invented contributor hours before moving to Resolved.",
+    "Separate QA then checks Resolved DoD, removes only verified Blocks LINK-01894 and preserves RelatesTo LINK-01893 before closure.",
+    "TESTEXEC-064 complete REST acceptance remains separate; this J12 grade does not waive its other namespaces/journeys or domain formal QA."
+  ],
+  "scope_limits": [
+    "Real SDK serialization and decoding against a declared stateful HTTP mock, not live Foundry writes, build execution, credentials, permissions or administrator grants.",
+    "The reader reports single-writer fixture assumptions; its reconciliation is not an atomic concurrency guarantee.",
+    "Per-process DNS/socket denial and explicit rejection probes do not demonstrate OS-wide isolation.",
+    "Lost create response and abort-timeout branches are guarded but not executed; deadline exhaustion was not separately timed. Required bounded poll exhaustion and uncertain upload/commit cases were executed.",
+    "The reader snapshot is immutable by its recorded content manifest; consulted files match current shared skill bytes. No claim that every current unconsulted file equals that snapshot or an immutable Git commit is made."
+  ],
+  "reader_artifacts_for_archive": [
+    {
+      "path": "consulted_sources.json",
+      "sha256": "9b02410c5c8e7d664f4a1e05836d8bb60c5d5c0b47e6b5e27dcb3e4e93bf23bc",
+      "bytes": 7182
+    },
+    {
+      "path": "execution_results.json",
+      "sha256": "9970dec9de823847d7dbe60a62a229d209e882977414d2cc20966dc527a17aad",
+      "bytes": 8077
+    },
+    {
+      "path": "journal_branch_mismatch.json",
+      "sha256": "4d289914475c30f063c30bd4c3ba1e85169cda662874dc5f4c26343d70a39bd6",
+      "bytes": 2177
+    },
+    {
+      "path": "journal_canceled.json",
+      "sha256": "1f5c3d977499267767b5f3fed59fefa8c00b66415b33158a95e196c1a42127f5",
+      "bytes": 3273
+    },
+    {
+      "path": "journal_commit_recovery.json",
+      "sha256": "3511a84a80fa2d65bca81db6bb911af8b2e4e6ae3bd15c4914640d27c09e95f5",
+      "bytes": 3349
+    },
+    {
+      "path": "journal_commit_safe_retry.json",
+      "sha256": "ff0c166b3a6cce25b651f79eaeffdf9b5eb7622849b9a7a7edf4f46c0b4deadf",
+      "bytes": 3664
+    },
+    {
+      "path": "journal_failed.json",
+      "sha256": "e592c5f1dfb7ac9e6468ae118382362c2f7ffe35f72f3110926253273a2f4b04",
+      "bytes": 3269
+    },
+    {
+      "path": "journal_pending.json",
+      "sha256": "29160234ec4e926997952aead1c19d55bc3c26637118d658d507eaec8ff64f52",
+      "bytes": 3405
+    },
+    {
+      "path": "journal_pending_resume.json",
+      "sha256": "2341e6fa29df65de4b61414550707d682551b6dd20324eb0b3ba44912bd62be7",
+      "bytes": 3898
+    },
+    {
+      "path": "journal_reconciliation_unavailable.json",
+      "sha256": "10c0e3e888f5cc905f34afc8a2e803102e62817106ce09b6f8734c25d599e667",
+      "bytes": 1616
+    },
+    {
+      "path": "journal_staging_corruption.json",
+      "sha256": "08ed8ddaaeb3c2f613c52b0d48318a0ed4e8da9ab0a45b70a51cc08a00abce2a",
+      "bytes": 1601
+    },
+    {
+      "path": "journal_success.json",
+      "sha256": "a048da640c88f8e50ffcfd00458d7a9c47afe1be84fd361f51592101ced0e74a",
+      "bytes": 3109
+    },
+    {
+      "path": "journal_upload_recovery.json",
+      "sha256": "2741c4c0846b93a7ac414dca6a91870c6c42d456e545e50d018819c8dfd710fd",
+      "bytes": 3110
+    },
+    {
+      "path": "journal_visible_corruption.json",
+      "sha256": "35f2aa8d6ea06abd2ef5df6dc3037cdf92b8d920f86d97fc93c55b1cf8900915",
+      "bytes": 2255
+    },
+    {
+      "path": "package_evidence.py",
+      "sha256": "1f773bd6066298efa2a1a154e634f285bfca5071e3e640092b26dfd67de1928f",
+      "bytes": 14822
+    },
+    {
+      "path": "raw_execution_output.txt",
+      "sha256": "15c9ea5f68c0562a50ad6b654ec44f3bc5444d36ba09f7a85fc0dcc58a69c372",
+      "bytes": 5620
+    },
+    {
+      "path": "reader_answer.json",
+      "sha256": "65cc2f91075a54a5902e948801d706c87a119ec404f6044bcb04bee559015fe8",
+      "bytes": 25686
+    },
+    {
+      "path": "reader_prompt.json",
+      "sha256": "4171b8aad75bf1055c3c43217ccbd93d660ad449b07509daa0585ee293a23c4d",
+      "bytes": 867
+    },
+    {
+      "path": "reader_workflow.py",
+      "sha256": "54c339eb4eafc889b9d849ed40c3e70bff25133ed066dfa39dbe0f6ef017710a",
+      "bytes": 19525
+    },
+    {
+      "path": "snapshot_manifest.json",
+      "sha256": "33b05039a68cf46d124f03372d353c8c61fe93bedf174171ff938783a552ea4d",
+      "bytes": 916906
+    },
+    {
+      "path": "trace_branch_mismatch.json",
+      "sha256": "a1a7de61f3cf4fa8002d560a6e5af35ab3e79a0d251442ccac81feaef087be1b",
+      "bytes": 13472
+    },
+    {
+      "path": "trace_canceled.json",
+      "sha256": "30c9c0cecee5289d60d642a1ce928f20060bafabcb8235a9edea4abc61b41e54",
+      "bytes": 19227
+    },
+    {
+      "path": "trace_commit_recovery.json",
+      "sha256": "713f98b3ded031e396077c780f31f2e1e7f9596c220e7bb37d80943da25615ee",
+      "bytes": 19960
+    },
+    {
+      "path": "trace_commit_safe_retry.json",
+      "sha256": "f1a56f3cca66f38c389e7e24590ea9a74b6bcadcd107a0e64b9488d46f0e2829",
+      "bytes": 22952
+    },
+    {
+      "path": "trace_failed.json",
+      "sha256": "1ab7e4f5055982b60cd776f19d3beb25bfb1cacf0236406398e66d4e3ff0411d",
+      "bytes": 19219
+    },
+    {
+      "path": "trace_pending.json",
+      "sha256": "ec18c7653ad1dd627507351652dfcba259edb66bfb8aae81f845aeb3c8d7782e",
+      "bytes": 19480
+    },
+    {
+      "path": "trace_pending_resume.json",
+      "sha256": "325af4bbfb41555a4cb9448e70ccd1b3aaa2a64d740ae1d83a018ce73f8a8cc7",
+      "bytes": 24708
+    },
+    {
+      "path": "trace_reconciliation_unavailable.json",
+      "sha256": "af358d90ba34777e0da746d3c8ceff6ed4481955be1ce42592dc605f22f6db52",
+      "bytes": 9908
+    },
+    {
+      "path": "trace_staging_corruption.json",
+      "sha256": "e5d17b516ff521ed8cf4611003f12154ddcf5e71ea8fba7bd91b37e30e63d82f",
+      "bytes": 9878
+    },
+    {
+      "path": "trace_success.json",
+      "sha256": "cd409f84e771a73132edaf6763522e50ebfaddcdcd63087214a7b9d8214e1fcf",
+      "bytes": 18465
+    },
+    {
+      "path": "trace_upload_recovery.json",
+      "sha256": "ca8dd45d2c454176116e5a15ffadff06853f7e5db610803b097d2c5510c473ad",
+      "bytes": 18320
+    },
+    {
+      "path": "trace_visible_corruption.json",
+      "sha256": "429f080919ca752f075d6cbec155a402ebbd5df63ec9dd6fa7a0bb6820d08331",
+      "bytes": 15135
+    }
+  ],
+  "tracker_mutations": [],
+  "shared_source_or_ledger_mutations": [],
+  "existing_current_composed_regression": {
+    "reviewer": "/root/j12_075_readiness_20261027",
+    "evidence": ".ept/tmp/feature015_rest075_j12_readiness_20261027.json",
+    "evidence_sha256": "c899180b39cf2a309b3382ef4d42d014b547f2caf25ff93242ce182f8b78b5e1",
+    "current_fixture_sha256": "b260986ea80bb57f0e25c72b728918291484eab242b4bf1ab8ff63622fdf076e",
+    "result": {
+      "command": [
+        "D:\\app\\Python\\python.exe",
+        "-B",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\074\\v2\\datasets\\staged_commit_journey.py"
+      ],
+      "exit_code": 0,
+      "stdout": "seven staged transaction and Build outcomes passed with public network denied\n",
+      "stderr": ""
+    },
+    "boundary": "Previously executed current-byte regression, separately retained from this fresh reader and independent grader reproduction."
+  },
+  "preserved_failure_references": [
+    {
+      "path": ".ept/tmp/feature015-j12-reader/reader-results.md",
+      "exists": true
+    },
+    {
+      "path": ".ept/tmp/feature015_rest_semantic_review/j12_independent_score.md",
+      "exists": true
+    }
+  ]
+}

@@ -18,25 +18,17 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v1/ontologies/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/objects/Asset/search'
-EXPECTED_BODY = {'query': {'value': [{'value': [{'field': 'synthetic-value',
-                                 'value': 'synthetic-value',
-                                 'type': 'prefix'}],
-                      'type': 'or'}],
-           'type': 'or'},
- 'fields': ['synthetic-value']}
+EXPECTED_BODY = {'query': {'field': 'properties.status', 'value': 'rea', 'type': 'prefix'},
+ 'fields': ['assetId', 'status']}
 EXPECTED_QUERY = {}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'data': [{'properties': {},
+SUCCESS = {'data': [{'properties': {'assetId': 'A-1', 'status': 'ready'},
            'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}],
  'totalCount': '1'}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.search(ontology_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', object_type='Asset', fields=['synthetic-value'], query={'value': [{'value': [{'field': 'synthetic-value',
-                       'value': 'synthetic-value',
-                       'type': 'prefix'}],
-            'type': 'or'}],
- 'type': 'or'}, request_timeout=30)
+    return client.with_raw_response.search(ontology_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', object_type='Asset', fields=['assetId', 'status'], query={'field': 'properties.status', 'value': 'rea', 'type': 'prefix'}, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -53,6 +45,14 @@ def check_request(request):
         assert request.content == EXPECTED_BODY
     elif EXPECTED_BODY is not None:
         assert json.loads(request.content) == EXPECTED_BODY
+
+def check_result(result, request):
+    query = json.loads(request.content)['query']
+    assert query['field'] == 'properties.status', 'Search field must resolve in Asset schema'
+    for item in result['data']:
+        assert item['properties']['assetId'], 'Missing result identity'
+        assert item['properties']['status'].startswith(query['value']), 'Search result violates prefix'
+
 
 def normalized(value):
     if isinstance(value, dict):
@@ -71,7 +71,7 @@ def verify():
     calls = []
     def success(request):
         check_request(request)
-        calls.append(True)
+        calls.append(request)
         if isinstance(SUCCESS, bytes):
             return httpx.Response(200, content=SUCCESS)
         if SUCCESS is None:
@@ -80,7 +80,9 @@ def verify():
     with mock_resource(OntologyObjectClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = normalized(raw.decode())
+            check_result(result, calls[-1])
+            assert result == SUCCESS
         finally:
             raw.close()
     assert len(calls) == 1

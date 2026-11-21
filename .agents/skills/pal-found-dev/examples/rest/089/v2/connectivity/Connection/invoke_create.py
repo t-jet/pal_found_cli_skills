@@ -2,6 +2,10 @@
 
 Synthetic identifiers do not name tenant resources. Prepared SDK 1.101.0/httpx
 required. No network connections or live mutations occur.
+
+Adaptation requires an accessible public S3 bucket, an approved network egress
+policy and permission to create in the parent folder. Public bucket access needs
+no authenticationMode. The synthetic policy RID grants no access.
 """
 import json
 import sys
@@ -19,17 +23,17 @@ from mock_transport import mock_resource
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/connectivity/connections'
 EXPECTED_BODY = {'parentFolderRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
- 'configuration': {'bucketUrl': 'synthetic-value', 'type': 's3'},
+ 'configuration': {'bucketUrl': 's3://example-public-orders/', 'type': 's3'},
  'displayName': 'synthetic-value',
- 'worker': {'type': 'unknownWorker'}}
+ 'worker': {'type': 'foundryWorker', 'networkEgressPolicyRids': ['ri.network-egress-policy.main.policy.00000000-0000-0000-0000-000000000002']}}
 EXPECTED_QUERY = {}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
 SUCCESS = {'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
  'parentFolderRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
  'displayName': 'synthetic-value',
  'exportSettings': {'exportsEnabled': True, 'exportEnabledWithoutMarkingsValidation': True},
- 'worker': {'type': 'unknownWorker'},
- 'configuration': {'bucketUrl': 'synthetic-value', 'type': 's3'}}
+ 'worker': {'type': 'foundryWorker', 'networkEgressPolicyRids': ['ri.network-egress-policy.main.policy.00000000-0000-0000-0000-000000000002']},
+ 'configuration': {'bucketUrl': 's3://example-public-orders/', 'type': 's3'}}
 ERRORS = [{'name': 'ConnectionNotFound',
   'status': 404,
   'code': 'NOT_FOUND',
@@ -60,7 +64,7 @@ ERRORS = [{'name': 'ConnectionNotFound',
   'parameters': {}}]
 
 def invoke(client):
-    return client.with_raw_response.create(configuration={'bucketUrl': 'synthetic-value', 'type': 's3'}, display_name='synthetic-value', parent_folder_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', worker={'type': 'unknownWorker'}, request_timeout=30)
+    return client.with_raw_response.create(configuration={'bucketUrl': 's3://example-public-orders/', 'type': 's3'}, display_name='synthetic-value', parent_folder_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', worker={'type': 'foundryWorker', 'networkEgressPolicyRids': ['ri.network-egress-policy.main.policy.00000000-0000-0000-0000-000000000002']}, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

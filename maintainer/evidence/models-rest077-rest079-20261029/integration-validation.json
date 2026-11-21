@@ -1,0 +1,32 @@
+{
+  "tested_head": "0be7645cb64b6e70a828aa3dafdb0575c389d0ff",
+  "frozen_content_anchor": "b7cca7df4bd5d27bef0c5a764bea07dd321fdf64",
+  "pytest": {
+    "exit_code": 0,
+    "elapsed_seconds": 173.4083867073059,
+    "log": "maintainer/evidence/models-rest077-rest079-20261029/integration-pytest.log",
+    "passed": 1323,
+    "log_sha256": "dbc35ffe859c472e69758ce329d796856f6e3b804b042d8418cb9bc9195d95c1"
+  },
+  "ruff": "PASS",
+  "diff_check_nonhistorical_evidence": "PASS",
+  "historical_evidence_whitespace": "Preserved byte-for-byte; raw CLI blank metadata lines and original087 harness have trailing spaces.",
+  "release_gate_expected_exit_code": 1,
+  "release_gate_pending": {
+    "formal_qa": 219,
+    "semantic_review": 66,
+    "page_signoff": 42
+  },
+  "release_gate_other_failures": 0,
+  "artifact_sha256": {
+    "maintainer/rest-domain-authoring-register.json": "72efa2b51e9e41044a6cc611a22e2e9bb099dfe9b324d58868474d305ca3df5c",
+    "maintainer/offline-knowledge-audit.json": "0e2234f990dbe989e10a8dbb25a9c968d478d30c2e2b2524685f3f78f8337e5f",
+    "maintainer/rest-domain-formal-qa-075-acceptance.json": "3eaae3f9d5e27cd22ad7ddcf86a44a897fcb6d3f6733ae57dc8603f958dcf236",
+    "maintainer/rest-domain-formal-qa-087-acceptance.json": "4a2ade1d622259c70d96aa3d781dcb4a34bef2b7cc4fc69a5a132c5411ac6c8e",
+    "maintainer/models-rest077-rest079-acceptance-20261029.json": "3b2a8f4547a3fba4df8d3932ace51e96eaf41d4159296c4eff433cdf118ada06",
+    "maintainer/evidence/models-rest077-rest079-20261029/review-inputs.zip": "52c16bd493ae7d084d6814c4391804739ba144082a9cc62e162b2e96ab91e5a5"
+  },
+  "pushed": false,
+  "live_tracker_writes": false,
+  "limitations": "Offline fixture acceptance only; release gate remains BLOCKED."
+}

@@ -8,6 +8,10 @@ API v2; release stage: Stable. Check enrollment enablement and resource access b
 Restore the given resource and any directly trashed ancestors from the trash. If the resource is not
 trashed, this operation will be ignored.
 
+## SDK source disagreement
+
+SDK 1.101.0 contains a source disagreement: the purpose above says a non-trashed resource is ignored, while the same method declares `ResourceNotDirectlyTrashed` (the resource is not directly trashed). Live server policy is unverified. These source declarations and synthetic fixture responses do not establish an active-resource no-op, idempotency, or a universal ancestor-state outcome. Follow the [restore prerequisites, state checks and bounded reconciliation](../../../../v2/filesystem/Resource.md#restore) before planning a write.
+
 ## Public Python client route
 
 With a configured `foundry_sdk.v2.FoundryClient` named `client`, call `client.filesystem.Resource.restore`. This is the public composed resource path in SDK 1.101.0; nested resource names and capitalization matter. Use the signature below for required arguments and selectors. The same resource also exposes documented raw and streaming wrappers when the response-mode table lists them.

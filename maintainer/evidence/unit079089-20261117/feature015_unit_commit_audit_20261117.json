@@ -1,0 +1,20 @@
+[
+  {
+    "story": "079",
+    "candidate_base": "77b101fb7c5e51fa5f785b2147d97cdfff703133",
+    "isolated_commit": "fb5485b529744788be4b49e9a0205ac08b669690",
+    "integrated_commit": "34baa98e599a47ce5969a795bf58dfe6d4007503",
+    "file": "tests/test_offline_rest_079.py",
+    "sha256": "87c61ca4a1a0d36f55bbb5035a4acf8668cb4c07bb7e7787bf3883a0cb831734",
+    "baseline_test_function_count": 11
+  },
+  {
+    "story": "089",
+    "candidate_base": "77b101fb7c5e51fa5f785b2147d97cdfff703133",
+    "isolated_commit": "58ae40b2bd0b8011b81cd6a6c7670bf8ceec4f43",
+    "integrated_commit": "2d86ba25ec0ac762430b836f079103647083508f",
+    "file": "tests/test_offline_rest_089.py",
+    "sha256": "5e23652c29ee3027e0dd4f037efc609eddf842ec905b089d0a7637d19f353917",
+    "baseline_test_function_count": 5
+  }
+]

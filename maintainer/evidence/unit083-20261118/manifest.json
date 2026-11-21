@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "ticket": "TASK-024",
+  "date": "2026-11-18",
+  "archive_publisher": "/root/publish073_checkpoint_recover_20261118b",
+  "publication_base": "51f594c08403ac49d848e0d8c4af9986377f64d2",
+  "original_author_peer_base": "ff70c30c99410b3b0784bcad934625b88d5e6e5c",
+  "candidate": {
+    "path": "tests/test_offline_rest_083.py",
+    "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest083_unit_modes_20261118\\tests\\test_offline_rest_083.py",
+    "sha256": "fa1045d8c3c6b7e714dd43f4534555d88ee633b76589af97c08a7ffbe57611ec"
+  },
+  "source_binding": {
+    "sdk_release": "1.101.0",
+    "sdk_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf"
+  },
+  "identities": {
+    "author": "/root/rest083_unit_native_author_20261118",
+    "independent_peer": "/root/unit083_independent_peer_20261118",
+    "identity_provenance": "PM-confirmed original delegation identities supplied to publisher by root; publication-time provenance, not inserted into original artifacts."
+  },
+  "preserved_original_artifacts": {
+    "rest083_unit_junit_20261118.xml": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_unit_junit_20261118.xml",
+      "sha256": "2af120f2b648e5d8369cca55578f7902d42e2696db57117f3a44752706eabe51",
+      "bytes": 158558,
+      "junit_totals": {
+        "tests": 941,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "rest083_unit_mutation_proof_20261118.json": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_unit_mutation_proof_20261118.json",
+      "sha256": "25cfa41ab5367518568dc5acc7b18f9041896cf75fc29351bf9186f831634d98",
+      "bytes": 2370
+    },
+    "rest083_unit_mutations_20261118.py": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_unit_mutations_20261118.py",
+      "sha256": "ebb7bfc0447696c305f052a5c20c8c3ee3933cc0ad8d678f218421f79e02fead",
+      "bytes": 3746
+    },
+    "rest083_peer_junit_20261118.xml": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_peer_junit_20261118.xml",
+      "sha256": "5af1e44374cd426968c05e5278e1b389cfb7763b681f7466c2f995700d49ad72",
+      "bytes": 158558,
+      "junit_totals": {
+        "tests": 941,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "rest083_peer_probe_junit_20261118.xml": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_peer_probe_junit_20261118.xml",
+      "sha256": "181640574ac1b833d867b3e56748f7f6da37efdbb18b9ac3cc7efa8eeb2a0871",
+      "bytes": 2041,
+      "junit_totals": {
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "rest083_peer_probes_20261118.py": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_peer_probes_20261118.py",
+      "sha256": "a86fa548b50ef884210f4ecb416bbe4847bcf1b309df094db14b07bf25498ef1",
+      "bytes": 11816
+    },
+    "rest083_peer_source_binding_20261118.json": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_peer_source_binding_20261118.json",
+      "sha256": "949408d5b6968004652f95714a5aa946d9eb0e43158bbfcbbc4183620c258187",
+      "bytes": 3729
+    },
+    "rest083_peer_mutation_replay_20261118.py": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_peer_mutation_replay_20261118.py",
+      "sha256": "6bf184afec02f23a224c6480c2a17e7676c0e789c8ec416bf679c3e9ab09168c",
+      "bytes": 3826
+    },
+    "rest083_peer_mutation_replay_20261118.json": {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_peer_mutation_replay_20261118.json",
+      "sha256": "5c87128512a4c565c3351ea102407000bfad29cdb6b127cd28e1fd00d992f2c8",
+      "bytes": 2364
+    }
+  },
+  "publication_time_cli_captures": {
+    "author-comment-cli-capture.txt": {
+      "sha256": "31e00a3cc4c9f2516a28357e834b9ec44450d434f1cb54e3803dce319c97a725",
+      "bytes": 1822,
+      "ticket": "UNITTEST-081",
+      "comment_id": "20261118-132322-@python-developer",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "comment",
+        "get",
+        "UNITTEST-081",
+        "20261118-132322-@python-developer",
+        "--author",
+        "devops-engineer"
+      ],
+      "kind": "Publication-time CLI capture of existing original comment; not an original run artifact"
+    },
+    "independent_peer-comment-cli-capture.txt": {
+      "sha256": "1a15aec784d7da36aee67477ef11117bd2ed72d310fe2c02b3350c48bfdf4a08",
+      "bytes": 3585,
+      "ticket": "UNITTEST-081",
+      "comment_id": "20261118-191921-@qa-engineer",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "comment",
+        "get",
+        "UNITTEST-081",
+        "20261118-191921-@qa-engineer",
+        "--author",
+        "devops-engineer"
+      ],
+      "kind": "Publication-time CLI capture of existing original comment; not an original run artifact"
+    }
+  },
+  "original_results": {
+    "final_author_tests": 941,
+    "peer_tests": 941,
+    "independent_probes": 15,
+    "author_mutants_independently_replayed": 6,
+    "baseline_test_prefix_bytes": 9743
+  },
+  "commands_boundary": "Use only commands recorded in preserved originals or CLI captures. Missing exact original argv is not reconstructed.",
+  "replay_boundary": "Original executable paths and source/base preconditions are preserved. Archiving is not rerunning; relocation is not a portable replay claim.",
+  "integration_boundary": "Fresh combined integration and exact published-head CI are pending; original author/peer results remain tied to original content.",
+  "acceptance_boundary": {
+    "unit_readiness_only": true,
+    "no_formal_acceptance_added": true,
+    "no_reader_product_changes": true,
+    "no_live_tenant_claim": true,
+    "no_all_sdk_versions_claim": true
+  },
+  "qualifications": [
+    "The two foreign third-party guides changed after original ff70c30 runs; owned081/083 inputs are unchanged at publication baseline.",
+    "Formal261/164 counters, if integrated, come only from separately approved REST079 execution/metadata, not these unit tests.",
+    "Earlier author failures and corrected harness observations remain preserved and qualified in original evidence."
+  ]
+}

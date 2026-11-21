@@ -1,4 +1,7 @@
 from pathlib import Path
+import re
+
+from test_offline_skill_gate import FROZEN_OPERATIONS
 
 
 ROOT = Path(__file__).parent.parent
@@ -19,6 +22,23 @@ def test_namespace_skills_document_capability_and_parameters() -> None:
     assert len(namespace_skills) == 18
     for name in namespace_skills:
         text = _namespace_skill_text(name)
+        if name == "pal-found-third-party-applications":
+            reference = (SKILLS / name / "references/01-applications.md").read_text(encoding="utf-8")
+            records = re.findall(r"^### ([a-z_]+\.[a-z_]+)\s*$", reference, re.M)
+            expected = {key.replace(" ", ".", 1) for key in FROZEN_OPERATIONS[name]}
+            assert len(records) == len(expected) == 9
+            assert set(records) == expected
+            assert "SDK 1.101.0" in text
+            assert re.search(r"optional (?:source|background|provenance)", text, re.I)
+            assert re.search(r"\]\(https://www\.palantir\.com/docs/foundry/[^)]+\)", text)
+            assert all(word in text.lower() for word in ("application", "website", "version", "deploy"))
+            assert "references/01-applications.md" in text
+            bundle = text + reference
+            assert all(option in bundle for option in (
+                "FOUNDRY_HOSTNAME", "FOUNDRY_TOKEN", "FOUNDRY_AGENTIC_CLI_ENV_FILE",
+                "UserTokenAuth", "--file", "--page-token", "--max-pages",
+            ))
+            continue
         assert "## Capability and source" in text
         assert "Optional source" in text or "Source:" in text
         assert "Parameters and JSON" in text

@@ -1,0 +1,15 @@
+
+Found 10 comment(s) for DESIGN-078:
+========================================================================================================================
+Comment ID                     Author               Created              Updated              Subject
+------------------------------------------------------------------------------------------------------------------------
+20261007-101802-tech-lead      tech-lead            2026-10-07T10:18:02  2026-10-07T10:18:02  Ticket created
+20261007-101804-tech-lead      tech-lead            2026-10-07T10:18:04  2026-10-07T10:18:04  Ticket updated
+20261007-101805-tech-lead      tech-lead            2026-10-07T10:18:05  2026-10-07T10:18:05  Ticket updated
+20261007-101836-tech-lead      tech-lead            2026-10-07T10:18:36  2026-10-07T10:18:36  Technical plan estimates and lead-review handoff
+20261007-101838-tech-lead      tech-lead            2026-10-07T10:18:38  2026-10-07T10:18:38  Ticket updated
+20261007-101839-tech-lead      tech-lead            2026-10-07T10:18:39  2026-10-07T10:18:39  Ticket updated
+20261007-102052-qa-engineer    qa-engineer          2026-10-07T10:20:52  2026-10-07T10:20:52  Independent QA and DevOps lead grooming approvals
+20261007-154128-tech-lead      tech-lead            2026-10-07T15:41:28  2026-10-07T15:41:28  Independent lead approvals and completed Design DoD
+20261007-154129-tech-lead      tech-lead            2026-10-07T15:41:29  2026-10-07T15:41:29  Ticket updated
+20261007-154130-tech-lead      tech-lead            2026-10-07T15:41:30  2026-10-07T15:41:30  Ticket updated

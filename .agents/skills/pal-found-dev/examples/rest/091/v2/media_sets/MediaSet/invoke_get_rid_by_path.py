@@ -19,17 +19,17 @@ from mock_transport import mock_resource
 EXPECTED_METHOD = 'GET'
 EXPECTED_PATH = '/api/v2/mediasets/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/items/getRidByPath'
 EXPECTED_BODY = None
-EXPECTED_QUERY = {'mediaItemPath': 'synthetic-value',
+EXPECTED_QUERY = {'mediaItemPath': 'inspections/pixel.png',
  'branchName': None,
  'branchRid': None,
  'preview': None,
  'viewRid': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {}
+SUCCESS = {'mediaItemRid': 'ri.mio.main.media-item.00000000-0000-0000-0000-000000000002'}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.get_rid_by_path(media_set_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', media_item_path='synthetic-value', request_timeout=30)
+    return client.with_raw_response.get_rid_by_path(media_set_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', media_item_path='inspections/pixel.png', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -60,6 +60,13 @@ def normalized(value):
         return value.model_dump(mode='json', by_alias=True, exclude_none=True)
     return value
 
+def require_item_rid(result):
+    """A successful HTTP lookup may contain no item; stop before item operations."""
+    if result.media_item_rid is None:
+        raise LookupError('No media item at requested path in selected branch/view')
+    return result.media_item_rid
+
+
 def verify():
     calls = []
     def success(request):
@@ -73,10 +80,26 @@ def verify():
     with mock_resource(MediaSetClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = raw.decode()
+            assert normalized(result) == SUCCESS
+            assert require_item_rid(result) == SUCCESS['mediaItemRid']
         finally:
             raw.close()
     assert len(calls) == 1
+    def absent(request):
+        check_request(request)
+        return httpx.Response(200, json={})
+    with mock_resource(MediaSetClient, absent) as client:
+        raw = invoke(client)
+        try:
+            try:
+                require_item_rid(raw.decode())
+            except LookupError:
+                pass
+            else:
+                raise AssertionError('Missing item must stop downstream reads')
+        finally:
+            raw.close()
     for error_case in ERRORS:
         def failure(request):
             check_request(request)

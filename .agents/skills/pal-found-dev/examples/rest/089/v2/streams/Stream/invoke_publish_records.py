@@ -2,6 +2,12 @@
 
 Synthetic identifiers do not name tenant resources. Prepared SDK 1.101.0/httpx
 required. No network connections or live mutations occur.
+
+Prerequisite: the selected stream has orderId: string (not nullable) and
+quantity: integer (not nullable). Resolve its schema/view before publishing.
+The fixture validates these sample fields only; Foundry enforces the real schema.
+The SDK returns None. Confirm delivery with a bounded partition read using the
+application orderId, and reconcile uncertain writes before retrying.
 """
 import json
 import sys
@@ -18,7 +24,7 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/highScale/streams/datasets/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/streams/synthetic-value/publishRecords'
-EXPECTED_BODY = {'records': [{}]}
+EXPECTED_BODY = {'records': [{'orderId': 'order-001', 'quantity': 2}, {'orderId': 'order-002', 'quantity': 1}]}
 EXPECTED_QUERY = {}
 EXPECTED_HEADERS = {'Content-Type': 'application/json'}
 SUCCESS = None
@@ -29,7 +35,7 @@ ERRORS = [{'name': 'PublishRecordsToStreamPermissionDenied',
                  'streamBranchName': 'synthetic-value'}}]
 
 def invoke(client):
-    return client.with_raw_response.publish_records(dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', stream_branch_name='synthetic-value', records=[{}], request_timeout=30)
+    return client.with_raw_response.publish_records(dataset_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', stream_branch_name='synthetic-value', records=[{'orderId': 'order-001', 'quantity': 2}, {'orderId': 'order-002', 'quantity': 1}], request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

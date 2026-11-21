@@ -8,7 +8,7 @@
 
 ## Procedure and worked example
 
-Call [Dataset.create](../../contracts/v2/streams/Dataset/create.md) once with the intended schema and parent. Retain the returned dataset and stream identity. The [offline SDK fixture](../../../../examples/rest/089/v2/streams/Dataset/invoke_create.py) checks request body, decoded result and named errors without an enrollment. Run it with `python -B` from the skill root. For live use, read the new [Stream](Stream.md) by dataset RID and branch to verify schema, partition count and view RID before giving producers access.
+Call [Dataset.create](../../contracts/v2/streams/Dataset/create.md) once with the intended schema and parent. Retain the returned Dataset RID, name and parent folder RID. The response contains no stream or view identity; resolve the first stream with `Stream.get(dataset_rid, stream_branch_name)` using the chosen or default branch. The [offline SDK fixture](../../../../examples/rest/089/v2/streams/Dataset/invoke_create.py) checks request body, decoded result and named errors without an enrollment. Run it with `python -B` from the skill root. For live use, read the new [Stream](Stream.md) by dataset RID and branch to verify schema, partition count and view RID before giving producers access.
 
 ## Expected result, recovery and access boundary
 

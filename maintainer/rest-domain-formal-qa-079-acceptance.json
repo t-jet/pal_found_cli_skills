@@ -1,0 +1,574 @@
+{
+  "story": "DEV-STORY-079",
+  "formal_qa_status": "accepted",
+  "independent_qa_agent": "/root/rest079_distinct_formal_executor_20261118",
+  "case_author": "/root/rest079_formal_case_author_recover_20261118",
+  "original_case_author": "/root/rest079_unit_independent_qa_20261117",
+  "case_reviewer": "/root/rest079_formal_case_independent_peer_20261118",
+  "source_reviewer": "/root/rest079_retest_20261029",
+  "integration_agent": "/root/rest079_independent_formal_acceptance_20261118",
+  "acceptance_task": "TASK-023",
+  "integration_acceptance": "PROPOSED_PENDING_ROOT_METADATA_GATE",
+  "operations": 32,
+  "checks": 1564,
+  "declared_errors": 0,
+  "closure": {
+    "testcase": "Closed",
+    "testexec": "Closed",
+    "story": "Deployment",
+    "owner_prerequisite_decision": "QUESTION-199 Closed; PM-recorded Owner answer 20261118-132148-@project-manager",
+    "architect_incorporation": "QUESTION-197 Closed",
+    "results_comment": "20261118-181149-@qa-engineer",
+    "closure_comment": "20261118-181211-@qa-engineer",
+    "full_cli_capture": "cli/ within archive"
+  },
+  "canonical_evidence": {
+    "path": "maintainer/rest-domain-formal-qa-079.json",
+    "sha256": "91eaaa83ed7cad5158b2a68478f611bd953a341dd4177afd6b9f513479db6deb"
+  },
+  "artifacts": {
+    "additional_checks.py": {
+      "path": "maintainer/evidence/rest079/additional_checks.py",
+      "sha256": "90da13bfae5c685a22319d58301e1ddd2ab7c20b48b71ebcf8a466698cbf9044"
+    },
+    "environment_preflight.json": {
+      "path": "maintainer/evidence/rest079/environment_preflight.json",
+      "sha256": "9e997a77d30d721a4e68ac3bd0711e598557bcb923ebb548092127f757bd2be4"
+    },
+    "feature015_rest079_formal_qa_archive_20261118.zip": {
+      "path": "maintainer/evidence/rest079/feature015_rest079_formal_qa_archive_20261118.zip",
+      "sha256": "07fb91884de249771a3f8bcfe1a7f07001a38bf9fb50e99a667191333d81c38b"
+    },
+    "feature015_rest079_formal_qa_inventory.json": {
+      "path": "maintainer/evidence/rest079/feature015_rest079_formal_qa_inventory.json",
+      "sha256": "808c25038ffe8d491002395ac7c56dbead0028632d45c906e8f183b228e4a652"
+    },
+    "formal_case_coverage.json": {
+      "path": "maintainer/evidence/rest079/formal_case_coverage.json",
+      "sha256": "07e5cf058b4b2cdd487517b82869bf323fbe63aaed76823a3f77ccf2bd299568"
+    },
+    "formal_evidence_manifest.json": {
+      "path": "maintainer/evidence/rest079/formal_evidence_manifest.json",
+      "sha256": "d93704fce22b8058200467a3ce79e762cb53726fed7ab2c6b9115bbd7fc9a6bb"
+    },
+    "formal_measurement.json": {
+      "path": "maintainer/evidence/rest079/formal_measurement.json",
+      "sha256": "d9cd4fc37430bb43bc3182772e3516a210512dc9ea7927d802745aa60225c2ad"
+    },
+    "formal_result.json": {
+      "path": "maintainer/evidence/rest079/formal_result.json",
+      "sha256": "22b773edfc5db4a88cce4d7ead4fbd4b78e7bec133d1ccbdd3a926e21004068a"
+    },
+    "independent_binding_review.json": {
+      "path": "maintainer/evidence/rest079/independent_binding_review.json",
+      "sha256": "e00cf44111ee8770445fa1f16bb09de7859ba2de7105b12d419997e909461823"
+    },
+    "LICENSE": {
+      "path": "maintainer/evidence/rest079/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "peer_review_v2.json": {
+      "path": "maintainer/evidence/rest079/peer_review_v2.json",
+      "sha256": "a1a451f5362392985e1c87d237a422d8c626a695125d0cab382a076acea9a626"
+    },
+    "proposal_metadata_validation.json": {
+      "path": "maintainer/evidence/rest079/proposal_metadata_validation.json",
+      "sha256": "000a98c3a5fbcd4b253015de5c448a5958609eb04172cc3f6206891a5571dac9"
+    },
+    "rest079_assets_freeze.json": {
+      "path": "maintainer/evidence/rest079/rest079_assets_freeze.json",
+      "sha256": "7f6f42060c4cc18535dd4009cf335cf6a8355eb0d80ea44e69ccb36e2563cd8f"
+    },
+    "rest079_formal_cases.feature": {
+      "path": "maintainer/evidence/rest079/rest079_formal_cases.feature",
+      "sha256": "5a146376ce28c3b077e4c19e5fce9372e0cb1d7027a01f84eb632b214e82e7e3"
+    },
+    "rest079_formal_cases.json": {
+      "path": "maintainer/evidence/rest079/rest079_formal_cases.json",
+      "sha256": "1587b936fc129eab6b91fb86ae276f181b031b4a4d55256c6d33885b1ecfebbe"
+    },
+    "rest079_formal_execute.py": {
+      "path": "maintainer/evidence/rest079/rest079_formal_execute.py",
+      "sha256": "b7fc8a404cfd5f883c2339955517e5763d34481fb54f8106392df7201d004cb6"
+    },
+    "techlead_case_approval_v2.json": {
+      "path": "maintainer/evidence/rest079/techlead_case_approval_v2.json",
+      "sha256": "0d1b2ec7007920c5806b13adf9adc1e43d70aa98de954b262ecf2e0b5aa0e536"
+    }
+  },
+  "inventory_files_preserved": 9118,
+  "archive_members_including_inventory": 9119,
+  "no_execution_repeated": true,
+  "all_bindings_current_and_unchanged": false,
+  "relevant_domain_bindings_current": true,
+  "metadata_proposal": {
+    "kind": "PROPOSED_REST079_METADATA_ACCEPTANCE",
+    "task": "TASK-023",
+    "root_metadata_approval": "PENDING",
+    "proposal_base": "51f594c08403ac49d848e0d8c4af9986377f64d2",
+    "register_candidate_anchor_preserved": "b601a40fe6a97ad5a66c400a5bfd5be5563fd4d1",
+    "register_current_bundle_sha256_preserved": "7c75d27f7c1558ffef6579df8025d1ed1b6f268d1a2d37f36754393967977d83",
+    "exact_changed_operation_rows": [
+      {
+        "id": "v2.ontologies.ActionType.get",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.ActionType.get_by_rid",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.ActionType.get_by_rid_batch",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.ActionType.list",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.ActionType.search",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.ActionTypeFullMetadata.get",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.ActionTypeFullMetadata.list",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.ObjectType.get",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.ObjectType.get_by_rid_batch",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.ObjectType.get_edits_history",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.ObjectType.get_full_metadata",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.ObjectType.get_outgoing_link_type",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.ObjectType.get_outgoing_link_types_by_object_type_rid_batch",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.ObjectType.list",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.ObjectType.list_outgoing_link_types",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.Ontology.get",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.Ontology.get_full_metadata",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.Ontology.list",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.Ontology.load_metadata",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.OntologyInterface.aggregate",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.OntologyInterface.get",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.OntologyInterface.get_outgoing_interface_link_type",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.OntologyInterface.list",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.OntologyInterface.list_interface_linked_objects",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.OntologyInterface.list_objects_for_interface",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.OntologyInterface.list_outgoing_interface_link_types",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.OntologyInterface.search",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.OntologyValueType.get",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.OntologyValueType.list",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.QueryType.get",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.QueryType.get_by_rid_batch",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      },
+      {
+        "id": "v2.ontologies.QueryType.list",
+        "fields": {
+          "independent_qa_agent": {
+            "before": null,
+            "after": "/root/rest079_distinct_formal_executor_20261118"
+          },
+          "independent_qa_status": {
+            "before": "pending",
+            "after": "accepted"
+          }
+        }
+      }
+    ],
+    "changed_row_count": 32,
+    "changed_fields_per_row": [
+      "independent_qa_status",
+      "independent_qa_agent"
+    ],
+    "other393rows_unchanged": true,
+    "previous229accepted_rows_unchanged": true,
+    "top_level_metadata_unchanged": true,
+    "semantic_accepted": 425,
+    "formal_accepted_before": 229,
+    "formal_accepted_proposed": 261,
+    "formal_pending_before": 196,
+    "formal_pending_proposed": 164,
+    "baseline_release_gate_counts": {
+      "operation_qa_pending": 196,
+      "operation_qa_provenance": 196,
+      "skill_review_pending": 40
+    },
+    "proposal_release_gate_counts": {
+      "operation_qa_pending": 164,
+      "operation_qa_provenance": 164,
+      "skill_review_pending": 40
+    },
+    "release_gate_still_blocked": true,
+    "validator_decision": "Current metadata anchor and bundle pass. Validator does not require each historical formal run to execute the current whole-reader bundle. Exact original frozen bundle remains in archive with two foreign-guide differences and no claim of current whole-reader execution.",
+    "validator_sources": [
+      "scripts/verify_feature015_release.py:check_operations",
+      "scripts/verify_feature015_release.py:check_candidate_anchor",
+      "tests/test_offline_rest_acceptance.py:verify_domain_acceptance"
+    ],
+    "sad_affected_gate_rule": "SA-DES-014 verification-and-delivery.md section3.4 step6 requires repeat affected gates before delivery complete. Foreign guide correction has distinct six-operation review; REST079 affected inputs equal retained executed bytes.",
+    "no_execution_repeated": true,
+    "input_binding_review_sha256": "e00cf44111ee8770445fa1f16bb09de7859ba2de7105b12d419997e909461823"
+  },
+  "limits": [
+    "Prior483-definition semantic review reused through exact membership and unchanged page hashes; fresh complete definition AST reconciliation, not fresh exhaustive483-page prose review.",
+    "Native SDK/mock-transport fixture validation only. No live enrollment, permissions, platform effects, global current-guide correctness, integrated QA acceptance or publication approval.",
+    "Python-process DNS/socket/httpx patches demonstrated six safely blocked probes. Child git show executes locally; no OS firewall or all-process disconnection claim.",
+    "Shipped invocation fidelity uses independent wire/response expectations; shipped SUCCESS/verify payload meanings rely on separately preserved source/semantic review.",
+    "Scenario evidence overlaps; the authoritative formal total is1564 result-array rows.",
+    "Unrelated Thirdparty guide changes were not inputs to these frozen Ontology cases.",
+    "Process CPU excludes child git CPU; measured elapsed runtime excludes human and historical contributor effort."
+  ],
+  "source_notices": "Original copyright headers preserved in frozen SDK sources. Frozen SDK root and reader asset include Apache-2.0 LICENSE; frozen SDK root has no separate NOTICE.",
+  "archive_context_mapping": "Canonical operation check indices resolve actual_results and retained formal_result.json. Inventory paths resolve every original/history/reader/source/probe/CLI member inside immutable archive."
+}

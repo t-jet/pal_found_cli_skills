@@ -1,0 +1,54 @@
+{
+  "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+  "result": {
+    "operations": 425,
+    "symbols": 3251,
+    "pilot": false
+  },
+  "changed": [
+    ".agents/skills/pal-found-dev/references/rest/contracts/v2/admin/Marking/parse_classifications.md",
+    ".agents/skills/pal-found-dev/references/rest/contracts/v2/filesystem/Resource/restore.md",
+    ".agents/skills/pal-found-dev/references/rest/models/v2/filesystem/models/FolderType.md",
+    ".agents/skills/pal-found-dev/references/rest/models/v2/filesystem/models/Organization.md",
+    ".agents/skills/pal-found-dev/references/rest/models/v2/filesystem/models/ProjectResourceReferenceUnion.md",
+    ".agents/skills/pal-found-dev/references/rest/models/v2/ontologies/models/QueryAggregationValueType.md",
+    "maintainer/rest-model-register.json",
+    "maintainer/rest-model-semantic-matrix.json"
+  ],
+  "idempotent": true,
+  "network_attempts": 0,
+  "changes": {
+    ".agents/skills/pal-found-dev/references/rest/contracts/v2/admin/Marking/parse_classifications.md": {
+      "before": "7b93c4d8dc997e9f0871555944b3f5d734aee2cc4da583eee66a0b7f8bc627c6",
+      "after": "d5d1e46260e25aded2e78c7128941f93d4d18c38d8ec78d733aee6a7e2d7293f"
+    },
+    ".agents/skills/pal-found-dev/references/rest/contracts/v2/filesystem/Resource/restore.md": {
+      "before": "77c9735849d0d196d0640f2eb567e4b5ea4a2a9a946a0334a115a8e01c01f2cf",
+      "after": "937bc251854f753f89657b04f30c97bfe1479f7c1e7bda7a1ac162e7a88e3b7d"
+    },
+    ".agents/skills/pal-found-dev/references/rest/models/v2/filesystem/models/FolderType.md": {
+      "before": "d37beab0ac1067b8d3a8895b6a87df93a102d87a28f64d265b8f7fc32535ab29",
+      "after": "c7b557d4d89a1170c95152b442060182488ec19b5360b54fee215050abe17ff5"
+    },
+    ".agents/skills/pal-found-dev/references/rest/models/v2/filesystem/models/Organization.md": {
+      "before": "b29a2d23ae1bb04047c16e3f093b74749b8a395fbb4a4cadd71311c2c18324f1",
+      "after": "a7fe69243c9a4cd0e0ea37ddd5fd4963e4f268373255a56d6963a9f98243cc36"
+    },
+    ".agents/skills/pal-found-dev/references/rest/models/v2/filesystem/models/ProjectResourceReferenceUnion.md": {
+      "before": "1ab3dc762cdfafba7254e1e1394be06427a7e32d17d21c3b447383e3db022ff8",
+      "after": "5d93cc35b7b2c399ab3b9d251b7b58f13d0f7737f1129d3c0023252a76fdc1ea"
+    },
+    ".agents/skills/pal-found-dev/references/rest/models/v2/ontologies/models/QueryAggregationValueType.md": {
+      "before": "9f85a1ba58fdce6cf3212ee79b053a3b609f3b3ba26669be343db02cf0d33121",
+      "after": "e33b9955a2bf13bc591522d1993ed0763cb2dfec91cf0bfdeb45bae02cfd7267"
+    },
+    "maintainer/rest-model-register.json": {
+      "before": "989f5e37f390301761bb5cb4601712f51df7ed8fd0fc7dbef58faa4aac6eb3e5",
+      "after": "83f148a9681d1a6fbf6152a9d86fba9190bf613ca2b9680f9432f609813b01f0"
+    },
+    "maintainer/rest-model-semantic-matrix.json": {
+      "before": "151a299541b7141f210cc766937e51d68de7b1274a73783d04ad962d34d57275",
+      "after": "aff6d68f63c4d45b15a8787077abb0015cdb2f59121fcfb2c8d67c038209e9fe"
+    }
+  }
+}

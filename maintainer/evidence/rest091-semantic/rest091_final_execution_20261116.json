@@ -1,0 +1,34 @@
+{
+  "reviewer": "/root/rest091_final_retest_20261116",
+  "runtime": {
+    "foundry-platform-sdk": "1.101.0",
+    "httpx": "0.28.1"
+  },
+  "pytest": {
+    "command": "python -B -m pytest tests/test_offline_rest_091.py -q -p no:cacheprovider -o addopts= --basetemp=<workspace>/.ept/tmp/rest091_final_pytest_20261116",
+    "exit_code": 0,
+    "result": "66 passed in 0.48s"
+  },
+  "candidate_post_pytest": {
+    "frozen_file_hashes_match": true,
+    "source_hashes_match": true,
+    "dirty_files": [
+      " M .agents/skills/pal-found-dev/examples/rest/091/v2/media_sets/MediaSet/invoke_get_rid_by_path.py",
+      " M .agents/skills/pal-found-dev/examples/rest/091/v2/media_sets/MediaSet/invoke_reference.py",
+      " M .agents/skills/pal-found-dev/examples/rest/091/v2/media_sets/MediaSet/invoke_register.py",
+      " M .agents/skills/pal-found-dev/examples/rest/091/v2/media_sets/MediaSet/invoke_upload.py",
+      " M .agents/skills/pal-found-dev/examples/rest/091/v2/media_sets/MediaSet/invoke_upload_media.py",
+      " M .agents/skills/pal-found-dev/examples/rest/091/v2/widgets/DevModeSettings/invoke_set_widget_set_by_id.py",
+      " M .agents/skills/pal-found-dev/examples/rest/091/v2/widgets/DevModeSettingsV2/invoke_set_widget_set_manifest.py",
+      " M .agents/skills/pal-found-dev/references/rest/v2/media_sets/MediaSet.md",
+      " M .agents/skills/pal-found-dev/references/rest/v2/widgets/DevModeSettings.md",
+      " M .agents/skills/pal-found-dev/references/rest/v2/widgets/DevModeSettingsV2.md",
+      "?? tests/test_offline_rest_091.py"
+    ]
+  },
+  "raw_artifact_boundary": "Raw report preserves reused first-review reason labels (22 PASS/7 FAIL). Final report applies independently checked correction predicates and is authoritative for final 29 PASS verdicts.",
+  "boundaries": [
+    "No tracker writes, author edits, register edits, commit, push or promotion.",
+    "SDK MockTransport with DNS/socket/native HTTP negative probes. No live Foundry authorization or behavior claims."
+  ]
+}

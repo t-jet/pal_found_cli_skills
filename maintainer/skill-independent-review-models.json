@@ -1,0 +1,820 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/models_guidance_retest_20261029",
+  "ticket": "BUG-047",
+  "runtime_dependency": "BUG-046 corrected source candidate",
+  "candidate": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_guidance_fixes\\.agents\\skills\\pal-found-models",
+  "skill_base_commit": "6df64cce16bf0619bee124f831e1e8686c08cccf",
+  "skill_branch": "feature015/models-standalone-guidance",
+  "overall_verdict": "PASS",
+  "counts": {
+    "PASS": 14,
+    "FAIL": 0,
+    "UNCERTAIN": 0
+  },
+  "pages": [
+    {
+      "path": "references/01-models.md",
+      "sha256": "d5cedec028a9164fc4e6a44d5ad30cb8745c383663b40baf7718f0a46156d5b3",
+      "freeze_matches": true,
+      "lines": 10,
+      "verdict": "PASS",
+      "findings": [],
+      "whole_page_review": "All six navigation destinations resolve within skill. Original PASS page unchanged.",
+      "initial_verdict": "PASS",
+      "initial_sha256": "d5cedec028a9164fc4e6a44d5ad30cb8745c383663b40baf7718f0a46156d5b3",
+      "initial_findings_retained": [],
+      "unchanged_pass_continuity": true,
+      "example_probes": [],
+      "local_links": [
+        {
+          "target": "./model.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./model-version.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./experiment.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./experiment-artifact-table.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./experiment-series.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./live-deployment.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        }
+      ],
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ]
+    },
+    {
+      "path": "references/02-model-studio.md",
+      "sha256": "3048b6a4fb8e4a043e552938c243f551205371244de6f8253ea5cfe86154934a",
+      "freeze_matches": true,
+      "lines": 8,
+      "verdict": "PASS",
+      "findings": [],
+      "whole_page_review": "All four navigation destinations resolve within skill. Original PASS page unchanged.",
+      "initial_verdict": "PASS",
+      "initial_sha256": "3048b6a4fb8e4a043e552938c243f551205371244de6f8253ea5cfe86154934a",
+      "initial_findings_retained": [],
+      "unchanged_pass_continuity": true,
+      "example_probes": [],
+      "local_links": [
+        {
+          "target": "./model-studio.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./model-studio-config-version.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./model-studio-run.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./model-studio-trainer.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        }
+      ],
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ]
+    },
+    {
+      "path": "references/experiment-artifact-table.md",
+      "sha256": "3bcfeb412a96d26acafe6596b5bf0454ccb8d015dfd6438c759e6319f242f0d0",
+      "freeze_matches": true,
+      "lines": 25,
+      "verdict": "PASS",
+      "findings": [],
+      "whole_page_review": "Both streamed routes, required output basename, configured download root, JSON row slicing and metadata checked. Fresh synthetic bytes saved and closed. Original PASS page unchanged.",
+      "initial_verdict": "PASS",
+      "initial_sha256": "3bcfeb412a96d26acafe6596b5bf0454ccb8d015dfd6438c759e6319f242f0d0",
+      "initial_findings_retained": [],
+      "unchanged_pass_continuity": true,
+      "example_probes": [
+        "documented_experiment-artifact-table_json",
+        "documented_experiment-artifact-table_parquet",
+        "table_offset_size"
+      ],
+      "local_links": [
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        }
+      ],
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ]
+    },
+    {
+      "path": "references/experiment-series.md",
+      "sha256": "0861624bb51f0610f5ed22cec4acaa71e91d11cdd76719346e1ba5ffdf1297c4",
+      "freeze_matches": true,
+      "lines": 39,
+      "verdict": "PASS",
+      "findings": [],
+      "whole_page_review": "DoubleSeriesV1 entries and exact value/timestamp milliseconds/step checked against SDK and fresh response; producer-defined step, empty slices and bounded offset reading explained. Both JSON and Parquet routes exercised.",
+      "initial_verdict": "FAIL",
+      "initial_sha256": "130e548ecdf4d644136b2c60b19693bcb8ec859d3e8720a3857b10a723c3c33f",
+      "initial_findings_retained": [
+        "JSON result only names Series; no local explanation of type=doubleV1, series list, value, timestamp in epoch milliseconds, or step. These fields are present in actual SDK output and needed to interpret series data."
+      ],
+      "unchanged_pass_continuity": false,
+      "example_probes": [
+        "documented_experiment-series_json",
+        "documented_experiment-series_parquet",
+        "series_offset_size",
+        "independent_series_milliseconds",
+        "independent_series_empty"
+      ],
+      "local_links": [
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        }
+      ],
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ]
+    },
+    {
+      "path": "references/experiment.md",
+      "sha256": "a5507f1ae9eaeb00742f4f5dcfca416568b3c32a3abde60574255e146f406114",
+      "freeze_matches": true,
+      "lines": 80,
+      "verdict": "PASS",
+      "findings": [],
+      "whole_page_review": "Full metadata prose and all nine recursive filter variants reconciled with SDK, including enum fields/operators and Any semantic limits. Nested positive filter and invalid discriminator/field/operator/order cases exercised through SDK.",
+      "initial_verdict": "FAIL",
+      "initial_sha256": "432731a0e185915e88b0424a2698d28dad3a4300aeeb738d0741115b939b9adf",
+      "initial_findings_retained": [
+        "Search documents complex nested filters and --where-json/--order-by-json but delegates shape to an unspecified SDK schema. inputs.md provides none of nine filter discriminants, recursion keys, supported field/operator values, or orderBy field/direction shape. Offline reader cannot construct documented filtering behavior from local skill.",
+        "Result merely names Experiment. No local explanation of RUNNING/SUCCEEDED/FAILED status, optional status_message and linked_model_version, parameters/series/summary_metrics/artifacts, or artifact name discovery."
+      ],
+      "unchanged_pass_continuity": false,
+      "example_probes": [
+        "documented_experiment_get",
+        "documented_experiment_search",
+        "guidance_filter_eq",
+        "guidance_filter_contains",
+        "guidance_filter_startsWith",
+        "guidance_filter_and",
+        "guidance_filter_or",
+        "guidance_filter_not",
+        "guidance_filter_parameterFilter",
+        "guidance_filter_seriesFilter",
+        "guidance_filter_summaryMetricFilter",
+        "paging_flags_experiment",
+        "guidance_search_nested_filter",
+        "independent_filter_wrapper",
+        "independent_filter_unknown_type",
+        "independent_filter_invalid_field",
+        "independent_filter_invalid_operator",
+        "independent_order_invalid_field",
+        "independent_order_invalid_direction"
+      ],
+      "local_links": [
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        }
+      ],
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ]
+    },
+    {
+      "path": "references/inputs.md",
+      "sha256": "014e6f3a017644b8f77a367169ba1afdb1ad4e75c73465d79afe639c38c653ef",
+      "freeze_matches": true,
+      "lines": 71,
+      "verdict": "PASS",
+      "findings": [],
+      "whole_page_review": "Full worker input/output/customConfig prose checked against DatasetInput/ModelOutput and trainer Any aliases. Required dataset keys and exact wire bindings exercised. Prerequisite output models, dataset schemas and trainer-specific owner contract distinguished.",
+      "initial_verdict": "FAIL",
+      "initial_sha256": "7987e3ad1cd23d9c3c4a58f8892110dc32f65902d1e06bbeef67d847335cfada",
+      "initial_findings_retained": [
+        "Trainer ID is described generically, without stating SDK TrainerId is a resource RID. Linked config create example supplies invalid literal autogluon.",
+        "Input guide omits schemas for experiment filtering/ordering and Model Studio input/output variants and required aliases; saying these match trainer schema does not explain returned inputs/outputs/custom_config_schema fields.",
+        "Instruction to inspect runs for completion lacks optional build_status interpretation and resolved_outputs handling."
+      ],
+      "unchanged_pass_continuity": false,
+      "example_probes": [
+        "guidance_worker_binding_shape",
+        "independent_missing_dataset_required_keys"
+      ],
+      "local_links": [
+        {
+          "target": "./model-studio-run.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./experiment.md#search-json",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        }
+      ],
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ]
+    },
+    {
+      "path": "references/live-deployment.md",
+      "sha256": "1d639f9850a53601dd4f945ea02bf41bbd1cc8889200f3122be086d62e12c5df",
+      "freeze_matches": true,
+      "lines": 14,
+      "verdict": "PASS",
+      "findings": [],
+      "whole_page_review": "Existing inference command, deployment/model API prerequisites, uncertain timeout and structured errors checked. Valid synthetic request reaches transformJson; malformed JSON fails locally. Original PASS page unchanged.",
+      "initial_verdict": "PASS",
+      "initial_sha256": "1d639f9850a53601dd4f945ea02bf41bbd1cc8889200f3122be086d62e12c5df",
+      "initial_findings_retained": [],
+      "unchanged_pass_continuity": true,
+      "example_probes": [
+        "documented_live-deployment_transform-json",
+        "malformed_inference_json"
+      ],
+      "local_links": [
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        }
+      ],
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ]
+    },
+    {
+      "path": "references/model-studio-config-version.md",
+      "sha256": "633b8bc4e9b216630fd8c77337072692b8adfc89bd30df8ec033366ef184c8ac",
+      "freeze_matches": true,
+      "lines": 59,
+      "verdict": "PASS",
+      "findings": [],
+      "whole_page_review": "All four operation records, resources, exact trainer RID placeholder, worker owner-specific aliases, latest null and config/trainer locator fields checked. Corrected get reaches exact configVersions/1 route.",
+      "initial_verdict": "FAIL",
+      "initial_sha256": "67c6967bdb8fa7470de1f579e959834a377264de79cd0e41320cf72c7d9f68a3",
+      "initial_findings_retained": [
+        "Exact create example uses --trainer-id autogluon. SDK1.101.0 TrainerId aliases RID; ValidationError occurs before HTTP, exit 1. Diagnostic substitution of a valid trainer RID reaches HTTP without changing CLI source.",
+        "Get with valid studio RID and numeric version 1 exits 1 before HTTP: TypeError quote_from_bytes() expected bytes. SDK validates/coerces positional to integer, then _core/api_client.py:529 passes integer to urllib.parse.quote. Current CLI has no bridge.",
+        "Nested worker inputs/outputs configuration and trainer-driven validation are not explained beyond empty maps and replacement instruction; full returned ModelStudioConfigVersion fields are absent from local guidance."
+      ],
+      "unchanged_pass_continuity": false,
+      "example_probes": [
+        "documented_model-studio-config-version_create",
+        "documented_model-studio-config-version_get",
+        "documented_model-studio-config-version_latest",
+        "documented_model-studio-config-version_list",
+        "paging_flags_model-studio-config-version",
+        "latest_without_config",
+        "diagnostic_create_valid_trainer_rid",
+        "independent_invalid_trainer_display_name"
+      ],
+      "local_links": [
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./inputs.md#model-studio-worker-configuration",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        }
+      ],
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ]
+    },
+    {
+      "path": "references/model-studio-run.md",
+      "sha256": "2144b22e5014a4d7de89ab5d8a755b880e158075c0f06acf151657e1fb7e1bd7",
+      "freeze_matches": true,
+      "lines": 47,
+      "verdict": "PASS",
+      "findings": [],
+      "whole_page_review": "Full run identity correlation, optional/null buildStatus, required resolvedOutputs and optional experiment checked. Finite checks/deadline, pagination, absent/failed/canceled status, timeout reconciliation and recovery remain procedures; no invented wait/cancel command.",
+      "initial_verdict": "FAIL",
+      "initial_sha256": "7865d12d8564856f0ce96e76868a47caa64cb5100d8c0ee9d45366dd07a986eb",
+      "initial_findings_retained": [
+        "Run list is the prescribed training-completion check, but page omits actual optional build_status, config_version, run_id/build_rid/job_rid, and resolved_outputs. Reader is not told that absent build_status leaves completion unknown or how to identify produced model/version/experiment."
+      ],
+      "unchanged_pass_continuity": false,
+      "example_probes": [
+        "documented_model-studio-run_list",
+        "guidance_run_no_status",
+        "guidance_run_resolved_output",
+        "paging_flags_model-studio-run",
+        "run_config_version",
+        "independent_run_status_None",
+        "independent_run_status_FAILED",
+        "independent_run_status_CANCELED",
+        "independent_run_optional_experiment"
+      ],
+      "local_links": [
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        }
+      ],
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ]
+    },
+    {
+      "path": "references/model-studio-trainer.md",
+      "sha256": "f193ddd3fa3e4d66213936d0c76424832c82a8883c6a2ed3567ef5cc7931d8eb",
+      "freeze_matches": true,
+      "lines": 44,
+      "verdict": "PASS",
+      "findings": [],
+      "whole_page_review": "Task enums and trainer schema/input/output Any limits reconciled; discovery RID and version checked. Arbitrary nested trainer Any fields preserve content; unsupported universal schema is not invented.",
+      "initial_verdict": "FAIL",
+      "initial_sha256": "ea7ae4661634026d8ce654489acd976fb0ccd62e2e85379fd282eb8ccc646773",
+      "initial_findings_retained": [
+        "Trainer list/get is prescribed prerequisite for constructing config. Page gives response class only and omits trainer_id RID, version, inputs/outputs specifications, custom_config_schema, experimental and task type meaning. Input guide supplies no usable schema discovery walkthrough."
+      ],
+      "unchanged_pass_continuity": false,
+      "example_probes": [
+        "documented_model-studio-trainer_get",
+        "documented_model-studio-trainer_list",
+        "trainer_version",
+        "independent_trainer_any_limits"
+      ],
+      "local_links": [
+        {
+          "target": "./inputs.md#model-studio-worker-configuration",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        }
+      ],
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ]
+    },
+    {
+      "path": "references/model-studio.md",
+      "sha256": "fda5d2d0ed0bd98fdf60d160d0c88f47926a7f26b0d9fdbd58647284d4c65f2b",
+      "freeze_matches": true,
+      "lines": 36,
+      "verdict": "PASS",
+      "findings": [],
+      "whole_page_review": "Create/get/launch prose and examples checked. Launch uses latest config and links to bounded completion/recovery; returned run is not asserted complete.",
+      "initial_verdict": "FAIL",
+      "initial_sha256": "b2dfc742b39e9bffe0db19d08bb060d8719a033dc8a7e9baf39496197f2d48c2",
+      "initial_findings_retained": [
+        "Launch directs reader to inspect run state later, but neither this page nor linked run page explains build_status optionality/completion checks and resolved_outputs. A successfully returned run does not establish training finished or a deployable result."
+      ],
+      "unchanged_pass_continuity": false,
+      "example_probes": [
+        "documented_model-studio_create",
+        "documented_model-studio_get",
+        "documented_model-studio_launch"
+      ],
+      "local_links": [
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./model-studio-run.md#completion-and-recovery",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        }
+      ],
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ]
+    },
+    {
+      "path": "references/model-version.md",
+      "sha256": "4a980c937e34e12bf50543bbb12a8044f0db8e0abccfc231109f2160871d5d1f",
+      "freeze_matches": true,
+      "lines": 73,
+      "verdict": "PASS",
+      "findings": [],
+      "whole_page_review": "All three operation records and complete supported API data type shapes checked. Dill-only ModelFiles creation separated from all seven response provenance source variants; recursive API and tabular/dill examples serialize, container files fail locally. Loadability/runtime quality unproven.",
+      "initial_verdict": "UNCERTAIN",
+      "initial_sha256": "563bae00849505704df0069b6abac0dbe4c7c2675b236f816f051efcaca4b72c",
+      "initial_findings_retained": [
+        "Documented tabular/double/dill create example is SDK-valid after explicit artifact placeholder substitution, but local guide does not cover parameter/any/array/map and remaining modelFiles variants. Completeness for broader claimed model API support remains unproven; no unsupported schema was invented.",
+        "Response names ModelVersion without explaining model_api, source variants and optional linked_experiment. Need owning source review to establish required standalone depth for non-example variants."
+      ],
+      "unchanged_pass_continuity": false,
+      "example_probes": [
+        "documented_model-version_create",
+        "documented_model-version_get",
+        "documented_model-version_list",
+        "paging_flags_model-version",
+        "independent_version_source_sdk",
+        "independent_version_source_external",
+        "independent_version_source_importedContainerizedModel",
+        "independent_version_source_modelStudio",
+        "independent_version_source_codeRepository",
+        "independent_version_source_codeWorkspace",
+        "independent_version_source_promoted",
+        "independent_recursive_model_api",
+        "independent_container_not_model_files"
+      ],
+      "local_links": [
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        }
+      ],
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ]
+    },
+    {
+      "path": "references/model.md",
+      "sha256": "0223d1bfc2f9e5bbf4ada9fb14d16aff73e1b3bb69a056d04ab923be8123b205",
+      "freeze_matches": true,
+      "lines": 36,
+      "verdict": "PASS",
+      "findings": [],
+      "whole_page_review": "All three records and examples checked, including existing parent folder and source/destination promotion interpretation. Original PASS page unchanged.",
+      "initial_verdict": "PASS",
+      "initial_sha256": "0223d1bfc2f9e5bbf4ada9fb14d16aff73e1b3bb69a056d04ab923be8123b205",
+      "initial_findings_retained": [],
+      "unchanged_pass_continuity": true,
+      "example_probes": [
+        "documented_model_create",
+        "documented_model_get",
+        "documented_model_promote-version",
+        "permission_denied"
+      ],
+      "local_links": [
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "./inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        }
+      ],
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "d7acf9966b1be3b1573b573362ab799d71035576cb30bbf8b1c571e423182504",
+      "freeze_matches": true,
+      "lines": 91,
+      "verdict": "PASS",
+      "findings": [],
+      "whole_page_review": "Full prose checked: token/hostname, UserTokenAuth boundary, administrator/resource prerequisites and dependencies; scoped structured output fallback; no claims of training or readiness from launch.",
+      "initial_verdict": "FAIL",
+      "initial_sha256": "b9e4d16b5556af76fbb6114fc0cfe17d500d581d0d625e43e7110148ac7e3e14",
+      "initial_findings_retained": [
+        "Authentication prerequisite is missing from this standalone skill: no FOUNDRY_TOKEN/FOUNDRY_HOSTNAME instructions or local authentication guide. Actual missing-token invocation exits 9 before HTTP.",
+        "Model Studio completion guidance does not identify the returned optional build_status or explain absent status and resolved outputs. Linked run page supplies no interpretation either."
+      ],
+      "unchanged_pass_continuity": false,
+      "example_probes": [
+        "timeout_pretty",
+        "readonly_create",
+        "missing_auth_token",
+        "independent_missing_hostname",
+        "independent_format_single_json",
+        "independent_format_single_toon",
+        "independent_format_list_json",
+        "independent_format_list_toon"
+      ],
+      "local_links": [
+        {
+          "target": "references/01-models.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "references/02-model-studio.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        },
+        {
+          "target": "references/inputs.md",
+          "exists": true,
+          "anchor_exists": true,
+          "inside_skill": true
+        }
+      ],
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ]
+    }
+  ],
+  "freeze_sha256": "4ad6fd32f7cc6aaa4f1f65fb3120c5231d90cdf3a385b2ec9adb1c6ce8d107db",
+  "frozen_sources_match": {
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\models.py": true,
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\models.py": true,
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py": true,
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\model_base.py": true,
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\errors.py": true,
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment.py": true,
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment_artifact_table.py": true,
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment_series.py": true,
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\live_deployment.py": true,
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model.py": true,
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_function.py": true,
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio.py": true,
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_config_version.py": true,
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_run.py": true,
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_trainer.py": true,
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_version.py": true,
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\_client.py": true,
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\__init__.py": true,
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\models\\scripts\\pal_found_models_cli.py": true,
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\access_control_guard.py": true,
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\async_client_factory.py": true,
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\auth_provider.py": true,
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\binary_download_handler.py": true,
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\cli_parser.py": true,
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\config_loader.py": true,
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\error_serializer.py": true,
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\log_setup.py": true,
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\output_formatter.py": true,
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\pagination_helper.py": true,
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\retry.py": true,
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\sdk_error_utils.py": true,
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\session_manager.py": true,
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\timeout_config.py": true,
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\tracing_provider.py": true,
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\__init__.py": true,
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\api_client.py": true
+  },
+  "tool_models_sha256": "d8dcd02b8da0edb6e66595539ee964d5c856ac388fd889fea84b22cbecc39009",
+  "sdk_release": "1.101.0",
+  "initial_evidence": {
+    "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_pages_review_20261029.json",
+    "sha256": "23773c3fa8791797a1eb592adb36dfc2e77d9c78d48787321f1e6746ddd4c33c",
+    "counts": {
+      "PASS": 5,
+      "FAIL": 8,
+      "UNCERTAIN": 1
+    },
+    "initial_probe_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\models_pages_probe_20261029.json",
+    "initial_probe_sha256": "64eb934edfa7de6d2bed14fc8af90298b9dbcc7a2fba2a5d68bce4b829bece7c",
+    "preserved_failures": [
+      "Literal autogluon invalid trainer RID before transport",
+      "Native SDK config-version integer path encoding TypeError before transport"
+    ],
+    "original_files_modified": false
+  },
+  "fresh_probes": {
+    "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\models_guidance_retest_probes_20261029.json",
+    "sha256": "28e0e7d0c485a20c163e9aead9c0347895e2b8bd3f9c8114d9fc7193dd736304",
+    "count": 80,
+    "pass": 80,
+    "documented_operation_examples": 23,
+    "independently_authored_supplemental_cases": 29,
+    "runner_reuse": "Author transport runner imported; all probes rerun independently and supplemental cases authored by reviewer."
+  },
+  "network_denial_demonstrated": [
+    {
+      "name": "dns",
+      "verdict": "PASS",
+      "error": "Public socket/DNS/default transport denied"
+    },
+    {
+      "name": "connection",
+      "verdict": "PASS",
+      "error": "Public socket/DNS/default transport denied"
+    }
+  ],
+  "scope": "Fresh actual CLI/parser/access guard/auth/SDK request serialization and typed response deserialization via synthetic HTTP transport; reviewer full-page source review, local file and anchor checks. Dotenv discovery bypassed to avoid personal credentials. Runner infrastructure reused with provenance; supplemental tests reviewer-authored.",
+  "source_silence": [
+    "No live server/enrollment permissions, trainer-specific aliases, capacity, artifact loadability, training success or deployment readiness established.",
+    "Trainer Any fields cannot define universal required alias/column schema.",
+    "No external source supplement used for new contracts."
+  ],
+  "limitations": [
+    "No live enrollment/server acceptance, token provisioning/resource grants or service-user login validated.",
+    "Synthetic serialized function and Parquet bytes do not establish usable artifacts, runtime driver compatibility, model loadability or inference quality.",
+    "No training, compute queue, launch completion, deployment readiness, publication, source commit or integration acceptance inferred."
+  ],
+  "ownership": "Only temporary probes/download artifacts and this report; no source, ticket, ledger, commit or push writes."
+}

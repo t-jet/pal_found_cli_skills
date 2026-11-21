@@ -8,6 +8,7 @@ import sys
 import urllib.parse
 import datetime
 from pathlib import Path
+from copy import deepcopy
 
 import httpx
 from foundry_sdk import PalantirRPCException
@@ -16,27 +17,19 @@ from foundry_sdk.v2.ontologies.ontology_interface import OntologyInterfaceClient
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from synthetic_schema import TRACKABLE, check_interface
+
 EXPECTED_METHOD = 'GET'
-EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/interfaceTypes/synthetic-value'
+EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/interfaceTypes/Trackable'
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'branch': None, 'preview': None, 'sdkPackageRid': None, 'sdkVersion': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
- 'apiName': 'synthetic-value',
- 'displayName': 'synthetic-value',
- 'properties': {},
- 'allProperties': {},
- 'propertiesV2': {},
- 'allPropertiesV2': {},
- 'extendsInterfaces': ['synthetic-value'],
- 'allExtendsInterfaces': ['synthetic-value'],
- 'implementedByObjectTypes': ['synthetic-value'],
- 'links': {},
- 'allLinks': {}}
+SUCCESS = deepcopy(TRACKABLE)
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.get(ontology='synthetic-value', interface_type='synthetic-value', request_timeout=30)
+    return client.with_raw_response.get(ontology='synthetic-value', interface_type='Trackable', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -67,6 +60,10 @@ def normalized(value):
         return value.model_dump(mode='json', by_alias=True, exclude_none=True)
     return value
 
+def check_result(value):
+    check_interface(value)
+
+
 def verify():
     calls = []
     def success(request):
@@ -80,7 +77,9 @@ def verify():
     with mock_resource(OntologyInterfaceClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
+            check_result(decoded)
         finally:
             raw.close()
     assert len(calls) == 1

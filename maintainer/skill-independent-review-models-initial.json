@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/models_pages_20261029",
+  "reviewed_at_utc": "2026-10-29T08:25:51.255683+00:00",
+  "owner_story": "DEV-STORY-061",
+  "candidate": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-models",
+  "tool_head": "a3a38ec434fdb046c329b850e716dc541fa87ecd",
+  "sdk_release": "1.101.0",
+  "overall_verdict": "FAIL",
+  "counts": {
+    "PASS": 5,
+    "FAIL": 8,
+    "UNCERTAIN": 1
+  },
+  "pages": [
+    {
+      "path": "SKILL.md",
+      "sha256": "b9e4d16b5556af76fbb6114fc0cfe17d500d581d0d625e43e7110148ac7e3e14",
+      "verdict": "FAIL",
+      "findings": [
+        "Authentication prerequisite is missing from this standalone skill: no FOUNDRY_TOKEN/FOUNDRY_HOSTNAME instructions or local authentication guide. Actual missing-token invocation exits 9 before HTTP.",
+        "Model Studio completion guidance does not identify the returned optional build_status or explain absent status and resolved outputs. Linked run page supplies no interpretation either."
+      ],
+      "whole_page_review": "23 operation catalog entries match source. Shared timeout/format/pagination flags exist; download and inference effects are distinguished. Launch response is correctly not training completion.",
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ],
+      "example_probes": [
+        "timeout_pretty",
+        "readonly_create",
+        "missing_auth_token"
+      ],
+      "local_links": {
+        "references/01-models.md": true,
+        "references/02-model-studio.md": true,
+        "references/inputs.md": true
+      },
+      "source_silence": "Live tenant resource existence, permissions, trainer schema requirements, GPU queue availability, artifact loadability and deployment readiness cannot be established by local SDK source or fixture outputs."
+    },
+    {
+      "path": "references/01-models.md",
+      "sha256": "d5cedec028a9164fc4e6a44d5ad30cb8745c383663b40baf7718f0a46156d5b3",
+      "verdict": "PASS",
+      "findings": [],
+      "whole_page_review": "Whole page is navigation. All six relative resource links resolve inside standalone skill; no additional contract claims. Destination defects remain independent failures.",
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ],
+      "example_probes": [],
+      "local_links": {
+        "./model.md": true,
+        "./model-version.md": true,
+        "./experiment.md": true,
+        "./experiment-artifact-table.md": true,
+        "./experiment-series.md": true,
+        "./live-deployment.md": true
+      },
+      "source_silence": "Live tenant resource existence, permissions, trainer schema requirements, GPU queue availability, artifact loadability and deployment readiness cannot be established by local SDK source or fixture outputs."
+    },
+    {
+      "path": "references/02-model-studio.md",
+      "sha256": "3048b6a4fb8e4a043e552938c243f551205371244de6f8253ea5cfe86154934a",
+      "verdict": "PASS",
+      "findings": [],
+      "whole_page_review": "Whole page is navigation. All four relative resource links resolve inside standalone skill; no additional contract claims. Destination defects remain independent failures.",
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ],
+      "example_probes": [],
+      "local_links": {
+        "./model-studio.md": true,
+        "./model-studio-config-version.md": true,
+        "./model-studio-run.md": true,
+        "./model-studio-trainer.md": true
+      },
+      "source_silence": "Live tenant resource existence, permissions, trainer schema requirements, GPU queue availability, artifact loadability and deployment readiness cannot be established by local SDK source or fixture outputs."
+    },
+    {
+      "path": "references/experiment-artifact-table.md",
+      "sha256": "3bcfeb412a96d26acafe6596b5bf0454ccb8d015dfd6438c759e6319f242f0d0",
+      "verdict": "PASS",
+      "findings": [],
+      "whole_page_review": "Both exact examples reach expected streamed SDK HTTP routes and save actual local fixture bytes. Offset and page size forwarding checked. Output basename semantics and atomic bounded persistence agree with BinaryDownloadHandler. JSON rows/Parquet content claims agree with SDK docstrings; fixture Parquet bytes do not establish valid Parquet decoding. Access/resource/disk conditions remain prerequisites.",
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ],
+      "example_probes": [
+        "documented_experiment-artifact-table_json",
+        "documented_experiment-artifact-table_parquet",
+        "table_offset_size"
+      ],
+      "local_links": {
+        "./inputs.md": true
+      },
+      "source_silence": "Live tenant resource existence, permissions, trainer schema requirements, GPU queue availability, artifact loadability and deployment readiness cannot be established by local SDK source or fixture outputs."
+    },
+    {
+      "path": "references/experiment-series.md",
+      "sha256": "130e548ecdf4d644136b2c60b19693bcb8ec859d3e8720a3857b10a723c3c33f",
+      "verdict": "FAIL",
+      "findings": [
+        "JSON result only names Series; no local explanation of type=doubleV1, series list, value, timestamp in epoch milliseconds, or step. These fields are present in actual SDK output and needed to interpret series data."
+      ],
+      "whole_page_review": "Both examples plus offset/page-size execute through actual SDK. JSON result is a typed series object, not streamed artifact JSON. Parquet path persists bytes. Paging limits agree with SDK method documentation.",
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ],
+      "example_probes": [
+        "documented_experiment-series_json",
+        "documented_experiment-series_parquet",
+        "series_offset_size"
+      ],
+      "local_links": {
+        "./inputs.md": true
+      },
+      "source_silence": "Live tenant resource existence, permissions, trainer schema requirements, GPU queue availability, artifact loadability and deployment readiness cannot be established by local SDK source or fixture outputs."
+    },
+    {
+      "path": "references/experiment.md",
+      "sha256": "432731a0e185915e88b0424a2698d28dad3a4300aeeb738d0741115b939b9adf",
+      "verdict": "FAIL",
+      "findings": [
+        "Search documents complex nested filters and --where-json/--order-by-json but delegates shape to an unspecified SDK schema. inputs.md provides none of nine filter discriminants, recursion keys, supported field/operator values, or orderBy field/direction shape. Offline reader cannot construct documented filtering behavior from local skill.",
+        "Result merely names Experiment. No local explanation of RUNNING/SUCCEEDED/FAILED status, optional status_message and linked_model_version, parameters/series/summary_metrics/artifacts, or artifact name discovery."
+      ],
+      "whole_page_review": "Get/search examples, paging flags, and an independently constructed type-discriminated AND filter/orderBy payload reach actual SDK HTTP. Schema docstring legacy wrapper examples were not treated as accepted wire shape; actual model validation requires type discriminators.",
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ],
+      "example_probes": [
+        "documented_experiment_get",
+        "documented_experiment_search",
+        "paging_flags_experiment",
+        "diagnostic_search_nested_filter"
+      ],
+      "local_links": {
+        "./inputs.md": true
+      },
+      "source_silence": "Live tenant resource existence, permissions, trainer schema requirements, GPU queue availability, artifact loadability and deployment readiness cannot be established by local SDK source or fixture outputs."
+    },
+    {
+      "path": "references/inputs.md",
+      "sha256": "7987e3ad1cd23d9c3c4a58f8892110dc32f65902d1e06bbeef67d847335cfada",
+      "verdict": "FAIL",
+      "findings": [
+        "Trainer ID is described generically, without stating SDK TrainerId is a resource RID. Linked config create example supplies invalid literal autogluon.",
+        "Input guide omits schemas for experiment filtering/ordering and Model Studio input/output variants and required aliases; saying these match trainer schema does not explain returned inputs/outputs/custom_config_schema fields.",
+        "Instruction to inspect runs for completion lacks optional build_status interpretation and resolved_outputs handling."
+      ],
+      "whole_page_review": "Model, version and experiment RIDs and table/series names are correctly distinguished. Promotion produces a new target version. Model artifact syntax is explicitly separated from a usable serialized artifact. Live inference input object must match deployment API; fixture validation does not establish compatibility.",
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ],
+      "example_probes": [],
+      "local_links": {},
+      "source_silence": "Live tenant resource existence, permissions, trainer schema requirements, GPU queue availability, artifact loadability and deployment readiness cannot be established by local SDK source or fixture outputs."
+    },
+    {
+      "path": "references/live-deployment.md",
+      "sha256": "1d639f9850a53601dd4f945ea02bf41bbd1cc8889200f3122be086d62e12c5df",
+      "verdict": "PASS",
+      "findings": [],
+      "whole_page_review": "Exact inference example reaches POST transformJson with exact input object. SDK result is output map. Preconditions require available deployment and compatible model API; text does not infer server readiness from model/version/training creation. Malformed JSON exits 1 before HTTP. Timeout leaves outcome unknown. No live inference was performed.",
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ],
+      "example_probes": [
+        "documented_live-deployment_transform-json",
+        "malformed_inference_json"
+      ],
+      "local_links": {
+        "./inputs.md": true
+      },
+      "source_silence": "Live tenant resource existence, permissions, trainer schema requirements, GPU queue availability, artifact loadability and deployment readiness cannot be established by local SDK source or fixture outputs."
+    },
+    {
+      "path": "references/model-studio-config-version.md",
+      "sha256": "67c6967bdb8fa7470de1f579e959834a377264de79cd0e41320cf72c7d9f68a3",
+      "verdict": "FAIL",
+      "findings": [
+        "Exact create example uses --trainer-id autogluon. SDK1.101.0 TrainerId aliases RID; ValidationError occurs before HTTP, exit 1. Diagnostic substitution of a valid trainer RID reaches HTTP without changing CLI source.",
+        "Get with valid studio RID and numeric version 1 exits 1 before HTTP: TypeError quote_from_bytes() expected bytes. SDK validates/coerces positional to integer, then _core/api_client.py:529 passes integer to urllib.parse.quote. Current CLI has no bridge.",
+        "Nested worker inputs/outputs configuration and trainer-driven validation are not explained beyond empty maps and replacement instruction; full returned ModelStudioConfigVersion fields are absent from local guidance."
+      ],
+      "whole_page_review": "Latest populated and null responses and list data decode successfully. Version number is integer, not RID. ResourceConfiguration memory/cpu/gpu fields in example are SDK-valid, but queue GPU availability is an environmental prerequisite, not established by mocked HTTP. Config has version and no separate rid field.",
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ],
+      "example_probes": [
+        "documented_model-studio-config-version_create",
+        "documented_model-studio-config-version_get",
+        "documented_model-studio-config-version_latest",
+        "documented_model-studio-config-version_list",
+        "paging_flags_model-studio-config-version",
+        "latest_without_config",
+        "diagnostic_create_valid_trainer_rid"
+      ],
+      "local_links": {
+        "./inputs.md": true
+      },
+      "source_silence": "Live tenant resource existence, permissions, trainer schema requirements, GPU queue availability, artifact loadability and deployment readiness cannot be established by local SDK source or fixture outputs."
+    },
+    {
+      "path": "references/model-studio-run.md",
+      "sha256": "7865d12d8564856f0ce96e76868a47caa64cb5100d8c0ee9d45366dd07a986eb",
+      "verdict": "FAIL",
+      "findings": [
+        "Run list is the prescribed training-completion check, but page omits actual optional build_status, config_version, run_id/build_rid/job_rid, and resolved_outputs. Reader is not told that absent build_status leaves completion unknown or how to identify produced model/version/experiment."
+      ],
+      "whole_page_review": "Exact list and --config-version/paging probes reach real SDK HTTP. Run fixture is RUNNING and resolved_outputs is empty; acceptance does not imply completed training, an artifact, or deployment readiness.",
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ],
+      "example_probes": [
+        "documented_model-studio-run_list",
+        "paging_flags_model-studio-run",
+        "run_config_version"
+      ],
+      "local_links": {
+        "./inputs.md": true
+      },
+      "source_silence": "Live tenant resource existence, permissions, trainer schema requirements, GPU queue availability, artifact loadability and deployment readiness cannot be established by local SDK source or fixture outputs."
+    },
+    {
+      "path": "references/model-studio-trainer.md",
+      "sha256": "ea7ae4661634026d8ce654489acd976fb0ccd62e2e85379fd282eb8ccc646773",
+      "verdict": "FAIL",
+      "findings": [
+        "Trainer list/get is prescribed prerequisite for constructing config. Page gives response class only and omits trainer_id RID, version, inputs/outputs specifications, custom_config_schema, experimental and task type meaning. Input guide supplies no usable schema discovery walkthrough."
+      ],
+      "whole_page_review": "Exact get/list with valid substituted trainer RID and explicit --version probe execute. Unpaged list retains data envelope; empty data means none visible. No trainer availability claim was inferred from fixtures.",
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ],
+      "example_probes": [
+        "documented_model-studio-trainer_get",
+        "documented_model-studio-trainer_list",
+        "trainer_version"
+      ],
+      "local_links": {
+        "./inputs.md": true
+      },
+      "source_silence": "Live tenant resource existence, permissions, trainer schema requirements, GPU queue availability, artifact loadability and deployment readiness cannot be established by local SDK source or fixture outputs."
+    },
+    {
+      "path": "references/model-studio.md",
+      "sha256": "b2dfc742b39e9bffe0db19d08bb060d8719a033dc8a7e9baf39496197f2d48c2",
+      "verdict": "FAIL",
+      "findings": [
+        "Launch directs reader to inspect run state later, but neither this page nor linked run page explains build_status optionality/completion checks and resolved_outputs. A successfully returned run does not establish training finished or a deployable result."
+      ],
+      "whole_page_review": "Create/get/launch exact examples execute through SDK MockTransport. ModelStudio fields are rid, folder_rid and created_time; no invented name/status response claim was accepted. Launch timeout recovery correctly directs listing before retry.",
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ],
+      "example_probes": [
+        "documented_model-studio_create",
+        "documented_model-studio_get",
+        "documented_model-studio_launch"
+      ],
+      "local_links": {
+        "./inputs.md": true
+      },
+      "source_silence": "Live tenant resource existence, permissions, trainer schema requirements, GPU queue availability, artifact loadability and deployment readiness cannot be established by local SDK source or fixture outputs."
+    },
+    {
+      "path": "references/model-version.md",
+      "sha256": "563bae00849505704df0069b6abac0dbe4c7c2675b236f816f051efcaca4b72c",
+      "verdict": "UNCERTAIN",
+      "findings": [
+        "Documented tabular/double/dill create example is SDK-valid after explicit artifact placeholder substitution, but local guide does not cover parameter/any/array/map and remaining modelFiles variants. Completeness for broader claimed model API support remains unproven; no unsupported schema was invented.",
+        "Response names ModelVersion without explaining model_api, source variants and optional linked_experiment. Need owning source review to establish required standalone depth for non-example variants."
+      ],
+      "whole_page_review": "All three exact examples execute. SDK accepts stated tabular field nesting and dill serializedModelFunction. Fixture base64 bytes are deliberately not a usable dill model. Creation success does not establish artifact loadability or deployment readiness; page explicitly requires real compatible function/API.",
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ],
+      "example_probes": [
+        "documented_model-version_create",
+        "documented_model-version_get",
+        "documented_model-version_list",
+        "paging_flags_model-version"
+      ],
+      "local_links": {
+        "./inputs.md": true
+      },
+      "source_silence": "Live tenant resource existence, permissions, trainer schema requirements, GPU queue availability, artifact loadability and deployment readiness cannot be established by local SDK source or fixture outputs."
+    },
+    {
+      "path": "references/model.md",
+      "sha256": "0223d1bfc2f9e5bbf4ada9fb14d16aff73e1b3bb69a056d04ab923be8123b205",
+      "verdict": "PASS",
+      "findings": [],
+      "whole_page_review": "Create/get/promote examples execute through expected actual SDK requests. Model response has rid only; page does not invent response name/status. Promotion response is ModelVersion with new RID, copy to target master branch; source method docstring supports claim. Folder access and source/target permission remain server prerequisites. Timeout read-before-retry is sound.",
+      "review_dimensions": [
+        "full prose",
+        "inputs and examples",
+        "result shape and nested models",
+        "failure and recovery",
+        "auth/access prerequisites",
+        "lifecycle/readiness",
+        "local links"
+      ],
+      "example_probes": [
+        "documented_model_create",
+        "documented_model_get",
+        "documented_model_promote-version",
+        "permission_denied"
+      ],
+      "local_links": {
+        "./inputs.md": true
+      },
+      "source_silence": "Live tenant resource existence, permissions, trainer schema requirements, GPU queue availability, artifact loadability and deployment readiness cannot be established by local SDK source or fixture outputs."
+    }
+  ],
+  "source_hashes": {
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\errors.py": "cb3fc366b550378dd850c272b53138fc2f0f3fa3cb490ef1b756219431df64c2",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment.py": "afee53ef61ec8fde78a968a24ab7f7695ca85d9f8f89b06fac072eed440896e9",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment_artifact_table.py": "d0e7fe85815d7e9591ab5c382e2c068a3b0d9665b6537f8b5a5cad131db4b66d",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment_series.py": "695990e14cdef6fe9ab18fb2fa872c9e5bc8f8b4eeec904c080c735d5822d344",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\live_deployment.py": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model.py": "420a4bd19511d5732532fb3ac4252310732e3c4b4ea418551adb2cf68a41cd20",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\models.py": "c671bcbc7d8b6c7c881db453c45fb3828899a5f541f5cbdf3b0ec5b89c2b344e",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_function.py": "9bd76546691d4b1a00b3d5dd6f0efcee90b40954c04ac32c3b74708f5a60ccf6",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio.py": "4ece4867d0046dafdbf4eac2fad4d5348a281b3ea628809b332ff769e161b49e",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_config_version.py": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_run.py": "e7bf121ae2c96f41fbff874a53102f22c1f774812936aaf49f435e4963093513",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_trainer.py": "b4d5fd37b3cebe920077e755adb09d37c9aa499a7b25fa0f46ecc4787d5c09d0",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_version.py": "ad0514eaa6f22b4f362cc94305b395c4c8c7d3b36bd2b337fc70d57b85655dc8",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\_client.py": "777458662827518e6a6b9cf383bc40b90a0f6866e8e4e26711f2246e8e93e2b6",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\__init__.py": "b0f4f9fbb771c5d23b91c7ed4b130950a2559e5ec38b83576598fa5615c44ffc",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\models\\scripts\\pal_found_models_cli.py": "0aae43647a16423796675a3c0d019f1987c410e417d914193aa1f8352d0437fd",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\access_control_guard.py": "62aca2ad1b1504dbcdf1b1cee92f8e025cb3870694f506971bb24eb23efead61",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\async_client_factory.py": "6ca5c512a625ca019ff6070f8b4d9808db8946aa3dd18cce0268d0d3a62cd6b4",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\auth_provider.py": "1cc1436999bb3b04b854bfdeff4c3d5aafdb38bb8f1f58ce43817869f62a253e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\binary_download_handler.py": "60918187fad8f0a195fab73f1dc61b5ff4df124f2a8f697822f7ac39e84ffcab",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\cli_parser.py": "35a813c652ecb5cfb791479c73bd88a74189b7e97d94c4f409d9d373ef0a5f47",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\config_loader.py": "b7ccddda86b733302f1f8f1800dfd172207361bdc661045b64871ded0e8af7bc",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\error_serializer.py": "8ef68e5e0065411c297d7119d40ee0898693062c2f7df02d2318c679151ac02b",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\log_setup.py": "17b980b160308b0b21569b63f07cf67da7ad4b5c7cf602d1bb44f7acdc3f9f6b",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\output_formatter.py": "4b7f78a68cddb999a0474195f76545bd8f755d80ee18e71c9d0628c4718b7383",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\pagination_helper.py": "b831ea4c2d64b48e5ed5a9558da2a19f4933d27d4290922d266030db1796e5db",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\retry.py": "3464aa78aaeaf3a592e789e5f0fb612f4c14cbc412ad0b37919f9b4c4487dda0",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\sdk_error_utils.py": "b5b34644179677b2cda83237c93e8b038583ba2c300764e2734e8d05392e2d4e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\session_manager.py": "bbc255c436c0f01e4ff29e61301475346c5766ee137afb39868513b0e7dc7f32",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\timeout_config.py": "76b9896c096f689734e106b9be559ea59d2f22123799d423f39446172263e4c7",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\tracing_provider.py": "0cdc2b00727b83b723329cc71ac6179bb73860e47f0c4fcf14a6fec7f3b1cc56",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\__init__.py": "904005620458297d6171f98341a2d05d7ff7b1e1dffb5e2305036dc7cf9b9de7",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\api_client.py": "7e6ba19fa9732b18b6f22d69f46c40b1a10af4533ce720c39df52c60ca191225"
+  },
+  "probe_artifacts": {
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\models_pages_probe_20261029.json": "64eb934edfa7de6d2bed14fc8af90298b9dbcc7a2fba2a5d68bce4b829bece7c",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\models_pages_probe_20261029.py": "045edd6a7cc0ac59b03f4ddf7dbfd3840abd5fb1957db21f1962963ca814f872",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\models_pages_finalize_20261029.py": "612d9c4ce75fa29bfe982ed7f0e4f3c364678e2aa37850710e101193ee7a2ad4"
+  },
+  "executed_probe_count": 39,
+  "documented_example_count": 23,
+  "probe_failures": [
+    {
+      "name": "documented_model-studio-config-version_create",
+      "page": "model-studio-config-version.md",
+      "argv": [
+        "model-studio-config-version",
+        "create",
+        "ri.models.main.model-studio.00000000-0000-0000-0000-000000000001",
+        "--name",
+        "Order forecast",
+        "--resources-json",
+        "{\"memory\":\"4G\",\"cpu\":\"2\",\"gpu\":\"V100\"}",
+        "--trainer-id",
+        "autogluon",
+        "--worker-config-json",
+        "{\"inputs\":{},\"outputs\":{}}"
+      ],
+      "exit_code": 1,
+      "requests": [],
+      "stdout": "{\"error\": true, \"exit_code\": 1, \"exit_code_name\": \"UserInputError\", \"message\": \"Models operation failed\", \"exception_type\": \"ValidationError\", \"traceback\": \"\", \"call_id\": \"17bb2ab7-423d-4676-a3b5-8c140fcb59dd\"}\n",
+      "stderr": "",
+      "exceptions": [
+        {
+          "class": "ValidationError",
+          "message": "1 validation error for AsyncModelStudioConfigVersionClient.create\ntrainer_id\n  String should match pattern '^ri\\.[a-z][a-z0-9-]*\\.([a-z0-9][a-z0-9\\-]*)?\\.[a-z][a-z0-9-]*\\.[a-zA-Z0-9._-]+$' [type=string_pattern_mismatch, input_value='autogluon', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.12/v/string_pattern_mismatch",
+          "traceback": "Traceback (most recent call last):\n  File \"E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\models\\scripts\\pal_found_models_cli.py\", line 680, in main\n    result = await retry_handler.execute(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\retry.py\", line 460, in execute\n    return await self._execute_with_timeout(coro_func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\app\\Python\\Lib\\asyncio\\tasks.py\", line 489, in wait_for\n    return fut.result()\n           ^^^^^^^^^^^^\n  File \"E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\models\\scripts\\pal_found_models_cli.py\", line 490, in _invoke\n    return await getattr(client, spec[\"method\"])(*positional, **_build_kwargs(spec, args, timeout))\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py\", line 96, in wrapper\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\app\\Python\\Lib\\site-packages\\pydantic\\_internal\\_validate_call.py\", line 39, in wrapper_function\n    return wrapper(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\app\\Python\\Lib\\site-packages\\pydantic\\_internal\\_validate_call.py\", line 136, in __call__\n    res = self.__pydantic_validator__.validate_python(pydantic_core.ArgsKwargs(args, kwargs))\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npydantic_core._pydantic_core.ValidationError: 1 validation error for AsyncModelStudioConfigVersionClient.create\ntrainer_id\n  String should match pattern '^ri\\.[a-z][a-z0-9-]*\\.([a-z0-9][a-z0-9\\-]*)?\\.[a-z][a-z0-9-]*\\.[a-zA-Z0-9._-]+$' [type=string_pattern_mismatch, input_value='autogluon', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.12/v/string_pattern_mismatch\n"
+        }
+      ],
+      "checks": {
+        "exit_expected": false,
+        "request_reached": false,
+        "responses_closed": true
+      },
+      "verdict": "FAIL"
+    },
+    {
+      "name": "documented_model-studio-config-version_get",
+      "page": "model-studio-config-version.md",
+      "argv": [
+        "model-studio-config-version",
+        "get",
+        "ri.models.main.model-studio.00000000-0000-0000-0000-000000000001",
+        "1"
+      ],
+      "exit_code": 1,
+      "requests": [],
+      "stdout": "{\"error\": true, \"exit_code\": 1, \"exit_code_name\": \"UserInputError\", \"message\": \"Models operation failed\", \"exception_type\": \"TypeError\", \"traceback\": \"\", \"call_id\": \"3e65115b-6d1e-43dc-b8dc-ff92a1e514f1\"}\n",
+      "stderr": "",
+      "exceptions": [
+        {
+          "class": "TypeError",
+          "message": "quote_from_bytes() expected bytes",
+          "traceback": "Traceback (most recent call last):\n  File \"E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\models\\scripts\\pal_found_models_cli.py\", line 680, in main\n    result = await retry_handler.execute(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\retry.py\", line 460, in execute\n    return await self._execute_with_timeout(coro_func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\app\\Python\\Lib\\asyncio\\tasks.py\", line 489, in wait_for\n    return fut.result()\n           ^^^^^^^^^^^^\n  File \"E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\models\\scripts\\pal_found_models_cli.py\", line 490, in _invoke\n    return await getattr(client, spec[\"method\"])(*positional, **_build_kwargs(spec, args, timeout))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\api_client.py\", line 900, in _async_call_api\n    res = await self._auth.execute_with_token(make_request)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\api_client.py\", line 889, in make_request\n    url=self._create_url(request_info),\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\api_client.py\", line 529, in _create_url\n    resource_path = resource_path.replace(f\"{{{k}}}\", quote(v, safe=\"\"))\n                                                      ^^^^^^^^^^^^^^^^^\n  File \"D:\\app\\Python\\Lib\\urllib\\parse.py\", line 899, in quote\n    return quote_from_bytes(string, safe)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\app\\Python\\Lib\\urllib\\parse.py\", line 929, in quote_from_bytes\n    raise TypeError(\"quote_from_bytes() expected bytes\")\nTypeError: quote_from_bytes() expected bytes\n"
+        }
+      ],
+      "checks": {
+        "exit_expected": false,
+        "request_reached": false,
+        "responses_closed": true
+      },
+      "verdict": "FAIL"
+    }
+  ],
+  "network_denial": "socket connect/connect_ex/create_connection/getaddrinfo and default sync/async HTTP transports denied",
+  "actual_scope": "Actual CLI main, parser, guard, SDK request serialization/deserialization and HTTP MockTransport. Fixture output does not establish server acceptance, training completion, readiness or live inference.",
+  "limitations": [
+    "ConfigLoader.load bypasses dotenv file discovery; real property resolution and credentials validation execute with isolated offline environment.",
+    "Only HTTP transport and diagnostic observation are patched. Actual CLI parser/main, guard, retry, nested SDK methods, request and response model validation, output formatting and binary download persistence execute.",
+    "Fixture JSON rows and Parquet-labelled bytes test transport/persistence, not real artifact contents or valid Parquet interpretation.",
+    "No source/ledger/live tracker writes; runtime blocker reported to parent for separate tool author and tracker handling.",
+    "REST087 acceptance is separate; no REST bridge is assumed to exist in CLI. No live tenant, training, model loading or inference acceptance is claimed."
+  ]
+}

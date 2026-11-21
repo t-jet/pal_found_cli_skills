@@ -1,0 +1,70 @@
+{
+  "artifacts": [
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest083_author_freeze_20261116.json",
+      "archived_path": "maintainer/evidence/rest083-semantic/feature015_rest083_author_freeze_20261116.json",
+      "sha256": "20e4e657f908165eec22600d09e42f0a624370c52a856df5caae7f1ec42f421f"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest083_semantic_retest_20261116.json",
+      "archived_path": "maintainer/evidence/rest083-semantic/feature015_rest083_semantic_retest_20261116.json",
+      "sha256": "87f0c07fce32136c5a0df968aa676829223a09bda1926b7ac66abda43dffb131"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest083_semantic_retest_manifest_20261116.json",
+      "archived_path": "maintainer/evidence/rest083-semantic/feature015_rest083_semantic_retest_manifest_20261116.json",
+      "sha256": "676274f4dd974db6b2893ffccba629a5495f64ecc83554e1922c0fd938b09656"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest083_semantic_review_20261029.json",
+      "archived_path": "maintainer/evidence/rest083-semantic/feature015_rest083_semantic_review_20261029.json",
+      "sha256": "2f0db7991c430205a5b9a4d52ab56965b496f58852b4ff6cec9265305182d1ca"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_finalize_execution_20261029.json",
+      "archived_path": "maintainer/evidence/rest083-semantic/rest083_finalize_execution_20261029.json",
+      "sha256": "224fca8f190b3b582e80d5c77506444aec5c6fb0dcedbcb834dd86fd7b210435"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_fresh_author_tests_20261116.txt",
+      "archived_path": "maintainer/evidence/rest083-semantic/rest083_fresh_author_tests_20261116.txt",
+      "sha256": "fcc943cd2445f9214d8d8b8e48576588b45b0eaf383831990b1bb2dfccef017f"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_fresh_retest_20261116.py",
+      "archived_path": "maintainer/evidence/rest083-semantic/rest083_fresh_retest_20261116.py",
+      "sha256": "8c8730cb658ad49c8c2e31c271e924d3380688fdcabde082edf4114a872bf32b"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_fresh_sdk_execution_20261116.json",
+      "archived_path": "maintainer/evidence/rest083-semantic/rest083_fresh_sdk_execution_20261116.json",
+      "sha256": "8b6afabf712a0d5dd0929231eeb1255f0af7e9bc54e190de13c92b774e5ef21a"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_independent_execution_20261029.json",
+      "archived_path": "maintainer/evidence/rest083-semantic/rest083_independent_execution_20261029.json",
+      "sha256": "d00281723a7a6ef0cb2a39b286c85bebcee44676b361791fc39576e5b2bd9fee"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_independent_execution_20261029.py",
+      "archived_path": "maintainer/evidence/rest083-semantic/rest083_independent_execution_20261029.py",
+      "sha256": "f9b438bf3224a6c05ca0bdfa57640ab76f65b3328602abe6739947c44cc81490"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_semantic_probe_20261029.json",
+      "archived_path": "maintainer/evidence/rest083-semantic/rest083_semantic_probe_20261029.json",
+      "sha256": "257478d62b4a642def39f92417c7d2135b9b59e9ce0a459e67c04dfb0104c2bf"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_semantic_probe_20261029.py",
+      "archived_path": "maintainer/evidence/rest083-semantic/rest083_semantic_probe_20261029.py",
+      "sha256": "8453008e4f9103d6ccd25006e3388b75ef56584826fe093613e77b63c82ba7ec"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_finalize_review_20261029.py",
+      "archived_path": "maintainer/evidence/rest083-semantic/rest083_finalize_review_20261029.py",
+      "sha256": "3debde948f59469a726210009389185af5406912aa733a22d66222b51d8c6dc3"
+    }
+  ],
+  "scope": "Byte-preserved independent review evidence and author freezes. Historical temporary paths describe original execution layout; archived harnesses are evidence, not portable command entrypoints. Initial failures and harness-error dispositions remain unchanged. Semantic acceptance only; formal TESTEXEC remains gated."
+}

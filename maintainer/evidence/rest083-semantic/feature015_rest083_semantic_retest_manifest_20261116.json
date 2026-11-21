@@ -1,0 +1,25 @@
+{
+  "reviewer": "/root/rest083_fresh_qa_20261116",
+  "files": [
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_fresh_retest_20261116.py",
+      "sha256": "8c8730cb658ad49c8c2e31c271e924d3380688fdcabde082edf4114a872bf32b",
+      "bytes": 19095
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest083_semantic_retest_20261116.json",
+      "sha256": "87f0c07fce32136c5a0df968aa676829223a09bda1926b7ac66abda43dffb131",
+      "bytes": 341512
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_fresh_author_tests_20261116.txt",
+      "sha256": "fcc943cd2445f9214d8d8b8e48576588b45b0eaf383831990b1bb2dfccef017f",
+      "bytes": 1010
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest083_fresh_sdk_execution_20261116.json",
+      "sha256": "8b6afabf712a0d5dd0929231eeb1255f0af7e9bc54e190de13c92b774e5ef21a",
+      "bytes": 179264
+    }
+  ]
+}

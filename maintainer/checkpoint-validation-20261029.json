@@ -1,0 +1,36 @@
+{
+  "scope": "Local validation of a draft checkpoint; FEATURE-015 acceptance remains incomplete.",
+  "reported_date": "2026-10-29 Europe/Sofia",
+  "recorded_at_utc": "2026-10-28T23:06:51.451722+00:00",
+  "tested_skills_commit": "86d58c615661bd69e2b1262d8568242726c61aa7",
+  "tool_commit": "a3a38ec434fdb046c329b850e716dc541fa87ecd",
+  "environment": {
+    "python": "3.11.9",
+    "sdk": "1.101.0",
+    "toon-format": "1.2.0",
+    "os": "Windows"
+  },
+  "pytest": {
+    "passed": 1146,
+    "failed": 0,
+    "elapsed_seconds": 246.42,
+    "log": "maintainer/evidence/checkpoint-20261029/feature015_full_pytest_20261028.log",
+    "sha256": "b0fb59d016f679b1941db89465bc613767a1b07bac5e995605d43047da185ca3"
+  },
+  "ruff": {
+    "command": "ruff check --no-cache .ept/tmp/feature015_integration/tests",
+    "exit_code": 0,
+    "stdout": "All checks passed!"
+  },
+  "release_gate": {
+    "formal_qa_pending": 295,
+    "semantic_pending": 161,
+    "skill_page_or_signoff_pending": 59,
+    "stale_input_or_source_errors": 0
+  },
+  "limits": [
+    "GitHub CI for the next published checkpoint is separate.",
+    "This is not a new six-install packaging matrix or live tenant test.",
+    "Individual domain network-denial evidence is retained separately; no global network guard is claimed for this full pytest command."
+  ]
+}

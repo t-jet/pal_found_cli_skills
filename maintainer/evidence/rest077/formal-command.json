@@ -1,0 +1,16 @@
+{
+  "command": [
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_qa_env\\Scripts\\python.exe",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest077_formal_corrected_v2_20261116\\rest077_formal_execute.py",
+    "--executor-identity",
+    "/root/rest077_distinct_formal_executor_20261116",
+    "--approval",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest077_executor_20261116\\execution-approval.json",
+    "--output",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest077_executor_20261116\\formal-run.json"
+  ],
+  "started_utc": "2026-11-16T21:09:38.996386+00:00",
+  "ended_utc": "2026-11-16T21:09:39.795933+00:00",
+  "process_elapsed_seconds": 0.7990710000012768,
+  "exit_code": 0
+}

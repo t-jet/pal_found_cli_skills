@@ -434,7 +434,7 @@
     },
     {
       "topic": "T24",
-      "customer_topic": "Workshop ↔ React integration",
+      "customer_topic": "Workshop \u2194 React integration",
       "registered_path": "references/widgets/integration.md",
       "registered_heading": "Parameters and events",
       "owner": "A",

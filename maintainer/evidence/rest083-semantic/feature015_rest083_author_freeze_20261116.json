@@ -1,0 +1,386 @@
+{
+  "kind": "author_candidate_freeze_for_independent_review",
+  "acceptance": "PENDING_INDEPENDENT_REVIEW",
+  "root": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest083_fixes",
+  "base_commit": "0be7645cb64b6e70a828aa3dafdb0575c389d0ff",
+  "sdk_distribution": "foundry-platform-sdk",
+  "sdk_release": "1.101.0",
+  "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+  "openapi_version": "1.1697.0",
+  "initial_review_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest083_semantic_review_20261029.json",
+  "initial_review_sha256": "2f0db7991c430205a5b9a4d52ab56965b496f58852b4ff6cec9265305182d1ca",
+  "files": [
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/Action/invoke_apply.py",
+      "sha256": "fd1c374668c32961c8dd557f76e0d2e99fc179e189a5ab86c319fadaf3b1e2e4",
+      "bytes": 5644
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/Action/invoke_apply_batch.py",
+      "sha256": "2d7d3f244d483dcff32c9b27c52d32ac49c6072577b21664922a0c3c12688dc6",
+      "bytes": 4996
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/Action/invoke_apply_batch_with_overrides.py",
+      "sha256": "3194df588a9e12e217da054b279f3db0f678cc412a41df54c7699c46c864c120",
+      "bytes": 5477
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/Action/invoke_apply_with_overrides.py",
+      "sha256": "5f8e9769d099d9603cda96d9c80a917d147004400b5bf4231997ef04b70f41e4",
+      "bytes": 6092
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/Attachment/invoke_upload.py",
+      "sha256": "68c2bd0f9bf1bbaecfb81c723e22a0c660fdb65c8775a81c3dcbe5064fa1067d",
+      "bytes": 4378
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/Attachment/invoke_upload_with_rid.py",
+      "sha256": "ad9c4aff083031f78a11b734f925cf7e5772df43def8de8fca5bda18568c77a4",
+      "bytes": 4579
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/GeotemporalSeriesProperty/invoke_load_geotemporal_series_entries.py",
+      "sha256": "9707b9cc33eb4f4b9d779c2a5275262f9c726b04b1e44e19b30aa143eda03da8",
+      "bytes": 5685
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/TimeSeriesPropertyV2/invoke_stream_points.py",
+      "sha256": "4e706bcad012b56c0880af41fddf7a90e9793fa078bfe187633f5f1702f8e032",
+      "bytes": 6235
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/TimeSeriesValueBankProperty/invoke_stream_values.py",
+      "sha256": "a73cdfd3341aec6976853700aef1ff9f19e730a7f016d39341db5f8bf882fa58",
+      "bytes": 6396
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v2/ontologies/Action.md",
+      "sha256": "78bf7b84a6597d48e3d7019a293d478d376c7d86496b5c05e37c673209ac0004",
+      "bytes": 9481
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v2/ontologies/Attachment.md",
+      "sha256": "a4c47cb0ace3cd3eb1a5b731e845a7b1d6b8a0dd41f48701545e08a2a970ebea",
+      "bytes": 6759
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v2/ontologies/GeotemporalSeriesProperty.md",
+      "sha256": "49d412761686a3550eb236bd0e3e7fa6fe40d192de56642ee90b090dd4fdc085",
+      "bytes": 4867
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v2/ontologies/TimeSeriesPropertyV2.md",
+      "sha256": "2994ed7622bcef0e2b01b5e68ca5dc4fae1443759d3c6977293421806a9c9042",
+      "bytes": 6487
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v2/ontologies/TimeSeriesValueBankProperty.md",
+      "sha256": "ca03f6bb44cf3deff87f1c168fd940982f6593718d3dab162f5937ef4d5b984f",
+      "bytes": 6314
+    },
+    {
+      "path": "tests/test_offline_rest_083.py",
+      "sha256": "6f661100a96f65a545ae64bab236d8119e00d30d50067ecd7f2a25fabab31cb1",
+      "bytes": 9743
+    }
+  ],
+  "operations": [
+    {
+      "id": "v2.ontologies.Action.apply",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\action.py",
+      "source_sha256": "97d67d3a550ce372d2b39363e7373afc32ade7ecd803c022098a9d3ffca48ad5",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/Action/invoke_apply.py",
+      "example_sha256": "fd1c374668c32961c8dd557f76e0d2e99fc179e189a5ab86c319fadaf3b1e2e4",
+      "preserved_baseline_bytes": false,
+      "behavior": "references/rest/v2/ontologies/Action.md",
+      "behavior_sha256": "78bf7b84a6597d48e3d7019a293d478d376c7d86496b5c05e37c673209ac0004"
+    },
+    {
+      "id": "v2.ontologies.Action.apply_batch",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\action.py",
+      "source_sha256": "97d67d3a550ce372d2b39363e7373afc32ade7ecd803c022098a9d3ffca48ad5",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/Action/invoke_apply_batch.py",
+      "example_sha256": "2d7d3f244d483dcff32c9b27c52d32ac49c6072577b21664922a0c3c12688dc6",
+      "preserved_baseline_bytes": false,
+      "behavior": "references/rest/v2/ontologies/Action.md",
+      "behavior_sha256": "78bf7b84a6597d48e3d7019a293d478d376c7d86496b5c05e37c673209ac0004"
+    },
+    {
+      "id": "v2.ontologies.Action.apply_batch_with_overrides",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\action.py",
+      "source_sha256": "97d67d3a550ce372d2b39363e7373afc32ade7ecd803c022098a9d3ffca48ad5",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/Action/invoke_apply_batch_with_overrides.py",
+      "example_sha256": "3194df588a9e12e217da054b279f3db0f678cc412a41df54c7699c46c864c120",
+      "preserved_baseline_bytes": false,
+      "behavior": "references/rest/v2/ontologies/Action.md",
+      "behavior_sha256": "78bf7b84a6597d48e3d7019a293d478d376c7d86496b5c05e37c673209ac0004"
+    },
+    {
+      "id": "v2.ontologies.Action.apply_with_overrides",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\action.py",
+      "source_sha256": "97d67d3a550ce372d2b39363e7373afc32ade7ecd803c022098a9d3ffca48ad5",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/Action/invoke_apply_with_overrides.py",
+      "example_sha256": "5f8e9769d099d9603cda96d9c80a917d147004400b5bf4231997ef04b70f41e4",
+      "preserved_baseline_bytes": false,
+      "behavior": "references/rest/v2/ontologies/Action.md",
+      "behavior_sha256": "78bf7b84a6597d48e3d7019a293d478d376c7d86496b5c05e37c673209ac0004"
+    },
+    {
+      "id": "v2.ontologies.Attachment.get",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\attachment.py",
+      "source_sha256": "9e98375a9a5c81554e08b0ba84ee5a19443a05a987d288aded730b315ae72902",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/Attachment/invoke_get.py",
+      "example_sha256": "fcffa6f9eb2c5d22907a887e975ad73f2f9d677e6e83f6564f1df29036114b74",
+      "preserved_baseline_bytes": true,
+      "behavior": "references/rest/v2/ontologies/Attachment.md",
+      "behavior_sha256": "a4c47cb0ace3cd3eb1a5b731e845a7b1d6b8a0dd41f48701545e08a2a970ebea"
+    },
+    {
+      "id": "v2.ontologies.Attachment.read",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\attachment.py",
+      "source_sha256": "9e98375a9a5c81554e08b0ba84ee5a19443a05a987d288aded730b315ae72902",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/Attachment/invoke_read.py",
+      "example_sha256": "c5ed97e2cc7e8dd29ea52a086b0185000eaa59142cb9a16a5938531380d9258f",
+      "preserved_baseline_bytes": true,
+      "behavior": "references/rest/v2/ontologies/Attachment.md",
+      "behavior_sha256": "a4c47cb0ace3cd3eb1a5b731e845a7b1d6b8a0dd41f48701545e08a2a970ebea"
+    },
+    {
+      "id": "v2.ontologies.Attachment.upload",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\attachment.py",
+      "source_sha256": "9e98375a9a5c81554e08b0ba84ee5a19443a05a987d288aded730b315ae72902",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/Attachment/invoke_upload.py",
+      "example_sha256": "68c2bd0f9bf1bbaecfb81c723e22a0c660fdb65c8775a81c3dcbe5064fa1067d",
+      "preserved_baseline_bytes": false,
+      "behavior": "references/rest/v2/ontologies/Attachment.md",
+      "behavior_sha256": "a4c47cb0ace3cd3eb1a5b731e845a7b1d6b8a0dd41f48701545e08a2a970ebea"
+    },
+    {
+      "id": "v2.ontologies.Attachment.upload_with_rid",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\attachment.py",
+      "source_sha256": "9e98375a9a5c81554e08b0ba84ee5a19443a05a987d288aded730b315ae72902",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/Attachment/invoke_upload_with_rid.py",
+      "example_sha256": "ad9c4aff083031f78a11b734f925cf7e5772df43def8de8fca5bda18568c77a4",
+      "preserved_baseline_bytes": false,
+      "behavior": "references/rest/v2/ontologies/Attachment.md",
+      "behavior_sha256": "a4c47cb0ace3cd3eb1a5b731e845a7b1d6b8a0dd41f48701545e08a2a970ebea"
+    },
+    {
+      "id": "v2.ontologies.AttachmentProperty.get_attachment",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\attachment_property.py",
+      "source_sha256": "85d69f0af4a9c4aeade893a39867cf826c58d3fcdf3ccd81c0b4097cb39e5af2",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/AttachmentProperty/invoke_get_attachment.py",
+      "example_sha256": "82e1f74d020ecb5b7120238622413800322ef90aa40f8d7e53332ce50d70328b",
+      "preserved_baseline_bytes": true,
+      "behavior": "references/rest/v2/ontologies/AttachmentProperty.md",
+      "behavior_sha256": "c627135a9694916752462c6a4ce46e87271d773a05f575e089fb1eda026c7da2"
+    },
+    {
+      "id": "v2.ontologies.AttachmentProperty.get_attachment_by_rid",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\attachment_property.py",
+      "source_sha256": "85d69f0af4a9c4aeade893a39867cf826c58d3fcdf3ccd81c0b4097cb39e5af2",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/AttachmentProperty/invoke_get_attachment_by_rid.py",
+      "example_sha256": "b136e1200a228d3177a020bee4632f35be5cdf1adc7f8fc52a3a5f6340eed9b4",
+      "preserved_baseline_bytes": true,
+      "behavior": "references/rest/v2/ontologies/AttachmentProperty.md",
+      "behavior_sha256": "c627135a9694916752462c6a4ce46e87271d773a05f575e089fb1eda026c7da2"
+    },
+    {
+      "id": "v2.ontologies.AttachmentProperty.read_attachment",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\attachment_property.py",
+      "source_sha256": "85d69f0af4a9c4aeade893a39867cf826c58d3fcdf3ccd81c0b4097cb39e5af2",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/AttachmentProperty/invoke_read_attachment.py",
+      "example_sha256": "3822339db4215c89e91be11c4887a97b30abc68b18b96a8c36c5a0667b8a6274",
+      "preserved_baseline_bytes": true,
+      "behavior": "references/rest/v2/ontologies/AttachmentProperty.md",
+      "behavior_sha256": "c627135a9694916752462c6a4ce46e87271d773a05f575e089fb1eda026c7da2"
+    },
+    {
+      "id": "v2.ontologies.AttachmentProperty.read_attachment_by_rid",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\attachment_property.py",
+      "source_sha256": "85d69f0af4a9c4aeade893a39867cf826c58d3fcdf3ccd81c0b4097cb39e5af2",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/AttachmentProperty/invoke_read_attachment_by_rid.py",
+      "example_sha256": "c30bd0352dc1e707345ea76d74ec337778c9bdf11e1e5d730691754587b7e76f",
+      "preserved_baseline_bytes": true,
+      "behavior": "references/rest/v2/ontologies/AttachmentProperty.md",
+      "behavior_sha256": "c627135a9694916752462c6a4ce46e87271d773a05f575e089fb1eda026c7da2"
+    },
+    {
+      "id": "v2.ontologies.CipherTextProperty.decrypt",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\cipher_text_property.py",
+      "source_sha256": "e65e4718460fb27bc864cf40127f1e71bb619ae0720edc68b350b744ed356f28",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/CipherTextProperty/invoke_decrypt.py",
+      "example_sha256": "f8aa7d3aaff204f11ed3867c80e0433c7045e78223a96084aa74107e31fa53a6",
+      "preserved_baseline_bytes": true,
+      "behavior": "references/rest/v2/ontologies/CipherTextProperty.md",
+      "behavior_sha256": "e8355258d92fff44c031d405d20bc1140671fc6fb3421f786454fb2d15a36882"
+    },
+    {
+      "id": "v2.ontologies.CipherTextProperty.encrypt",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\cipher_text_property.py",
+      "source_sha256": "e65e4718460fb27bc864cf40127f1e71bb619ae0720edc68b350b744ed356f28",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/CipherTextProperty/invoke_encrypt.py",
+      "example_sha256": "927ef1181d9ce5ec7fcb549a351e62f36990deeca58c3e693ff22d5db3af578c",
+      "preserved_baseline_bytes": true,
+      "behavior": "references/rest/v2/ontologies/CipherTextProperty.md",
+      "behavior_sha256": "e8355258d92fff44c031d405d20bc1140671fc6fb3421f786454fb2d15a36882"
+    },
+    {
+      "id": "v2.ontologies.CipherTextProperty.encrypt_with_default_channel",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\cipher_text_property.py",
+      "source_sha256": "e65e4718460fb27bc864cf40127f1e71bb619ae0720edc68b350b744ed356f28",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/CipherTextProperty/invoke_encrypt_with_default_channel.py",
+      "example_sha256": "b87a9554daaaba07422fa1ee0f8a69e27bff1cfde42d4af0151a30ffc3d817ca",
+      "preserved_baseline_bytes": true,
+      "behavior": "references/rest/v2/ontologies/CipherTextProperty.md",
+      "behavior_sha256": "e8355258d92fff44c031d405d20bc1140671fc6fb3421f786454fb2d15a36882"
+    },
+    {
+      "id": "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\geotemporal_series_property.py",
+      "source_sha256": "9181bfce75792d85e8bc112a2d386e2b76e57f725e2922ccbb7e85bff159d72a",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/GeotemporalSeriesProperty/invoke_load_geotemporal_series_entries.py",
+      "example_sha256": "9707b9cc33eb4f4b9d779c2a5275262f9c726b04b1e44e19b30aa143eda03da8",
+      "preserved_baseline_bytes": false,
+      "behavior": "references/rest/v2/ontologies/GeotemporalSeriesProperty.md",
+      "behavior_sha256": "49d412761686a3550eb236bd0e3e7fa6fe40d192de56642ee90b090dd4fdc085"
+    },
+    {
+      "id": "v2.ontologies.MediaReferenceProperty.get_media_content",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\media_reference_property.py",
+      "source_sha256": "e769b3499240f98d9342c20b2b1e1e3c3f5c43e4f12002ae17e5463381992180",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/MediaReferenceProperty/invoke_get_media_content.py",
+      "example_sha256": "4e96c6a0420ef4d9549cc20672872c58cd616031bc61448be1b334825d2b0e8f",
+      "preserved_baseline_bytes": true,
+      "behavior": "references/rest/v2/ontologies/MediaReferenceProperty.md",
+      "behavior_sha256": "4c31de5164792cda0fd553f0b189dac1de17d57c761483dc0250ed20263b8808"
+    },
+    {
+      "id": "v2.ontologies.MediaReferenceProperty.get_media_metadata",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\media_reference_property.py",
+      "source_sha256": "e769b3499240f98d9342c20b2b1e1e3c3f5c43e4f12002ae17e5463381992180",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/MediaReferenceProperty/invoke_get_media_metadata.py",
+      "example_sha256": "ea37b09cd3b051b897b43cc3b5eb0a29a989e3670ac5ac4e87c0be69888d7dd6",
+      "preserved_baseline_bytes": true,
+      "behavior": "references/rest/v2/ontologies/MediaReferenceProperty.md",
+      "behavior_sha256": "4c31de5164792cda0fd553f0b189dac1de17d57c761483dc0250ed20263b8808"
+    },
+    {
+      "id": "v2.ontologies.MediaReferenceProperty.upload",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\media_reference_property.py",
+      "source_sha256": "e769b3499240f98d9342c20b2b1e1e3c3f5c43e4f12002ae17e5463381992180",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/MediaReferenceProperty/invoke_upload.py",
+      "example_sha256": "c0f595b8f474cd4baa17c0e77591ef4adae69a60c232e147d88dc24afa525477",
+      "preserved_baseline_bytes": true,
+      "behavior": "references/rest/v2/ontologies/MediaReferenceProperty.md",
+      "behavior_sha256": "4c31de5164792cda0fd553f0b189dac1de17d57c761483dc0250ed20263b8808"
+    },
+    {
+      "id": "v2.ontologies.Query.execute",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\query.py",
+      "source_sha256": "2c7c151396abb7f7c57850e7b435c6118c20091563ee8b19cd2cb4bbda38fa91",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/Query/invoke_execute.py",
+      "example_sha256": "2da20e71e04300c648b86224f8d7c6863112108850987da54e37c46734b31eaf",
+      "preserved_baseline_bytes": true,
+      "behavior": "references/rest/v2/ontologies/Query.md",
+      "behavior_sha256": "0654a48320c4819a54e5aad77b974ef24e4c6343cd8657ec3a4e7ceb0990be9d"
+    },
+    {
+      "id": "v2.ontologies.TimeSeriesPropertyV2.get_first_point",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\time_series_property_v2.py",
+      "source_sha256": "ab169537962d6af9ed747be3c2a2ee8707fa2432efadb2d0f5a15b49be574e55",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/TimeSeriesPropertyV2/invoke_get_first_point.py",
+      "example_sha256": "604fabce9315a9f2772768753d61c0ce93e411ca8a7f4c55fc38428cdbe99417",
+      "preserved_baseline_bytes": true,
+      "behavior": "references/rest/v2/ontologies/TimeSeriesPropertyV2.md",
+      "behavior_sha256": "2994ed7622bcef0e2b01b5e68ca5dc4fae1443759d3c6977293421806a9c9042"
+    },
+    {
+      "id": "v2.ontologies.TimeSeriesPropertyV2.get_last_point",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\time_series_property_v2.py",
+      "source_sha256": "ab169537962d6af9ed747be3c2a2ee8707fa2432efadb2d0f5a15b49be574e55",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/TimeSeriesPropertyV2/invoke_get_last_point.py",
+      "example_sha256": "62c85c49bde80edb946f165d42676d3de82228bba1f8ae3361e702ecf611398a",
+      "preserved_baseline_bytes": true,
+      "behavior": "references/rest/v2/ontologies/TimeSeriesPropertyV2.md",
+      "behavior_sha256": "2994ed7622bcef0e2b01b5e68ca5dc4fae1443759d3c6977293421806a9c9042"
+    },
+    {
+      "id": "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\time_series_property_v2.py",
+      "source_sha256": "ab169537962d6af9ed747be3c2a2ee8707fa2432efadb2d0f5a15b49be574e55",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/TimeSeriesPropertyV2/invoke_stream_points.py",
+      "example_sha256": "4e706bcad012b56c0880af41fddf7a90e9793fa078bfe187633f5f1702f8e032",
+      "preserved_baseline_bytes": false,
+      "behavior": "references/rest/v2/ontologies/TimeSeriesPropertyV2.md",
+      "behavior_sha256": "2994ed7622bcef0e2b01b5e68ca5dc4fae1443759d3c6977293421806a9c9042"
+    },
+    {
+      "id": "v2.ontologies.TimeSeriesValueBankProperty.get_latest_value",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\time_series_value_bank_property.py",
+      "source_sha256": "59d0d58422b167c574a9714bfe19fc628dccd317be841ff0b7c3ef4dc8f3ba38",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/TimeSeriesValueBankProperty/invoke_get_latest_value.py",
+      "example_sha256": "e9d2e2db9178190a098e166a88fee7d3fda10aca884e62d37b8389bacd87d2aa",
+      "preserved_baseline_bytes": true,
+      "behavior": "references/rest/v2/ontologies/TimeSeriesValueBankProperty.md",
+      "behavior_sha256": "ca03f6bb44cf3deff87f1c168fd940982f6593718d3dab162f5937ef4d5b984f"
+    },
+    {
+      "id": "v2.ontologies.TimeSeriesValueBankProperty.stream_values",
+      "source_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\time_series_value_bank_property.py",
+      "source_sha256": "59d0d58422b167c574a9714bfe19fc628dccd317be841ff0b7c3ef4dc8f3ba38",
+      "matches_frozen_domain_source": true,
+      "example": ".agents/skills/pal-found-dev/examples/rest/083/v2/ontologies/TimeSeriesValueBankProperty/invoke_stream_values.py",
+      "example_sha256": "a73cdfd3341aec6976853700aef1ff9f19e730a7f016d39341db5f8bf882fa58",
+      "preserved_baseline_bytes": false,
+      "behavior": "references/rest/v2/ontologies/TimeSeriesValueBankProperty.md",
+      "behavior_sha256": "ca03f6bb44cf3deff87f1c168fd940982f6593718d3dab162f5937ef4d5b984f"
+    }
+  ],
+  "preserved_pass_examples": 16,
+  "corrected_examples": 9,
+  "source_model_file": {
+    "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+    "sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403"
+  },
+  "checks": {
+    "pytest": "79 passed in 0.57s",
+    "command": "python -m pytest tests/test_offline_rest_083.py -q -p no:cacheprovider",
+    "compile": "10 changed Python files compiled in memory",
+    "git_diff_check": "PASS",
+    "network_boundary": "Autouse process guards deny socket connections, DNS, urllib/native HTTP and real httpx transports; fake transport only. Explicit DNS/create_connection/urlopen probes pass.",
+    "coverage": "25 reader verify fixtures; 18 permission/timeout; single/batch Action absent/invalid evidence; override UUID/time serialization; attachment metadata mismatches; optional range; paging repeat/budget/missing fields/empty continuation; fragmented JSON/record validation; budget/malformed JSON/missing field stream closure."
+  },
+  "remaining_limits": [
+    "Author checks do not replace fresh independent semantic/source QA.",
+    "ValueBank JSON array is synthetic; SDK declares bytes without default framing.",
+    "SDK upload overwrites Content-Type with */*; returned media type must be verified for enrollment.",
+    "No tracker mutation, commit, push, publication or acceptance performed."
+  ]
+}

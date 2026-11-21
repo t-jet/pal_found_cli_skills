@@ -1,0 +1,17 @@
+{
+  "disposition": "APPROVED",
+  "reviewer_identity": "/root/rest079_case_techlead_approval_20261118",
+  "reviewer_role": "Tech Lead",
+  "testcase": "TESTCASE-079",
+  "candidate_revision": 2,
+  "formal_execution": false,
+  "testcase_closed": false,
+  "testexec_prerequisites_verified": false,
+  "case_sha256": "1587b936fc129eab6b91fb86ae276f181b031b4a4d55256c6d33885b1ecfebbe",
+  "feature_sha256": "5a146376ce28c3b077e4c19e5fce9372e0cb1d7027a01f84eb632b214e82e7e3",
+  "harness_sha256": "b7fc8a404cfd5f883c2339955517e5763d34481fb54f8106392df7201d004cb6",
+  "additional_checks_sha256": "90da13bfae5c685a22319d58301e1ddd2ab7c20b48b71ebcf8a466698cbf9044",
+  "freeze_sha256": "7f6f42060c4cc18535dd4009cf335cf6a8355eb0d80ea44e69ccb36e2563cd8f",
+  "candidate_proof_sha256": "d42963e19e7ef33b89dfffa81247ac0382420b28265b7f692aa669df700c2bd2",
+  "qa_peer_review_sha256": "a1a451f5362392985e1c87d237a422d8c626a695125d0cab382a076acea9a626"
+}

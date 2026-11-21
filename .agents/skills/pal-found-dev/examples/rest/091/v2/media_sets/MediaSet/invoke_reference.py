@@ -21,7 +21,7 @@ EXPECTED_PATH = '/api/v2/mediasets/ri.synthetic.main.resource.00000000-0000-0000
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'preview': None}
 EXPECTED_HEADERS = {'ReadToken': None, 'Accept': 'application/json'}
-SUCCESS = {'mimeType': 'synthetic-value',
+SUCCESS = {'mimeType': 'image/png',
  'reference': {'mediaSetViewItem': {'mediaSetRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
                                     'mediaSetViewRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
                                     'mediaItemRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'},

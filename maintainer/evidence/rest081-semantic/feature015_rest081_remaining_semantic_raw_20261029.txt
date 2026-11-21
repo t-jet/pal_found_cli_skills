@@ -1,0 +1,221 @@
+{"counts": {"PASS": 0, "FAIL": 11, "UNCERTAIN": 0}, "model_count": 164, "model_gaps": 0, "hash_stability": true, "report": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest081_remaining_semantic_review_20261029.json"}
+v2.ontologies.OntologyObject.count Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 171, in aprobe
+    try:assert normalized(await raw.decode())==payload
+                          ^^^^^^^^^^^^^^^^^^
+TypeError: object CountObjectsResponseV2 can't be used in 'await' expression
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 174, in <module>
+    loop.run_until_complete(aprobe());result['mode_probes']+=['async ordinary','async raw closed','async streaming closed']
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 172, in aprobe
+    finally:await raw.close()
+                  ^^^^^^^^^
+AttributeError: 'AsyncApiResponse' object has no attribute 'close'
+
+v2.ontologies.OntologyObjectSet.get Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 171, in aprobe
+    try:assert normalized(await raw.decode())==payload
+                          ^^^^^^^^^^^^^^^^^^
+TypeError: object ObjectSetBaseType can't be used in 'await' expression
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 174, in <module>
+    loop.run_until_complete(aprobe());result['mode_probes']+=['async ordinary','async raw closed','async streaming closed']
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 172, in aprobe
+    finally:await raw.close()
+                  ^^^^^^^^^
+AttributeError: 'AsyncApiResponse' object has no attribute 'close'
+
+v2.ontologies.OntologyObjectSet.load_links Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 171, in aprobe
+    try:assert normalized(await raw.decode())==payload
+                          ^^^^^^^^^^^^^^^^^^
+TypeError: object LoadObjectSetLinksResponseV2 can't be used in 'await' expression
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 174, in <module>
+    loop.run_until_complete(aprobe());result['mode_probes']+=['async ordinary','async raw closed','async streaming closed']
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 172, in aprobe
+    finally:await raw.close()
+                  ^^^^^^^^^
+AttributeError: 'AsyncApiResponse' object has no attribute 'close'
+
+v2.ontologies.OntologyScenario.create_scenario Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 171, in aprobe
+    try:assert normalized(await raw.decode())==payload
+                          ^^^^^^^^^^^^^^^^^^
+TypeError: object CreateOntologyScenarioResponse can't be used in 'await' expression
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 174, in <module>
+    loop.run_until_complete(aprobe());result['mode_probes']+=['async ordinary','async raw closed','async streaming closed']
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 172, in aprobe
+    finally:await raw.close()
+                  ^^^^^^^^^
+AttributeError: 'AsyncApiResponse' object has no attribute 'close'
+
+v2.ontologies.OntologyScenario.list_scenario_conflicting_objects Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 171, in aprobe
+    try:assert normalized(await raw.decode())==payload
+                          ^^^^^^^^^^^^^^^^^^
+TypeError: object ListScenarioConflictingObjectsResponse can't be used in 'await' expression
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 174, in <module>
+    loop.run_until_complete(aprobe());result['mode_probes']+=['async ordinary','async raw closed','async streaming closed']
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 172, in aprobe
+    finally:await raw.close()
+                  ^^^^^^^^^
+AttributeError: 'AsyncApiResponse' object has no attribute 'close'
+
+v2.ontologies.OntologyScenario.list_scenario_edited_entity_types Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 171, in aprobe
+    try:assert normalized(await raw.decode())==payload
+                          ^^^^^^^^^^^^^^^^^^
+TypeError: object ListScenarioEditedEntityTypesResponse can't be used in 'await' expression
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 174, in <module>
+    loop.run_until_complete(aprobe());result['mode_probes']+=['async ordinary','async raw closed','async streaming closed']
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 172, in aprobe
+    finally:await raw.close()
+                  ^^^^^^^^^
+AttributeError: 'AsyncApiResponse' object has no attribute 'close'
+
+v2.ontologies.OntologyScenario.list_scenario_edited_link_types Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 171, in aprobe
+    try:assert normalized(await raw.decode())==payload
+                          ^^^^^^^^^^^^^^^^^^
+TypeError: object ListScenarioEditedLinkTypesResponse can't be used in 'await' expression
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 174, in <module>
+    loop.run_until_complete(aprobe());result['mode_probes']+=['async ordinary','async raw closed','async streaming closed']
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 172, in aprobe
+    finally:await raw.close()
+                  ^^^^^^^^^
+AttributeError: 'AsyncApiResponse' object has no attribute 'close'
+
+v2.ontologies.OntologyScenario.list_scenario_edited_links Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 171, in aprobe
+    try:assert normalized(await raw.decode())==payload
+                          ^^^^^^^^^^^^^^^^^^
+TypeError: object ListScenarioEditedLinksResponse can't be used in 'await' expression
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 174, in <module>
+    loop.run_until_complete(aprobe());result['mode_probes']+=['async ordinary','async raw closed','async streaming closed']
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 172, in aprobe
+    finally:await raw.close()
+                  ^^^^^^^^^
+AttributeError: 'AsyncApiResponse' object has no attribute 'close'
+
+v2.ontologies.OntologyScenario.list_scenario_edited_object_types Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 171, in aprobe
+    try:assert normalized(await raw.decode())==payload
+                          ^^^^^^^^^^^^^^^^^^
+TypeError: object ListScenarioEditedObjectTypesResponse can't be used in 'await' expression
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 174, in <module>
+    loop.run_until_complete(aprobe());result['mode_probes']+=['async ordinary','async raw closed','async streaming closed']
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 172, in aprobe
+    finally:await raw.close()
+                  ^^^^^^^^^
+AttributeError: 'AsyncApiResponse' object has no attribute 'close'
+
+v2.ontologies.OntologyScenario.list_scenario_edited_objects Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 171, in aprobe
+    try:assert normalized(await raw.decode())==payload
+                          ^^^^^^^^^^^^^^^^^^
+TypeError: object ListScenarioEditedObjectsResponse can't be used in 'await' expression
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 174, in <module>
+    loop.run_until_complete(aprobe());result['mode_probes']+=['async ordinary','async raw closed','async streaming closed']
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 172, in aprobe
+    finally:await raw.close()
+                  ^^^^^^^^^
+AttributeError: 'AsyncApiResponse' object has no attribute 'close'
+
+v2.ontologies.OntologyTransaction.post_edits Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 171, in aprobe
+    try:assert normalized(await raw.decode())==payload
+                          ^^^^^^^^^^^^^^^^^^
+TypeError: object PostTransactionEditsResponse can't be used in 'await' expression
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 174, in <module>
+    loop.run_until_complete(aprobe());result['mode_probes']+=['async ordinary','async raw closed','async streaming closed']
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\app\Python\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "E:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\tmp\feature015_rest081_remaining_semantic_proof_20261029.py", line 172, in aprobe
+    finally:await raw.close()
+                  ^^^^^^^^^
+AttributeError: 'AsyncApiResponse' object has no attribute 'close'
+

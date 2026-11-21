@@ -1,0 +1,28 @@
+{
+  "classification": "Independent QA probe construction errors, not product or candidate test failures",
+  "provenance": "Copied from this peer agent's tool results; original candidate test file was not modified",
+  "attempts": [
+    {
+      "exit_code": 1,
+      "exception": "AssertionError",
+      "detail": "('media_sets.MediaSet.calculate', {'ReadToken': None, 'Accept': 'application/json'}, {'Accept': 'application/json'})",
+      "correction": "Source header dictionary contains optional None values; compare wire headers after omitting those values, matching SDK serialization."
+    },
+    {
+      "exit_code": 1,
+      "exception": "TypeError",
+      "detail": "EnableDevModeSettingsPermissionDenied.__init__() missing 1 required positional argument: 'name'",
+      "correction": "Provide the required name argument when inspecting the declared SDK error class."
+    },
+    {
+      "exit_code": 0,
+      "operations": 29,
+      "native_mode_count": 166,
+      "declared_error_mode_count": 94,
+      "generic_error_mode_count": 498,
+      "frozen_source_files": 6
+    }
+  ],
+  "focused_candidate_tests": {"exit_code": 0, "passed": 930, "seconds": 2.31},
+  "limits": "This artifact preserves probe failures and corrected source reconciliation. It does not claim formal TESTEXEC, live tenant execution, or DEV-084 content acceptance."
+}

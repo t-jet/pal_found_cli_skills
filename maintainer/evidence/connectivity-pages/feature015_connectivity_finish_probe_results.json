@@ -1,0 +1,614 @@
+{
+  "sdk_version": "1.101.0",
+  "page_hashes": {
+    "SKILL.md": "8844c6204a7c2e048c27b9d076a9d4011de08af4e4bcca8aa9dc5bf0a38525ab",
+    "references\\01-connection.md": "752b98c17df36201da35c91ed55d0fbf4e37c5f2281c1c02f90d994ee69ba650",
+    "references\\02-imports.md": "e56612fd619237e28abd76e33474b0ef8eaa8b929f656d17663f921a17365887"
+  },
+  "sources": {
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\connectivity\\scripts\\pal_found_connectivity_cli.py": "d92b3a9127fefc4ea3b8d17ae90a6f5fe3983e6f9653af9f2fec3bbd8627e20d",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\connectivity\\connection.py": "8500b89d6d94e9254d0bffc7faba12df6b47888a770329c16584f2484393a71a",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\connectivity\\file_import.py": "9c22dcd023eba7deba20bbd6d04acdcbeb8cefffb1211e47a8c1cca2c2f9dffc",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\connectivity\\table_import.py": "37c27065c8fc496100e35d3d340a49194c7be51496c12b091fa877b45b3c9f52",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\connectivity\\virtual_table.py": "85b7529ce79d215b920e0b58bbc92a3cdb64c98df13a751090b0402634798325",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\connectivity\\models.py": "b587c5d464af6aaf30cbc52be2bc2a6dacca06105f2ad414a5415e3b43faf59b"
+  },
+  "examples": [
+    {
+      "page": "references\\01-connection.md",
+      "example": "pal-found-connectivity connection create --configuration-json '{\"type\":\"jdbc\",\"url\":\"jdbc:postgresql://localhost:5432/test\",\"driverClass\":\"org.postgresql.Driver\",\"jdbcProperties\":{}}' --display-name Orders --parent-folder-rid PARENT_FOLDER_RID --worker-json '{\"type\":\"foundryWorker\",\"networkEgressPolicyRids\":[]}'",
+      "substituted_argv": [
+        "connection",
+        "create",
+        "--configuration-json",
+        "{\"type\":\"jdbc\",\"url\":\"jdbc:postgresql://localhost:5432/test\",\"driverClass\":\"org.postgresql.Driver\",\"jdbcProperties\":{}}",
+        "--display-name",
+        "Orders",
+        "--parent-folder-rid",
+        "ri.compass.main.folder.synthetic",
+        "--worker-json",
+        "{\"type\":\"foundryWorker\",\"networkEgressPolicyRids\":[]}"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.magritte.main.source.synthetic\", \"parentFolderRid\": \"ri.magritte.main.source.synthetic\", \"displayName\": \"synthetic\", \"exportSettings\": {\"exportsEnabled\": false, \"exportEnabledWithoutMarkingsValidation\": false}, \"worker\": {\"networkEgressPolicyRids\": [], \"type\": \"foundryWorker\"}, \"configuration\": {\"url\": \"jdbc:postgresql://localhost:5432/test\", \"driverClass\": \"org.postgresql.Driver\", \"uploadedJdbcDrivers\": [], \"jdbcProperties\": {}, \"type\": \"jdbc\"}}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/connectivity/connections",
+          "query": "",
+          "content_type": "application/json",
+          "body": "{\"parentFolderRid\": \"ri.compass.main.folder.synthetic\", \"configuration\": {\"driverClass\": \"org.postgresql.Driver\", \"jdbcProperties\": {}, \"url\": \"jdbc:postgresql://localhost:5432/test\", \"type\": \"jdbc\"}, \"displayName\": \"Orders\", \"worker\": {\"networkEgressPolicyRids\": [], \"type\": \"foundryWorker\"}}"
+        }
+      ]
+    },
+    {
+      "page": "references\\01-connection.md",
+      "example": "pal-found-connectivity connection get CONNECTION_RID",
+      "substituted_argv": [
+        "connection",
+        "get",
+        "ri.magritte.main.source.synthetic"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.magritte.main.source.synthetic\", \"parentFolderRid\": \"ri.magritte.main.source.synthetic\", \"displayName\": \"synthetic\", \"exportSettings\": {\"exportsEnabled\": false, \"exportEnabledWithoutMarkingsValidation\": false}, \"worker\": {\"networkEgressPolicyRids\": [], \"type\": \"foundryWorker\"}, \"configuration\": {\"url\": \"jdbc:postgresql://localhost:5432/test\", \"driverClass\": \"org.postgresql.Driver\", \"uploadedJdbcDrivers\": [], \"jdbcProperties\": {}, \"type\": \"jdbc\"}}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic",
+          "query": "",
+          "content_type": null,
+          "body": ""
+        }
+      ]
+    },
+    {
+      "page": "references\\01-connection.md",
+      "example": "pal-found-connectivity connection get-configuration CONNECTION_RID",
+      "substituted_argv": [
+        "connection",
+        "get-configuration",
+        "ri.magritte.main.source.synthetic"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "{\"url\": \"synthetic\", \"driverClass\": \"synthetic\", \"uploadedJdbcDrivers\": [], \"jdbcProperties\": {}, \"type\": \"jdbc\"}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/getConfiguration",
+          "query": "",
+          "content_type": null,
+          "body": ""
+        }
+      ]
+    },
+    {
+      "page": "references\\01-connection.md",
+      "example": "pal-found-connectivity connection get-configuration-batch --body-json '[{\"connectionRid\":\"ri.magritte..source.c078b71b-92f9-41b6-b0df-3760f411120b\"}]'",
+      "substituted_argv": [
+        "connection",
+        "get-configuration-batch",
+        "--body-json",
+        "[{\"connectionRid\":\"ri.magritte..source.c078b71b-92f9-41b6-b0df-3760f411120b\"}]"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "{\"data\": {}}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/connectivity/connections/getConfigurationBatch",
+          "query": "",
+          "content_type": "application/json",
+          "body": "[{\"connectionRid\": \"ri.magritte..source.c078b71b-92f9-41b6-b0df-3760f411120b\"}]"
+        }
+      ]
+    },
+    {
+      "page": "references\\01-connection.md",
+      "example": "pal-found-connectivity connection update-export-settings CONNECTION_RID --export-settings-json '{\"exportsEnabled\":true,\"exportEnabledWithoutMarkingsValidation\":false}'",
+      "substituted_argv": [
+        "connection",
+        "update-export-settings",
+        "ri.magritte.main.source.synthetic",
+        "--export-settings-json",
+        "{\"exportsEnabled\":true,\"exportEnabledWithoutMarkingsValidation\":false}"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "null\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/updateExportSettings",
+          "query": "",
+          "content_type": "application/json",
+          "body": "{\"exportSettings\": {\"exportsEnabled\": true, \"exportEnabledWithoutMarkingsValidation\": false}}"
+        }
+      ]
+    },
+    {
+      "page": "references\\01-connection.md",
+      "example": "pal-found-connectivity connection update-secrets CONNECTION_RID --secrets-json '{\"Password\":\"REPLACE_WITH_SECRET\"}'",
+      "substituted_argv": [
+        "connection",
+        "update-secrets",
+        "ri.magritte.main.source.synthetic",
+        "--secrets-json",
+        "{\"Password\":\"REPLACE_WITH_SECRET\"}"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "null\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/updateSecrets",
+          "query": "",
+          "content_type": "application/json",
+          "body": "{\"secrets\": {\"Password\": \"REPLACE_WITH_SECRET\"}}"
+        }
+      ]
+    },
+    {
+      "page": "references\\01-connection.md",
+      "example": "pal-found-connectivity connection upload-custom-jdbc-drivers CONNECTION_RID --file driver.jar --file-name driver.jar",
+      "substituted_argv": [
+        "connection",
+        "upload-custom-jdbc-drivers",
+        "ri.magritte.main.source.synthetic",
+        "--file",
+        "driver.jar",
+        "--file-name",
+        "driver.jar"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.magritte.main.source.synthetic\", \"parentFolderRid\": \"ri.magritte.main.source.synthetic\", \"displayName\": \"synthetic\", \"exportSettings\": {\"exportsEnabled\": false, \"exportEnabledWithoutMarkingsValidation\": false}, \"worker\": {\"networkEgressPolicyRids\": [], \"type\": \"foundryWorker\"}, \"configuration\": {\"url\": \"jdbc:postgresql://localhost:5432/test\", \"driverClass\": \"org.postgresql.Driver\", \"uploadedJdbcDrivers\": [\"driver.jar\"], \"jdbcProperties\": {}, \"type\": \"jdbc\"}}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/uploadCustomJdbcDrivers",
+          "query": "fileName=driver.jar",
+          "content_type": "application/octet-stream",
+          "body": "PK\u0003\u0004synthetic-driver"
+        }
+      ]
+    },
+    {
+      "page": "references\\02-imports.md",
+      "example": "pal-found-connectivity file-import create CONNECTION_RID --dataset-rid DATASET_RID --display-name Orders --filters-json '[{\"type\":\"pathMatchesFilter\",\"regex\":\".*[.]csv\"}]' --import-mode SNAPSHOT",
+      "substituted_argv": [
+        "file-import",
+        "create",
+        "ri.magritte.main.source.synthetic",
+        "--dataset-rid",
+        "ri.foundry.main.dataset.synthetic",
+        "--display-name",
+        "Orders",
+        "--filters-json",
+        "[{\"type\":\"pathMatchesFilter\",\"regex\":\".*[.]csv\"}]",
+        "--import-mode",
+        "SNAPSHOT"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.magritte.main.source.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.magritte.main.source.synthetic\", \"displayName\": \"synthetic\", \"fileImportFilters\": [], \"importMode\": \"SNAPSHOT\"}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports",
+          "query": "",
+          "content_type": "application/json",
+          "body": "{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"importMode\": \"SNAPSHOT\", \"displayName\": \"Orders\", \"fileImportFilters\": [{\"regex\": \".*[.]csv\", \"type\": \"pathMatchesFilter\"}]}"
+        }
+      ]
+    },
+    {
+      "page": "references\\02-imports.md",
+      "example": "pal-found-connectivity file-import delete CONNECTION_RID FILE_IMPORT_RID",
+      "substituted_argv": [
+        "file-import",
+        "delete",
+        "ri.magritte.main.source.synthetic",
+        "ri.magritte.main.file-import.synthetic"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "null\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "DELETE",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports/ri.magritte.main.file-import.synthetic",
+          "query": "",
+          "content_type": null,
+          "body": ""
+        }
+      ]
+    },
+    {
+      "page": "references\\02-imports.md",
+      "example": "pal-found-connectivity file-import execute CONNECTION_RID FILE_IMPORT_RID",
+      "substituted_argv": [
+        "file-import",
+        "execute",
+        "ri.magritte.main.source.synthetic",
+        "ri.magritte.main.file-import.synthetic"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "\"ri.foundry.main.build.synthetic\"\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports/ri.magritte.main.file-import.synthetic/execute",
+          "query": "",
+          "content_type": null,
+          "body": ""
+        }
+      ]
+    },
+    {
+      "page": "references\\02-imports.md",
+      "example": "pal-found-connectivity file-import get CONNECTION_RID FILE_IMPORT_RID",
+      "substituted_argv": [
+        "file-import",
+        "get",
+        "ri.magritte.main.source.synthetic",
+        "ri.magritte.main.file-import.synthetic"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.magritte.main.source.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.magritte.main.source.synthetic\", \"displayName\": \"synthetic\", \"fileImportFilters\": [], \"importMode\": \"SNAPSHOT\"}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports/ri.magritte.main.file-import.synthetic",
+          "query": "",
+          "content_type": null,
+          "body": ""
+        }
+      ]
+    },
+    {
+      "page": "references\\02-imports.md",
+      "example": "pal-found-connectivity file-import list CONNECTION_RID",
+      "substituted_argv": [
+        "file-import",
+        "list",
+        "ri.magritte.main.source.synthetic"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "[]\n",
+      "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 0, \"next_page_token\": \"next-fixture\", \"page_size\": 100}\n",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports",
+          "query": "pageSize=100",
+          "content_type": null,
+          "body": ""
+        }
+      ]
+    },
+    {
+      "page": "references\\02-imports.md",
+      "example": "pal-found-connectivity file-import replace CONNECTION_RID FILE_IMPORT_RID --display-name Orders --filters-json '[{\"type\":\"pathMatchesFilter\",\"regex\":\".*[.]csv\"}]' --import-mode SNAPSHOT",
+      "substituted_argv": [
+        "file-import",
+        "replace",
+        "ri.magritte.main.source.synthetic",
+        "ri.magritte.main.file-import.synthetic",
+        "--display-name",
+        "Orders",
+        "--filters-json",
+        "[{\"type\":\"pathMatchesFilter\",\"regex\":\".*[.]csv\"}]",
+        "--import-mode",
+        "SNAPSHOT"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.magritte.main.source.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.magritte.main.source.synthetic\", \"displayName\": \"synthetic\", \"fileImportFilters\": [], \"importMode\": \"SNAPSHOT\"}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "PUT",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports/ri.magritte.main.file-import.synthetic",
+          "query": "",
+          "content_type": "application/json",
+          "body": "{\"importMode\": \"SNAPSHOT\", \"displayName\": \"Orders\", \"fileImportFilters\": [{\"regex\": \".*[.]csv\", \"type\": \"pathMatchesFilter\"}]}"
+        }
+      ]
+    },
+    {
+      "page": "references\\02-imports.md",
+      "example": "pal-found-connectivity table-import create CONNECTION_RID --config-json '{\"type\":\"jdbcImportConfig\",\"query\":\"SELECT * FROM table\"}' --dataset-rid DATASET_RID --display-name Orders --import-mode SNAPSHOT",
+      "substituted_argv": [
+        "table-import",
+        "create",
+        "ri.magritte.main.source.synthetic",
+        "--config-json",
+        "{\"type\":\"jdbcImportConfig\",\"query\":\"SELECT * FROM table\"}",
+        "--dataset-rid",
+        "ri.foundry.main.dataset.synthetic",
+        "--display-name",
+        "Orders",
+        "--import-mode",
+        "SNAPSHOT"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.magritte.main.source.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.magritte.main.source.synthetic\", \"displayName\": \"synthetic\", \"importMode\": \"SNAPSHOT\", \"allowSchemaChanges\": false, \"config\": {\"query\": \"SELECT * FROM table\", \"type\": \"jdbcImportConfig\"}}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports",
+          "query": "",
+          "content_type": "application/json",
+          "body": "{\"datasetRid\": \"ri.foundry.main.dataset.synthetic\", \"importMode\": \"SNAPSHOT\", \"displayName\": \"Orders\", \"config\": {\"query\": \"SELECT * FROM table\", \"type\": \"jdbcImportConfig\"}}"
+        }
+      ]
+    },
+    {
+      "page": "references\\02-imports.md",
+      "example": "pal-found-connectivity table-import delete CONNECTION_RID TABLE_IMPORT_RID",
+      "substituted_argv": [
+        "table-import",
+        "delete",
+        "ri.magritte.main.source.synthetic",
+        "ri.magritte.main.table-import.synthetic"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "null\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "DELETE",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports/ri.magritte.main.table-import.synthetic",
+          "query": "",
+          "content_type": null,
+          "body": ""
+        }
+      ]
+    },
+    {
+      "page": "references\\02-imports.md",
+      "example": "pal-found-connectivity table-import execute CONNECTION_RID TABLE_IMPORT_RID",
+      "substituted_argv": [
+        "table-import",
+        "execute",
+        "ri.magritte.main.source.synthetic",
+        "ri.magritte.main.table-import.synthetic"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "\"ri.foundry.main.build.synthetic\"\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports/ri.magritte.main.table-import.synthetic/execute",
+          "query": "",
+          "content_type": null,
+          "body": ""
+        }
+      ]
+    },
+    {
+      "page": "references\\02-imports.md",
+      "example": "pal-found-connectivity table-import get CONNECTION_RID TABLE_IMPORT_RID",
+      "substituted_argv": [
+        "table-import",
+        "get",
+        "ri.magritte.main.source.synthetic",
+        "ri.magritte.main.table-import.synthetic"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.magritte.main.source.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.magritte.main.source.synthetic\", \"displayName\": \"synthetic\", \"importMode\": \"SNAPSHOT\", \"allowSchemaChanges\": false, \"config\": {\"query\": \"SELECT * FROM table\", \"type\": \"jdbcImportConfig\"}}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports/ri.magritte.main.table-import.synthetic",
+          "query": "",
+          "content_type": null,
+          "body": ""
+        }
+      ]
+    },
+    {
+      "page": "references\\02-imports.md",
+      "example": "pal-found-connectivity table-import list CONNECTION_RID",
+      "substituted_argv": [
+        "table-import",
+        "list",
+        "ri.magritte.main.source.synthetic"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "[]\n",
+      "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 0, \"next_page_token\": \"next-fixture\", \"page_size\": 100}\n",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports",
+          "query": "pageSize=100",
+          "content_type": null,
+          "body": ""
+        }
+      ]
+    },
+    {
+      "page": "references\\02-imports.md",
+      "example": "pal-found-connectivity table-import replace CONNECTION_RID TABLE_IMPORT_RID --config-json '{\"type\":\"jdbcImportConfig\",\"query\":\"SELECT * FROM table\"}' --display-name Orders --import-mode SNAPSHOT",
+      "substituted_argv": [
+        "table-import",
+        "replace",
+        "ri.magritte.main.source.synthetic",
+        "ri.magritte.main.table-import.synthetic",
+        "--config-json",
+        "{\"type\":\"jdbcImportConfig\",\"query\":\"SELECT * FROM table\"}",
+        "--display-name",
+        "Orders",
+        "--import-mode",
+        "SNAPSHOT"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.magritte.main.source.synthetic\", \"connectionRid\": \"ri.magritte.main.source.synthetic\", \"datasetRid\": \"ri.magritte.main.source.synthetic\", \"displayName\": \"synthetic\", \"importMode\": \"SNAPSHOT\", \"allowSchemaChanges\": false, \"config\": {\"query\": \"SELECT * FROM table\", \"type\": \"jdbcImportConfig\"}}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "PUT",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports/ri.magritte.main.table-import.synthetic",
+          "query": "",
+          "content_type": "application/json",
+          "body": "{\"importMode\": \"SNAPSHOT\", \"displayName\": \"Orders\", \"config\": {\"query\": \"SELECT * FROM table\", \"type\": \"jdbcImportConfig\"}}"
+        }
+      ]
+    },
+    {
+      "page": "references\\02-imports.md",
+      "example": "pal-found-connectivity virtual-table create CONNECTION_RID --config-json '{\"type\":\"snowflake\",\"database\":\"ANALYTICS\",\"schema\":\"PUBLIC\",\"table\":\"ORDERS\"}' --name Orders --parent-rid PARENT_RID",
+      "substituted_argv": [
+        "virtual-table",
+        "create",
+        "ri.magritte.main.source.synthetic",
+        "--config-json",
+        "{\"type\":\"snowflake\",\"database\":\"ANALYTICS\",\"schema\":\"PUBLIC\",\"table\":\"ORDERS\"}",
+        "--name",
+        "Orders",
+        "--parent-rid",
+        "ri.compass.main.folder.synthetic"
+      ],
+      "phase": "actual CLI main + actual SDK + httpx.MockTransport HTTP request/response",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout": "{\"rid\": \"ri.magritte.main.source.synthetic\", \"name\": \"synthetic\", \"parentRid\": \"ri.magritte.main.source.synthetic\", \"config\": {\"database\": \"ANALYTICS\", \"schema\": \"PUBLIC\", \"table\": \"ORDERS\", \"type\": \"snowflake\"}}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/virtualTables",
+          "query": "",
+          "content_type": "application/json",
+          "body": "{\"parentRid\": \"ri.compass.main.folder.synthetic\", \"name\": \"Orders\", \"config\": {\"database\": \"ANALYTICS\", \"schema\": \"PUBLIC\", \"table\": \"ORDERS\", \"type\": \"snowflake\"}}"
+        }
+      ]
+    }
+  ],
+  "extra_checks": [
+    {
+      "name": "HTTP403 maps to permission envelope; secret not echoed",
+      "exit_code": 3,
+      "stdout": "{\"error\": true, \"exit_code\": 3, \"exit_code_name\": \"PermissionDeniedError\", \"message\": \"Connectivity operation failed\", \"exception_type\": \"PermissionDeniedError\", \"traceback\": \"\", \"call_id\": \"34cfca4e-b6e7-4a15-93f4-fcbdef99b78d\", \"http_status\": 403}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic",
+          "query": "",
+          "content_type": null,
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "HTTP403 maps to permission envelope; secret not echoed",
+      "exit_code": 3,
+      "stdout": "{\"error\": true, \"exit_code\": 3, \"exit_code_name\": \"PermissionDeniedError\", \"message\": \"Connectivity operation failed\", \"exception_type\": \"PermissionDeniedError\", \"traceback\": \"\", \"call_id\": \"cf500a0d-6ea4-471f-9525-bc2c7e211b7f\", \"http_status\": 403}\n",
+      "stderr": "",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/updateSecrets",
+          "query": "",
+          "content_type": "application/json",
+          "body": "{\"secrets\": {\"Password\": \"PRIVATE_SENTINEL\"}}"
+        }
+      ]
+    },
+    {
+      "name": "empty page cursor followed; bounded two-page stop retains cursor",
+      "exit_code": 0,
+      "stdout": "[]\n",
+      "stderr": "# ---metadata-start---\n{\"pages_fetched\": 2, \"total_items\": 0, \"next_page_token\": \"next-fixture\", \"page_size\": 100}\n",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports",
+          "query": "pageSize=100",
+          "content_type": null,
+          "body": ""
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/fileImports",
+          "query": "pageSize=100&pageToken=next-fixture",
+          "content_type": null,
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "empty page cursor followed; bounded two-page stop retains cursor",
+      "exit_code": 0,
+      "stdout": "[]\n",
+      "stderr": "# ---metadata-start---\n{\"pages_fetched\": 2, \"total_items\": 0, \"next_page_token\": \"next-fixture\", \"page_size\": 100}\n",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports",
+          "query": "pageSize=100",
+          "content_type": null,
+          "body": ""
+        },
+        {
+          "method": "GET",
+          "path": "/api/v2/connectivity/connections/ri.magritte.main.source.synthetic/tableImports",
+          "query": "pageSize=100&pageToken=next-fixture",
+          "content_type": null,
+          "body": ""
+        }
+      ]
+    }
+  ],
+  "network_guard": "socket connect/connect_ex/create_connection and DNS getaddrinfo denied after event-loop construction; actual HTTP handled solely by MockTransport",
+  "limits": "Synthetic responses prove parser, local validation, SDK serialization/deserialization and CLI result/error formatting. They do not prove server authorization, connector reachability, asynchronous build completion or enrollment behavior."
+}
