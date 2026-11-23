@@ -1,0 +1,65 @@
+{
+  "ticket": "CODEREVIEW-085",
+  "reviewer": "architect",
+  "reviewer_agent": "/root/feature015_rest091_architect_review",
+  "review_date": "2026-11-23",
+  "reviewed_content_commit": "73ca32c6c3912def8270b4be6d30a6293f6a169f",
+  "reviewed_base_commit": "b6310bcd906ead5a0cd3d56e9bc826e596c9be99",
+  "prior_full_review_file": ".ept/tmp/cr085_independent_architect_20261121.json",
+  "prior_full_review_sha256": "7839c02be90e5080e8fe72f49aa32d38ea4a5e82b87cf671bf577e38620ae9da",
+  "prior_review_comment": "20261121-094837-@architect",
+  "pinned_manifest_interface": "https://github.com/palantir/osdk-ts/blob/6b9b2c0ac38337ba23f52bd0979a7223ab6204f3/packages/widget.vite-plugin/src/dev-plugin/buildDevModeManifest.ts#L28-L34",
+  "continuity": {
+    "source_files": 13,
+    "qualified_model_closure": 309,
+    "all_prior_full_source_hashes_match": true,
+    "all_model_page_hashes_match": true,
+    "all_29_examples_unchanged": true,
+    "other_27_operation_guides_unchanged": true,
+    "other_423_register_rows_unchanged": true,
+    "all_prior_row_provenance_preserved": true
+  },
+  "operations": [
+    {
+      "id": "v2.widgets.DevModeSettingsV2.enable",
+      "verdict": "PASS",
+      "behavior": "references/rest/v2/widgets/DevModeSettingsV2.md",
+      "behavior_sha256": "aea38b9e4dcdefbd4245cc907579e99c4da246370645d25fe8de397f4a9d3c46",
+      "example": "examples/rest/091/v2/widgets/DevModeSettingsV2/invoke_enable.py",
+      "example_sha256": "c6dd968e0c7de669769490300eebe74087e15b9752f5c7db70182761e16b4da8",
+      "source_sha256": "63e4df516e434b0e4c2d94d1b30cb79cacb5ce88bcc232c85682e544540055bd",
+      "source_line": 60,
+      "example_line": 31,
+      "example_snippet": "    return client.with_raw_response.enable(request_timeout=30)",
+      "disposition": "Current guide reviewed in full. Token-user enable meaning and unchanged typed request/result/error fixture remain valid; shared guide optional-inputSpec wording now matches pinned interface.",
+      "current_register_status": "pending; publisher rebinding remains separate"
+    },
+    {
+      "id": "v2.widgets.DevModeSettingsV2.set_widget_set_manifest",
+      "verdict": "PASS",
+      "behavior": "references/rest/v2/widgets/DevModeSettingsV2.md",
+      "behavior_sha256": "aea38b9e4dcdefbd4245cc907579e99c4da246370645d25fe8de397f4a9d3c46",
+      "example": "examples/rest/091/v2/widgets/DevModeSettingsV2/invoke_set_widget_set_manifest.py",
+      "example_sha256": "20b5711b15b115eb9f1e8609760bf113bbe648f03ca55122e1b0cc32738018d4",
+      "source_sha256": "63e4df516e434b0e4c2d94d1b30cb79cacb5ce88bcc232c85682e544540055bd",
+      "source_line": 103,
+      "example_line": 63,
+      "example_snippet": "    return client.with_raw_response.set_widget_set_manifest(manifest={'manifestVersion': '1.0.0', 'devSettings': {'baseHref': 'http://localhost:5173/', 'widgets': {'inspection-summary': {'id': 'inspection-summary', 'name': 'Inspection summary', 'type': 'workshopWidgetV1', 'entrypointJs': [{'path': 'http://localhost:5173/assets/inspection.js', 'type': 'module'}], 'entrypointCss': [{'path': 'http://localhost:5173/assets/inspection.css'}], 'parameters': {}, 'events': {}}}, 'inputSpec': {'discovered': {'sdks': []}}}}, widget_set_rid='ri.widgets.main.widget-set.00000000-0000-0000-0000-000000000001', request_timeout=30)",
+      "disposition": "Current guide now correctly labels devSettings.inputSpec optional in the pinned widget interface. Explicit empty discovered-SDK example and prepared-tooling/enrollment compatibility boundary remain; SDK Any does not infer a new server requirement.",
+      "current_register_status": "pending; publisher rebinding remains separate"
+    }
+  ],
+  "native_reviewer_run": {
+    "passed": 930,
+    "seconds": 2.27,
+    "exit_code": 0,
+    "junit": ".ept/tmp/cr085_rereview_native_junit_20261123.xml",
+    "junit_sha256": "dc18a4f53b3dfe45cf16d76534bfc6052d4ad0536fa9a62542be1ec2213f4aab"
+  },
+  "limits": [
+    "Two current-content semantic PASS dispositions support later publisher rebinding only.",
+    "Prior model meanings reused solely under exact full-source/current-page equality; no fresh309-prose review claimed.",
+    "No formal TESTEXEC, live tenant, all-SDK, final G1-G8 or main publication acceptance.",
+    "Publisher should retain exact full prior309-definition proof durably alongside this scoped proof."
+  ]
+}
