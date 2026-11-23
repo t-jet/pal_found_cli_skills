@@ -18,8 +18,9 @@ and run the [offline SDK fixture](../../../../examples/rest/091/v2/widgets/DevMo
 ## set_widget_set_manifest
 
 Submit `widget_set_rid` and a `manifest` JSON object. The SDK accepts `Any`,
-so validate the payload before the call. It needs `manifestVersion`, then
-`devSettings` with `baseHref`, `widgets`, and `inputSpec`. `baseHref` and entrypoint
+so validate the payload before the call. The widget dev-manifest interface
+requires `manifestVersion` and `devSettings` with `baseHref` and `widgets`.
+The interface marks `devSettings.inputSpec` as optional. `baseHref` and entrypoint
 paths must point to a valid localhost URL with an optional port. Check the
 [exact contract and named errors](../../contracts/v2/widgets/DevModeSettingsV2/set_widget_set_manifest.md)
 for the available version before adapting the manifest. The source does not

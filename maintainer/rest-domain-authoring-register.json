@@ -10391,7 +10391,7 @@
       "behavior": "references/rest/v2/widgets/DevModeSettingsV2.md",
       "example": "examples/rest/091/v2/widgets/DevModeSettingsV2/invoke_enable.py",
       "fixture_entrypoint": "verify",
-      "behavior_sha256": "00d873951b89d676d74458b2c183de20b11eb625edaf39ee511b3a495d2880f4",
+      "behavior_sha256": "aea38b9e4dcdefbd4245cc907579e99c4da246370645d25fe8de397f4a9d3c46",
       "example_sha256": "c6dd968e0c7de669769490300eebe74087e15b9752f5c7db70182761e16b4da8",
       "source_sha256": "63e4df516e434b0e4c2d94d1b30cb79cacb5ce88bcc232c85682e544540055bd",
       "doc_sha256": "b780744d0bc4bc066140327483d3b5c8e7b9cb08689c44ddd89c0da70345918e",
@@ -10399,15 +10399,33 @@
       "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
       "author": "python-developer",
       "author_agent": "/root/feature015_manager_resume/rest425_author",
-      "independent_reviewer": "qa-engineer",
-      "reviewer_agent": "/root/rest091_final_retest_20261116",
+      "independent_reviewer": "architect",
+      "reviewer_agent": "/root/feature015_rest091_architect_review",
       "independent_qa_agent": null,
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake-transport script; exact request/response and declared errors passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
       "independent_qa_status": "pending",
-      "live_enrollment_status": "not exercised"
+      "live_enrollment_status": "not exercised",
+      "semantic_review_evidence": {
+        "evidence_file": "maintainer/evidence/rest091-widget-inputspec-20261123/current-two-operation-review.json",
+        "evidence_sha256": "7361bf3a9af7905dd966ead081846e84a3f69189eed79b2b9fc979fb938b2c28",
+        "full_source_closure_evidence_file": "maintainer/evidence/rest091-widget-inputspec-20261123/independent-source-closure-20261121.json",
+        "full_source_closure_evidence_sha256": "7839c02be90e5080e8fe72f49aa32d38ea4a5e82b87cf671bf577e38620ae9da",
+        "reviewed_base_sha": "b6310bcd906ead5a0cd3d56e9bc826e596c9be99",
+        "reviewed_content_sha": "73ca32c6c3912def8270b4be6d30a6293f6a169f",
+        "publisher_content_commit": "60ff700e57bf937f9851aaae81c263f06b4e9985",
+        "verdict": "PASS",
+        "contract_sha256": "184050b9be508f3069c52dec946efb3ec096c19589c83bcae9511e84511309c9",
+        "behavior_sha256": "aea38b9e4dcdefbd4245cc907579e99c4da246370645d25fe8de397f4a9d3c46",
+        "example_sha256": "c6dd968e0c7de669769490300eebe74087e15b9752f5c7db70182761e16b4da8",
+        "source_sdk": "1.101.0",
+        "scope_limit": "Independent current-content review of two exact operation meanings. Prior source and model findings apply by verified byte continuity. Formal TESTEXEC and live tenant validation remain pending.",
+        "prior_independent_reviewer": "qa-engineer",
+        "prior_reviewer_agent": "/root/rest091_final_retest_20261116",
+        "prior_semantic_review_evidence": null
+      }
     },
     {
       "id": "v2.widgets.DevModeSettingsV2.set_widget_set_manifest",
@@ -10415,7 +10433,7 @@
       "behavior": "references/rest/v2/widgets/DevModeSettingsV2.md",
       "example": "examples/rest/091/v2/widgets/DevModeSettingsV2/invoke_set_widget_set_manifest.py",
       "fixture_entrypoint": "verify",
-      "behavior_sha256": "00d873951b89d676d74458b2c183de20b11eb625edaf39ee511b3a495d2880f4",
+      "behavior_sha256": "aea38b9e4dcdefbd4245cc907579e99c4da246370645d25fe8de397f4a9d3c46",
       "example_sha256": "20b5711b15b115eb9f1e8609760bf113bbe648f03ca55122e1b0cc32738018d4",
       "source_sha256": "63e4df516e434b0e4c2d94d1b30cb79cacb5ce88bcc232c85682e544540055bd",
       "doc_sha256": "b780744d0bc4bc066140327483d3b5c8e7b9cb08689c44ddd89c0da70345918e",
@@ -10423,15 +10441,33 @@
       "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
       "author": "python-developer",
       "author_agent": "/root/feature015_manager_resume/rest425_author",
-      "independent_reviewer": "qa-engineer",
-      "reviewer_agent": "/root/rest091_final_retest_20261116",
+      "independent_reviewer": "architect",
+      "reviewer_agent": "/root/feature015_rest091_architect_review",
       "independent_qa_agent": null,
       "authoring_status": "authored",
       "fixture_status": "passed",
       "fixture_run": "Prepared SDK 1.101.0 fake-transport script; exact request/response and declared errors passed. Independent semantic review pending.",
       "semantic_review_status": "accepted",
       "independent_qa_status": "pending",
-      "live_enrollment_status": "not exercised"
+      "live_enrollment_status": "not exercised",
+      "semantic_review_evidence": {
+        "evidence_file": "maintainer/evidence/rest091-widget-inputspec-20261123/current-two-operation-review.json",
+        "evidence_sha256": "7361bf3a9af7905dd966ead081846e84a3f69189eed79b2b9fc979fb938b2c28",
+        "full_source_closure_evidence_file": "maintainer/evidence/rest091-widget-inputspec-20261123/independent-source-closure-20261121.json",
+        "full_source_closure_evidence_sha256": "7839c02be90e5080e8fe72f49aa32d38ea4a5e82b87cf671bf577e38620ae9da",
+        "reviewed_base_sha": "b6310bcd906ead5a0cd3d56e9bc826e596c9be99",
+        "reviewed_content_sha": "73ca32c6c3912def8270b4be6d30a6293f6a169f",
+        "publisher_content_commit": "60ff700e57bf937f9851aaae81c263f06b4e9985",
+        "verdict": "PASS",
+        "contract_sha256": "ecb991dfee35a1b22e2276aeca3c971b310355c80c51284bc5e4300e1e8c136a",
+        "behavior_sha256": "aea38b9e4dcdefbd4245cc907579e99c4da246370645d25fe8de397f4a9d3c46",
+        "example_sha256": "20b5711b15b115eb9f1e8609760bf113bbe648f03ca55122e1b0cc32738018d4",
+        "source_sdk": "1.101.0",
+        "scope_limit": "Independent current-content review of two exact operation meanings. Prior source and model findings apply by verified byte continuity. Formal TESTEXEC and live tenant validation remain pending.",
+        "prior_independent_reviewer": "qa-engineer",
+        "prior_reviewer_agent": "/root/rest091_final_retest_20261116",
+        "prior_semantic_review_evidence": null
+      }
     },
     {
       "id": "v2.widgets.Release.delete",
@@ -10578,6 +10614,6 @@
       "live_enrollment_status": "not exercised"
     }
   ],
-  "candidate_sha": "765c8a07d89a166c891506c52c000ca43e15b3bd",
-  "input_bundle_sha256": "fe47023cbeb077be9df554d50955bc54973360f34020faf985acbd97bf6a99a6"
+  "candidate_sha": "60ff700e57bf937f9851aaae81c263f06b4e9985",
+  "input_bundle_sha256": "f6a84735e519986fe3fb43f94ed0958f6a0cfec1a508382cc4813d5ccbb221b4"
 }
