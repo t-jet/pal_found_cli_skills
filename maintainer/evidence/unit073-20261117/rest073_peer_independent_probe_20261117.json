@@ -1,0 +1,39 @@
+{
+  "reviewer": "/root/rest073_formal_readiness_20261117",
+  "kind": "independent unit peer controls; not formal QA",
+  "candidate_sha256": "d61e7750211d7ef7bb688c46579e75ed732a340e5ccbe71cfe13a9894feece17",
+  "failures": [],
+  "counts": {
+    "operations": 48,
+    "forms": 258,
+    "void": 15,
+    "pagers": 8,
+    "stream_operations": 33,
+    "named_error_entries": 165,
+    "independent_literal_wire_pass": 258,
+    "native_path_faults_detected": 258,
+    "independent_generic_403_pass": 258,
+    "sync_omitted_close_detected": 33,
+    "async_omitted_close_detected": 33,
+    "cancel_omitted_close_detected": 33,
+    "prebuffered_unfinished_guard_detected": 1
+  },
+  "sdk_modules": {
+    "foundry_sdk/v2/audit/log_file.py": "e1d7f069854638f47c24ff0ff517fdeca6f5880501feee9a66c7dcaf9533a93e",
+    "foundry_sdk/v2/filesystem/folder.py": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0",
+    "foundry_sdk/v2/filesystem/project.py": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+    "foundry_sdk/v2/filesystem/project_resource_reference.py": "0c267f65d32a266ec83c33d04a992e51af8481791062bbafee9d1e90cc1c258d",
+    "foundry_sdk/v2/filesystem/resource.py": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+    "foundry_sdk/v2/filesystem/resource_role.py": "71c9a83326cc70948e2935ae9e980eec333dd9ccc7cc40da838e823802194486",
+    "foundry_sdk/v2/filesystem/resource_tag.py": "2d85f9e0eb8bec58caa49088038b0b8558731c59cc749a8960693245eac67ff1",
+    "foundry_sdk/v2/filesystem/space.py": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317",
+    "foundry_sdk/v2/third_party_applications/third_party_application.py": "73fa294649bb5f2af81991107a5f3ff495055490cefa909f8cd14bed5d3fa6df",
+    "foundry_sdk/v2/third_party_applications/version.py": "81a26d8e4ce0876f3b98323657ee99a97883c3b146f5a741521e7f871803ba73",
+    "foundry_sdk/v2/third_party_applications/website.py": "2a78443d6b01bb6f612ae6bd2fb4713d9282c98171f2fd25a9f94b30570c5815"
+  },
+  "candidate_sha256_after": "d61e7750211d7ef7bb688c46579e75ed732a340e5ccbe71cfe13a9894feece17",
+  "preserved_baseline_file_count": 4639,
+  "preserved_baseline_manifest_sha256": "ee634994cfd0bda2446d99a61aa55270715f4504a601bd694e43ac1678047b10",
+  "git_status": "?? tests/test_offline_rest_073.py",
+  "verdict": "PASS"
+}

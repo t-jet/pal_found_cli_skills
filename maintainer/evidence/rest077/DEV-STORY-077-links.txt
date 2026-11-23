@@ -1,0 +1,17 @@
+
+Found 12 link(s) for DEV-STORY-077:
+====================================================================================================
+Link ID         Source             Target          Type            Role
+----------------------------------------------------------------------------------------------------
+LINK-01560      FEATURE-015     -> DEV-STORY-077   Contains        (Contains)
+LINK-01561      EPIC-015        -> DEV-STORY-077   EpicLink        (Epic Link)
+LINK-01562      DEV-STORY-077   -> DEV-STORY-061   DependsOn       (Depends On)
+LINK-01564      DEV-STORY-077   -> DEV-STORY-069   DependsOn       (Depends On)
+LINK-01618      DEV-STORY-086   -> DEV-STORY-077   RelatesTo       (Relates To)
+LINK-01636      DEV-STORY-093   -> DEV-STORY-077   DependsOn       (Depends On)
+LINK-01825      DEV-STORY-077   -> DESIGN-078      Contains        (Contains)
+LINK-01826      DEV-STORY-077   -> DEV-078         Contains        (Contains)
+LINK-01827      DEV-STORY-077   -> UNITTEST-078    Contains        (Contains)
+LINK-01828      DEV-STORY-077   -> CODEREVIEW-079  Contains        (Contains)
+LINK-01829      DEV-STORY-077   -> TESTCASE-078    Contains        (Contains)
+LINK-01830      DEV-STORY-077   -> TESTEXEC-078    Contains        (Contains)

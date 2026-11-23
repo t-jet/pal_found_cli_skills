@@ -1,0 +1,76 @@
+{
+  "ticket": "UNITTEST-084",
+  "publication_ticket": "TASK-027",
+  "scope": "Accepted native SDK unit tests and retained independent peer evidence; not formal TESTEXEC",
+  "author": "/root/feature015_rest091_units_finish_20261120",
+  "author_commit": "e0e02764d1cae275c515734ee4855a51bf99659f",
+  "author_parent": "51f594c08403ac49d848e0d8c4af9986377f64d2",
+  "integration_base_before_transplant": "334f1af089db6845c0717564407ec0a9b7afca30",
+  "test": {
+    "path": "tests/test_offline_rest_091.py",
+    "sha256": "84b33d152db48cae306742c3108cdd5c78ccbbb9aad4ddae2dfa8e1f49cbb02b",
+    "bytes": 53857,
+    "baseline_prefix_byte_preserved": true
+  },
+  "author_reported_checks": {
+    "focused": {
+      "passed": 930,
+      "seconds": 2.54
+    },
+    "full_baseline_suite": {
+      "passed": 6998,
+      "seconds": 248.48
+    },
+    "provenance": "Original author tool results reported to project manager; no original author JUnit/log is reconstructed here",
+    "candidate_limit": "Author full suite belongs to the isolated older baseline plus e0e0276, not the later combined integration candidate"
+  },
+  "independent_peer": {
+    "reviewer": "feature015_unit091_peer_recovery",
+    "sdk_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+    "focused": {
+      "exit_code": 0,
+      "passed": 930,
+      "seconds": 2.31
+    },
+    "source_reconciliation": {
+      "operations": 29,
+      "native_modes": 166,
+      "declared_error_modes": 94,
+      "generic_error_modes": 498,
+      "full_source_files": 6
+    },
+    "construction_failures_retained": true
+  },
+  "retained_files": [
+    {
+      "path": "maintainer/evidence/unit091-20261121/unit091_peer_source_probe_20261121.py",
+      "sha256": "01bd48ac748c6456ce5c1231b939f914630dfafc5930ad833ba37fc40c9ab96c",
+      "bytes": 5699
+    },
+    {
+      "path": "maintainer/evidence/unit091-20261121/unit091_peer_source_probe_20261121.json",
+      "sha256": "4bc4e67ae9aafe45633aa2e2be04bb0a2967257fda282a50174e9e2534e9dd70",
+      "bytes": 20311
+    },
+    {
+      "path": "maintainer/evidence/unit091-20261121/unit091_peer_junit_20261121.xml",
+      "sha256": "3ac3882b6bbb148060c38e02fe2cf66d3bca4382074f3964b7c6f69f14e00b98",
+      "bytes": 155106
+    },
+    {
+      "path": "maintainer/evidence/unit091-20261121/unit091_peer_probe_failures_20261121.json",
+      "sha256": "d6ea3addf58ed157a07bf81491d3928dda990344cec5493decb4ea789990d54e",
+      "bytes": 1344
+    }
+  ],
+  "replay_limits": [
+    "Peer probe is retained byte-identically as historical evidence and assumes its original parent .ept/tmp layout and isolated candidate path",
+    "It is not a standalone replay tool in this retained directory",
+    "Fresh integration checks are separate evidence and are not yet included in this source-stage manifest"
+  ],
+  "acceptance_limits": [
+    "No formal TESTCASE/TESTEXEC or live tenant acceptance",
+    "No independent approval of DEV-084 guide semantics or all SDK versions",
+    "No semantic, formal QA, page acceptance or global candidate-anchor changes in this commit"
+  ]
+}

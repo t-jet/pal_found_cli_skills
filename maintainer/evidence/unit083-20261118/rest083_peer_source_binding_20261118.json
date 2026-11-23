@@ -1,0 +1,106 @@
+{
+  "candidate_sha256": "fa1045d8c3c6b7e714dd43f4534555d88ee633b76589af97c08a7ffbe57611ec",
+  "base_commit": "ff70c30c99410b3b0784bcad934625b88d5e6e5c",
+  "baseline_bytes": 9743,
+  "prefix_preserved": true,
+  "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+  "source_resources": {
+    "Action": {
+      "sha256": "97d67d3a550ce372d2b39363e7373afc32ade7ecd803c022098a9d3ffca48ad5",
+      "operations": [
+        "apply",
+        "apply_batch",
+        "apply_batch_with_overrides",
+        "apply_with_overrides"
+      ]
+    },
+    "Attachment": {
+      "sha256": "9e98375a9a5c81554e08b0ba84ee5a19443a05a987d288aded730b315ae72902",
+      "operations": [
+        "get",
+        "read",
+        "upload",
+        "upload_with_rid"
+      ]
+    },
+    "AttachmentProperty": {
+      "sha256": "85d69f0af4a9c4aeade893a39867cf826c58d3fcdf3ccd81c0b4097cb39e5af2",
+      "operations": [
+        "get_attachment",
+        "get_attachment_by_rid",
+        "read_attachment",
+        "read_attachment_by_rid"
+      ]
+    },
+    "CipherTextProperty": {
+      "sha256": "e65e4718460fb27bc864cf40127f1e71bb619ae0720edc68b350b744ed356f28",
+      "operations": [
+        "decrypt",
+        "encrypt",
+        "encrypt_with_default_channel"
+      ]
+    },
+    "GeotemporalSeriesProperty": {
+      "sha256": "9181bfce75792d85e8bc112a2d386e2b76e57f725e2922ccbb7e85bff159d72a",
+      "operations": [
+        "load_geotemporal_series_entries"
+      ]
+    },
+    "MediaReferenceProperty": {
+      "sha256": "e769b3499240f98d9342c20b2b1e1e3c3f5c43e4f12002ae17e5463381992180",
+      "operations": [
+        "get_media_content",
+        "get_media_metadata",
+        "upload"
+      ]
+    },
+    "Query": {
+      "sha256": "2c7c151396abb7f7c57850e7b435c6118c20091563ee8b19cd2cb4bbda38fa91",
+      "operations": [
+        "execute"
+      ]
+    },
+    "TimeSeriesPropertyV2": {
+      "sha256": "ab169537962d6af9ed747be3c2a2ee8707fa2432efadb2d0f5a15b49be574e55",
+      "operations": [
+        "get_first_point",
+        "get_last_point",
+        "stream_points"
+      ]
+    },
+    "TimeSeriesValueBankProperty": {
+      "sha256": "59d0d58422b167c574a9714bfe19fc628dccd317be841ff0b7c3ef4dc8f3ba38",
+      "operations": [
+        "get_latest_value",
+        "stream_values"
+      ]
+    }
+  },
+  "operations": [
+    "v2.ontologies.Action.apply",
+    "v2.ontologies.Action.apply_batch",
+    "v2.ontologies.Action.apply_batch_with_overrides",
+    "v2.ontologies.Action.apply_with_overrides",
+    "v2.ontologies.Attachment.get",
+    "v2.ontologies.Attachment.read",
+    "v2.ontologies.Attachment.upload",
+    "v2.ontologies.Attachment.upload_with_rid",
+    "v2.ontologies.AttachmentProperty.get_attachment",
+    "v2.ontologies.AttachmentProperty.get_attachment_by_rid",
+    "v2.ontologies.AttachmentProperty.read_attachment",
+    "v2.ontologies.AttachmentProperty.read_attachment_by_rid",
+    "v2.ontologies.CipherTextProperty.decrypt",
+    "v2.ontologies.CipherTextProperty.encrypt",
+    "v2.ontologies.CipherTextProperty.encrypt_with_default_channel",
+    "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries",
+    "v2.ontologies.MediaReferenceProperty.get_media_content",
+    "v2.ontologies.MediaReferenceProperty.get_media_metadata",
+    "v2.ontologies.MediaReferenceProperty.upload",
+    "v2.ontologies.Query.execute",
+    "v2.ontologies.TimeSeriesPropertyV2.get_first_point",
+    "v2.ontologies.TimeSeriesPropertyV2.get_last_point",
+    "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+    "v2.ontologies.TimeSeriesValueBankProperty.get_latest_value",
+    "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+  ]
+}

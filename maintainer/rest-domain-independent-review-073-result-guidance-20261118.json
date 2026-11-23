@@ -1,0 +1,531 @@
+{
+  "schema_version": 1,
+  "story": "DEV-STORY-073",
+  "review_ticket": "CODEREVIEW-068",
+  "review_date_utc": "2026-11-18T11:04:49.113459+00:00",
+  "review_role": "architect",
+  "reviewer_identity": "/root/bug050_architecture_final_review_20261118",
+  "review_kind": "Independent six-operation result-guidance correction semantic certification; offline only",
+  "reviewed_base_sha": "ff70c30c99410b3b0784bcad934625b88d5e6e5c",
+  "candidate_state": "Uncommitted three-file correction on reviewed_base_sha; exact working-tree guide hashes below. No corrective commit SHA exists at review time. Acceptance metadata added after review.",
+  "reviewed_guides": {
+    "references/rest/v2/third_party_applications/ThirdPartyApplication.md": "404a325dbf71df04cb2405550d6362b81be6180dc361093389f79507b470d868",
+    "references/rest/v2/third_party_applications/Version.md": "f49aaab995d1b363eb084ae7e5f89420402ef0f735baa6b25e3742efb5de880d"
+  },
+  "reviewed_register_before_acceptance_sha256": "8eb623e65572070cb996d21c1b2845ffc64decea8ce11ad6567a5888ccf2c1db",
+  "source_sdk": "1.101.0",
+  "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+  "source_models_sha256": "19b919c92819060bca18c8e8cd33b84e1c4463d9e9cc2628239b29b29a84dab4",
+  "actual_result_fields": {
+    "ThirdPartyApplication": [
+      "rid"
+    ],
+    "Version": [
+      "version"
+    ],
+    "Website": [
+      "deployed_version",
+      "subdomains"
+    ]
+  },
+  "actual_composed_routes": [
+    "client.third_party_applications.ThirdPartyApplication.Website",
+    "client.third_party_applications.ThirdPartyApplication.Website.Version"
+  ],
+  "operations": [
+    {
+      "id": "v2.third_party_applications.ThirdPartyApplication.get",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/third_party_applications/ThirdPartyApplication.md",
+      "behavior_lines": [
+        5,
+        17
+      ],
+      "behavior_sha256": "404a325dbf71df04cb2405550d6362b81be6180dc361093389f79507b470d868",
+      "example_path": "examples/rest/073/v2/third_party_applications/ThirdPartyApplication/get.py",
+      "example_sha256": "0f0db45723d4fbc18958e8b7380d219810a972e88bf42eedab48eff175eb61df",
+      "contract_path": "references/rest/contracts/v2/third_party_applications/ThirdPartyApplication/get.md",
+      "contract_sha256": "a363dcc00beaaf4a4112ed25d32c0fcf7751e4ffb5621ce46da511e5722c7716",
+      "source_sdk": "1.101.0",
+      "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+      "source_path": "foundry_sdk/v2/third_party_applications/third_party_application.py",
+      "source_method_line": 75,
+      "source_sha256": "73fa294649bb5f2af81991107a5f3ff495055490cefa909f8cd14bed5d3fa6df",
+      "documentation_sha256": "912a4d402be942b5e08eae16eaab2b571a80f2baac491d9ba540abf5360dfa0b",
+      "semantic_finding": "Only rid is returned. Returned fixture rid equals selected request application RID. Parent/application context is retained from the request; Website.get separately supplies deployed_version/subdomains.",
+      "fixture_identity_checks": [
+        "Selected request application RID is present in exact fixture path.",
+        "Returned rid equals requested third_party_application_rid."
+      ],
+      "fixture_execution": {
+        "entrypoint": "verify",
+        "status": "PASS",
+        "stdout": "",
+        "network": "socket.connect/create_connection/getaddrinfo denied; actual native SDK MockTransport fixture"
+      },
+      "prior_review_identity": {
+        "independent_reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest073_independent_semantic_review"
+      },
+      "formal_qa_status": "pending",
+      "live_enrollment": "not exercised"
+    },
+    {
+      "id": "v2.third_party_applications.Version.delete",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/third_party_applications/Version.md",
+      "behavior_lines": [
+        5,
+        17
+      ],
+      "behavior_sha256": "f49aaab995d1b363eb084ae7e5f89420402ef0f735baa6b25e3742efb5de880d",
+      "example_path": "examples/rest/073/v2/third_party_applications/Version/delete.py",
+      "example_sha256": "64e940f830ebbb6a8a9ec720f202c33a4f255690ffab6b9ae4623f52251e4d68",
+      "contract_path": "references/rest/contracts/v2/third_party_applications/Version/delete.md",
+      "contract_sha256": "773c352fb4312bd3644d444def34b49d4e990e6dc31fbc0bdb67e61a2325b8b5",
+      "source_sdk": "1.101.0",
+      "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+      "source_path": "foundry_sdk/v2/third_party_applications/version.py",
+      "source_method_line": 64,
+      "source_sha256": "81a26d8e4ce0876f3b98323657ee99a97883c3b146f5a741521e7f871803ba73",
+      "documentation_sha256": "02d8609835c910302c90e2ce6c8ff4136714f0d6b4235299b885281917b5abd3",
+      "semantic_finding": "Delete targets exact retained application and version. Fixture returns None; no artifact, kind or expiry fields inferred. Read Website state separately before planning deletion.",
+      "fixture_identity_checks": [
+        "Selected request application RID is present in exact fixture path.",
+        "Exact version path; None result does not provide restored/deployed/artifact state."
+      ],
+      "fixture_execution": {
+        "entrypoint": "verify",
+        "status": "PASS",
+        "stdout": "",
+        "network": "socket.connect/create_connection/getaddrinfo denied; actual native SDK MockTransport fixture"
+      },
+      "prior_review_identity": {
+        "independent_reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest073_independent_semantic_review"
+      },
+      "formal_qa_status": "pending",
+      "live_enrollment": "not exercised"
+    },
+    {
+      "id": "v2.third_party_applications.Version.get",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/third_party_applications/Version.md",
+      "behavior_lines": [
+        5,
+        23
+      ],
+      "behavior_sha256": "f49aaab995d1b363eb084ae7e5f89420402ef0f735baa6b25e3742efb5de880d",
+      "example_path": "examples/rest/073/v2/third_party_applications/Version/get.py",
+      "example_sha256": "a96574a680182f83645e6e4f98ff1494b489949ac757063cf8336c01f56b83d4",
+      "contract_path": "references/rest/contracts/v2/third_party_applications/Version/get.md",
+      "contract_sha256": "3ee504608f1222f92e5fd9eaf0bfe6463d17c369ef128c52ec18a9be2f682b6f",
+      "source_sdk": "1.101.0",
+      "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+      "source_path": "foundry_sdk/v2/third_party_applications/version.py",
+      "source_method_line": 109,
+      "source_sha256": "81a26d8e4ce0876f3b98323657ee99a97883c3b146f5a741521e7f871803ba73",
+      "documentation_sha256": "02d8609835c910302c90e2ce6c8ff4136714f0d6b4235299b885281917b5abd3",
+      "semantic_finding": "Only version is returned. Fixture version equals requested version_version. Application RID is request context, not response metadata. Artifact/kind/expiry provenance must be retained separately.",
+      "fixture_identity_checks": [
+        "Selected request application RID is present in exact fixture path.",
+        "Returned version equals submitted version_version; both are synthetic-value."
+      ],
+      "fixture_execution": {
+        "entrypoint": "verify",
+        "status": "PASS",
+        "stdout": "",
+        "network": "socket.connect/create_connection/getaddrinfo denied; actual native SDK MockTransport fixture"
+      },
+      "prior_review_identity": {
+        "independent_reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest073_independent_semantic_review"
+      },
+      "formal_qa_status": "pending",
+      "live_enrollment": "not exercised"
+    },
+    {
+      "id": "v2.third_party_applications.Version.list",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/third_party_applications/Version.md",
+      "behavior_lines": [
+        5,
+        29
+      ],
+      "behavior_sha256": "f49aaab995d1b363eb084ae7e5f89420402ef0f735baa6b25e3742efb5de880d",
+      "example_path": "examples/rest/073/v2/third_party_applications/Version/list.py",
+      "example_sha256": "9b6b5e23c68da6f649ed3600f94db02598cb2a4c29001e052afcfb6a053addfc",
+      "contract_path": "references/rest/contracts/v2/third_party_applications/Version/list.md",
+      "contract_sha256": "140f9fd6dd4a2a418953351b05a816754b4d5c55018f45926369f5e1b639a8bd",
+      "source_sdk": "1.101.0",
+      "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+      "source_path": "foundry_sdk/v2/third_party_applications/version.py",
+      "source_method_line": 156,
+      "source_sha256": "81a26d8e4ce0876f3b98323657ee99a97883c3b146f5a741521e7f871803ba73",
+      "documentation_sha256": "02d8609835c910302c90e2ce6c8ff4136714f0d6b4235299b885281917b5abd3",
+      "semantic_finding": "List response entries contain only version. Finite continuation remains required. Entry/name does not establish release/snapshot kind, artifact contents or expiry.",
+      "fixture_identity_checks": [
+        "Selected request application RID is present in exact fixture path.",
+        "List entries expose version only; synthetic-value is not used as kind/expiry discriminator."
+      ],
+      "fixture_execution": {
+        "entrypoint": "verify",
+        "status": "PASS",
+        "stdout": "",
+        "network": "socket.connect/create_connection/getaddrinfo denied; actual native SDK MockTransport fixture"
+      },
+      "prior_review_identity": {
+        "independent_reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest073_independent_semantic_review"
+      },
+      "formal_qa_status": "pending",
+      "live_enrollment": "not exercised"
+    },
+    {
+      "id": "v2.third_party_applications.Version.upload",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/third_party_applications/Version.md",
+      "behavior_lines": [
+        5,
+        35
+      ],
+      "behavior_sha256": "f49aaab995d1b363eb084ae7e5f89420402ef0f735baa6b25e3742efb5de880d",
+      "example_path": "examples/rest/073/v2/third_party_applications/Version/upload.py",
+      "example_sha256": "5270b315c5aee3d0622f1aff72e1f961b286b7c0fcbdeb0b3edac7833d481931",
+      "contract_path": "references/rest/contracts/v2/third_party_applications/Version/upload.md",
+      "contract_sha256": "63d4e1672187fc4bab1bed57c0a79c50a2730a174f991e88716882222bc0358d",
+      "source_sdk": "1.101.0",
+      "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+      "source_path": "foundry_sdk/v2/third_party_applications/version.py",
+      "source_method_line": 206,
+      "source_sha256": "81a26d8e4ce0876f3b98323657ee99a97883c3b146f5a741521e7f871803ba73",
+      "documentation_sha256": "02d8609835c910302c90e2ce6c8ff4136714f0d6b4235299b885281917b5abd3",
+      "semantic_finding": "Submitted version equals returned fixture version. Binary ZIP artifact and application RID are submitted context; artifact identity/kind are not returned. Website state is separate.",
+      "fixture_identity_checks": [
+        "Selected request application RID is present in exact fixture path.",
+        "Returned version equals submitted version; both are synthetic-value."
+      ],
+      "fixture_execution": {
+        "entrypoint": "verify",
+        "status": "PASS",
+        "stdout": "",
+        "network": "socket.connect/create_connection/getaddrinfo denied; actual native SDK MockTransport fixture"
+      },
+      "prior_review_identity": {
+        "independent_reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest073_independent_semantic_review"
+      },
+      "formal_qa_status": "pending",
+      "live_enrollment": "not exercised"
+    },
+    {
+      "id": "v2.third_party_applications.Version.upload_snapshot",
+      "verdict": "PASS",
+      "behavior_path": "references/rest/v2/third_party_applications/Version.md",
+      "behavior_lines": [
+        5,
+        41
+      ],
+      "behavior_sha256": "f49aaab995d1b363eb084ae7e5f89420402ef0f735baa6b25e3742efb5de880d",
+      "example_path": "examples/rest/073/v2/third_party_applications/Version/upload_snapshot.py",
+      "example_sha256": "70fc8677b0d0f29aeda9b4891ce2421ef25759b5c321bbd32c710fd25e2b0122",
+      "contract_path": "references/rest/contracts/v2/third_party_applications/Version/upload_snapshot.md",
+      "contract_sha256": "6769717cb977ca86064f3916be886e8458fd43ec5ced6effbf6b4563ca49cdb7",
+      "source_sdk": "1.101.0",
+      "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+      "source_path": "foundry_sdk/v2/third_party_applications/version.py",
+      "source_method_line": 258,
+      "source_sha256": "81a26d8e4ce0876f3b98323657ee99a97883c3b146f5a741521e7f871803ba73",
+      "documentation_sha256": "02d8609835c910302c90e2ce6c8ff4136714f0d6b4235299b885281917b5abd3",
+      "semantic_finding": "Submitted version equals returned fixture version. Pinned SDK documents automatic deletion after two days. Upload-time/kind/artifact provenance is separate; no response expiry field or name-based classification asserted.",
+      "fixture_identity_checks": [
+        "Selected request application RID is present in exact fixture path.",
+        "Returned version equals submitted version; both are synthetic-value."
+      ],
+      "fixture_execution": {
+        "entrypoint": "verify",
+        "status": "PASS",
+        "stdout": "",
+        "network": "socket.connect/create_connection/getaddrinfo denied; actual native SDK MockTransport fixture"
+      },
+      "prior_review_identity": {
+        "independent_reviewer": "qa-engineer",
+        "reviewer_agent": "/root/rest073_independent_semantic_review"
+      },
+      "formal_qa_status": "pending",
+      "live_enrollment": "not exercised"
+    }
+  ],
+  "continuity": {
+    "unchanged_tracked_files_from_base": 5306,
+    "other_operation_rows_byte_semantics_unchanged": 419,
+    "other_story_operations": [
+      {
+        "id": "v2.audit.LogFile.content",
+        "behavior_sha256": "730814608331a807cc1d898812024516102c94fdc23499a69fe370d6fd9a1538",
+        "example_sha256": "14d9ff5f487555742bda371ebfb8228288374f50340135b6ad91a18594b90a45",
+        "source_sha256": "e1d7f069854638f47c24ff0ff517fdeca6f5880501feee9a66c7dcaf9533a93e"
+      },
+      {
+        "id": "v2.audit.LogFile.list",
+        "behavior_sha256": "730814608331a807cc1d898812024516102c94fdc23499a69fe370d6fd9a1538",
+        "example_sha256": "5b89b366bb605b557fee0f8ef4bb994c251826f8114dd1fd08d207a6642a56a8",
+        "source_sha256": "e1d7f069854638f47c24ff0ff517fdeca6f5880501feee9a66c7dcaf9533a93e"
+      },
+      {
+        "id": "v2.filesystem.Folder.children",
+        "behavior_sha256": "7e5da5472df6bf00b21b14c852bf3c77ef9469b0d8f09aec6cf68d1f7d20355d",
+        "example_sha256": "e16f8f3366feffd8d3faf4afd3b1393588081409f6f53fec6921c4dc8a91f0c8",
+        "source_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0"
+      },
+      {
+        "id": "v2.filesystem.Folder.create",
+        "behavior_sha256": "7e5da5472df6bf00b21b14c852bf3c77ef9469b0d8f09aec6cf68d1f7d20355d",
+        "example_sha256": "e16f8f3366feffd8d3faf4afd3b1393588081409f6f53fec6921c4dc8a91f0c8",
+        "source_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0"
+      },
+      {
+        "id": "v2.filesystem.Folder.get",
+        "behavior_sha256": "7e5da5472df6bf00b21b14c852bf3c77ef9469b0d8f09aec6cf68d1f7d20355d",
+        "example_sha256": "e16f8f3366feffd8d3faf4afd3b1393588081409f6f53fec6921c4dc8a91f0c8",
+        "source_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0"
+      },
+      {
+        "id": "v2.filesystem.Folder.get_batch",
+        "behavior_sha256": "7e5da5472df6bf00b21b14c852bf3c77ef9469b0d8f09aec6cf68d1f7d20355d",
+        "example_sha256": "1e23a9f088a76fe6a371a119a563edc64b3c4e9c7a14bf19550adc64bbb54610",
+        "source_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0"
+      },
+      {
+        "id": "v2.filesystem.Folder.replace",
+        "behavior_sha256": "7e5da5472df6bf00b21b14c852bf3c77ef9469b0d8f09aec6cf68d1f7d20355d",
+        "example_sha256": "dffdf2c15ada93ba0f5e7772e3473a78cb5b8717659924fbd4cebdf65ace1163",
+        "source_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0"
+      },
+      {
+        "id": "v2.filesystem.Project.add_organizations",
+        "behavior_sha256": "a0d28796c91d543f13e4ff612fd408f62deff63f9ff5a0e17fc1f462a0750928",
+        "example_sha256": "f6d8e1a5a774f8d99a88ffaa283dc1f2b9cfd5e3f54559d1363de46fb17cc94e",
+        "source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3"
+      },
+      {
+        "id": "v2.filesystem.Project.create",
+        "behavior_sha256": "a0d28796c91d543f13e4ff612fd408f62deff63f9ff5a0e17fc1f462a0750928",
+        "example_sha256": "53510050761273c1d904675729a11184135bd385fddc36c7e78325a05bacf514",
+        "source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3"
+      },
+      {
+        "id": "v2.filesystem.Project.create_from_template",
+        "behavior_sha256": "a0d28796c91d543f13e4ff612fd408f62deff63f9ff5a0e17fc1f462a0750928",
+        "example_sha256": "ec09ce68ad2c69a404785815470aa22755cc527d7719dc55bd4c16027db46751",
+        "source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3"
+      },
+      {
+        "id": "v2.filesystem.Project.get",
+        "behavior_sha256": "a0d28796c91d543f13e4ff612fd408f62deff63f9ff5a0e17fc1f462a0750928",
+        "example_sha256": "9bba5c47c6b1e3772c9058d68edd2a6c5dca9fa6da87dcc17dea850d865c7667",
+        "source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3"
+      },
+      {
+        "id": "v2.filesystem.Project.organizations",
+        "behavior_sha256": "a0d28796c91d543f13e4ff612fd408f62deff63f9ff5a0e17fc1f462a0750928",
+        "example_sha256": "68c5c0395ca94ad6181fc1550d592b7903aa370126701f8df3872f680758b41e",
+        "source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3"
+      },
+      {
+        "id": "v2.filesystem.Project.remove_organizations",
+        "behavior_sha256": "a0d28796c91d543f13e4ff612fd408f62deff63f9ff5a0e17fc1f462a0750928",
+        "example_sha256": "7ccef22bab7e33e4d8deb461a2332977f3cbb722726938256204623dfd866c82",
+        "source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3"
+      },
+      {
+        "id": "v2.filesystem.Project.replace",
+        "behavior_sha256": "a0d28796c91d543f13e4ff612fd408f62deff63f9ff5a0e17fc1f462a0750928",
+        "example_sha256": "1c9b279deeab34e13f8230cdfa9d04c575b7b562259e06aa35587cffe580c299",
+        "source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3"
+      },
+      {
+        "id": "v2.filesystem.ProjectResourceReference.add",
+        "behavior_sha256": "255c7b146b0ab72fb8a889d81fbb7f936336ebd1ab49309bd962c3ecae9809bb",
+        "example_sha256": "42e4819fb9090cd09a7a1b0ba0ff21f06aedeb35eee8d2733684f2419781f4b8",
+        "source_sha256": "0c267f65d32a266ec83c33d04a992e51af8481791062bbafee9d1e90cc1c258d"
+      },
+      {
+        "id": "v2.filesystem.ProjectResourceReference.list",
+        "behavior_sha256": "255c7b146b0ab72fb8a889d81fbb7f936336ebd1ab49309bd962c3ecae9809bb",
+        "example_sha256": "ee2e328f03f8b0c1481f330da62001c16a2338529d1c7ad1ad17f23fda80126a",
+        "source_sha256": "0c267f65d32a266ec83c33d04a992e51af8481791062bbafee9d1e90cc1c258d"
+      },
+      {
+        "id": "v2.filesystem.ProjectResourceReference.remove",
+        "behavior_sha256": "255c7b146b0ab72fb8a889d81fbb7f936336ebd1ab49309bd962c3ecae9809bb",
+        "example_sha256": "1cc2d29fc566968e2d1565a96b80f26ef4fb8187702fcc194d14cc5f7c2c131d",
+        "source_sha256": "0c267f65d32a266ec83c33d04a992e51af8481791062bbafee9d1e90cc1c258d"
+      },
+      {
+        "id": "v2.filesystem.Resource.add_markings",
+        "behavior_sha256": "675410c8fa6ea907c387b23f2304758777ed292294cb87bc65c9ad165910e2d1",
+        "example_sha256": "2714eaedc5e37851efa1d4a780f06340e38b5b78343c3d747b542380dcc9e2f8",
+        "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a"
+      },
+      {
+        "id": "v2.filesystem.Resource.delete",
+        "behavior_sha256": "675410c8fa6ea907c387b23f2304758777ed292294cb87bc65c9ad165910e2d1",
+        "example_sha256": "e569c236ca5c6f744363bc002d9b7242a1d2b631b9d45b90202a54fbea38f6cd",
+        "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a"
+      },
+      {
+        "id": "v2.filesystem.Resource.get",
+        "behavior_sha256": "675410c8fa6ea907c387b23f2304758777ed292294cb87bc65c9ad165910e2d1",
+        "example_sha256": "df9dc31732ddb357add81d6501c9035ff4c12faf700b91c3b2a0592958093833",
+        "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a"
+      },
+      {
+        "id": "v2.filesystem.Resource.get_access_requirements",
+        "behavior_sha256": "675410c8fa6ea907c387b23f2304758777ed292294cb87bc65c9ad165910e2d1",
+        "example_sha256": "42651b1fb0c560737027aefd5610b3c99487b95f153da02b08e9fd36fd980c75",
+        "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a"
+      },
+      {
+        "id": "v2.filesystem.Resource.get_batch",
+        "behavior_sha256": "675410c8fa6ea907c387b23f2304758777ed292294cb87bc65c9ad165910e2d1",
+        "example_sha256": "c8ec071a4c21a35de613f5bc7d19a69c7d98191aaffb286d7353d97f3761e210",
+        "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a"
+      },
+      {
+        "id": "v2.filesystem.Resource.get_by_path",
+        "behavior_sha256": "675410c8fa6ea907c387b23f2304758777ed292294cb87bc65c9ad165910e2d1",
+        "example_sha256": "816d9454c678e2b7c36dc8655f5ff8f6183b3985fb013f6a0a7fa994e49f7f2c",
+        "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a"
+      },
+      {
+        "id": "v2.filesystem.Resource.get_by_path_batch",
+        "behavior_sha256": "675410c8fa6ea907c387b23f2304758777ed292294cb87bc65c9ad165910e2d1",
+        "example_sha256": "c8504c976eac1a1191acd0138569bb53daaa72a22878746b547fcfd98ae060e2",
+        "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a"
+      },
+      {
+        "id": "v2.filesystem.Resource.markings",
+        "behavior_sha256": "675410c8fa6ea907c387b23f2304758777ed292294cb87bc65c9ad165910e2d1",
+        "example_sha256": "c1521d2b288f03f98e02cfe8cd93400b0ecbe8162ffa20e7b83ca0ecae1e6a12",
+        "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a"
+      },
+      {
+        "id": "v2.filesystem.Resource.permanently_delete",
+        "behavior_sha256": "675410c8fa6ea907c387b23f2304758777ed292294cb87bc65c9ad165910e2d1",
+        "example_sha256": "78817614ac1b0cb6421972a612e22b121064d600a841a848312e150e84c6c876",
+        "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a"
+      },
+      {
+        "id": "v2.filesystem.Resource.remove_markings",
+        "behavior_sha256": "675410c8fa6ea907c387b23f2304758777ed292294cb87bc65c9ad165910e2d1",
+        "example_sha256": "55d46b7867fa7a9cc09ad61dd1900d2c8898e3f002ca534c9c62537ff145dd4d",
+        "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a"
+      },
+      {
+        "id": "v2.filesystem.Resource.restore",
+        "behavior_sha256": "675410c8fa6ea907c387b23f2304758777ed292294cb87bc65c9ad165910e2d1",
+        "example_sha256": "aa2495ac330d8a7b9f3499b1a8e2ac142242f2c0c714918de8a9ab7b556ff89f",
+        "source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a"
+      },
+      {
+        "id": "v2.filesystem.ResourceRole.add",
+        "behavior_sha256": "b45dfc8f364fbce5efdbce42c2ed58410157c8f2c9160092df7b1880c42e8bb9",
+        "example_sha256": "9d1e54396ceb8a61dac8d2c0b9f2ddfb54aa9aa98767615427530f3479fecfeb",
+        "source_sha256": "71c9a83326cc70948e2935ae9e980eec333dd9ccc7cc40da838e823802194486"
+      },
+      {
+        "id": "v2.filesystem.ResourceRole.list",
+        "behavior_sha256": "b45dfc8f364fbce5efdbce42c2ed58410157c8f2c9160092df7b1880c42e8bb9",
+        "example_sha256": "ac8399d7f91fe6fcc32b3d2a3bdda0315de301b90bec4d1cc56a78350c35cac6",
+        "source_sha256": "71c9a83326cc70948e2935ae9e980eec333dd9ccc7cc40da838e823802194486"
+      },
+      {
+        "id": "v2.filesystem.ResourceRole.remove",
+        "behavior_sha256": "b45dfc8f364fbce5efdbce42c2ed58410157c8f2c9160092df7b1880c42e8bb9",
+        "example_sha256": "79645b132c539b20bade745ef6732349652f061b9e6061828dc58553664a30c4",
+        "source_sha256": "71c9a83326cc70948e2935ae9e980eec333dd9ccc7cc40da838e823802194486"
+      },
+      {
+        "id": "v2.filesystem.ResourceTag.add",
+        "behavior_sha256": "6d9bd12aae99ae441d50e7fab008a52d74ab6b1e5cf7f734908ac9dfa406dcf2",
+        "example_sha256": "dadec4c56365e09899c2b1fe1f20ce7e3722eb923e71af5625974e99b889cb80",
+        "source_sha256": "2d85f9e0eb8bec58caa49088038b0b8558731c59cc749a8960693245eac67ff1"
+      },
+      {
+        "id": "v2.filesystem.ResourceTag.list",
+        "behavior_sha256": "6d9bd12aae99ae441d50e7fab008a52d74ab6b1e5cf7f734908ac9dfa406dcf2",
+        "example_sha256": "91f4119c9a12c74b876275dd3944fa6bd1e91a8de97010f5ee085c7def31ab94",
+        "source_sha256": "2d85f9e0eb8bec58caa49088038b0b8558731c59cc749a8960693245eac67ff1"
+      },
+      {
+        "id": "v2.filesystem.ResourceTag.remove",
+        "behavior_sha256": "6d9bd12aae99ae441d50e7fab008a52d74ab6b1e5cf7f734908ac9dfa406dcf2",
+        "example_sha256": "9147988cb8c0d64d83d0f848ba392a58437aa1b1ce639f2dc97ecf76fd6b516e",
+        "source_sha256": "2d85f9e0eb8bec58caa49088038b0b8558731c59cc749a8960693245eac67ff1"
+      },
+      {
+        "id": "v2.filesystem.Space.create",
+        "behavior_sha256": "032e8eee57ef40b9a87f4b4627a13a76112b06c835960eb64efcc73ce9d5c293",
+        "example_sha256": "337fb2a5172ee4ac06e750735e4461078ab2fc6ee3751a5b82f587175005dcae",
+        "source_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317"
+      },
+      {
+        "id": "v2.filesystem.Space.delete",
+        "behavior_sha256": "032e8eee57ef40b9a87f4b4627a13a76112b06c835960eb64efcc73ce9d5c293",
+        "example_sha256": "5b95b7349c1c788def8dc7f3cd495234751f0cfe19ef4aeca1852af914867c19",
+        "source_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317"
+      },
+      {
+        "id": "v2.filesystem.Space.get",
+        "behavior_sha256": "032e8eee57ef40b9a87f4b4627a13a76112b06c835960eb64efcc73ce9d5c293",
+        "example_sha256": "5f9f889b66ffab58088043e872cd5defd6fab3ddb4ce2a42bb11a8f52840eaea",
+        "source_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317"
+      },
+      {
+        "id": "v2.filesystem.Space.list",
+        "behavior_sha256": "032e8eee57ef40b9a87f4b4627a13a76112b06c835960eb64efcc73ce9d5c293",
+        "example_sha256": "e0432124cd1def39bef85a3ca04f15d08bec0be2e228c0192b2a674f43cfe216",
+        "source_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317"
+      },
+      {
+        "id": "v2.filesystem.Space.replace",
+        "behavior_sha256": "032e8eee57ef40b9a87f4b4627a13a76112b06c835960eb64efcc73ce9d5c293",
+        "example_sha256": "51b02b7ce5f5dc9ccb5c9b26483682c64781e00b13abf0289fdb7f66385b3dae",
+        "source_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317"
+      },
+      {
+        "id": "v2.third_party_applications.Website.deploy",
+        "behavior_sha256": "8aaf17a2966f0fb05c900aa084dfd11bf1c6ed75db0ff7798dc70e3ab19a13af",
+        "example_sha256": "a4579a641300fb0fbace2b0247e1aa44a0a344277aed55aebcc95293755c2753",
+        "source_sha256": "2a78443d6b01bb6f612ae6bd2fb4713d9282c98171f2fd25a9f94b30570c5815"
+      },
+      {
+        "id": "v2.third_party_applications.Website.get",
+        "behavior_sha256": "8aaf17a2966f0fb05c900aa084dfd11bf1c6ed75db0ff7798dc70e3ab19a13af",
+        "example_sha256": "b124d411ee71f4f9b2b1855878b4d8e5dbed35ae6561f02c63a63482293def81",
+        "source_sha256": "2a78443d6b01bb6f612ae6bd2fb4713d9282c98171f2fd25a9f94b30570c5815"
+      },
+      {
+        "id": "v2.third_party_applications.Website.undeploy",
+        "behavior_sha256": "8aaf17a2966f0fb05c900aa084dfd11bf1c6ed75db0ff7798dc70e3ab19a13af",
+        "example_sha256": "3aa7d88fba67ec7f39fc8bc644f7ee5df284af035f218ebbce66f91954149d36",
+        "source_sha256": "2a78443d6b01bb6f612ae6bd2fb4713d9282c98171f2fd25a9f94b30570c5815"
+      }
+    ],
+    "historical_report": "maintainer/rest-domain-independent-review-073-current.json",
+    "historical_report_sha256": "fd09adb9e0076cb492b5cb3c20a899f2e6193f9707786f62a076d1de62465423",
+    "historical_report_boundary": "Preserved unchanged historical identities/verdicts and candidate binding; not rewritten as current six-operation review. Other42 binding continuity also retains separate Resource.restore-current report and prior Architect review20261118-013055.",
+    "prior_architect_review": "CODEREVIEW-068/20261118-013055-@architect",
+    "prior_source_definition_review": "All291 story model/error/core Python definition ASTs matched pinned SDK in prior independent review; files unchanged.",
+    "preserved_qualifications": [
+      "Resource.restore SDK no-op prose versus ResourceNotDirectlyTrashed conflict: live policy unknown.",
+      "Seven preexisting generator drifts remain unchanged; no regeneration or waiver."
+    ]
+  },
+  "limits": [
+    "Only six updated behavior bindings receive this fresh semantic PASS.",
+    "All48 formal TESTEXEC/independent_qa_status remain pending; live enrollment not exercised.",
+    "No main merge, package release, global candidate_sha/input_bundle reanchor, committed corrective SHA or hosted CI claimed."
+  ]
+}

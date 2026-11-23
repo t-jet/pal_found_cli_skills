@@ -58,13 +58,18 @@ uploaded = client.ontologies.Attachment.upload(
     content_type="text/plain",
     filename="inspection.txt",
 )
-assert uploaded.rid and uploaded.size_bytes == len(content)
+assert uploaded.rid and int(uploaded.size_bytes) == len(content)
 metadata = client.ontologies.Attachment.get(attachment_rid=uploaded.rid)
 assert metadata.rid == uploaded.rid
 ```
 
-The SDK sends the binary request with HTTP `Content-Type: application/octet-stream`;
-the `content_type` argument records the file's media type. Pass the returned RID
+SDK 1.101.0 repeats `Content-Type` in the upload header mapping; the final value
+is `*/*`, which overwrites the supplied `content_type`. The fixtures assert this
+wire behavior without patching the SDK. Their `text/plain` response metadata is
+synthetic server output; verify returned media type in the enrollment before
+relying on it. Both fixtures derive `Content-Length` from the byte body and
+check filename, RID and returned size. `sizeBytes` is represented as a string
+in the response model, so convert it before numeric comparison. Pass the returned RID
 to the configured Action parameter that links it to an object within one hour,
 then reread the object's attachment property. Upload success alone does not
 attach the file. Use `Attachment.read` with a byte budget and close raw/streaming

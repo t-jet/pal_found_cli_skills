@@ -21,11 +21,21 @@ EXPECTED_PATH = '/api/v1/ontologies/ri.synthetic.main.resource.00000000-0000-000
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'pageSize': None, 'pageToken': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'data': [{'apiName': 'synthetic-value',
+SUCCESS = {'data': [{'apiName': 'Asset',
+           'displayName': 'Asset',
            'status': 'ACTIVE',
-           'primaryKey': ['synthetic-value'],
-           'properties': {},
-           'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}]}
+           'primaryKey': ['assetId'],
+           'properties': {'assetId': {'baseType': 'String'},
+                          'status': {'baseType': 'String'},
+                          'inspectionDate': {'baseType': 'LocalDate'}},
+           'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'},
+          {'apiName': 'Facility',
+           'displayName': 'Facility',
+           'status': 'ACTIVE',
+           'primaryKey': ['facilityId'],
+           'properties': {'facilityId': {'baseType': 'String'},
+                          'name': {'baseType': 'String'}},
+           'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000002'}]}
 ERRORS = []
 
 def invoke(client):
@@ -47,6 +57,20 @@ def check_request(request):
     elif EXPECTED_BODY is not None:
         assert json.loads(request.content) == EXPECTED_BODY
 
+def check_result(result, request):
+    types = result.get('data', [result])
+    for schema in types:
+        assert schema['primaryKey'], 'Missing primary key'
+        for key in schema['primaryKey']:
+            assert key in schema['properties'], 'Primary key missing from properties'
+            assert schema['properties'][key]['baseType'] == 'String', 'Expected string primary key'
+        if schema['apiName'] == 'Asset':
+            assert schema['properties']['status']['baseType'] == 'String'
+            assert schema['properties']['inspectionDate']['baseType'] == 'LocalDate'
+    if '/objectTypes/' in request.url.path:
+        assert result['apiName'] == request.url.path.rsplit('/', 1)[-1], 'Object type differs from request'
+
+
 def normalized(value):
     if isinstance(value, dict):
         return {key: normalized(child) for key,child in value.items()}
@@ -64,7 +88,7 @@ def verify():
     calls = []
     def success(request):
         check_request(request)
-        calls.append(True)
+        calls.append(request)
         if isinstance(SUCCESS, bytes):
             return httpx.Response(200, content=SUCCESS)
         if SUCCESS is None:
@@ -73,7 +97,9 @@ def verify():
     with mock_resource(ObjectTypeClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = normalized(raw.decode())
+            check_result(result, calls[-1])
+            assert result == SUCCESS
         finally:
             raw.close()
     assert len(calls) == 1

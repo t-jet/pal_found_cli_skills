@@ -1,0 +1,50 @@
+{
+  "dataset": "ri.reader.main.dataset.00000000-0000-0000-0000-000000000012",
+  "branch": "reader-j12",
+  "path": "reader/batch.csv",
+  "payload_sha256": "6792ae698138948d10bd6f171ab7f876e4f2abaa761f0b472c8af3fadfad950a",
+  "events": [
+    {
+      "at": "2026-10-28T07:53:00.155294+00:00",
+      "event": "create_intent",
+      "create_intent": true,
+      "original_branch_rid": "ri.reader.main.transaction.00000000-0000-0000-0000-000000000011"
+    },
+    {
+      "at": "2026-10-28T07:53:00.156295+00:00",
+      "event": "transaction_known",
+      "transaction_rid": "ri.reader.main.transaction.00000000-0000-0000-0000-000000000012"
+    },
+    {
+      "at": "2026-10-28T07:53:00.158295+00:00",
+      "event": "upload_intent",
+      "upload_intent": true
+    },
+    {
+      "at": "2026-10-28T07:53:00.160799+00:00",
+      "event": "upload_acknowledged"
+    },
+    {
+      "at": "2026-10-28T07:53:00.163376+00:00",
+      "event": "abort_intent",
+      "reason": "synthetic read unavailable"
+    },
+    {
+      "at": "2026-10-28T07:53:00.165013+00:00",
+      "event": "aborted"
+    },
+    {
+      "at": "2026-10-28T07:53:00.166516+00:00",
+      "event": "stopped",
+      "reason": "synthetic read unavailable",
+      "outcome": "stopped"
+    }
+  ],
+  "commit_attempts": 0,
+  "create_intent": true,
+  "original_branch_rid": "ri.reader.main.transaction.00000000-0000-0000-0000-000000000011",
+  "transaction_rid": "ri.reader.main.transaction.00000000-0000-0000-0000-000000000012",
+  "upload_intent": true,
+  "reason": "synthetic read unavailable",
+  "outcome": "stopped"
+}

@@ -18,7 +18,10 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/actions/set-asset-status/applyWithOverrides'
-EXPECTED_BODY = {'request': {'parameters': {}}, 'overrides': {'uniqueIdentifierLinkIdValues': {}}}
+EXPECTED_BODY = {'request': {'parameters': {'assetId': 'A-1', 'status': 'ready'},
+             'options': {'returnEdits': 'ALL'}},
+ 'overrides': {'uniqueIdentifierLinkIdValues': {'00000000-0000-0000-0000-000000000001': '00000000-0000-0000-0000-000000000002'},
+               'actionExecutionTime': '2026-01-01T00:00:00+00:00'}}
 EXPECTED_QUERY = {'branch': None,
  'preview': None,
  'scenarioRid': None,
@@ -26,11 +29,27 @@ EXPECTED_QUERY = {'branch': None,
  'sdkVersion': None,
  'transactionId': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {}
+SUCCESS = {'validation': {'result': 'VALID',
+                'submissionCriteria': [],
+                'parameters': {'assetId': {'result': 'VALID',
+                                           'evaluatedConstraints': [],
+                                           'required': True},
+                               'status': {'result': 'VALID',
+                                          'evaluatedConstraints': [],
+                                          'required': True}}},
+ 'edits': {'edits': [{'primaryKey': 'A-1',
+                      'objectType': 'Asset',
+                      'type': 'modifyObject'}],
+           'addedObjectCount': 0,
+           'modifiedObjectsCount': 1,
+           'deletedObjectsCount': 0,
+           'addedLinksCount': 0,
+           'deletedLinksCount': 0,
+           'type': 'edits'}}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.apply_with_overrides(ontology='synthetic-value', action='set-asset-status', overrides={'uniqueIdentifierLinkIdValues': {}}, request={'parameters': {}}, request_timeout=30)
+    return client.with_raw_response.apply_with_overrides(ontology='synthetic-value', action='set-asset-status', overrides={'uniqueIdentifierLinkIdValues': {'00000000-0000-0000-0000-000000000001': '00000000-0000-0000-0000-000000000002'}, 'actionExecutionTime': '2026-01-01T00:00:00+00:00'}, request={'parameters': {'assetId': 'A-1', 'status': 'ready'}, 'options': {'returnEdits': 'ALL'}}, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -61,6 +80,17 @@ def normalized(value):
         return value.model_dump(mode='json', by_alias=True, exclude_none=True)
     return value
 
+def check_outcome(result):
+    """Require the outcome this example needs; absent fields are schema-valid."""
+    if result.validation is None or result.validation.result != 'VALID':
+        raise ValueError('Action validation did not establish success')
+    if result.edits is None or result.edits.type != 'edits':
+        raise ValueError('Requested edit evidence is absent')
+    if result.edits.modified_objects_count != 1:
+        raise ValueError('Expected one modified Asset')
+    assert any(edit.type == 'modifyObject' and edit.object_type == 'Asset'
+               and edit.primary_key == 'A-1' for edit in result.edits.edits)
+
 def verify():
     calls = []
     def success(request):
@@ -74,7 +104,9 @@ def verify():
     with mock_resource(ActionClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = raw.decode()
+            assert normalized(result) == SUCCESS
+            check_outcome(result)
         finally:
             raw.close()
     assert len(calls) == 1

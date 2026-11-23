@@ -1,0 +1,17 @@
+{
+  "scope": "Original whole-page failure and HTTP proof plus fresh retest harness. Original temporary paths retained as historical context, not portable entrypoints.",
+  "files": [
+    {
+      "file": "feature015_connectivity_pages_review_20261028.json",
+      "sha256": "8781761818e1bc7e7fee614e2ab123703d6126d2aa38e3c83829dc1fb4f72b9a"
+    },
+    {
+      "file": "feature015_connectivity_finish_probe_results.json",
+      "sha256": "d7244996b4c61e07a9e6182f4ae0c3d7b13782432f45d429386293bc4471f732"
+    },
+    {
+      "file": "feature015_connectivity_pages_retest_20261029.py",
+      "sha256": "0226aa09445579126d872a3c8f71a0e2b25cf6e8308f7c23632e220a1f0f9416"
+    }
+  ]
+}

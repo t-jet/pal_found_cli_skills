@@ -8,6 +8,7 @@ import sys
 import urllib.parse
 import datetime
 from pathlib import Path
+from copy import deepcopy
 
 import httpx
 from foundry_sdk import PalantirRPCException
@@ -16,21 +17,19 @@ from foundry_sdk.v2.ontologies.ontology_value_type import OntologyValueTypeClien
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from synthetic_schema import OBSERVATION_DATE, check_value_type
+
 EXPECTED_METHOD = 'GET'
-EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/valueTypes/synthetic-value'
+EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/valueTypes/ObservationDate'
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'preview': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'apiName': 'synthetic-value',
- 'displayName': 'synthetic-value',
- 'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
- 'fieldType': {'type': 'date'},
- 'version': 'synthetic-value',
- 'constraints': [{'properties': {}, 'type': 'struct'}]}
+SUCCESS = deepcopy(OBSERVATION_DATE)
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.get(ontology='synthetic-value', value_type='synthetic-value', request_timeout=30)
+    return client.with_raw_response.get(ontology='synthetic-value', value_type='ObservationDate', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -61,6 +60,10 @@ def normalized(value):
         return value.model_dump(mode='json', by_alias=True, exclude_none=True)
     return value
 
+def check_result(value):
+    check_value_type(value)
+
+
 def verify():
     calls = []
     def success(request):
@@ -74,7 +77,9 @@ def verify():
     with mock_resource(OntologyValueTypeClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
+            check_result(decoded)
         finally:
             raw.close()
     assert len(calls) == 1

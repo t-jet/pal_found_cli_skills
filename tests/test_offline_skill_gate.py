@@ -413,7 +413,7 @@ def test_summary_counts_match_frozen_register() -> None:
     for name, count in expected.items():
         skill = (SKILLS / name / "SKILL.md").read_text(encoding="utf-8")
         for line in skill.splitlines():
-            m = re.search(r"(\d+)\s+Foundry", line)
+            m = re.search(r"\b(\d+)\s+(?:Foundry|CLI operations\b)", line)
             if m:
                 assert int(m.group(1)) == count, (
                     f"{name}: advertised count {m.group(1)} != frozen {count}"

@@ -1,0 +1,46 @@
+
+Found 41 comment(s) for TESTEXEC-078:
+========================================================================================================================
+Comment ID                     Author               Created              Updated              Subject
+------------------------------------------------------------------------------------------------------------------------
+20261007-101826-tech-lead      tech-lead            2026-10-07T10:18:26  2026-10-07T10:18:26  Ticket created
+20261007-101828-tech-lead      tech-lead            2026-10-07T10:18:28  2026-10-07T10:18:28  Ticket updated
+20261007-101830-tech-lead      tech-lead            2026-10-07T10:18:30  2026-10-07T10:18:30  Ticket updated
+20261116-230930-@qa-engineer   qa-engineer          2026-11-16T23:09:30  2026-11-16T23:09:30  Formal execution plan and environment verified 2026-11-16
+20261116-230931-@qa-engineer   qa-engineer          2026-11-16T23:09:31  2026-11-16T23:09:31  Ticket updated
+20261117-092400-@qa-engineer   qa-engineer          2026-11-17T09:24:00  2026-11-17T09:24:00  Formal execution recovery provenance and evidence 2026-11-17
+20261117-092400-@qa-engineer~001 qa-engineer          2026-11-17T09:24:00  2026-11-17T09:24:00  Actual PASS F077-01 v1.ontologies.Action.apply
+20261117-092401-@qa-engineer   qa-engineer          2026-11-17T09:24:01  2026-11-17T09:24:01  Actual PASS F077-02 v1.ontologies.Action.apply_batch
+20261117-092401-@qa-engineer~001 qa-engineer          2026-11-17T09:24:01  2026-11-17T09:24:01  Actual PASS F077-03 v1.ontologies.Action.validate
+20261117-092402-@qa-engineer   qa-engineer          2026-11-17T09:24:02  2026-11-17T09:24:02  Actual PASS F077-04 v1.ontologies.ActionType.get
+20261117-092402-@qa-engineer~001 qa-engineer          2026-11-17T09:24:02  2026-11-17T09:24:02  Actual PASS F077-05 v1.ontologies.ActionType.list
+20261117-092403-@qa-engineer   qa-engineer          2026-11-17T09:24:03  2026-11-17T09:24:03  Actual PASS F077-06 v1.ontologies.Attachment.get
+20261117-092404-@qa-engineer   qa-engineer          2026-11-17T09:24:04  2026-11-17T09:24:04  Actual PASS F077-07 v1.ontologies.Attachment.read
+20261117-092404-@qa-engineer~001 qa-engineer          2026-11-17T09:24:04  2026-11-17T09:24:04  Actual PASS F077-08 v1.ontologies.Attachment.upload
+20261117-092405-@qa-engineer   qa-engineer          2026-11-17T09:24:05  2026-11-17T09:24:05  Actual PASS F077-09 v1.ontologies.ObjectType.get
+20261117-092405-@qa-engineer~001 qa-engineer          2026-11-17T09:24:05  2026-11-17T09:24:05  Actual PASS F077-10 v1.ontologies.ObjectType.get_outgoing_link_type
+20261117-092406-@qa-engineer   qa-engineer          2026-11-17T09:24:06  2026-11-17T09:24:06  Actual PASS F077-11 v1.ontologies.ObjectType.list
+20261117-092406-@qa-engineer~001 qa-engineer          2026-11-17T09:24:06  2026-11-17T09:24:06  Actual PASS F077-12 v1.ontologies.ObjectType.list_outgoing_link_types
+20261117-092407-@qa-engineer   qa-engineer          2026-11-17T09:24:07  2026-11-17T09:24:07  Actual PASS F077-13 v1.ontologies.Ontology.get
+20261117-092407-@qa-engineer~001 qa-engineer          2026-11-17T09:24:07  2026-11-17T09:24:07  Actual PASS F077-14 v1.ontologies.Ontology.list
+20261117-092408-@qa-engineer   qa-engineer          2026-11-17T09:24:08  2026-11-17T09:24:08  Actual PASS F077-15 v1.ontologies.OntologyObject.aggregate
+20261117-092409-@qa-engineer   qa-engineer          2026-11-17T09:24:09  2026-11-17T09:24:09  Actual PASS F077-16 v1.ontologies.OntologyObject.get
+20261117-092409-@qa-engineer~001 qa-engineer          2026-11-17T09:24:09  2026-11-17T09:24:09  Actual PASS F077-17 v1.ontologies.OntologyObject.get_linked_object
+20261117-092410-@qa-engineer   qa-engineer          2026-11-17T09:24:10  2026-11-17T09:24:10  Actual PASS F077-18 v1.ontologies.OntologyObject.list
+20261117-092410-@qa-engineer~001 qa-engineer          2026-11-17T09:24:10  2026-11-17T09:24:10  Actual PASS F077-19 v1.ontologies.OntologyObject.list_linked_objects
+20261117-092411-@qa-engineer   qa-engineer          2026-11-17T09:24:11  2026-11-17T09:24:11  Actual PASS F077-20 v1.ontologies.OntologyObject.search
+20261117-092411-@qa-engineer~001 qa-engineer          2026-11-17T09:24:11  2026-11-17T09:24:11  Actual PASS F077-21 v1.ontologies.Query.execute
+20261117-092412-@qa-engineer   qa-engineer          2026-11-17T09:24:12  2026-11-17T09:24:12  Actual PASS F077-22 v1.ontologies.QueryType.get
+20261117-092412-@qa-engineer~001 qa-engineer          2026-11-17T09:24:12  2026-11-17T09:24:12  Actual PASS F077-23 v1.ontologies.QueryType.list
+20261117-092413-@qa-engineer   qa-engineer          2026-11-17T09:24:13  2026-11-17T09:24:13  Actual PASS annex F077-FREEZE
+20261117-092413-@qa-engineer~001 qa-engineer          2026-11-17T09:24:13  2026-11-17T09:24:13  Actual PASS annex F077-ISOLATION
+20261117-092414-@qa-engineer   qa-engineer          2026-11-17T09:24:14  2026-11-17T09:24:14  Actual PASS annex F077-LIFECYCLE
+20261117-092415-@qa-engineer   qa-engineer          2026-11-17T09:24:15  2026-11-17T09:24:15  Actual PASS annex F077-AGGREGATION
+20261117-092415-@qa-engineer~001 qa-engineer          2026-11-17T09:24:15  2026-11-17T09:24:15  Actual PASS annex F077-SCHEMA
+20261117-092416-@qa-engineer   qa-engineer          2026-11-17T09:24:16  2026-11-17T09:24:16  Actual PASS annex F077-POLICY
+20261117-092540-@qa-engineer   qa-engineer          2026-11-17T09:25:40  2026-11-17T09:25:40  Evidence scope qualification before closure 2026-11-17
+20261117-092548-@qa-engineer   qa-engineer          2026-11-17T09:25:48  2026-11-17T09:25:48  In Progress DoD satisfied from recovered actual execution 2026-11-17
+20261117-092549-@qa-engineer   qa-engineer          2026-11-17T09:25:49  2026-11-17T09:25:49  Ticket updated
+20261117-092549-@qa-engineer~001 qa-engineer          2026-11-17T09:25:49  2026-11-17T09:25:49  Ticket updated
+20261117-092559-@qa-engineer   qa-engineer          2026-11-17T09:25:59  2026-11-17T09:25:59  Resolved DoD QA verification and closure 2026-11-17
+20261117-092600-@qa-engineer   qa-engineer          2026-11-17T09:26:00  2026-11-17T09:26:00  Ticket updated

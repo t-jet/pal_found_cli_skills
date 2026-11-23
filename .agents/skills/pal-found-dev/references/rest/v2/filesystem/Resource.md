@@ -74,7 +74,52 @@ Read [exact SDK arguments, HTTP request, result and errors](../../contracts/v2/f
 
 ### restore
 
-Restore the RID and its directly trashed ancestors. Read its resulting parent/path and trash status; an already active resource is left as it is.
+Use an authorized identity with enrollment access and an owner-confirmed exact RID,
+parent and path. Read that RID before deciding whether to restore it. The local
+[Resource model](../../models/v2/filesystem/models/Resource.md) exposes `rid`,
+`trash_status`, `parent_folder_rid` and `path`; the
+[TrashStatus definition](../../models/v2/filesystem/models/TrashStatus.md) distinguishes:
+
+- `DIRECTLY_TRASHED`: the resource was specifically trashed and can be restored directly.
+- `ANCESTOR_TRASHED`: restoration requires restoring the original containing folder.
+  Stop and have an authorized owner reconcile that folder and its hierarchy;
+  this example does not select or mutate ancestors.
+- `NOT_TRASHED`: if identity, parent and path match the approved desired state,
+  record that observation and skip the mutation.
+
+SDK 1.101.0 provenance: the linked contract reproduces the SDK prose,
+"If the resource is not trashed, this operation will be ignored."
+The same method declares `ResourceNotDirectlyTrashed` (the resource is not directly
+trashed). This is a task-critical source disagreement. Live server policy is
+unverified; neither the prose nor synthetic HTTP responses establish an
+active-resource no-op, idempotency, or a universal ancestor-state outcome.
+
+An ordinary success returns `None` (synthetic HTTP 204 in the fixture), which
+contains no restored state. Perform one authorized exact-RID read afterward;
+check RID, `trash_status`, `parent_folder_rid` and path against the approved
+expectations. A matching `NOT_TRASHED` read establishes only the observed desired
+state at read time, not which changes this attempt caused or the state of every
+ancestor. Read any required ancestor context separately with authorization.
+
+The exact declared errors are `ResourceNotDirectlyTrashed`, `ResourceNotFound`,
+and `RestoreResourcePermissionDenied`; each carries `parameters['resourceRid']`.
+For `ResourceNotDirectlyTrashed` or a timeout with unknown write outcome, stop
+replay and reconcile once using the same RID. A matching `NOT_TRASHED` state needs
+no replay; `ANCESTOR_TRASHED` needs original-folder reconciliation; a still
+`DIRECTLY_TRASHED` resource or conflicting state needs authorized owner review
+of outcome and policy. `ResourceNotFound`, restore permission denial, unavailable
+or denied reads, unknown status, or changed identity/parent/path stop this flow.
+Retain the error and observed state for that owner; do not switch identity,
+substitute a RID found at the old path, mutate arbitrary ancestors, or retry
+blindly. Resolve access and policy before planning any further write.
+
+The fixture's adaptable `restore_once(client.filesystem.Resource, resource_rid,
+expected_parent_rid=approved_parent_rid, expected_path=approved_path)` uses at most
+one restore and two reads with 30-second request timeouts. Its client must have
+an explicitly bounded retry policy (the fixture uses `Config(max_retries=1)`).
+Read exceptions propagate and stop; fixture outcomes demonstrate client decisions
+only. Confirm scope/permission and tenant state with the authorized owner before
+using tenant values.
 
 Read [exact SDK arguments, HTTP request, result and errors](../../contracts/v2/filesystem/Resource/restore.md) and run the [offline SDK fixture](../../../../examples/rest/073/v2/filesystem/Resource/restore.py) from the skill root. The fixture checks serialization, synthetic response decoding and source-declared errors without contacting an enrollment.
 
@@ -114,8 +159,9 @@ the write failed from the caller's lost visibility.
 ## Trash and recovery decision
 
 `delete(resource_rid)` moves the resource to trash. Preserve RID, path and
-parent before calling, then read trash status if access permits. `restore`
-restores the RID and directly trashed ancestors. `permanently_delete` requires
+parent before calling, then read trash status if access permits. For `restore`,
+follow the state decision and source-conflict limits in [restore](#restore).
+`permanently_delete` requires
 the resource to be directly trashed and has no restore route. If a delete or
 restore response is uncertain, read the exact RID and status before repeating
 it. Do not substitute a resource found at the old path; path lookup can now

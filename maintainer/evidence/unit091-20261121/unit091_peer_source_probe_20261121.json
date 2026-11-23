@@ -1,0 +1,643 @@
+{
+  "reviewer": "feature015_unit091_peer_recovery",
+  "candidate_commit": "e0e02764d1cae275c515734ee4855a51bf99659f",
+  "test_sha256": "84b33d152db48cae306742c3108cdd5c78ccbbb9aad4ddae2dfa8e1f49cbb02b",
+  "sdk_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+  "operation_count": 29,
+  "native_mode_count": 166,
+  "error_mode_count": 94,
+  "source_files": {
+    "foundry_sdk/v2/media_sets/media_set.py": "893546b075d32730b623a23b3a7480bfd8673bac101c906c9106309bfaffb180",
+    "foundry_sdk/v2/widgets/dev_mode_settings.py": "4d35d8c5a2ff3ca4d23ab8b3bca13f5ff51a348a3ffa3f36882bd3c0f2d58d37",
+    "foundry_sdk/v2/widgets/dev_mode_settings_v2.py": "63e4df516e434b0e4c2d94d1b30cb79cacb5ce88bcc232c85682e544540055bd",
+    "foundry_sdk/v2/widgets/release.py": "0994b1bd9a91619531307b5e31a292a2b15ad1ca9248c293b8c429adb134ea43",
+    "foundry_sdk/v2/widgets/repository.py": "ad776bb646ece75bddbd4c50ece6b2692fdfc9b1948fdd745c2361c5ea932e75",
+    "foundry_sdk/v2/widgets/widget_set.py": "f33b9f3db34d77a3e22d20d80c013fb53a4391bb7f98b444fb1aa3a9ea69503c"
+  },
+  "results": [
+    {
+      "operation": "v2.media_sets.MediaSet.abort",
+      "source": "foundry_sdk/v2/media_sets/media_set.py",
+      "line": 59,
+      "method": "POST",
+      "path": "/v2/mediasets/{mediaSetRid}/transactions/{transactionId}/abort",
+      "response_type": "None",
+      "headers": {},
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.media_sets.MediaSet.calculate",
+      "source": "foundry_sdk/v2/media_sets/media_set.py",
+      "line": 106,
+      "method": "GET",
+      "path": "/v2/mediasets/{mediaSetRid}/items/{mediaItemRid}/transform/imagery/thumbnail/calculate",
+      "response_type": "media_sets_models.TrackedTransformationResponse",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.media_sets.MediaSet.clear",
+      "source": "foundry_sdk/v2/media_sets/media_set.py",
+      "line": 159,
+      "method": "DELETE",
+      "path": "/v2/mediasets/{mediaSetRid}/items/clearAtPath",
+      "response_type": "None",
+      "headers": {},
+      "query": {
+        "mediaItemPath": "synthetic-value",
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.media_sets.MediaSet.commit",
+      "source": "foundry_sdk/v2/media_sets/media_set.py",
+      "line": 229,
+      "method": "POST",
+      "path": "/v2/mediasets/{mediaSetRid}/transactions/{transactionId}/commit",
+      "response_type": "None",
+      "headers": {},
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.media_sets.MediaSet.create",
+      "source": "foundry_sdk/v2/media_sets/media_set.py",
+      "line": 276,
+      "method": "POST",
+      "path": "/v2/mediasets/{mediaSetRid}/transactions",
+      "response_type": "media_sets_models.TransactionId",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.media_sets.MediaSet.get",
+      "source": "foundry_sdk/v2/media_sets/media_set.py",
+      "line": 325,
+      "method": "GET",
+      "path": "/v2/mediasets/{mediaSetRid}",
+      "response_type": "media_sets_models.GetMediaSetResponse",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.media_sets.MediaSet.get_result",
+      "source": "foundry_sdk/v2/media_sets/media_set.py",
+      "line": 370,
+      "method": "GET",
+      "path": "/v2/mediasets/{mediaSetRid}/items/{mediaItemRid}/transformationJobs/{transformationJobId}/result",
+      "response_type": "bytes",
+      "headers": {
+        "Accept": "*/*"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.media_sets.MediaSet.get_rid_by_path",
+      "source": "foundry_sdk/v2/media_sets/media_set.py",
+      "line": 428,
+      "method": "GET",
+      "path": "/v2/mediasets/{mediaSetRid}/items/getRidByPath",
+      "response_type": "media_sets_models.GetMediaItemRidByPathResponse",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "query": {
+        "mediaItemPath": "inspections/pixel.png",
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.media_sets.MediaSet.get_status",
+      "source": "foundry_sdk/v2/media_sets/media_set.py",
+      "line": 489,
+      "method": "GET",
+      "path": "/v2/mediasets/{mediaSetRid}/items/{mediaItemRid}/transformationJobs/{transformationJobId}",
+      "response_type": "media_sets_models.GetTransformationJobStatusResponse",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.media_sets.MediaSet.info",
+      "source": "foundry_sdk/v2/media_sets/media_set.py",
+      "line": 546,
+      "method": "GET",
+      "path": "/v2/mediasets/{mediaSetRid}/items/{mediaItemRid}",
+      "response_type": "media_sets_models.GetMediaItemInfoResponse",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.media_sets.MediaSet.metadata",
+      "source": "foundry_sdk/v2/media_sets/media_set.py",
+      "line": 599,
+      "method": "GET",
+      "path": "/v2/mediasets/{mediaSetRid}/items/{mediaItemRid}/metadata",
+      "response_type": "media_sets_models.MediaItemMetadata",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.media_sets.MediaSet.read",
+      "source": "foundry_sdk/v2/media_sets/media_set.py",
+      "line": 653,
+      "method": "GET",
+      "path": "/v2/mediasets/{mediaSetRid}/items/{mediaItemRid}/content",
+      "response_type": "bytes",
+      "headers": {
+        "Accept": "*/*"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.media_sets.MediaSet.read_original",
+      "source": "foundry_sdk/v2/media_sets/media_set.py",
+      "line": 706,
+      "method": "GET",
+      "path": "/v2/mediasets/{mediaSetRid}/items/{mediaItemRid}/original",
+      "response_type": "bytes",
+      "headers": {
+        "Accept": "*/*"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.media_sets.MediaSet.reference",
+      "source": "foundry_sdk/v2/media_sets/media_set.py",
+      "line": 759,
+      "method": "GET",
+      "path": "/v2/mediasets/{mediaSetRid}/items/{mediaItemRid}/reference",
+      "response_type": "core_models.MediaReference",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.media_sets.MediaSet.register",
+      "source": "foundry_sdk/v2/media_sets/media_set.py",
+      "line": 812,
+      "method": "POST",
+      "path": "/v2/mediasets/{mediaSetRid}/items/register",
+      "response_type": "media_sets_models.RegisterMediaItemResponse",
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "media_sets_models.RegisterMediaItemRequest(physical_item_name=physical_item_name, media_item_path=media_item_path)",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.media_sets.MediaSet.retrieve",
+      "source": "foundry_sdk/v2/media_sets/media_set.py",
+      "line": 881,
+      "method": "GET",
+      "path": "/v2/mediasets/{mediaSetRid}/items/{mediaItemRid}/transform/imagery/thumbnail/retrieve",
+      "response_type": "bytes",
+      "headers": {
+        "Accept": "*/*"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.media_sets.MediaSet.transform",
+      "source": "foundry_sdk/v2/media_sets/media_set.py",
+      "line": 936,
+      "method": "POST",
+      "path": "/v2/mediasets/{mediaSetRid}/items/{mediaItemRid}/transform",
+      "response_type": "media_sets_models.TransformMediaItemResponse",
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "media_sets_models.TransformMediaItemRequest(transformation=transformation)",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.media_sets.MediaSet.upload",
+      "source": "foundry_sdk/v2/media_sets/media_set.py",
+      "line": 1003,
+      "method": "POST",
+      "path": "/v2/mediasets/{mediaSetRid}/items",
+      "response_type": "media_sets_models.PutMediaItemResponse",
+      "headers": {
+        "Content-Type": "*/*",
+        "Accept": "application/json"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "body",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.media_sets.MediaSet.upload_media",
+      "source": "foundry_sdk/v2/media_sets/media_set.py",
+      "line": 1078,
+      "method": "PUT",
+      "path": "/v2/mediasets/media/upload",
+      "response_type": "core_models.MediaReference",
+      "headers": {
+        "Content-Type": "*/*",
+        "Accept": "application/json"
+      },
+      "query": {
+        "filename": "pixel.png",
+        "preview": true
+      },
+      "body_expression": "body",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.widgets.DevModeSettings.enable",
+      "source": "foundry_sdk/v2/widgets/dev_mode_settings.py",
+      "line": 60,
+      "method": "POST",
+      "path": "/v2/widgets/devModeSettings/enable",
+      "response_type": "widgets_models.DevModeSettings",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [
+        {
+          "name": "EnableDevModeSettingsPermissionDenied",
+          "status": 403,
+          "parameters": {}
+        }
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.widgets.DevModeSettings.set_widget_set_by_id",
+      "source": "foundry_sdk/v2/widgets/dev_mode_settings.py",
+      "line": 103,
+      "method": "POST",
+      "path": "/v2/widgets/devModeSettings/setWidgetSetById",
+      "response_type": "widgets_models.DevModeSettings",
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "widgets_models.SetWidgetSetDevModeSettingsByIdRequest(widget_set_rid=widget_set_rid, settings=settings)",
+      "declared_errors": [
+        {
+          "name": "SetWidgetSetDevModeSettingsByIdPermissionDenied",
+          "status": 403,
+          "parameters": {}
+        }
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.widgets.DevModeSettingsV2.enable",
+      "source": "foundry_sdk/v2/widgets/dev_mode_settings_v2.py",
+      "line": 60,
+      "method": "POST",
+      "path": "/v2/widgets/devModeSettingsV2/enable",
+      "response_type": "widgets_models.DevModeSettingsV2",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [
+        {
+          "name": "EnableDevModeSettingsV2PermissionDenied",
+          "status": 403,
+          "parameters": {}
+        }
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.widgets.DevModeSettingsV2.set_widget_set_manifest",
+      "source": "foundry_sdk/v2/widgets/dev_mode_settings_v2.py",
+      "line": 103,
+      "method": "POST",
+      "path": "/v2/widgets/devModeSettingsV2/setWidgetSetManifest",
+      "response_type": "widgets_models.DevModeSettingsV2",
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "widgets_models.SetWidgetSetManifestDevModeSettingsV2Request(widget_set_rid=widget_set_rid, manifest=manifest)",
+      "declared_errors": [
+        {
+          "name": "InvalidDevModeBaseHref",
+          "status": 400,
+          "parameters": {
+            "baseHref": "synthetic-value"
+          }
+        },
+        {
+          "name": "InvalidDevModeEntrypointCssCount",
+          "status": 400,
+          "parameters": {
+            "reason": "synthetic-value",
+            "entrypointCssCount": 1
+          }
+        },
+        {
+          "name": "InvalidDevModeEntrypointJsCount",
+          "status": 400,
+          "parameters": {
+            "reason": "synthetic-value",
+            "entrypointJsCount": 1
+          }
+        },
+        {
+          "name": "InvalidDevModeFilePath",
+          "status": 400,
+          "parameters": {
+            "reason": "synthetic-value",
+            "filePath": "synthetic-value"
+          }
+        },
+        {
+          "name": "InvalidDevModeWidgetSettingsCount",
+          "status": 400,
+          "parameters": {
+            "reason": "synthetic-value",
+            "widgetSettingsCount": 1
+          }
+        },
+        {
+          "name": "InvalidManifest",
+          "status": 400,
+          "parameters": {
+            "reason": "synthetic-value"
+          }
+        },
+        {
+          "name": "SetWidgetSetManifestDevModeSettingsV2PermissionDenied",
+          "status": 403,
+          "parameters": {}
+        },
+        {
+          "name": "WidgetIdNotFound",
+          "status": 404,
+          "parameters": {
+            "widgetSetRid": "ri.widgets.main.widget-set.00000000-0000-0000-0000-000000000001",
+            "widgetId": "synthetic-value"
+          }
+        }
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.widgets.Release.delete",
+      "source": "foundry_sdk/v2/widgets/release.py",
+      "line": 60,
+      "method": "DELETE",
+      "path": "/v2/widgets/widgetSets/{widgetSetRid}/releases/{releaseVersion}",
+      "response_type": "None",
+      "headers": {},
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [
+        {
+          "name": "DeleteReleasePermissionDenied",
+          "status": 403,
+          "parameters": {
+            "widgetSetRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+            "releaseVersion": "synthetic-value"
+          }
+        }
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.widgets.Release.get",
+      "source": "foundry_sdk/v2/widgets/release.py",
+      "line": 110,
+      "method": "GET",
+      "path": "/v2/widgets/widgetSets/{widgetSetRid}/releases/{releaseVersion}",
+      "response_type": "widgets_models.Release",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [
+        {
+          "name": "ReleaseNotFound",
+          "status": 404,
+          "parameters": {
+            "widgetSetRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+            "releaseVersion": "synthetic-value"
+          }
+        }
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.widgets.Release.list",
+      "source": "foundry_sdk/v2/widgets/release.py",
+      "line": 162,
+      "method": "GET",
+      "path": "/v2/widgets/widgetSets/{widgetSetRid}/releases",
+      "response_type": "widgets_models.ListReleasesResponse",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.widgets.Repository.get",
+      "source": "foundry_sdk/v2/widgets/repository.py",
+      "line": 60,
+      "method": "GET",
+      "path": "/v2/widgets/repositories/{repositoryRid}",
+      "response_type": "widgets_models.Repository",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [
+        {
+          "name": "RepositoryNotFound",
+          "status": 404,
+          "parameters": {
+            "repositoryRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        }
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.widgets.Repository.publish",
+      "source": "foundry_sdk/v2/widgets/repository.py",
+      "line": 108,
+      "method": "POST",
+      "path": "/v2/widgets/repositories/{repositoryRid}/publish",
+      "response_type": "widgets_models.Release",
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Accept": "application/json"
+      },
+      "query": {
+        "repositoryVersion": "synthetic-value",
+        "preview": true
+      },
+      "body_expression": "body",
+      "declared_errors": [
+        {
+          "name": "PublishReleasePermissionDenied",
+          "status": 403,
+          "parameters": {
+            "repositoryRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        }
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "operation": "v2.widgets.WidgetSet.get",
+      "source": "foundry_sdk/v2/widgets/widget_set.py",
+      "line": 71,
+      "method": "GET",
+      "path": "/v2/widgets/widgetSets/{widgetSetRid}",
+      "response_type": "widgets_models.WidgetSet",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "query": {
+        "preview": true
+      },
+      "body_expression": "None",
+      "declared_errors": [
+        {
+          "name": "WidgetSetNotFound",
+          "status": 404,
+          "parameters": {
+            "widgetSetRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        }
+      ],
+      "verdict": "PASS"
+    }
+  ],
+  "probe_corrections": [
+    "Initial probe compared source headers including None instead of omitted wire headers; corrected probe filtering",
+    "Error constructors require name; corrected probe constructor argument"
+  ],
+  "limits": [
+    "Independent test/source review only; no formal TESTEXEC or guide semantic approval",
+    "Prepared SDK1.101.0 fake HTTP transports; no live tenant or other SDK versions"
+  ]
+}

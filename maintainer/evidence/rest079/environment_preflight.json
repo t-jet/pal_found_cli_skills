@@ -1,0 +1,225 @@
+{
+  "kind": "PREFLIGHT_ONLY",
+  "formal_execution": false,
+  "executor_identity": "/root/rest079_distinct_formal_executor_20261118",
+  "utc": "2026-11-18T11:36:46.708668+00:00",
+  "sdk_version": "1.101.0",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "executable": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_qa_env\\Scripts\\python.exe",
+  "approved_hashes_checked": [
+    {
+      "name": "rest079_formal_cases.json",
+      "sha256": "1587b936fc129eab6b91fb86ae276f181b031b4a4d55256c6d33885b1ecfebbe"
+    },
+    {
+      "name": "rest079_formal_cases.feature",
+      "sha256": "5a146376ce28c3b077e4c19e5fce9372e0cb1d7027a01f84eb632b214e82e7e3"
+    },
+    {
+      "name": "rest079_formal_execute.py",
+      "sha256": "b7fc8a404cfd5f883c2339955517e5763d34481fb54f8106392df7201d004cb6"
+    },
+    {
+      "name": "additional_checks.py",
+      "sha256": "90da13bfae5c685a22319d58301e1ddd2ab7c20b48b71ebcf8a466698cbf9044"
+    },
+    {
+      "name": "rest079_assets_freeze.json",
+      "sha256": "7f6f42060c4cc18535dd4009cf335cf6a8355eb0d80ea44e69ccb36e2563cd8f"
+    },
+    {
+      "name": "published_register.json",
+      "sha256": "a6144d4f0808bbb7cc6581f8638f44c7460099204a4857585c235993c2073cfe"
+    },
+    {
+      "name": "complete_cases.py",
+      "sha256": "646e559f78a08d6ab22a4a52610676a5bf3f2fb1f7310c8227523cc01ba2c9aa"
+    },
+    {
+      "name": "recovery_author_dry_run_peer_corrections_v2.json",
+      "sha256": "826b9ce07fc191d67370913e635cd9683886af82237d219c39a7b7589e90a0d3"
+    },
+    {
+      "name": ".ept/tmp/rest079_case_techlead_approval_20261118/techlead_case_approval_v2.json",
+      "sha256": "0d1b2ec7007920c5806b13adf9adc1e43d70aa98de954b262ecf2e0b5aa0e536"
+    },
+    {
+      "name": ".ept/tmp/rest079_case_peer_20261118/peer_review_v2.json",
+      "sha256": "a1a451f5362392985e1c87d237a422d8c626a695125d0cab382a076acea9a626"
+    }
+  ],
+  "freeze_checks": [
+    {
+      "case_id": "F079-FREEZE",
+      "check": "reader_assets_hash_bound",
+      "result": "PASS",
+      "assets": 4371
+    },
+    {
+      "case_id": "F079-ActionType-get",
+      "check": "exact_frozen_source_signatures_wire_and_zero_named_errors",
+      "result": "PASS"
+    },
+    {
+      "case_id": "F079-ActionType-get",
+      "check": "sync_ordinary",
+      "result": "PASS",
+      "actual": {
+        "apiName": "rename-device079",
+        "status": "EXPERIMENTAL",
+        "parameters": {
+          "device": {
+            "displayName": "Device",
+            "dataType": {
+              "interfaceTypeApiName": "Inspectable079",
+              "type": "interfaceObject"
+            },
+            "required": true
+          },
+          "labelText": {
+            "displayName": "Label",
+            "dataType": {
+              "type": "string"
+            },
+            "required": true
+          }
+        },
+        "rid": "ri.qa.main.action-type.rename-device079",
+        "operations": [
+          {
+            "interfaceTypeApiName": "Inspectable079",
+            "type": "modifyInterfaceObject"
+          }
+        ]
+      },
+      "expected": {
+        "apiName": "rename-device079",
+        "status": "EXPERIMENTAL",
+        "rid": "ri.qa.main.action-type.rename-device079",
+        "parameters": {
+          "device": {
+            "displayName": "Device",
+            "required": true,
+            "dataType": {
+              "type": "interfaceObject",
+              "interfaceTypeApiName": "Inspectable079"
+            }
+          },
+          "labelText": {
+            "displayName": "Label",
+            "required": true,
+            "dataType": {
+              "type": "string"
+            }
+          }
+        },
+        "operations": [
+          {
+            "type": "modifyInterfaceObject",
+            "interfaceTypeApiName": "Inspectable079"
+          }
+        ]
+      },
+      "requests": 1,
+      "closed": true
+    },
+    {
+      "case_id": "F079-ActionType-get",
+      "check": "async_ordinary",
+      "result": "PASS",
+      "actual": {
+        "apiName": "rename-device079",
+        "status": "EXPERIMENTAL",
+        "parameters": {
+          "device": {
+            "displayName": "Device",
+            "dataType": {
+              "interfaceTypeApiName": "Inspectable079",
+              "type": "interfaceObject"
+            },
+            "required": true
+          },
+          "labelText": {
+            "displayName": "Label",
+            "dataType": {
+              "type": "string"
+            },
+            "required": true
+          }
+        },
+        "rid": "ri.qa.main.action-type.rename-device079",
+        "operations": [
+          {
+            "interfaceTypeApiName": "Inspectable079",
+            "type": "modifyInterfaceObject"
+          }
+        ]
+      },
+      "expected": {
+        "apiName": "rename-device079",
+        "status": "EXPERIMENTAL",
+        "rid": "ri.qa.main.action-type.rename-device079",
+        "parameters": {
+          "device": {
+            "displayName": "Device",
+            "required": true,
+            "dataType": {
+              "type": "interfaceObject",
+              "interfaceTypeApiName": "Inspectable079"
+            }
+          },
+          "labelText": {
+            "displayName": "Label",
+            "required": true,
+            "dataType": {
+              "type": "string"
+            }
+          }
+        },
+        "operations": [
+          {
+            "type": "modifyInterfaceObject",
+            "interfaceTypeApiName": "Inspectable079"
+          }
+        ]
+      },
+      "requests": 1,
+      "closed": true
+    }
+  ],
+  "negative_probes": [
+    {
+      "probe": "dns",
+      "result": "PASS",
+      "error": "PUBLIC_NETWORK_DENIED_F079"
+    },
+    {
+      "probe": "socket_connect",
+      "result": "PASS",
+      "error": "PUBLIC_NETWORK_DENIED_F079"
+    },
+    {
+      "probe": "socket_connect_ex",
+      "result": "PASS",
+      "error": "PUBLIC_NETWORK_DENIED_F079"
+    },
+    {
+      "probe": "socket_create_connection",
+      "result": "PASS",
+      "error": "PUBLIC_NETWORK_DENIED_F079"
+    },
+    {
+      "probe": "sync_http_dispatch",
+      "result": "PASS",
+      "error": "PUBLIC_NETWORK_DENIED_F079"
+    },
+    {
+      "probe": "async_http_dispatch",
+      "result": "PASS",
+      "error": "PUBLIC_NETWORK_DENIED_F079"
+    }
+  ],
+  "network_boundary": "Python process patches cover DNS, socket connect/connect_ex/create_connection and sync/async httpx real transports. Local git child processes are not globally network isolated; harness spawns local git show only. No OS firewall or all-process disconnection claimed.",
+  "preflight_case": "F079-ActionType-get",
+  "outcome": "PASS"
+}

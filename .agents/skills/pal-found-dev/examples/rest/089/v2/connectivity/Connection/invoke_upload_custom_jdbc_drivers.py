@@ -2,6 +2,11 @@
 
 Synthetic identifiers do not name tenant resources. Prepared SDK 1.101.0/httpx
 required. No network connections or live mutations occur.
+
+The body is a deterministic JAR container with a manifest only, for binary wire
+checks. It has no driver implementation. Live use requires approved driver JAR
+bytes, a matching driverClass and an existing JDBC connection with network and
+credential access. The mocked response does not prove driver loading.
 """
 import json
 import sys
@@ -18,15 +23,15 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/connectivity/connections/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/uploadCustomJdbcDrivers'
-EXPECTED_BODY = b'synthetic-response'
-EXPECTED_QUERY = {'fileName': 'synthetic-value'}
+EXPECTED_BODY = b'PK\x03\x04\x14\x00\x00\x00\x00\x00\x00\x00!\\\xb2\x7f\x02\xee\x19\x00\x00\x00\x19\x00\x00\x00\x14\x00\x00\x00META-INF/MANIFEST.MFManifest-Version: 1.0\r\n\r\nPK\x01\x02\x14\x00\x14\x00\x00\x00\x00\x00\x00\x00!\\\xb2\x7f\x02\xee\x19\x00\x00\x00\x19\x00\x00\x00\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x80\x01\x00\x00\x00\x00META-INF/MANIFEST.MFPK\x05\x06\x00\x00\x00\x00\x01\x00\x01\x00B\x00\x00\x00K\x00\x00\x00\x00\x00'
+EXPECTED_QUERY = {'fileName': 'example-driver.jar'}
 EXPECTED_HEADERS = {'Content-Type': 'application/octet-stream', 'Accept': 'application/json'}
 SUCCESS = {'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
  'parentFolderRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
  'displayName': 'synthetic-value',
  'exportSettings': {'exportsEnabled': True, 'exportEnabledWithoutMarkingsValidation': True},
- 'worker': {'type': 'unknownWorker'},
- 'configuration': {'bucketUrl': 'synthetic-value', 'type': 's3'}}
+ 'worker': {'type': 'foundryWorker', 'networkEgressPolicyRids': []},
+ 'configuration': {'url': 'jdbc:postgresql://database.example.invalid:5432/orders', 'driverClass': 'org.postgresql.Driver', 'uploadedJdbcDrivers': ['example-driver.jar'], 'jdbcProperties': {}, 'type': 'jdbc'}}
 ERRORS = [{'name': 'ConnectionNotFound',
   'status': 404,
   'code': 'NOT_FOUND',
@@ -37,7 +42,7 @@ ERRORS = [{'name': 'ConnectionNotFound',
   'parameters': {'connectionRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}}]
 
 def invoke(client):
-    return client.with_raw_response.upload_custom_jdbc_drivers(connection_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', body=b'synthetic-response', file_name='synthetic-value', request_timeout=30)
+    return client.with_raw_response.upload_custom_jdbc_drivers(connection_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', body=b'PK\x03\x04\x14\x00\x00\x00\x00\x00\x00\x00!\\\xb2\x7f\x02\xee\x19\x00\x00\x00\x19\x00\x00\x00\x14\x00\x00\x00META-INF/MANIFEST.MFManifest-Version: 1.0\r\n\r\nPK\x01\x02\x14\x00\x14\x00\x00\x00\x00\x00\x00\x00!\\\xb2\x7f\x02\xee\x19\x00\x00\x00\x19\x00\x00\x00\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x80\x01\x00\x00\x00\x00META-INF/MANIFEST.MFPK\x05\x06\x00\x00\x00\x00\x01\x00\x01\x00B\x00\x00\x00K\x00\x00\x00\x00\x00', file_name='example-driver.jar', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

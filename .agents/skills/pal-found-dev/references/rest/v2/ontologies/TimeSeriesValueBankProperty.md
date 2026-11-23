@@ -43,15 +43,22 @@ latest = api.get_latest_value(
 if latest is not None:
     print(latest.time, latest.value)
 
-total_bytes = 0
+payload = bytearray()
 with api.with_streaming_response.stream_values(
     ontology="operations", object_type="Sensor", primary_key="S-1",
-    property="temperature", branch="master", request_timeout=30
+    property="temperature", branch="master", request_timeout=30,
+    range={"type": "absolute", "startTime": "2026-01-01T00:00:00Z",
+           "endTime": "2026-01-01T00:02:00Z"},
 ) as response:
     for chunk in response.iter_bytes():
-        total_bytes += len(chunk)
-        if total_bytes > 1_000_000:
+        if len(payload) + len(chunk) > 1_000_000:
             raise ValueError("time-series byte budget exceeded")
+        payload.extend(chunk)
+# After verifying this integration uses the fixture's JSON-array encoding:
+import json
+values = json.loads(payload)
+for value in values:
+    print(value["time"], value["value"])
 ```
 
 `get_latest_value` uses `property_name`; `stream_values` uses `property` in
@@ -59,6 +66,16 @@ SDK 1.101.0. Both calls must target the same actual property and branch.
 `latest` may be `None`; when history and live integrations both exist, the
 latest-value endpoint gives live data precedence. A bounded stream and a
 latest-value read have different completeness and recency meaning.
+
+The frozen `stream_values` source returns bytes and specifies no default wire
+format. The linked fixture uses an explicitly synthetic UTF-8 JSON array with
+two temperature values. Its parser checks fields, timestamps within the
+requested interval and a byte budget after joining chunks. This encoding is
+an offline exercise, not a service format guarantee. Obtain the actual stream
+framing, encoding and property schema from the integration owner and verify
+an authorized sample before adapting the parser. Use the matching decoder if
+the enrollment sends a different encoding. A byte-budget or decoding failure
+means history is incomplete; context management still closes the response.
 
 The linked operation fixtures show actual SDK method invocation, serialized request and decoded response/error using a local mock transport. Their synthetic values are test data. Replace them with authorized identifiers and typed payloads from each linked contract; verify the live result under the intended identity before asserting a platform effect.
 

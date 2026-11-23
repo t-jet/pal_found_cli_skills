@@ -21,7 +21,7 @@ EXPECTED_PATH = '/api/v2/aipAgents/agents/ri.synthetic.main.resource.00000000-00
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'pageSize': None, 'pageToken': None, 'preview': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'data': [{'string': 'synthetic-value', 'version': {'major': 1, 'minor': 1}}]}
+SUCCESS = {'data': [{'string': '1.1', 'version': {'major': 1, 'minor': 1}}]}
 ERRORS = [{'name': 'AgentNotFound',
   'status': 404,
   'code': 'NOT_FOUND',

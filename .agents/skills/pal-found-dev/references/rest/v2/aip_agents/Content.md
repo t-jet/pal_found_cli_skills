@@ -14,6 +14,6 @@ With a configured `FoundryClient` named `client`, use `client.aip_agents.Agent.S
 
 ### get
 
-Read all content for one session after a continuation or cancellation and check exchange/message IDs before deciding whether to retry.
+Read all content for one session after a continuation or cancellation. Inspect each exchange's user input, contexts and result, including `interrupted_output` and `session_trace_id`, to reconcile the visible outcome before deciding whether to retry. Exchanges do not return the streaming message ID; retain that ID from the stream when cancellation is needed.
 
 Read the [exact SDK/HTTP contract](../../contracts/v2/aip_agents/Content/get.md) for parameters, models, return mode and named errors. Run the [offline SDK fixture](../../../../examples/rest/087/v2/aip_agents/Content/get.py) from the skill root. It checks the synthetic request, result and declared errors without contacting Foundry.

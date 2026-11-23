@@ -16,22 +16,19 @@ from foundry_sdk.v2.ontologies.ontology_interface import OntologyInterfaceClient
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from synthetic_schema import asset_object, check_objects
+
 EXPECTED_METHOD = 'POST'
-EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/interfaces/synthetic-value/search'
-EXPECTED_BODY = {'augmentedProperties': {},
- 'augmentedSharedPropertyTypes': {},
- 'augmentedInterfacePropertyTypes': {},
- 'selectedSharedPropertyTypes': ['synthetic-value'],
- 'selectedInterfacePropertyTypes': ['synthetic-value'],
- 'selectedObjectTypes': ['synthetic-value'],
- 'otherInterfaceTypes': ['synthetic-value']}
+EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/interfaces/Trackable/search'
+EXPECTED_BODY = {'augmentedProperties': {}, 'augmentedSharedPropertyTypes': {}, 'augmentedInterfacePropertyTypes': {}, 'selectedSharedPropertyTypes': ['assetId', 'name', 'observedAt'], 'selectedInterfacePropertyTypes': [], 'selectedObjectTypes': ['Asset'], 'otherInterfaceTypes': []}
 EXPECTED_QUERY = {'branch': None, 'preview': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'data': [{}], 'totalCount': '1'}
+SUCCESS = {'data': [asset_object('A-1')], 'totalCount': '1'}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.search(ontology='synthetic-value', interface_type='synthetic-value', augmented_interface_property_types={}, augmented_properties={}, augmented_shared_property_types={}, other_interface_types=['synthetic-value'], selected_interface_property_types=['synthetic-value'], selected_object_types=['synthetic-value'], selected_shared_property_types=['synthetic-value'], request_timeout=30)
+    return client.with_raw_response.search(ontology='synthetic-value', interface_type='Trackable', augmented_interface_property_types={}, augmented_properties={}, augmented_shared_property_types={}, other_interface_types=[], selected_interface_property_types=[], selected_object_types=['Asset'], selected_shared_property_types=['assetId', 'name', 'observedAt'], request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -62,6 +59,10 @@ def normalized(value):
         return value.model_dump(mode='json', by_alias=True, exclude_none=True)
     return value
 
+def check_result(value):
+    check_objects(value)
+
+
 def verify():
     calls = []
     def success(request):
@@ -75,7 +76,9 @@ def verify():
     with mock_resource(OntologyInterfaceClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
+            check_result(decoded)
         finally:
             raw.close()
     assert len(calls) == 1

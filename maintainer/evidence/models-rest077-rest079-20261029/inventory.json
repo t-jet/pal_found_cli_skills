@@ -1,0 +1,377 @@
+{
+  "archive_sha256": "52c16bd493ae7d084d6814c4391804739ba144082a9cc62e162b2e96ab91e5a5",
+  "files": [
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\api_client.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/_core/api_client.py",
+      "bytes": 35602,
+      "sha256": "7e6ba19fa9732b18b6f22d69f46c40b1a10af4533ce720c39df52c60ca191225"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\model_base.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/_core/model_base.py",
+      "bytes": 3565,
+      "sha256": "9991688d13830547f029b78995d0b822d1ac63b2f99911d876277515c44dbb1e"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\core\\models.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v1/core/models.py",
+      "bytes": 8192,
+      "sha256": "87e65f41ae4ee4cb315b0f8a1b7cb7f6e166e2945510ae536fde553cf7697a65"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v1/ontologies/action.py",
+      "bytes": 22308,
+      "sha256": "ca1f0a33164f1453b335a11c2c6e82ed1f792bd0235257ce248d062097ca6090"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action_type.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v1/ontologies/action_type.py",
+      "bytes": 12610,
+      "sha256": "eb2877e1c6ec8e5fa687ffca459fc79483d05d9dabcf283a91f43135a13acc61"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\attachment.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v1/ontologies/attachment.py",
+      "bytes": 14864,
+      "sha256": "9606789cb634d59d99886e7ffcd6c2e5aeaab099496c3771979a6c05ba5d2357"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\models.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v1/ontologies/models.py",
+      "bytes": 79640,
+      "sha256": "b60c1303e827e001c99c2be02bc27be5d5553f029aab9f68165d5056c00f9b28"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\object_type.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v1/ontologies/object_type.py",
+      "bytes": 24160,
+      "sha256": "f9d98265021a7e0275d47e182aa6bcade2b01ac427cc281a9c83e88b831fdf97"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v1/ontologies/ontology.py",
+      "bytes": 11450,
+      "sha256": "52e99cd05010464a4f2dc0b1978da17d9a8863f4fdda8f4c7491875f3fc4be2d"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v1/ontologies/ontology_object.py",
+      "bytes": 53184,
+      "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\query.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v1/ontologies/query.py",
+      "bytes": 9860,
+      "sha256": "9b6b1152611e85245ce5db06e10d90650e644485316b4c5e9a3206049bfc050e"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\query_type.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v1/ontologies/query_type.py",
+      "bytes": 12866,
+      "sha256": "5fc6464e93bd6153963c8d98eb9013d7cb7c521831866379a3829cee6d1dcedb"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/core/models.py",
+      "bytes": 31972,
+      "sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\__init__.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/models/__init__.py",
+      "bytes": 778,
+      "sha256": "b0f4f9fbb771c5d23b91c7ed4b130950a2559e5ec38b83576598fa5615c44ffc"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\_client.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/models/_client.py",
+      "bytes": 3787,
+      "sha256": "777458662827518e6a6b9cf383bc40b90a0f6866e8e4e26711f2246e8e93e2b6"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\errors.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/models/errors.py",
+      "bytes": 25677,
+      "sha256": "cb3fc366b550378dd850c272b53138fc2f0f3fa3cb490ef1b756219431df64c2"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/models/experiment.py",
+      "bytes": 17218,
+      "sha256": "afee53ef61ec8fde78a968a24ab7f7695ca85d9f8f89b06fac072eed440896e9"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment_artifact_table.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/models/experiment_artifact_table.py",
+      "bytes": 16904,
+      "sha256": "d0e7fe85815d7e9591ab5c382e2c068a3b0d9665b6537f8b5a5cad131db4b66d"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment_series.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/models/experiment_series.py",
+      "bytes": 16300,
+      "sha256": "695990e14cdef6fe9ab18fb2fa872c9e5bc8f8b4eeec904c080c735d5822d344"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\live_deployment.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/models/live_deployment.py",
+      "bytes": 36308,
+      "sha256": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/models/model.py",
+      "bytes": 21380,
+      "sha256": "420a4bd19511d5732532fb3ac4252310732e3c4b4ea418551adb2cf68a41cd20"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_function.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/models/model_function.py",
+      "bytes": 23306,
+      "sha256": "9bd76546691d4b1a00b3d5dd6f0efcee90b40954c04ac32c3b74708f5a60ccf6"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/models/model_studio.py",
+      "bytes": 19662,
+      "sha256": "4ece4867d0046dafdbf4eac2fad4d5348a281b3ea628809b332ff769e161b49e"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_config_version.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/models/model_studio_config_version.py",
+      "bytes": 27732,
+      "sha256": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_run.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/models/model_studio_run.py",
+      "bytes": 10092,
+      "sha256": "e7bf121ae2c96f41fbff874a53102f22c1f774812936aaf49f435e4963093513"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_trainer.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/models/model_studio_trainer.py",
+      "bytes": 12248,
+      "sha256": "b4d5fd37b3cebe920077e755adb09d37c9aa499a7b25fa0f46ecc4787d5c09d0"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_version.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/models/model_version.py",
+      "bytes": 22386,
+      "sha256": "ad0514eaa6f22b4f362cc94305b395c4c8c7d3b36bd2b337fc70d57b85655dc8"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\models.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/models/models.py",
+      "bytes": 65166,
+      "sha256": "c671bcbc7d8b6c7c881db453c45fb3828899a5f541f5cbdf3b0ec5b89c2b344e"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\action.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/ontologies/action.py",
+      "bytes": 40240,
+      "sha256": "97d67d3a550ce372d2b39363e7373afc32ade7ecd803c022098a9d3ffca48ad5"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/ontologies/models.py",
+      "bytes": 300165,
+      "sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\ontology_object.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/ontologies/ontology_object.py",
+      "bytes": 55442,
+      "sha256": "2cc7b91d2c6c3fe264196220adf23e05a5f4c314452db57458523abc58721efe"
+    },
+    {
+      "original_path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\orchestration\\models.py",
+      "archive_name": "external/D/app/Python/Lib/site-packages/foundry_sdk/v2/orchestration/models.py",
+      "bytes": 37143,
+      "sha256": "18168769192c0f7ae0978ffd32a1b53ce95c350062533c29798919c9b5497323"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\__init__.py",
+      "archive_name": "workspace/.ept/tmp/feature015_models_config_fix/src/pal_found_cli/common/__init__.py",
+      "bytes": 1616,
+      "sha256": "904005620458297d6171f98341a2d05d7ff7b1e1dffb5e2305036dc7cf9b9de7"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\access_control_guard.py",
+      "archive_name": "workspace/.ept/tmp/feature015_models_config_fix/src/pal_found_cli/common/access_control_guard.py",
+      "bytes": 20669,
+      "sha256": "62aca2ad1b1504dbcdf1b1cee92f8e025cb3870694f506971bb24eb23efead61"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\async_client_factory.py",
+      "archive_name": "workspace/.ept/tmp/feature015_models_config_fix/src/pal_found_cli/common/async_client_factory.py",
+      "bytes": 5914,
+      "sha256": "6ca5c512a625ca019ff6070f8b4d9808db8946aa3dd18cce0268d0d3a62cd6b4"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\auth_provider.py",
+      "archive_name": "workspace/.ept/tmp/feature015_models_config_fix/src/pal_found_cli/common/auth_provider.py",
+      "bytes": 2633,
+      "sha256": "1cc1436999bb3b04b854bfdeff4c3d5aafdb38bb8f1f58ce43817869f62a253e"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\binary_download_handler.py",
+      "archive_name": "workspace/.ept/tmp/feature015_models_config_fix/src/pal_found_cli/common/binary_download_handler.py",
+      "bytes": 10114,
+      "sha256": "60918187fad8f0a195fab73f1dc61b5ff4df124f2a8f697822f7ac39e84ffcab"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\cli_parser.py",
+      "archive_name": "workspace/.ept/tmp/feature015_models_config_fix/src/pal_found_cli/common/cli_parser.py",
+      "bytes": 483,
+      "sha256": "35a813c652ecb5cfb791479c73bd88a74189b7e97d94c4f409d9d373ef0a5f47"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\config_loader.py",
+      "archive_name": "workspace/.ept/tmp/feature015_models_config_fix/src/pal_found_cli/common/config_loader.py",
+      "bytes": 12043,
+      "sha256": "b7ccddda86b733302f1f8f1800dfd172207361bdc661045b64871ded0e8af7bc"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\error_serializer.py",
+      "archive_name": "workspace/.ept/tmp/feature015_models_config_fix/src/pal_found_cli/common/error_serializer.py",
+      "bytes": 13605,
+      "sha256": "8ef68e5e0065411c297d7119d40ee0898693062c2f7df02d2318c679151ac02b"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\log_setup.py",
+      "archive_name": "workspace/.ept/tmp/feature015_models_config_fix/src/pal_found_cli/common/log_setup.py",
+      "bytes": 7463,
+      "sha256": "17b980b160308b0b21569b63f07cf67da7ad4b5c7cf602d1bb44f7acdc3f9f6b"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\output_formatter.py",
+      "archive_name": "workspace/.ept/tmp/feature015_models_config_fix/src/pal_found_cli/common/output_formatter.py",
+      "bytes": 6954,
+      "sha256": "4b7f78a68cddb999a0474195f76545bd8f755d80ee18e71c9d0628c4718b7383"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\pagination_helper.py",
+      "archive_name": "workspace/.ept/tmp/feature015_models_config_fix/src/pal_found_cli/common/pagination_helper.py",
+      "bytes": 7273,
+      "sha256": "b831ea4c2d64b48e5ed5a9558da2a19f4933d27d4290922d266030db1796e5db"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\retry.py",
+      "archive_name": "workspace/.ept/tmp/feature015_models_config_fix/src/pal_found_cli/common/retry.py",
+      "bytes": 22494,
+      "sha256": "3464aa78aaeaf3a592e789e5f0fb612f4c14cbc412ad0b37919f9b4c4487dda0"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\sdk_error_utils.py",
+      "archive_name": "workspace/.ept/tmp/feature015_models_config_fix/src/pal_found_cli/common/sdk_error_utils.py",
+      "bytes": 3612,
+      "sha256": "b5b34644179677b2cda83237c93e8b038583ba2c300764e2734e8d05392e2d4e"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\session_manager.py",
+      "archive_name": "workspace/.ept/tmp/feature015_models_config_fix/src/pal_found_cli/common/session_manager.py",
+      "bytes": 16713,
+      "sha256": "bbc255c436c0f01e4ff29e61301475346c5766ee137afb39868513b0e7dc7f32"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\timeout_config.py",
+      "archive_name": "workspace/.ept/tmp/feature015_models_config_fix/src/pal_found_cli/common/timeout_config.py",
+      "bytes": 1433,
+      "sha256": "76b9896c096f689734e106b9be559ea59d2f22123799d423f39446172263e4c7"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\common\\tracing_provider.py",
+      "archive_name": "workspace/.ept/tmp/feature015_models_config_fix/src/pal_found_cli/common/tracing_provider.py",
+      "bytes": 3495,
+      "sha256": "0cdc2b00727b83b723329cc71ac6179bb73860e47f0c4fcf14a6fec7f3b1cc56"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_config_fix\\src\\pal_found_cli\\models\\scripts\\pal_found_models_cli.py",
+      "archive_name": "workspace/.ept/tmp/feature015_models_config_fix/src/pal_found_cli/models/scripts/pal_found_models_cli.py",
+      "bytes": 26349,
+      "sha256": "d8dcd02b8da0edb6e66595539ee964d5c856ac388fd889fea84b22cbecc39009"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_pages_retest_20261029.json",
+      "archive_name": "workspace/.ept/tmp/feature015_models_pages_retest_20261029.json",
+      "bytes": 36040,
+      "sha256": "98e246c9647f6afd5ea853639c917cbf176f1bb05778e52b022c254bcb1407e8"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_models_pages_review_20261029.json",
+      "archive_name": "workspace/.ept/tmp/feature015_models_pages_review_20261029.json",
+      "bytes": 36518,
+      "sha256": "23773c3fa8791797a1eb592adb36dfc2e77d9c78d48787321f1e6746ddd4c33c"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_new_candidate_commits_20261029.json",
+      "archive_name": "workspace/.ept/tmp/feature015_new_candidate_commits_20261029.json",
+      "bytes": 9315,
+      "sha256": "ab22fb63ae3022f245e3aada019b8f6b7de254ac464abe6a43edd812edc987a4"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest077_semantic_final_retest_20261029.json",
+      "archive_name": "workspace/.ept/tmp/feature015_rest077_semantic_final_retest_20261029.json",
+      "bytes": 174043,
+      "sha256": "07a3285fd00e49b35e4d78bf1174280df6dd97fd61669760130513b223f4c51e"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest077_semantic_retest_20261029.json",
+      "archive_name": "workspace/.ept/tmp/feature015_rest077_semantic_retest_20261029.json",
+      "bytes": 160819,
+      "sha256": "2ad0924a0aba4aff4a90fe5766aea6f490be6e734439e74bcfc8a0d067836e9f"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest077_semantic_review_20261029.json",
+      "archive_name": "workspace/.ept/tmp/feature015_rest077_semantic_review_20261029.json",
+      "bytes": 146328,
+      "sha256": "f76c0ab6abc4054569c30e557f94d557d103a173c0a47ba932621fe00563d16c"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest079_author_candidate_20261029.json",
+      "archive_name": "workspace/.ept/tmp/feature015_rest079_author_candidate_20261029.json",
+      "bytes": 15222,
+      "sha256": "a69eb0e3ff56a43d3bbba164473d7aaaa0335fdb78641b22e1cf25e20c5af966"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest079_semantic_retest_20261029.json",
+      "archive_name": "workspace/.ept/tmp/feature015_rest079_semantic_retest_20261029.json",
+      "bytes": 659563,
+      "sha256": "1e5716c50d17749339f0a6369607c0a1fa3102ad25a2cf2dfd930e89a94183c1"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest079_semantic_review_20261029.json",
+      "archive_name": "workspace/.ept/tmp/feature015_rest079_semantic_review_20261029.json",
+      "bytes": 587969,
+      "sha256": "a7e0d93c08b3602c2bfae49b0b7a312d0e6d5c863732b92777f0b3b08dc002b2"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_tool_ci_db72226.json",
+      "archive_name": "workspace/.ept/tmp/feature015_tool_ci_db72226.json",
+      "bytes": 2884,
+      "sha256": "f305a1edad261b98d289d7766b7609582e6b608b21865848ba478f8afb5a2c6d"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\models_guidance_freeze_20261029.json",
+      "archive_name": "workspace/.ept/tmp/models_guidance_freeze_20261029.json",
+      "bytes": 15795,
+      "sha256": "4ad6fd32f7cc6aaa4f1f65fb3120c5231d90cdf3a385b2ec9adb1c6ce8d107db"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\models_guidance_retest_probes_20261029.json",
+      "archive_name": "workspace/.ept/tmp/models_guidance_retest_probes_20261029.json",
+      "bytes": 159562,
+      "sha256": "28e0e7d0c485a20c163e9aead9c0347895e2b8bd3f9c8114d9fc7193dd736304"
+    },
+    {
+      "original_path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest077_aggregate_clarify_freeze_20261029.json",
+      "archive_name": "workspace/.ept/tmp/rest077_aggregate_clarify_freeze_20261029.json",
+      "bytes": 7826,
+      "sha256": "87cc7e278dacdf8f8a4b0c628b36c2e578203d10382461e8e837b7b6d7ece2e1"
+    }
+  ]
+}

@@ -16,17 +16,19 @@ from foundry_sdk.v2.ontologies.ontology_interface import OntologyInterfaceClient
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from synthetic_schema import check_aggregate
+
 EXPECTED_METHOD = 'POST'
-EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/interfaces/synthetic-value/aggregate'
-EXPECTED_BODY = {'aggregation': [{'type': 'approximateDistinct'}],
- 'groupBy': [{'value': 1, 'unit': 'MILLISECONDS', 'type': 'duration'}]}
+EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/interfaces/Trackable/aggregate'
+EXPECTED_BODY = {'aggregation': [{'type': 'approximateDistinct', 'field': 'assetId', 'name': 'distinctAssets'}], 'groupBy': [{'type': 'duration', 'field': 'observedAt', 'value': 1, 'unit': 'DAYS'}]}
 EXPECTED_QUERY = {'branch': None, 'preview': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'accuracy': 'ACCURATE', 'data': [{'group': {}, 'metrics': [{'name': 'synthetic-value'}]}]}
+SUCCESS = {'accuracy': 'APPROXIMATE', 'data': [{'group': {'observedAt': '2026-10-07T00:00:00Z'}, 'metrics': [{'name': 'distinctAssets', 'value': 1}]}]}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.aggregate(ontology='synthetic-value', interface_type='synthetic-value', aggregation=[{'type': 'approximateDistinct'}], group_by=[{'value': 1, 'unit': 'MILLISECONDS', 'type': 'duration'}], request_timeout=30)
+    return client.with_raw_response.aggregate(ontology='synthetic-value', interface_type='Trackable', aggregation=[{'type': 'approximateDistinct', 'field': 'assetId', 'name': 'distinctAssets'}], group_by=[{'type': 'duration', 'field': 'observedAt', 'value': 1, 'unit': 'DAYS'}], request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -57,6 +59,10 @@ def normalized(value):
         return value.model_dump(mode='json', by_alias=True, exclude_none=True)
     return value
 
+def check_result(value):
+    check_aggregate(EXPECTED_BODY, value)
+
+
 def verify():
     calls = []
     def success(request):
@@ -70,7 +76,9 @@ def verify():
     with mock_resource(OntologyInterfaceClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
+            check_result(decoded)
         finally:
             raw.close()
     assert len(calls) == 1

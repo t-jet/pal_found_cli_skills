@@ -1,0 +1,24 @@
+{
+  "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+  "operations": 425,
+  "base_generator_sha256": "bebdbd885108786b6bc2654c35d22505e77d93a714586800d23fbb9893ae85eb",
+  "candidate_generator_sha256": "029c62981c4c5fafced71435a0eb91d695798b326b6685618a8a932265d4d050",
+  "patch_only_generated_delta": [
+    ".agents/skills/pal-found-dev/references/rest/contracts/v2/filesystem/Resource/restore.md"
+  ],
+  "baseline_idempotent": true,
+  "candidate_matches_previous_idempotent_full_render": true,
+  "network_attempts": 0,
+  "contract_sha256": "937bc251854f753f89657b04f30c97bfe1479f7c1e7bda7a1ac162e7a88e3b7d",
+  "preexisting_full_render_drift": [
+    ".agents/skills/pal-found-dev/references/rest/contracts/v2/admin/Marking/parse_classifications.md",
+    ".agents/skills/pal-found-dev/references/rest/models/v2/filesystem/models/FolderType.md",
+    ".agents/skills/pal-found-dev/references/rest/models/v2/filesystem/models/Organization.md",
+    ".agents/skills/pal-found-dev/references/rest/models/v2/filesystem/models/ProjectResourceReferenceUnion.md",
+    ".agents/skills/pal-found-dev/references/rest/models/v2/ontologies/models/QueryAggregationValueType.md",
+    "maintainer/rest-model-register.json",
+    "maintainer/rest-model-semantic-matrix.json"
+  ],
+  "inventory_declarations": 4300,
+  "rendered_reachable_symbols": 3251
+}

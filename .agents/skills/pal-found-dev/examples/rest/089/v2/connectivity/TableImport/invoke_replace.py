@@ -2,6 +2,11 @@
 
 Synthetic identifiers do not name tenant resources. Prepared SDK 1.101.0/httpx
 required. No network connections or live mutations occur.
+
+Assume the Databricks connection can SELECT order_id and total from
+main.sales.orders. Replace catalog, schema, table and columns for the source.
+LIMIT 100 bounds this sample; creating/replacing a definition does not run SQL
+or prove source access. Execute the import separately and inspect its build.
 """
 import json
 import sys
@@ -20,7 +25,7 @@ EXPECTED_METHOD = 'PUT'
 EXPECTED_PATH = '/api/v2/connectivity/connections/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/tableImports/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'
 EXPECTED_BODY = {'importMode': 'SNAPSHOT',
  'displayName': 'synthetic-value',
- 'config': {'query': 'synthetic-value', 'type': 'databricksImportConfig'}}
+ 'config': {'query': 'SELECT order_id, total FROM main.sales.orders LIMIT 100', 'type': 'databricksImportConfig'}}
 EXPECTED_QUERY = {}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
 SUCCESS = {'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
@@ -29,7 +34,7 @@ SUCCESS = {'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-0000000000
  'displayName': 'synthetic-value',
  'importMode': 'SNAPSHOT',
  'allowSchemaChanges': True,
- 'config': {'query': 'synthetic-value', 'type': 'databricksImportConfig'}}
+ 'config': {'query': 'SELECT order_id, total FROM main.sales.orders LIMIT 100', 'type': 'databricksImportConfig'}}
 ERRORS = [{'name': 'ConnectionDetailsNotDetermined',
   'status': 500,
   'code': 'INTERNAL',
@@ -60,7 +65,7 @@ ERRORS = [{'name': 'ConnectionDetailsNotDetermined',
   'parameters': {'tableImportType': 'synthetic-value'}}]
 
 def invoke(client):
-    return client.with_raw_response.replace(connection_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', table_import_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', config={'query': 'synthetic-value', 'type': 'databricksImportConfig'}, display_name='synthetic-value', import_mode='SNAPSHOT', request_timeout=30)
+    return client.with_raw_response.replace(connection_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', table_import_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', config={'query': 'SELECT order_id, total FROM main.sales.orders LIMIT 100', 'type': 'databricksImportConfig'}, display_name='synthetic-value', import_mode='SNAPSHOT', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

@@ -1,0 +1,1012 @@
+{"case_id": "REST075", "check": "socket_traps_active", "result": "PASS"}
+{"case_id": "F075-01", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_CheckpointRecordNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F075-01", "check": "error_CheckpointRecordNotFound_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_CheckpointRecordNotFound_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_CheckpointRecordNotFound_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_CheckpointRecordNotFound_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_CheckpointRecordNotFound_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_CheckpointRecordPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-01", "check": "error_CheckpointRecordPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_CheckpointRecordPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_CheckpointRecordPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_CheckpointRecordPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_CheckpointRecordPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_RecordNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F075-01", "check": "error_RecordNotFound_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_RecordNotFound_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_RecordNotFound_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_RecordNotFound_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_RecordNotFound_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-01", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-01", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-01", "check": "missing_required_record_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-01", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-02", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-02", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-02", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-02", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-02", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-02", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-02", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-02", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-02", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-02", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-02", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-02", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-02", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-02", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-02", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-02", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-02", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-02", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-02", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-02", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-02", "check": "missing_required_body", "result": "PASS", "requests": 0}
+{"case_id": "F075-02", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-02", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-02", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-02", "check": "batch length 0", "result": "PASS", "requests": 0}
+{"case_id": "F075-02", "check": "batch length 101", "result": "PASS", "requests": 0}
+{"case_id": "F075-03", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "error_SearchRecordsPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-03", "check": "error_SearchRecordsPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "error_SearchRecordsPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "error_SearchRecordsPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "error_SearchRecordsPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "error_SearchRecordsPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-03", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-03", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-03", "check": "missing_required_where", "result": "PASS", "requests": 0}
+{"case_id": "F075-03", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-03", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-03", "check": "finite continuation", "result": "PASS", "requests": 2, "items": [{"rid": "ri.qa.main.record.independent075", "type": "RUN_BUILD", "scope": "RESOURCE_SCOPED", "actingUser": {"userId": "00000000-0000-0000-0000-000000000075", "username": {"value": "independent-reviewer075"}}, "createdAt": "2026-10-29T08:00:00+00:00", "checkpointedItems": [{"jobRid": "ri.qa.main.job.independent075", "type": "checkpointedJob"}], "justification": {"response": "Approved output review", "prompt": "Why run this build?", "title": "Build review", "type": "responseJustification"}}, {"rid": "ri.qa.main.second-page-record.independent075", "type": "RUN_BUILD", "scope": "RESOURCE_SCOPED", "actingUser": {"userId": "00000000-0000-0000-0000-000000000075", "username": {"value": "independent-reviewer075"}}, "createdAt": "2026-10-29T08:00:00+00:00", "checkpointedItems": [{"jobRid": "ri.qa.main.job.independent075", "type": "checkpointedJob"}], "justification": {"response": "Approved output review", "prompt": "Why run this build?", "title": "Build review", "type": "responseJustification"}}]}
+{"case_id": "F075-04", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_CheckAlreadyExists", "result": "PASS", "status": 409, "requests": 1}
+{"case_id": "F075-04", "check": "error_CheckAlreadyExists_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_CheckAlreadyExists_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_CheckAlreadyExists_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_CheckAlreadyExists_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_CheckAlreadyExists_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_CheckTypeNotSupported", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F075-04", "check": "error_CheckTypeNotSupported_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_CheckTypeNotSupported_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_CheckTypeNotSupported_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_CheckTypeNotSupported_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_CheckTypeNotSupported_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_CreateCheckPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-04", "check": "error_CreateCheckPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_CreateCheckPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_CreateCheckPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_CreateCheckPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_CreateCheckPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidNumericColumnCheckConfig", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidNumericColumnCheckConfig_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidNumericColumnCheckConfig_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidNumericColumnCheckConfig_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidNumericColumnCheckConfig_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidNumericColumnCheckConfig_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidPercentageCheckConfig", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidPercentageCheckConfig_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidPercentageCheckConfig_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidPercentageCheckConfig_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidPercentageCheckConfig_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidPercentageCheckConfig_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidTimeCheckConfig", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidTimeCheckConfig_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidTimeCheckConfig_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidTimeCheckConfig_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidTimeCheckConfig_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidTimeCheckConfig_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidTransactionTimeCheckConfig", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidTransactionTimeCheckConfig_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidTransactionTimeCheckConfig_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidTransactionTimeCheckConfig_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidTransactionTimeCheckConfig_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidTransactionTimeCheckConfig_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidTrendConfig", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidTrendConfig_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidTrendConfig_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidTrendConfig_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidTrendConfig_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_InvalidTrendConfig_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-04", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-04", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-04", "check": "missing_required_config", "result": "PASS", "requests": 0}
+{"case_id": "F075-04", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-04", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-05", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-05", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-05", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-05", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-05", "check": "sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-05", "check": "async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-05", "check": "error_CheckNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F075-05", "check": "error_CheckNotFound_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-05", "check": "error_CheckNotFound_sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-05", "check": "error_CheckNotFound_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-05", "check": "error_CheckNotFound_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-05", "check": "error_CheckNotFound_async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-05", "check": "error_DeleteCheckPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-05", "check": "error_DeleteCheckPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-05", "check": "error_DeleteCheckPermissionDenied_sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-05", "check": "error_DeleteCheckPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-05", "check": "error_DeleteCheckPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-05", "check": "error_DeleteCheckPermissionDenied_async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-05", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-05", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-05", "check": "error_IndependentUnauthorized_sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-05", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-05", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-05", "check": "error_IndependentUnauthorized_async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-05", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-05", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-05", "check": "error_IndependentPermissionDenied_sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-05", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-05", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-05", "check": "error_IndependentPermissionDenied_async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-05", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-05", "check": "missing_required_check_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-05", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-05", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-05", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-06", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_CheckNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F075-06", "check": "error_CheckNotFound_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_CheckNotFound_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_CheckNotFound_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_CheckNotFound_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_CheckNotFound_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_CheckTypeNotSupported", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F075-06", "check": "error_CheckTypeNotSupported_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_CheckTypeNotSupported_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_CheckTypeNotSupported_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_CheckTypeNotSupported_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_CheckTypeNotSupported_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-06", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-06", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-06", "check": "missing_required_check_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-06", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-07", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_CheckNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F075-07", "check": "error_CheckNotFound_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_CheckNotFound_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_CheckNotFound_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_CheckNotFound_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_CheckNotFound_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_CheckTypeNotSupported", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F075-07", "check": "error_CheckTypeNotSupported_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_CheckTypeNotSupported_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_CheckTypeNotSupported_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_CheckTypeNotSupported_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_CheckTypeNotSupported_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidNumericColumnCheckConfig", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidNumericColumnCheckConfig_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidNumericColumnCheckConfig_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidNumericColumnCheckConfig_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidNumericColumnCheckConfig_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidNumericColumnCheckConfig_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidPercentageCheckConfig", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidPercentageCheckConfig_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidPercentageCheckConfig_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidPercentageCheckConfig_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidPercentageCheckConfig_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidPercentageCheckConfig_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidTimeCheckConfig", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidTimeCheckConfig_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidTimeCheckConfig_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidTimeCheckConfig_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidTimeCheckConfig_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidTimeCheckConfig_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidTransactionTimeCheckConfig", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidTransactionTimeCheckConfig_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidTransactionTimeCheckConfig_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidTransactionTimeCheckConfig_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidTransactionTimeCheckConfig_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidTransactionTimeCheckConfig_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidTrendConfig", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidTrendConfig_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidTrendConfig_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidTrendConfig_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidTrendConfig_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_InvalidTrendConfig_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_ModifyingCheckTypeNotSupported", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F075-07", "check": "error_ModifyingCheckTypeNotSupported_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_ModifyingCheckTypeNotSupported_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_ModifyingCheckTypeNotSupported_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_ModifyingCheckTypeNotSupported_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_ModifyingCheckTypeNotSupported_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_ReplaceCheckPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-07", "check": "error_ReplaceCheckPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_ReplaceCheckPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_ReplaceCheckPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_ReplaceCheckPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_ReplaceCheckPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-07", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-07", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-07", "check": "missing_required_check_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-07", "check": "missing_required_config", "result": "PASS", "requests": 0}
+{"case_id": "F075-07", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-07", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-08", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_CheckReportNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F075-08", "check": "error_CheckReportNotFound_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_CheckReportNotFound_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_CheckReportNotFound_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_CheckReportNotFound_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_CheckReportNotFound_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_CheckTypeNotSupported", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F075-08", "check": "error_CheckTypeNotSupported_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_CheckTypeNotSupported_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_CheckTypeNotSupported_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_CheckTypeNotSupported_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_CheckTypeNotSupported_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-08", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-08", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-08", "check": "missing_required_check_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-08", "check": "missing_required_check_report_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-08", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-09", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_CheckNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F075-09", "check": "error_CheckNotFound_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_CheckNotFound_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_CheckNotFound_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_CheckNotFound_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_CheckNotFound_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_CheckTypeNotSupported", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F075-09", "check": "error_CheckTypeNotSupported_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_CheckTypeNotSupported_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_CheckTypeNotSupported_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_CheckTypeNotSupported_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_CheckTypeNotSupported_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_GetLatestCheckReportsPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-09", "check": "error_GetLatestCheckReportsPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_GetLatestCheckReportsPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_GetLatestCheckReportsPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_GetLatestCheckReportsPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_GetLatestCheckReportsPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-09", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-09", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-09", "check": "missing_required_check_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-09", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-09", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-10", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-10", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-10", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-10", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-10", "check": "sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-10", "check": "async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-10", "check": "error_CancelBuildPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-10", "check": "error_CancelBuildPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-10", "check": "error_CancelBuildPermissionDenied_sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-10", "check": "error_CancelBuildPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-10", "check": "error_CancelBuildPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-10", "check": "error_CancelBuildPermissionDenied_async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-10", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-10", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-10", "check": "error_IndependentUnauthorized_sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-10", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-10", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-10", "check": "error_IndependentUnauthorized_async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-10", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-10", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-10", "check": "error_IndependentPermissionDenied_sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-10", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-10", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-10", "check": "error_IndependentPermissionDenied_async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-10", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-10", "check": "missing_required_build_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-10", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-10", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-10", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-11", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "error_CreateBuildPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-11", "check": "error_CreateBuildPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "error_CreateBuildPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "error_CreateBuildPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "error_CreateBuildPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "error_CreateBuildPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-11", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-11", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-11", "check": "missing_required_fallback_branches", "result": "PASS", "requests": 0}
+{"case_id": "F075-11", "check": "missing_required_target", "result": "PASS", "requests": 0}
+{"case_id": "F075-11", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-11", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-12", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "error_BuildNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F075-12", "check": "error_BuildNotFound_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "error_BuildNotFound_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "error_BuildNotFound_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "error_BuildNotFound_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "error_BuildNotFound_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-12", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-12", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-12", "check": "missing_required_build_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-12", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-13", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-13", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-13", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-13", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-13", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-13", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-13", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-13", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-13", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-13", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-13", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-13", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-13", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-13", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-13", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-13", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-13", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-13", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-13", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-13", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-13", "check": "missing_required_body", "result": "PASS", "requests": 0}
+{"case_id": "F075-13", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-13", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-13", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-13", "check": "batch length 0", "result": "PASS", "requests": 0}
+{"case_id": "F075-13", "check": "batch length 101", "result": "PASS", "requests": 0}
+{"case_id": "F075-14", "check": "ordinary_sync_iterator_terminal_closed", "result": "PASS", "requests": 2, "items": [{"rid": "ri.qa.main.job.independent075", "buildRid": "ri.qa.main.build.independent075", "startedTime": "2026-10-29T08:00:00+00:00", "jobStatus": "RUNNING", "outputs": [{"datasetRid": "ri.qa.main.dataset-output.independent075", "type": "datasetJobOutput"}]}, {"rid": "ri.qa.main.second-page-build.independent075", "buildRid": "ri.qa.main.build.independent075", "startedTime": "2026-10-29T08:00:00+00:00", "jobStatus": "RUNNING", "outputs": [{"datasetRid": "ri.qa.main.dataset-output.independent075", "type": "datasetJobOutput"}]}]}
+{"case_id": "F075-14", "check": "ordinary_async_iterator_terminal_closed", "result": "PASS", "requests": 2, "items": [{"rid": "ri.qa.main.job.independent075", "buildRid": "ri.qa.main.build.independent075", "startedTime": "2026-10-29T08:00:00+00:00", "jobStatus": "RUNNING", "outputs": [{"datasetRid": "ri.qa.main.dataset-output.independent075", "type": "datasetJobOutput"}]}, {"rid": "ri.qa.main.second-page-build.independent075", "buildRid": "ri.qa.main.build.independent075", "startedTime": "2026-10-29T08:00:00+00:00", "jobStatus": "RUNNING", "outputs": [{"datasetRid": "ri.qa.main.dataset-output.independent075", "type": "datasetJobOutput"}]}]}
+{"case_id": "F075-14", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-14", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-14", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-14", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-14", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-14", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-14", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-14", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-14", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-14", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-14", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-14", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-14", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-14", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-14", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-14", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-14", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-14", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-14", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-14", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-14", "check": "missing_required_build_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-14", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-14", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-14", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-14", "check": "finite continuation", "result": "PASS", "requests": 2, "items": [{"rid": "ri.qa.main.job.independent075", "buildRid": "ri.qa.main.build.independent075", "startedTime": "2026-10-29T08:00:00+00:00", "jobStatus": "RUNNING", "outputs": [{"datasetRid": "ri.qa.main.dataset-output.independent075", "type": "datasetJobOutput"}]}, {"rid": "ri.qa.main.second-page-build.independent075", "buildRid": "ri.qa.main.build.independent075", "startedTime": "2026-10-29T08:00:00+00:00", "jobStatus": "RUNNING", "outputs": [{"datasetRid": "ri.qa.main.dataset-output.independent075", "type": "datasetJobOutput"}]}]}
+{"case_id": "F075-15", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "error_SearchBuildsPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-15", "check": "error_SearchBuildsPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "error_SearchBuildsPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "error_SearchBuildsPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "error_SearchBuildsPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "error_SearchBuildsPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-15", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-15", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-15", "check": "missing_required_where", "result": "PASS", "requests": 0}
+{"case_id": "F075-15", "check": "error_InvalidSearchTimestamp075", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F075-15", "check": "error_InvalidSearchTimestamp075_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "error_InvalidSearchTimestamp075_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "error_InvalidSearchTimestamp075_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "error_InvalidSearchTimestamp075_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "error_InvalidSearchTimestamp075_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-15", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-15", "check": "finite continuation", "result": "PASS", "requests": 2, "items": [{"rid": "ri.qa.main.build.independent075", "branchName": "master", "createdTime": "2026-10-29T08:00:00+00:00", "createdBy": "00000000-0000-0000-0000-000000000075", "fallbackBranches": ["master"], "jobRids": ["ri.qa.main.job.independent075"], "retryCount": 0, "retryBackoffDuration": {"value": 5, "unit": "SECONDS"}, "abortOnFailure": true, "status": "RUNNING"}, {"rid": "ri.qa.main.second-page-build.independent075", "branchName": "master", "createdTime": "2026-10-29T08:00:00+00:00", "createdBy": "00000000-0000-0000-0000-000000000075", "fallbackBranches": ["master"], "jobRids": ["ri.qa.main.job.independent075"], "retryCount": 0, "retryBackoffDuration": {"value": 5, "unit": "SECONDS"}, "abortOnFailure": true, "status": "RUNNING"}]}
+{"case_id": "F075-16", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "error_JobNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F075-16", "check": "error_JobNotFound_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "error_JobNotFound_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "error_JobNotFound_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "error_JobNotFound_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "error_JobNotFound_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-16", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-16", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-16", "check": "missing_required_job_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-16", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-17", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-17", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-17", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-17", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-17", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-17", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-17", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-17", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-17", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-17", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-17", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-17", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-17", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-17", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-17", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-17", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-17", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-17", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-17", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-17", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-17", "check": "missing_required_body", "result": "PASS", "requests": 0}
+{"case_id": "F075-17", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-17", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-17", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-17", "check": "batch length 0", "result": "PASS", "requests": 0}
+{"case_id": "F075-17", "check": "batch length 501", "result": "PASS", "requests": 0}
+{"case_id": "F075-18", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "error_CreateSchedulePermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-18", "check": "error_CreateSchedulePermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "error_CreateSchedulePermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "error_CreateSchedulePermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "error_CreateSchedulePermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "error_CreateSchedulePermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-18", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-18", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-18", "check": "missing_required_action", "result": "PASS", "requests": 0}
+{"case_id": "F075-18", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-18", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-19", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-19", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-19", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-19", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-19", "check": "sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-19", "check": "async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-19", "check": "error_DeleteSchedulePermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-19", "check": "error_DeleteSchedulePermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-19", "check": "error_DeleteSchedulePermissionDenied_sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-19", "check": "error_DeleteSchedulePermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-19", "check": "error_DeleteSchedulePermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-19", "check": "error_DeleteSchedulePermissionDenied_async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-19", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-19", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-19", "check": "error_IndependentUnauthorized_sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-19", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-19", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-19", "check": "error_IndependentUnauthorized_async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-19", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-19", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-19", "check": "error_IndependentPermissionDenied_sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-19", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-19", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-19", "check": "error_IndependentPermissionDenied_async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-19", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-19", "check": "missing_required_schedule_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-19", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-19", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-19", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-20", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "error_ScheduleNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F075-20", "check": "error_ScheduleNotFound_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "error_ScheduleNotFound_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "error_ScheduleNotFound_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "error_ScheduleNotFound_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "error_ScheduleNotFound_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-20", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-20", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-20", "check": "missing_required_schedule_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-20", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-21", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "error_GetAffectedResourcesSchedulePermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-21", "check": "error_GetAffectedResourcesSchedulePermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "error_GetAffectedResourcesSchedulePermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "error_GetAffectedResourcesSchedulePermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "error_GetAffectedResourcesSchedulePermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "error_GetAffectedResourcesSchedulePermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-21", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-21", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-21", "check": "missing_required_schedule_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-21", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-21", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-22", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-22", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-22", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-22", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-22", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-22", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-22", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-22", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-22", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-22", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-22", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-22", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-22", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-22", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-22", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-22", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-22", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-22", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-22", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-22", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-22", "check": "missing_required_body", "result": "PASS", "requests": 0}
+{"case_id": "F075-22", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-22", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-22", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-22", "check": "batch length 0", "result": "PASS", "requests": 0}
+{"case_id": "F075-22", "check": "batch length 1001", "result": "PASS", "requests": 0}
+{"case_id": "F075-23", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-23", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-23", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-23", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-23", "check": "sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-23", "check": "async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-23", "check": "error_PauseSchedulePermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-23", "check": "error_PauseSchedulePermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-23", "check": "error_PauseSchedulePermissionDenied_sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-23", "check": "error_PauseSchedulePermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-23", "check": "error_PauseSchedulePermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-23", "check": "error_PauseSchedulePermissionDenied_async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-23", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-23", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-23", "check": "error_IndependentUnauthorized_sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-23", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-23", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-23", "check": "error_IndependentUnauthorized_async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-23", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-23", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-23", "check": "error_IndependentPermissionDenied_sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-23", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-23", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-23", "check": "error_IndependentPermissionDenied_async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-23", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-23", "check": "missing_required_schedule_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-23", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-23", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-23", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-24", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "error_ReplaceSchedulePermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-24", "check": "error_ReplaceSchedulePermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "error_ReplaceSchedulePermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "error_ReplaceSchedulePermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "error_ReplaceSchedulePermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "error_ReplaceSchedulePermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-24", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-24", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-24", "check": "missing_required_schedule_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-24", "check": "missing_required_action", "result": "PASS", "requests": 0}
+{"case_id": "F075-24", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-24", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-25", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "error_RunSchedulePermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-25", "check": "error_RunSchedulePermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "error_RunSchedulePermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "error_RunSchedulePermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "error_RunSchedulePermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "error_RunSchedulePermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-25", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-25", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-25", "check": "missing_required_schedule_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-25", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-26", "check": "ordinary_sync_iterator_terminal_closed", "result": "PASS", "requests": 2, "items": [{"rid": "ri.qa.main.schedule-run.independent075", "scheduleRid": "ri.qa.main.schedule.independent075", "scheduleVersionRid": "ri.qa.main.schedule-version.independent075", "createdTime": "2026-10-29T08:00:00+00:00", "result": {"buildRid": "ri.qa.main.build.independent075", "type": "submitted"}}, {"rid": "ri.qa.main.second-page-schedule.independent075", "scheduleRid": "ri.qa.main.schedule.independent075", "scheduleVersionRid": "ri.qa.main.schedule-version.independent075", "createdTime": "2026-10-29T08:00:00+00:00", "result": {"buildRid": "ri.qa.main.build.independent075", "type": "submitted"}}]}
+{"case_id": "F075-26", "check": "ordinary_async_iterator_terminal_closed", "result": "PASS", "requests": 2, "items": [{"rid": "ri.qa.main.schedule-run.independent075", "scheduleRid": "ri.qa.main.schedule.independent075", "scheduleVersionRid": "ri.qa.main.schedule-version.independent075", "createdTime": "2026-10-29T08:00:00+00:00", "result": {"buildRid": "ri.qa.main.build.independent075", "type": "submitted"}}, {"rid": "ri.qa.main.second-page-schedule.independent075", "scheduleRid": "ri.qa.main.schedule.independent075", "scheduleVersionRid": "ri.qa.main.schedule-version.independent075", "createdTime": "2026-10-29T08:00:00+00:00", "result": {"buildRid": "ri.qa.main.build.independent075", "type": "submitted"}}]}
+{"case_id": "F075-26", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-26", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-26", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-26", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-26", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-26", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-26", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-26", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-26", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-26", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-26", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-26", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-26", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-26", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-26", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-26", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-26", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-26", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-26", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-26", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-26", "check": "missing_required_schedule_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-26", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-26", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-26", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-26", "check": "finite continuation", "result": "PASS", "requests": 2, "items": [{"rid": "ri.qa.main.schedule-run.independent075", "scheduleRid": "ri.qa.main.schedule.independent075", "scheduleVersionRid": "ri.qa.main.schedule-version.independent075", "createdTime": "2026-10-29T08:00:00+00:00", "result": {"buildRid": "ri.qa.main.build.independent075", "type": "submitted"}}, {"rid": "ri.qa.main.second-page-schedule.independent075", "scheduleRid": "ri.qa.main.schedule.independent075", "scheduleVersionRid": "ri.qa.main.schedule-version.independent075", "createdTime": "2026-10-29T08:00:00+00:00", "result": {"buildRid": "ri.qa.main.build.independent075", "type": "submitted"}}]}
+{"case_id": "F075-27", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-27", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-27", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-27", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-27", "check": "sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-27", "check": "async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-27", "check": "error_UnpauseSchedulePermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-27", "check": "error_UnpauseSchedulePermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-27", "check": "error_UnpauseSchedulePermissionDenied_sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-27", "check": "error_UnpauseSchedulePermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-27", "check": "error_UnpauseSchedulePermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-27", "check": "error_UnpauseSchedulePermissionDenied_async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-27", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-27", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-27", "check": "error_IndependentUnauthorized_sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-27", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-27", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-27", "check": "error_IndependentUnauthorized_async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-27", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-27", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-27", "check": "error_IndependentPermissionDenied_sync_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-27", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-27", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-27", "check": "error_IndependentPermissionDenied_async_stream_absent_in_source", "result": "PASS", "requests": 0}
+{"case_id": "F075-27", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-27", "check": "missing_required_schedule_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-27", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-27", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-27", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-28", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "error_ScheduleVersionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F075-28", "check": "error_ScheduleVersionNotFound_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "error_ScheduleVersionNotFound_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "error_ScheduleVersionNotFound_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "error_ScheduleVersionNotFound_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "error_ScheduleVersionNotFound_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-28", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-28", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-28", "check": "missing_required_schedule_version_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-28", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-28", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-29", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "error_IndependentUnauthorized", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F075-29", "check": "error_IndependentUnauthorized_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "error_IndependentUnauthorized_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "error_IndependentUnauthorized_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "error_IndependentUnauthorized_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "error_IndependentUnauthorized_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F075-29", "check": "error_IndependentPermissionDenied_sync_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "error_IndependentPermissionDenied_sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "error_IndependentPermissionDenied_async_typed_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "error_IndependentPermissionDenied_async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "error_IndependentPermissionDenied_async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F075-29", "check": "missing_required_schedule_version_rid", "result": "PASS", "requests": 0}
+{"case_id": "F075-29", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F075-29", "check": "schedule absent for retained version_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-29", "check": "schedule absent for retained version_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "pipeline_schedule_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "pipeline_schedule_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "pipeline_submitted_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-25", "check": "pipeline_submitted_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "pipeline_running_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "pipeline_running_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "pipeline_succeeded_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-12", "check": "pipeline_succeeded_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "pipeline_job_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-16", "check": "pipeline_job_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "pipeline_checkpoint_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-01", "check": "pipeline_checkpoint_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "pipeline_check_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-06", "check": "pipeline_check_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "pipeline_report_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-08", "check": "pipeline_report_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-23", "check": "pipeline_pause_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-23", "check": "pipeline_pause_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "pipeline_paused_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "pipeline_paused_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-27", "check": "pipeline_unpause_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-27", "check": "pipeline_unpause_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "pipeline_unpaused_typed", "result": "PASS", "requests": 1}
+{"case_id": "F075-20", "check": "pipeline_unpaused_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "J12-REST075", "check": "bounded_lifecycle_links_and_state", "result": "PASS", "requests": 24}
+{"case_id": "J12-REST075", "check": "denied_preflight_stops_before_mutation", "result": "PASS", "requests": 1}
+{"case_id": "REST075", "check": "bytes_budget_rejects_overflow", "result": "PASS"}
+{"case_id": "REST075", "check": "chunks_budget_rejects_overflow", "result": "PASS"}

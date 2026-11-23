@@ -1,0 +1,15 @@
+{
+  "checked_at_utc": "2026-11-16T21:09:40.210509+00:00",
+  "assets": 855,
+  "primary_sources": 42,
+  "operations": 23,
+  "runtime": "1.101.0\nD:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\__init__.py\n",
+  "environment": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_qa_env\\Scripts\\python.exe",
+  "bundle_hashes": {
+    "rest077_formal_cases.json": "d8348cc55625780dc53c7a91872a2d3519dd289ccef58555d8cf2ea59decc20b",
+    "rest077_formal_execute.py": "a2fd951f64ceb2081426e59d73d31ad37224387de61a4fd9dd5580513642a460",
+    "rest077_formal_cases.feature": "2a40f1fd8dabdc09d61b1446ae18c1dc305ebb8b970b136a26fe7450c3540296",
+    "rest077_assets_freeze.json": "886bdab398540b1d8fd04f0ef1cb263bd88e1f18931808854bb8a2c0926f9659"
+  },
+  "peer_sha256": "b7f2aff835e3f61a06fb45a4bec61721ddc11de455613f8da87a4beb94b5b21f"
+}

@@ -20,16 +20,16 @@ EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/ontologies/attachments/upload'
 EXPECTED_BODY = b'Inspection evidence'
 EXPECTED_QUERY = {'filename': 'inspection.txt'}
-EXPECTED_HEADERS = {'Content-Length': 19, 'Content-Type': '*/*', 'Accept': 'application/json'}
+EXPECTED_HEADERS = {'Content-Length': len(EXPECTED_BODY), 'Content-Type': '*/*', 'Accept': 'application/json'}
 SUCCESS = {'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
- 'filename': 'synthetic-value',
- 'sizeBytes': '1',
- 'mediaType': 'synthetic-value',
+ 'filename': 'inspection.txt',
+ 'sizeBytes': '19',
+ 'mediaType': 'text/plain',
  'type': 'single'}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.upload(body=b'Inspection evidence', content_length=19, content_type='application/octet-stream', filename='inspection.txt', request_timeout=30)
+    return client.with_raw_response.upload(body=EXPECTED_BODY, content_length=len(EXPECTED_BODY), content_type='text/plain', filename='inspection.txt', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -73,7 +73,12 @@ def verify():
     with mock_resource(AttachmentClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = raw.decode()
+            assert normalized(result) == SUCCESS
+            assert int(result.size_bytes) == len(EXPECTED_BODY)
+            assert result.filename == EXPECTED_QUERY['filename']
+            assert result.media_type == 'text/plain'
+            assert result.rid == SUCCESS['rid']
         finally:
             raw.close()
     assert len(calls) == 1

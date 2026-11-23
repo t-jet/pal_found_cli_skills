@@ -1,0 +1,100 @@
+{
+  "dataset": "ri.reader.main.dataset.00000000-0000-0000-0000-000000000012",
+  "branch": "reader-j12",
+  "path": "reader/batch.csv",
+  "payload_sha256": "6792ae698138948d10bd6f171ab7f876e4f2abaa761f0b472c8af3fadfad950a",
+  "events": [
+    {
+      "at": "2026-10-28T07:52:58.453888+00:00",
+      "event": "create_intent",
+      "create_intent": true,
+      "original_branch_rid": "ri.reader.main.transaction.00000000-0000-0000-0000-000000000011"
+    },
+    {
+      "at": "2026-10-28T07:52:58.455888+00:00",
+      "event": "transaction_known",
+      "transaction_rid": "ri.reader.main.transaction.00000000-0000-0000-0000-000000000012"
+    },
+    {
+      "at": "2026-10-28T07:52:58.456887+00:00",
+      "event": "upload_intent",
+      "upload_intent": true
+    },
+    {
+      "at": "2026-10-28T07:52:58.458888+00:00",
+      "event": "upload_response_lost"
+    },
+    {
+      "at": "2026-10-28T07:52:58.460888+00:00",
+      "event": "staged_verified"
+    },
+    {
+      "at": "2026-10-28T07:52:58.461888+00:00",
+      "event": "commit_reconciled",
+      "transaction_status": "OPEN",
+      "branch_pointer": "ri.reader.main.transaction.00000000-0000-0000-0000-000000000011"
+    },
+    {
+      "at": "2026-10-28T07:52:58.462908+00:00",
+      "event": "staged_verified"
+    },
+    {
+      "at": "2026-10-28T07:52:58.464947+00:00",
+      "event": "commit_intent",
+      "commit_attempts": 1
+    },
+    {
+      "at": "2026-10-28T07:52:58.467366+00:00",
+      "event": "commit_acknowledged"
+    },
+    {
+      "at": "2026-10-28T07:52:58.468369+00:00",
+      "event": "committed_branch_verified"
+    },
+    {
+      "at": "2026-10-28T07:52:58.470369+00:00",
+      "event": "committed_file_verified"
+    },
+    {
+      "at": "2026-10-28T07:52:58.472369+00:00",
+      "event": "build_intent",
+      "build_intent": true
+    },
+    {
+      "at": "2026-10-28T07:52:58.473369+00:00",
+      "event": "build_known",
+      "build_rid": "ri.reader.main.build.00000000-0000-0000-0000-000000000012",
+      "submission_status": "RUNNING"
+    },
+    {
+      "at": "2026-10-28T07:52:58.474873+00:00",
+      "event": "build_observed",
+      "build_status": "RUNNING",
+      "poll": 1
+    },
+    {
+      "at": "2026-10-28T07:52:58.777723+00:00",
+      "event": "build_observed",
+      "build_status": "SUCCEEDED",
+      "poll": 2
+    },
+    {
+      "at": "2026-10-28T07:52:58.779556+00:00",
+      "event": "build_complete",
+      "outcome": "success"
+    }
+  ],
+  "commit_attempts": 1,
+  "create_intent": true,
+  "original_branch_rid": "ri.reader.main.transaction.00000000-0000-0000-0000-000000000011",
+  "transaction_rid": "ri.reader.main.transaction.00000000-0000-0000-0000-000000000012",
+  "upload_intent": true,
+  "transaction_status": "OPEN",
+  "branch_pointer": "ri.reader.main.transaction.00000000-0000-0000-0000-000000000011",
+  "build_intent": true,
+  "build_rid": "ri.reader.main.build.00000000-0000-0000-0000-000000000012",
+  "submission_status": "RUNNING",
+  "build_status": "SUCCEEDED",
+  "poll": 2,
+  "outcome": "success"
+}

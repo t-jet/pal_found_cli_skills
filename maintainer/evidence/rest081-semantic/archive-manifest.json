@@ -1,0 +1,49 @@
+{
+  "artifacts": [
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest081_remaining_harness_provenance_20261029.json",
+      "archived_path": "maintainer/evidence/rest081-semantic/feature015_rest081_remaining_harness_provenance_20261029.json",
+      "sha256": "562124f69da59bb2a17fc5fa1ccd122f7617fde189ef99b9e2528be855a508fd"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest081_remaining_semantic_edges_20261029.py",
+      "archived_path": "maintainer/evidence/rest081-semantic/feature015_rest081_remaining_semantic_edges_20261029.py",
+      "sha256": "73c7b917bf7f1b282373084b122087f8249ea36bb23d3bb05f1cbd8cb2e811ae"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest081_remaining_semantic_proof_20261029.py",
+      "archived_path": "maintainer/evidence/rest081-semantic/feature015_rest081_remaining_semantic_proof_20261029.py",
+      "sha256": "57614c2a35952648f6b2d98d0c86cc521127c5517221ca5ae8e4046bdf8e2105"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest081_remaining_semantic_raw_20261029.txt",
+      "archived_path": "maintainer/evidence/rest081-semantic/feature015_rest081_remaining_semantic_raw_20261029.txt",
+      "sha256": "3988fef4b45b754576773085e316e48d963374222d5a6acc2e3bdbcbae997282"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest081_remaining_semantic_retest_20261029.json",
+      "archived_path": "maintainer/evidence/rest081-semantic/feature015_rest081_remaining_semantic_retest_20261029.json",
+      "sha256": "f3cccf9f0291190f67c5ecad77a2e736652335e69f825f73f292cf95f566ec8d"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest081_remaining_semantic_retest_proof_20261029.py",
+      "archived_path": "maintainer/evidence/rest081-semantic/feature015_rest081_remaining_semantic_retest_proof_20261029.py",
+      "sha256": "dc35b629cfe207ca0b1261862eb5883dd2896fab7bc2731cd4227afe20facd55"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest081_remaining_semantic_retest_raw_proof_20261029.json",
+      "archived_path": "maintainer/evidence/rest081-semantic/feature015_rest081_remaining_semantic_retest_raw_proof_20261029.json",
+      "sha256": "36a42ab318a72deeda9908b673eedc872de775ae55801ee1f907fb07f025091f"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest081_remaining_semantic_review_20261029.json",
+      "archived_path": "maintainer/evidence/rest081-semantic/feature015_rest081_remaining_semantic_review_20261029.json",
+      "sha256": "351bb0fdedc30e565f34981fc82f1f26cf3786621b17e4d6f3bf072c2809919b"
+    },
+    {
+      "source": "3d5536cfe024bed6d8dbfbdc27cc65f700b7e95f:maintainer/rest-domain-independent-review-081-current.json",
+      "archived_path": "maintainer/evidence/rest081-semantic/rest-domain-independent-review-081-previous-accepted.json",
+      "sha256": "6182326249f72a3bb9462bf96d76319ceff8abd828950f92c7c666a80ef6244f"
+    }
+  ]
+}

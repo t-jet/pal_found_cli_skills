@@ -8,6 +8,34 @@ An Ontology is the semantic boundary for object, action and query types. Discove
 visible ontologies, then retain the intended ontology RID for all subsequent v1 calls.
 Similar display names do not establish identical schemas.
 
+## API v1 and v2
+
+These guides describe SDK 1.101.0's `foundry_sdk.v1.ontologies` clients and `/api/v1`
+routes. Choose the API version before adapting code. The v2 clients have separate
+contracts, request models and response models; changing the URL version alone is
+insufficient.
+
+| Concern | API v1 | API v2 in the same SDK release |
+| --- | --- | --- |
+| Ontology selector | `ontology_rid: OntologyRid`, an ontology RID | `ontology: OntologyIdentifier`, API name or RID |
+| Object type metadata | `ObjectType.primaryKey` is a list; optional type `displayName`; no `titleProperty` | `ObjectTypeV2.primaryKey` is one property name; required `titleProperty`, `displayName`, `pluralDisplayName` and icon |
+| Property metadata | `Property.baseType` describes the value type | `PropertyV2.dataType` uses a typed union |
+| Object records | `OntologyObject` wraps `properties` and `rid` | `OntologyObjectV2` is a property-name/value dictionary, without the v1 wrapper |
+| Action application | Separate `Action.validate`; `apply` returns empty `ApplyActionResponse`; explicit parameters, no defaults | `Action.apply` accepts `ApplyActionRequestOptions` (`mode`, `returnEdits`) and returns `SyncApplyActionResponseV2` with optional validation/edits |
+
+Local v2 contracts: [ontology get](../../contracts/v2/ontologies/Ontology/get.md),
+[object type get](../../contracts/v2/ontologies/ObjectType/get.md),
+[object get](../../contracts/v2/ontologies/OntologyObject/get.md), and
+[action apply](../../contracts/v2/ontologies/Action/apply.md).
+Source distinctions come from SDK 1.101.0 `v1/ontologies/models.py`,
+`v2/ontologies/models.py`, and each version's `action.py` and `ontology_object.py`.
+
+Object Storage V1 and Object Storage V2 describe storage backends, independently of
+HTTP API v1/v2. A v1 Action can affect either backend: its documented edit visibility
+is eventual for Object Storage V1 and immediate after completion for Object Storage
+V2. The v1 API prefix does not identify the storage backend. Confirm the backend and
+operation-specific limits for the target object type before choosing a recovery plan.
+
 ## Prepare the application
 
 Use prepared SDK 1.101.0 and an authorized identity for the intended enrollment. Resolve

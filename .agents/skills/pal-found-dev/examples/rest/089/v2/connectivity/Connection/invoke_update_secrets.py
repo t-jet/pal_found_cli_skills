@@ -2,6 +2,11 @@
 
 Synthetic identifiers do not name tenant resources. Prepared SDK 1.101.0/httpx
 required. No network connections or live mutations occur.
+
+Assume this connection already has a secret named password; unknown names fail.
+Use an approved secret source for live values. A None response acknowledges the
+request; verify authentication with an authorized upstream check. Reads do not
+reveal plaintext secrets, and this fixture cannot prove credential rotation.
 """
 import json
 import sys
@@ -18,7 +23,7 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/connectivity/connections/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/updateSecrets'
-EXPECTED_BODY = {'secrets': {}}
+EXPECTED_BODY = {'secrets': {'password': 'offline-only-rotated-password'}}
 EXPECTED_QUERY = {}
 EXPECTED_HEADERS = {'Content-Type': 'application/json'}
 SUCCESS = None
@@ -37,7 +42,7 @@ ERRORS = [{'name': 'ConnectionNotFound',
   'parameters': {'connectionRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}}]
 
 def invoke(client):
-    return client.with_raw_response.update_secrets(connection_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', secrets={}, request_timeout=30)
+    return client.with_raw_response.update_secrets(connection_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', secrets={'password': 'offline-only-rotated-password'}, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

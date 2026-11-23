@@ -1,0 +1,894 @@
+{"case_id": "REST087", "check": "socket_traps_active", "result": "PASS"}
+{"case_id": "J14", "check": "v2.aip_agents.Agent.get", "result": "PASS", "state": {"session": false, "continued": false, "renamed": false, "deleted": false}}
+{"case_id": "J14", "check": "v2.aip_agents.AgentVersion.get", "result": "PASS", "state": {"session": false, "continued": false, "renamed": false, "deleted": false}}
+{"case_id": "J14", "check": "v2.aip_agents.Session.create", "result": "PASS", "state": {"session": true, "continued": false, "renamed": false, "deleted": false}}
+{"case_id": "J14", "check": "v2.aip_agents.Session.blocking_continue", "result": "PASS", "state": {"session": true, "continued": true, "renamed": false, "deleted": false}}
+{"case_id": "J14", "check": "v2.aip_agents.Content.get", "result": "PASS", "state": {"session": true, "continued": true, "renamed": false, "deleted": false}}
+{"case_id": "J14", "check": "v2.aip_agents.SessionTrace.get", "result": "PASS", "state": {"session": true, "continued": true, "renamed": false, "deleted": false}}
+{"case_id": "J14", "check": "v2.aip_agents.Session.update_title", "result": "PASS", "state": {"session": true, "continued": true, "renamed": true, "deleted": false}}
+{"case_id": "J14", "check": "v2.aip_agents.Session.get", "result": "PASS", "state": {"session": true, "continued": true, "renamed": true, "deleted": false}}
+{"case_id": "J14", "check": "v2.aip_agents.Session.delete", "result": "PASS", "state": {"session": true, "continued": true, "renamed": true, "deleted": true}}
+{"case_id": "F087-02", "check": "error_IndependentDenied087", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "J14", "check": "permission_denial_stops_before_mutation", "result": "PASS", "requests": 1, "session_mutations": 0}
+{"case_id": "F087-01", "check": "ordinary_sync_iterator_terminal_closed", "result": "PASS", "requests": 2, "items": [{"rid": "ri.qa.main.rid.independent087", "metadata": {"title": "independent087", "createdTime": "2026-10-28T08:00:00+00:00", "updatedTime": "2026-10-28T08:00:00+00:00", "messageCount": 1, "estimatedExpiresTime": "2026-10-28T08:00:00+00:00"}, "agentRid": "ri.qa.main.agent.independent087", "agentVersion": "2.3"}, {"rid": "ri.qa.main.second-page-agent.independent087", "metadata": {"title": "independent087", "createdTime": "2026-10-28T08:00:00+00:00", "updatedTime": "2026-10-28T08:00:00+00:00", "messageCount": 1, "estimatedExpiresTime": "2026-10-28T08:00:00+00:00"}, "agentRid": "ri.qa.main.agent.independent087", "agentVersion": "2.3"}]}
+{"case_id": "F087-01", "check": "ordinary_async_iterator_terminal_closed", "result": "PASS", "requests": 2, "items": [{"rid": "ri.qa.main.rid.independent087", "metadata": {"title": "independent087", "createdTime": "2026-10-28T08:00:00+00:00", "updatedTime": "2026-10-28T08:00:00+00:00", "messageCount": 1, "estimatedExpiresTime": "2026-10-28T08:00:00+00:00"}, "agentRid": "ri.qa.main.agent.independent087", "agentVersion": "2.3"}, {"rid": "ri.qa.main.second-page-agent.independent087", "metadata": {"title": "independent087", "createdTime": "2026-10-28T08:00:00+00:00", "updatedTime": "2026-10-28T08:00:00+00:00", "messageCount": 1, "estimatedExpiresTime": "2026-10-28T08:00:00+00:00"}, "agentRid": "ri.qa.main.agent.independent087", "agentVersion": "2.3"}]}
+{"case_id": "F087-01", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-01", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-01", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-01", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-01", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-01", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-01", "check": "error_GetAllSessionsAgentsPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-01", "check": "error_ListSessionsForAgentsPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-01", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-01", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-01", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-01", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-01", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-01", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-01", "check": "finite continuation", "result": "PASS", "requests": 2, "items": [{"rid": "ri.qa.main.rid.independent087", "metadata": {"title": "independent087", "createdTime": "2026-10-28T08:00:00+00:00", "updatedTime": "2026-10-28T08:00:00+00:00", "messageCount": 1, "estimatedExpiresTime": "2026-10-28T08:00:00+00:00"}, "agentRid": "ri.qa.main.agent.independent087", "agentVersion": "2.3"}, {"rid": "ri.qa.main.second-page-agent.independent087", "metadata": {"title": "independent087", "createdTime": "2026-10-28T08:00:00+00:00", "updatedTime": "2026-10-28T08:00:00+00:00", "messageCount": 1, "estimatedExpiresTime": "2026-10-28T08:00:00+00:00"}, "agentRid": "ri.qa.main.agent.independent087", "agentVersion": "2.3"}]}
+{"case_id": "F087-02", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-02", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-02", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-02", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-02", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-02", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-02", "check": "error_AgentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-02", "check": "error_AgentVersionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-02", "check": "error_InvalidAgentVersion", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-02", "check": "error_NoPublishedAgentVersion", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-02", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-02", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-02", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-02", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-02", "check": "missing_required_agent_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-02", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-02", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-02", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-03", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-03", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-03", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-03", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-03", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-03", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-03", "check": "error_AgentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-03", "check": "error_AgentVersionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-03", "check": "error_InvalidAgentVersion", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-03", "check": "error_NoPublishedAgentVersion", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-03", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-03", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-03", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-03", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-03", "check": "missing_required_agent_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-03", "check": "missing_required_agent_version_string", "result": "PASS", "requests": 0}
+{"case_id": "F087-03", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-03", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-03", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-04", "check": "ordinary_sync_iterator_terminal_closed", "result": "PASS", "requests": 2, "items": [{"string": "2.3", "version": {"major": 2, "minor": 3}}, {"string": "2.2", "version": {"major": 2, "minor": 2}}]}
+{"case_id": "F087-04", "check": "ordinary_async_iterator_terminal_closed", "result": "PASS", "requests": 2, "items": [{"string": "2.3", "version": {"major": 2, "minor": 3}}, {"string": "2.2", "version": {"major": 2, "minor": 2}}]}
+{"case_id": "F087-04", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-04", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-04", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-04", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-04", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-04", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-04", "check": "error_AgentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-04", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-04", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-04", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-04", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-04", "check": "missing_required_agent_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-04", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-04", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-04", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-04", "check": "finite continuation", "result": "PASS", "requests": 2, "items": [{"string": "2.3", "version": {"major": 2, "minor": 3}}, {"string": "2.2", "version": {"major": 2, "minor": 2}}]}
+{"case_id": "F087-05", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-05", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-05", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-05", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-05", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-05", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-05", "check": "error_AgentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-05", "check": "error_ContentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-05", "check": "error_SessionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-05", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-05", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-05", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-05", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-05", "check": "missing_required_agent_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-05", "check": "missing_required_session_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-05", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-05", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-05", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-06", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-06", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-06", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-06", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-06", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-06", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-06", "check": "error_ActionTypeNotFound", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-06", "check": "error_AgentIterationsExceededLimit", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-06", "check": "error_AgentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-06", "check": "error_BlockingContinueSessionPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-06", "check": "error_ContextSizeExceededLimit", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-06", "check": "error_FunctionLocatorNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-06", "check": "error_InvalidParameter", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-06", "check": "error_InvalidParameterType", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-06", "check": "error_ObjectTypeIdsNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-06", "check": "error_ObjectTypeRidsNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-06", "check": "error_OntologyEntitiesNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-06", "check": "error_RateLimitExceeded", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-06", "check": "error_RetryAttemptsExceeded", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-06", "check": "error_RetryDeadlineExceeded", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-06", "check": "error_SessionExecutionFailed", "result": "PASS", "status": 500, "requests": 1}
+{"case_id": "F087-06", "check": "error_SessionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-06", "check": "error_SessionTraceIdAlreadyExists", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-06", "check": "error_UnsupportedLanguageModelRid", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-06", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-06", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-06", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-06", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-06", "check": "missing_required_agent_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-06", "check": "missing_required_session_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-06", "check": "missing_required_parameter_inputs", "result": "PASS", "requests": 0}
+{"case_id": "F087-06", "check": "missing_required_user_input", "result": "PASS", "requests": 0}
+{"case_id": "F087-06", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-06", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-06", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-07", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-07", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-07", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-07", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-07", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-07", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-07", "check": "error_AgentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-07", "check": "error_CancelSessionFailedMessageNotInProgress", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-07", "check": "error_CancelSessionPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-07", "check": "error_SessionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-07", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-07", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-07", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-07", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-07", "check": "missing_required_agent_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-07", "check": "missing_required_session_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-07", "check": "missing_required_message_id", "result": "PASS", "requests": 0}
+{"case_id": "F087-07", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-07", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-07", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-08", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-08", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-08", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-08", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-08", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-08", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-08", "check": "error_ActionTypeNotFound", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-08", "check": "error_AgentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-08", "check": "error_AgentVersionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-08", "check": "error_CreateSessionPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-08", "check": "error_FunctionLocatorNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-08", "check": "error_InvalidAgentVersion", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-08", "check": "error_NoPublishedAgentVersion", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-08", "check": "error_ObjectTypeIdsNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-08", "check": "error_ObjectTypeRidsNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-08", "check": "error_OntologyEntitiesNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-08", "check": "error_SessionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-08", "check": "error_UnsupportedLanguageModelRid", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-08", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-08", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-08", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-08", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-08", "check": "missing_required_agent_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-08", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-08", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-08", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-09", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-09", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-09", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-09", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-09", "check": "error_AgentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-09", "check": "error_DeleteSessionPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-09", "check": "error_SessionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-09", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-09", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-09", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-09", "check": "missing_required_agent_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-09", "check": "missing_required_session_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-09", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-09", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-09", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-10", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-10", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-10", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-10", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-10", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-10", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-10", "check": "error_AgentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-10", "check": "error_SessionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-10", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-10", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-10", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-10", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-10", "check": "missing_required_agent_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-10", "check": "missing_required_session_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-10", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-10", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-10", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-11", "check": "ordinary_sync_iterator_terminal_closed", "result": "PASS", "requests": 2, "items": [{"rid": "ri.qa.main.rid.independent087", "metadata": {"title": "independent087", "createdTime": "2026-10-28T08:00:00+00:00", "updatedTime": "2026-10-28T08:00:00+00:00", "messageCount": 1, "estimatedExpiresTime": "2026-10-28T08:00:00+00:00"}, "agentRid": "ri.qa.main.agent.independent087", "agentVersion": "2.3"}, {"rid": "ri.qa.main.second-page-session.independent087", "metadata": {"title": "independent087", "createdTime": "2026-10-28T08:00:00+00:00", "updatedTime": "2026-10-28T08:00:00+00:00", "messageCount": 1, "estimatedExpiresTime": "2026-10-28T08:00:00+00:00"}, "agentRid": "ri.qa.main.agent.independent087", "agentVersion": "2.3"}]}
+{"case_id": "F087-11", "check": "ordinary_async_iterator_terminal_closed", "result": "PASS", "requests": 2, "items": [{"rid": "ri.qa.main.rid.independent087", "metadata": {"title": "independent087", "createdTime": "2026-10-28T08:00:00+00:00", "updatedTime": "2026-10-28T08:00:00+00:00", "messageCount": 1, "estimatedExpiresTime": "2026-10-28T08:00:00+00:00"}, "agentRid": "ri.qa.main.agent.independent087", "agentVersion": "2.3"}, {"rid": "ri.qa.main.second-page-session.independent087", "metadata": {"title": "independent087", "createdTime": "2026-10-28T08:00:00+00:00", "updatedTime": "2026-10-28T08:00:00+00:00", "messageCount": 1, "estimatedExpiresTime": "2026-10-28T08:00:00+00:00"}, "agentRid": "ri.qa.main.agent.independent087", "agentVersion": "2.3"}]}
+{"case_id": "F087-11", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-11", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-11", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-11", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-11", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-11", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-11", "check": "error_AgentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-11", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-11", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-11", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-11", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-11", "check": "missing_required_agent_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-11", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-11", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-11", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-11", "check": "finite continuation", "result": "PASS", "requests": 2, "items": [{"rid": "ri.qa.main.rid.independent087", "metadata": {"title": "independent087", "createdTime": "2026-10-28T08:00:00+00:00", "updatedTime": "2026-10-28T08:00:00+00:00", "messageCount": 1, "estimatedExpiresTime": "2026-10-28T08:00:00+00:00"}, "agentRid": "ri.qa.main.agent.independent087", "agentVersion": "2.3"}, {"rid": "ri.qa.main.second-page-session.independent087", "metadata": {"title": "independent087", "createdTime": "2026-10-28T08:00:00+00:00", "updatedTime": "2026-10-28T08:00:00+00:00", "messageCount": 1, "estimatedExpiresTime": "2026-10-28T08:00:00+00:00"}, "agentRid": "ri.qa.main.agent.independent087", "agentVersion": "2.3"}]}
+{"case_id": "F087-12", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-12", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-12", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-12", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-12", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-12", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-12", "check": "error_AgentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-12", "check": "error_FunctionLocatorNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-12", "check": "error_GetRagContextForSessionPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-12", "check": "error_ObjectTypeIdsNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-12", "check": "error_ObjectTypeRidsNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-12", "check": "error_OntologyEntitiesNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-12", "check": "error_SessionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-12", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-12", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-12", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-12", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-12", "check": "missing_required_agent_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-12", "check": "missing_required_session_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-12", "check": "missing_required_parameter_inputs", "result": "PASS", "requests": 0}
+{"case_id": "F087-12", "check": "missing_required_user_input", "result": "PASS", "requests": 0}
+{"case_id": "F087-12", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-12", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-12", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-13", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-13", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-13", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-13", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-13", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-13", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-13", "check": "error_ActionTypeNotFound", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-13", "check": "error_AgentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-13", "check": "error_FunctionLocatorNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-13", "check": "error_InvalidParameter", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-13", "check": "error_InvalidParameterType", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-13", "check": "error_ObjectTypeIdsNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-13", "check": "error_ObjectTypeRidsNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-13", "check": "error_OntologyEntitiesNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-13", "check": "error_SessionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-13", "check": "error_SessionTraceIdAlreadyExists", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-13", "check": "error_StreamingContinueSessionPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-13", "check": "error_UnsupportedLanguageModelRid", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-13", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-13", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-13", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-13", "check": "missing_required_agent_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-13", "check": "missing_required_session_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-13", "check": "missing_required_parameter_inputs", "result": "PASS", "requests": 0}
+{"case_id": "F087-13", "check": "missing_required_user_input", "result": "PASS", "requests": 0}
+{"case_id": "F087-13", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-13", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-13", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-14", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-14", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-14", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-14", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-14", "check": "error_AgentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-14", "check": "error_SessionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-14", "check": "error_UpdateSessionTitlePermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-14", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-14", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-14", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-14", "check": "missing_required_agent_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-14", "check": "missing_required_session_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-14", "check": "missing_required_title", "result": "PASS", "requests": 0}
+{"case_id": "F087-14", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-14", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-14", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-15", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-15", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-15", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-15", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-15", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-15", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-15", "check": "error_AgentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-15", "check": "error_SessionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-15", "check": "error_SessionTraceNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-15", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-15", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-15", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-15", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-15", "check": "missing_required_agent_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-15", "check": "missing_required_session_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-15", "check": "missing_required_session_trace_id", "result": "PASS", "requests": 0}
+{"case_id": "F087-15", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-15", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-15", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-16", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-16", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-16", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-16", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-16", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-16", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-16", "check": "error_AnthropicMessagesPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-16", "check": "error_MultipleSystemPromptsNotSupported", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-16", "check": "error_MultipleToolResultContentsNotSupported", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-16", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-16", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-16", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-16", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-16", "check": "missing_required_anthropic_model_model_id", "result": "PASS", "requests": 0}
+{"case_id": "F087-16", "check": "missing_required_max_tokens", "result": "PASS", "requests": 0}
+{"case_id": "F087-16", "check": "missing_required_messages", "result": "PASS", "requests": 0}
+{"case_id": "F087-16", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-16", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-16", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-17", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-17", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-17", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-17", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-17", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-17", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-17", "check": "error_OpenAiEmbeddingsPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-17", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-17", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-17", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-17", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-17", "check": "missing_required_open_ai_model_model_id", "result": "PASS", "requests": 0}
+{"case_id": "F087-17", "check": "missing_required_input", "result": "PASS", "requests": 0}
+{"case_id": "F087-17", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-17", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-17", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-18", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-18", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-18", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-18", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-18", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-18", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-18", "check": "error_ExperimentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-18", "check": "error_ModelExperimentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-18", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-18", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-18", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-18", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-18", "check": "missing_required_model_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-18", "check": "missing_required_experiment_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-18", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-18", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-18", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-19", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-19", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-19", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-19", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-19", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-19", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-19", "check": "error_InvalidExperimentSearchFilter", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-19", "check": "error_SearchExperimentsPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-19", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-19", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-19", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-19", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-19", "check": "missing_required_model_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-19", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-19", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-19", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-19", "check": "finite continuation", "result": "PASS", "requests": 2, "items": [{"rid": "ri.qa.main.rid.independent087", "modelRid": "ri.qa.main.model.independent087", "createdTime": "2026-10-28T08:00:00+00:00", "createdBy": "00000000-0000-0000-0000-000000000087", "source": {"containerRid": "ri.qa.main.container-rid.independent087", "type": "codeWorkspace"}, "status": "RUNNING", "branch": "independent087", "parameters": [{"name": "independent087", "value": {"value": "2026-10-28T08:00:00+00:00", "type": "datetime"}}], "series": [{"name": "independent087", "value": {"type": "double"}}], "summaryMetrics": [{"seriesName": "independent087", "aggregation": "MIN", "value": 0.5}], "artifacts": {"independent087": {"name": "independent087", "sizeBytes": 1, "details": {"rowCount": 1, "type": "table"}}}, "tags": ["independent087"]}, {"rid": "ri.qa.main.second-page-experiment.independent087", "modelRid": "ri.qa.main.model.independent087", "createdTime": "2026-10-28T08:00:00+00:00", "createdBy": "00000000-0000-0000-0000-000000000087", "source": {"containerRid": "ri.qa.main.container-rid.independent087", "type": "codeWorkspace"}, "status": "RUNNING", "branch": "independent087", "parameters": [{"name": "independent087", "value": {"value": "2026-10-28T08:00:00+00:00", "type": "datetime"}}], "series": [{"name": "independent087", "value": {"type": "double"}}], "summaryMetrics": [{"seriesName": "independent087", "aggregation": "MIN", "value": 0.5}], "artifacts": {"independent087": {"name": "independent087", "sizeBytes": 1, "details": {"rowCount": 1, "type": "table"}}}, "tags": ["independent087"]}]}
+{"case_id": "F087-20", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-20", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-20", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-20", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-20", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-20", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-20", "check": "error_ExperimentArtifactNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-20", "check": "error_JsonExperimentArtifactTablePermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-20", "check": "error_ModelExperimentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-20", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-20", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-20", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-20", "check": "missing_required_model_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-20", "check": "missing_required_experiment_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-20", "check": "missing_required_experiment_artifact_table_name", "result": "PASS", "requests": 0}
+{"case_id": "F087-20", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-20", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-20", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-21", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-21", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-21", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-21", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-21", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-21", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-21", "check": "error_ExperimentArtifactNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-21", "check": "error_ModelExperimentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-21", "check": "error_ParquetExperimentArtifactTablePermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-21", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-21", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-21", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-21", "check": "missing_required_model_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-21", "check": "missing_required_experiment_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-21", "check": "missing_required_experiment_artifact_table_name", "result": "PASS", "requests": 0}
+{"case_id": "F087-21", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-21", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-21", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-22", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-22", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-22", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-22", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-22", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-22", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-22", "check": "error_ExperimentSeriesNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-22", "check": "error_JsonExperimentSeriesPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-22", "check": "error_ModelExperimentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-22", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-22", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-22", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-22", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-22", "check": "missing_required_model_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-22", "check": "missing_required_experiment_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-22", "check": "missing_required_experiment_series_name", "result": "PASS", "requests": 0}
+{"case_id": "F087-22", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-22", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-22", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-23", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-23", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-23", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-23", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-23", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-23", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-23", "check": "error_ExperimentSeriesNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-23", "check": "error_ModelExperimentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-23", "check": "error_ParquetExperimentSeriesPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-23", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-23", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-23", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-23", "check": "missing_required_model_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-23", "check": "missing_required_experiment_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-23", "check": "missing_required_experiment_series_name", "result": "PASS", "requests": 0}
+{"case_id": "F087-23", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-23", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-23", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-24", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-24", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-24", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-24", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-24", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-24", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-24", "check": "error_CreateLiveDeploymentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-24", "check": "error_GpuTypeNotAvailable", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-24", "check": "error_InvalidGpuCount", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-24", "check": "error_ModelNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-24", "check": "error_ThreadCountTooHigh", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-24", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-24", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-24", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-24", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-24", "check": "missing_required_deployment_type", "result": "PASS", "requests": 0}
+{"case_id": "F087-24", "check": "missing_required_runtime_configuration", "result": "PASS", "requests": 0}
+{"case_id": "F087-24", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-24", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-24", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-25", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-25", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-25", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-25", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-25", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-25", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-25", "check": "error_LiveDeploymentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-25", "check": "error_UnsupportedLiveDeployment", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-25", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-25", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-25", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-25", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-25", "check": "missing_required_live_deployment_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-25", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-25", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-25", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-26", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-26", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-26", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-26", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-26", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-26", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-26", "check": "error_ModelNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-26", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-26", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-26", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-26", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-26", "check": "missing_required_model_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-26", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-26", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-26", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-27", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-27", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-27", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-27", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-27", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-27", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-27", "check": "error_GpuTypeNotAvailable", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-27", "check": "error_InvalidGpuCount", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-27", "check": "error_LiveDeploymentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-27", "check": "error_ReplaceLiveDeploymentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-27", "check": "error_ThreadCountTooHigh", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-27", "check": "error_UnsupportedLiveDeployment", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-27", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-27", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-27", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-27", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-27", "check": "missing_required_live_deployment_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-27", "check": "missing_required_runtime_configuration", "result": "PASS", "requests": 0}
+{"case_id": "F087-27", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-27", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-27", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-28", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-28", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-28", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-28", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-28", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-28", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-28", "check": "error_InferenceFailure", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-28", "check": "error_InferenceInvalidInput", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-28", "check": "error_InferenceTimeout", "result": "PASS", "status": 500, "requests": 1}
+{"case_id": "F087-28", "check": "error_LiveDeploymentNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-28", "check": "error_TransformJsonLiveDeploymentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-28", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-28", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-28", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-28", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-28", "check": "missing_required_live_deployment_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-28", "check": "missing_required_input", "result": "PASS", "requests": 0}
+{"case_id": "F087-28", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-28", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-28", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-29", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-29", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-29", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-29", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-29", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-29", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-29", "check": "error_CreateModelPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-29", "check": "error_InvalidDisplayName", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-29", "check": "error_ResourceNameAlreadyExists", "result": "PASS", "status": 409, "requests": 1}
+{"case_id": "F087-29", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-29", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-29", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-29", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-29", "check": "missing_required_name", "result": "PASS", "requests": 0}
+{"case_id": "F087-29", "check": "missing_required_parent_folder_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-29", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-29", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-29", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-30", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-30", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-30", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-30", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-30", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-30", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-30", "check": "error_ModelNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-30", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-30", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-30", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-30", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-30", "check": "missing_required_model_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-30", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-30", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-30", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-31", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-31", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-31", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-31", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-31", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-31", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-31", "check": "error_ModelNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-31", "check": "error_ModelVersionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-31", "check": "error_PromoteVersionModelPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-31", "check": "error_UnsupportedModelSource", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-31", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-31", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-31", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-31", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-31", "check": "missing_required_model_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-31", "check": "missing_required_source_model_version_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-31", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-31", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-31", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-32", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-32", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-32", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-32", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-32", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-32", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-32", "check": "error_CreateModelFunctionPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-32", "check": "error_FunctionAlreadyExists", "result": "PASS", "status": 409, "requests": 1}
+{"case_id": "F087-32", "check": "error_InvalidFunctionApiName", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-32", "check": "error_ModelApiTypeUnsupportedForFunction", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-32", "check": "error_ModelNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-32", "check": "error_OntologyBindingRequired", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-32", "check": "error_OntologyNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-32", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-32", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-32", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-32", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-32", "check": "missing_required_model_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-32", "check": "missing_required_api_name", "result": "PASS", "requests": 0}
+{"case_id": "F087-32", "check": "missing_required_display_name", "result": "PASS", "requests": 0}
+{"case_id": "F087-32", "check": "missing_required_is_row_wise", "result": "PASS", "requests": 0}
+{"case_id": "F087-32", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-32", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-32", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-33", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-33", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-33", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-33", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-33", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-33", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-33", "check": "error_ModelFunctionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-33", "check": "error_ModelNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-33", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-33", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-33", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-33", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-33", "check": "missing_required_model_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-33", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-33", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-33", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-34", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-34", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-34", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-34", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-34", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-34", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-34", "check": "error_InvalidFunctionApiName", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-34", "check": "error_ModelApiTypeUnsupportedForFunction", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-34", "check": "error_ModelFunctionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-34", "check": "error_ModelNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-34", "check": "error_OntologyBindingRequired", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-34", "check": "error_OntologyNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-34", "check": "error_ReplaceModelFunctionPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-34", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-34", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-34", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-34", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-34", "check": "missing_required_model_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-34", "check": "missing_required_api_name", "result": "PASS", "requests": 0}
+{"case_id": "F087-34", "check": "missing_required_is_row_wise", "result": "PASS", "requests": 0}
+{"case_id": "F087-34", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-34", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-34", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-35", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-35", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-35", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-35", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-35", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-35", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-35", "check": "error_CreateModelStudioPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-35", "check": "error_InvalidDisplayName", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-35", "check": "error_InvalidModelStudioCreateRequest", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-35", "check": "error_ResourceNameAlreadyExists", "result": "PASS", "status": 409, "requests": 1}
+{"case_id": "F087-35", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-35", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-35", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-35", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-35", "check": "missing_required_name", "result": "PASS", "requests": 0}
+{"case_id": "F087-35", "check": "missing_required_parent_folder_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-35", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-35", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-35", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-36", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-36", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-36", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-36", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-36", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-36", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-36", "check": "error_ModelStudioNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-36", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-36", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-36", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-36", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-36", "check": "missing_required_model_studio_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-36", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-36", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-36", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-37", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-37", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-37", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-37", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-37", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-37", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-37", "check": "error_LaunchModelStudioPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-37", "check": "error_ModelStudioNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-37", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-37", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-37", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-37", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-37", "check": "missing_required_model_studio_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-37", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-37", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-37", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-38", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-38", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-38", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-38", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-38", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-38", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-38", "check": "error_CreateConfigValidationError", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-38", "check": "error_CreateModelStudioConfigVersionPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-38", "check": "error_ModelStudioNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-38", "check": "error_TrainerNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-38", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-38", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-38", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-38", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-38", "check": "missing_required_model_studio_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-38", "check": "missing_required_name", "result": "PASS", "requests": 0}
+{"case_id": "F087-38", "check": "missing_required_resources", "result": "PASS", "requests": 0}
+{"case_id": "F087-38", "check": "missing_required_trainer_id", "result": "PASS", "requests": 0}
+{"case_id": "F087-38", "check": "missing_required_worker_config", "result": "PASS", "requests": 0}
+{"case_id": "F087-38", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-38", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-38", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-39", "check": "native_sync_integer_path_denied", "result": "PASS", "requests": 0}
+{"case_id": "F087-39", "check": "native_raw_integer_path_denied", "result": "PASS", "requests": 0}
+{"case_id": "F087-39", "check": "native_async_integer_path_denied", "result": "PASS", "requests": 0}
+{"case_id": "F087-39", "check": "native_async_raw_integer_path_denied", "result": "PASS", "requests": 0}
+{"case_id": "F087-39", "check": "direct_rest_typed_success_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-39", "check": "direct_rest_error_ModelStudioConfigVersionNotFound", "result": "PASS", "requests": 1}
+{"case_id": "F087-39", "check": "direct_rest_error_ModelStudioNotFound", "result": "PASS", "requests": 1}
+{"case_id": "F087-39", "check": "direct_rest_unknown_permission_error", "result": "PASS", "requests": 1}
+{"case_id": "F087-39", "check": "direct_rest_byte_budget", "result": "PASS", "requests": 1}
+{"case_id": "F087-39", "check": "direct_rest_chunk_budget", "result": "PASS"}
+{"case_id": "F087-39", "check": "direct_rest_malformed_json", "result": "PASS"}
+{"case_id": "F087-39", "check": "direct_rest_invalid_version_bool", "result": "PASS", "requests": 0}
+{"case_id": "F087-39", "check": "direct_rest_invalid_version_str", "result": "PASS", "requests": 0}
+{"case_id": "F087-40", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-40", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-40", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-40", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-40", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-40", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-40", "check": "error_LatestModelStudioConfigVersionsPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-40", "check": "error_ModelStudioNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-40", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-40", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-40", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-40", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-40", "check": "missing_required_model_studio_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-40", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-40", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-40", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-41", "check": "ordinary_sync_iterator_terminal_closed", "result": "PASS", "requests": 2, "items": [{"name": "Independent trainer configuration", "version": 2, "trainerId": "ri.qa.main.trainer.independent087", "trainer": {"trainerId": "ri.qa.main.trainer.independent087", "version": "2.3"}, "workerConfig": {"inputs": {}, "outputs": {}}, "resources": {"memory": "2Gi", "cpu": "1"}, "createdBy": "00000000-0000-0000-0000-000000000087", "createdTime": "2026-10-28T08:00:00+00:00"}, {"name": "Independent trainer configuration", "version": 3, "trainerId": "ri.qa.main.trainer.independent087", "trainer": {"trainerId": "ri.qa.main.trainer.independent087", "version": "2.3"}, "workerConfig": {"inputs": {}, "outputs": {}}, "resources": {"memory": "2Gi", "cpu": "1"}, "createdBy": "00000000-0000-0000-0000-000000000087", "createdTime": "2026-10-28T08:00:00+00:00"}]}
+{"case_id": "F087-41", "check": "ordinary_async_iterator_terminal_closed", "result": "PASS", "requests": 2, "items": [{"name": "Independent trainer configuration", "version": 2, "trainerId": "ri.qa.main.trainer.independent087", "trainer": {"trainerId": "ri.qa.main.trainer.independent087", "version": "2.3"}, "workerConfig": {"inputs": {}, "outputs": {}}, "resources": {"memory": "2Gi", "cpu": "1"}, "createdBy": "00000000-0000-0000-0000-000000000087", "createdTime": "2026-10-28T08:00:00+00:00"}, {"name": "Independent trainer configuration", "version": 3, "trainerId": "ri.qa.main.trainer.independent087", "trainer": {"trainerId": "ri.qa.main.trainer.independent087", "version": "2.3"}, "workerConfig": {"inputs": {}, "outputs": {}}, "resources": {"memory": "2Gi", "cpu": "1"}, "createdBy": "00000000-0000-0000-0000-000000000087", "createdTime": "2026-10-28T08:00:00+00:00"}]}
+{"case_id": "F087-41", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-41", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-41", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-41", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-41", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-41", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-41", "check": "error_ModelStudioNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-41", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-41", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-41", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-41", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-41", "check": "missing_required_model_studio_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-41", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-41", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-41", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-41", "check": "finite continuation", "result": "PASS", "requests": 2, "items": [{"name": "Independent trainer configuration", "version": 2, "trainerId": "ri.qa.main.trainer.independent087", "trainer": {"trainerId": "ri.qa.main.trainer.independent087", "version": "2.3"}, "workerConfig": {"inputs": {}, "outputs": {}}, "resources": {"memory": "2Gi", "cpu": "1"}, "createdBy": "00000000-0000-0000-0000-000000000087", "createdTime": "2026-10-28T08:00:00+00:00"}, {"name": "Independent trainer configuration", "version": 3, "trainerId": "ri.qa.main.trainer.independent087", "trainer": {"trainerId": "ri.qa.main.trainer.independent087", "version": "2.3"}, "workerConfig": {"inputs": {}, "outputs": {}}, "resources": {"memory": "2Gi", "cpu": "1"}, "createdBy": "00000000-0000-0000-0000-000000000087", "createdTime": "2026-10-28T08:00:00+00:00"}]}
+{"case_id": "F087-42", "check": "ordinary_sync_iterator_terminal_closed", "result": "PASS", "requests": 2, "items": [{"runId": "independent087", "buildRid": "ri.qa.main.build-rid.independent087", "jobRid": "ri.qa.main.job-rid.independent087", "configVersion": 1, "startedBy": "00000000-0000-0000-0000-000000000087", "startedTime": "2026-10-28T08:00:00+00:00", "resolvedOutputs": {"independent087": {"modelRid": "ri.qa.main.model.independent087", "modelVersionRid": "ri.qa.main.model-version-rid.independent087", "type": "model"}}}, {"runId": "ri.qa.main.second-run.independent087", "buildRid": "ri.qa.main.build-rid.independent087", "jobRid": "ri.qa.main.job-rid.independent087", "configVersion": 1, "startedBy": "00000000-0000-0000-0000-000000000087", "startedTime": "2026-10-28T08:00:00+00:00", "resolvedOutputs": {"independent087": {"modelRid": "ri.qa.main.model.independent087", "modelVersionRid": "ri.qa.main.model-version-rid.independent087", "type": "model"}}}]}
+{"case_id": "F087-42", "check": "ordinary_async_iterator_terminal_closed", "result": "PASS", "requests": 2, "items": [{"runId": "independent087", "buildRid": "ri.qa.main.build-rid.independent087", "jobRid": "ri.qa.main.job-rid.independent087", "configVersion": 1, "startedBy": "00000000-0000-0000-0000-000000000087", "startedTime": "2026-10-28T08:00:00+00:00", "resolvedOutputs": {"independent087": {"modelRid": "ri.qa.main.model.independent087", "modelVersionRid": "ri.qa.main.model-version-rid.independent087", "type": "model"}}}, {"runId": "ri.qa.main.second-run.independent087", "buildRid": "ri.qa.main.build-rid.independent087", "jobRid": "ri.qa.main.job-rid.independent087", "configVersion": 1, "startedBy": "00000000-0000-0000-0000-000000000087", "startedTime": "2026-10-28T08:00:00+00:00", "resolvedOutputs": {"independent087": {"modelRid": "ri.qa.main.model.independent087", "modelVersionRid": "ri.qa.main.model-version-rid.independent087", "type": "model"}}}]}
+{"case_id": "F087-42", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-42", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-42", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-42", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-42", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-42", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-42", "check": "error_ModelStudioConfigVersionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-42", "check": "error_ModelStudioNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-42", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-42", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-42", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-42", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-42", "check": "missing_required_model_studio_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-42", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-42", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-42", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-42", "check": "finite continuation", "result": "PASS", "requests": 2, "items": [{"runId": "independent087", "buildRid": "ri.qa.main.build-rid.independent087", "jobRid": "ri.qa.main.job-rid.independent087", "configVersion": 1, "startedBy": "00000000-0000-0000-0000-000000000087", "startedTime": "2026-10-28T08:00:00+00:00", "resolvedOutputs": {"independent087": {"modelRid": "ri.qa.main.model.independent087", "modelVersionRid": "ri.qa.main.model-version-rid.independent087", "type": "model"}}}, {"runId": "ri.qa.main.second-run.independent087", "buildRid": "ri.qa.main.build-rid.independent087", "jobRid": "ri.qa.main.job-rid.independent087", "configVersion": 1, "startedBy": "00000000-0000-0000-0000-000000000087", "startedTime": "2026-10-28T08:00:00+00:00", "resolvedOutputs": {"independent087": {"modelRid": "ri.qa.main.model.independent087", "modelVersionRid": "ri.qa.main.model-version-rid.independent087", "type": "model"}}}]}
+{"case_id": "F087-43", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-43", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-43", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-43", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-43", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-43", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-43", "check": "error_ModelStudioTrainerNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-43", "check": "error_TrainerNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-43", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-43", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-43", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-43", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-43", "check": "missing_required_model_studio_trainer_trainer_id", "result": "PASS", "requests": 0}
+{"case_id": "F087-43", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-43", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-43", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-44", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-44", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-44", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-44", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-44", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-44", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-44", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-44", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-44", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-44", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-44", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-44", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-45", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-45", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-45", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-45", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-45", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-45", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-45", "check": "error_CondaSolveFailureForProvidedPackages", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-45", "check": "error_CreateModelVersionPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-45", "check": "error_InvalidModelApi", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-45", "check": "error_ModelNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-45", "check": "error_UnsupportedModelSource", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-45", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-45", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-45", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-45", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-45", "check": "missing_required_model_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-45", "check": "missing_required_backing_repositories", "result": "PASS", "requests": 0}
+{"case_id": "F087-45", "check": "missing_required_conda_requirements", "result": "PASS", "requests": 0}
+{"case_id": "F087-45", "check": "missing_required_model_api", "result": "PASS", "requests": 0}
+{"case_id": "F087-45", "check": "missing_required_model_files", "result": "PASS", "requests": 0}
+{"case_id": "F087-45", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-45", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-45", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-46", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-46", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-46", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-46", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-46", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-46", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-46", "check": "error_ModelVersionNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-46", "check": "error_UnsupportedModelSource", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-46", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-46", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-46", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-46", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-46", "check": "missing_required_model_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-46", "check": "missing_required_model_version_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-46", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-46", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-46", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-47", "check": "ordinary_sync_iterator_terminal_closed", "result": "PASS", "requests": 2, "items": [{"rid": "ri.qa.main.model-version.independent087", "modelApi": {"inputs": [{"name": "text", "required": true, "dataType": {"type": "string"}, "type": "parameter"}], "outputs": [{"name": "score", "dataType": {"type": "double"}, "type": "parameter"}]}, "condaRequirements": ["python=3.11"], "backingRepositories": ["ri.qa.main.repository.independent087"], "createdTime": "2026-10-28T08:00:00+00:00"}, {"rid": "ri.qa.main.second-page-modelversion.independent087", "modelApi": {"inputs": [{"name": "text", "required": true, "dataType": {"type": "string"}, "type": "parameter"}], "outputs": [{"name": "score", "dataType": {"type": "double"}, "type": "parameter"}]}, "condaRequirements": ["python=3.11"], "backingRepositories": ["ri.qa.main.repository.independent087"], "createdTime": "2026-10-28T08:00:00+00:00"}]}
+{"case_id": "F087-47", "check": "ordinary_async_iterator_terminal_closed", "result": "PASS", "requests": 2, "items": [{"rid": "ri.qa.main.model-version.independent087", "modelApi": {"inputs": [{"name": "text", "required": true, "dataType": {"type": "string"}, "type": "parameter"}], "outputs": [{"name": "score", "dataType": {"type": "double"}, "type": "parameter"}]}, "condaRequirements": ["python=3.11"], "backingRepositories": ["ri.qa.main.repository.independent087"], "createdTime": "2026-10-28T08:00:00+00:00"}, {"rid": "ri.qa.main.second-page-modelversion.independent087", "modelApi": {"inputs": [{"name": "text", "required": true, "dataType": {"type": "string"}, "type": "parameter"}], "outputs": [{"name": "score", "dataType": {"type": "double"}, "type": "parameter"}]}, "condaRequirements": ["python=3.11"], "backingRepositories": ["ri.qa.main.repository.independent087"], "createdTime": "2026-10-28T08:00:00+00:00"}]}
+{"case_id": "F087-47", "check": "success_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-47", "check": "success_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-47", "check": "async_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-47", "check": "async_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-47", "check": "sync_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-47", "check": "async_stream_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-47", "check": "error_ModelNotFound", "result": "PASS", "status": 404, "requests": 1}
+{"case_id": "F087-47", "check": "error_UnsupportedModelSource", "result": "PASS", "status": 400, "requests": 1}
+{"case_id": "F087-47", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 401, "requests": 1}
+{"case_id": "F087-47", "check": "error_IndependentPermissionDenied", "result": "PASS", "status": 403, "requests": 1}
+{"case_id": "F087-47", "check": "timeout_no_retry", "result": "PASS", "requests": 1}
+{"case_id": "F087-47", "check": "malformed_json", "result": "PASS"}
+{"case_id": "F087-47", "check": "missing_required_model_rid", "result": "PASS", "requests": 0}
+{"case_id": "F087-47", "check": "optional omission_typed", "result": "PASS", "requests": 1}
+{"case_id": "F087-47", "check": "optional omission_raw_closed", "result": "PASS", "requests": 1}
+{"case_id": "F087-47", "check": "required argument omitted", "result": "PASS", "requests": 0}
+{"case_id": "F087-47", "check": "finite continuation", "result": "PASS", "requests": 2, "items": [{"rid": "ri.qa.main.model-version.independent087", "modelApi": {"inputs": [{"name": "text", "required": true, "dataType": {"type": "string"}, "type": "parameter"}], "outputs": [{"name": "score", "dataType": {"type": "double"}, "type": "parameter"}]}, "condaRequirements": ["python=3.11"], "backingRepositories": ["ri.qa.main.repository.independent087"], "createdTime": "2026-10-28T08:00:00+00:00"}, {"rid": "ri.qa.main.second-page-modelversion.independent087", "modelApi": {"inputs": [{"name": "text", "required": true, "dataType": {"type": "string"}, "type": "parameter"}], "outputs": [{"name": "score", "dataType": {"type": "double"}, "type": "parameter"}]}, "condaRequirements": ["python=3.11"], "backingRepositories": ["ri.qa.main.repository.independent087"], "createdTime": "2026-10-28T08:00:00+00:00"}]}

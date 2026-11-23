@@ -8,6 +8,7 @@ import sys
 import urllib.parse
 import datetime
 from pathlib import Path
+from copy import deepcopy
 
 import httpx
 from foundry_sdk import PalantirRPCException
@@ -15,6 +16,9 @@ from foundry_sdk.v2.ontologies.object_type import ObjectTypeClient
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from synthetic_schema import ASSET_FULL, check_asset_full
 
 EXPECTED_METHOD = 'GET'
 EXPECTED_PATH = '/api/v2/ontologies/synthetic-value/objectTypes/Asset/fullMetadata'
@@ -25,26 +29,7 @@ EXPECTED_QUERY = {'branch': None,
  'sdkPackageRid': None,
  'sdkVersion': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'objectType': {'apiName': 'synthetic-value',
-                'displayName': 'synthetic-value',
-                'status': 'ACTIVE',
-                'pluralDisplayName': 'synthetic-value',
-                'icon': {'color': 'synthetic-value',
-                         'name': 'synthetic-value',
-                         'type': 'blueprint'},
-                'primaryKey': 'synthetic-value',
-                'properties': {},
-                'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
-                'titleProperty': 'synthetic-value'},
- 'linkTypes': [{'apiName': 'synthetic-value',
-                'displayName': 'synthetic-value',
-                'status': 'ACTIVE',
-                'objectTypeApiName': 'synthetic-value',
-                'cardinality': 'ONE',
-                'linkTypeRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}],
- 'implementsInterfaces': ['synthetic-value'],
- 'implementsInterfaces2': {},
- 'sharedPropertyTypeMapping': {}}
+SUCCESS = deepcopy(ASSET_FULL)
 ERRORS = []
 
 def invoke(client):
@@ -79,6 +64,10 @@ def normalized(value):
         return value.model_dump(mode='json', by_alias=True, exclude_none=True)
     return value
 
+def check_result(value):
+    check_asset_full(value)
+
+
 def verify():
     calls = []
     def success(request):
@@ -92,7 +81,9 @@ def verify():
     with mock_resource(ObjectTypeClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
+            check_result(decoded)
         finally:
             raw.close()
     assert len(calls) == 1

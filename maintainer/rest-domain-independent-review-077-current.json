@@ -1,0 +1,3389 @@
+{
+  "story": "DEV-STORY-077",
+  "review_date": "2026-10-29",
+  "review_type": "independent source-informed semantic retest, all 23 operations",
+  "candidate_root": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest077_fixes",
+  "candidate_head": "6df64cce16bf0619bee124f831e1e8686c08cccf",
+  "initial_report": {
+    "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest077_semantic_review_20261029.json",
+    "sha256": "f76c0ab6abc4054569c30e557f94d557d103a173c0a47ba932621fe00563d16c",
+    "summary": {
+      "PASS": 12,
+      "FAIL": 9,
+      "UNCERTAIN": 2
+    },
+    "cross_cutting_findings": [
+      {
+        "status": "UNCERTAIN",
+        "reason": "v1 import, exact signatures and model paths are explicit. Owned resource guides/index do not explain concrete v1/v2 contract differences or migration applicability beyond selecting v1 imports; Object Storage V1/V2 visibility is a separate storage distinction. Story explicitly requests v1/v2 differences and applicability; add a source-grounded comparison or identify exact existing local comparison."
+      }
+    ]
+  },
+  "source_oracle": {
+    "path": "tests/fixtures/offline/rest-acceptance/source-oracle.json",
+    "sha256": "5b6926046cb5c50663f4900747353bc743b2d5799829187e481abe333e6330d1"
+  },
+  "owned_manifest_before": [
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Attachment/get.py",
+      "sha256": "1ae4d01bcfc6c396181d8ba76f2c792c2c65b015b64cff7c1d7d35e0af405f1d"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Attachment/read.py",
+      "sha256": "644084c29389aec1c95cd71a6fede3faf66cfb15199fd3e6acb0c70b2232a913"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Attachment/upload.py",
+      "sha256": "210dcb480c5ad7daa18f55f9c0f6fd1c776169a743ab302bb41de43dc75e901a"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/get.py",
+      "sha256": "4f67a254bd0cf8794363383db89245afed14d325c7e00769dbe856173b69c01b"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/get_outgoing_link_type.py",
+      "sha256": "0e75337596a3b5fda5670d7c8ab606470417e05d188924c998d2298eeb5c36f1"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/list.py",
+      "sha256": "69b6122eda46302e7cbc99c6f6ad37f15dca9cc9a7377fa95b0bb23be32c9c2c"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/list_outgoing_link_types.py",
+      "sha256": "a69d8947a33658214339955bfaa848d5fee679bfcf0d560fb14517173ff87228"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/aggregate.py",
+      "sha256": "9f754d9ffb14d7dbbdd9f4099b8e455b727180e35bd6ad1bf0e872d263cf0f2b"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/get.py",
+      "sha256": "73c6a374ebed3377f05f951149dd30229ef8283e05c7d719167014ff7c9c9311"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/get_linked_object.py",
+      "sha256": "b3a2594e89181faf926741e945c425bed81c22e625077b311c977786e8db51fa"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/list.py",
+      "sha256": "c5b16f9b35f6ae867565b3c84905cca3ee2768a2f8f3d2a98323eb65afd6ce63"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/list_linked_objects.py",
+      "sha256": "73ab6e9fac463b7d8098a4912cde0acd3aff25f89c50a1e9bd0049bb74aa9046"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/search.py",
+      "sha256": "e1aca46efe649e2d2cecfea182cc6914105b7b52c9c6a6aae35e9082a7aa0db6"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/QueryType/get.py",
+      "sha256": "fccc7da7a5cf74a155efffff4268d98c48d838a49af527caf5d66f3e199b226d"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/QueryType/list.py",
+      "sha256": "d21755dc6ecbf92636a918a962265009f37670ca3fd5d0560a433faf354c98f0"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/Attachment.md",
+      "sha256": "fd3774a1f7ea7375a99e678b0e463536cc62d6e2d11e9a70fd8008aa4fdd624f"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/ObjectType.md",
+      "sha256": "1f9ac4926e19b26dc369195282b94a4f3eb6096cd8f3449afe21f785dfb584b4"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/Ontology.md",
+      "sha256": "1b647eda53cb21876c73911d355bf19d9742aca154740e93bb75a4b2ee9f8ac2"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/OntologyObject.md",
+      "sha256": "31777ffb665c569cc6de5245909193eb8a942cd4d9d8a392c8e6fda33bcc02d7"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/QueryType.md",
+      "sha256": "b1679d6d34611b1946257fa5a01102c8ee63b0fb4ba4536c33058776ef0ba54b"
+    },
+    {
+      "path": "tests/test_offline_rest_077.py",
+      "sha256": "689bf18347ecf5c52959c0f588c7dba293de1a26654a2af05d7575448b7c1da2"
+    }
+  ],
+  "owned_manifest_after_test": [
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Attachment/get.py",
+      "sha256": "1ae4d01bcfc6c396181d8ba76f2c792c2c65b015b64cff7c1d7d35e0af405f1d"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Attachment/read.py",
+      "sha256": "644084c29389aec1c95cd71a6fede3faf66cfb15199fd3e6acb0c70b2232a913"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Attachment/upload.py",
+      "sha256": "210dcb480c5ad7daa18f55f9c0f6fd1c776169a743ab302bb41de43dc75e901a"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/get.py",
+      "sha256": "4f67a254bd0cf8794363383db89245afed14d325c7e00769dbe856173b69c01b"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/get_outgoing_link_type.py",
+      "sha256": "0e75337596a3b5fda5670d7c8ab606470417e05d188924c998d2298eeb5c36f1"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/list.py",
+      "sha256": "69b6122eda46302e7cbc99c6f6ad37f15dca9cc9a7377fa95b0bb23be32c9c2c"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/list_outgoing_link_types.py",
+      "sha256": "a69d8947a33658214339955bfaa848d5fee679bfcf0d560fb14517173ff87228"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/aggregate.py",
+      "sha256": "9f754d9ffb14d7dbbdd9f4099b8e455b727180e35bd6ad1bf0e872d263cf0f2b"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/get.py",
+      "sha256": "73c6a374ebed3377f05f951149dd30229ef8283e05c7d719167014ff7c9c9311"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/get_linked_object.py",
+      "sha256": "b3a2594e89181faf926741e945c425bed81c22e625077b311c977786e8db51fa"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/list.py",
+      "sha256": "c5b16f9b35f6ae867565b3c84905cca3ee2768a2f8f3d2a98323eb65afd6ce63"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/list_linked_objects.py",
+      "sha256": "73ab6e9fac463b7d8098a4912cde0acd3aff25f89c50a1e9bd0049bb74aa9046"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/search.py",
+      "sha256": "e1aca46efe649e2d2cecfea182cc6914105b7b52c9c6a6aae35e9082a7aa0db6"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/QueryType/get.py",
+      "sha256": "fccc7da7a5cf74a155efffff4268d98c48d838a49af527caf5d66f3e199b226d"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/QueryType/list.py",
+      "sha256": "d21755dc6ecbf92636a918a962265009f37670ca3fd5d0560a433faf354c98f0"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/Attachment.md",
+      "sha256": "fd3774a1f7ea7375a99e678b0e463536cc62d6e2d11e9a70fd8008aa4fdd624f"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/ObjectType.md",
+      "sha256": "1f9ac4926e19b26dc369195282b94a4f3eb6096cd8f3449afe21f785dfb584b4"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/Ontology.md",
+      "sha256": "1b647eda53cb21876c73911d355bf19d9742aca154740e93bb75a4b2ee9f8ac2"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/OntologyObject.md",
+      "sha256": "31777ffb665c569cc6de5245909193eb8a942cd4d9d8a392c8e6fda33bcc02d7"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/QueryType.md",
+      "sha256": "b1679d6d34611b1946257fa5a01102c8ee63b0fb4ba4536c33058776ef0ba54b"
+    },
+    {
+      "path": "tests/test_offline_rest_077.py",
+      "sha256": "689bf18347ecf5c52959c0f588c7dba293de1a26654a2af05d7575448b7c1da2"
+    }
+  ],
+  "owned_manifest_after": [
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Attachment/get.py",
+      "sha256": "1ae4d01bcfc6c396181d8ba76f2c792c2c65b015b64cff7c1d7d35e0af405f1d"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Attachment/read.py",
+      "sha256": "644084c29389aec1c95cd71a6fede3faf66cfb15199fd3e6acb0c70b2232a913"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Attachment/upload.py",
+      "sha256": "210dcb480c5ad7daa18f55f9c0f6fd1c776169a743ab302bb41de43dc75e901a"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/get.py",
+      "sha256": "4f67a254bd0cf8794363383db89245afed14d325c7e00769dbe856173b69c01b"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/get_outgoing_link_type.py",
+      "sha256": "0e75337596a3b5fda5670d7c8ab606470417e05d188924c998d2298eeb5c36f1"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/list.py",
+      "sha256": "69b6122eda46302e7cbc99c6f6ad37f15dca9cc9a7377fa95b0bb23be32c9c2c"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/list_outgoing_link_types.py",
+      "sha256": "a69d8947a33658214339955bfaa848d5fee679bfcf0d560fb14517173ff87228"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/aggregate.py",
+      "sha256": "9f754d9ffb14d7dbbdd9f4099b8e455b727180e35bd6ad1bf0e872d263cf0f2b"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/get.py",
+      "sha256": "73c6a374ebed3377f05f951149dd30229ef8283e05c7d719167014ff7c9c9311"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/get_linked_object.py",
+      "sha256": "b3a2594e89181faf926741e945c425bed81c22e625077b311c977786e8db51fa"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/list.py",
+      "sha256": "c5b16f9b35f6ae867565b3c84905cca3ee2768a2f8f3d2a98323eb65afd6ce63"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/list_linked_objects.py",
+      "sha256": "73ab6e9fac463b7d8098a4912cde0acd3aff25f89c50a1e9bd0049bb74aa9046"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/search.py",
+      "sha256": "e1aca46efe649e2d2cecfea182cc6914105b7b52c9c6a6aae35e9082a7aa0db6"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/QueryType/get.py",
+      "sha256": "fccc7da7a5cf74a155efffff4268d98c48d838a49af527caf5d66f3e199b226d"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/QueryType/list.py",
+      "sha256": "d21755dc6ecbf92636a918a962265009f37670ca3fd5d0560a433faf354c98f0"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/Attachment.md",
+      "sha256": "fd3774a1f7ea7375a99e678b0e463536cc62d6e2d11e9a70fd8008aa4fdd624f"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/ObjectType.md",
+      "sha256": "1f9ac4926e19b26dc369195282b94a4f3eb6096cd8f3449afe21f785dfb584b4"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/Ontology.md",
+      "sha256": "1b647eda53cb21876c73911d355bf19d9742aca154740e93bb75a4b2ee9f8ac2"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/OntologyObject.md",
+      "sha256": "31777ffb665c569cc6de5245909193eb8a942cd4d9d8a392c8e6fda33bcc02d7"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/QueryType.md",
+      "sha256": "b1679d6d34611b1946257fa5a01102c8ee63b0fb4ba4536c33058776ef0ba54b"
+    },
+    {
+      "path": "tests/test_offline_rest_077.py",
+      "sha256": "689bf18347ecf5c52959c0f588c7dba293de1a26654a2af05d7575448b7c1da2"
+    }
+  ],
+  "owned_files_stable": true,
+  "author_test_run": {
+    "command": "python -B -m pytest -q tests/test_offline_rest_077.py",
+    "exit_code": 0,
+    "stdout": "........................................................                 [100%]\n56 passed in 0.61s\n",
+    "stderr": "D:\\app\\Python\\Lib\\site-packages\\requests\\__init__.py:113: RequestsDependencyWarning: urllib3 (2.3.0) or chardet (7.4.0.post2)/charset_normalizer (3.4.1) doesn't match a supported version!\n  warnings.warn(\nD:\\app\\Python\\Lib\\site-packages\\pytest_asyncio\\plugin.py:247: PytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\nThe event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n"
+  },
+  "independent_checks": [
+    {
+      "name": "independent cross-example application schema consistency",
+      "status": "PASS"
+    },
+    {
+      "name": "independent actual SDK attachment request and content metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "SDK accepts multiple contradictory aggregation group key conventions",
+      "status": "PASS"
+    },
+    {
+      "name": "six opaque group label/value variations pass direct checker and actual SDK HTTP roundtrip",
+      "status": "PASS"
+    }
+  ],
+  "summary": {
+    "PASS": 23,
+    "FAIL": 0,
+    "UNCERTAIN": 0
+  },
+  "cross_cutting_findings": [
+    {
+      "status": "PASS",
+      "reason": "Ontology.md now compares API v1/v2 selectors, primary-key shapes, titleProperty applicability, property/object wrappers and Actions. Separately explains storage backends; frozen v1 ObjectType has no titleProperty."
+    },
+    {
+      "status": "PASS",
+      "reason": "Request and declared date schema, P1D duration, prefixed fields and named numeric metric remain coherent. Guide and example now explicitly identify response group Dict[str,Any], opaque labels/values and absent source conventions or bucket boundaries. No longer indexes using requested field or parses mock value as universal date. Real response labels must be confirmed from approved enrollment documentation/schema; missing labels or invalid values stop derived calculation and retain request/response for recovery. Synthetic exact roundtrip remains bounded decoding evidence. Explicit source silence and bounded interpretation meet this source-informed review scope; live label mapping and boundary calculations remain unverified."
+    }
+  ],
+  "rows": [
+    {
+      "operation_id": "v1.ontologies.Action.apply",
+      "status": "PASS",
+      "reason": "Explicit assetId/status request matches documented synthetic set-asset-status schema. Empty ApplyActionResponse is correct; no unsupported edit identifiers or live effect inferred. OSv1 eventual/OSv2 immediate visibility, explicit defaults and uncertain-write reconciliation are explained.",
+      "initial_status": "PASS",
+      "initial_reason": "Explicit assetId/status request matches documented synthetic set-asset-status schema. Empty ApplyActionResponse is correct; no unsupported edit identifiers or live effect inferred. OSv1 eventual/OSv2 immediate visibility, explicit defaults and uncertain-write reconciliation are explained.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action.py",
+        "sha256": "ca1f0a33164f1453b335a11c2c6e82ed1f792bd0235257ce248d062097ca6090",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/Action/apply.md",
+        "sha256": "0b6821df192c6358d60bf35c61a1394e3d59485cfb7e19f7e9d3873f5f661c26"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/Action.md",
+        "sha256": "a249598cda6dcca5fc11f38b9896c258868ee4e0ab7e1299234ddac4d484b9d4"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Action/apply.py",
+        "sha256": "786236c3a44b31e8efbc67c5a55294416cecd89cbfe2d7f7347940b92e99e044"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ActionTypeApiName.md",
+          "sha256": "f3b2bd3127944262e46ce31f9c5fda16e7f9f46bfb45c2eb46e45881a2b879f9"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ApplyActionRequest.md",
+          "sha256": "68e58e2a060ce5a4ce13fb47679efb6dfb69bb9e2c22ab372cb62f9d77e005bb"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ApplyActionResponse.md",
+          "sha256": "7983e457ac28c375abc217058af6c18fcc8eb1d215cc9905948890e600b9aa5a"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/DataValue.md",
+          "sha256": "afa2bea21bd70ec0fff7f3a0b8ba8487690d0013a2e3b57aafc5990e6c50bdde"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ParameterId.md",
+          "sha256": "dd79af407e353a6de1f353bef1c31a083f7a3547490c92a263b66d9e7311c700"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "Explicit assetId/status request matches documented synthetic set-asset-status schema. Empty ApplyActionResponse is correct; no unsupported edit identifiers or live effect inferred. OSv1 eventual/OSv2 immediate visibility, explicit defaults and uncertain-write reconciliation are explained."
+    },
+    {
+      "operation_id": "v1.ontologies.Action.apply_batch",
+      "status": "PASS",
+      "reason": "One schema-compatible request for same configured action; empty BatchApplyActionResponse is valid. Local guide retains 20-action default ceiling, qualified OSv2 exception, unsupported defaults/notifications and uncertain-write handling.",
+      "initial_status": "PASS",
+      "initial_reason": "One schema-compatible request for same configured action; empty BatchApplyActionResponse is valid. Local guide retains 20-action default ceiling, qualified OSv2 exception, unsupported defaults/notifications and uncertain-write handling.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action.py",
+        "sha256": "ca1f0a33164f1453b335a11c2c6e82ed1f792bd0235257ce248d062097ca6090",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/Action/apply_batch.md",
+        "sha256": "a0df9dbec18cceab7e66fccd6f5db3066d5a0b1ed13d22d17526fba5269342ca"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/Action.md",
+        "sha256": "a249598cda6dcca5fc11f38b9896c258868ee4e0ab7e1299234ddac4d484b9d4"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Action/apply_batch.py",
+        "sha256": "79bb569fe27dec0d474ba099b6eea6c586c5386ad39e420270b5d346e975f3d7"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ActionTypeApiName.md",
+          "sha256": "f3b2bd3127944262e46ce31f9c5fda16e7f9f46bfb45c2eb46e45881a2b879f9"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ApplyActionRequest.md",
+          "sha256": "68e58e2a060ce5a4ce13fb47679efb6dfb69bb9e2c22ab372cb62f9d77e005bb"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/BatchApplyActionRequest.md",
+          "sha256": "d42bb181981cd13f521ccb88dfc49320872fc376176e9aed9870b9c9881f0cdc"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/BatchApplyActionResponse.md",
+          "sha256": "80edfd61e5d8a483d1c723bc6ed5541cddc41aa7a30207fc61bd6f48414ebd6c"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/DataValue.md",
+          "sha256": "afa2bea21bd70ec0fff7f3a0b8ba8487690d0013a2e3b57aafc5990e6c50bdde"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ParameterId.md",
+          "sha256": "dd79af407e353a6de1f353bef1c31a083f7a3547490c92a263b66d9e7311c700"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "One schema-compatible request for same configured action; empty BatchApplyActionResponse is valid. Local guide retains 20-action default ceiling, qualified OSv2 exception, unsupported defaults/notifications and uncertain-write handling."
+    },
+    {
+      "operation_id": "v1.ontologies.Action.validate",
+      "status": "PASS",
+      "reason": "Explicit synthetic parameters and VALID criteria are intelligible. Local guide states that existing-object constraints are skipped and VALID does not establish application success; omission/null behavior retained in contract.",
+      "initial_status": "PASS",
+      "initial_reason": "Explicit synthetic parameters and VALID criteria are intelligible. Local guide states that existing-object constraints are skipped and VALID does not establish application success; omission/null behavior retained in contract.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action.py",
+        "sha256": "ca1f0a33164f1453b335a11c2c6e82ed1f792bd0235257ce248d062097ca6090",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/Action/validate.md",
+        "sha256": "482091065252e72a2b77dd7972065202080eb8dfc5de15f3bc09d39e8a3fc288"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/Action.md",
+        "sha256": "a249598cda6dcca5fc11f38b9896c258868ee4e0ab7e1299234ddac4d484b9d4"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Action/validate.py",
+        "sha256": "fe840d6f88c01ba267f4f5cffec42ff70f45dd6ab08e0d677689a8da4232d00d"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DisplayName.md",
+          "sha256": "f7083aa456306fc4907d2940909f6dd7897fe54617a5ba7a7d43dcf68b39ed35"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ActionTypeApiName.md",
+          "sha256": "f3b2bd3127944262e46ce31f9c5fda16e7f9f46bfb45c2eb46e45881a2b879f9"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ArrayEntryEvaluatedConstraint.md",
+          "sha256": "5eaadd0f2301a2797fa97bb6c94846e55bba306d7509d09fce31426625ee9fee"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ArrayEvaluatedConstraint.md",
+          "sha256": "f8ab534d58a0f72e239667b094537690edf0ea279c8b84293dc6d3c7d43bba8c"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ArraySizeConstraint.md",
+          "sha256": "77c2dba5530aeb36f01e2bf6795044f94ce726ace097db1351b32ad121a686bb"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/DataValue.md",
+          "sha256": "afa2bea21bd70ec0fff7f3a0b8ba8487690d0013a2e3b57aafc5990e6c50bdde"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/GroupMemberConstraint.md",
+          "sha256": "1931872f17b295faffb62a4cbe628f87dc93ff41e997ba1a302b9d50b1ce2616"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectPropertyValueConstraint.md",
+          "sha256": "91db2875d4826756ce6fecb328125960d46a15217ae321318b72c7c2982574d4"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectQueryResultConstraint.md",
+          "sha256": "d9312c750a8adaf5f50526699d9621f2cceaeb8fd260082b2e95a47e7775e9e9"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OneOfConstraint.md",
+          "sha256": "d6521b1f8c130e8faedd9d1981e71bac8e2f4145fc54e47949e17df38996d04c"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ParameterEvaluatedConstraint.md",
+          "sha256": "4499b13c19827db2f26541f124e0bd1c204fd47bdd394052676c1f9b8f507972"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ParameterEvaluationResult.md",
+          "sha256": "1f4462dff76e7e0ac563388ada8a4a6f1d4009e2edffa337d5ad6d9d8e001b65"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ParameterId.md",
+          "sha256": "dd79af407e353a6de1f353bef1c31a083f7a3547490c92a263b66d9e7311c700"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ParameterOption.md",
+          "sha256": "1f8566e69290d8beff559925e2db26f6ddd88ac3e285adb1bd643fae89c23b97"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/RangeConstraint.md",
+          "sha256": "d592728bc8c45786ac1a2c7abf6478d2c9b65d7170d94c02e546705bc2d4100b"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/StringLengthConstraint.md",
+          "sha256": "535f57e3bba54892c27e9bb0d824127c104998df89c645ad8c8d09e61528403f"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/StringRegexMatchConstraint.md",
+          "sha256": "e583ecd47f0e2541cffc3cde430a4e4502746f9883abe6dbbb9986ab9fd24950"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/StructEvaluatedConstraint.md",
+          "sha256": "1d62614c0ed177901a40c1afe10f5621560c6fbd9bf6cc49b876e744c940451b"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/StructFieldEvaluatedConstraint.md",
+          "sha256": "9329a6353481f5acd008238d01868de456150f06a3c9d9d1e71086e605c023d5"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/StructFieldEvaluationResult.md",
+          "sha256": "b11585c38a1193a26aad2359cff5d8b49b95154626770c5b6dc64c6ec5b90159"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/StructParameterFieldApiName.md",
+          "sha256": "5a4d5808f6c62529d8331005e9766438a0429d228b0d43c80e3256bda32b9c5b"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/SubmissionCriteriaEvaluation.md",
+          "sha256": "fae10d1e72c632acff696c2e8b91697991f63215cab22ff6cfbf853350b8e558"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/UnevaluableConstraint.md",
+          "sha256": "20511d92415e6528aad8dd70cd89c2cf774c19b3978e4cbc4aaa84c3e0c1b7a0"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ValidateActionRequest.md",
+          "sha256": "7435fa2fdb272f7308fd55c0d9921d0570ca856b64e3997bc03dc58557633b84"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ValidateActionResponse.md",
+          "sha256": "865fbb6afe796324f402c1a2181783a8ef0e6c9739d219c1ca64253b2934681b"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ValidationResult.md",
+          "sha256": "20cc0604329258bf822e28819660c12a6e355f81ca5406a7725dd1282a4a454f"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "Explicit synthetic parameters and VALID criteria are intelligible. Local guide states that existing-object constraints are skipped and VALID does not establish application success; omission/null behavior retained in contract."
+    },
+    {
+      "operation_id": "v1.ontologies.ActionType.get",
+      "status": "PASS",
+      "reason": "Requested API name equals returned apiName. Zero-parameter action with deleteInterfaceObject rule is structurally coherent metadata discovery. Full local Parameter/LogicRule definitions resolve; this separate fixture does not describe set-asset-status.",
+      "initial_status": "PASS",
+      "initial_reason": "Requested API name equals returned apiName. Zero-parameter action with deleteInterfaceObject rule is structurally coherent metadata discovery. Full local Parameter/LogicRule definitions resolve; this separate fixture does not describe set-asset-status.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action_type.py",
+        "sha256": "eb2877e1c6ec8e5fa687ffca459fc79483d05d9dabcf283a91f43135a13acc61",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/ActionType/get.md",
+        "sha256": "26df8082a6d1374b4e39b5208a8cef75b6533a4ab91df905ddfb97cb7075b793"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/ActionType.md",
+        "sha256": "c2674233fdfde2eb5ae120a47b17781e5f6a16b56b29b7625e421f5c7fa311ac"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ActionType/get.py",
+        "sha256": "e3fef74bb3a53bf246eb4405a69e5486382e77f5836b004d342de5c2b2b7b934"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/AnyType.md",
+          "sha256": "d436456f9bccae4fd7bed22eba235346ee05415a97a0af9cd69897a8d2369d20"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/BinaryType.md",
+          "sha256": "d5f9e8380e73de4e5f5c28fab0b7ae9830c3793e4814d868b5ce9415af7f9179"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/BooleanType.md",
+          "sha256": "a6c112083db683ef2298481574c77b60b7c921b91c55c564ca53dcf72bb2e86f"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/ByteType.md",
+          "sha256": "a04b886596078ad7e6327a1aac70e5ab195fc0d98bc28b09843df97302d52955"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/CipherTextType.md",
+          "sha256": "2fed1a23f297eca38d1d5fc7381701c28c526c54a1c0eddd8eb519cd6c5e6131"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DateType.md",
+          "sha256": "022ec77029969162f7518788c9940917ecdbee5b7ae3a78a46f044cba10fc849"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DecimalType.md",
+          "sha256": "4595959ca349489609d9cbbe79bae86a8166a4be112c39f96317f19e7a37d3b1"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DisplayName.md",
+          "sha256": "f7083aa456306fc4907d2940909f6dd7897fe54617a5ba7a7d43dcf68b39ed35"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DoubleType.md",
+          "sha256": "711e6b4e8e298125bb15a1bffe4953230da307a45da7f031ebe5b7b53a0ee586"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/FloatType.md",
+          "sha256": "8b019b79a8e363109940ce6082ea71c6d8e65c92366c1ee037331928cb6a03f0"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/IntegerType.md",
+          "sha256": "89975a9c0371bdaea24ed5723f9dc889f1c33f73d43e8cc12ca73e97826dcd0a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/LongType.md",
+          "sha256": "504f28e2dd42e071b1cf1cb35ba2762de4b2d0390aabd09e27f9ea73f9ed80dd"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/MarkingType.md",
+          "sha256": "6c86c1b6e20c18d3395e15b57b54377348226770b9daa059d86459850fbb1cec"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/MarkingTypeValue.md",
+          "sha256": "64ca8d43250c8d26fb01a79220b49826589431de1880980ab2024919d686711e"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/MediaReferenceType.md",
+          "sha256": "747c194f6d9eb669ab3ac975abcebe278e25b6c24dcff6abc336cc4108d7addc"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/ReleaseStatus.md",
+          "sha256": "b54363e70dea422651e6fa6da74842fc882e912996e297d7c0c8d80b5ff8463e"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/ShortType.md",
+          "sha256": "80baab6a47db1bb4e1ab35c083c4a4b9b5fb5a78e45434e9ea90bf856fb50ff9"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/StringType.md",
+          "sha256": "f6f16be2026fd82fa04aeaec988424236f7758e081848626695920e1302422cf"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/StructFieldName.md",
+          "sha256": "7509c23fc99660c488b2cc5f9674b80f817330dd4a83be2abe536279d7a472ed"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/TimestampType.md",
+          "sha256": "472c5320433726fd9f15b1645c01d9df12911bb750975c2ec4e061cff0ff477c"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/UnsupportedType.md",
+          "sha256": "bb23e5fba2eb1367e4b61b0654b4d7fb8da8cd92e1b20adb5ebd8c8c29f5972a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/UnsupportedTypeParamKey.md",
+          "sha256": "16a56f5e707b1137dd7fc2283517325e317ecd7586785dbc9f7bdfb0e60e7370"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/UnsupportedTypeParamValue.md",
+          "sha256": "758dd50b271a55650eb97da7ca13f390a194eadd0e14ed21344ce2ac12136e99"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ActionType.md",
+          "sha256": "052d1496a34806b5495cf6e8411aa2b826fc4c17c22386707d421e26520d5fc1"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ActionTypeApiName.md",
+          "sha256": "f3b2bd3127944262e46ce31f9c5fda16e7f9f46bfb45c2eb46e45881a2b879f9"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ActionTypeRid.md",
+          "sha256": "34502bdaf6893f02f810db23fb4c445bead024f0996b7dd3a27ac66d46a2dcd9"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ApplyScenarioRule.md",
+          "sha256": "69c217e579c0cc78a5ec4f73bb827a8707f72af7f07d5d4a06a58cdf8e1bb5d6"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/CreateInterfaceObjectRule.md",
+          "sha256": "9b3488533e70491fe8cf57b78e08d94421859e1bc7901d29f7737b34a71333d0"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/CreateLinkRule.md",
+          "sha256": "2adfde4f6a06f94b7c6602d0ba4e0f3522dddce10b93e6e55796bd1bb45fd593"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/CreateObjectRule.md",
+          "sha256": "c149e55ab13ab1db2af0b3e1a194e17698ff9428be32124c21ca2730e5623b32"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/DeleteInterfaceObjectRule.md",
+          "sha256": "018bf757faa84d925e0ff1c4c4498b72202f6f6ac2a50c89fa9c4f2c4b190c4c"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/DeleteLinkRule.md",
+          "sha256": "0ebbf10ac487c25b0c847f0e9f2fed74d7f8007955a8add89eec0e4d2bcdd908"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/DeleteObjectRule.md",
+          "sha256": "0fa18032fb31f39b4d02e9d95361fc746add5cf83924318b77f8ab95ed21fe4e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/InterfaceTypeApiName.md",
+          "sha256": "30d3617a8d9b92302d07d7ce1cd1ed76cde4b3780872e57b69112321b016b514"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LinkTypeApiName.md",
+          "sha256": "d7c2ee59e3a94b9846acaafd80c62399771525a9c0169d307f0431de4a23a8bf"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LogicRule.md",
+          "sha256": "5e1c32f5bb21358d9c63f36f9f989a2201bfd383a244b75c5303f4ee3489e4b5"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ModifyInterfaceObjectRule.md",
+          "sha256": "b03c99370e8fdcd1c64e7ab060d11ba3a8d891cd3a78230ad9395bb2e355a404"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ModifyObjectRule.md",
+          "sha256": "4965ebd6d9f5d34f457181eaa61e3f0c3fc69e30b8cb2031d242cb36ee7c62a4"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeApiName.md",
+          "sha256": "d04dde18618a7baa484e53059cdc3f76e256377f0bc67b1e5c08511e5820434e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeLinkTypeApiNameMapping.md",
+          "sha256": "f53fa807a32e1a1cf66cebf0b756d49597cf72121d80b602540f956835cbde53"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyArrayType.md",
+          "sha256": "272c8f2dd3904326fd5ce1418a31d8d4f97b13241fb3ccfcd6b2a517d8d74fee"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyDataType.md",
+          "sha256": "30fd5b39f095b7443040deaab51d65f3558e6a6d29b55398cc52e4a958d7f64a"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyMapType.md",
+          "sha256": "024723789c3aa9de5f643052ccefcc099752772cb71629eed293f0dd095dfe63"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyObjectSetType.md",
+          "sha256": "1108d0511ccc34abdb9950186f0e992d93c10d5772c8fabe53e2eb8716d28065"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyObjectType.md",
+          "sha256": "25be5a1d54573034fde056ac1fc6ca8a1449e30580c0e40d00fcb451661a3fad"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologySetType.md",
+          "sha256": "2849c9c41acf96437b57613aa6984f5d8f518397676cfea403ebad6dc8847da0"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyStructField.md",
+          "sha256": "9f130f9721167e81889dd2633740588285237e8bcc9c9691628d5e365d2b1901"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyStructType.md",
+          "sha256": "084d4b874ef2c2e2843a707194f5b820a5036dee5a9db7fa7bc33e74abc46853"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/Parameter.md",
+          "sha256": "654b9c30974f651628b39f2234c094733b342795b64cdb4c590e82f56bd52d3b"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ParameterId.md",
+          "sha256": "dd79af407e353a6de1f353bef1c31a083f7a3547490c92a263b66d9e7311c700"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ValueType.md",
+          "sha256": "27f0714c211afb0a227b98d43cbb4946aa02e33e866950035dfdb139664bfc09"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "Requested API name equals returned apiName. Zero-parameter action with deleteInterfaceObject rule is structurally coherent metadata discovery. Full local Parameter/LogicRule definitions resolve; this separate fixture does not describe set-asset-status."
+    },
+    {
+      "operation_id": "v1.ontologies.ActionType.list",
+      "status": "PASS",
+      "reason": "Discovery returns coherent named action metadata. Raw page differs correctly from ordinary ResourceIterator; finite continuation helper is linked. Zero parameters are possible; fixture is a separate discovery example, not metadata evidence for set-asset-status.",
+      "initial_status": "PASS",
+      "initial_reason": "Discovery returns coherent named action metadata. Raw page differs correctly from ordinary ResourceIterator; finite continuation helper is linked. Zero parameters are possible; fixture is a separate discovery example, not metadata evidence for set-asset-status.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\action_type.py",
+        "sha256": "eb2877e1c6ec8e5fa687ffca459fc79483d05d9dabcf283a91f43135a13acc61",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/ActionType/list.md",
+        "sha256": "e328fabbeda817b9d0bd47c6251e5a2e2f205d996cc8a8bf29c42dadfb8a5b06"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/ActionType.md",
+        "sha256": "c2674233fdfde2eb5ae120a47b17781e5f6a16b56b29b7625e421f5c7fa311ac"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ActionType/list.py",
+        "sha256": "517860ef827e351d8bf9189387982d326abcab00073a008ead6d7e7160d61bab"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/AnyType.md",
+          "sha256": "d436456f9bccae4fd7bed22eba235346ee05415a97a0af9cd69897a8d2369d20"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/BinaryType.md",
+          "sha256": "d5f9e8380e73de4e5f5c28fab0b7ae9830c3793e4814d868b5ce9415af7f9179"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/BooleanType.md",
+          "sha256": "a6c112083db683ef2298481574c77b60b7c921b91c55c564ca53dcf72bb2e86f"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/ByteType.md",
+          "sha256": "a04b886596078ad7e6327a1aac70e5ab195fc0d98bc28b09843df97302d52955"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/CipherTextType.md",
+          "sha256": "2fed1a23f297eca38d1d5fc7381701c28c526c54a1c0eddd8eb519cd6c5e6131"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DateType.md",
+          "sha256": "022ec77029969162f7518788c9940917ecdbee5b7ae3a78a46f044cba10fc849"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DecimalType.md",
+          "sha256": "4595959ca349489609d9cbbe79bae86a8166a4be112c39f96317f19e7a37d3b1"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DisplayName.md",
+          "sha256": "f7083aa456306fc4907d2940909f6dd7897fe54617a5ba7a7d43dcf68b39ed35"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DoubleType.md",
+          "sha256": "711e6b4e8e298125bb15a1bffe4953230da307a45da7f031ebe5b7b53a0ee586"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/FloatType.md",
+          "sha256": "8b019b79a8e363109940ce6082ea71c6d8e65c92366c1ee037331928cb6a03f0"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/IntegerType.md",
+          "sha256": "89975a9c0371bdaea24ed5723f9dc889f1c33f73d43e8cc12ca73e97826dcd0a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/LongType.md",
+          "sha256": "504f28e2dd42e071b1cf1cb35ba2762de4b2d0390aabd09e27f9ea73f9ed80dd"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/MarkingType.md",
+          "sha256": "6c86c1b6e20c18d3395e15b57b54377348226770b9daa059d86459850fbb1cec"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/MarkingTypeValue.md",
+          "sha256": "64ca8d43250c8d26fb01a79220b49826589431de1880980ab2024919d686711e"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/MediaReferenceType.md",
+          "sha256": "747c194f6d9eb669ab3ac975abcebe278e25b6c24dcff6abc336cc4108d7addc"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/PageSize.md",
+          "sha256": "f2b9ac469b97c61ae4799e15cf8a145a6cebaeac818a73f779fbc18a08fd13e0"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/PageToken.md",
+          "sha256": "0ddff0965d80fc72d37302172f6242511baf2ba523850da4ee594d5ac667b4a7"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/ReleaseStatus.md",
+          "sha256": "b54363e70dea422651e6fa6da74842fc882e912996e297d7c0c8d80b5ff8463e"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/ShortType.md",
+          "sha256": "80baab6a47db1bb4e1ab35c083c4a4b9b5fb5a78e45434e9ea90bf856fb50ff9"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/StringType.md",
+          "sha256": "f6f16be2026fd82fa04aeaec988424236f7758e081848626695920e1302422cf"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/StructFieldName.md",
+          "sha256": "7509c23fc99660c488b2cc5f9674b80f817330dd4a83be2abe536279d7a472ed"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/TimestampType.md",
+          "sha256": "472c5320433726fd9f15b1645c01d9df12911bb750975c2ec4e061cff0ff477c"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/UnsupportedType.md",
+          "sha256": "bb23e5fba2eb1367e4b61b0654b4d7fb8da8cd92e1b20adb5ebd8c8c29f5972a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/UnsupportedTypeParamKey.md",
+          "sha256": "16a56f5e707b1137dd7fc2283517325e317ecd7586785dbc9f7bdfb0e60e7370"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/UnsupportedTypeParamValue.md",
+          "sha256": "758dd50b271a55650eb97da7ca13f390a194eadd0e14ed21344ce2ac12136e99"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ActionType.md",
+          "sha256": "052d1496a34806b5495cf6e8411aa2b826fc4c17c22386707d421e26520d5fc1"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ActionTypeApiName.md",
+          "sha256": "f3b2bd3127944262e46ce31f9c5fda16e7f9f46bfb45c2eb46e45881a2b879f9"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ActionTypeRid.md",
+          "sha256": "34502bdaf6893f02f810db23fb4c445bead024f0996b7dd3a27ac66d46a2dcd9"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ApplyScenarioRule.md",
+          "sha256": "69c217e579c0cc78a5ec4f73bb827a8707f72af7f07d5d4a06a58cdf8e1bb5d6"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/CreateInterfaceObjectRule.md",
+          "sha256": "9b3488533e70491fe8cf57b78e08d94421859e1bc7901d29f7737b34a71333d0"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/CreateLinkRule.md",
+          "sha256": "2adfde4f6a06f94b7c6602d0ba4e0f3522dddce10b93e6e55796bd1bb45fd593"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/CreateObjectRule.md",
+          "sha256": "c149e55ab13ab1db2af0b3e1a194e17698ff9428be32124c21ca2730e5623b32"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/DeleteInterfaceObjectRule.md",
+          "sha256": "018bf757faa84d925e0ff1c4c4498b72202f6f6ac2a50c89fa9c4f2c4b190c4c"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/DeleteLinkRule.md",
+          "sha256": "0ebbf10ac487c25b0c847f0e9f2fed74d7f8007955a8add89eec0e4d2bcdd908"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/DeleteObjectRule.md",
+          "sha256": "0fa18032fb31f39b4d02e9d95361fc746add5cf83924318b77f8ab95ed21fe4e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/InterfaceTypeApiName.md",
+          "sha256": "30d3617a8d9b92302d07d7ce1cd1ed76cde4b3780872e57b69112321b016b514"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LinkTypeApiName.md",
+          "sha256": "d7c2ee59e3a94b9846acaafd80c62399771525a9c0169d307f0431de4a23a8bf"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ListActionTypesResponse.md",
+          "sha256": "b7872655f08498996820553996a0dbdbd1155635857ca2f7063368f4faee706a"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LogicRule.md",
+          "sha256": "5e1c32f5bb21358d9c63f36f9f989a2201bfd383a244b75c5303f4ee3489e4b5"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ModifyInterfaceObjectRule.md",
+          "sha256": "b03c99370e8fdcd1c64e7ab060d11ba3a8d891cd3a78230ad9395bb2e355a404"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ModifyObjectRule.md",
+          "sha256": "4965ebd6d9f5d34f457181eaa61e3f0c3fc69e30b8cb2031d242cb36ee7c62a4"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeApiName.md",
+          "sha256": "d04dde18618a7baa484e53059cdc3f76e256377f0bc67b1e5c08511e5820434e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeLinkTypeApiNameMapping.md",
+          "sha256": "f53fa807a32e1a1cf66cebf0b756d49597cf72121d80b602540f956835cbde53"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyArrayType.md",
+          "sha256": "272c8f2dd3904326fd5ce1418a31d8d4f97b13241fb3ccfcd6b2a517d8d74fee"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyDataType.md",
+          "sha256": "30fd5b39f095b7443040deaab51d65f3558e6a6d29b55398cc52e4a958d7f64a"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyMapType.md",
+          "sha256": "024723789c3aa9de5f643052ccefcc099752772cb71629eed293f0dd095dfe63"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyObjectSetType.md",
+          "sha256": "1108d0511ccc34abdb9950186f0e992d93c10d5772c8fabe53e2eb8716d28065"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyObjectType.md",
+          "sha256": "25be5a1d54573034fde056ac1fc6ca8a1449e30580c0e40d00fcb451661a3fad"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologySetType.md",
+          "sha256": "2849c9c41acf96437b57613aa6984f5d8f518397676cfea403ebad6dc8847da0"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyStructField.md",
+          "sha256": "9f130f9721167e81889dd2633740588285237e8bcc9c9691628d5e365d2b1901"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyStructType.md",
+          "sha256": "084d4b874ef2c2e2843a707194f5b820a5036dee5a9db7fa7bc33e74abc46853"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/Parameter.md",
+          "sha256": "654b9c30974f651628b39f2234c094733b342795b64cdb4c590e82f56bd52d3b"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ParameterId.md",
+          "sha256": "dd79af407e353a6de1f353bef1c31a083f7a3547490c92a263b66d9e7311c700"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ValueType.md",
+          "sha256": "27f0714c211afb0a227b98d43cbb4946aa02e33e866950035dfdb139664bfc09"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "Discovery returns coherent named action metadata. Raw page differs correctly from ordinary ResourceIterator; finite continuation helper is linked. Zero parameters are possible; fixture is a separate discovery example, not metadata evidence for set-asset-status."
+    },
+    {
+      "operation_id": "v1.ontologies.Attachment.get",
+      "status": "PASS",
+      "reason": "RID matches request. Concrete text/plain, inspection.txt and 19-byte size agree with separate content fixture.",
+      "initial_status": "FAIL",
+      "initial_reason": "Attachment RID matches request, but mediaType synthetic-value is not a MIME media type. The MediaType string alias does not validate this source-defined meaning. Supply meaningful metadata such as text/plain and a filename/size consistent with its synthetic content.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\attachment.py",
+        "sha256": "9606789cb634d59d99886e7ffcd6c2e5aeaab099496c3771979a6c05ba5d2357",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/Attachment/get.md",
+        "sha256": "7a1dda313c5b52d1f1ace5e3cefa9c44871cd0bb582a0b8f3ac969e7effeee05"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/Attachment.md",
+        "sha256": "fd3774a1f7ea7375a99e678b0e463536cc62d6e2d11e9a70fd8008aa4fdd624f"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Attachment/get.py",
+        "sha256": "1ae4d01bcfc6c396181d8ba76f2c792c2c65b015b64cff7c1d7d35e0af405f1d"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/Long.md",
+          "sha256": "f9739e18a1a7b0bb06bd179a62b92f2e5a78f3906cf73dbb0818241237666cdf"
+        },
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/Filename.md",
+          "sha256": "7a6ff2fb5c1feb00ad176471f86305ce04ce28117e374131a9fd36f79e228129"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/MediaType.md",
+          "sha256": "1d18fcaa5d8252eb0a92ef5de5dafbe2071ff3c89c0c7c3e01751bd9b34449d8"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/SizeBytes.md",
+          "sha256": "df10feab9e79552cb61901026b3cfd88e84c8ea8b9e92be089b530a3c4d8baeb"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/Attachment.md",
+          "sha256": "d2675359042feb8e2ba1f79e72bd066a1063f187beea9dffa52c9d7b0076347c"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AttachmentRid.md",
+          "sha256": "e6c10addce717575068a8ca55a2fa1352154dd4878c345af374894a8ddf731a3"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "RID matches request. Concrete text/plain, inspection.txt and 19-byte size agree with separate content fixture."
+    },
+    {
+      "operation_id": "v1.ontologies.Attachment.read",
+      "status": "PASS",
+      "reason": "Attachment RID selects binary content, returned bytes are decoded as bytes and raw response closes. Shared client guidance explains bounded streaming for strict byte budgets; this small fixture does not establish large-download bounds.",
+      "initial_status": "PASS",
+      "initial_reason": "Attachment RID selects binary content, returned bytes are decoded as bytes and raw response closes. Shared client guidance explains bounded streaming for strict byte budgets; this small fixture does not establish large-download bounds.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\attachment.py",
+        "sha256": "9606789cb634d59d99886e7ffcd6c2e5aeaab099496c3771979a6c05ba5d2357",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/Attachment/read.md",
+        "sha256": "7195436946a64f3162e4cf5f5340e88f2c1f2b367eb6e3f6ff20962edc34a66d"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/Attachment.md",
+        "sha256": "fd3774a1f7ea7375a99e678b0e463536cc62d6e2d11e9a70fd8008aa4fdd624f"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Attachment/read.py",
+        "sha256": "644084c29389aec1c95cd71a6fede3faf66cfb15199fd3e6acb0c70b2232a913"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AttachmentRid.md",
+          "sha256": "e6c10addce717575068a8ca55a2fa1352154dd4878c345af374894a8ddf731a3"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "Attachment RID selects binary content, returned bytes are decoded as bytes and raw response closes. Shared client guidance explains bounded streaming for strict byte budgets; this small fixture does not establish large-download bounds."
+    },
+    {
+      "operation_id": "v1.ontologies.Attachment.upload",
+      "status": "PASS",
+      "reason": "Filename inspection.txt, 19 bytes and text/plain metadata now agree. Actual frozen SDK Content-Type */* and Content-Length 19 independently captured; source duplicate assignment and guide caveat explicitly explain mismatch with required octet-stream. Mock success establishes no enrollment acceptance.",
+      "initial_status": "FAIL",
+      "initial_reason": "SDK request supplies filename inspection.txt and 19 bytes, but success metadata says filename synthetic-value and sizeBytes 1. Source header dictionary overwrites supplied application/octet-stream with */*; guide claims octet-stream upload without explaining frozen SDK defect or bounded workaround. Fixture passing cannot approve this application contract. Returned mediaType synthetic-value is not a MIME media type.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\attachment.py",
+        "sha256": "9606789cb634d59d99886e7ffcd6c2e5aeaab099496c3771979a6c05ba5d2357",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/Attachment/upload.md",
+        "sha256": "18a08fb98d1bffd3a3bff8026d60728f3cd0ed1adfefe6fbeefa4bcca1c528d1"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/Attachment.md",
+        "sha256": "fd3774a1f7ea7375a99e678b0e463536cc62d6e2d11e9a70fd8008aa4fdd624f"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Attachment/upload.py",
+        "sha256": "210dcb480c5ad7daa18f55f9c0f6fd1c776169a743ab302bb41de43dc75e901a"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/Long.md",
+          "sha256": "f9739e18a1a7b0bb06bd179a62b92f2e5a78f3906cf73dbb0818241237666cdf"
+        },
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/ContentLength.md",
+          "sha256": "fcd10071c5c48dc026cc9460b1b4746e321624160f110cb39a28fff6541e0c30"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/ContentType.md",
+          "sha256": "7d0351f877e34e8b369146fc099b73126b4ac98715498bb33608f767a2abf25b"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/Filename.md",
+          "sha256": "7a6ff2fb5c1feb00ad176471f86305ce04ce28117e374131a9fd36f79e228129"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/MediaType.md",
+          "sha256": "1d18fcaa5d8252eb0a92ef5de5dafbe2071ff3c89c0c7c3e01751bd9b34449d8"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/SizeBytes.md",
+          "sha256": "df10feab9e79552cb61901026b3cfd88e84c8ea8b9e92be089b530a3c4d8baeb"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/Attachment.md",
+          "sha256": "d2675359042feb8e2ba1f79e72bd066a1063f187beea9dffa52c9d7b0076347c"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AttachmentRid.md",
+          "sha256": "e6c10addce717575068a8ca55a2fa1352154dd4878c345af374894a8ddf731a3"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "Filename inspection.txt, 19 bytes and text/plain metadata now agree. Actual frozen SDK Content-Type */* and Content-Length 19 independently captured; source duplicate assignment and guide caveat explicitly explain mismatch with required octet-stream. Mock success establishes no enrollment acceptance."
+    },
+    {
+      "operation_id": "v1.ontologies.ObjectType.get",
+      "status": "PASS",
+      "reason": "Requested Asset equals returned apiName. primaryKey assetId exists as String; status String and inspectionDate LocalDate establish object/search/aggregation schema. v1 has no titleProperty requirement.",
+      "initial_status": "FAIL",
+      "initial_reason": "GET requests object type Asset, but response apiName is synthetic-value. Returned primaryKey [synthetic-value] has no definition in properties {}, so metadata cannot establish Asset primary-key/property schema required by application guide.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\object_type.py",
+        "sha256": "f9d98265021a7e0275d47e182aa6bcade2b01ac427cc281a9c83e88b831fdf97",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/ObjectType/get.md",
+        "sha256": "12c1a1717ea7b7dcb190052159800d64d136fabd4481b582ac2c9fe5d091444b"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/ObjectType.md",
+        "sha256": "1f9ac4926e19b26dc369195282b94a4f3eb6096cd8f3449afe21f785dfb584b4"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/get.py",
+        "sha256": "4f67a254bd0cf8794363383db89245afed14d325c7e00769dbe856173b69c01b"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DisplayName.md",
+          "sha256": "f7083aa456306fc4907d2940909f6dd7897fe54617a5ba7a7d43dcf68b39ed35"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/ReleaseStatus.md",
+          "sha256": "b54363e70dea422651e6fa6da74842fc882e912996e297d7c0c8d80b5ff8463e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LegacyObjectTypeId.md",
+          "sha256": "f384210809750ba24e9e13dc5c9f2ca43a9456cc5f341c7f036b35dcd3aa478b"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LegacyPropertyId.md",
+          "sha256": "45056178cde288171dd70923920b081f75f5825e0170d107db02e26e6c9ade31"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectType.md",
+          "sha256": "3e3561b1c4a8e05c8cbdc6a8ae01b30ae85fc04bb72418c857403c00be41fe00"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeApiName.md",
+          "sha256": "d04dde18618a7baa484e53059cdc3f76e256377f0bc67b1e5c08511e5820434e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeRid.md",
+          "sha256": "e40283d4f077500d5b75e145432d7dbd98b4b6af4b713d6768e883cf9d8dbaaa"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeVisibility.md",
+          "sha256": "df615181fd53057110094f320d9ba9852d20bbb01fbac65e21941de8aa4a93f3"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/Property.md",
+          "sha256": "8101eebed8330e65b9604febb8e86e464515f6a6a225e33d9fb2a3d9eb5a9349"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PropertyApiName.md",
+          "sha256": "ce224368763741421b69c446b46ddb90181af032a9c16cf8ffb009a7ce4c717f"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ValueType.md",
+          "sha256": "27f0714c211afb0a227b98d43cbb4946aa02e33e866950035dfdb139664bfc09"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "Requested Asset equals returned apiName. primaryKey assetId exists as String; status String and inspectionDate LocalDate establish object/search/aggregation schema. v1 has no titleProperty requirement."
+    },
+    {
+      "operation_id": "v1.ontologies.ObjectType.get_outgoing_link_type",
+      "status": "PASS",
+      "reason": "Requested facility matches returned apiName, points to Facility with ONE cardinality and declared facilityId key in ObjectType list.",
+      "initial_status": "PASS",
+      "initial_reason": "Requested link API name equals returned apiName; objectTypeApiName identifies linked target type, so it need not equal source Asset. Cardinality ONE is coherent. Does not establish a tenant link or linked target schema.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\object_type.py",
+        "sha256": "f9d98265021a7e0275d47e182aa6bcade2b01ac427cc281a9c83e88b831fdf97",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/ObjectType/get_outgoing_link_type.md",
+        "sha256": "84e5e0c8aef31a501b75925091c8b407cd9b98ce6a6b1ec03c6bc8b53d76d72d"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/ObjectType.md",
+        "sha256": "1f9ac4926e19b26dc369195282b94a4f3eb6096cd8f3449afe21f785dfb584b4"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/get_outgoing_link_type.py",
+        "sha256": "0e75337596a3b5fda5670d7c8ab606470417e05d188924c998d2298eeb5c36f1"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DisplayName.md",
+          "sha256": "f7083aa456306fc4907d2940909f6dd7897fe54617a5ba7a7d43dcf68b39ed35"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/ReleaseStatus.md",
+          "sha256": "b54363e70dea422651e6fa6da74842fc882e912996e297d7c0c8d80b5ff8463e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LinkTypeApiName.md",
+          "sha256": "d7c2ee59e3a94b9846acaafd80c62399771525a9c0169d307f0431de4a23a8bf"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LinkTypeSide.md",
+          "sha256": "8b4a2d32ddda793e476b5eddf7975841a3b663b3d3df6c095d8e16fce6ab2fb5"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LinkTypeSideCardinality.md",
+          "sha256": "4134ecc7cd80333ac942287eb878487758b320764993cc67a22a274b2dcacd8d"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeApiName.md",
+          "sha256": "d04dde18618a7baa484e53059cdc3f76e256377f0bc67b1e5c08511e5820434e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PropertyApiName.md",
+          "sha256": "ce224368763741421b69c446b46ddb90181af032a9c16cf8ffb009a7ce4c717f"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "Requested facility matches returned apiName, points to Facility with ONE cardinality and declared facilityId key in ObjectType list."
+    },
+    {
+      "operation_id": "v1.ontologies.ObjectType.list",
+      "status": "PASS",
+      "reason": "Asset and Facility declare String primary keys and properties used by object, search and linked-target fixtures. No nonexistent v1 titleProperty imposed.",
+      "initial_status": "FAIL",
+      "initial_reason": "Returned type declares primaryKey [synthetic-value] with empty properties. Full model decoding permits this, but no declared property can supply that key or the Asset schema needed for an adaptable metadata example.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\object_type.py",
+        "sha256": "f9d98265021a7e0275d47e182aa6bcade2b01ac427cc281a9c83e88b831fdf97",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/ObjectType/list.md",
+        "sha256": "82736f65edb5f5da013b383cff925e1ae45c5ec4133e3e7d879ad2f6ffb9c5cf"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/ObjectType.md",
+        "sha256": "1f9ac4926e19b26dc369195282b94a4f3eb6096cd8f3449afe21f785dfb584b4"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/list.py",
+        "sha256": "69b6122eda46302e7cbc99c6f6ad37f15dca9cc9a7377fa95b0bb23be32c9c2c"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DisplayName.md",
+          "sha256": "f7083aa456306fc4907d2940909f6dd7897fe54617a5ba7a7d43dcf68b39ed35"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/PageSize.md",
+          "sha256": "f2b9ac469b97c61ae4799e15cf8a145a6cebaeac818a73f779fbc18a08fd13e0"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/PageToken.md",
+          "sha256": "0ddff0965d80fc72d37302172f6242511baf2ba523850da4ee594d5ac667b4a7"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/ReleaseStatus.md",
+          "sha256": "b54363e70dea422651e6fa6da74842fc882e912996e297d7c0c8d80b5ff8463e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LegacyObjectTypeId.md",
+          "sha256": "f384210809750ba24e9e13dc5c9f2ca43a9456cc5f341c7f036b35dcd3aa478b"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LegacyPropertyId.md",
+          "sha256": "45056178cde288171dd70923920b081f75f5825e0170d107db02e26e6c9ade31"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ListObjectTypesResponse.md",
+          "sha256": "0736bb0eb51367021c141803df14160e85991797ab06b3662fb1fe3bd24f59a4"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectType.md",
+          "sha256": "3e3561b1c4a8e05c8cbdc6a8ae01b30ae85fc04bb72418c857403c00be41fe00"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeApiName.md",
+          "sha256": "d04dde18618a7baa484e53059cdc3f76e256377f0bc67b1e5c08511e5820434e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeRid.md",
+          "sha256": "e40283d4f077500d5b75e145432d7dbd98b4b6af4b713d6768e883cf9d8dbaaa"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeVisibility.md",
+          "sha256": "df615181fd53057110094f320d9ba9852d20bbb01fbac65e21941de8aa4a93f3"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/Property.md",
+          "sha256": "8101eebed8330e65b9604febb8e86e464515f6a6a225e33d9fb2a3d9eb5a9349"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PropertyApiName.md",
+          "sha256": "ce224368763741421b69c446b46ddb90181af032a9c16cf8ffb009a7ce4c717f"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ValueType.md",
+          "sha256": "27f0714c211afb0a227b98d43cbb4946aa02e33e866950035dfdb139664bfc09"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "Asset and Facility declare String primary keys and properties used by object, search and linked-target fixtures. No nonexistent v1 titleProperty imposed."
+    },
+    {
+      "operation_id": "v1.ontologies.ObjectType.list_outgoing_link_types",
+      "status": "PASS",
+      "reason": "Link discovery identifies facility, target Facility and ONE cardinality consistently with ObjectType list and linked objects.",
+      "initial_status": "PASS",
+      "initial_reason": "Link metadata supplies API name, target object API name and ONE cardinality, enough to identify traversal selectors. Raw-page semantics and finite continuation resolve locally; only one page exercised.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\object_type.py",
+        "sha256": "f9d98265021a7e0275d47e182aa6bcade2b01ac427cc281a9c83e88b831fdf97",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/ObjectType/list_outgoing_link_types.md",
+        "sha256": "97460b2406370a1e66e6af9e2af0cc8e51093c2eadc977824d1ff7ceae7d95a7"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/ObjectType.md",
+        "sha256": "1f9ac4926e19b26dc369195282b94a4f3eb6096cd8f3449afe21f785dfb584b4"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/list_outgoing_link_types.py",
+        "sha256": "a69d8947a33658214339955bfaa848d5fee679bfcf0d560fb14517173ff87228"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DisplayName.md",
+          "sha256": "f7083aa456306fc4907d2940909f6dd7897fe54617a5ba7a7d43dcf68b39ed35"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/PageSize.md",
+          "sha256": "f2b9ac469b97c61ae4799e15cf8a145a6cebaeac818a73f779fbc18a08fd13e0"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/PageToken.md",
+          "sha256": "0ddff0965d80fc72d37302172f6242511baf2ba523850da4ee594d5ac667b4a7"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/ReleaseStatus.md",
+          "sha256": "b54363e70dea422651e6fa6da74842fc882e912996e297d7c0c8d80b5ff8463e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LinkTypeApiName.md",
+          "sha256": "d7c2ee59e3a94b9846acaafd80c62399771525a9c0169d307f0431de4a23a8bf"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LinkTypeSide.md",
+          "sha256": "8b4a2d32ddda793e476b5eddf7975841a3b663b3d3df6c095d8e16fce6ab2fb5"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LinkTypeSideCardinality.md",
+          "sha256": "4134ecc7cd80333ac942287eb878487758b320764993cc67a22a274b2dcacd8d"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ListOutgoingLinkTypesResponse.md",
+          "sha256": "2b7b869a190d42cc409f5b916da67b5da5f0a7924dcbd9ed7f6c729228895d0a"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeApiName.md",
+          "sha256": "d04dde18618a7baa484e53059cdc3f76e256377f0bc67b1e5c08511e5820434e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PropertyApiName.md",
+          "sha256": "ce224368763741421b69c446b46ddb90181af032a9c16cf8ffb009a7ce4c717f"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "Link discovery identifies facility, target Facility and ONE cardinality consistently with ObjectType list and linked objects."
+    },
+    {
+      "operation_id": "v1.ontologies.Ontology.get",
+      "status": "PASS",
+      "reason": "Request RID matches returned ontology RID. Metadata discovery is coherent and correctly separated from per-object/action/query permissions.",
+      "initial_status": "PASS",
+      "initial_reason": "Request RID matches returned ontology RID. Metadata discovery is coherent and correctly separated from per-object/action/query permissions.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology.py",
+        "sha256": "52e99cd05010464a4f2dc0b1978da17d9a8863f4fdda8f4c7491875f3fc4be2d",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/Ontology/get.md",
+        "sha256": "bb1ef35622ea9d77b197a44b35f0b3294c07d1e73ece904c9d7cba0880211108"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/Ontology.md",
+        "sha256": "1b647eda53cb21876c73911d355bf19d9742aca154740e93bb75a4b2ee9f8ac2"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Ontology/get.py",
+        "sha256": "120a1cb483edc28f59979557e741b7fc27c1a393794f86051fbd03d54171597f"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DisplayName.md",
+          "sha256": "f7083aa456306fc4907d2940909f6dd7897fe54617a5ba7a7d43dcf68b39ed35"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/Ontology.md",
+          "sha256": "c024f9bebb7437cb25a7a9449f21e458c42ba46f9f4cd37d54346a7ec70c8884"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyApiName.md",
+          "sha256": "a39c2d6ae56f327b88e94ddb29f5d41caafa1cb64a4a1f5ffe7251aa1cee7dd9"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "Request RID matches returned ontology RID. Metadata discovery is coherent and correctly separated from per-object/action/query permissions."
+    },
+    {
+      "operation_id": "v1.ontologies.Ontology.list",
+      "status": "PASS",
+      "reason": "Unpaged visible-ontology data contains RID and display metadata. Local guide limits visibility to caller and does not incorrectly require continuation for this unpaged method.",
+      "initial_status": "PASS",
+      "initial_reason": "Unpaged visible-ontology data contains RID and display metadata. Local guide limits visibility to caller and does not incorrectly require continuation for this unpaged method.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology.py",
+        "sha256": "52e99cd05010464a4f2dc0b1978da17d9a8863f4fdda8f4c7491875f3fc4be2d",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/Ontology/list.md",
+        "sha256": "c236ff941d7840a6c9438ddbef24f14e30389baf4f4eee9528e3728b7e1bcee9"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/Ontology.md",
+        "sha256": "1b647eda53cb21876c73911d355bf19d9742aca154740e93bb75a4b2ee9f8ac2"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Ontology/list.py",
+        "sha256": "8dea010b2dc044036152a0e39b35625d109e6ad73ea6b2ed0ff35792b1f0b1d3"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DisplayName.md",
+          "sha256": "f7083aa456306fc4907d2940909f6dd7897fe54617a5ba7a7d43dcf68b39ed35"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ListOntologiesResponse.md",
+          "sha256": "bbdddd31b8081a0a1430fc2f1afdf24539b78aad6b424af7d277f0f05344d012"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/Ontology.md",
+          "sha256": "c024f9bebb7437cb25a7a9449f21e458c42ba46f9f4cd37d54346a7ec70c8884"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyApiName.md",
+          "sha256": "a39c2d6ae56f327b88e94ddb29f5d41caafa1cb64a4a1f5ffe7251aa1cee7dd9"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "Unpaged visible-ontology data contains RID and display metadata. Local guide limits visibility to caller and does not incorrectly require continuation for this unpaged method."
+    },
+    {
+      "operation_id": "v1.ontologies.OntologyObject.aggregate",
+      "status": "PASS",
+      "reason": "Request and declared date schema, P1D duration, prefixed fields and named numeric metric remain coherent. Guide and example now explicitly identify response group Dict[str,Any], opaque labels/values and absent source conventions or bucket boundaries. No longer indexes using requested field or parses mock value as universal date. Real response labels must be confirmed from approved enrollment documentation/schema; missing labels or invalid values stop derived calculation and retain request/response for recovery. Synthetic exact roundtrip remains bounded decoding evidence. Explicit source silence and bounded interpretation meet this source-informed review scope; live label mapping and boundary calculations remain unverified.",
+      "initial_status": "FAIL",
+      "initial_reason": "Duration synthetic-value is not ISO8601; AggregationDurationGrouping applies only to date fields, while declared synthetic Asset schema defines only string assetId/status. Response group {} omits requested grouping and metric has no interpretable numeric value. Pydantic success does not verify aggregation meaning. FieldNameV1 synthetic-value also lacks required properties.{propertyApiName} form.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+        "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/OntologyObject/aggregate.md",
+        "sha256": "7141ef011afb4e3ea4f4c2eb93963cf377a75417c9924d07eafb7041610d39d2"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/OntologyObject.md",
+        "sha256": "31777ffb665c569cc6de5245909193eb8a942cd4d9d8a392c8e6fda33bcc02d7"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/aggregate.py",
+        "sha256": "9f754d9ffb14d7dbbdd9f4099b8e455b727180e35bd6ad1bf0e872d263cf0f2b"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/PageToken.md",
+          "sha256": "0ddff0965d80fc72d37302172f6242511baf2ba523850da4ee594d5ac667b4a7"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AggregateObjectsRequest.md",
+          "sha256": "757b343ffdd5300b790034aeea181de8f4d38a78d8a3338bd05ce2f90b43a9be"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AggregateObjectsResponse.md",
+          "sha256": "da5806a6178a9f3545dec7052f52eb20d21bd387698c30583245fe08c003c9bb"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AggregateObjectsResponseItem.md",
+          "sha256": "622bb551bf20f21d4a702c32afd715150875e08436696018087acc733fbed32e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/Aggregation.md",
+          "sha256": "fc483a668bd4243cbd743c4c91038c8a6ddd18d9bebd81b524492888708f2abf"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AggregationDurationGrouping.md",
+          "sha256": "9870c21163bd2d903acc6c25f438f5cb842ee77a431b23437d7f633252d0c73d"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AggregationExactGrouping.md",
+          "sha256": "6d4d22e36cb3333fdefb6ceb5b6b1751369d976bda9bfaf6fb7ded7712bc113d"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AggregationFixedWidthGrouping.md",
+          "sha256": "a297dd5f2de9ad5212498a7b949715ad4d72740d237ab51eba098a2d0b206c51"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AggregationGroupBy.md",
+          "sha256": "b67d7acfbdf29e5b6b66bc9dc27eb7b6262fa982b6ee86b5a408f927a66304c9"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AggregationGroupKey.md",
+          "sha256": "e732cc901274cc04f5d6b8b5034f6a202997362c9e6083bdc2010a97cca03dab"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AggregationGroupValue.md",
+          "sha256": "4ab2293ba544a1e3ea4f07bd9960ce6efe56cb9d0b142a7e50240536519bd79f"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AggregationMetricName.md",
+          "sha256": "9991f19733516125f061a7cc8263def60b5da6d011e5416c618cd643bb7dce34"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AggregationMetricResult.md",
+          "sha256": "36471e25ff5967b6ad2d73d5121fd649d61aaae424584c128cde6fd91d1ff9e4"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AggregationRange.md",
+          "sha256": "472cc536f69b7a5eed2580e78c890e667b894ccf6856ae31b8f3246a37e17f87"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AggregationRangesGrouping.md",
+          "sha256": "e2c5de8087133bc41c9458b2280cc8da82425ffae8f54f6e62281c66192c0ec8"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AllTermsQuery.md",
+          "sha256": "951ea50f99bb98f8ca32fc480a4ffa974dd4ef0a05a834a30aa9ca9441f3b4ba"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AndQuery.md",
+          "sha256": "e706bdce64f6767864521bbf65d6e1740b112e2e3202aa60fe4c6242c9f801b3"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AnyTermQuery.md",
+          "sha256": "0e095fe534fc23807ccbdd10916824b499644894b3051f7699245518437031bf"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ApproximateDistinctAggregation.md",
+          "sha256": "ae62e0c59ddd0d1faf884a3cc942b14acafe5ea2b8a6d96db42f8e7b6f807547"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AvgAggregation.md",
+          "sha256": "cd212740040c8181026594bcff06fe9d97fa88a79b6575d3b83a2f4e6310f223"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ContainsQuery.md",
+          "sha256": "532492e243df0ba1b7f425c423bfa8c12f47a0e4f310237b1bc6083a71afb98e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/CountAggregation.md",
+          "sha256": "4ab53833e66da7f649337a868dcbd189c298e3933b8de374407079e181d0b986"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/Duration.md",
+          "sha256": "409dc801e575715e70ecd8fc8849faf614aaacf3167e8375d1ba85681e48d316"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/EqualsQuery.md",
+          "sha256": "a07de513fcbd63db45a98330fe40e076d991f8993278ef56236d3594d004495c"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/FieldNameV1.md",
+          "sha256": "fd0e3b908fcf662827fded7b40836d874c02d922421a0c5aca61470fed1a4259"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/Fuzzy.md",
+          "sha256": "55e1b0fa240b6778af4246fd5065d1a7f41c3b7fe1a3bc4df59cb9b3c2ef1d58"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/GteQuery.md",
+          "sha256": "26734b380f6bcccd3844147fd97922b1310b1ab850cd9552a4d69426c9e92de7"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/GtQuery.md",
+          "sha256": "94110f1b0a592ce1f4de6d7bc28261bf6d659c2599aee5a68380d4fcc9d88ec3"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/IsNullQuery.md",
+          "sha256": "4416f5ca2a544e17d12c9699f2eeadbf7631fc9f0cf84e79d4721907c8b7e3da"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LteQuery.md",
+          "sha256": "4aad99d3294941bd97697d98c67df844322cf2aaa4558eb1121516ab2bc64b82"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LtQuery.md",
+          "sha256": "12b429c7f2bbdf72f5dbd50198e61502bfbb11da6ba2b629f1d3891225e72158"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/MaxAggregation.md",
+          "sha256": "3449a043e977a71749c95d63b77357fa30b8eefdf88b0fad24f3071c308e0eab"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/MinAggregation.md",
+          "sha256": "30203d792bd314af5ae66a3d0c3bc2fe586282e4759f171bcd1b3db119d06b46"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/NotQuery.md",
+          "sha256": "95f0dc92ff0876f3d32ec774f89ef195b051f8909e3abf9d86cbbeab5e394809"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeApiName.md",
+          "sha256": "d04dde18618a7baa484e53059cdc3f76e256377f0bc67b1e5c08511e5820434e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OrQuery.md",
+          "sha256": "e9ce37aa6db3a0b590ed7bde741629139bac9949a2f6c0e450f9ff0c401cb8cb"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PhraseQuery.md",
+          "sha256": "68b86339866e9c01ad34c36e5ba19c269dfbe7d4fcac856d56ff7328d1a38ae6"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PrefixQuery.md",
+          "sha256": "de195364114e7f4a564600377499976d004960ede7e2519ddca27943c84bd61d"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PropertyValue.md",
+          "sha256": "c15ccc17110728a3a7030aa846c7d7e0ad157539db2f4bf2889b4084ee9094aa"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/SearchJsonQuery.md",
+          "sha256": "0f267cbd7ade9cfc9f27456578d942100a9300ff5d11ee5d4e87a0be21214c82"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/SumAggregation.md",
+          "sha256": "124fd1af721d46a447cb61b15c906eb4fd20c351fcaa6fcbfac4237a0b0be4ba"
+        }
+      ],
+      "preceding_retest_status": "UNCERTAIN",
+      "preceding_retest_reason": "Request now uses date-typed properties.inspectionDate, ISO 8601 P1D, properties.assetId and numeric named metric distinctAssets. Source defines response group as Dict[str,Any] without specifying response key convention or date value representation. Fixture/test assume properties.inspectionDate key and ISO date value; that assumption has no frozen-source basis. Guide limits calculation claim but does not explicitly identify response-key uncertainty."
+    },
+    {
+      "operation_id": "v1.ontologies.OntologyObject.get",
+      "status": "PASS",
+      "reason": "Asset A-1 key matches request; returned declared status/date have expected types and ISO date value.",
+      "initial_status": "PASS",
+      "initial_reason": "Requested Asset primary key A-1 matches returned assetId A-1 and status ready in documented string-property schema. Local guide requires real ObjectType metadata before tenant use; property selection and null behavior remain source-specific.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+        "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/OntologyObject/get.md",
+        "sha256": "36d2a9a9219f0789006da23939a84c537e2c40268aed06e3e7f8eee57b6d9d6f"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/OntologyObject.md",
+        "sha256": "31777ffb665c569cc6de5245909193eb8a942cd4d9d8a392c8e6fda33bcc02d7"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/get.py",
+        "sha256": "73c6a374ebed3377f05f951149dd30229ef8283e05c7d719167014ff7c9c9311"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectRid.md",
+          "sha256": "26c5d046d61857053e69d6b5a51f68181bf1147bd0b35aa0e48955bbfee8bae8"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeApiName.md",
+          "sha256": "d04dde18618a7baa484e53059cdc3f76e256377f0bc67b1e5c08511e5820434e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyObject.md",
+          "sha256": "60edb830d008bac2babe771e72fc46b62f550d172884598a958d65eea59a6915"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PropertyApiName.md",
+          "sha256": "ce224368763741421b69c446b46ddb90181af032a9c16cf8ffb009a7ce4c717f"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PropertyValue.md",
+          "sha256": "c15ccc17110728a3a7030aa846c7d7e0ad157539db2f4bf2889b4084ee9094aa"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PropertyValueEscapedString.md",
+          "sha256": "86ebbb3fc79493811a4738afac5566c203244bd6f945dc7f87ad0c8691d7e392"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/SelectedPropertyApiName.md",
+          "sha256": "e7ba4007a60fe19276f6e74a63e7137983688546f2cfb29770d254fbe0d39380"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "Asset A-1 key matches request; returned declared status/date have expected types and ISO date value."
+    },
+    {
+      "operation_id": "v1.ontologies.OntologyObject.get_linked_object",
+      "status": "PASS",
+      "reason": "Requested F-1 matches returned facilityId; facility metadata targets Facility. Target RID differs from Asset and returned name is declared String.",
+      "initial_status": "UNCERTAIN",
+      "initial_reason": "Request selects linked key synthetic-value from Asset A-1, while response contains assetId A-1/status ready. No linked target type or primary-key schema is supplied to prove that response identifies selected target. Same-source object payload may be wrong; explicit synthetic link/target schema is needed. Guide correctly distinguishes absent link from direct target existence.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+        "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/OntologyObject/get_linked_object.md",
+        "sha256": "527f8c2270385bc4b3e82cdb30e416d71229802f10d3dc0487bb9001ca88ecaf"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/OntologyObject.md",
+        "sha256": "31777ffb665c569cc6de5245909193eb8a942cd4d9d8a392c8e6fda33bcc02d7"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/get_linked_object.py",
+        "sha256": "b3a2594e89181faf926741e945c425bed81c22e625077b311c977786e8db51fa"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LinkTypeApiName.md",
+          "sha256": "d7c2ee59e3a94b9846acaafd80c62399771525a9c0169d307f0431de4a23a8bf"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectRid.md",
+          "sha256": "26c5d046d61857053e69d6b5a51f68181bf1147bd0b35aa0e48955bbfee8bae8"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeApiName.md",
+          "sha256": "d04dde18618a7baa484e53059cdc3f76e256377f0bc67b1e5c08511e5820434e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyObject.md",
+          "sha256": "60edb830d008bac2babe771e72fc46b62f550d172884598a958d65eea59a6915"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PropertyApiName.md",
+          "sha256": "ce224368763741421b69c446b46ddb90181af032a9c16cf8ffb009a7ce4c717f"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PropertyValue.md",
+          "sha256": "c15ccc17110728a3a7030aa846c7d7e0ad157539db2f4bf2889b4084ee9094aa"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PropertyValueEscapedString.md",
+          "sha256": "86ebbb3fc79493811a4738afac5566c203244bd6f945dc7f87ad0c8691d7e392"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/SelectedPropertyApiName.md",
+          "sha256": "e7ba4007a60fe19276f6e74a63e7137983688546f2cfb29770d254fbe0d39380"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "Requested F-1 matches returned facilityId; facility metadata targets Facility. Target RID differs from Asset and returned name is declared String."
+    },
+    {
+      "operation_id": "v1.ontologies.OntologyObject.list",
+      "status": "PASS",
+      "reason": "Returned Asset includes declared assetId, status and inspectionDate; usable identity and schema replace empty properties.",
+      "initial_status": "FAIL",
+      "initial_reason": "Fixture returns properties {} for Asset despite shared synthetic schema defining string primary key assetId and status. Omitted selector requests all properties, so no identity or application outcome can be checked. Source non-snapshot behavior, OSv1 10000 limit and null omission are available, but do not repair meaningless object example.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+        "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/OntologyObject/list.md",
+        "sha256": "144bf1d65f7188ece280d88e7ce0ff1a0844842bedc6064addf20b003353da1a"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/OntologyObject.md",
+        "sha256": "31777ffb665c569cc6de5245909193eb8a942cd4d9d8a392c8e6fda33bcc02d7"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/list.py",
+        "sha256": "c5b16f9b35f6ae867565b3c84905cca3ee2768a2f8f3d2a98323eb65afd6ce63"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/Long.md",
+          "sha256": "f9739e18a1a7b0bb06bd179a62b92f2e5a78f3906cf73dbb0818241237666cdf"
+        },
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/PageSize.md",
+          "sha256": "f2b9ac469b97c61ae4799e15cf8a145a6cebaeac818a73f779fbc18a08fd13e0"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/PageToken.md",
+          "sha256": "0ddff0965d80fc72d37302172f6242511baf2ba523850da4ee594d5ac667b4a7"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/TotalCount.md",
+          "sha256": "d597217e6aace222196f15fede36b01a4823e82199c311eb51c1befbf89492d4"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ListObjectsResponse.md",
+          "sha256": "d1b91172ab55262d7018164d58f9859fd57cf9f3971e937857be867397841f17"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectRid.md",
+          "sha256": "26c5d046d61857053e69d6b5a51f68181bf1147bd0b35aa0e48955bbfee8bae8"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeApiName.md",
+          "sha256": "d04dde18618a7baa484e53059cdc3f76e256377f0bc67b1e5c08511e5820434e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyObject.md",
+          "sha256": "60edb830d008bac2babe771e72fc46b62f550d172884598a958d65eea59a6915"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OrderBy.md",
+          "sha256": "9022f8a167b924e80bc4db1557131227591381008ee33446215353d8d0352b64"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PropertyApiName.md",
+          "sha256": "ce224368763741421b69c446b46ddb90181af032a9c16cf8ffb009a7ce4c717f"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PropertyValue.md",
+          "sha256": "c15ccc17110728a3a7030aa846c7d7e0ad157539db2f4bf2889b4084ee9094aa"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/SelectedPropertyApiName.md",
+          "sha256": "e7ba4007a60fe19276f6e74a63e7137983688546f2cfb29770d254fbe0d39380"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "Returned Asset includes declared assetId, status and inspectionDate; usable identity and schema replace empty properties."
+    },
+    {
+      "operation_id": "v1.ontologies.OntologyObject.list_linked_objects",
+      "status": "PASS",
+      "reason": "Facility F-1 and North depot satisfy target schema and facility link metadata; source Asset payload is absent.",
+      "initial_status": "UNCERTAIN",
+      "initial_reason": "Returned linked objects have properties {} and no declared linked target schema. Cannot establish target identities, property semantics or meaningful traversal outcome from RID alone in this fixture. Source consistency, OSv1 ceiling and finite-page guidance are retained.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+        "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/OntologyObject/list_linked_objects.md",
+        "sha256": "2750e7fc3a2c72273638b5474e49a17244a36668c4c9d426f5222d880d1acd44"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/OntologyObject.md",
+        "sha256": "31777ffb665c569cc6de5245909193eb8a942cd4d9d8a392c8e6fda33bcc02d7"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/list_linked_objects.py",
+        "sha256": "73ab6e9fac463b7d8098a4912cde0acd3aff25f89c50a1e9bd0049bb74aa9046"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/PageSize.md",
+          "sha256": "f2b9ac469b97c61ae4799e15cf8a145a6cebaeac818a73f779fbc18a08fd13e0"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/PageToken.md",
+          "sha256": "0ddff0965d80fc72d37302172f6242511baf2ba523850da4ee594d5ac667b4a7"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LinkTypeApiName.md",
+          "sha256": "d7c2ee59e3a94b9846acaafd80c62399771525a9c0169d307f0431de4a23a8bf"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ListLinkedObjectsResponse.md",
+          "sha256": "085b783bab01c9df797f63d4382ccfea7ce2005ec157ac91626c78a9922bf9bc"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectRid.md",
+          "sha256": "26c5d046d61857053e69d6b5a51f68181bf1147bd0b35aa0e48955bbfee8bae8"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeApiName.md",
+          "sha256": "d04dde18618a7baa484e53059cdc3f76e256377f0bc67b1e5c08511e5820434e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyObject.md",
+          "sha256": "60edb830d008bac2babe771e72fc46b62f550d172884598a958d65eea59a6915"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OrderBy.md",
+          "sha256": "9022f8a167b924e80bc4db1557131227591381008ee33446215353d8d0352b64"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PropertyApiName.md",
+          "sha256": "ce224368763741421b69c446b46ddb90181af032a9c16cf8ffb009a7ce4c717f"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PropertyValue.md",
+          "sha256": "c15ccc17110728a3a7030aa846c7d7e0ad157539db2f4bf2889b4084ee9094aa"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PropertyValueEscapedString.md",
+          "sha256": "86ebbb3fc79493811a4738afac5566c203244bd6f945dc7f87ad0c8691d7e392"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/SelectedPropertyApiName.md",
+          "sha256": "e7ba4007a60fe19276f6e74a63e7137983688546f2cfb29770d254fbe0d39380"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "Facility F-1 and North depot satisfy target schema and facility link metadata; source Asset payload is absent."
+    },
+    {
+      "operation_id": "v1.ontologies.OntologyObject.search",
+      "status": "PASS",
+      "reason": "properties.status resolves to String; ready satisfies rea prefix; selected assetId/status are returned and provide identity. Request query field syntax differs correctly from bare-name selection list.",
+      "initial_status": "FAIL",
+      "initial_reason": "Search selects and applies prefix to synthetic-value, absent from documented Asset property schema, then returns properties {}. Nested or/or/prefix depth is three and structurally allowed, but neither schema compatibility nor result predicate/identity is demonstrated. Need explicit string property, matching returned value and continuation handling.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\ontology_object.py",
+        "sha256": "6b66b508b4b2792b47eaa8de00e604e3e7c3d70c89c0046e19ed03aa2345041f",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/OntologyObject/search.md",
+        "sha256": "952a652078f9baf93900bf73d3cde59a1c6f4f1b452c01129f0f11104dbd7bde"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/OntologyObject.md",
+        "sha256": "31777ffb665c569cc6de5245909193eb8a942cd4d9d8a392c8e6fda33bcc02d7"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/search.py",
+        "sha256": "e1aca46efe649e2d2cecfea182cc6914105b7b52c9c6a6aae35e9082a7aa0db6"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/Long.md",
+          "sha256": "f9739e18a1a7b0bb06bd179a62b92f2e5a78f3906cf73dbb0818241237666cdf"
+        },
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/PageSize.md",
+          "sha256": "f2b9ac469b97c61ae4799e15cf8a145a6cebaeac818a73f779fbc18a08fd13e0"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/PageToken.md",
+          "sha256": "0ddff0965d80fc72d37302172f6242511baf2ba523850da4ee594d5ac667b4a7"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/TotalCount.md",
+          "sha256": "d597217e6aace222196f15fede36b01a4823e82199c311eb51c1befbf89492d4"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AllTermsQuery.md",
+          "sha256": "951ea50f99bb98f8ca32fc480a4ffa974dd4ef0a05a834a30aa9ca9441f3b4ba"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AndQuery.md",
+          "sha256": "e706bdce64f6767864521bbf65d6e1740b112e2e3202aa60fe4c6242c9f801b3"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/AnyTermQuery.md",
+          "sha256": "0e095fe534fc23807ccbdd10916824b499644894b3051f7699245518437031bf"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ContainsQuery.md",
+          "sha256": "532492e243df0ba1b7f425c423bfa8c12f47a0e4f310237b1bc6083a71afb98e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/EqualsQuery.md",
+          "sha256": "a07de513fcbd63db45a98330fe40e076d991f8993278ef56236d3594d004495c"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/FieldNameV1.md",
+          "sha256": "fd0e3b908fcf662827fded7b40836d874c02d922421a0c5aca61470fed1a4259"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/Fuzzy.md",
+          "sha256": "55e1b0fa240b6778af4246fd5065d1a7f41c3b7fe1a3bc4df59cb9b3c2ef1d58"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/GteQuery.md",
+          "sha256": "26734b380f6bcccd3844147fd97922b1310b1ab850cd9552a4d69426c9e92de7"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/GtQuery.md",
+          "sha256": "94110f1b0a592ce1f4de6d7bc28261bf6d659c2599aee5a68380d4fcc9d88ec3"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/IsNullQuery.md",
+          "sha256": "4416f5ca2a544e17d12c9699f2eeadbf7631fc9f0cf84e79d4721907c8b7e3da"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LteQuery.md",
+          "sha256": "4aad99d3294941bd97697d98c67df844322cf2aaa4558eb1121516ab2bc64b82"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/LtQuery.md",
+          "sha256": "12b429c7f2bbdf72f5dbd50198e61502bfbb11da6ba2b629f1d3891225e72158"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/NotQuery.md",
+          "sha256": "95f0dc92ff0876f3d32ec774f89ef195b051f8909e3abf9d86cbbeab5e394809"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectRid.md",
+          "sha256": "26c5d046d61857053e69d6b5a51f68181bf1147bd0b35aa0e48955bbfee8bae8"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeApiName.md",
+          "sha256": "d04dde18618a7baa484e53059cdc3f76e256377f0bc67b1e5c08511e5820434e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyObject.md",
+          "sha256": "60edb830d008bac2babe771e72fc46b62f550d172884598a958d65eea59a6915"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OrQuery.md",
+          "sha256": "e9ce37aa6db3a0b590ed7bde741629139bac9949a2f6c0e450f9ff0c401cb8cb"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PhraseQuery.md",
+          "sha256": "68b86339866e9c01ad34c36e5ba19c269dfbe7d4fcac856d56ff7328d1a38ae6"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PrefixQuery.md",
+          "sha256": "de195364114e7f4a564600377499976d004960ede7e2519ddca27943c84bd61d"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PropertyApiName.md",
+          "sha256": "ce224368763741421b69c446b46ddb90181af032a9c16cf8ffb009a7ce4c717f"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/PropertyValue.md",
+          "sha256": "c15ccc17110728a3a7030aa846c7d7e0ad157539db2f4bf2889b4084ee9094aa"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/SearchJsonQuery.md",
+          "sha256": "0f267cbd7ade9cfc9f27456578d942100a9300ff5d11ee5d4e87a0be21214c82"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/SearchObjectsRequest.md",
+          "sha256": "df5b231983df43e73d91fc3c7cd4c1ea24f941e170ee01daffce89fd52338522"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/SearchObjectsResponse.md",
+          "sha256": "59f40996dd4cb4e1a14792b250e3a145d35caa1e1f116653a789e5cde66eb364"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/SearchOrderBy.md",
+          "sha256": "51a98e1affcabf1faf9999c7b6e858d46c4fb576475f515b1d6ad98a306e2df1"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/SearchOrdering.md",
+          "sha256": "cc78e1e928a4eb3526c2177a6189bfd1e29bbfb05404a7392d1053e3af08baf5"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "properties.status resolves to String; ready satisfies rea prefix; selected assetId/status are returned and provide identity. Request query field syntax differs correctly from bare-name selection list."
+    },
+    {
+      "operation_id": "v1.ontologies.Query.execute",
+      "status": "PASS",
+      "reason": "Required assetId A-1 matches documented synthetic asset-status input; returned assetId/status matches declared object result. DataValue permits this shape; application guide requires QueryType metadata and result validation. Optional omission and attribution/trace headers remain in exact contract.",
+      "initial_status": "PASS",
+      "initial_reason": "Required assetId A-1 matches documented synthetic asset-status input; returned assetId/status matches declared object result. DataValue permits this shape; application guide requires QueryType metadata and result validation. Optional omission and attribution/trace headers remain in exact contract.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\query.py",
+        "sha256": "9b6b1152611e85245ce5db06e10d90650e644485316b4c5e9a3206049bfc050e",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/Query/execute.md",
+        "sha256": "56727cd1e8790255f52359c7c226eb58067ddd479fff3cef0a785fa956272fff"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/Query.md",
+        "sha256": "82b85cede9101be5f02fdd6eb495bedd2c6edab02c078d1de2138d8e9f2a0558"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Query/execute.py",
+        "sha256": "8deef14b7ffc217aeab33057de41ecb2679ff2f6f5859a5f76f19d84765acae6"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/Attribution.md",
+          "sha256": "d49a52f2dc2e76e0070cc187d063a15680f695d6f7bef1c6da96b258658f876b"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/TraceParent.md",
+          "sha256": "fab1f4c0ff0d372118ec2f30e7e7e13bfb73527760db941a0d9bfb9834893229"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/TraceState.md",
+          "sha256": "35f571860d5c0d873128e5496561b6da3d6869dd8054301503be28ac708e1d45"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/DataValue.md",
+          "sha256": "afa2bea21bd70ec0fff7f3a0b8ba8487690d0013a2e3b57aafc5990e6c50bdde"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ExecuteQueryRequest.md",
+          "sha256": "cae2d7f276033726510a73c575415db177f1be4d92ff25b57148ba974eaded6a"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ExecuteQueryResponse.md",
+          "sha256": "66c2e52702b1437f43a63a2a795b216e4b2a9d6cf392678689492d6ec906f67e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ParameterId.md",
+          "sha256": "dd79af407e353a6de1f353bef1c31a083f7a3547490c92a263b66d9e7311c700"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/QueryApiName.md",
+          "sha256": "37ff3c8afa0cd7a64a754f8011476578957548043617bc49bb4864e6ee8278ac"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "Required assetId A-1 matches documented synthetic asset-status input; returned assetId/status matches declared object result. DataValue permits this shape; application guide requires QueryType metadata and result validation. Optional omission and attribution/trace headers remain in exact contract."
+    },
+    {
+      "operation_id": "v1.ontologies.QueryType.get",
+      "status": "PASS",
+      "reason": "asset-status metadata matches request/execution, FunctionVersion 1.2.3 satisfies source documented format; assetId required String and output struct assetId/status match execution.",
+      "initial_status": "FAIL",
+      "initial_reason": "Requested API name matches response, but version synthetic-value violates FunctionVersion documented format <major>.<minor>.<patch>[-tag]. Empty parameter map and optional output omission are structurally valid for a separate zero-parameter query; they do not waive the version meaning.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\query_type.py",
+        "sha256": "5fc6464e93bd6153963c8d98eb9013d7cb7c521831866379a3829cee6d1dcedb",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/QueryType/get.md",
+        "sha256": "c83dc6a65f580f00653b3027518c9efa593bbd0ebc5d95cfaa01fafb38247944"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/QueryType.md",
+        "sha256": "b1679d6d34611b1946257fa5a01102c8ee63b0fb4ba4536c33058776ef0ba54b"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/QueryType/get.py",
+        "sha256": "fccc7da7a5cf74a155efffff4268d98c48d838a49af527caf5d66f3e199b226d"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/AnyType.md",
+          "sha256": "d436456f9bccae4fd7bed22eba235346ee05415a97a0af9cd69897a8d2369d20"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/BinaryType.md",
+          "sha256": "d5f9e8380e73de4e5f5c28fab0b7ae9830c3793e4814d868b5ce9415af7f9179"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/BooleanType.md",
+          "sha256": "a6c112083db683ef2298481574c77b60b7c921b91c55c564ca53dcf72bb2e86f"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/ByteType.md",
+          "sha256": "a04b886596078ad7e6327a1aac70e5ab195fc0d98bc28b09843df97302d52955"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/CipherTextType.md",
+          "sha256": "2fed1a23f297eca38d1d5fc7381701c28c526c54a1c0eddd8eb519cd6c5e6131"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DateType.md",
+          "sha256": "022ec77029969162f7518788c9940917ecdbee5b7ae3a78a46f044cba10fc849"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DecimalType.md",
+          "sha256": "4595959ca349489609d9cbbe79bae86a8166a4be112c39f96317f19e7a37d3b1"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DisplayName.md",
+          "sha256": "f7083aa456306fc4907d2940909f6dd7897fe54617a5ba7a7d43dcf68b39ed35"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DoubleType.md",
+          "sha256": "711e6b4e8e298125bb15a1bffe4953230da307a45da7f031ebe5b7b53a0ee586"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/FloatType.md",
+          "sha256": "8b019b79a8e363109940ce6082ea71c6d8e65c92366c1ee037331928cb6a03f0"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/IntegerType.md",
+          "sha256": "89975a9c0371bdaea24ed5723f9dc889f1c33f73d43e8cc12ca73e97826dcd0a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/LongType.md",
+          "sha256": "504f28e2dd42e071b1cf1cb35ba2762de4b2d0390aabd09e27f9ea73f9ed80dd"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/MarkingType.md",
+          "sha256": "6c86c1b6e20c18d3395e15b57b54377348226770b9daa059d86459850fbb1cec"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/MarkingTypeValue.md",
+          "sha256": "64ca8d43250c8d26fb01a79220b49826589431de1880980ab2024919d686711e"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/MediaReferenceType.md",
+          "sha256": "747c194f6d9eb669ab3ac975abcebe278e25b6c24dcff6abc336cc4108d7addc"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/ShortType.md",
+          "sha256": "80baab6a47db1bb4e1ab35c083c4a4b9b5fb5a78e45434e9ea90bf856fb50ff9"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/StringType.md",
+          "sha256": "f6f16be2026fd82fa04aeaec988424236f7758e081848626695920e1302422cf"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/StructFieldName.md",
+          "sha256": "7509c23fc99660c488b2cc5f9674b80f817330dd4a83be2abe536279d7a472ed"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/TimestampType.md",
+          "sha256": "472c5320433726fd9f15b1645c01d9df12911bb750975c2ec4e061cff0ff477c"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/UnsupportedType.md",
+          "sha256": "bb23e5fba2eb1367e4b61b0654b4d7fb8da8cd92e1b20adb5ebd8c8c29f5972a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/UnsupportedTypeParamKey.md",
+          "sha256": "16a56f5e707b1137dd7fc2283517325e317ecd7586785dbc9f7bdfb0e60e7370"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/UnsupportedTypeParamValue.md",
+          "sha256": "758dd50b271a55650eb97da7ca13f390a194eadd0e14ed21344ce2ac12136e99"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/FunctionRid.md",
+          "sha256": "311eaef7379e216d3a5464c91e13570689a0c7b8b15e8b91b2afa88837a1efa7"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/FunctionVersion.md",
+          "sha256": "96863679c64d7216c19f50bd623ad6148d84adbfba4b2ce7abbf2282f99f52ec"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeApiName.md",
+          "sha256": "d04dde18618a7baa484e53059cdc3f76e256377f0bc67b1e5c08511e5820434e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyArrayType.md",
+          "sha256": "272c8f2dd3904326fd5ce1418a31d8d4f97b13241fb3ccfcd6b2a517d8d74fee"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyDataType.md",
+          "sha256": "30fd5b39f095b7443040deaab51d65f3558e6a6d29b55398cc52e4a958d7f64a"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyMapType.md",
+          "sha256": "024723789c3aa9de5f643052ccefcc099752772cb71629eed293f0dd095dfe63"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyObjectSetType.md",
+          "sha256": "1108d0511ccc34abdb9950186f0e992d93c10d5772c8fabe53e2eb8716d28065"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyObjectType.md",
+          "sha256": "25be5a1d54573034fde056ac1fc6ca8a1449e30580c0e40d00fcb451661a3fad"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologySetType.md",
+          "sha256": "2849c9c41acf96437b57613aa6984f5d8f518397676cfea403ebad6dc8847da0"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyStructField.md",
+          "sha256": "9f130f9721167e81889dd2633740588285237e8bcc9c9691628d5e365d2b1901"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyStructType.md",
+          "sha256": "084d4b874ef2c2e2843a707194f5b820a5036dee5a9db7fa7bc33e74abc46853"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/Parameter.md",
+          "sha256": "654b9c30974f651628b39f2234c094733b342795b64cdb4c590e82f56bd52d3b"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ParameterId.md",
+          "sha256": "dd79af407e353a6de1f353bef1c31a083f7a3547490c92a263b66d9e7311c700"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/QueryApiName.md",
+          "sha256": "37ff3c8afa0cd7a64a754f8011476578957548043617bc49bb4864e6ee8278ac"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/QueryType.md",
+          "sha256": "45682575852921328260f62e3062f0f0c25741251546678378c255629b16e328"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ValueType.md",
+          "sha256": "27f0714c211afb0a227b98d43cbb4946aa02e33e866950035dfdb139664bfc09"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "asset-status metadata matches request/execution, FunctionVersion 1.2.3 satisfies source documented format; assetId required String and output struct assetId/status match execution."
+    },
+    {
+      "operation_id": "v1.ontologies.QueryType.list",
+      "status": "PASS",
+      "reason": "FunctionVersion 1.2.3, required assetId String parameter and explicit output struct now form meaningful metadata consistent with execution.",
+      "initial_status": "FAIL",
+      "initial_reason": "Returned FunctionVersion synthetic-value violates documented semantic-version format. Real raw-page transport and finite continuation guidance are correct; example still needs a meaningful function version and an explicit chosen query schema when reused for execution.",
+      "fixture_status": "PASS",
+      "fixture_error": null,
+      "source": {
+        "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\query_type.py",
+        "sha256": "5fc6464e93bd6153963c8d98eb9013d7cb7c521831866379a3829cee6d1dcedb",
+        "matches_oracle": true
+      },
+      "contract": {
+        "path": ".agents/skills/pal-found-dev/references/rest/contracts/v1/ontologies/QueryType/list.md",
+        "sha256": "732998455ee5390652a7c3f388a617653ff2c221fffae13ecd9d17a0b923b3d4"
+      },
+      "guide": {
+        "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/QueryType.md",
+        "sha256": "b1679d6d34611b1946257fa5a01102c8ee63b0fb4ba4536c33058776ef0ba54b"
+      },
+      "example": {
+        "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/QueryType/list.py",
+        "sha256": "d21755dc6ecbf92636a918a962265009f37670ca3fd5d0560a433faf354c98f0"
+      },
+      "contract_oracle_defects": [],
+      "missing_model_links": [],
+      "transitive_models": [
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587"
+        },
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f"
+        },
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2"
+        },
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca"
+        },
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/AnyType.md",
+          "sha256": "d436456f9bccae4fd7bed22eba235346ee05415a97a0af9cd69897a8d2369d20"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/BinaryType.md",
+          "sha256": "d5f9e8380e73de4e5f5c28fab0b7ae9830c3793e4814d868b5ce9415af7f9179"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/BooleanType.md",
+          "sha256": "a6c112083db683ef2298481574c77b60b7c921b91c55c564ca53dcf72bb2e86f"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/ByteType.md",
+          "sha256": "a04b886596078ad7e6327a1aac70e5ab195fc0d98bc28b09843df97302d52955"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/CipherTextType.md",
+          "sha256": "2fed1a23f297eca38d1d5fc7381701c28c526c54a1c0eddd8eb519cd6c5e6131"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DateType.md",
+          "sha256": "022ec77029969162f7518788c9940917ecdbee5b7ae3a78a46f044cba10fc849"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DecimalType.md",
+          "sha256": "4595959ca349489609d9cbbe79bae86a8166a4be112c39f96317f19e7a37d3b1"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DisplayName.md",
+          "sha256": "f7083aa456306fc4907d2940909f6dd7897fe54617a5ba7a7d43dcf68b39ed35"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/DoubleType.md",
+          "sha256": "711e6b4e8e298125bb15a1bffe4953230da307a45da7f031ebe5b7b53a0ee586"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/FloatType.md",
+          "sha256": "8b019b79a8e363109940ce6082ea71c6d8e65c92366c1ee037331928cb6a03f0"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/IntegerType.md",
+          "sha256": "89975a9c0371bdaea24ed5723f9dc889f1c33f73d43e8cc12ca73e97826dcd0a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/LongType.md",
+          "sha256": "504f28e2dd42e071b1cf1cb35ba2762de4b2d0390aabd09e27f9ea73f9ed80dd"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/MarkingType.md",
+          "sha256": "6c86c1b6e20c18d3395e15b57b54377348226770b9daa059d86459850fbb1cec"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/MarkingTypeValue.md",
+          "sha256": "64ca8d43250c8d26fb01a79220b49826589431de1880980ab2024919d686711e"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/MediaReferenceType.md",
+          "sha256": "747c194f6d9eb669ab3ac975abcebe278e25b6c24dcff6abc336cc4108d7addc"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/PageSize.md",
+          "sha256": "f2b9ac469b97c61ae4799e15cf8a145a6cebaeac818a73f779fbc18a08fd13e0"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/PageToken.md",
+          "sha256": "0ddff0965d80fc72d37302172f6242511baf2ba523850da4ee594d5ac667b4a7"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/ShortType.md",
+          "sha256": "80baab6a47db1bb4e1ab35c083c4a4b9b5fb5a78e45434e9ea90bf856fb50ff9"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/StringType.md",
+          "sha256": "f6f16be2026fd82fa04aeaec988424236f7758e081848626695920e1302422cf"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/StructFieldName.md",
+          "sha256": "7509c23fc99660c488b2cc5f9674b80f817330dd4a83be2abe536279d7a472ed"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/TimestampType.md",
+          "sha256": "472c5320433726fd9f15b1645c01d9df12911bb750975c2ec4e061cff0ff477c"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/UnsupportedType.md",
+          "sha256": "bb23e5fba2eb1367e4b61b0654b4d7fb8da8cd92e1b20adb5ebd8c8c29f5972a"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/UnsupportedTypeParamKey.md",
+          "sha256": "16a56f5e707b1137dd7fc2283517325e317ecd7586785dbc9f7bdfb0e60e7370"
+        },
+        {
+          "path": "references/rest/models/v1/core/models/UnsupportedTypeParamValue.md",
+          "sha256": "758dd50b271a55650eb97da7ca13f390a194eadd0e14ed21344ce2ac12136e99"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/FunctionRid.md",
+          "sha256": "311eaef7379e216d3a5464c91e13570689a0c7b8b15e8b91b2afa88837a1efa7"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/FunctionVersion.md",
+          "sha256": "96863679c64d7216c19f50bd623ad6148d84adbfba4b2ce7abbf2282f99f52ec"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ListQueryTypesResponse.md",
+          "sha256": "e8885a0b40739e4d5d4be84b054f3c38b9c75f3588ccc5c354178e27d9832af3"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ObjectTypeApiName.md",
+          "sha256": "d04dde18618a7baa484e53059cdc3f76e256377f0bc67b1e5c08511e5820434e"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyArrayType.md",
+          "sha256": "272c8f2dd3904326fd5ce1418a31d8d4f97b13241fb3ccfcd6b2a517d8d74fee"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyDataType.md",
+          "sha256": "30fd5b39f095b7443040deaab51d65f3558e6a6d29b55398cc52e4a958d7f64a"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyMapType.md",
+          "sha256": "024723789c3aa9de5f643052ccefcc099752772cb71629eed293f0dd095dfe63"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyObjectSetType.md",
+          "sha256": "1108d0511ccc34abdb9950186f0e992d93c10d5772c8fabe53e2eb8716d28065"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyObjectType.md",
+          "sha256": "25be5a1d54573034fde056ac1fc6ca8a1449e30580c0e40d00fcb451661a3fad"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyRid.md",
+          "sha256": "745c4980a0e95ffedf9bd73735a5a97550693cb3bdd5331955cb616a2ad07676"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologySetType.md",
+          "sha256": "2849c9c41acf96437b57613aa6984f5d8f518397676cfea403ebad6dc8847da0"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyStructField.md",
+          "sha256": "9f130f9721167e81889dd2633740588285237e8bcc9c9691628d5e365d2b1901"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/OntologyStructType.md",
+          "sha256": "084d4b874ef2c2e2843a707194f5b820a5036dee5a9db7fa7bc33e74abc46853"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/Parameter.md",
+          "sha256": "654b9c30974f651628b39f2234c094733b342795b64cdb4c590e82f56bd52d3b"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ParameterId.md",
+          "sha256": "dd79af407e353a6de1f353bef1c31a083f7a3547490c92a263b66d9e7311c700"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/QueryApiName.md",
+          "sha256": "37ff3c8afa0cd7a64a754f8011476578957548043617bc49bb4864e6ee8278ac"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/QueryType.md",
+          "sha256": "45682575852921328260f62e3062f0f0c25741251546678378c255629b16e328"
+        },
+        {
+          "path": "references/rest/models/v1/ontologies/models/ValueType.md",
+          "sha256": "27f0714c211afb0a227b98d43cbb4946aa02e33e866950035dfdb139664bfc09"
+        }
+      ],
+      "preceding_retest_status": "PASS",
+      "preceding_retest_reason": "FunctionVersion 1.2.3, required assetId String parameter and explicit output struct now form meaningful metadata consistent with execution."
+    }
+  ],
+  "limits": [
+    "Source-informed review, not source-blind reader evidence or formal acceptance.",
+    "All actual SDK calls use MockTransport. Socket connect/connect_ex, DNS, create_connection and native httpx sync/async HTTP transports denied. No tenant calls or live MIME guarantee.",
+    "SDK aliases allow arbitrary RID strings and open property maps; synthetic schema checks establish fixture coherence only.",
+    "Author test suite independently rerun, but author-selected mutation expectations are not independent QA fixtures.",
+    "No source, ledger, tracker or live writes; only this temporary probe/report."
+  ],
+  "models_source": [
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\models.py",
+      "sha256": "b60c1303e827e001c99c2be02bc27be5d5553f029aab9f68165d5056c00f9b28"
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\core\\models.py",
+      "sha256": "87e65f41ae4ee4cb315b0f8a1b7cb7f6e166e2945510ae536fde553cf7697a65"
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403"
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\action.py",
+      "sha256": "97d67d3a550ce372d2b39363e7373afc32ade7ecd803c022098a9d3ffca48ad5"
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\ontology_object.py",
+      "sha256": "2cc7b91d2c6c3fe264196220adf23e05a5f4c314452db57458523abc58721efe"
+    }
+  ],
+  "shared_assets": [
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/common/mock_transport.py",
+      "sha256": "16f3835c65b9ef1ea89e1b1efb7b2d457682a5996570099f9d216e8175f0fd72"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/common/bounded_pages.py",
+      "sha256": "ff19f90fe5816e59e4c508450e1082d3b0b00a37be46b6734b1819d6f2197f6d"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/client-behavior.md",
+      "sha256": "57826178f9a203bbe1eb3de24832bef82dc457ecb167f1208a3ba177a93dbcc2"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/authentication.md",
+      "sha256": "21cf5c0319011cf8603358d08b10205b6e92f247da4e6ec871f7526a01618a7c"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/index.md",
+      "sha256": "14163c8f194f5df0fe7a50a9fc906f0d796127d33c8a07814dcfe11d28fc5165"
+    }
+  ],
+  "model_asset_changes_from_initial": [],
+  "aggregation_source_evidence": {
+    "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v1\\ontologies\\models.py",
+    "sha256": "b60c1303e827e001c99c2be02bc27be5d5553f029aab9f68165d5056c00f9b28",
+    "lines": {
+      "response_group_map": 72,
+      "group_key_alias": 129,
+      "group_value_alias": 133
+    },
+    "conclusion": "Aliases str and Any; docstrings contain names only. Source has no response-key convention."
+  },
+  "preceding_retest": {
+    "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest077_semantic_retest_20261029.json",
+    "sha256": "2ad0924a0aba4aff4a90fe5766aea6f490be6e734439e74bcfc8a0d067836e9f",
+    "summary": {
+      "PASS": 22,
+      "FAIL": 0,
+      "UNCERTAIN": 1
+    },
+    "cross_cutting_findings": [
+      {
+        "status": "PASS",
+        "reason": "Ontology.md now compares API v1/v2 selectors, primary-key shapes, titleProperty applicability, property/object wrappers and Actions. Separately explains storage backends; frozen v1 ObjectType has no titleProperty."
+      },
+      {
+        "status": "UNCERTAIN",
+        "reason": "Request now uses date-typed properties.inspectionDate, ISO 8601 P1D, properties.assetId and numeric named metric distinctAssets. Source defines response group as Dict[str,Any] without specifying response key convention or date value representation. Fixture/test assume properties.inspectionDate key and ISO date value; that assumption has no frozen-source basis. Guide limits calculation claim but does not explicitly identify response-key uncertainty."
+      }
+    ]
+  },
+  "clarification_freeze": {
+    "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest077_aggregate_clarify_freeze_20261029.json",
+    "sha256": "87cc7e278dacdf8f8a4b0c628b36c2e578203d10382461e8e837b7b6d7ece2e1",
+    "changed": [
+      ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/aggregate.py",
+      ".agents/skills/pal-found-dev/references/rest/v1/ontologies/OntologyObject.md",
+      "tests/test_offline_rest_077.py"
+    ],
+    "unchanged_count": 18,
+    "preimage_and_current_manifest_match": true
+  },
+  "lint_diff_checks": "Independent D:/app/Python/Scripts/ruff.exe check --no-cache on aggregate example and tests passed; git diff --check passed.",
+  "owned_manifest_after_independent_opaque_variants": [
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Attachment/get.py",
+      "sha256": "1ae4d01bcfc6c396181d8ba76f2c792c2c65b015b64cff7c1d7d35e0af405f1d"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Attachment/read.py",
+      "sha256": "644084c29389aec1c95cd71a6fede3faf66cfb15199fd3e6acb0c70b2232a913"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/Attachment/upload.py",
+      "sha256": "210dcb480c5ad7daa18f55f9c0f6fd1c776169a743ab302bb41de43dc75e901a"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/get.py",
+      "sha256": "4f67a254bd0cf8794363383db89245afed14d325c7e00769dbe856173b69c01b"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/get_outgoing_link_type.py",
+      "sha256": "0e75337596a3b5fda5670d7c8ab606470417e05d188924c998d2298eeb5c36f1"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/list.py",
+      "sha256": "69b6122eda46302e7cbc99c6f6ad37f15dca9cc9a7377fa95b0bb23be32c9c2c"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/ObjectType/list_outgoing_link_types.py",
+      "sha256": "a69d8947a33658214339955bfaa848d5fee679bfcf0d560fb14517173ff87228"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/aggregate.py",
+      "sha256": "9f754d9ffb14d7dbbdd9f4099b8e455b727180e35bd6ad1bf0e872d263cf0f2b"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/get.py",
+      "sha256": "73c6a374ebed3377f05f951149dd30229ef8283e05c7d719167014ff7c9c9311"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/get_linked_object.py",
+      "sha256": "b3a2594e89181faf926741e945c425bed81c22e625077b311c977786e8db51fa"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/list.py",
+      "sha256": "c5b16f9b35f6ae867565b3c84905cca3ee2768a2f8f3d2a98323eb65afd6ce63"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/list_linked_objects.py",
+      "sha256": "73ab6e9fac463b7d8098a4912cde0acd3aff25f89c50a1e9bd0049bb74aa9046"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/OntologyObject/search.py",
+      "sha256": "e1aca46efe649e2d2cecfea182cc6914105b7b52c9c6a6aae35e9082a7aa0db6"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/QueryType/get.py",
+      "sha256": "fccc7da7a5cf74a155efffff4268d98c48d838a49af527caf5d66f3e199b226d"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/examples/rest/077/v1/ontologies/QueryType/list.py",
+      "sha256": "d21755dc6ecbf92636a918a962265009f37670ca3fd5d0560a433faf354c98f0"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/Attachment.md",
+      "sha256": "fd3774a1f7ea7375a99e678b0e463536cc62d6e2d11e9a70fd8008aa4fdd624f"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/ObjectType.md",
+      "sha256": "1f9ac4926e19b26dc369195282b94a4f3eb6096cd8f3449afe21f785dfb584b4"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/Ontology.md",
+      "sha256": "1b647eda53cb21876c73911d355bf19d9742aca154740e93bb75a4b2ee9f8ac2"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/OntologyObject.md",
+      "sha256": "31777ffb665c569cc6de5245909193eb8a942cd4d9d8a392c8e6fda33bcc02d7"
+    },
+    {
+      "path": ".agents/skills/pal-found-dev/references/rest/v1/ontologies/QueryType.md",
+      "sha256": "b1679d6d34611b1946257fa5a01102c8ee63b0fb4ba4536c33058776ef0ba54b"
+    },
+    {
+      "path": "tests/test_offline_rest_077.py",
+      "sha256": "689bf18347ecf5c52959c0f588c7dba293de1a26654a2af05d7575448b7c1da2"
+    }
+  ]
+}

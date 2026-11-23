@@ -18,14 +18,26 @@ from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'POST'
 EXPECTED_PATH = '/api/v2/checkpoints/records/getBatch'
-EXPECTED_BODY = [{'recordRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}]
+EXPECTED_BODY = [{'recordRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'},
+ {'recordRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000002'}]
 EXPECTED_QUERY = {'preview': None}
 EXPECTED_HEADERS = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-SUCCESS = {'data': {}}
+SUCCESS = {'data': {'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001': {'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
+                                                                              'type': 'CONTOUR_CREATE',
+                                                                              'scope': 'USER_SCOPED',
+                                                                              'actingUser': {'userId': '00000000-0000-0000-0000-000000000001',
+                                                                                             'username': {}},
+                                                                              'createdAt': '2026-10-07T00:00:00+00:00',
+                                                                              'checkpointedItems': [{'issueRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
+                                                                                                     'type': 'checkpointedIssue'}],
+                                                                              'justification': {'response': 'synthetic-value',
+                                                                                                'prompt': 'synthetic-value',
+                                                                                                'title': 'synthetic-value',
+                                                                                                'type': 'responseJustification'}}}}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.get_batch(body=[{'recordRid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}], request_timeout=30)
+    return client.with_raw_response.get_batch(body=EXPECTED_BODY, request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -69,7 +81,11 @@ def verify():
     with mock_resource(RecordClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            decoded = normalized(raw.decode())
+            assert decoded == SUCCESS
+            # One accessible record is returned; the second synthetic RID is omitted.
+            assert set(decoded['data']) == {EXPECTED_BODY[0]['recordRid']}
+            assert EXPECTED_BODY[1]['recordRid'] not in decoded['data']
         finally:
             raw.close()
     assert len(calls) == 1

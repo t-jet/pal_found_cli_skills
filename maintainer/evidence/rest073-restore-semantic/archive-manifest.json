@@ -1,0 +1,80 @@
+{
+  "scope": "Byte-preserved initial failure, author/core freeze, regeneration and independent final review evidence. Historical paths retain original execution layout; archived harnesses are evidence, not portable entrypoints. Runtime/source semantics accepted; server policy remains UNCERTAIN without waiver or live claims. Formal QA and page audits are unchanged.",
+  "artifacts": [
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_author_manifest_20261116.json",
+      "archived_path": "maintainer/evidence/rest073-restore-semantic/feature015_rest073_restore_author_manifest_20261116.json",
+      "sha256": "bd91a2d1ccad859349a07f393094e7b3bcd222510e0d4994b91e3d7a15bf7eef"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_author_tests_20261116.xml",
+      "archived_path": "maintainer/evidence/rest073-restore-semantic/feature015_rest073_restore_author_tests_20261116.xml",
+      "sha256": "3fa0f4b4e00c2ce99ef3b1aec6d100f25d3f5b7afdd4798f1a63e653676caa43"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_combined_manifest_20261116.json",
+      "archived_path": "maintainer/evidence/rest073-restore-semantic/feature015_rest073_restore_combined_manifest_20261116.json",
+      "sha256": "659afb12a6877eed8ea3f26f2ba6cf6cef8ed6974851a8e1b5f02263cca81467"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_semantic_retest_20261116.json",
+      "archived_path": "maintainer/evidence/rest073-restore-semantic/feature015_rest073_restore_semantic_retest_20261116.json",
+      "sha256": "54d60b1d2c8bee3b503f140841c2316d46ef784149dfd47802fccedca0afbd41"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_restore_semantic_review_20261029.json",
+      "archived_path": "maintainer/evidence/rest073-restore-semantic/feature015_rest073_restore_semantic_review_20261029.json",
+      "sha256": "aa5eef88a468e9d38b0ab1f74315b41ddf5058e4aff67484071fce1bc44190d7"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073restore_recover_proof_20261116.py",
+      "archived_path": "maintainer/evidence/rest073-restore-semantic/feature015_rest073restore_recover_proof_20261116.py",
+      "sha256": "39ce79e37ffc57b65758514bc719cf88d74450c7dda1cfa30d9cf1c63c54f265"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073restore_review_20261029.py",
+      "archived_path": "maintainer/evidence/rest073-restore-semantic/feature015_rest073restore_review_20261029.py",
+      "sha256": "0af385bac574c36bb0e0401faf49c989a70e03f19584a2b68a02f52f902c7f82"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_restore_core_author_tests_20261116.xml",
+      "archived_path": "maintainer/evidence/rest073-restore-semantic/feature015_restore_core_author_tests_20261116.xml",
+      "sha256": "815a802d1a38844f01557feed9f8fe4207886c119c173a1ba82f55dbedc0545d"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_restore_core_baseline_compare_20261116.py",
+      "archived_path": "maintainer/evidence/rest073-restore-semantic/feature015_restore_core_baseline_compare_20261116.py",
+      "sha256": "4408bb540bd73b1e155f7f1f0c6e27d0be34f19329aa41ffa3342c290954eaa8"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_restore_core_baseline_comparison_20261116.json",
+      "archived_path": "maintainer/evidence/rest073-restore-semantic/feature015_restore_core_baseline_comparison_20261116.json",
+      "sha256": "b651b2487767a4b3af6702e08cde576eff8f5bf6a25e37a9f7d8fa3c2076e4da"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_restore_core_baseline_generator_20261116.py",
+      "archived_path": "maintainer/evidence/rest073-restore-semantic/feature015_restore_core_baseline_generator_20261116.py",
+      "sha256": "bebdbd885108786b6bc2654c35d22505e77d93a714586800d23fbb9893ae85eb"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_restore_core_manifest_20261116.py",
+      "archived_path": "maintainer/evidence/rest073-restore-semantic/feature015_restore_core_manifest_20261116.py",
+      "sha256": "9d449380642e7b556e60e40a91432ab91b4fd2696aeee77af0eb4e51bbbaa41f"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_restore_core_regenerate_20261116.py",
+      "archived_path": "maintainer/evidence/rest073-restore-semantic/feature015_restore_core_regenerate_20261116.py",
+      "sha256": "24dfabe7098d0fe6e1671a7cb40b98ac7c13b1fc0918fde39c6716f5d8b25387"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_restore_core_regeneration_20261116.json",
+      "archived_path": "maintainer/evidence/rest073-restore-semantic/feature015_restore_core_regeneration_20261116.json",
+      "sha256": "1a5f8e47d3e553ad857a4810075ff813d696241c532174be2208cf4725f17bf7"
+    },
+    {
+      "source": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_restore_core_tests_20261116.xml",
+      "archived_path": "maintainer/evidence/rest073-restore-semantic/feature015_restore_core_tests_20261116.xml",
+      "sha256": "cce1d03f43746abd02d72733f43bf0d9b995a49693e00bacbf2d3a588ffba026"
+    }
+  ]
+}

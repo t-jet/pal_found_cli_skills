@@ -30,6 +30,24 @@ live deployment transforms run inference.
 
 ## Usage
 
+The CLI and this skill must already be provisioned. Set `FOUNDRY_TOKEN` to an
+authorized user token and `FOUNDRY_HOSTNAME` to your enrollment hostname before
+running commands. Supply credentials through your environment's secret handling;
+do not paste tokens into commands, examples, or logs. Missing or blank credentials
+fail before a request. This CLI uses `UserTokenAuth`; it does not perform OAuth
+login or create service users. For automation, obtain an approved token identity
+and resource grants from your enrollment administrator. A service user must have
+the same required resource access; having a token alone does not grant it.
+
+Use an existing accessible parent folder to create models or studios. Training
+also needs readable input datasets with schemas, existing writable output models,
+an available trainer, and compute allowed by the project's resource queue. These
+commands do not provision datasets, repositories, folders, queues, deployments,
+or credentials. Obtain their RIDs and any required grants before starting.
+Model-version creation also requires actual compatible serialized model code,
+accessible backing repositories, and resolvable Conda requirements. Inference
+requires a pre-existing live deployment and its model API.
+
 ```bash
 pal-found-models <resource> <operation> [options]
 ```
@@ -42,6 +60,14 @@ TOON, or automatic structured output; `--pretty` indents it. For paged
 operations, `--page-size` requests entries per page and `--page-token`
 resumes from a returned cursor. `--all` retrieves up to the CLI page cap;
 `--max-pages` sets a smaller page cap.
+
+Use `--format json` for predictable machine parsing. JSON request keys below use
+SDK aliases such as `workerConfig`; typed response fields use SDK aliases
+such as `workerConfig`. `--format toon` can fall back to JSON, including
+typed results containing values the formatter cannot serialize to TOON. Inspect
+actual output for your route; the requested format does not guarantee TOON.
+Download commands print metadata and save bytes separately. Failed commands
+return structured errors; check exit status before consuming output.
 
 The CLI uses the shared config loader, access control guard, retry handler,
 pagination helper, structured error serializer, output formatter, and

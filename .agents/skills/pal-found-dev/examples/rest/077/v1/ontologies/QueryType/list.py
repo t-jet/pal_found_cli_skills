@@ -21,10 +21,17 @@ EXPECTED_PATH = '/api/v1/ontologies/ri.synthetic.main.resource.00000000-0000-000
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'pageSize': None, 'pageToken': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'data': [{'apiName': 'synthetic-value',
-           'parameters': {},
+SUCCESS = {'data': [{'apiName': 'asset-status',
+           'parameters': {'assetId': {'baseType': 'String', 'required': True}},
+           'output': {'type': 'struct',
+                      'fields': [{'name': 'assetId',
+                                  'fieldType': {'type': 'string'},
+                                  'required': True},
+                                 {'name': 'status',
+                                  'fieldType': {'type': 'string'},
+                                  'required': True}]},
            'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001',
-           'version': 'synthetic-value'}]}
+           'version': '1.2.3'}]}
 ERRORS = []
 
 def invoke(client):
@@ -46,6 +53,17 @@ def check_request(request):
     elif EXPECTED_BODY is not None:
         assert json.loads(request.content) == EXPECTED_BODY
 
+def check_result(result, request):
+    import re
+    for schema in result.get('data', [result]):
+        assert re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+(?:-[A-Za-z0-9.-]+)?', schema['version']), 'Invalid FunctionVersion'
+        assert schema['parameters']['assetId']['baseType'] == 'String'
+        assert schema['parameters']['assetId']['required'] is True
+        assert {field['name'] for field in schema['output']['fields']} == {'assetId', 'status'}
+    if '/queryTypes/' in request.url.path:
+        assert result['apiName'] == request.url.path.rsplit('/', 1)[-1], 'Query name differs from request'
+
+
 def normalized(value):
     if isinstance(value, dict):
         return {key: normalized(child) for key,child in value.items()}
@@ -63,7 +81,7 @@ def verify():
     calls = []
     def success(request):
         check_request(request)
-        calls.append(True)
+        calls.append(request)
         if isinstance(SUCCESS, bytes):
             return httpx.Response(200, content=SUCCESS)
         if SUCCESS is None:
@@ -72,7 +90,9 @@ def verify():
     with mock_resource(QueryTypeClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = normalized(raw.decode())
+            check_result(result, calls[-1])
+            assert result == SUCCESS
         finally:
             raw.close()
     assert len(calls) == 1

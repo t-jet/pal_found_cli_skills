@@ -1,0 +1,33 @@
+{
+  "byte_preserved_ledgers": {
+    "maintainer/rest-model-register.json": {
+      "base_sha256": "989f5e37f390301761bb5cb4601712f51df7ed8fd0fc7dbef58faa4aac6eb3e5",
+      "proposal_sha256": "989f5e37f390301761bb5cb4601712f51df7ed8fd0fc7dbef58faa4aac6eb3e5"
+    },
+    "maintainer/rest-model-semantic-matrix.json": {
+      "base_sha256": "151a299541b7141f210cc766937e51d68de7b1274a73783d04ad962d34d57275",
+      "proposal_sha256": "151a299541b7141f210cc766937e51d68de7b1274a73783d04ad962d34d57275"
+    },
+    "maintainer/rest-model-independent-review.json": {
+      "base_sha256": "05478a13135e3545596ef83a870ec8ec899f27dca4dc5bd20a8419f87031c3b1",
+      "proposal_sha256": "05478a13135e3545596ef83a870ec8ec899f27dca4dc5bd20a8419f87031c3b1"
+    },
+    "maintainer/development-author-source-evidence.json": {
+      "base_sha256": "5e8bf29f792a9cf0f3aff5d006ea0ae89f1effbd4df0b0f5f96cfb523f84465e",
+      "proposal_sha256": "5e8bf29f792a9cf0f3aff5d006ea0ae89f1effbd4df0b0f5f96cfb523f84465e"
+    },
+    "maintainer/offline-knowledge-audit.json": {
+      "base_sha256": "a9451bfcb10649f905ab0c5f9259df34ed46a33580dfd81099d9990d7c9da265",
+      "proposal_sha256": "a9451bfcb10649f905ab0c5f9259df34ed46a33580dfd81099d9990d7c9da265"
+    }
+  },
+  "model_count": 3251,
+  "topic_acceptance_counts": {
+    "accepted": 36
+  },
+  "page_review_status_counts": {
+    "accepted": 153,
+    "author context review; independent semantic review pending": 39
+  },
+  "no_formal_execution_added": true
+}

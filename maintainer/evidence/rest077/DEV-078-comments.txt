@@ -1,0 +1,22 @@
+
+Found 17 comment(s) for DEV-078:
+========================================================================================================================
+Comment ID                     Author               Created              Updated              Subject
+------------------------------------------------------------------------------------------------------------------------
+20261007-101807-tech-lead      tech-lead            2026-10-07T10:18:07  2026-10-07T10:18:07  Ticket created
+20261007-101809-tech-lead      tech-lead            2026-10-07T10:18:09  2026-10-07T10:18:09  Ticket updated
+20261007-101810-tech-lead      tech-lead            2026-10-07T10:18:10  2026-10-07T10:18:10  Ticket updated
+20261007-154136-tech-lead      tech-lead            2026-10-07T15:41:36  2026-10-07T15:41:36  Implementation plan and exclusive ownership
+20261007-154137-python-developer python-developer     2026-10-07T15:41:37  2026-10-07T15:41:37  Ticket updated
+20261116-145916-@python-developer python-developer     2026-11-16T14:59:16  2026-11-16T14:59:16  Developer readiness and bounded validation evidence 2026-11-16
+20261116-145916-@python-developer~001 python-developer     2026-11-16T14:59:16  2026-11-16T14:59:16  Committed REST077 reader file inventory
+20261116-145916-@python-developer~002 python-developer     2026-11-16T14:59:16  2026-11-16T14:59:16  Ticket updated
+20261116-145917-@python-developer python-developer     2026-11-16T14:59:17  2026-11-16T14:59:17  Ticket updated
+20261116-150443-@qa-engineer   qa-engineer          2026-11-16T15:04:43  2026-11-16T15:04:43  Independent QA verification and paired review dependency 2026-11-16
+20261116-150456-@qa-engineer   qa-engineer          2026-11-16T15:04:56  2026-11-16T15:04:56  Post-implementation review dependency direction repair
+20261116-150510-@qa-engineer   qa-engineer          2026-11-16T15:05:10  2026-11-16T15:05:10  Review blocker and verified dependency repair outcome
+20261116-150510-@qa-engineer~001 qa-engineer          2026-11-16T15:05:10  2026-11-16T15:05:10  Ticket updated
+20261116-223705-@python-developer python-developer     2026-11-16T22:37:05  2026-11-16T22:37:05  Closed review verified; restore prior Resolved status
+20261116-223706-@python-developer python-developer     2026-11-16T22:37:06  2026-11-16T22:37:06  Ticket updated
+20261116-224234-@qa-engineer   qa-engineer          2026-11-16T22:42:34  2026-11-16T22:42:34  Independent QA closure after approved paired review 2026-11-16
+20261116-224234-@qa-engineer~001 qa-engineer          2026-11-16T22:42:34  2026-11-16T22:42:34  Ticket updated

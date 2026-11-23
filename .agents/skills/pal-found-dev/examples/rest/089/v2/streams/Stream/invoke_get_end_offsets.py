@@ -2,6 +2,10 @@
 
 Synthetic identifiers do not name tenant resources. Prepared SDK 1.101.0/httpx
 required. No network connections or live mutations occur.
+
+Partition 0 has a next-write boundary of 53, not a last-record offset of 53;
+partition 1 is empty at boundary 0. Offset gaps may exist. Pin a known viewRid
+when comparing reads across calls; these mocked offsets do not prove live state.
 """
 import json
 import sys
@@ -21,7 +25,7 @@ EXPECTED_PATH = '/api/v2/highScale/streams/datasets/ri.synthetic.main.resource.0
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'preview': None, 'viewRid': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {}
+SUCCESS = {'0': 53, '1': 0}
 ERRORS = [{'name': 'GetEndOffsetsForStreamPermissionDenied',
   'status': 403,
   'code': 'PERMISSION_DENIED',

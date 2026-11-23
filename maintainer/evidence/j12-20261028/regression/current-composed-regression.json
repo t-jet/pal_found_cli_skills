@@ -1,0 +1,1582 @@
+{
+  "story": "DEV-STORY-075",
+  "reviewer_agent": "/root/j12_075_readiness_20261027",
+  "reviewed_at_utc": "2026-10-27T21:35:07.654117+00:00",
+  "candidate_sha": "abdee9f35d7dbcf43e3aa8917c83a834b7ccf8eb",
+  "sdk_release": "1.101.0",
+  "scope": "Independent source/behavior/example review of all 29 operations and original example execution through real SDK synthetic HTTP transport. Formal independently authored TESTEXEC cases, all wrapper modes, full pagination, live enrollment and whole-page CLI review are not claimed.",
+  "network_boundary": "DNS and socket connect/connect_ex/create_connection patched to fail in the probe process. Actual source examples use httpx MockTransport. This is not OS-wide or subprocess network isolation.",
+  "operations": [
+    {
+      "id": "v2.checkpoints.Record.get",
+      "verdict": "PASS",
+      "reason": "Record IDs, checkpoint processing context and justification are synthetic. Search text matches the response justification. Batch omission remains separately uncertain.",
+      "behavior_sha256": "36753ea2c52c816e2962f094e7f2f705b963986000d9a83526be89ffb353b8bb",
+      "example_sha256": "9aa43c25b40c73404ecdc11d92d417c2fc98dfb1017eab92ffdd6e2d4e10321d",
+      "contract_sha256": "4f3da61c7b6f3cd29373374c7b8961b7248c99bd0a0a127561b7c9ebf6a32437",
+      "source_module": "foundry_sdk.v2.checkpoints.record",
+      "source_sha256": "7e24a42aeca2358ee592164dee243ff1c7b362453d98a85e10e150cf876bee48",
+      "source_method_sha256": "686ed0be18a26ebd43babb79cdc2de0e2219f267b14bdb74b04beb7765c8154c",
+      "source_method_documentation": "Retrieve a single checkpoint record by id.\n:param record_rid:\n:type record_rid: RecordRid\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: checkpoints_models.Record\n\n:raises CheckpointRecordNotFound: The checkpoint record could not be found.\n:raises CheckpointRecordPermissionDenied: The caller does not have permission to access the checkpoint record.\n:raises RecordNotFound: The given Record could not be found.",
+      "source_stage": "Public Beta",
+      "source_doc_sha256": "8fb6e62e8bd6f4beb8de6e84f3ab83b2ff3bd67e4d749c2b4a4df2368feda4d9",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 3,
+      "expected_body": null,
+      "success_fixture": {
+        "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "type": "CONTOUR_CREATE",
+        "scope": "USER_SCOPED",
+        "actingUser": {
+          "userId": "00000000-0000-0000-0000-000000000001",
+          "username": {}
+        },
+        "createdAt": "2026-10-07T00:00:00+00:00",
+        "checkpointedItems": [
+          {
+            "issueRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+            "type": "checkpointedIssue"
+          }
+        ],
+        "justification": {
+          "response": "synthetic-value",
+          "prompt": "synthetic-value",
+          "title": "synthetic-value",
+          "type": "responseJustification"
+        }
+      },
+      "error_fixtures": [
+        {
+          "name": "CheckpointRecordNotFound",
+          "status": 404,
+          "code": "NOT_FOUND",
+          "parameters": {
+            "recordRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        },
+        {
+          "name": "CheckpointRecordPermissionDenied",
+          "status": 403,
+          "code": "PERMISSION_DENIED",
+          "parameters": {
+            "recordRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        },
+        {
+          "name": "RecordNotFound",
+          "status": 404,
+          "code": "NOT_FOUND",
+          "parameters": {
+            "recordRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        }
+      ]
+    },
+    {
+      "id": "v2.checkpoints.Record.get_batch",
+      "verdict": "UNCERTAIN",
+      "reason": "Success contains an empty data map although one identity was requested. SDK permits missing/inaccessible omissions, so this is not a proven endpoint defect; example lacks a found record and requested-to-returned identity demonstration.",
+      "behavior_sha256": "36753ea2c52c816e2962f094e7f2f705b963986000d9a83526be89ffb353b8bb",
+      "example_sha256": "b77de72485a27d795f963bff6fcb6bfcfa92a22e7c36867ff16b5a0169ae8bf1",
+      "contract_sha256": "85c030e7ecaaea830d10f5f2e906faaae2c160b6a05df8a9913f34b548938403",
+      "source_module": "foundry_sdk.v2.checkpoints.record",
+      "source_sha256": "7e24a42aeca2358ee592164dee243ff1c7b362453d98a85e10e150cf876bee48",
+      "source_method_sha256": "ce588c595bf5bba0aa016823a5a1f85685d9618feb1c3eb63a05538dd5f7fd05",
+      "source_method_documentation": "Fetch multiple checkpoint records in a single request. Records not found\nor inaccessible to the user will be omitted from the response.\n\n\nThe maximum batch size for this endpoint is 100.\n:param body: Body of the request\n:type body: List[GetRecordsBatchRequestElement]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: checkpoints_models.GetRecordsBatchResponse",
+      "source_stage": "Public Beta",
+      "source_doc_sha256": "8fb6e62e8bd6f4beb8de6e84f3ab83b2ff3bd67e4d749c2b4a4df2368feda4d9",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 0,
+      "expected_body": [
+        {
+          "recordRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+        }
+      ],
+      "success_fixture": {
+        "data": {}
+      },
+      "error_fixtures": []
+    },
+    {
+      "id": "v2.checkpoints.Record.search",
+      "verdict": "PASS",
+      "reason": "Record IDs, checkpoint processing context and justification are synthetic. Search text matches the response justification. Batch omission remains separately uncertain.",
+      "behavior_sha256": "36753ea2c52c816e2962f094e7f2f705b963986000d9a83526be89ffb353b8bb",
+      "example_sha256": "06fca9287eecf0026c7fd41f6bce86a3ffedabc4aa01dbd980af2b7e9d1bd461",
+      "contract_sha256": "6899ec72034e44a83f6045fc1c798b63e4e4c71c2cf4e9da32409ccbdb2cd207",
+      "source_module": "foundry_sdk.v2.checkpoints.record",
+      "source_sha256": "7e24a42aeca2358ee592164dee243ff1c7b362453d98a85e10e150cf876bee48",
+      "source_method_sha256": "2627b2f92469ef664b16b76ee64b2946b5e5665eea964512ee2cf4295af9c2b5",
+      "source_method_documentation": "Search for checkpoint records.\n:param where:\n:type where: SearchCheckpointRecordsRequest\n:param page_size: The page size for the search request. If no value is provided, a default of `100` will be used.\n:type page_size: Optional[PageSize]\n:param page_token:\n:type page_token: Optional[PageToken]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param sort_direction: Chronological order of creation time for records to be returned in. Defaults to reverse chronological order (DESC).\n:type sort_direction: Optional[SortDirection]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: checkpoints_models.SearchCheckpointRecordsResponse\n\n:raises SearchRecordsPermissionDenied: Could not search the Record.",
+      "source_stage": "Public Beta",
+      "source_doc_sha256": "8fb6e62e8bd6f4beb8de6e84f3ab83b2ff3bd67e4d749c2b4a4df2368feda4d9",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 1,
+      "expected_body": {
+        "where": {
+          "filter": {
+            "filter": {
+              "filter": {
+                "field": "justificationResponse",
+                "query": "synthetic-value",
+                "matchType": "EXACT",
+                "type": "textSearch"
+              },
+              "type": "not"
+            },
+            "type": "not"
+          }
+        }
+      },
+      "success_fixture": {
+        "data": [
+          {
+            "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+            "type": "CONTOUR_CREATE",
+            "scope": "USER_SCOPED",
+            "actingUser": {
+              "userId": "00000000-0000-0000-0000-000000000001",
+              "username": {}
+            },
+            "createdAt": "2026-10-07T00:00:00+00:00",
+            "checkpointedItems": [
+              {
+                "issueRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+                "type": "checkpointedIssue"
+              }
+            ],
+            "justification": {
+              "response": "synthetic-value",
+              "prompt": "synthetic-value",
+              "title": "synthetic-value",
+              "type": "responseJustification"
+            }
+          }
+        ]
+      },
+      "error_fixtures": [
+        {
+          "name": "SearchRecordsPermissionDenied",
+          "status": 403,
+          "code": "PERMISSION_DENIED",
+          "parameters": {}
+        }
+      ]
+    },
+    {
+      "id": "v2.data_health.Check.create",
+      "verdict": "PASS",
+      "reason": "Check configuration is distinct from evaluation report; create/replace payload matches returned numericColumnRange config. NumericBounds optional lower/upper are both absent: the SDK permits this, so no unsupported nonempty-bound rule is invented. Reports explicitly PASSED and latest returns one report. Type-change error separately fails.",
+      "behavior_sha256": "0e571ba04722a9c0a8212a40fd9eec4326c8e7130a06e7d251ef64311d30e1dd",
+      "example_sha256": "0a553ad34a280222455c0668fc3ecdadb5338cff12e09701e70a165849698748",
+      "contract_sha256": "51b2eadcdcb09ae5aa998ae3891ede165b223c50de58b57c74e8afe7930a92f2",
+      "source_module": "foundry_sdk.v2.data_health.check",
+      "source_sha256": "e85ad6bedee89d011cb03d78412d6d0056787efa0a2fdae6df8f648e1c07aca9",
+      "source_method_sha256": "2f5a8da602aaa2da661734cc17318464deedd6e2cc5693c3dde7cf19394234a9",
+      "source_method_documentation": "Creates a new Check.\n:param config:\n:type config: CheckConfig\n:param intent:\n:type intent: Optional[CheckIntent]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: data_health_models.Check\n\n:raises CheckAlreadyExists: A check of the given type for the given subject(s) already exists. The conflicting check will be returned if the provided token has permission to view it.\n:raises CheckTypeNotSupported: The type of the requested check is not yet supported in the Platform API.\n:raises CreateCheckPermissionDenied: Could not create the Check.\n:raises InvalidNumericColumnCheckConfig: The NumericColumnCheckConfig is invalid. It must contain at least one of numericBounds or trend.\n:raises InvalidPercentageCheckConfig: The PercentageCheckConfig is invalid. It must contain at least one of percentageBounds or medianDeviation.\n:raises InvalidTimeCheckConfig: The TimeCheckConfig is invalid. It must contain at least one of timeBounds or medianDeviation.\n:raises InvalidTransactionTimeCheckConfig: The TransactionTimeCheckConfig is invalid. It must contain at least one of timeBounds or medianDeviation.\n:raises InvalidTrendConfig: The TrendConfig is invalid. It must contain at least one of trendType or differenceBounds.",
+      "source_stage": "Public Beta",
+      "source_doc_sha256": "c54cb1c0250457bcd474b10df8f7226c7e6e26a052b64a73fc05396c0594aedb",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 8,
+      "expected_body": {
+        "config": {
+          "subject": {
+            "datasetRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+            "branchId": "synthetic-value"
+          },
+          "columnName": "synthetic-value",
+          "numericBoundsConfig": {
+            "numericBounds": {},
+            "severity": "MODERATE"
+          },
+          "type": "numericColumnRange"
+        }
+      },
+      "success_fixture": {
+        "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "groups": [
+          "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+        ],
+        "config": {
+          "subject": {
+            "datasetRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+            "branchId": "synthetic-value"
+          },
+          "columnName": "synthetic-value",
+          "numericBoundsConfig": {
+            "numericBounds": {},
+            "severity": "MODERATE"
+          },
+          "type": "numericColumnRange"
+        }
+      },
+      "error_fixtures": [
+        {
+          "name": "CheckAlreadyExists",
+          "status": 409,
+          "code": "CONFLICT",
+          "parameters": {}
+        },
+        {
+          "name": "CheckTypeNotSupported",
+          "status": 400,
+          "code": "INVALID_ARGUMENT",
+          "parameters": {
+            "checkType": "synthetic-value"
+          }
+        },
+        {
+          "name": "CreateCheckPermissionDenied",
+          "status": 403,
+          "code": "PERMISSION_DENIED",
+          "parameters": {}
+        },
+        {
+          "name": "InvalidNumericColumnCheckConfig",
+          "status": 400,
+          "code": "INVALID_ARGUMENT",
+          "parameters": {}
+        },
+        {
+          "name": "InvalidPercentageCheckConfig",
+          "status": 400,
+          "code": "INVALID_ARGUMENT",
+          "parameters": {}
+        },
+        {
+          "name": "InvalidTimeCheckConfig",
+          "status": 400,
+          "code": "INVALID_ARGUMENT",
+          "parameters": {}
+        },
+        {
+          "name": "InvalidTransactionTimeCheckConfig",
+          "status": 400,
+          "code": "INVALID_ARGUMENT",
+          "parameters": {}
+        },
+        {
+          "name": "InvalidTrendConfig",
+          "status": 400,
+          "code": "INVALID_ARGUMENT",
+          "parameters": {}
+        }
+      ]
+    },
+    {
+      "id": "v2.data_health.Check.delete",
+      "verdict": "PASS",
+      "reason": "Check configuration is distinct from evaluation report; create/replace payload matches returned numericColumnRange config. NumericBounds optional lower/upper are both absent: the SDK permits this, so no unsupported nonempty-bound rule is invented. Reports explicitly PASSED and latest returns one report. Type-change error separately fails.",
+      "behavior_sha256": "0e571ba04722a9c0a8212a40fd9eec4326c8e7130a06e7d251ef64311d30e1dd",
+      "example_sha256": "511607036eb1b621718369fc2d23ebf67079c1745b870504fd5749176e968570",
+      "contract_sha256": "f1384d1869a1d43a56112726a291408ee131c61b902603d602d8714d77c8b5c6",
+      "source_module": "foundry_sdk.v2.data_health.check",
+      "source_sha256": "e85ad6bedee89d011cb03d78412d6d0056787efa0a2fdae6df8f648e1c07aca9",
+      "source_method_sha256": "a943b1404197958ce0f33f9e7ffceed65a7a8311e26529b1e92cdfe169c50b0a",
+      "source_method_documentation": "Delete the Check with the specified rid.\n:param check_rid:\n:type check_rid: CheckRid\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: None\n\n:raises CheckNotFound: The given Check could not be found.\n:raises DeleteCheckPermissionDenied: Could not delete the Check.",
+      "source_stage": "Public Beta",
+      "source_doc_sha256": "c54cb1c0250457bcd474b10df8f7226c7e6e26a052b64a73fc05396c0594aedb",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 2,
+      "expected_body": null,
+      "success_fixture": null,
+      "error_fixtures": [
+        {
+          "name": "CheckNotFound",
+          "status": 404,
+          "code": "NOT_FOUND",
+          "parameters": {
+            "checkRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        },
+        {
+          "name": "DeleteCheckPermissionDenied",
+          "status": 403,
+          "code": "PERMISSION_DENIED",
+          "parameters": {
+            "checkRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        }
+      ]
+    },
+    {
+      "id": "v2.data_health.Check.get",
+      "verdict": "PASS",
+      "reason": "Check configuration is distinct from evaluation report; create/replace payload matches returned numericColumnRange config. NumericBounds optional lower/upper are both absent: the SDK permits this, so no unsupported nonempty-bound rule is invented. Reports explicitly PASSED and latest returns one report. Type-change error separately fails.",
+      "behavior_sha256": "0e571ba04722a9c0a8212a40fd9eec4326c8e7130a06e7d251ef64311d30e1dd",
+      "example_sha256": "097b03815236ac4ca4a897cfbc061b8556856a97cf50279c4b7600a7eecac2ed",
+      "contract_sha256": "37523b7a0b7f68ed97e46e1872b45e35e8895d19edd3f250be61a39cec5cdc5a",
+      "source_module": "foundry_sdk.v2.data_health.check",
+      "source_sha256": "e85ad6bedee89d011cb03d78412d6d0056787efa0a2fdae6df8f648e1c07aca9",
+      "source_method_sha256": "fcd1053b3c51da14f6c3908e3dedfe8c9cddc286227e2c7106b9d576dc16d4ca",
+      "source_method_documentation": "Get the Check with the specified rid.\n:param check_rid:\n:type check_rid: CheckRid\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: data_health_models.Check\n\n:raises CheckNotFound: The given Check could not be found.\n:raises CheckTypeNotSupported: The type of the requested check is not yet supported in the Platform API.",
+      "source_stage": "Public Beta",
+      "source_doc_sha256": "c54cb1c0250457bcd474b10df8f7226c7e6e26a052b64a73fc05396c0594aedb",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 2,
+      "expected_body": null,
+      "success_fixture": {
+        "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "groups": [
+          "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+        ],
+        "config": {
+          "subject": {
+            "datasetRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+            "branchId": "synthetic-value"
+          },
+          "columnName": "synthetic-value",
+          "numericBoundsConfig": {
+            "numericBounds": {},
+            "severity": "MODERATE"
+          },
+          "type": "numericColumnRange"
+        }
+      },
+      "error_fixtures": [
+        {
+          "name": "CheckNotFound",
+          "status": 404,
+          "code": "NOT_FOUND",
+          "parameters": {
+            "checkRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        },
+        {
+          "name": "CheckTypeNotSupported",
+          "status": 400,
+          "code": "INVALID_ARGUMENT",
+          "parameters": {
+            "checkType": "synthetic-value"
+          }
+        }
+      ]
+    },
+    {
+      "id": "v2.data_health.Check.replace",
+      "verdict": "FAIL",
+      "reason": "ModifyingCheckTypeNotSupported uses equal originalCheckType/newCheckType; the source-declared error means changing the type. Error fixture contradicts its own source semantics.",
+      "behavior_sha256": "0e571ba04722a9c0a8212a40fd9eec4326c8e7130a06e7d251ef64311d30e1dd",
+      "example_sha256": "832e3b3c7cfdaad0f5f66a7814199be9bb16c9467bff845483f1a256555d739c",
+      "contract_sha256": "a84fad2eeb3b6ef88f9cdc6d1754e1c697f451d530cc4bd07ca0742c7c583ad1",
+      "source_module": "foundry_sdk.v2.data_health.check",
+      "source_sha256": "e85ad6bedee89d011cb03d78412d6d0056787efa0a2fdae6df8f648e1c07aca9",
+      "source_method_sha256": "4035772690e3e2db1cbe63f36b162487aef04598b07747f88d093fcb0c7316c4",
+      "source_method_documentation": "Replace the Check with the specified rid. Changing the type of a check after it has been created is not supported.\n:param check_rid:\n:type check_rid: CheckRid\n:param config:\n:type config: ReplaceCheckConfig\n:param intent:\n:type intent: Optional[CheckIntent]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: data_health_models.Check\n\n:raises CheckNotFound: The given Check could not be found.\n:raises CheckTypeNotSupported: The type of the requested check is not yet supported in the Platform API.\n:raises InvalidNumericColumnCheckConfig: The NumericColumnCheckConfig is invalid. It must contain at least one of numericBounds or trend.\n:raises InvalidPercentageCheckConfig: The PercentageCheckConfig is invalid. It must contain at least one of percentageBounds or medianDeviation.\n:raises InvalidTimeCheckConfig: The TimeCheckConfig is invalid. It must contain at least one of timeBounds or medianDeviation.\n:raises InvalidTransactionTimeCheckConfig: The TransactionTimeCheckConfig is invalid. It must contain at least one of timeBounds or medianDeviation.\n:raises InvalidTrendConfig: The TrendConfig is invalid. It must contain at least one of trendType or differenceBounds.\n:raises ModifyingCheckTypeNotSupported: Changing the type of a check after it has been created is not supported.\n:raises ReplaceCheckPermissionDenied: Could not replace the Check.",
+      "source_stage": "Public Beta",
+      "source_doc_sha256": "c54cb1c0250457bcd474b10df8f7226c7e6e26a052b64a73fc05396c0594aedb",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 9,
+      "expected_body": {
+        "config": {
+          "numericBoundsConfig": {
+            "numericBounds": {},
+            "severity": "MODERATE"
+          },
+          "type": "numericColumnRange"
+        }
+      },
+      "success_fixture": {
+        "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "groups": [
+          "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+        ],
+        "config": {
+          "subject": {
+            "datasetRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+            "branchId": "synthetic-value"
+          },
+          "columnName": "synthetic-value",
+          "numericBoundsConfig": {
+            "numericBounds": {},
+            "severity": "MODERATE"
+          },
+          "type": "numericColumnRange"
+        }
+      },
+      "error_fixtures": [
+        {
+          "name": "CheckNotFound",
+          "status": 404,
+          "code": "NOT_FOUND",
+          "parameters": {
+            "checkRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        },
+        {
+          "name": "CheckTypeNotSupported",
+          "status": 400,
+          "code": "INVALID_ARGUMENT",
+          "parameters": {
+            "checkType": "synthetic-value"
+          }
+        },
+        {
+          "name": "InvalidNumericColumnCheckConfig",
+          "status": 400,
+          "code": "INVALID_ARGUMENT",
+          "parameters": {}
+        },
+        {
+          "name": "InvalidPercentageCheckConfig",
+          "status": 400,
+          "code": "INVALID_ARGUMENT",
+          "parameters": {}
+        },
+        {
+          "name": "InvalidTimeCheckConfig",
+          "status": 400,
+          "code": "INVALID_ARGUMENT",
+          "parameters": {}
+        },
+        {
+          "name": "InvalidTransactionTimeCheckConfig",
+          "status": 400,
+          "code": "INVALID_ARGUMENT",
+          "parameters": {}
+        },
+        {
+          "name": "InvalidTrendConfig",
+          "status": 400,
+          "code": "INVALID_ARGUMENT",
+          "parameters": {}
+        },
+        {
+          "name": "ModifyingCheckTypeNotSupported",
+          "status": 400,
+          "code": "INVALID_ARGUMENT",
+          "parameters": {
+            "originalCheckType": "synthetic-value",
+            "newCheckType": "synthetic-value"
+          }
+        },
+        {
+          "name": "ReplaceCheckPermissionDenied",
+          "status": 403,
+          "code": "PERMISSION_DENIED",
+          "parameters": {
+            "checkRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        }
+      ]
+    },
+    {
+      "id": "v2.data_health.CheckReport.get",
+      "verdict": "PASS",
+      "reason": "Check configuration is distinct from evaluation report; create/replace payload matches returned numericColumnRange config. NumericBounds optional lower/upper are both absent: the SDK permits this, so no unsupported nonempty-bound rule is invented. Reports explicitly PASSED and latest returns one report. Type-change error separately fails.",
+      "behavior_sha256": "ffea5ea7ef404066e306b75eef4bee8792e74de37935c6027dbdd582b907f6bb",
+      "example_sha256": "2ec4d610d8f232acb06b917fdef7eaec4d0734a27cf54a2782dcb9f9a4a580dd",
+      "contract_sha256": "c2ec23ee457fb7a1f73bf6ef505a87fbbd651fd43d0b473ae41d6f20f16fc210",
+      "source_module": "foundry_sdk.v2.data_health.check_report",
+      "source_sha256": "08d6d22cc463a01b69a44e943b47fb024e316feac78bd06e51ccb05a6f83bd31",
+      "source_method_sha256": "fb6d88919a1aa955bf190a8a37af59827a25e5e0269cecbce503da27146fa472",
+      "source_method_documentation": "Get the CheckReport with the specified rid.\n:param check_rid:\n:type check_rid: CheckRid\n:param check_report_rid:\n:type check_report_rid: CheckReportRid\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: data_health_models.CheckReport\n\n:raises CheckReportNotFound: The given CheckReport could not be found.\n:raises CheckTypeNotSupported: The type of the requested check is not yet supported in the Platform API.",
+      "source_stage": "Public Beta",
+      "source_doc_sha256": "b700e0d15ad1d9704ad30298860f6221181f8b5d858ed42236b93a0f71136ff5",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 2,
+      "expected_body": null,
+      "success_fixture": {
+        "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "check": {
+          "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+          "groups": [
+            "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          ],
+          "config": {
+            "subject": {
+              "datasetRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+              "branchId": "synthetic-value"
+            },
+            "columnName": "synthetic-value",
+            "numericBoundsConfig": {
+              "numericBounds": {},
+              "severity": "MODERATE"
+            },
+            "type": "numericColumnRange"
+          }
+        },
+        "result": {
+          "status": "PASSED"
+        },
+        "createdTime": "2026-10-07T00:00:00+00:00"
+      },
+      "error_fixtures": [
+        {
+          "name": "CheckReportNotFound",
+          "status": 404,
+          "code": "NOT_FOUND",
+          "parameters": {
+            "checkReportRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+            "checkRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        },
+        {
+          "name": "CheckTypeNotSupported",
+          "status": 400,
+          "code": "INVALID_ARGUMENT",
+          "parameters": {
+            "checkType": "synthetic-value"
+          }
+        }
+      ]
+    },
+    {
+      "id": "v2.data_health.CheckReport.get_latest",
+      "verdict": "PASS",
+      "reason": "Check configuration is distinct from evaluation report; create/replace payload matches returned numericColumnRange config. NumericBounds optional lower/upper are both absent: the SDK permits this, so no unsupported nonempty-bound rule is invented. Reports explicitly PASSED and latest returns one report. Type-change error separately fails.",
+      "behavior_sha256": "ffea5ea7ef404066e306b75eef4bee8792e74de37935c6027dbdd582b907f6bb",
+      "example_sha256": "7bc6de158dc65600db71568a548ef3e4d2b95df33f3508a3ced2fcc78b6fb23e",
+      "contract_sha256": "3f0afdb1d3cc3d766dbbbebb10508b6c70424b067818df161d1fc6ad502bbbe3",
+      "source_module": "foundry_sdk.v2.data_health.check_report",
+      "source_sha256": "08d6d22cc463a01b69a44e943b47fb024e316feac78bd06e51ccb05a6f83bd31",
+      "source_method_sha256": "f2cebac11e5cdd6f52bc19b66fc69b67a7eb439b773a8c79909ed92445c42c4d",
+      "source_method_documentation": "Get the most recent check reports for this Check. Reports are returned\nin reverse chronological order (most recent first).\n\n:param check_rid:\n:type check_rid: CheckRid\n:param limit: The maximum number of check reports to return. Defaults to 10. Maximum allowed value is 100.\n:type limit: Optional[CheckReportLimit]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: data_health_models.GetLatestCheckReportsResponse\n\n:raises CheckNotFound: The given Check could not be found.\n:raises CheckTypeNotSupported: The type of the requested check is not yet supported in the Platform API.\n:raises GetLatestCheckReportsPermissionDenied: Could not getLatest the CheckReport.",
+      "source_stage": "Public Beta",
+      "source_doc_sha256": "b700e0d15ad1d9704ad30298860f6221181f8b5d858ed42236b93a0f71136ff5",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 3,
+      "expected_body": null,
+      "success_fixture": {
+        "data": [
+          {
+            "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+            "check": {
+              "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+              "groups": [
+                "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+              ],
+              "config": {
+                "subject": {
+                  "datasetRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+                  "branchId": "synthetic-value"
+                },
+                "columnName": "synthetic-value",
+                "numericBoundsConfig": {
+                  "numericBounds": {},
+                  "severity": "MODERATE"
+                },
+                "type": "numericColumnRange"
+              }
+            },
+            "result": {
+              "status": "PASSED"
+            },
+            "createdTime": "2026-10-07T00:00:00+00:00"
+          }
+        ]
+      },
+      "error_fixtures": [
+        {
+          "name": "CheckNotFound",
+          "status": 404,
+          "code": "NOT_FOUND",
+          "parameters": {
+            "checkRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        },
+        {
+          "name": "CheckTypeNotSupported",
+          "status": 400,
+          "code": "INVALID_ARGUMENT",
+          "parameters": {
+            "checkType": "synthetic-value"
+          }
+        },
+        {
+          "name": "GetLatestCheckReportsPermissionDenied",
+          "status": 403,
+          "code": "PERMISSION_DENIED",
+          "parameters": {
+            "checkRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        }
+      ]
+    },
+    {
+      "id": "v2.orchestration.Build.cancel",
+      "verdict": "PASS",
+      "reason": "Build RUNNING is not success, cancel/pause/unpause acknowledge requests without claiming completed work, jobs keep build identity, schedules/runs/versions remain separate resources. Configurable synthetic identity and response objects are not tenant-valid execution evidence. Specific batch/search/action issues are separately withheld.",
+      "behavior_sha256": "ad26f97daf4f9b9a117c28f343794e5eb710e0967d85072976985d4541b64499",
+      "example_sha256": "ec30252aee89a2cd50441703b68e260f393973f9fe349e5543751102364df602",
+      "contract_sha256": "3c7588b687b6efb458064268602ea18f46143438298ff94cd54515863fc15346",
+      "source_module": "foundry_sdk.v2.orchestration.build",
+      "source_sha256": "61407c978e0e5913e13514df30c625db79a3d0b05e5bf100694aea8df3d0873d",
+      "source_method_sha256": "024d41d1635f56c91aabe6b41d185bb06192255aac5ad4b94011b7aa609d9fcf",
+      "source_method_documentation": "Request a cancellation for all unfinished jobs in a build. The build's status will not update immediately. This endpoint is asynchronous and a success response indicates that the cancellation request has been acknowledged and the build is expected to be canceled soon. If the build has already finished or finishes shortly after the request and before the cancellation, the build will not change.\n\n:param build_rid: The RID of a Build.\n:type build_rid: BuildRid\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: None\n\n:raises CancelBuildPermissionDenied: Could not cancel the Build.",
+      "source_stage": "Stable",
+      "source_doc_sha256": "990c3095fcda166c94c6a5ae0f5bdfc9fe7c009f9b38ac406cdc72e3ee05e078",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 1,
+      "expected_body": null,
+      "success_fixture": null,
+      "error_fixtures": [
+        {
+          "name": "CancelBuildPermissionDenied",
+          "status": 403,
+          "code": "PERMISSION_DENIED",
+          "parameters": {
+            "buildRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        }
+      ]
+    },
+    {
+      "id": "v2.orchestration.Build.create",
+      "verdict": "PASS",
+      "reason": "Build RUNNING is not success, cancel/pause/unpause acknowledge requests without claiming completed work, jobs keep build identity, schedules/runs/versions remain separate resources. Configurable synthetic identity and response objects are not tenant-valid execution evidence. Specific batch/search/action issues are separately withheld.",
+      "behavior_sha256": "ad26f97daf4f9b9a117c28f343794e5eb710e0967d85072976985d4541b64499",
+      "example_sha256": "12f6d437ce687d49e7aa0d5c366eab34cfc60a278b501832e1e89fff7712521b",
+      "contract_sha256": "f2d0d140d01fec67c4411a5eaa262c87131185437a4dcadfe5b054fe09e93f64",
+      "source_module": "foundry_sdk.v2.orchestration.build",
+      "source_sha256": "61407c978e0e5913e13514df30c625db79a3d0b05e5bf100694aea8df3d0873d",
+      "source_method_sha256": "ab43604ba6c8cc3896b4a13c0b1abbd2f95902bfbbd22264b0fd88e382fe1935",
+      "source_method_documentation": ":param fallback_branches:\n:type fallback_branches: FallbackBranches\n:param target: The targets of the schedule.\n:type target: BuildTarget\n:param abort_on_failure:\n:type abort_on_failure: Optional[AbortOnFailure]\n:param branch_name: The target branch the build should run on.\n:type branch_name: Optional[BranchName]\n:param force_build:\n:type force_build: Optional[ForceBuild]\n:param notifications_enabled:\n:type notifications_enabled: Optional[NotificationsEnabled]\n:param retry_backoff_duration:\n:type retry_backoff_duration: Optional[RetryBackoffDuration]\n:param retry_count: The number of retry attempts for failed jobs.\n:type retry_count: Optional[RetryCount]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: orchestration_models.Build\n\n:raises CreateBuildPermissionDenied: Could not create the Build.",
+      "source_stage": "Stable",
+      "source_doc_sha256": "990c3095fcda166c94c6a5ae0f5bdfc9fe7c009f9b38ac406cdc72e3ee05e078",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 1,
+      "expected_body": {
+        "target": {
+          "targetRids": [
+            "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          ],
+          "ignoredRids": [],
+          "type": "upstream"
+        },
+        "fallbackBranches": [
+          "master"
+        ]
+      },
+      "success_fixture": {
+        "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "branchName": "synthetic-value",
+        "createdTime": "2026-10-07T00:00:00+00:00",
+        "createdBy": "00000000-0000-0000-0000-000000000001",
+        "fallbackBranches": [
+          "master"
+        ],
+        "jobRids": [
+          "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+        ],
+        "retryCount": 1,
+        "retryBackoffDuration": {
+          "value": 1,
+          "unit": "MILLISECONDS"
+        },
+        "abortOnFailure": true,
+        "status": "RUNNING"
+      },
+      "error_fixtures": [
+        {
+          "name": "CreateBuildPermissionDenied",
+          "status": 403,
+          "code": "PERMISSION_DENIED",
+          "parameters": {}
+        }
+      ]
+    },
+    {
+      "id": "v2.orchestration.Build.get",
+      "verdict": "PASS",
+      "reason": "Build RUNNING is not success, cancel/pause/unpause acknowledge requests without claiming completed work, jobs keep build identity, schedules/runs/versions remain separate resources. Configurable synthetic identity and response objects are not tenant-valid execution evidence. Specific batch/search/action issues are separately withheld.",
+      "behavior_sha256": "ad26f97daf4f9b9a117c28f343794e5eb710e0967d85072976985d4541b64499",
+      "example_sha256": "0887749dee0350c212576926c558abbafe992edd0fddd1c253f038cb460f5120",
+      "contract_sha256": "a3e8bf7a0ec6d0e1549042796286f7183ccfab194f2bb156902fca42a2e412d0",
+      "source_module": "foundry_sdk.v2.orchestration.build",
+      "source_sha256": "61407c978e0e5913e13514df30c625db79a3d0b05e5bf100694aea8df3d0873d",
+      "source_method_sha256": "8c48ce0ec93366e52442af2c6502a02b0ce3abdac1cb9ca7fd17c4788b6a41a0",
+      "source_method_documentation": "Get the Build with the specified rid.\n\nUsers are allowed to make a maximum of **4 requests per second** and **25 concurrent requests**.\n\n:param build_rid: The RID of a Build.\n:type build_rid: BuildRid\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: orchestration_models.Build\n\n:raises BuildNotFound: The given Build could not be found.",
+      "source_stage": "Stable",
+      "source_doc_sha256": "990c3095fcda166c94c6a5ae0f5bdfc9fe7c009f9b38ac406cdc72e3ee05e078",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 1,
+      "expected_body": null,
+      "success_fixture": {
+        "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "branchName": "synthetic-value",
+        "createdTime": "2026-10-07T00:00:00+00:00",
+        "createdBy": "00000000-0000-0000-0000-000000000001",
+        "fallbackBranches": [
+          "synthetic-value"
+        ],
+        "jobRids": [
+          "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+        ],
+        "retryCount": 1,
+        "retryBackoffDuration": {
+          "value": 1,
+          "unit": "MILLISECONDS"
+        },
+        "abortOnFailure": true,
+        "status": "RUNNING"
+      },
+      "error_fixtures": [
+        {
+          "name": "BuildNotFound",
+          "status": 404,
+          "code": "NOT_FOUND",
+          "parameters": {
+            "buildRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        }
+      ]
+    },
+    {
+      "id": "v2.orchestration.Build.get_batch",
+      "verdict": "UNCERTAIN",
+      "reason": "Success contains an empty data map although one identity was requested. SDK permits missing/inaccessible omissions, so this is not a proven endpoint defect; example lacks a found record and requested-to-returned identity demonstration.",
+      "behavior_sha256": "ad26f97daf4f9b9a117c28f343794e5eb710e0967d85072976985d4541b64499",
+      "example_sha256": "67511310b2e2f232b34b72cb7084f8bef21ccc3ea0a16b47a473a50e2c2bc942",
+      "contract_sha256": "c61003c17e16b88319de7312c6440bac75e6dcad6f60875e3dcddb3554f2cf5b",
+      "source_module": "foundry_sdk.v2.orchestration.build",
+      "source_sha256": "61407c978e0e5913e13514df30c625db79a3d0b05e5bf100694aea8df3d0873d",
+      "source_method_sha256": "23b14fc7958e5eb827eddd39a533ba1e51590deaaf7fc6fd809a8d57c63a9751",
+      "source_method_documentation": "Execute multiple get requests on Build.\n\nUsers are allowed to make a maximum of **4 requests per second** and **25 concurrent requests**.\n\n\nThe maximum batch size for this endpoint is 100.\n:param body: Body of the request\n:type body: List[GetBuildsBatchRequestElement]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: orchestration_models.GetBuildsBatchResponse",
+      "source_stage": "Stable",
+      "source_doc_sha256": "990c3095fcda166c94c6a5ae0f5bdfc9fe7c009f9b38ac406cdc72e3ee05e078",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 0,
+      "expected_body": [
+        {
+          "buildRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+        }
+      ],
+      "success_fixture": {
+        "data": {}
+      },
+      "error_fixtures": []
+    },
+    {
+      "id": "v2.orchestration.Build.jobs",
+      "verdict": "PASS",
+      "reason": "Build RUNNING is not success, cancel/pause/unpause acknowledge requests without claiming completed work, jobs keep build identity, schedules/runs/versions remain separate resources. Configurable synthetic identity and response objects are not tenant-valid execution evidence. Specific batch/search/action issues are separately withheld.",
+      "behavior_sha256": "ad26f97daf4f9b9a117c28f343794e5eb710e0967d85072976985d4541b64499",
+      "example_sha256": "81fef337496d044db9cc6a50fe587e1ed0670a20492194e1a34005081a85055f",
+      "contract_sha256": "9ea9394ce96cdeb98093a8d32d0e8cf9f107c88b3025ca8c0a3e46040c148b66",
+      "source_module": "foundry_sdk.v2.orchestration.build",
+      "source_sha256": "61407c978e0e5913e13514df30c625db79a3d0b05e5bf100694aea8df3d0873d",
+      "source_method_sha256": "29d4b55a1f1450df3f70ceca91c7a319dc6b550a42b07bd8b4a342028a72eb8d",
+      "source_method_documentation": "Get the Jobs in the Build.\n:param build_rid: The RID of a Build.\n:type build_rid: BuildRid\n:param page_size: The page size to use for the endpoint.\n:type page_size: Optional[PageSize]\n:param page_token: The page token indicates where to start paging. This should be omitted from the first page's request. To fetch the next page, clients should take the value from the `nextPageToken` field of the previous response and use it to populate the `pageToken` field of the next request.\n:type page_token: Optional[PageToken]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core.ResourceIterator[orchestration_models.Job]",
+      "source_stage": "Stable",
+      "source_doc_sha256": "990c3095fcda166c94c6a5ae0f5bdfc9fe7c009f9b38ac406cdc72e3ee05e078",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 0,
+      "expected_body": null,
+      "success_fixture": {
+        "data": [
+          {
+            "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+            "buildRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+            "startedTime": "2026-10-07T00:00:00+00:00",
+            "jobStatus": "WAITING",
+            "outputs": [
+              {
+                "datasetRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+                "type": "datasetJobOutput"
+              }
+            ]
+          }
+        ]
+      },
+      "error_fixtures": []
+    },
+    {
+      "id": "v2.orchestration.Build.search",
+      "verdict": "UNCERTAIN",
+      "reason": "STARTED_TIME lt filter value is synthetic-value. Frozen SDK permits Any and does not supply a value-format constraint; serialization cannot prove an applicable time query. Use a meaningful timestamp and a result consistent with the selected comparison.",
+      "behavior_sha256": "ad26f97daf4f9b9a117c28f343794e5eb710e0967d85072976985d4541b64499",
+      "example_sha256": "d5e714aeec5efd9c5901966d64555dadf5ba47218db6c5a63841281ca8170e5e",
+      "contract_sha256": "c7e66e1f4fe22ef8be3e2e856a9e397ba0d933e96c081612f678b89cee5e6fb4",
+      "source_module": "foundry_sdk.v2.orchestration.build",
+      "source_sha256": "61407c978e0e5913e13514df30c625db79a3d0b05e5bf100694aea8df3d0873d",
+      "source_method_sha256": "f972b891d15edf23f9d6b9adbd5d172323156d19fd35e87aa31a70d99fd2f786",
+      "source_method_documentation": "Search for Builds.\n:param where:\n:type where: SearchBuildsFilter\n:param order_by:\n:type order_by: Optional[SearchBuildsOrderBy]\n:param page_size: The page size for the search request. If no value is provided, a default of `100` will be used.\n:type page_size: Optional[PageSize]\n:param page_token:\n:type page_token: Optional[PageToken]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: orchestration_models.SearchBuildsResponse\n\n:raises SearchBuildsPermissionDenied: Could not search the Build.",
+      "source_stage": "Private Beta",
+      "source_doc_sha256": "990c3095fcda166c94c6a5ae0f5bdfc9fe7c009f9b38ac406cdc72e3ee05e078",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 1,
+      "expected_body": {
+        "where": {
+          "value": {
+            "value": {
+              "value": {
+                "field": "STARTED_TIME",
+                "value": "synthetic-value",
+                "type": "lt"
+              },
+              "type": "not"
+            },
+            "type": "not"
+          },
+          "type": "not"
+        }
+      },
+      "success_fixture": {
+        "data": [
+          {
+            "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+            "branchName": "synthetic-value",
+            "createdTime": "2026-10-07T00:00:00+00:00",
+            "createdBy": "00000000-0000-0000-0000-000000000001",
+            "fallbackBranches": [
+              "synthetic-value"
+            ],
+            "jobRids": [
+              "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+            ],
+            "retryCount": 1,
+            "retryBackoffDuration": {
+              "value": 1,
+              "unit": "MILLISECONDS"
+            },
+            "abortOnFailure": true,
+            "status": "RUNNING"
+          }
+        ]
+      },
+      "error_fixtures": [
+        {
+          "name": "SearchBuildsPermissionDenied",
+          "status": 403,
+          "code": "PERMISSION_DENIED",
+          "parameters": {}
+        }
+      ]
+    },
+    {
+      "id": "v2.orchestration.Job.get",
+      "verdict": "PASS",
+      "reason": "Build RUNNING is not success, cancel/pause/unpause acknowledge requests without claiming completed work, jobs keep build identity, schedules/runs/versions remain separate resources. Configurable synthetic identity and response objects are not tenant-valid execution evidence. Specific batch/search/action issues are separately withheld.",
+      "behavior_sha256": "ba3e245484c361fdeb3fd5395d05f9b20eab5c7dc041309aa29bae4394d01026",
+      "example_sha256": "60dcc519a9483130f2dfe668b282e85762660799302bea552c66129b3f64f23c",
+      "contract_sha256": "fdba6e00373a73e7ff860c1f69c401415a3cdb2a1c8aea9400b6d2bed36533a2",
+      "source_module": "foundry_sdk.v2.orchestration.job",
+      "source_sha256": "7b791264b8f5abba4e4034016cf140df661aa2478484e692e896820a880da5b6",
+      "source_method_sha256": "89bc98c897ada54a621ef9509c18f4d7a05ba8ac9862424afd7b99cdd3821f5c",
+      "source_method_documentation": "Get the Job with the specified rid.\n\nUsers are allowed to make a maximum of **4 requests per second** and **25 concurrent requests**.\n\n:param job_rid: The RID of a Job.\n:type job_rid: JobRid\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: orchestration_models.Job\n\n:raises JobNotFound: The given Job could not be found.",
+      "source_stage": "Public Beta",
+      "source_doc_sha256": "124d405f2aebae91fa0ac5856442c097b57d53e0a21f9a7ee386251fdddaf840",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 1,
+      "expected_body": null,
+      "success_fixture": {
+        "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "buildRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "startedTime": "2026-10-07T00:00:00+00:00",
+        "jobStatus": "WAITING",
+        "outputs": [
+          {
+            "datasetRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+            "type": "datasetJobOutput"
+          }
+        ]
+      },
+      "error_fixtures": [
+        {
+          "name": "JobNotFound",
+          "status": 404,
+          "code": "NOT_FOUND",
+          "parameters": {
+            "jobRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        }
+      ]
+    },
+    {
+      "id": "v2.orchestration.Job.get_batch",
+      "verdict": "UNCERTAIN",
+      "reason": "Success contains an empty data map although one identity was requested. SDK permits missing/inaccessible omissions, so this is not a proven endpoint defect; example lacks a found record and requested-to-returned identity demonstration.",
+      "behavior_sha256": "ba3e245484c361fdeb3fd5395d05f9b20eab5c7dc041309aa29bae4394d01026",
+      "example_sha256": "70b0354b2221bb880f1c5be31fb8f5bfcb06652f76f74275035d2b6d69bd632c",
+      "contract_sha256": "bb953b1e598da122aed8da482a61fa5e084b69917cae9502a0762eed5c8c2ff8",
+      "source_module": "foundry_sdk.v2.orchestration.job",
+      "source_sha256": "7b791264b8f5abba4e4034016cf140df661aa2478484e692e896820a880da5b6",
+      "source_method_sha256": "89caacdbb95f00fd1a370b62586140bc9eea47c08e5da259db3d9bb6f77d5bb7",
+      "source_method_documentation": "Execute multiple get requests on Job.\n\nUsers are allowed to make a maximum of **4 requests per second** and **25 concurrent requests**.\n\n\nThe maximum batch size for this endpoint is 500.\n:param body: Body of the request\n:type body: List[GetJobsBatchRequestElement]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: orchestration_models.GetJobsBatchResponse",
+      "source_stage": "Public Beta",
+      "source_doc_sha256": "124d405f2aebae91fa0ac5856442c097b57d53e0a21f9a7ee386251fdddaf840",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 0,
+      "expected_body": [
+        {
+          "jobRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+        }
+      ],
+      "success_fixture": {
+        "data": {}
+      },
+      "error_fixtures": []
+    },
+    {
+      "id": "v2.orchestration.Schedule.create",
+      "verdict": "FAIL",
+      "reason": "Submitted upstream target contains the target dataset and omits ignoredRids; success adds that same target to ignoredRids, changing the intended build set without explanation. Source UpstreamTarget describes ignored datasets as excluded from the final set.",
+      "behavior_sha256": "6b70665b6845066bab07f1c9f0cf46d6379d31cc5925675d2362e5a35a5d8550",
+      "example_sha256": "b2b93d2fcde3e3566b14f346bef1e4123f0c26448dfdf8aa44a24e8535dbb602",
+      "contract_sha256": "326f94b3626b5d3fe0081668512c1bd77c619d03fd2debb20dcc044c7971fe52",
+      "source_module": "foundry_sdk.v2.orchestration.schedule",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "source_method_sha256": "f9bee7e0ddffa4cb24eb62add2952254e500aa555f1121523188a700536b8785",
+      "source_method_documentation": "Creates a new Schedule.\n\n:::callout{theme=warning title=Warning}\nIf the schedule is created in user-scoped mode, outputs to build will be discovered based on resources\nthat the user has access to. If the user's permissions change later, this could change the outputs that\nwill be built or cause builds to fail. Consider using a project-scoped schedule instead.\n:::\n\n:param action:\n:type action: CreateScheduleRequestAction\n:param description:\n:type description: Optional[str]\n:param display_name:\n:type display_name: Optional[str]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param scope_mode:\n:type scope_mode: Optional[CreateScheduleRequestScopeMode]\n:param trigger: The schedule trigger. If the requesting user does not have permission to see the trigger, this will be empty.\n:type trigger: Optional[Trigger]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: orchestration_models.Schedule\n\n:raises CreateSchedulePermissionDenied: Could not create the Schedule.",
+      "source_stage": "Public Beta",
+      "source_doc_sha256": "80b737f95ce0b4a5c36f8e14b1b27420c14f35789e5eb2347215bc698e8d686f",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 1,
+      "expected_body": {
+        "action": {
+          "target": {
+            "targetRids": [
+              "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+            ],
+            "type": "upstream"
+          }
+        }
+      },
+      "success_fixture": {
+        "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "currentVersionRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "createdTime": "2026-10-07T00:00:00+00:00",
+        "createdBy": "00000000-0000-0000-0000-000000000001",
+        "updatedTime": "2026-10-07T00:00:00+00:00",
+        "updatedBy": "00000000-0000-0000-0000-000000000001",
+        "paused": true,
+        "action": {
+          "target": {
+            "targetRids": [
+              "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+            ],
+            "ignoredRids": [
+              "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+            ],
+            "type": "upstream"
+          },
+          "branchName": "synthetic-value",
+          "fallbackBranches": [
+            "synthetic-value"
+          ],
+          "forceBuild": true,
+          "abortOnFailure": true,
+          "notificationsEnabled": true
+        },
+        "scopeMode": {
+          "projectRids": [
+            "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          ],
+          "type": "project"
+        }
+      },
+      "error_fixtures": [
+        {
+          "name": "CreateSchedulePermissionDenied",
+          "status": 403,
+          "code": "PERMISSION_DENIED",
+          "parameters": {}
+        }
+      ]
+    },
+    {
+      "id": "v2.orchestration.Schedule.delete",
+      "verdict": "PASS",
+      "reason": "Build RUNNING is not success, cancel/pause/unpause acknowledge requests without claiming completed work, jobs keep build identity, schedules/runs/versions remain separate resources. Configurable synthetic identity and response objects are not tenant-valid execution evidence. Specific batch/search/action issues are separately withheld.",
+      "behavior_sha256": "6b70665b6845066bab07f1c9f0cf46d6379d31cc5925675d2362e5a35a5d8550",
+      "example_sha256": "f51417eeb474833c2b5fa4d388b6115abd41aaf78be5494d0fdd2a700afbcae5",
+      "contract_sha256": "f0580cc3ecb2b5f64ea9dae5a13309a8db2290fddc50a8cddd3d3b8e8d5b4e6f",
+      "source_module": "foundry_sdk.v2.orchestration.schedule",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "source_method_sha256": "35f10245119dc9579d462b19a403a7e26e9191ca48294476a67d39b1af931734",
+      "source_method_documentation": "Delete the Schedule with the specified rid.\n:param schedule_rid:\n:type schedule_rid: ScheduleRid\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: None\n\n:raises DeleteSchedulePermissionDenied: Could not delete the Schedule.",
+      "source_stage": "Stable",
+      "source_doc_sha256": "80b737f95ce0b4a5c36f8e14b1b27420c14f35789e5eb2347215bc698e8d686f",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 1,
+      "expected_body": null,
+      "success_fixture": null,
+      "error_fixtures": [
+        {
+          "name": "DeleteSchedulePermissionDenied",
+          "status": 403,
+          "code": "PERMISSION_DENIED",
+          "parameters": {
+            "scheduleRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        }
+      ]
+    },
+    {
+      "id": "v2.orchestration.Schedule.get",
+      "verdict": "PASS",
+      "reason": "Build RUNNING is not success, cancel/pause/unpause acknowledge requests without claiming completed work, jobs keep build identity, schedules/runs/versions remain separate resources. Configurable synthetic identity and response objects are not tenant-valid execution evidence. Specific batch/search/action issues are separately withheld.",
+      "behavior_sha256": "6b70665b6845066bab07f1c9f0cf46d6379d31cc5925675d2362e5a35a5d8550",
+      "example_sha256": "dd1d78b26a0d2a015cf7ebad8a4c9fa4d5611d0dc4afbab81b1f17c419596b7a",
+      "contract_sha256": "e3d0db434a74e291021ab26e32524f59cbee051c901ef36693641ae754cba1f7",
+      "source_module": "foundry_sdk.v2.orchestration.schedule",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "source_method_sha256": "07af573aa7ad9be16c2c9bc56d11564134136f575a2269aa367f5de23696f5df",
+      "source_method_documentation": "Get the Schedule with the specified rid.\n:param schedule_rid:\n:type schedule_rid: ScheduleRid\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: orchestration_models.Schedule\n\n:raises ScheduleNotFound: The given Schedule could not be found.",
+      "source_stage": "Public Beta",
+      "source_doc_sha256": "80b737f95ce0b4a5c36f8e14b1b27420c14f35789e5eb2347215bc698e8d686f",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 1,
+      "expected_body": null,
+      "success_fixture": {
+        "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "currentVersionRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "createdTime": "2026-10-07T00:00:00+00:00",
+        "createdBy": "00000000-0000-0000-0000-000000000001",
+        "updatedTime": "2026-10-07T00:00:00+00:00",
+        "updatedBy": "00000000-0000-0000-0000-000000000001",
+        "paused": true,
+        "action": {
+          "target": {
+            "targetRids": [
+              "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+            ],
+            "ignoredRids": [
+              "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+            ],
+            "type": "upstream"
+          },
+          "branchName": "synthetic-value",
+          "fallbackBranches": [
+            "synthetic-value"
+          ],
+          "forceBuild": true,
+          "abortOnFailure": true,
+          "notificationsEnabled": true
+        },
+        "scopeMode": {
+          "projectRids": [
+            "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          ],
+          "type": "project"
+        }
+      },
+      "error_fixtures": [
+        {
+          "name": "ScheduleNotFound",
+          "status": 404,
+          "code": "NOT_FOUND",
+          "parameters": {
+            "scheduleRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        }
+      ]
+    },
+    {
+      "id": "v2.orchestration.Schedule.get_affected_resources",
+      "verdict": "PASS",
+      "reason": "Build RUNNING is not success, cancel/pause/unpause acknowledge requests without claiming completed work, jobs keep build identity, schedules/runs/versions remain separate resources. Configurable synthetic identity and response objects are not tenant-valid execution evidence. Specific batch/search/action issues are separately withheld.",
+      "behavior_sha256": "6b70665b6845066bab07f1c9f0cf46d6379d31cc5925675d2362e5a35a5d8550",
+      "example_sha256": "fdba8916e359fba41c22b181e64105d001cc8163225bf9470224e18081f08c11",
+      "contract_sha256": "06b3ac86a1f596fc6bc472913822e95ad2ecfcbf2b4200a0f1747e70131ee3f2",
+      "source_module": "foundry_sdk.v2.orchestration.schedule",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "source_method_sha256": "ca7f708afe0b6e29240bba0b3cc8248afb507139122a3206a5166c8baa0c2897",
+      "source_method_documentation": ":param schedule_rid:\n:type schedule_rid: ScheduleRid\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: orchestration_models.AffectedResourcesResponse\n\n:raises GetAffectedResourcesSchedulePermissionDenied: Could not getAffectedResources the Schedule.",
+      "source_stage": "Public Beta",
+      "source_doc_sha256": "80b737f95ce0b4a5c36f8e14b1b27420c14f35789e5eb2347215bc698e8d686f",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 1,
+      "expected_body": null,
+      "success_fixture": {
+        "datasets": [
+          "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+        ]
+      },
+      "error_fixtures": [
+        {
+          "name": "GetAffectedResourcesSchedulePermissionDenied",
+          "status": 403,
+          "code": "PERMISSION_DENIED",
+          "parameters": {
+            "scheduleRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        }
+      ]
+    },
+    {
+      "id": "v2.orchestration.Schedule.get_batch",
+      "verdict": "UNCERTAIN",
+      "reason": "Success contains an empty data map although one identity was requested. SDK permits missing/inaccessible omissions, so this is not a proven endpoint defect; example lacks a found record and requested-to-returned identity demonstration.",
+      "behavior_sha256": "6b70665b6845066bab07f1c9f0cf46d6379d31cc5925675d2362e5a35a5d8550",
+      "example_sha256": "9445e2c2d97e744455451caf1b041f57f91dace2157df8dced34208d371294c9",
+      "contract_sha256": "35f0e28e610620a1e9eb06c6e51a301023b7ef3a3d83f67dd16ac979df9ffe57",
+      "source_module": "foundry_sdk.v2.orchestration.schedule",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "source_method_sha256": "b5861519516b5fec1d3528b277899ba4dbd89dfe16d563d99a521e57b5e0116b",
+      "source_method_documentation": "Fetch multiple schedules in a single request. Schedules not found or inaccessible to the user will be\nomitted from the response.\n\n\nThe maximum batch size for this endpoint is 1000.\n:param body: Body of the request\n:type body: List[GetSchedulesBatchRequestElement]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: orchestration_models.GetSchedulesBatchResponse",
+      "source_stage": "Public Beta",
+      "source_doc_sha256": "80b737f95ce0b4a5c36f8e14b1b27420c14f35789e5eb2347215bc698e8d686f",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 0,
+      "expected_body": [
+        {
+          "scheduleRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+        }
+      ],
+      "success_fixture": {
+        "data": {}
+      },
+      "error_fixtures": []
+    },
+    {
+      "id": "v2.orchestration.Schedule.pause",
+      "verdict": "PASS",
+      "reason": "Build RUNNING is not success, cancel/pause/unpause acknowledge requests without claiming completed work, jobs keep build identity, schedules/runs/versions remain separate resources. Configurable synthetic identity and response objects are not tenant-valid execution evidence. Specific batch/search/action issues are separately withheld.",
+      "behavior_sha256": "6b70665b6845066bab07f1c9f0cf46d6379d31cc5925675d2362e5a35a5d8550",
+      "example_sha256": "9c4daebe71e7f0f2dca001ff072941c75887d86082cba8f42ecd756fca184de8",
+      "contract_sha256": "efe6fc47040c0aea73bae501cb6b1711d4c6806974ee6e623cf2044705071631",
+      "source_module": "foundry_sdk.v2.orchestration.schedule",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "source_method_sha256": "cfd9430907f573541e26ecbde5d02a534479f14ca6a56f9c3f5647db62efda75",
+      "source_method_documentation": ":param schedule_rid:\n:type schedule_rid: ScheduleRid\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: None\n\n:raises PauseSchedulePermissionDenied: Could not pause the Schedule.",
+      "source_stage": "Stable",
+      "source_doc_sha256": "80b737f95ce0b4a5c36f8e14b1b27420c14f35789e5eb2347215bc698e8d686f",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 1,
+      "expected_body": null,
+      "success_fixture": null,
+      "error_fixtures": [
+        {
+          "name": "PauseSchedulePermissionDenied",
+          "status": 403,
+          "code": "PERMISSION_DENIED",
+          "parameters": {
+            "scheduleRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        }
+      ]
+    },
+    {
+      "id": "v2.orchestration.Schedule.replace",
+      "verdict": "FAIL",
+      "reason": "Replacement upstream target omits ignoredRids; returned action ignores its only selected target, so successful replacement does not demonstrate preservation of the submitted target.",
+      "behavior_sha256": "6b70665b6845066bab07f1c9f0cf46d6379d31cc5925675d2362e5a35a5d8550",
+      "example_sha256": "7cfffe2010aecc10fe0fc730ffb2d4cd84bdc9fcd92648fed17b8e2a155d2584",
+      "contract_sha256": "a66e553f602407f406f6539eceab5c758f352f8ea54b5bd865340b42a0091e74",
+      "source_module": "foundry_sdk.v2.orchestration.schedule",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "source_method_sha256": "e64d22f5d1f82eb6a0c87bc72a1dea7091009a0fb5013bed0607604291140829",
+      "source_method_documentation": "Replaces the Schedule with the specified rid.\n\n:::callout{theme=warning title=Warning}\nIf the schedule is configured in user-scoped mode, outputs to build will be discovered based on resources\nthat the user has access to. If the user's permissions change later, this could change the outputs that\nwill be built or cause builds to fail. Consider using a project-scoped schedule instead.\n:::\n\n:param schedule_rid:\n:type schedule_rid: ScheduleRid\n:param action:\n:type action: ReplaceScheduleRequestAction\n:param description:\n:type description: Optional[str]\n:param display_name:\n:type display_name: Optional[str]\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param scope_mode:\n:type scope_mode: Optional[ReplaceScheduleRequestScopeMode]\n:param trigger: The schedule trigger. If the requesting user does not have permission to see the trigger, this will be empty.\n:type trigger: Optional[Trigger]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: orchestration_models.Schedule\n\n:raises ReplaceSchedulePermissionDenied: Could not replace the Schedule.",
+      "source_stage": "Public Beta",
+      "source_doc_sha256": "80b737f95ce0b4a5c36f8e14b1b27420c14f35789e5eb2347215bc698e8d686f",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 1,
+      "expected_body": {
+        "action": {
+          "target": {
+            "targetRids": [
+              "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+            ],
+            "type": "upstream"
+          }
+        }
+      },
+      "success_fixture": {
+        "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "currentVersionRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "createdTime": "2026-10-07T00:00:00+00:00",
+        "createdBy": "00000000-0000-0000-0000-000000000001",
+        "updatedTime": "2026-10-07T00:00:00+00:00",
+        "updatedBy": "00000000-0000-0000-0000-000000000001",
+        "paused": true,
+        "action": {
+          "target": {
+            "targetRids": [
+              "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+            ],
+            "ignoredRids": [
+              "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+            ],
+            "type": "upstream"
+          },
+          "branchName": "synthetic-value",
+          "fallbackBranches": [
+            "synthetic-value"
+          ],
+          "forceBuild": true,
+          "abortOnFailure": true,
+          "notificationsEnabled": true
+        },
+        "scopeMode": {
+          "projectRids": [
+            "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          ],
+          "type": "project"
+        }
+      },
+      "error_fixtures": [
+        {
+          "name": "ReplaceSchedulePermissionDenied",
+          "status": 403,
+          "code": "PERMISSION_DENIED",
+          "parameters": {
+            "scheduleRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        }
+      ]
+    },
+    {
+      "id": "v2.orchestration.Schedule.run",
+      "verdict": "PASS",
+      "reason": "Build RUNNING is not success, cancel/pause/unpause acknowledge requests without claiming completed work, jobs keep build identity, schedules/runs/versions remain separate resources. Configurable synthetic identity and response objects are not tenant-valid execution evidence. Specific batch/search/action issues are separately withheld.",
+      "behavior_sha256": "6b70665b6845066bab07f1c9f0cf46d6379d31cc5925675d2362e5a35a5d8550",
+      "example_sha256": "ed644a84382fe2165d16e321fe716d3ec8b0b34f548422ff5c5e80164eb6ef3b",
+      "contract_sha256": "e602681098aa4bef06a673531c6b44235eed1a2964296cd71ab8a77538aa201d",
+      "source_module": "foundry_sdk.v2.orchestration.schedule",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "source_method_sha256": "fcf188e41dbd90d31288f1830f1179eee2d05696c4daa98ae1459e6510f4bd17",
+      "source_method_documentation": ":param schedule_rid:\n:type schedule_rid: ScheduleRid\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: orchestration_models.ScheduleRun\n\n:raises RunSchedulePermissionDenied: Could not run the Schedule.",
+      "source_stage": "Stable",
+      "source_doc_sha256": "80b737f95ce0b4a5c36f8e14b1b27420c14f35789e5eb2347215bc698e8d686f",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 1,
+      "expected_body": null,
+      "success_fixture": {
+        "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "scheduleRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "scheduleVersionRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "createdTime": "2026-10-07T00:00:00+00:00"
+      },
+      "error_fixtures": [
+        {
+          "name": "RunSchedulePermissionDenied",
+          "status": 403,
+          "code": "PERMISSION_DENIED",
+          "parameters": {
+            "scheduleRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        }
+      ]
+    },
+    {
+      "id": "v2.orchestration.Schedule.runs",
+      "verdict": "PASS",
+      "reason": "Build RUNNING is not success, cancel/pause/unpause acknowledge requests without claiming completed work, jobs keep build identity, schedules/runs/versions remain separate resources. Configurable synthetic identity and response objects are not tenant-valid execution evidence. Specific batch/search/action issues are separately withheld.",
+      "behavior_sha256": "aceddd5fb92a5ca33ccffc1da14a0a171a6ce821cb58845a6d1677ad0068b466",
+      "example_sha256": "1cee932b7db13c96eb465764b4a870cf4b9b94fa9662c391f7120a5a4a75ce74",
+      "contract_sha256": "a32e4ba786423a59a90224797c1a02c963ef97cfab806d86a116e6c539785af6",
+      "source_module": "foundry_sdk.v2.orchestration.schedule",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "source_method_sha256": "1911b16bcf20bfed344dec590fa9a4f199a2cd0ab28a3a4c8325bdb3a543beac",
+      "source_method_documentation": "Get the most recent runs of a Schedule. If no page size is provided, a page size of 100 will be used.\n\n:param schedule_rid:\n:type schedule_rid: ScheduleRid\n:param page_size: The page size to use for the endpoint.\n:type page_size: Optional[PageSize]\n:param page_token: The page token indicates where to start paging. This should be omitted from the first page's request. To fetch the next page, clients should take the value from the `nextPageToken` field of the previous response and use it to populate the `pageToken` field of the next request.\n:type page_token: Optional[PageToken]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: core.ResourceIterator[orchestration_models.ScheduleRun]",
+      "source_stage": "Stable",
+      "source_doc_sha256": "80b737f95ce0b4a5c36f8e14b1b27420c14f35789e5eb2347215bc698e8d686f",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 0,
+      "expected_body": null,
+      "success_fixture": {
+        "data": [
+          {
+            "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+            "scheduleRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+            "scheduleVersionRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+            "createdTime": "2026-10-07T00:00:00+00:00"
+          }
+        ]
+      },
+      "error_fixtures": []
+    },
+    {
+      "id": "v2.orchestration.Schedule.unpause",
+      "verdict": "PASS",
+      "reason": "Build RUNNING is not success, cancel/pause/unpause acknowledge requests without claiming completed work, jobs keep build identity, schedules/runs/versions remain separate resources. Configurable synthetic identity and response objects are not tenant-valid execution evidence. Specific batch/search/action issues are separately withheld.",
+      "behavior_sha256": "aceddd5fb92a5ca33ccffc1da14a0a171a6ce821cb58845a6d1677ad0068b466",
+      "example_sha256": "4dac4552b436813300a409686af048e86398fe88654e8ae5ca97caeecfe9b864",
+      "contract_sha256": "0c1f8376991a0417f2cbb9ecce170f52a05750734785c0f41a2aaec4ae6764d7",
+      "source_module": "foundry_sdk.v2.orchestration.schedule",
+      "source_sha256": "f2aee0b8173d6daf0b97a9cff51bb65e0326b51f3da39f0cb0c4a16831a3409e",
+      "source_method_sha256": "ee644b4367172890638e2c2e26a8679eb27b365e120d45c59f5c2e7cfb85e618",
+      "source_method_documentation": ":param schedule_rid:\n:type schedule_rid: ScheduleRid\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: None\n\n:raises UnpauseSchedulePermissionDenied: Could not unpause the Schedule.",
+      "source_stage": "Stable",
+      "source_doc_sha256": "80b737f95ce0b4a5c36f8e14b1b27420c14f35789e5eb2347215bc698e8d686f",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 1,
+      "expected_body": null,
+      "success_fixture": null,
+      "error_fixtures": [
+        {
+          "name": "UnpauseSchedulePermissionDenied",
+          "status": 403,
+          "code": "PERMISSION_DENIED",
+          "parameters": {
+            "scheduleRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        }
+      ]
+    },
+    {
+      "id": "v2.orchestration.ScheduleVersion.get",
+      "verdict": "PASS",
+      "reason": "Build RUNNING is not success, cancel/pause/unpause acknowledge requests without claiming completed work, jobs keep build identity, schedules/runs/versions remain separate resources. Configurable synthetic identity and response objects are not tenant-valid execution evidence. Specific batch/search/action issues are separately withheld.",
+      "behavior_sha256": "275bb1aad1c5a0e5ec89c9b1111c4700b95b64e1fb1c9b625fa5a9ba6a043297",
+      "example_sha256": "6ec248dabdaea39b2316956154643e974bfdc54be359685a4fce487d678dfb6b",
+      "contract_sha256": "8155e183deb877013e483231f5c459614ee89236b0075f15bf234563c13185ba",
+      "source_module": "foundry_sdk.v2.orchestration.schedule_version",
+      "source_sha256": "59b5ef850327e727b4d728781f15cf80c3949119bd95dd9df95fa38ae4403f7d",
+      "source_method_sha256": "7c6eb5f2a80ef96ba9ec0d37d07246e407930142e24cb257bfc8bbe7ae22be98",
+      "source_method_documentation": "Get the ScheduleVersion with the specified rid.\n:param schedule_version_rid: The RID of a schedule version\n:type schedule_version_rid: ScheduleVersionRid\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: orchestration_models.ScheduleVersion\n\n:raises ScheduleVersionNotFound: The given ScheduleVersion could not be found.",
+      "source_stage": "Public Beta",
+      "source_doc_sha256": "4bb54bd6481dc1b07eed527fe443c32f993ed77bd3f08c137cbd99fd33b91dfc",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 1,
+      "expected_body": null,
+      "success_fixture": {
+        "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "scheduleRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "createdTime": "2026-10-07T00:00:00+00:00",
+        "createdBy": "00000000-0000-0000-0000-000000000001",
+        "action": {
+          "target": {
+            "targetRids": [
+              "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+            ],
+            "ignoredRids": [
+              "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+            ],
+            "type": "upstream"
+          },
+          "branchName": "synthetic-value",
+          "fallbackBranches": [
+            "synthetic-value"
+          ],
+          "forceBuild": true,
+          "abortOnFailure": true,
+          "notificationsEnabled": true
+        },
+        "scopeMode": {
+          "projectRids": [
+            "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          ],
+          "type": "project"
+        }
+      },
+      "error_fixtures": [
+        {
+          "name": "ScheduleVersionNotFound",
+          "status": 404,
+          "code": "NOT_FOUND",
+          "parameters": {
+            "scheduleVersionRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          }
+        }
+      ]
+    },
+    {
+      "id": "v2.orchestration.ScheduleVersion.schedule",
+      "verdict": "PASS",
+      "reason": "Build RUNNING is not success, cancel/pause/unpause acknowledge requests without claiming completed work, jobs keep build identity, schedules/runs/versions remain separate resources. Configurable synthetic identity and response objects are not tenant-valid execution evidence. Specific batch/search/action issues are separately withheld.",
+      "behavior_sha256": "275bb1aad1c5a0e5ec89c9b1111c4700b95b64e1fb1c9b625fa5a9ba6a043297",
+      "example_sha256": "d25324b2582ad52abb01cb2188da6ce258ed3a137ef56a7d61ab90f1318393f1",
+      "contract_sha256": "90605dfd03e7b398a1991345bd6cf501a1206a791e203d7379a8ae3c361dbc67",
+      "source_module": "foundry_sdk.v2.orchestration.schedule_version",
+      "source_sha256": "59b5ef850327e727b4d728781f15cf80c3949119bd95dd9df95fa38ae4403f7d",
+      "source_method_sha256": "561e0f6f4cad947f784d8080dfd14e59bac81a721f01a7a3c09ee4b2877a4274",
+      "source_method_documentation": ":param schedule_version_rid: The RID of a schedule version\n:type schedule_version_rid: ScheduleVersionRid\n:param preview: Enables the use of preview functionality.\n:type preview: Optional[PreviewMode]\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: typing.Optional[orchestration_models.Schedule]",
+      "source_stage": "Public Beta",
+      "source_doc_sha256": "4bb54bd6481dc1b07eed527fe443c32f993ed77bd3f08c137cbd99fd33b91dfc",
+      "signature_and_wire_source_match": true,
+      "fixture_execution": "PASS",
+      "declared_errors_exercised": 0,
+      "expected_body": null,
+      "success_fixture": {
+        "rid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "currentVersionRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001",
+        "createdTime": "2026-10-07T00:00:00+00:00",
+        "createdBy": "00000000-0000-0000-0000-000000000001",
+        "updatedTime": "2026-10-07T00:00:00+00:00",
+        "updatedBy": "00000000-0000-0000-0000-000000000001",
+        "paused": true,
+        "action": {
+          "target": {
+            "targetRids": [
+              "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+            ],
+            "ignoredRids": [
+              "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+            ],
+            "type": "upstream"
+          },
+          "branchName": "synthetic-value",
+          "fallbackBranches": [
+            "synthetic-value"
+          ],
+          "forceBuild": true,
+          "abortOnFailure": true,
+          "notificationsEnabled": true
+        },
+        "scopeMode": {
+          "projectRids": [
+            "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+          ],
+          "type": "project"
+        }
+      },
+      "error_fixtures": []
+    }
+  ],
+  "network_guard_probe": "PASS",
+  "j12": {
+    "bug": "BUG-SUB-025",
+    "current_fixture_sha256": "b260986ea80bb57f0e25c72b728918291484eab242b4bf1ab8ff63622fdf076e",
+    "prior_reader_sha256": "e1b371400e2d90159ec9eb6c86bf98467d71d5f9f3426da8c463857aad491063",
+    "prior_answer_sha256": "547689aa04c64bb8efe489a33af691de06f00f96290efea5bde7f3c504b57077",
+    "prior_output_sha256": "752fe7cfbf7782da30e7dd6ba4bbf559c15974370cefee8362f1fe1caec96277",
+    "continuity": [
+      {
+        "path": "SKILL.md",
+        "old_snapshot_sha256": "2495f974d0c9ba4f9811530fe5f2aa031cfe5912230f6b8624601ef692fbc0fe",
+        "current_sha256": "2495f974d0c9ba4f9811530fe5f2aa031cfe5912230f6b8624601ef692fbc0fe",
+        "unchanged": true
+      },
+      {
+        "path": "references/rest-api.md",
+        "old_snapshot_sha256": "af3562db0dc7f4a45d684b837ce5ba4364af65c0bf4380f74b322fdfca0597ff",
+        "current_sha256": "af3562db0dc7f4a45d684b837ce5ba4364af65c0bf4380f74b322fdfca0597ff",
+        "unchanged": true
+      },
+      {
+        "path": "references/rest/catalog.md",
+        "old_snapshot_sha256": "a2640d2c28ce15c8186af7c4525615a7cca32186783ca4079be0ed2424f492a7",
+        "current_sha256": "a2640d2c28ce15c8186af7c4525615a7cca32186783ca4079be0ed2424f492a7",
+        "unchanged": true
+      },
+      {
+        "path": "references/rest/authentication.md",
+        "old_snapshot_sha256": "21cf5c0319011cf8603358d08b10205b6e92f247da4e6ec871f7526a01618a7c",
+        "current_sha256": "21cf5c0319011cf8603358d08b10205b6e92f247da4e6ec871f7526a01618a7c",
+        "unchanged": true
+      },
+      {
+        "path": "references/rest/client-behavior.md",
+        "old_snapshot_sha256": "57826178f9a203bbe1eb3de24832bef82dc457ecb167f1208a3ba177a93dbcc2",
+        "current_sha256": "57826178f9a203bbe1eb3de24832bef82dc457ecb167f1208a3ba177a93dbcc2",
+        "unchanged": true
+      },
+      {
+        "path": "references/rest/v2/datasets/Transaction.md",
+        "old_snapshot_sha256": "23f6aa970fb3868ca941fbc2c61a6516e966e8e3847da67bfea4316e991991d3",
+        "current_sha256": "d16435f483e07e822d7b79fd13b06744ca196c1f594f985a490f5b8c6c51c3ef",
+        "unchanged": false
+      },
+      {
+        "path": "references/rest/v2/datasets/File.md",
+        "old_snapshot_sha256": "7a0bf6c4a67c5024a7ecd11184d584a2c02271d4d997fef8b99f0be71204fee0",
+        "current_sha256": "7a0bf6c4a67c5024a7ecd11184d584a2c02271d4d997fef8b99f0be71204fee0",
+        "unchanged": true
+      },
+      {
+        "path": "references/rest/v2/orchestration/Build.md",
+        "old_snapshot_sha256": "32bf42c6274cecb222c5e5c528d22e2d8804780bc2963f2d2aaef34f6658a0a4",
+        "current_sha256": "ad26f97daf4f9b9a117c28f343794e5eb710e0967d85072976985d4541b64499",
+        "unchanged": false
+      },
+      {
+        "path": "references/rest/contracts/v2/datasets/Transaction/create.md",
+        "old_snapshot_sha256": "5e99f61292552bea170c6fd3597be096dfc59ff535f0b49b91cbc59022193e8c",
+        "current_sha256": "5e99f61292552bea170c6fd3597be096dfc59ff535f0b49b91cbc59022193e8c",
+        "unchanged": true
+      },
+      {
+        "path": "references/rest/contracts/v2/datasets/Transaction/commit.md",
+        "old_snapshot_sha256": "649a05bc5bf73263e2c73fb65b8cc07650ab2c71ec1c6585d2550a405cdfa4e2",
+        "current_sha256": "649a05bc5bf73263e2c73fb65b8cc07650ab2c71ec1c6585d2550a405cdfa4e2",
+        "unchanged": true
+      },
+      {
+        "path": "references/rest/contracts/v2/datasets/Transaction/get.md",
+        "old_snapshot_sha256": "9c323f966f1084bd60e6aeb21595a7493dd7e4abbb188197ab596adfef45cd3a",
+        "current_sha256": "9c323f966f1084bd60e6aeb21595a7493dd7e4abbb188197ab596adfef45cd3a",
+        "unchanged": true
+      },
+      {
+        "path": "references/rest/contracts/v2/datasets/Transaction/abort.md",
+        "old_snapshot_sha256": "82eacadab65fe4a6cc5053c7d193715ace00a86d87d1ba2c9648d108e5425275",
+        "current_sha256": "82eacadab65fe4a6cc5053c7d193715ace00a86d87d1ba2c9648d108e5425275",
+        "unchanged": true
+      },
+      {
+        "path": "references/rest/contracts/v2/datasets/File/upload.md",
+        "old_snapshot_sha256": "4df6acf02e7f13927225887cb6cf5a067707b421ad469e91fe0ede5fd3437e22",
+        "current_sha256": "4df6acf02e7f13927225887cb6cf5a067707b421ad469e91fe0ede5fd3437e22",
+        "unchanged": true
+      },
+      {
+        "path": "references/rest/contracts/v2/orchestration/Build/get.md",
+        "old_snapshot_sha256": "a3e8bf7a0ec6d0e1549042796286f7183ccfab194f2bb156902fca42a2e412d0",
+        "current_sha256": "a3e8bf7a0ec6d0e1549042796286f7183ccfab194f2bb156902fca42a2e412d0",
+        "unchanged": true
+      },
+      {
+        "path": "examples/rest/074/v2/datasets/staged_commit_journey.py",
+        "old_snapshot_sha256": "8bced797088eb1854744098d7355b28711842fdaf7235bba9755bafdcd149bf4",
+        "current_sha256": "b260986ea80bb57f0e25c72b728918291484eab242b4bf1ab8ff63622fdf076e",
+        "unchanged": false
+      }
+    ],
+    "fresh_reader_required": true,
+    "boundary": "This reviewer read retained answers; rerunning that code is continuity verification, not a new source-blind reader task. A fresh independent reader plus durable exact-candidate output is still required by the bug acceptance criteria.",
+    "retained_reader": {
+      "command": [
+        "D:\\app\\Python\\python.exe",
+        "-B",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_fresh_reader\\j12_reader.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"result\": \"PASS\",\n  \"cases\": [\n    {\n      \"case\": \"SUCCEEDED\",\n      \"status\": \"SUCCEEDED\",\n      \"build_reads\": 2,\n      \"calls\": 11,\n      \"mutations\": [\n        \"create\",\n        \"upload\",\n        \"commit\"\n      ]\n    },\n    {\n      \"case\": \"FAILED\",\n      \"status\": \"FAILED\",\n      \"build_reads\": 2,\n      \"calls\": 11,\n      \"mutations\": [\n        \"create\",\n        \"upload\",\n        \"commit\"\n      ]\n    },\n    {\n      \"case\": \"CANCELED\",\n      \"status\": \"CANCELED\",\n      \"build_reads\": 2,\n      \"calls\": 11,\n      \"mutations\": [\n        \"create\",\n        \"upload\",\n        \"commit\"\n      ]\n    },\n    {\n      \"case\": \"RUNNING\",\n      \"status\": \"pending-budget\",\n      \"build_reads\": 2,\n      \"calls\": 11,\n      \"mutations\": [\n        \"create\",\n        \"upload\",\n        \"commit\"\n      ]\n    },\n    {\n      \"case\": \"upload\",\n      \"status\": \"SUCCEEDED\",\n      \"build_reads\": 2,\n      \"calls\": 13,\n      \"mutations\": [\n        \"create\",\n        \"upload\",\n        \"commit\"\n      ]\n    },\n    {\n      \"case\": \"commit\",\n      \"status\": \"SUCCEEDED\",\n      \"build_reads\": 2,\n      \"calls\": 12,\n      \"mutations\": [\n        \"create\",\n        \"upload\",\n        \"commit\"\n      ]\n    },\n    {\n      \"case\": \"abort\",\n      \"status\": \"ABORTED\",\n      \"calls\": 7\n    }\n  ]\n}\n",
+      "stderr": ""
+    },
+    "current_distributed_fixture": {
+      "command": [
+        "D:\\app\\Python\\python.exe",
+        "-B",
+        "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\074\\v2\\datasets\\staged_commit_journey.py"
+      ],
+      "exit_code": 0,
+      "stdout": "seven staged transaction and Build outcomes passed with public network denied\n",
+      "stderr": ""
+    }
+  },
+  "counts": {
+    "PASS": 21,
+    "UNCERTAIN": 5,
+    "FAIL": 3
+  },
+  "fixture_counts": {
+    "PASS": 29
+  },
+  "readiness": {
+    "dedicated_test_suite": "No tests/test_offline_rest_075*.py found at review start.",
+    "formal_test_execution": "pending; this semantic probe does not substitute TESTEXEC acceptance",
+    "tracker_writer": "No tracker writes performed; existing BUG-SUB-025 In Progress and LINK-01894 retained."
+  }
+}

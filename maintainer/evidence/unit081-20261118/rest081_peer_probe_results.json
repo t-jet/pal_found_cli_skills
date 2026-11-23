@@ -1,0 +1,122 @@
+{
+  "independent_git_source_wire_ledger": [
+    {
+      "operation": "v2.ontologies.LinkedObject.get_linked_object",
+      "sdk_sha256": "2c53da05a712af7aba36ecbd2615bfd508fb61c908dd9bed93def0195566b02a",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.LinkedObject.list_linked_objects",
+      "sdk_sha256": "2c53da05a712af7aba36ecbd2615bfd508fb61c908dd9bed93def0195566b02a",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyObject.aggregate",
+      "sdk_sha256": "2cc7b91d2c6c3fe264196220adf23e05a5f4c314452db57458523abc58721efe",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyObject.count",
+      "sdk_sha256": "2cc7b91d2c6c3fe264196220adf23e05a5f4c314452db57458523abc58721efe",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyObject.get",
+      "sdk_sha256": "2cc7b91d2c6c3fe264196220adf23e05a5f4c314452db57458523abc58721efe",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyObject.list",
+      "sdk_sha256": "2cc7b91d2c6c3fe264196220adf23e05a5f4c314452db57458523abc58721efe",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyObject.search",
+      "sdk_sha256": "2cc7b91d2c6c3fe264196220adf23e05a5f4c314452db57458523abc58721efe",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyObjectSet.aggregate",
+      "sdk_sha256": "fa35bfb2c50f00e18c97c8f0e1deb11a6fe7710b994ca2e022fdab7b29710aee",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyObjectSet.create_temporary",
+      "sdk_sha256": "fa35bfb2c50f00e18c97c8f0e1deb11a6fe7710b994ca2e022fdab7b29710aee",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyObjectSet.get",
+      "sdk_sha256": "fa35bfb2c50f00e18c97c8f0e1deb11a6fe7710b994ca2e022fdab7b29710aee",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyObjectSet.load",
+      "sdk_sha256": "fa35bfb2c50f00e18c97c8f0e1deb11a6fe7710b994ca2e022fdab7b29710aee",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyObjectSet.load_links",
+      "sdk_sha256": "fa35bfb2c50f00e18c97c8f0e1deb11a6fe7710b994ca2e022fdab7b29710aee",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyObjectSet.load_multiple_object_types",
+      "sdk_sha256": "fa35bfb2c50f00e18c97c8f0e1deb11a6fe7710b994ca2e022fdab7b29710aee",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyObjectSet.load_objects_or_interfaces",
+      "sdk_sha256": "fa35bfb2c50f00e18c97c8f0e1deb11a6fe7710b994ca2e022fdab7b29710aee",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyScenario.create_scenario",
+      "sdk_sha256": "ca8ec3be7e1a37dc0d78bc7f6a9edfbe1681b8d935fd24c8e3dcaabd56c9f597",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyScenario.list_scenario_conflicting_objects",
+      "sdk_sha256": "ca8ec3be7e1a37dc0d78bc7f6a9edfbe1681b8d935fd24c8e3dcaabd56c9f597",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyScenario.list_scenario_edited_entity_types",
+      "sdk_sha256": "ca8ec3be7e1a37dc0d78bc7f6a9edfbe1681b8d935fd24c8e3dcaabd56c9f597",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyScenario.list_scenario_edited_link_types",
+      "sdk_sha256": "ca8ec3be7e1a37dc0d78bc7f6a9edfbe1681b8d935fd24c8e3dcaabd56c9f597",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyScenario.list_scenario_edited_links",
+      "sdk_sha256": "ca8ec3be7e1a37dc0d78bc7f6a9edfbe1681b8d935fd24c8e3dcaabd56c9f597",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyScenario.list_scenario_edited_object_types",
+      "sdk_sha256": "ca8ec3be7e1a37dc0d78bc7f6a9edfbe1681b8d935fd24c8e3dcaabd56c9f597",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyScenario.list_scenario_edited_objects",
+      "sdk_sha256": "ca8ec3be7e1a37dc0d78bc7f6a9edfbe1681b8d935fd24c8e3dcaabd56c9f597",
+      "wire_fields": 10
+    },
+    {
+      "operation": "v2.ontologies.OntologyTransaction.post_edits",
+      "sdk_sha256": "ef9f2803ab81a39b45a1b3391877f48a0c66228c263ae0f291eb5e54a9dcb20f",
+      "wire_fields": 10
+    }
+  ],
+  "reader_object_identity": "killed",
+  "scenario_full_object_in_locator": "killed",
+  "beta_preview_false": "killed",
+  "native_pager_truncation": "killed",
+  "async_cancellation_cleanup_omitted": "killed",
+  "author_test_sha256": "ca2b92fd7d72ac43ce625e21bcb650a37bbf7dea2a697edf00c7c221a4ef0c12",
+  "peer_head": "ff70c30c99410b3b0784bcad934625b88d5e6e5c",
+  "tracked_diff_exit": 0
+}

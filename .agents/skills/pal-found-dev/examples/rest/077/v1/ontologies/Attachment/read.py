@@ -21,7 +21,7 @@ EXPECTED_PATH = '/api/v1/attachments/ri.synthetic.main.resource.00000000-0000-00
 EXPECTED_BODY = None
 EXPECTED_QUERY = {}
 EXPECTED_HEADERS = {'Accept': '*/*'}
-SUCCESS = b'offline synthetic content'
+SUCCESS = b'Inspection evidence'
 ERRORS = []
 
 def invoke(client):

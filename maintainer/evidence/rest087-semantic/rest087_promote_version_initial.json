@@ -1,0 +1,6 @@
+{
+  "initial_verdict": "FAIL: returned version RID equals sourceModelVersionRid",
+  "original_sha256": "1dfcf8db56eaa1b69ce8a296276013fcbb10a03ef37235f418eda72f3d5e3f50",
+  "sdk_source_sha256": "420a4bd19511d5732532fb3ac4252310732e3c4b4ea418551adb2cf68a41cd20",
+  "source_doc": "Promotes an existing Model Version to the target Model. The promoted Model Version will be copied to the target Model as the latest version on the specified branch, but will have a new Model Version RID."
+}

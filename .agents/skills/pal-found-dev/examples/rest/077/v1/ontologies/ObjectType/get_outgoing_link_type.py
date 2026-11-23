@@ -17,19 +17,19 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'GET'
-EXPECTED_PATH = '/api/v1/ontologies/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/objectTypes/Asset/outgoingLinkTypes/synthetic-value'
+EXPECTED_PATH = '/api/v1/ontologies/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/objectTypes/Asset/outgoingLinkTypes/facility'
 EXPECTED_BODY = None
 EXPECTED_QUERY = {}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'apiName': 'synthetic-value',
- 'displayName': 'synthetic-value',
+SUCCESS = {'apiName': 'facility',
+ 'displayName': 'Facility',
  'status': 'ACTIVE',
- 'objectTypeApiName': 'synthetic-value',
+ 'objectTypeApiName': 'Facility',
  'cardinality': 'ONE'}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.get_outgoing_link_type(ontology_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', object_type='Asset', link_type='synthetic-value', request_timeout=30)
+    return client.with_raw_response.get_outgoing_link_type(ontology_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', object_type='Asset', link_type='facility', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD

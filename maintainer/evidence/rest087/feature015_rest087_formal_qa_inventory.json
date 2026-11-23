@@ -1,0 +1,1363 @@
+{
+  "story": "DEV-STORY-087",
+  "execution": "PASS",
+  "recorder_identity": "/root/rest087_executor_recover_20261029",
+  "canonical_sha256": "6ad9369749ae27a7c9d82fadac52b873c367b4ee3a2c80c9e2afcc043b281590",
+  "files": [
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\agent.py",
+      "archive_name": "external_bound_inputs/a4e8a02cd5e824228a83dd06134389f32876403cff75c5b2bc0317efd0140162/agent.py",
+      "sha256": "a4e8a02cd5e824228a83dd06134389f32876403cff75c5b2bc0317efd0140162",
+      "bytes": 16592
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\agent_version.py",
+      "archive_name": "external_bound_inputs/800b64e68d4a3c104e76b792e3ac02d400d13a667186cfb002465417c965c3d8/agent_version.py",
+      "sha256": "800b64e68d4a3c104e76b792e3ac02d400d13a667186cfb002465417c965c3d8",
+      "bytes": 15666
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\content.py",
+      "archive_name": "external_bound_inputs/d7b4c970889956f860350a5794736869405dc81b4ac00999e91595ade4c6e0a1/content.py",
+      "sha256": "d7b4c970889956f860350a5794736869405dc81b4ac00999e91595ade4c6e0a1",
+      "bytes": 8680
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\errors.py",
+      "archive_name": "external_bound_inputs/e66acca9ecbf01f88ee23c429084b8db06599475ccfb2c4fc9032c8681bc5ab5/errors.py",
+      "sha256": "e66acca9ecbf01f88ee23c429084b8db06599475ccfb2c4fc9032c8681bc5ab5",
+      "bytes": 25642
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session.py",
+      "archive_name": "external_bound_inputs/0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6/session.py",
+      "sha256": "0161c1129fbe7d48943477766c905f2ef3ae3ecc9f8df4e314697c25bd0670b6",
+      "bytes": 101372
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\aip_agents\\session_trace.py",
+      "archive_name": "external_bound_inputs/24dbb5a1290eb00d8024c12fc2ad50afed584fccc042bd7773a924a4d378df29/session_trace.py",
+      "sha256": "24dbb5a1290eb00d8024c12fc2ad50afed584fccc042bd7773a924a4d378df29",
+      "bytes": 9846
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\filesystem\\errors.py",
+      "archive_name": "external_bound_inputs/5748ed8cf5b09f681cddb751a115ce513a632b63d1d81381fa924bb779ba55f4/errors.py",
+      "sha256": "5748ed8cf5b09f681cddb751a115ce513a632b63d1d81381fa924bb779ba55f4",
+      "bytes": 41464
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\language_models\\anthropic_model.py",
+      "archive_name": "external_bound_inputs/23ce4366d538286c933d8a1a2c20fdc22987c8292997f317ff016ea2b1e24b02/anthropic_model.py",
+      "sha256": "23ce4366d538286c933d8a1a2c20fdc22987c8292997f317ff016ea2b1e24b02",
+      "bytes": 15660
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\language_models\\errors.py",
+      "archive_name": "external_bound_inputs/8c378be6a526cb11f7abab4fb55574a11ff82efb25924493c547c10e3e825b22/errors.py",
+      "sha256": "8c378be6a526cb11f7abab4fb55574a11ff82efb25924493c547c10e3e825b22",
+      "bytes": 5501
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\language_models\\open_ai_model.py",
+      "archive_name": "external_bound_inputs/f0de3feb8825b82a89ae8442176daf1f8e664d49ec0e4bdaf7c5d9fd3d869550/open_ai_model.py",
+      "sha256": "f0de3feb8825b82a89ae8442176daf1f8e664d49ec0e4bdaf7c5d9fd3d869550",
+      "bytes": 10408
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\errors.py",
+      "archive_name": "external_bound_inputs/cb3fc366b550378dd850c272b53138fc2f0f3fa3cb490ef1b756219431df64c2/errors.py",
+      "sha256": "cb3fc366b550378dd850c272b53138fc2f0f3fa3cb490ef1b756219431df64c2",
+      "bytes": 25677
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment.py",
+      "archive_name": "external_bound_inputs/afee53ef61ec8fde78a968a24ab7f7695ca85d9f8f89b06fac072eed440896e9/experiment.py",
+      "sha256": "afee53ef61ec8fde78a968a24ab7f7695ca85d9f8f89b06fac072eed440896e9",
+      "bytes": 17218
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment_artifact_table.py",
+      "archive_name": "external_bound_inputs/d0e7fe85815d7e9591ab5c382e2c068a3b0d9665b6537f8b5a5cad131db4b66d/experiment_artifact_table.py",
+      "sha256": "d0e7fe85815d7e9591ab5c382e2c068a3b0d9665b6537f8b5a5cad131db4b66d",
+      "bytes": 16904
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\experiment_series.py",
+      "archive_name": "external_bound_inputs/695990e14cdef6fe9ab18fb2fa872c9e5bc8f8b4eeec904c080c735d5822d344/experiment_series.py",
+      "sha256": "695990e14cdef6fe9ab18fb2fa872c9e5bc8f8b4eeec904c080c735d5822d344",
+      "bytes": 16300
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\live_deployment.py",
+      "archive_name": "external_bound_inputs/24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa/live_deployment.py",
+      "sha256": "24bd17b2f8ece6aa07b589d01d02ed88df589b4b7513d3e5c57aa331387e52aa",
+      "bytes": 36308
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model.py",
+      "archive_name": "external_bound_inputs/420a4bd19511d5732532fb3ac4252310732e3c4b4ea418551adb2cf68a41cd20/model.py",
+      "sha256": "420a4bd19511d5732532fb3ac4252310732e3c4b4ea418551adb2cf68a41cd20",
+      "bytes": 21380
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_function.py",
+      "archive_name": "external_bound_inputs/9bd76546691d4b1a00b3d5dd6f0efcee90b40954c04ac32c3b74708f5a60ccf6/model_function.py",
+      "sha256": "9bd76546691d4b1a00b3d5dd6f0efcee90b40954c04ac32c3b74708f5a60ccf6",
+      "bytes": 23306
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio.py",
+      "archive_name": "external_bound_inputs/4ece4867d0046dafdbf4eac2fad4d5348a281b3ea628809b332ff769e161b49e/model_studio.py",
+      "sha256": "4ece4867d0046dafdbf4eac2fad4d5348a281b3ea628809b332ff769e161b49e",
+      "bytes": 19662
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_config_version.py",
+      "archive_name": "external_bound_inputs/ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2/model_studio_config_version.py",
+      "sha256": "ab3cd7b62a3537b5f57d983915b0419359684954be73e5b89a04ef178c7582d2",
+      "bytes": 27732
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_run.py",
+      "archive_name": "external_bound_inputs/e7bf121ae2c96f41fbff874a53102f22c1f774812936aaf49f435e4963093513/model_studio_run.py",
+      "sha256": "e7bf121ae2c96f41fbff874a53102f22c1f774812936aaf49f435e4963093513",
+      "bytes": 10092
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_studio_trainer.py",
+      "archive_name": "external_bound_inputs/b4d5fd37b3cebe920077e755adb09d37c9aa499a7b25fa0f46ecc4787d5c09d0/model_studio_trainer.py",
+      "sha256": "b4d5fd37b3cebe920077e755adb09d37c9aa499a7b25fa0f46ecc4787d5c09d0",
+      "bytes": 12248
+    },
+    {
+      "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\models\\model_version.py",
+      "archive_name": "external_bound_inputs/ad0514eaa6f22b4f362cc94305b395c4c8c7d3b36bd2b337fc70d57b85655dc8/model_version.py",
+      "sha256": "ad0514eaa6f22b4f362cc94305b395c4c8c7d3b36bd2b337fc70d57b85655dc8",
+      "bytes": 22386
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\model_studio_config_version.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/model_studio_config_version.py",
+      "sha256": "bca2e06ea53cb591617dccfc8109550bb67e2a87a0ba5c8df61861407589487b",
+      "bytes": 6574
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\sessions.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/sessions.py",
+      "sha256": "d76ebc427b958989cb3530cc78482876167addc79ab6000ab0847ae2de2e0985",
+      "bytes": 3597
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\AgentVersion\\get.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/AgentVersion/get.py",
+      "sha256": "72219d32f1394fef0fe8eee87ca045864ed4cb78c6dd0a81e3f2a33951f496d9",
+      "bytes": 4879
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\AgentVersion\\list.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/AgentVersion/list.py",
+      "sha256": "7aa23d9de3dd2a192c31d310bb0323b5eff93bece90f81270707fc8cc41ca6a9",
+      "bytes": 4260
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Agent\\all_sessions.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/Agent/all_sessions.py",
+      "sha256": "f567932a1da4d2100acbd29adf0c33ecefe761ab23d28b6dc111c1f561a76cec",
+      "bytes": 4636
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Agent\\get.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/Agent/get.py",
+      "sha256": "5b27f89c713433f8ac0ffe8bd8afe17835d13cc646976c30dd7b5d3b0b3255b0",
+      "bytes": 4970
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Content\\get.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/Content/get.py",
+      "sha256": "333af48692463c5e7dada36241631e7a4a0cc147a80b7e4c4891e3562858d20e",
+      "bytes": 5134
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\SessionTrace\\get.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/SessionTrace/get.py",
+      "sha256": "0af811c5057a47548e8512ab02961040c48426ef67b32c60a84a9ee534214c80",
+      "bytes": 5316
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Session\\blocking_continue.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/Session/blocking_continue.py",
+      "sha256": "8b0c938259c89fae05906ee94b83b03f0eac30d5e6577abba12b7e296000d8de",
+      "bytes": 10221
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Session\\cancel.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/Session/cancel.py",
+      "sha256": "ce5a88b8d67d1f1a6d178a94022b5a38bc8fdf2d47990488b9e4fc1eea0e5f7c",
+      "bytes": 5350
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Session\\delete.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/Session/delete.py",
+      "sha256": "69746a1599f0d11dda08f573ed8e0620fc9b3090f86a45c088f6269fa2b31500",
+      "bytes": 4811
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Session\\rag_context.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/Session/rag_context.py",
+      "sha256": "55bec996b954d9743d9fe5fa15a6a9c9cc5293e3d261a8fdd4b5ceace083e853",
+      "bytes": 6856
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Session\\streaming_continue.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/Session/streaming_continue.py",
+      "sha256": "415f68e0e5e29a414fe48545b50cb91ff23c74646c95fa0ee3db993c59d1ecd8",
+      "bytes": 8070
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\aip_agents\\Session\\update_title.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/aip_agents/Session/update_title.py",
+      "sha256": "2aa51c5d3f7861fe3f9d148902c6310d47121485c2078d19208bca88a79a37ee",
+      "bytes": 4926
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\language_models\\AnthropicModel\\messages.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/language_models/AnthropicModel/messages.py",
+      "sha256": "7f983e0b7045a3da4ab8a371bcb56d3f29ccb6bfe3e60e5f5caf0a1921ab8396",
+      "bytes": 4996
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\language_models\\OpenAiModel\\embeddings.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/language_models/OpenAiModel/embeddings.py",
+      "sha256": "936d477b3ee52922457d9171f71799ab3c55165e91d170877b05d802b75f7682",
+      "bytes": 4279
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ExperimentArtifactTable\\invoke_json.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/ExperimentArtifactTable/invoke_json.py",
+      "sha256": "3f0ec81e1f8c10cd5d5edeee099f363887e5d7052ba337cfc8b6cd1103752645",
+      "bytes": 5531
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ExperimentArtifactTable\\parquet.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/ExperimentArtifactTable/parquet.py",
+      "sha256": "9113795992bccca038ab722aef5582374bb2b697c8435329af88c73a600a74ef",
+      "bytes": 5441
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ExperimentSeries\\invoke_json.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/ExperimentSeries/invoke_json.py",
+      "sha256": "9c0cef4f03df2c67fde00a32a8bf99f84ff0b2ea9d5665c092a8efedf6bac23f",
+      "bytes": 5294
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ExperimentSeries\\parquet.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/ExperimentSeries/parquet.py",
+      "sha256": "6db275817357550185dee3ec88c13a6fb750c9a61e4417440db4b5f140134388",
+      "bytes": 5363
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\Experiment\\get.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/Experiment/get.py",
+      "sha256": "04ef9f4f0613fa28ca562dd70b1982742faec3be0c24022c0ca54e4781e9cadc",
+      "bytes": 5445
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\Experiment\\search.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/Experiment/search.py",
+      "sha256": "f4ba220971a8f9f9d8e5dc70962f29026593c19f75b565fa3c22599f8b1c02cc",
+      "bytes": 5376
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\LiveDeployment\\create.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/LiveDeployment/create.py",
+      "sha256": "8c5922f078d0c60cd4c2fe7732887aefd52404aedd5655f826f9d118df1d5f95",
+      "bytes": 5471
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\LiveDeployment\\get.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/LiveDeployment/get.py",
+      "sha256": "50d71d41daaa88a8535f1c22383b30e7be2f5d78617a9c736a719ce6351ab48f",
+      "bytes": 4677
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\LiveDeployment\\list.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/LiveDeployment/list.py",
+      "sha256": "0515ff6c0f172d2f680ebac66e684520af96f8d1c53d63b31a4b3925fdb578db",
+      "bytes": 4628
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\LiveDeployment\\replace.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/LiveDeployment/replace.py",
+      "sha256": "83787c0c1bdcffbb05fd4475d6c07c9acdf9655baa29dc6e26e517fae50b4311",
+      "bytes": 5502
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\LiveDeployment\\transform_json.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/LiveDeployment/transform_json.py",
+      "sha256": "4bb0f46c1cf1b23ecf939d223732453fb05ced84472ac2e5ce5a6d92d3888e0b",
+      "bytes": 5570
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelFunction\\create.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/ModelFunction/create.py",
+      "sha256": "b7143adfbca358ec0942c37bfb2867d8587d368dbc77d71adf215b24f1d8d3a6",
+      "bytes": 5530
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelFunction\\get.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/ModelFunction/get.py",
+      "sha256": "4a61788396c69d32a868bdaa86c5822d8ce096373603a9f41d2dde79feced13b",
+      "bytes": 4521
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelFunction\\replace.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/ModelFunction/replace.py",
+      "sha256": "9705d3f24fd58bf023e7b931d3a48a5b3768f9f5cc902f14ac8dc1fbda43ec35",
+      "bytes": 5468
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelStudioConfigVersion\\create.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/ModelStudioConfigVersion/create.py",
+      "sha256": "3212a5645d29e30a3b37dd617219a3022d19fad1ed20e50def496b8307fbaf8a",
+      "bytes": 6010
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelStudioConfigVersion\\latest.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/ModelStudioConfigVersion/latest.py",
+      "sha256": "79f9640ebe37b503ac9dc86e15183f96ac188245320bd23b4b5aedec8efbc38c",
+      "bytes": 4953
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelStudioConfigVersion\\list.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/ModelStudioConfigVersion/list.py",
+      "sha256": "d0d3ffcb9333b14a83a686dad38fc72d02e2e43a582ccb3ea0ec7d464b640966",
+      "bytes": 4852
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelStudioRun\\list.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/ModelStudioRun/list.py",
+      "sha256": "686b7ccfd196a5e94b79ca13b502599532eabd0357f0aaf1afee1695e4c05ee2",
+      "bytes": 4861
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelStudioTrainer\\get.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/ModelStudioTrainer/get.py",
+      "sha256": "f602c0436c666e6ac762b8c2b236ca6449a7ca5b7180fb3e3a6c24b03ce7060d",
+      "bytes": 4746
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelStudioTrainer\\list.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/ModelStudioTrainer/list.py",
+      "sha256": "a8e366d5caf5ed27c46dd8a1ae1d37b25202ccf2fa36a25e237e0fa890ca95d6",
+      "bytes": 4292
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelStudio\\create.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/ModelStudio/create.py",
+      "sha256": "e009753016d83de6e567db5476206c686d8a1d03f9489e59454954914b1f2d74",
+      "bytes": 4895
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelStudio\\get.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/ModelStudio/get.py",
+      "sha256": "8fad7e7037b8812795a548f7a840ecc9cab637c0174de1a6354fdf897af746a4",
+      "bytes": 4341
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelStudio\\launch.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/ModelStudio/launch.py",
+      "sha256": "a56d6644ec040ef60136c8e544cb0ddf5b7f8202d04580979a42e8fe1bc6b71a",
+      "bytes": 4690
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelVersion\\create.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/ModelVersion/create.py",
+      "sha256": "a9348c71e54f13c5a3f12b4bd6f4580eb78136b2dc713048894cce11fe7261ed",
+      "bytes": 6336
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelVersion\\get.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/ModelVersion/get.py",
+      "sha256": "470489e75af3d0d1871c4267e65eec3823ed988685b4653a3a48ff531788a1a0",
+      "bytes": 5073
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\ModelVersion\\list.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/ModelVersion/list.py",
+      "sha256": "18885841c0b08efd51ac0b22140426e3d888df4e0c5881b5e7b5b6fbebe05a9d",
+      "bytes": 4971
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\Model\\create.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/Model/create.py",
+      "sha256": "dd03624b56503e0e4fa50245c9b4108a6a27980f4fbb68d050b517bf954ed459",
+      "bytes": 4594
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\Model\\get.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/Model/get.py",
+      "sha256": "620123e171c793e76339e952251c3c8a52665a2bebbbfedb21fdd0cddf28af72",
+      "bytes": 4149
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\087\\v2\\models\\Model\\promote_version.py",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/examples/rest/087/v2/models/Model/promote_version.py",
+      "sha256": "7a629445b41d379bb6eff3172707fc6c487fd40b0f44dc4bc107433162e30d47",
+      "bytes": 5696
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\AgentVersion\\get.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/aip_agents/AgentVersion/get.md",
+      "sha256": "5de9bc44272c0702b1f8fb9d3fd288dfe36dc7e1fb77d45aa5396df8710d8a6a",
+      "bytes": 7066
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\AgentVersion\\list.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/aip_agents/AgentVersion/list.md",
+      "sha256": "57da694d4438d3ab6c2172a506f323d2ebf9e0998bb20db27878cc233e9034ba",
+      "bytes": 6505
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Agent\\all_sessions.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/aip_agents/Agent/all_sessions.md",
+      "sha256": "b6bcd132c5ea0247ab85764c781df31d9871492bbadf9231c69aaf77c380fcad",
+      "bytes": 6920
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Agent\\get.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/aip_agents/Agent/get.md",
+      "sha256": "c917ade7bb0ba2a7d20e07a7c00555963d8a95884311e001592b1e5411c13b5f",
+      "bytes": 7693
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Content\\get.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/aip_agents/Content/get.md",
+      "sha256": "3a32d90fe5357437228207c85e4a6bb53f91af653c89db821774c963d9a0cc21",
+      "bytes": 8182
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\SessionTrace\\get.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/aip_agents/SessionTrace/get.md",
+      "sha256": "109e442b841a15d0e94a5ba7dfca434a3250917f3cc45a7ea0fc90ee1db24413",
+      "bytes": 9498
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Session\\blocking_continue.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/aip_agents/Session/blocking_continue.md",
+      "sha256": "64b98fd4a08795d5b237b41fb32eb10f6116f0c95aafc03d6f341329c6b864ed",
+      "bytes": 11019
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Session\\cancel.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/aip_agents/Session/cancel.md",
+      "sha256": "7fa297fce0400611b9631a44f60a742782ccd47d2dd657547e91ea886e831949",
+      "bytes": 9876
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Session\\create.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/aip_agents/Session/create.md",
+      "sha256": "0bf3c0e7812cea2143bf9a8dd3f062a708018f9ecd048a1b0de9c1c89034e4ae",
+      "bytes": 13213
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Session\\delete.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/aip_agents/Session/delete.md",
+      "sha256": "e5425e34833fc4cb791b5d121e053ce24217eb7e5bd603b6b575170bc1ae36c6",
+      "bytes": 5814
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Session\\get.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/aip_agents/Session/get.md",
+      "sha256": "33e1147bb5e8d15241303c4cd3a045aa33c4a02215fca8f098ffd79ba67e0526",
+      "bytes": 6058
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Session\\list.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/aip_agents/Session/list.md",
+      "sha256": "bf3213d061008e41f4b1126ae0c4323e5ebfe829ca51dae0ccdabdf7c7f0dc41",
+      "bytes": 6818
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Session\\rag_context.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/aip_agents/Session/rag_context.md",
+      "sha256": "770f91558477846f7e76c39137d1b437cefc95635f19c178d92d6181d1098be9",
+      "bytes": 6532
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Session\\streaming_continue.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/aip_agents/Session/streaming_continue.md",
+      "sha256": "e6b6e8c9b111a9da6c1cba49a9f21b8e4b5ac2966306418bc02f6e30f73c8118",
+      "bytes": 9837
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\aip_agents\\Session\\update_title.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/aip_agents/Session/update_title.md",
+      "sha256": "11efc7027bcfb70f83ebf2a0a1e94766d6cfa501715ea1cf860df29150defc85",
+      "bytes": 6333
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\language_models\\AnthropicModel\\messages.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/language_models/AnthropicModel/messages.md",
+      "sha256": "f4574d8ad7de1b2931983cbfe16261e1dcca66e3901d412e23e295970899e1d4",
+      "bytes": 15900
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\language_models\\OpenAiModel\\embeddings.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/language_models/OpenAiModel/embeddings.md",
+      "sha256": "0aeb614c92c3f6b051ff5a4f035d949f9c8dbaa2b626aee3adcf1ff63280e058",
+      "bytes": 7047
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ExperimentArtifactTable\\json.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ExperimentArtifactTable/json.md",
+      "sha256": "38f088a40aad85bc88fcbb09ce2d26d894aff4486a49cce9f0822e548e58d2a6",
+      "bytes": 6993
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ExperimentArtifactTable\\parquet.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ExperimentArtifactTable/parquet.md",
+      "sha256": "ed0f00356f94725b5ac619bb2216047cd3f3b277046a98eeee737d686916ba9a",
+      "bytes": 6451
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ExperimentSeries\\json.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ExperimentSeries/json.md",
+      "sha256": "a6e4b0f7af3170c3c9217b75bf0d48de83232d05ed1324381301dc738f23e3f8",
+      "bytes": 7384
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ExperimentSeries\\parquet.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ExperimentSeries/parquet.md",
+      "sha256": "94afc1edafc3941bc59e28fc045f9c97e84f79a9c40443537f10b85f562d748e",
+      "bytes": 6305
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\Experiment\\get.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/Experiment/get.md",
+      "sha256": "5258b3ab14cbec7fdd758052c0836e29f03103c7bad80993d447da710dee39e2",
+      "bytes": 9180
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\Experiment\\search.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/Experiment/search.md",
+      "sha256": "1187c711605a07b761201e3d938f63625ef883903235e310c257a023ffb32d73",
+      "bytes": 13524
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\LiveDeployment\\create.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/LiveDeployment/create.md",
+      "sha256": "e5fec6b4dffe076b99515e002634127cdabd66c9ed8ac1101edbcc8f3a9040d8",
+      "bytes": 8863
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\LiveDeployment\\get.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/LiveDeployment/get.md",
+      "sha256": "195d6d987b23fe5123cfef32cb7dc4d932f4ca87f99dd0742fe3395d043b4579",
+      "bytes": 6768
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\LiveDeployment\\list.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/LiveDeployment/list.md",
+      "sha256": "36f1ec79d552c3f203db3832f2577e04a857ff8b53556abf5e14eb6ae305a432",
+      "bytes": 6717
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\LiveDeployment\\replace.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/LiveDeployment/replace.md",
+      "sha256": "a2b2352c747b87685ef19218bf7912d2494106ae62decad717cccfa0f5f0b139",
+      "bytes": 9002
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\LiveDeployment\\transform_json.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/LiveDeployment/transform_json.md",
+      "sha256": "cf65f09ca679f728fb878f5db93d102a4524e02508ab3ab0a4b9bc7e1f1616e1",
+      "bytes": 9830
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelFunction\\create.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ModelFunction/create.md",
+      "sha256": "228cece256b3e6284f153285da6f1ec4e79248845de8a195b7e86a01d4f79cc2",
+      "bytes": 9187
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelFunction\\get.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ModelFunction/get.md",
+      "sha256": "b55dc199df5115089ae4f90805802dc6c9f6d196e83562e8a6b1e615c5a82098",
+      "bytes": 5870
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelFunction\\replace.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ModelFunction/replace.md",
+      "sha256": "1a8ac7c70ae24683a1273a3bce8ba14315561ab9a250723fcf824cce02674e1a",
+      "bytes": 8980
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudioConfigVersion\\create.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ModelStudioConfigVersion/create.md",
+      "sha256": "6597c89e7997ae6329f8d21645aca459169d9a58dcd1b64161b16941e88a1a4f",
+      "bytes": 12245
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudioConfigVersion\\get.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ModelStudioConfigVersion/get.md",
+      "sha256": "d4e36787f4f7e1630b4783553e6848b35119eb0533d588fee53bfe6a8317fb97",
+      "bytes": 8121
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudioConfigVersion\\latest.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ModelStudioConfigVersion/latest.md",
+      "sha256": "6eaef912a230c348c780e6afc63bdfb116b0f3e66c85d15d0a73cdf40822150e",
+      "bytes": 8072
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudioConfigVersion\\list.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ModelStudioConfigVersion/list.md",
+      "sha256": "d9e9480eb93c985cdeda0e406303f792daead42e7658bf01198ab5f1805ae2f3",
+      "bytes": 8407
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudioRun\\list.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ModelStudioRun/list.md",
+      "sha256": "310dd71ccfdd76ac9c56f82d3327db15d68cd59bc97e3c26f537b8d342fd3fd5",
+      "bytes": 8351
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudioTrainer\\get.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ModelStudioTrainer/get.md",
+      "sha256": "2b12a7629ccfc221eb144f859025e0dc09b1517821e68acd00ae8d1beb039425",
+      "bytes": 6604
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudioTrainer\\list.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ModelStudioTrainer/list.md",
+      "sha256": "da4257b77376b1b23d96ffe95deabb422064a425d303e36052fce4b49add2181",
+      "bytes": 5623
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudio\\create.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ModelStudio/create.md",
+      "sha256": "1fda272f7444973f9c728ccbb167e531800a551cf7f9c82b840976a53fd96e13",
+      "bytes": 7050
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudio\\get.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ModelStudio/get.md",
+      "sha256": "11d5e84ea3fa68239a2108059d86b5005e31c7df9a55193c8d7023095f753fb4",
+      "bytes": 5130
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelStudio\\launch.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ModelStudio/launch.md",
+      "sha256": "0e8c25af187a5d56d6c6a06be75228703f12427111f845d6cdc1c6b15c666571",
+      "bytes": 7068
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelVersion\\create.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ModelVersion/create.md",
+      "sha256": "7cad9fe9c0f69ebe598237597edd1f6e4f7c8dcebb39aa5e060c53430eb837dc",
+      "bytes": 11534
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelVersion\\get.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ModelVersion/get.md",
+      "sha256": "e2fda127d732080227d3a4434f86cf32b469318203d601d21e6fda711e08d449",
+      "bytes": 9304
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\ModelVersion\\list.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/ModelVersion/list.md",
+      "sha256": "d2f78f543c10cd45eab9b8f3f079ef0e5e4c97078a785035e6df6596581ccd81",
+      "bytes": 10367
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\Model\\create.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/Model/create.md",
+      "sha256": "fd12cd9788ba15a8973381d60734f725ad05d5415ba05817d647f9d39f35fda7",
+      "bytes": 6394
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\Model\\get.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/Model/get.md",
+      "sha256": "33bb0585480acf8f4acc2a7e4665e510dd859b16a9fcd7c895a2236d10f410d8",
+      "bytes": 4646
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\models\\Model\\promote_version.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/contracts/v2/models/Model/promote_version.md",
+      "sha256": "13b65d428977f5d167a67eb75f0aa2090d1b30c8ec262b9d120289ec23853931",
+      "bytes": 10800
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\aip_agents\\Agent.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/v2/aip_agents/Agent.md",
+      "sha256": "73f1ab403ff2cab0de86d6e86311c949ec9c515e35b65c9e0624940572526aee",
+      "bytes": 2093
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\aip_agents\\AgentVersion.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/v2/aip_agents/AgentVersion.md",
+      "sha256": "0bd61ef3d61b3398e9ea75883cfb0800a5caf1a0d18fc621df9b92e42e68a0a0",
+      "bytes": 3638
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\aip_agents\\Content.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/v2/aip_agents/Content.md",
+      "sha256": "5579a8bde26d80b7b9e3aaa0bb8d64eb6f65995aa8959e688d57944d36c3b103",
+      "bytes": 1737
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\aip_agents\\Session.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/v2/aip_agents/Session.md",
+      "sha256": "def28ab09c747be684993d210d5c1d6e0b34a62bc7cbb92e5f307ee723156329",
+      "bytes": 11951
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\aip_agents\\SessionTrace.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/v2/aip_agents/SessionTrace.md",
+      "sha256": "d75a85f1eadf9fc8adae03ced4773fd2eea23b71446d50d55856bacb3de7333e",
+      "bytes": 1582
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\language_models\\AnthropicModel.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/v2/language_models/AnthropicModel.md",
+      "sha256": "d09d1d4c9a1155054e3bccb7d7dfd55cc96429a598b6c80d52b45eb7b1a04f93",
+      "bytes": 2777
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\language_models\\OpenAiModel.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/v2/language_models/OpenAiModel.md",
+      "sha256": "31b67da745207d50dadbde7c080d3749213e7aee91357bb063e1b7caa2c2aae0",
+      "bytes": 1707
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\Experiment.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/v2/models/Experiment.md",
+      "sha256": "a66e9b624c0ca8feeb7d97dbef05ea8944612bfcd9b65d0f295c80275e0d2085",
+      "bytes": 2028
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\ExperimentArtifactTable.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/v2/models/ExperimentArtifactTable.md",
+      "sha256": "2411a843790965dd35e7e606bde40926a4c96bd0203d038a9f8d74cdc6fca43f",
+      "bytes": 2041
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\ExperimentSeries.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/v2/models/ExperimentSeries.md",
+      "sha256": "cea1435b232f5eafceee779f6a3973998d78c5b2b93dd8fa0837914759a59ff9",
+      "bytes": 1941
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\LiveDeployment.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/v2/models/LiveDeployment.md",
+      "sha256": "122b0981d2b88708f66c961c8575887eba3cdd637869ee17004bc709973fe502",
+      "bytes": 4837
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\Model.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/v2/models/Model.md",
+      "sha256": "952c2245bcc2e0af818cb3c85e91094e275b3b58a73a7b572ef0285fcf355c3e",
+      "bytes": 2488
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\ModelFunction.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/v2/models/ModelFunction.md",
+      "sha256": "bfc5fb2abe6ee3bbb587976343114f6fa0186f89952ad3c16c04c25e256d4651",
+      "bytes": 2914
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\ModelStudio.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/v2/models/ModelStudio.md",
+      "sha256": "4aa979e6b188b3fa1a157d2bc378584c723bd151f546f3a3a55c0bae1563c8fc",
+      "bytes": 4234
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\ModelStudioConfigVersion.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/v2/models/ModelStudioConfigVersion.md",
+      "sha256": "4622b5cdcd13de36b07db9bb8ac4891d6bb6a87f87d18229b8d5207740097e43",
+      "bytes": 6642
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\ModelStudioRun.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/v2/models/ModelStudioRun.md",
+      "sha256": "3e51c788aba7064b0bb4812092bc2879b94de26ba6fc7559d28c4e1c74ea27c8",
+      "bytes": 1488
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\ModelStudioTrainer.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/v2/models/ModelStudioTrainer.md",
+      "sha256": "5b7defcc76ad5af5ebe95f016a5965d07ef5bd62304ff003f8452dc18c4a9892",
+      "bytes": 1970
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\models\\ModelVersion.md",
+      "archive_name": ".ept/tmp/feature015_integration/.agents/skills/pal-found-dev/references/rest/v2/models/ModelVersion.md",
+      "sha256": "e0aaacfb7624d34a942bd609ad488ffe66967ac8ce020cba8d9b1a61de3c9a4c",
+      "bytes": 2395
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest087_formal_qa.json",
+      "archive_name": ".ept/tmp/feature015_rest087_formal_qa.json",
+      "sha256": "6ad9369749ae27a7c9d82fadac52b873c367b4ee3a2c80c9e2afcc043b281590",
+      "bytes": 641608
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest087_formal_qa_preclosure.json",
+      "archive_name": ".ept/tmp/feature015_rest087_formal_qa_preclosure.json",
+      "sha256": "b3ae1d764af5994ef14190c379b5a400bd4a7a693781c40f54fb92b5f68a12d5",
+      "bytes": 636290
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest087_formal_qa_preclosure_inventory.json",
+      "archive_name": ".ept/tmp/feature015_rest087_formal_qa_preclosure_inventory.json",
+      "sha256": "4fa1a192d097c03e5eeb024f55de4b0c87b8b592e5a5c344d3674cb5600a304a",
+      "bytes": 9533
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_BUG-SUB-023_closure_20261029.txt",
+      "archive_name": ".ept/tmp/rest087_executor_BUG-SUB-023_closure_20261029.txt",
+      "sha256": "964496c9d2cc0e5818d5a9503ee2b056bef9fb8abb04585f6027778d4df039bc",
+      "bytes": 2976
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_BUG-SUB-023_comments_20261029.json",
+      "archive_name": ".ept/tmp/rest087_executor_BUG-SUB-023_comments_20261029.json",
+      "sha256": "4781a0b16cb45bd0c74dc59b84d4425c73ad45402aa8f2ad6ca6f44c22811575",
+      "bytes": 9436
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_CODEREVIEW-069_closure_20261029.txt",
+      "archive_name": ".ept/tmp/rest087_executor_CODEREVIEW-069_closure_20261029.txt",
+      "sha256": "d9ee39ee447dd4c7609cb442d7fa3e3b71be163730cd54bd848ee8948567dbae",
+      "bytes": 4007
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_CODEREVIEW-069_comments_20261029.json",
+      "archive_name": ".ept/tmp/rest087_executor_CODEREVIEW-069_comments_20261029.json",
+      "sha256": "a3a628c0ab7a1dc774bda48801e0f07e3a36dbaf2a38f5b6b15576c50814299b",
+      "bytes": 104872
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_CODEREVIEW-069_preclosure_comments_20261029.json",
+      "archive_name": ".ept/tmp/rest087_executor_CODEREVIEW-069_preclosure_comments_20261029.json",
+      "sha256": "a3a628c0ab7a1dc774bda48801e0f07e3a36dbaf2a38f5b6b15576c50814299b",
+      "bytes": 104872
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_DESIGN-069_closure_20261029.txt",
+      "archive_name": ".ept/tmp/rest087_executor_DESIGN-069_closure_20261029.txt",
+      "sha256": "a604867d1d5eebce1b4946b0fda3a3935cf8f794565dfed67b1f7bf2fc37517f",
+      "bytes": 3810
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_DESIGN-069_comments_20261029.json",
+      "archive_name": ".ept/tmp/rest087_executor_DESIGN-069_comments_20261029.json",
+      "sha256": "c794a4c4b2884fe25e59eb30cd4920d3ac1bf69830572e49de0c4cee57e2473d",
+      "bytes": 11336
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_DEV-069_closure_20261029.txt",
+      "archive_name": ".ept/tmp/rest087_executor_DEV-069_closure_20261029.txt",
+      "sha256": "0264e70f00a1ff670e8afc66b7d4c6d76bbf2124bd74cd7bd97b48bb8efcd4fa",
+      "bytes": 3901
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_DEV-069_comments_20261029.json",
+      "archive_name": ".ept/tmp/rest087_executor_DEV-069_comments_20261029.json",
+      "sha256": "d116e95723390fe2b970461bca846ec59d851eb3d1cacb63e74fbca76ff5ca1f",
+      "bytes": 13290
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_DEV-069_preclosure_comments_20261029.json",
+      "archive_name": ".ept/tmp/rest087_executor_DEV-069_preclosure_comments_20261029.json",
+      "sha256": "351a4be8fa43bdd655b2248899c1fabb50570e37a481b2cad5add28431ca5666",
+      "bytes": 11622
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_DEV-STORY-087_closure_20261029.txt",
+      "archive_name": ".ept/tmp/rest087_executor_DEV-STORY-087_closure_20261029.txt",
+      "sha256": "8f0875d09471b2df93e4b7b63b762efd7614dd2004d51646a7d596088241b881",
+      "bytes": 4493
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_DEV-STORY-087_comments_20261029.json",
+      "archive_name": ".ept/tmp/rest087_executor_DEV-STORY-087_comments_20261029.json",
+      "sha256": "72f12c2f73036a203188a9fddf80f73ca1613ea5fe086d7780ee23b47c9973a7",
+      "bytes": 12990
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_TESTCASE-068_closure_20261029.txt",
+      "archive_name": ".ept/tmp/rest087_executor_TESTCASE-068_closure_20261029.txt",
+      "sha256": "c9ff750fb286ac1a150ef95e18770df9ef4c94f9bc5075f5e10145bb54591522",
+      "bytes": 3918
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_TESTCASE-068_comments_20261029.json",
+      "archive_name": ".ept/tmp/rest087_executor_TESTCASE-068_comments_20261029.json",
+      "sha256": "1a53c6d5dc6b87ab828fcc9572e1d49187bb2389abc80f0b2cf4d00c72d6c588",
+      "bytes": 961031
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_TESTEXEC-068_closure_20261029.txt",
+      "archive_name": ".ept/tmp/rest087_executor_TESTEXEC-068_closure_20261029.txt",
+      "sha256": "dc6898437c4bff71d1c2600e2b8548f953b6a97a9835a50c43ef1ff6fc7325fb",
+      "bytes": 3972
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_TESTEXEC-068_comments_20261029.json",
+      "archive_name": ".ept/tmp/rest087_executor_TESTEXEC-068_comments_20261029.json",
+      "sha256": "db893d36067e06d9a38dc6189439e4c491806a476e1f1c22744172c385b952e1",
+      "bytes": 140624
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_UNITTEST-068_closure_20261029.txt",
+      "archive_name": ".ept/tmp/rest087_executor_UNITTEST-068_closure_20261029.txt",
+      "sha256": "78f187fb0241754fb6d46590675986f1480768cdf125c6853ee1c46c58ad7d9c",
+      "bytes": 3935
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_UNITTEST-068_comments_20261029.json",
+      "archive_name": ".ept/tmp/rest087_executor_UNITTEST-068_comments_20261029.json",
+      "sha256": "a889e9446eb1aa1532c72635dc1e6917717c4e4a3cc84dd2373ce6f1000bb0ca",
+      "bytes": 8667
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_UNITTEST-068_preclosure_comments_20261029.json",
+      "archive_name": ".ept/tmp/rest087_executor_UNITTEST-068_preclosure_comments_20261029.json",
+      "sha256": "ce38b9ac393e8327dd308e3a6de060c0a71cf73467f10b8b06f3a43f6fe84af8",
+      "bytes": 6987
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt2_20261029.py",
+      "archive_name": ".ept/tmp/rest087_executor_attempt2_20261029.py",
+      "sha256": "79d83e11b49ff9fbce8732b4e8a966ffaa2ae7e3b84a669599ce218c2198a445",
+      "bytes": 8189
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt2_20261029_20261028T231809401476Z.reserved",
+      "archive_name": ".ept/tmp/rest087_executor_attempt2_20261029_20261028T231809401476Z.reserved",
+      "sha256": "9003d14bb5849a6d29947e2c34aac81bbdf53263a558559977126de30cf91aca",
+      "bytes": 41
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt2_20261029_20261028T231809401476Z_checks.jsonl",
+      "archive_name": ".ept/tmp/rest087_executor_attempt2_20261029_20261028T231809401476Z_checks.jsonl",
+      "sha256": "cbea62daf675c239bd20a23a4a44d2fa7159b81d7d78cac5c0794e5e454de40f",
+      "bytes": 78697
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt2_20261029_20261028T231809401476Z_inventory.json",
+      "archive_name": ".ept/tmp/rest087_executor_attempt2_20261029_20261028T231809401476Z_inventory.json",
+      "sha256": "40efb3d41a4f03259c850d545c9a554b352c0fc08e8ed9a2c8cf0fc306947f49",
+      "bytes": 32437
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt2_20261029_20261028T231809401476Z_outcome.json",
+      "archive_name": ".ept/tmp/rest087_executor_attempt2_20261029_20261028T231809401476Z_outcome.json",
+      "sha256": "f41ef8b61c9d79d0351dcd7b65713cf870953afc6c6daa4cdd3f0e1fbf94335e",
+      "bytes": 67123
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt2_20261029_20261028T231809401476Z_reconciliation.json",
+      "archive_name": ".ept/tmp/rest087_executor_attempt2_20261029_20261028T231809401476Z_reconciliation.json",
+      "sha256": "2762fb91fe305f1567691292e684ad0d56ee1e9cd9e125f5a3cdff66f588eb8c",
+      "bytes": 110575
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt2_20261029_20261028T231809401476Z_results.json",
+      "archive_name": ".ept/tmp/rest087_executor_attempt2_20261029_20261028T231809401476Z_results.json",
+      "sha256": "af806ce9f1c1a28513a7e5257166efc85550a2f73ef12df8c5f6e264044562a0",
+      "bytes": 114337
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt2_20261029_20261028T231809401476Z_stderr.log",
+      "archive_name": ".ept/tmp/rest087_executor_attempt2_20261029_20261028T231809401476Z_stderr.log",
+      "sha256": "2818564fa16f4b73e7e4d78d7864849a18aa1dfc0af61f6b0507ec310b837d76",
+      "bytes": 5543
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt2_20261029_20261028T231809401476Z_stdout.log",
+      "archive_name": ".ept/tmp/rest087_executor_attempt2_20261029_20261028T231809401476Z_stdout.log",
+      "sha256": "cbea62daf675c239bd20a23a4a44d2fa7159b81d7d78cac5c0794e5e454de40f",
+      "bytes": 78697
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt2_reconcile_20261029.py",
+      "archive_name": ".ept/tmp/rest087_executor_attempt2_reconcile_20261029.py",
+      "sha256": "71cc87f44cc266ecf5e06da407eacf93d668d048ff4d8a99a36f411ea7e85872",
+      "bytes": 5455
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt3_20261029.py",
+      "archive_name": ".ept/tmp/rest087_executor_attempt3_20261029.py",
+      "sha256": "5df004b9f468406e4293a9108cb31a28c8a636366444d80185cc5eba716120c8",
+      "bytes": 9158
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt3_20261029_20261029T084800037921Z.reserved",
+      "archive_name": ".ept/tmp/rest087_executor_attempt3_20261029_20261029T084800037921Z.reserved",
+      "sha256": "9003d14bb5849a6d29947e2c34aac81bbdf53263a558559977126de30cf91aca",
+      "bytes": 41
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt3_20261029_20261029T084800037921Z_checks.jsonl",
+      "archive_name": ".ept/tmp/rest087_executor_attempt3_20261029_20261029T084800037921Z_checks.jsonl",
+      "sha256": "750c0727731ced76fb9bb2e42dfa47f787e372386507a8a546b2dee118fec82b",
+      "bytes": 100773
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt3_20261029_20261029T084800037921Z_inventory.json",
+      "archive_name": ".ept/tmp/rest087_executor_attempt3_20261029_20261029T084800037921Z_inventory.json",
+      "sha256": "9d3b3d2bf13e238074e87499532422048e467aaa270b28a0623ca24a7b8ec744",
+      "bytes": 32538
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt3_20261029_20261029T084800037921Z_outcome.json",
+      "archive_name": ".ept/tmp/rest087_executor_attempt3_20261029_20261029T084800037921Z_outcome.json",
+      "sha256": "ea0c0e10acbc093a30949c072d2281189a7f7cb5f6739b2c5c01bc82efcb2326",
+      "bytes": 70353
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt3_20261029_20261029T084800037921Z_reconciliation.json",
+      "archive_name": ".ept/tmp/rest087_executor_attempt3_20261029_20261029T084800037921Z_reconciliation.json",
+      "sha256": "16f38247308608b20f7966596c43d17f728a08bb6f5b33f029afc57a9a51db91",
+      "bytes": 115003
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt3_20261029_20261029T084800037921Z_results.json",
+      "archive_name": ".ept/tmp/rest087_executor_attempt3_20261029_20261029T084800037921Z_results.json",
+      "sha256": "57ce3f6e24b423f03762ac71745974219ff4f312da452007ffece95b3a8315f4",
+      "bytes": 147993
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt3_20261029_20261029T084800037921Z_stderr.log",
+      "archive_name": ".ept/tmp/rest087_executor_attempt3_20261029_20261029T084800037921Z_stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt3_20261029_20261029T084800037921Z_stdout.log",
+      "archive_name": ".ept/tmp/rest087_executor_attempt3_20261029_20261029T084800037921Z_stdout.log",
+      "sha256": "750c0727731ced76fb9bb2e42dfa47f787e372386507a8a546b2dee118fec82b",
+      "bytes": 100773
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt3_reconcile_20261029.py",
+      "archive_name": ".ept/tmp/rest087_executor_attempt3_reconcile_20261029.py",
+      "sha256": "91b4c201fdca0c05ab43e9d48e839ee91d253a0f580abf6cc8f175a073160b98",
+      "bytes": 6129
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_close_20261029.py",
+      "archive_name": ".ept/tmp/rest087_executor_close_20261029.py",
+      "sha256": "dc7c1b239dadda27dbb2fc1a06a30ce30d5f3e3e43f9ee21fee9ba41acdc8c13",
+      "bytes": 12060
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_closure_cli_20261029.jsonl",
+      "archive_name": ".ept/tmp/rest087_executor_closure_cli_20261029.jsonl",
+      "sha256": "69ee6d56998a2164cfaae1662e64d2821406203b74c46357d1d6bbbd6d6a350f",
+      "bytes": 1723157
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_finalize_20261029.py",
+      "archive_name": ".ept/tmp/rest087_executor_finalize_20261029.py",
+      "sha256": "a024ac4132c608f5034a6c60ad61b5b2400725f0e971ccf36ae5c4441938aa55",
+      "bytes": 6205
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_reconcile_20261029.py",
+      "archive_name": ".ept/tmp/rest087_executor_reconcile_20261029.py",
+      "sha256": "826d67adbb1f8fd17e80cf86d1f4673c2cb43c77baabf172c3da3f7407e33cc4",
+      "bytes": 5533
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_recover_20261029.py",
+      "archive_name": ".ept/tmp/rest087_executor_recover_20261029.py",
+      "sha256": "980fb8d84b702cd997a455d40b3f3c79bcc67157c9f95dc88b23fb6235664394",
+      "bytes": 7121
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_recover_20261029_20261028T231111547638Z.reserved",
+      "archive_name": ".ept/tmp/rest087_executor_recover_20261029_20261028T231111547638Z.reserved",
+      "sha256": "9003d14bb5849a6d29947e2c34aac81bbdf53263a558559977126de30cf91aca",
+      "bytes": 41
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_recover_20261029_20261028T231111547638Z_checks.jsonl",
+      "archive_name": ".ept/tmp/rest087_executor_recover_20261029_20261028T231111547638Z_checks.jsonl",
+      "sha256": "59af1ee7c4dfc3f74a56d74e83c9100ce856748c25afd038d76876be58cfd9a0",
+      "bytes": 51684
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_recover_20261029_20261028T231111547638Z_inventory.json",
+      "archive_name": ".ept/tmp/rest087_executor_recover_20261029_20261028T231111547638Z_inventory.json",
+      "sha256": "9f29cd80f2c0c0d7e5ebc9f1a18ad2f608ca3102c5a0d4f2e52430bfacc42d20",
+      "bytes": 32040
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_recover_20261029_20261028T231111547638Z_outcome.json",
+      "archive_name": ".ept/tmp/rest087_executor_recover_20261029_20261028T231111547638Z_outcome.json",
+      "sha256": "6e6e9f2f92dd6517cae1986d5b2b1fee37401f4b23145f1c8db9e190bafb234c",
+      "bytes": 60066
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_recover_20261029_20261028T231111547638Z_reconciliation.json",
+      "archive_name": ".ept/tmp/rest087_executor_recover_20261029_20261028T231111547638Z_reconciliation.json",
+      "sha256": "08175ea940da74527c21f6268b2ad1032347b073d312ddc4ef0954e359cc431f",
+      "bytes": 95428
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_recover_20261029_20261028T231111547638Z_results.json",
+      "archive_name": ".ept/tmp/rest087_executor_recover_20261029_20261028T231111547638Z_results.json",
+      "sha256": "06f9213dddfc925f929f45344a3932c3468da763646c984bde7ca0eeaffd7c0e",
+      "bytes": 75644
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_recover_20261029_20261028T231111547638Z_stderr.log",
+      "archive_name": ".ept/tmp/rest087_executor_recover_20261029_20261028T231111547638Z_stderr.log",
+      "sha256": "8324836840ee72063d5759ad021fd8b8636ac8fcfdb19c8e4584f7107c0a1bc7",
+      "bytes": 918
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_recover_20261029_20261028T231111547638Z_stdout.log",
+      "archive_name": ".ept/tmp/rest087_executor_recover_20261029_20261028T231111547638Z_stdout.log",
+      "sha256": "59af1ee7c4dfc3f74a56d74e83c9100ce856748c25afd038d76876be58cfd9a0",
+      "bytes": 51684
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_run_20261028.py",
+      "archive_name": ".ept/tmp/rest087_executor_run_20261028.py",
+      "sha256": "4d6f8c8546e7958af7722c8618b0e71fc20c4d92b29ab47e96113a168922e222",
+      "bytes": 6993
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_cases.json",
+      "archive_name": ".ept/tmp/rest087_formal_cases.json",
+      "sha256": "ec9fd434dfe521e02cfbf421f538e28e4f3ff031cd4ea38d4cd6ef8950244b37",
+      "bytes": 2656524
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_execute.py",
+      "archive_name": ".ept/tmp/rest087_formal_execute.py",
+      "sha256": "081ad5038dc56cb4992d08a347adcf83c715d5483598b9d1f38a70c12f599b53",
+      "bytes": 39701
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_executor_attempt2_20261029_20261028T231809401476Z.reserved",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_executor_attempt2_20261029_20261028T231809401476Z.reserved",
+      "sha256": "9003d14bb5849a6d29947e2c34aac81bbdf53263a558559977126de30cf91aca",
+      "bytes": 41
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_executor_attempt2_20261029_20261028T231809401476Z_checks.jsonl",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_executor_attempt2_20261029_20261028T231809401476Z_checks.jsonl",
+      "sha256": "cbea62daf675c239bd20a23a4a44d2fa7159b81d7d78cac5c0794e5e454de40f",
+      "bytes": 78697
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_executor_attempt2_20261029_20261028T231809401476Z_inventory.json",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_executor_attempt2_20261029_20261028T231809401476Z_inventory.json",
+      "sha256": "40efb3d41a4f03259c850d545c9a554b352c0fc08e8ed9a2c8cf0fc306947f49",
+      "bytes": 32437
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_executor_attempt2_20261029_20261028T231809401476Z_outcome.json",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_executor_attempt2_20261029_20261028T231809401476Z_outcome.json",
+      "sha256": "f41ef8b61c9d79d0351dcd7b65713cf870953afc6c6daa4cdd3f0e1fbf94335e",
+      "bytes": 67123
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_executor_attempt2_20261029_20261028T231809401476Z_reconciliation.json",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_executor_attempt2_20261029_20261028T231809401476Z_reconciliation.json",
+      "sha256": "2762fb91fe305f1567691292e684ad0d56ee1e9cd9e125f5a3cdff66f588eb8c",
+      "bytes": 110575
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_executor_attempt2_20261029_20261028T231809401476Z_results.json",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_executor_attempt2_20261029_20261028T231809401476Z_results.json",
+      "sha256": "af806ce9f1c1a28513a7e5257166efc85550a2f73ef12df8c5f6e264044562a0",
+      "bytes": 114337
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_executor_attempt2_20261029_20261028T231809401476Z_stderr.log",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_executor_attempt2_20261029_20261028T231809401476Z_stderr.log",
+      "sha256": "2818564fa16f4b73e7e4d78d7864849a18aa1dfc0af61f6b0507ec310b837d76",
+      "bytes": 5543
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_executor_attempt2_20261029_20261028T231809401476Z_stdout.log",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_executor_attempt2_20261029_20261028T231809401476Z_stdout.log",
+      "sha256": "cbea62daf675c239bd20a23a4a44d2fa7159b81d7d78cac5c0794e5e454de40f",
+      "bytes": 78697
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_formal_build_cases.py",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_formal_build_cases.py",
+      "sha256": "477aa65a71b14bd34cea2423f524ca6ab1649b04778c51dc592c032352927c83",
+      "bytes": 28886
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_formal_cases.json",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_formal_cases.json",
+      "sha256": "c752ceaa85825c5777ea7e06b9d890f6e93f15935c2d3ddb4b9adca397fec8c9",
+      "bytes": 2656344
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_formal_discover.py",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_formal_discover.py",
+      "sha256": "0ee1ae0c26a2bacfb423a8035cd3673295408083743f95cfc3f1f94a747ca235",
+      "bytes": 1983
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_formal_discovery.json",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_formal_discovery.json",
+      "sha256": "e6780899dc87ca66c3688bf88782f5069ac2d83be77f3ef805e62cb4c428bd01",
+      "bytes": 1158092
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_formal_execute.py",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_formal_execute.py",
+      "sha256": "789dff9e390d08fc209fe1a90921911a649821f1fed3fc42679b25efa409d1fb",
+      "bytes": 39319
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_formal_execution.json",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_formal_execution.json",
+      "sha256": "adfc9fb5a3bc7fb01e3747870891d531b555e4c6cb067875412dcfed376cc838",
+      "bytes": 399
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_formal_prepare_harness.py",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_formal_prepare_harness.py",
+      "sha256": "78af060a5d174426152469f725c285d186cf58979b1d64596dda68caa17c2a90",
+      "bytes": 12085
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_formal_readiness.json",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_formal_readiness.json",
+      "sha256": "0453eb6f1431069109b23c60478d068d7cc01cb2224bbdbf22f023bf70b98d9a",
+      "bytes": 76261
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_formal_readiness.py",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_formal_readiness.py",
+      "sha256": "54797a5f80d9bd5d333c0673c2481148801bded4f96c4d7ef136017f7cbcdadc",
+      "bytes": 4236
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_formal_runtime_regression.py",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_formal_runtime_regression.py",
+      "sha256": "bcfb41e76effe8d2d1b678f55ae18d85cf47feaf44397565af211265f86025fd",
+      "bytes": 3213
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_formal_static_validation.json",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_formal_static_validation.json",
+      "sha256": "63fea2d3e115b4bc2cde20ffbf19289aa1754a9412ae2ff108ccbc03b7b78baf",
+      "bytes": 4714
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_formal_validate.py",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_formal_validate.py",
+      "sha256": "fc45f9c19d4d710a1e0de55c9cc833802b2e101639527f7551892f66a8efeede",
+      "bytes": 5385
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_integer_path_snapshot_20261029\\rest087_runtime_independent_review_20261029.json",
+      "archive_name": ".ept/tmp/rest087_formal_integer_path_snapshot_20261029/rest087_runtime_independent_review_20261029.json",
+      "sha256": "fe9e554d8457e375c21e85cc4d7903f8906cf4c776a04dd65f57ed51ce86c5cb",
+      "bytes": 83167
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_runtime_snapshot_20261029\\rest087_formal_build_cases.py",
+      "archive_name": ".ept/tmp/rest087_formal_runtime_snapshot_20261029/rest087_formal_build_cases.py",
+      "sha256": "8e3b70abf81d330e13aab23497e48c384d304fe1b14f7ba40ebde8bf317a3f2e",
+      "bytes": 28886
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_runtime_snapshot_20261029\\rest087_formal_cases.json",
+      "archive_name": ".ept/tmp/rest087_formal_runtime_snapshot_20261029/rest087_formal_cases.json",
+      "sha256": "002ac59e66559aec4774cd217c8cd37fd7bb5280f50673f3a0d5e574d0642f3c",
+      "bytes": 2656344
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_runtime_snapshot_20261029\\rest087_formal_discover.py",
+      "archive_name": ".ept/tmp/rest087_formal_runtime_snapshot_20261029/rest087_formal_discover.py",
+      "sha256": "0ee1ae0c26a2bacfb423a8035cd3673295408083743f95cfc3f1f94a747ca235",
+      "bytes": 1983
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_runtime_snapshot_20261029\\rest087_formal_discovery.json",
+      "archive_name": ".ept/tmp/rest087_formal_runtime_snapshot_20261029/rest087_formal_discovery.json",
+      "sha256": "e6780899dc87ca66c3688bf88782f5069ac2d83be77f3ef805e62cb4c428bd01",
+      "bytes": 1158092
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_runtime_snapshot_20261029\\rest087_formal_execute.py",
+      "archive_name": ".ept/tmp/rest087_formal_runtime_snapshot_20261029/rest087_formal_execute.py",
+      "sha256": "789dff9e390d08fc209fe1a90921911a649821f1fed3fc42679b25efa409d1fb",
+      "bytes": 39319
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_runtime_snapshot_20261029\\rest087_formal_execution.json",
+      "archive_name": ".ept/tmp/rest087_formal_runtime_snapshot_20261029/rest087_formal_execution.json",
+      "sha256": "adfc9fb5a3bc7fb01e3747870891d531b555e4c6cb067875412dcfed376cc838",
+      "bytes": 399
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_runtime_snapshot_20261029\\rest087_formal_prepare_harness.py",
+      "archive_name": ".ept/tmp/rest087_formal_runtime_snapshot_20261029/rest087_formal_prepare_harness.py",
+      "sha256": "78af060a5d174426152469f725c285d186cf58979b1d64596dda68caa17c2a90",
+      "bytes": 12085
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_runtime_snapshot_20261029\\rest087_formal_readiness.json",
+      "archive_name": ".ept/tmp/rest087_formal_runtime_snapshot_20261029/rest087_formal_readiness.json",
+      "sha256": "0453eb6f1431069109b23c60478d068d7cc01cb2224bbdbf22f023bf70b98d9a",
+      "bytes": 76261
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_runtime_snapshot_20261029\\rest087_formal_readiness.py",
+      "archive_name": ".ept/tmp/rest087_formal_runtime_snapshot_20261029/rest087_formal_readiness.py",
+      "sha256": "54797a5f80d9bd5d333c0673c2481148801bded4f96c4d7ef136017f7cbcdadc",
+      "bytes": 4236
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_runtime_snapshot_20261029\\rest087_formal_static_validation.json",
+      "archive_name": ".ept/tmp/rest087_formal_runtime_snapshot_20261029/rest087_formal_static_validation.json",
+      "sha256": "0f83b2c16ea4727f4aca3556932e2133d2b624c45d59aa5992734a508c70910d",
+      "bytes": 4714
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_formal_runtime_snapshot_20261029\\rest087_formal_validate.py",
+      "archive_name": ".ept/tmp/rest087_formal_runtime_snapshot_20261029/rest087_formal_validate.py",
+      "sha256": "7d5be030fd23eb5ac609d971119455fd7a375ab05caf427c3d57fa6b435959c3",
+      "bytes": 4831
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_fresh_review_cases_20261028.json",
+      "archive_name": ".ept/tmp/rest087_fresh_review_cases_20261028.json",
+      "sha256": "3450e7c120ceb83b9a60ac50a109422447d983e1bafd3208a02e598134120196",
+      "bytes": 76598
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_integer_independent_review_clean_20261029.json",
+      "archive_name": ".ept/tmp/rest087_integer_independent_review_clean_20261029.json",
+      "sha256": "5afc4a833decfbe8b3dcc6d2ac191e68b3e3764394cc8d473cdf769570cdc878",
+      "bytes": 80427
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_runtime_independent_review_20261029.json",
+      "archive_name": ".ept/tmp/rest087_runtime_independent_review_20261029.json",
+      "sha256": "fe9e554d8457e375c21e85cc4d7903f8906cf4c776a04dd65f57ed51ce86c5cb",
+      "bytes": 83167
+    }
+  ],
+  "prior_failure_prefixes": [
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_recover_20261029_20261028T231111547638Z",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\rest087_executor_attempt2_20261029_20261028T231809401476Z"
+  ],
+  "limit": "File hashes and archived bytes preserve the approved offline execution evidence; no live platform result is asserted."
+}

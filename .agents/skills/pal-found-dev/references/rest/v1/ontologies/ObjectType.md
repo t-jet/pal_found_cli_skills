@@ -23,6 +23,21 @@ and reconcile through authorized reads before repeating.
 
 ## Operations and outcome checks
 
+## Synthetic metadata
+
+The get example requests and returns `Asset`. Its primary-key list is `['assetId']`;
+properties declare `assetId` and `status` as `String`, and `inspectionDate` as
+`LocalDate`. The list example also declares `Facility`, keyed by string `facilityId`,
+with string property `name`. The outgoing `facility` link from Asset identifies
+Facility as target with cardinality ONE. Use that target schema for linked-object
+results. Every primary-key entry must resolve to a declared property.
+
+Frozen v1 `ObjectType` exposes an optional type `displayName` and no `titleProperty`
+field. The display name labels the type; it does not establish an object's title
+property. API v2 `ObjectTypeV2` instead requires a scalar `primaryKey` and
+`titleProperty`, each naming a property in its schema. Do not invent a v1 title
+field or copy v2 metadata into a v1 response. See [API version comparison](Ontology.md#api-v1-and-v2).
+
 ### get
 
 Read object-type metadata by API name and inspect properties/primary-key schema before

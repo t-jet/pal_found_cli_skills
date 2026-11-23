@@ -32,8 +32,14 @@ widget_set_rid=..., preview=True)`. Read the
 [exact contract](../../contracts/v2/widgets/DevModeSettings/set_widget_set_by_id.md)
 and [settings model](../../models/v2/widgets/models/WidgetSetDevModeSettingsById.md).
 
-Compare the returned settings with the intended widget-set RID and widget IDs.
+Use a reachable development base such as `http://localhost:5173/` and at least
+one published widget ID. The example supplies relative JS and CSS asset paths.
+Request `widgetSettings` keys are `WidgetId`; response keys are `WidgetRid`.
+Resolve that mapping from the authorized widget-set manifest and inspect the
+target `widgetSetSettings[widget_set_rid]`, base URL and asset settings.
 For `SetWidgetSetDevModeSettingsByIdPermissionDenied`, check access to that set
-and the caller's dev-mode eligibility. For an uncertain write, retrieve the
-user's current settings before repeating it. The [offline SDK fixture](../../../../examples/rest/091/v2/widgets/DevModeSettings/invoke_set_widget_set_by_id.py)
+and the caller's dev-mode eligibility. The frozen resource exposes no read-only
+settings getter. After an uncertain write, stop and inspect the user's preview
+through an authorized enrollment workflow before deciding whether to submit
+again; `enable` itself changes settings. The [offline SDK fixture](../../../../examples/rest/091/v2/widgets/DevModeSettings/invoke_set_widget_set_by_id.py)
 shows exact serialization and decoded result.

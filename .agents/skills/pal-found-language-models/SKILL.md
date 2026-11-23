@@ -22,8 +22,9 @@ The two CLI commands are provider-shaped endpoints: `anthropic-model messages`
 accepts a model API name, messages, and `--max-tokens`; `open-ai-model
 embeddings` accepts a model API name and input text array. Inspect the model's
 supported features before supplying tools, thinking, or other optional
-generation settings. The SDK method documentation defines the request and
-response shapes in `LanguageModels/AnthropicModel.md` and `OpenAiModel.md`.
+generation settings. Read the local [Anthropic operation record](references/anthropic-model.md),
+[embedding operation record](references/open-ai-model.md), and
+[inference inputs](references/inputs.md) for supported request and response shapes.
 
 2 Foundry Language Models API v2 operations are exposed by `pal-found-language-models`.
 
@@ -35,11 +36,13 @@ pal-found-language-models <resource> <operation> [options]
 
 Common options: `--timeout`, `--format json|toon|auto`, `--pretty`.
 
-`--timeout` sets the request timeout in seconds. `--format` selects JSON,
-TOON, or automatic structured output; `--pretty` indents it.
+`--timeout` sets the request timeout in seconds. `--format` accepts `json`,
+`toon`, or `auto`. Both inference endpoints return top-level objects, so the
+formatter emits JSON even when `--format toon` is requested; TOON encoding
+requires a nonempty uniform array of objects. `--pretty` indents JSON output.
 
 The CLI uses the shared config loader, access control guard, retry handler,
-pagination helper, structured error serializer, output formatter, and
+structured error serializer, output formatter, and
 SDK-native B3 tracing scope.
 
 ## Operation index

@@ -82,6 +82,12 @@ Read [exact contract](../../contracts/v2/ontologies/OntologyInterface/search.md)
 
 Discover an approved `Trackable` interface, inspect its outgoing interface links, then list bounded visible implementations. Compare returned type and primary key per result. Preserve snapshot and cursor choices when reading changing data.
 
+The get/list, object-list, linked-object, search and aggregate fixtures share a [declared synthetic schema](../../../../examples/rest/079/synthetic_schema.py). `Trackable` has no parent interface and requires shared properties `assetId` (string), `name` (string), and `observedAt` (timestamp). `Asset` implements each through a local property of the same name. Its `relatedAssets` link implements the interface's `peers` link to other `Trackable` objects. The linked-object fixture reads peers of `Asset/A-1` and returns `Asset/A-2`; object-list and search return `Asset/A-1`. Results carry `__apiName`, `__primaryKey`, and selected business properties so callers can distinguish implementations and object identities.
+
+The aggregate fixture requests approximate distinct `assetId` values, names the metric `distinctAssets`, and groups `observedAt` into one-day intervals. Each aggregation or grouping must supply exactly one of `field` and `propertyIdentifier`. Duration grouping requires a date or timestamp property; `YEARS`, `QUARTERS`, `MONTHS`, and `WEEKS` require `value=1`. Property names must be shared properties on the requested interface. The synthetic response names the requested metric and its timestamp group. These checks illustrate schema consistency; they do not establish live aggregation accuracy, enrollment availability, or access to every implementation.
+
+Search supplies the required selection and augmentation containers explicitly. This fixture selects `Asset` and the three declared shared properties, with empty augmentation maps and empty additional-interface selections. Adapt those selections together with the interface schema; arbitrary names can decode locally even when an enrollment would reject them.
+
 The linked operation fixtures show actual SDK method invocation, serialized request and decoded response/error using a local mock transport. Their synthetic values are test data. Replace them with authorized identifiers and typed payloads from each linked contract; verify the live result under the intended identity before asserting a platform effect.
 
 ## Expected result and checks

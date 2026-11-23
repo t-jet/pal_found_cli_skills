@@ -1,0 +1,19 @@
+{
+  "record_kind": "Publication-time provenance from PM-confirmed final author handoff; not a pre-existing author report",
+  "author_agent": "/root/rest089_units_resume_20261117",
+  "confirmed_by": "/root",
+  "candidate_base": "77b101fb7c5e51fa5f785b2147d97cdfff703133",
+  "test_file": "tests/test_offline_rest_089.py",
+  "test_sha256": "5e23652c29ee3027e0dd4f037efc609eddf842ec905b089d0a7637d19f353917",
+  "test_lines": 663,
+  "author_handoff_result": "1155 passed in 4.79s; preliminary 1209 included 54 no-op parameters subsequently removed",
+  "author_artifact": "rest089_units_author_20261117.xml",
+  "author_workflow_comment": "20261117-093036-@python-developer is plan grounding only, not final result evidence",
+  "final_scope": {
+    "operations": 40,
+    "available_success_forms": 222,
+    "void_form_absences": 18,
+    "named_error_union_entries": 143
+  },
+  "boundary": "Author handoff and original JUnit are distinct from fresh independent peer evidence. No standalone author JSON was produced."
+}

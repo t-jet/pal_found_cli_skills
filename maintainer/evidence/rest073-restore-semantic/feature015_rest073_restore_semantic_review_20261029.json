@@ -1,0 +1,319 @@
+{
+  "story": "DEV-STORY-073",
+  "development": "DEV-068",
+  "reviewer": "independent qa-engineer /root/rest073_restore_uncertainty_review_20261029",
+  "candidate_sha": "3d5536cfe024bed6d8dbfbdc27cc65f700b7e95f",
+  "sdk_version": "1.101.0",
+  "scope": "Only v2.filesystem.Resource.restore semantic acceptance; formal QA pending",
+  "operations": [
+    {
+      "id": "v2.filesystem.Resource.restore",
+      "verdict": "FAIL",
+      "runtime_contract_verdict": "PASS",
+      "server_policy_verdict": "UNCERTAIN",
+      "independent_expectations": [
+        "POST exact RID /restore, empty query/body, Bearer auth and request_timeout=30",
+        "204 decodes to None; raw result is closed; result does not contain restored state",
+        "Each source-declared error decodes to its exact SDK exception and RID parameters",
+        "Do not infer server no-op policy, idempotency, or ancestor-state behavior from fake responses",
+        "Reader must distinguish DIRECTLY_TRASHED, ANCESTOR_TRASHED, NOT_TRASHED from local TrashStatus guidance",
+        "Source disagreement must be explicit; denial or uncertain state stops mutation until authorized reconciliation"
+      ],
+      "acceptance_assessment": {
+        "decision_and_prerequisites": "PARTIAL: identity, RID, enrollment, scopes silence and trash model available; restore-specific state decision absent",
+        "expected_result_and_safe_validation": "PARTIAL: None and exact-RID read available, but active-state no-op asserted unconditionally",
+        "reconciliation_stop_and_recovery": "FAIL: generic read-before-replay guidance exists; source conflict and ResourceNotDirectlyTrashed response decision absent",
+        "model_and_error_navigation": "PASS: restore and reconciliation Resource model links resolve transitively",
+        "BD-015-08": "FAIL: unexplained task-critical source difference remains",
+        "DEV-068": "FAIL: required constraints, lifecycle decision and bounded recovery incomplete"
+      },
+      "source_conflict": {
+        "exact_error": "ResourceNotDirectlyTrashed",
+        "source_docstring": "Restore the given resource and any directly trashed ancestors from the trash. If the resource is not\ntrashed, this operation will be ignored.\n\n:param resource_rid:\n:type resource_rid: ResourceRid\n:param request_timeout: timeout setting for this request in seconds.\n:type request_timeout: Optional[int]\n:return: Returns the result object.\n:rtype: None\n\n:raises ResourceNotDirectlyTrashed: The resource is not directly trashed.\n:raises ResourceNotFound: The given Resource could not be found.\n:raises RestoreResourcePermissionDenied: Could not restore the Resource.",
+        "source_method_sha256": "7237227e650865e900f80f1b86a0b46f5f8bb44ee8a2087b4d7b392bc6e71007",
+        "disposition": "Open. Source prose says non-trashed restore is ignored, while same method declares ResourceNotDirectlyTrashed. Neither fixture proves which server policy applies. Current behavior repeats unconditional active-state no-op and does not explain disagreement.",
+        "task_critical": true,
+        "gate": "Cannot accept while approved BD-015-08 source-difference and seven-element recovery requirements remain unmet. Explicit bounded uncertainty could support a later review; unknown server behavior alone is not a waiver."
+      },
+      "exact_author_fix_requirements": [
+        "Qualify active-resource no-op statement in behavior and linked contract: attribute to SDK prose and explicitly pair with ResourceNotDirectlyTrashed declaration; state server behavior is unverified and do not promise idempotency.",
+        "Add restore decision using exact RID and local TrashStatus values. Explain DIRECTLY_TRASHED direct restore; ANCESTOR_TRASHED requires original folder restoration per model, without inventing a universal server outcome or mutating arbitrary ancestors.",
+        "For ResourceNotDirectlyTrashed, stop replay and read exact RID/state plus authorized ancestor context; distinguish confirmed NOT_TRASHED desired state, ancestor trash, and unresolved/denied read. Preserve uncertainty and escalate unresolved state/policy to authorized owner.",
+        "State success None/204 does not itself prove restored hierarchy; validate exact RID, trash_status, parent_folder_rid and path with authorized reads. Bound reconciliation and stop when unavailable, denied or conflicting; never substitute old-path RID.",
+        "Keep fake HTTP success/errors explicitly synthetic and source-backed; add adaptable restore/read/reconcile decision example or equivalent concrete code using declared local models. No live server assertion is required or authorized.",
+        "Record task-critical source-conflict disposition through approved workflow before acceptance; QA will re-review author changes without editing them."
+      ]
+    }
+  ],
+  "raw_proof": [
+    {
+      "case": "ordinary 204 returns None; fixture does not establish server state",
+      "verdict": "PASS",
+      "request": {
+        "method": "POST",
+        "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+        "query": "b''",
+        "body": "",
+        "timeout": {
+          "connect": 30,
+          "read": 30,
+          "write": 30,
+          "pool": 30
+        }
+      },
+      "result": {
+        "decoded": null
+      }
+    },
+    {
+      "case": "raw 204 decode and close",
+      "verdict": "PASS",
+      "request": {
+        "method": "POST",
+        "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+        "query": "b''",
+        "body": "",
+        "timeout": {
+          "connect": 30,
+          "read": 30,
+          "write": 30,
+          "pool": 30
+        }
+      },
+      "result": {
+        "status": 204,
+        "decoded": null,
+        "closed": true
+      }
+    },
+    {
+      "case": "ResourceNotDirectlyTrashed",
+      "verdict": "PASS",
+      "request": {
+        "method": "POST",
+        "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+        "query": "b''",
+        "body": "",
+        "timeout": {
+          "connect": 30,
+          "read": 30,
+          "write": 30,
+          "pool": 30
+        }
+      },
+      "result": {
+        "error_type": "ResourceNotDirectlyTrashed",
+        "name": "ResourceNotDirectlyTrashed",
+        "parameters": {
+          "resourceRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+        }
+      }
+    },
+    {
+      "case": "ResourceNotFound",
+      "verdict": "PASS",
+      "request": {
+        "method": "POST",
+        "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+        "query": "b''",
+        "body": "",
+        "timeout": {
+          "connect": 30,
+          "read": 30,
+          "write": 30,
+          "pool": 30
+        }
+      },
+      "result": {
+        "error_type": "ResourceNotFound",
+        "name": "ResourceNotFound",
+        "parameters": {
+          "resourceRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+        }
+      }
+    },
+    {
+      "case": "RestoreResourcePermissionDenied",
+      "verdict": "PASS",
+      "request": {
+        "method": "POST",
+        "path": "/api/v2/filesystem/resources/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/restore",
+        "query": "b''",
+        "body": "",
+        "timeout": {
+          "connect": 30,
+          "read": 30,
+          "write": 30,
+          "pool": 30
+        }
+      },
+      "result": {
+        "error_type": "RestoreResourcePermissionDenied",
+        "name": "RestoreResourcePermissionDenied",
+        "parameters": {
+          "resourceRid": "ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001"
+        }
+      }
+    },
+    {
+      "case": "current reader example under independent DNS/connect denial",
+      "verdict": "PASS"
+    }
+  ],
+  "network": {
+    "dns_and_connect_denied": true,
+    "attempt_count": 0,
+    "live_calls": 0
+  },
+  "model_closure": {
+    "documents": 28,
+    "unresolved": []
+  },
+  "bindings_before": {
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\api_client.py": "7e6ba19fa9732b18b6f22d69f46c40b1a10af4533ce720c39df52c60ca191225",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\model_base.py": "9991688d13830547f029b78995d0b822d1ac63b2f99911d876277515c44dbb1e",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\filesystem\\errors.py": "5748ed8cf5b09f681cddb751a115ce513a632b63d1d81381fa924bb779ba55f4",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\filesystem\\models.py": "5e0103eb015b029d099a5dd40ebd42c3f23dacd487c26c2115a9f3a54b1d322f",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\filesystem\\resource.py": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\073\\v2\\filesystem\\Resource\\restore.py": "69b7f77e99b817e482bf71f7c5f00df853780ee75b2cb0d806f7ce37fb7266c7",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\common\\mock_transport.py": "16f3835c65b9ef1ea89e1b1efb7b2d457682a5996570099f9d216e8175f0fd72",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\authentication.md": "21cf5c0319011cf8603358d08b10205b6e92f247da4e6ec871f7526a01618a7c",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\client-behavior.md": "57826178f9a203bbe1eb3de24832bef82dc457ecb167f1208a3ba177a93dbcc2",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\filesystem\\Resource\\get.md": "a188bd442fe7b0359840f5d83139309a50ca50bc168ba6c6f97bb6147876061e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md": "77c9735849d0d196d0640f2eb567e4b5ea4a2a9a946a0334a115a8e01c01f2cf",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\AwareDatetime.md": "cb790e832ad9c9da79d728855fa1eef3ad96bfdc2862da210fb943c7a3f370e1",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\ModelBase.md": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\ResponseMode.md": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\RID.md": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\SdkInternal.md": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\Timeout.md": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\UUID.md": "19c51bc4bb69f8689a41de36b7f68d411988537c89900a13e8675de0cabc34c4",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\CreatedBy.md": "5ee1daea100d445e01481221aa10283603707d9e0df524c62b7236bc41c73fb1",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\CreatedTime.md": "e288b4d67bf0f7dc74de03e72e5cd0113bbc64ae131fa129d7bd57c9cbd785a1",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\PrincipalId.md": "4be55b5727e53d75356a4f4e424fc5055c3b652dfbf7b130364fff09d101ed33",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\UpdatedBy.md": "7adc3c3c96047827219053e5bf254d7d2bc5e55bbe1c5842f43bcae088d56208",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\UpdatedTime.md": "8fd017c97221c6afa227ca0e080cb44438a722425bea315b0ba30e86e9716fbd",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\UserId.md": "57fb64cb33f7cb4ade4f3fe5cb989205a17171115a91d9478322d857c5a15e3e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotDirectlyTrashed.md": "eb47fdfc9cf54825790a6defee44ad833025bc9c3b90d591f442efe71fe9b8ac",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotDirectlyTrashedParameters.md": "aa933d7d745d50f9623ca16f7ef35f8f12f6245ad8df9d3990676a1c1d780891",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotFound.md": "b88b63430cad545431397b8d0840717199d9a2af4c6aa1ab2df42f67e7510e0e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotFoundParameters.md": "e8e9d51a788aa68cd5dc286ce0f9320ff5b388350fc09e25671f2a921344696f",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\RestoreResourcePermissionDenied.md": "e56023ed98a362f2e471fff863540d95525ecb0865d4bad3f7bf8256b37d3f45",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\RestoreResourcePermissionDeniedParameters.md": "0f757259ef9a74d27ccbf9eaf18d26bce7adb02ad406da9ed59e7c06e22da23e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\FolderRid.md": "dc80c8e77a2660742e20098a3d9170f1c125cd33f4b98bbced4ccafd442843cd",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ProjectRid.md": "c1580e34fdd77106033f7fd5ce1b56a436e644e443d461b98458b1d3c20afca5",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\Resource.md": "e4acdd2fe9f25ca58d7743ed4fe63e2626357323c221b18476e85041305cfdda",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ResourceDisplayName.md": "2839c930e7660f94316d47974b2e9817b975c0d6b055af9d585eaa869b0f8b6e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ResourcePath.md": "0711c42897ec1e06373270645ddeacfae47b5f1d567cb5baff74c006af0b52e5",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ResourceRid.md": "6719a3f6c961567c1fd4baff9d5f67953a7e0a544a95812c574c3de433e24390",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ResourceType.md": "f95aa7c401926b1205262680cc039c721c81756a5d85b0667a3b42d8cf85f49c",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\SpaceRid.md": "7582bdf25f7d630bf31f4097cbe5bc005411737589cc56f3a6b5b34f4a062fa0",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\TrashStatus.md": "f4ef4cdf7458343f560e1f0cef203bf1c530cb485e095387c38e3b698d921b1b",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\filesystem\\Resource.md": "ee27107cd0ff6b46477029274680e4fc6cb2209908b8b36dde9527ecee651826",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_current_semantic_review.json": "85d88b9910f9c4ef2f89e986d0123ae10de6f07037d39faef146b781887f267b",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_semantic_retest.json": "dbc08f16fec37ea7a291cf4663688bc080d8c346cb1cd8a01a35fbcbfe361a89"
+  },
+  "bindings_after": {
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\api_client.py": "7e6ba19fa9732b18b6f22d69f46c40b1a10af4533ce720c39df52c60ca191225",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\model_base.py": "9991688d13830547f029b78995d0b822d1ac63b2f99911d876277515c44dbb1e",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\filesystem\\errors.py": "5748ed8cf5b09f681cddb751a115ce513a632b63d1d81381fa924bb779ba55f4",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\filesystem\\models.py": "5e0103eb015b029d099a5dd40ebd42c3f23dacd487c26c2115a9f3a54b1d322f",
+    "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\filesystem\\resource.py": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\073\\v2\\filesystem\\Resource\\restore.py": "69b7f77e99b817e482bf71f7c5f00df853780ee75b2cb0d806f7ce37fb7266c7",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\examples\\rest\\common\\mock_transport.py": "16f3835c65b9ef1ea89e1b1efb7b2d457682a5996570099f9d216e8175f0fd72",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\authentication.md": "21cf5c0319011cf8603358d08b10205b6e92f247da4e6ec871f7526a01618a7c",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\client-behavior.md": "57826178f9a203bbe1eb3de24832bef82dc457ecb167f1208a3ba177a93dbcc2",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\filesystem\\Resource\\get.md": "a188bd442fe7b0359840f5d83139309a50ca50bc168ba6c6f97bb6147876061e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\contracts\\v2\\filesystem\\Resource\\restore.md": "77c9735849d0d196d0640f2eb567e4b5ea4a2a9a946a0334a115a8e01c01f2cf",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\AwareDatetime.md": "cb790e832ad9c9da79d728855fa1eef3ad96bfdc2862da210fb943c7a3f370e1",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\ModelBase.md": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\ResponseMode.md": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\RID.md": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\SdkInternal.md": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\Timeout.md": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\_core\\UUID.md": "19c51bc4bb69f8689a41de36b7f68d411988537c89900a13e8675de0cabc34c4",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\CreatedBy.md": "5ee1daea100d445e01481221aa10283603707d9e0df524c62b7236bc41c73fb1",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\CreatedTime.md": "e288b4d67bf0f7dc74de03e72e5cd0113bbc64ae131fa129d7bd57c9cbd785a1",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\PrincipalId.md": "4be55b5727e53d75356a4f4e424fc5055c3b652dfbf7b130364fff09d101ed33",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\UpdatedBy.md": "7adc3c3c96047827219053e5bf254d7d2bc5e55bbe1c5842f43bcae088d56208",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\UpdatedTime.md": "8fd017c97221c6afa227ca0e080cb44438a722425bea315b0ba30e86e9716fbd",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\core\\models\\UserId.md": "57fb64cb33f7cb4ade4f3fe5cb989205a17171115a91d9478322d857c5a15e3e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotDirectlyTrashed.md": "eb47fdfc9cf54825790a6defee44ad833025bc9c3b90d591f442efe71fe9b8ac",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotDirectlyTrashedParameters.md": "aa933d7d745d50f9623ca16f7ef35f8f12f6245ad8df9d3990676a1c1d780891",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotFound.md": "b88b63430cad545431397b8d0840717199d9a2af4c6aa1ab2df42f67e7510e0e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\ResourceNotFoundParameters.md": "e8e9d51a788aa68cd5dc286ce0f9320ff5b388350fc09e25671f2a921344696f",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\RestoreResourcePermissionDenied.md": "e56023ed98a362f2e471fff863540d95525ecb0865d4bad3f7bf8256b37d3f45",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\errors\\RestoreResourcePermissionDeniedParameters.md": "0f757259ef9a74d27ccbf9eaf18d26bce7adb02ad406da9ed59e7c06e22da23e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\FolderRid.md": "dc80c8e77a2660742e20098a3d9170f1c125cd33f4b98bbced4ccafd442843cd",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ProjectRid.md": "c1580e34fdd77106033f7fd5ce1b56a436e644e443d461b98458b1d3c20afca5",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\Resource.md": "e4acdd2fe9f25ca58d7743ed4fe63e2626357323c221b18476e85041305cfdda",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ResourceDisplayName.md": "2839c930e7660f94316d47974b2e9817b975c0d6b055af9d585eaa869b0f8b6e",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ResourcePath.md": "0711c42897ec1e06373270645ddeacfae47b5f1d567cb5baff74c006af0b52e5",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ResourceRid.md": "6719a3f6c961567c1fd4baff9d5f67953a7e0a544a95812c574c3de433e24390",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\ResourceType.md": "f95aa7c401926b1205262680cc039c721c81756a5d85b0667a3b42d8cf85f49c",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\SpaceRid.md": "7582bdf25f7d630bf31f4097cbe5bc005411737589cc56f3a6b5b34f4a062fa0",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\models\\v2\\filesystem\\models\\TrashStatus.md": "f4ef4cdf7458343f560e1f0cef203bf1c530cb485e095387c38e3b698d921b1b",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-dev\\references\\rest\\v2\\filesystem\\Resource.md": "ee27107cd0ff6b46477029274680e4fc6cb2209908b8b36dde9527ecee651826",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_current_semantic_review.json": "85d88b9910f9c4ef2f89e986d0123ae10de6f07037d39faef146b781887f267b",
+    "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest073_semantic_retest.json": "dbc08f16fec37ea7a291cf4663688bc080d8c346cb1cd8a01a35fbcbfe361a89"
+  },
+  "all_bindings_unchanged": true,
+  "historical_accepted_operations": {
+    "count": 47,
+    "ids": [
+      "v2.audit.LogFile.content",
+      "v2.audit.LogFile.list",
+      "v2.filesystem.Folder.children",
+      "v2.filesystem.Folder.create",
+      "v2.filesystem.Folder.get",
+      "v2.filesystem.Folder.get_batch",
+      "v2.filesystem.Folder.replace",
+      "v2.filesystem.Project.add_organizations",
+      "v2.filesystem.Project.create",
+      "v2.filesystem.Project.create_from_template",
+      "v2.filesystem.Project.get",
+      "v2.filesystem.Project.organizations",
+      "v2.filesystem.Project.remove_organizations",
+      "v2.filesystem.Project.replace",
+      "v2.filesystem.ProjectResourceReference.add",
+      "v2.filesystem.ProjectResourceReference.list",
+      "v2.filesystem.ProjectResourceReference.remove",
+      "v2.filesystem.Resource.add_markings",
+      "v2.filesystem.Resource.delete",
+      "v2.filesystem.Resource.get",
+      "v2.filesystem.Resource.get_access_requirements",
+      "v2.filesystem.Resource.get_batch",
+      "v2.filesystem.Resource.get_by_path",
+      "v2.filesystem.Resource.get_by_path_batch",
+      "v2.filesystem.Resource.markings",
+      "v2.filesystem.Resource.permanently_delete",
+      "v2.filesystem.Resource.remove_markings",
+      "v2.filesystem.ResourceRole.add",
+      "v2.filesystem.ResourceRole.list",
+      "v2.filesystem.ResourceRole.remove",
+      "v2.filesystem.ResourceTag.add",
+      "v2.filesystem.ResourceTag.list",
+      "v2.filesystem.ResourceTag.remove",
+      "v2.filesystem.Space.create",
+      "v2.filesystem.Space.delete",
+      "v2.filesystem.Space.get",
+      "v2.filesystem.Space.list",
+      "v2.filesystem.Space.replace",
+      "v2.third_party_applications.ThirdPartyApplication.get",
+      "v2.third_party_applications.Version.delete",
+      "v2.third_party_applications.Version.get",
+      "v2.third_party_applications.Version.list",
+      "v2.third_party_applications.Version.upload",
+      "v2.third_party_applications.Version.upload_snapshot",
+      "v2.third_party_applications.Website.deploy",
+      "v2.third_party_applications.Website.get",
+      "v2.third_party_applications.Website.undeploy"
+    ],
+    "disposition": "Preserved unchanged; not re-reviewed or replaced by this narrow assessment"
+  },
+  "formal_qa": "Pending. No tracker, author content or review register changed."
+}

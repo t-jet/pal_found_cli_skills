@@ -52,21 +52,33 @@ if first is not None and last is not None:
     assert first.time <= last.time
     print(first.time, first.value, last.time, last.value)
 
+import json
 byte_budget = 1_000_000
-received = 0
+payload = bytearray()
 with api.with_streaming_response.stream_points(
-    **key, format="JSON", request_timeout=30
+    **key, format="JSON", request_timeout=30,
+    range={"type": "absolute", "startTime": "2026-01-01T00:00:00Z",
+           "endTime": "2026-01-01T00:02:00Z"},
 ) as response:
     for chunk in response.iter_bytes():
-        received += len(chunk)
-        if received > byte_budget:
+        if len(payload) + len(chunk) > byte_budget:
             raise ValueError("time-series byte budget exceeded")
-        # Decode complete JSON records using the selected stream format.
+        payload.extend(chunk)
+# Use this parser after verifying JSON-array framing for the integration.
+points = json.loads(payload)
+for point in points:
+    print(point["time"], point["value"])
 ```
 
 First/last can return `None`. A stream returns bytes, not a typed point
-iterator. Set a `range` model for a time-bounded request; its field contract is
-linked from `stream_points`. The context manager closes the HTTP response even
+iterator. The method documents JSON as the default and also supports ARROW.
+The fixture explicitly selects JSON, uses a synthetic array of two temperature
+points, assembles chunks before decoding and checks timestamps and values.
+JSON envelope/framing and value types are not specified by the byte return
+type; verify them for the enrollment before adapting the array parser. A chunk
+can split a JSON token or UTF-8 character. A byte-budget or parsing failure
+leaves history incomplete. Absolute range start is inclusive and end exclusive.
+The context manager closes the HTTP response even
 when parsing or budget checks fail. Compare actual timestamps, since the latest
 point may be older than the business freshness requirement.
 

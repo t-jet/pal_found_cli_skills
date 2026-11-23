@@ -1,0 +1,4517 @@
+{
+  "reviewer": "/root/rest083_semantic_review_20261029",
+  "candidate": "6df64cce16bf0619bee124f831e1e8686c08cccf",
+  "operations": [
+    {
+      "id": "v2.ontologies.Action.apply",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "action": "setTemperature",
+        "parameters": {
+          "sensor": "S-17",
+          "temperature": 21.5
+        },
+        "options": {
+          "mode": "VALIDATE_AND_EXECUTE",
+          "returnEdits": "ALL"
+        }
+      },
+      "payload": {
+        "validation": {
+          "result": "VALID",
+          "submissionCriteria": [],
+          "parameters": {}
+        },
+        "edits": {
+          "type": "edits",
+          "edits": [],
+          "addedObjectCount": 0,
+          "modifiedObjectsCount": 1,
+          "deletedObjectsCount": 0,
+          "addedLinksCount": 0,
+          "deletedLinksCount": 0
+        }
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/ontologies/qa-ontology/actions/setTemperature/apply",
+          "query": "b''",
+          "body": "{\"options\": {\"mode\": \"VALIDATE_AND_EXECUTE\", \"returnEdits\": \"ALL\"}, \"parameters\": {\"sensor\": \"S-17\", \"temperature\": 21.5}}",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "content-type": "application/json",
+            "accept": "application/json",
+            "content-length": "122"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": {
+            "validation": {
+              "result": "VALID",
+              "submissionCriteria": [],
+              "parameters": {}
+            },
+            "edits": {
+              "edits": [],
+              "addedObjectCount": 0,
+              "modifiedObjectsCount": 1,
+              "deletedObjectsCount": 0,
+              "addedLinksCount": 0,
+              "deletedLinksCount": 0,
+              "type": "edits"
+            }
+          }
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.Action.apply_batch",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "action": "setTemperature",
+        "requests": [
+          {
+            "parameters": {
+              "sensor": "S-17",
+              "temperature": 21.5
+            }
+          }
+        ]
+      },
+      "payload": {
+        "edits": {
+          "type": "edits",
+          "edits": [],
+          "addedObjectCount": 0,
+          "modifiedObjectsCount": 1,
+          "deletedObjectsCount": 0,
+          "addedLinksCount": 0,
+          "deletedLinksCount": 0
+        }
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/ontologies/qa-ontology/actions/setTemperature/applyBatch",
+          "query": "b''",
+          "body": "{\"requests\": [{\"parameters\": {\"sensor\": \"S-17\", \"temperature\": 21.5}}]}",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "content-type": "application/json",
+            "accept": "application/json",
+            "content-length": "71"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": {
+            "edits": {
+              "edits": [],
+              "addedObjectCount": 0,
+              "modifiedObjectsCount": 1,
+              "deletedObjectsCount": 0,
+              "addedLinksCount": 0,
+              "deletedLinksCount": 0,
+              "type": "edits"
+            }
+          }
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.Action.apply_batch_with_overrides",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "action": "setTemperature",
+        "requests": [
+          {
+            "parameters": {
+              "sensor": "S-17",
+              "temperature": 21.5
+            },
+            "overrides": {
+              "uniqueIdentifierLinkIdValues": {
+                "00000000-0000-0000-0000-000000000001": "00000000-0000-0000-0000-000000000002"
+              },
+              "actionExecutionTime": "2026-10-29T00:00:00Z"
+            }
+          }
+        ]
+      },
+      "payload": {
+        "edits": {
+          "type": "edits",
+          "edits": [],
+          "addedObjectCount": 0,
+          "modifiedObjectsCount": 1,
+          "deletedObjectsCount": 0,
+          "addedLinksCount": 0,
+          "deletedLinksCount": 0
+        }
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/ontologies/qa-ontology/actions/setTemperature/applyBatchWithOverrides",
+          "query": "b''",
+          "body": "{\"requests\": [{\"parameters\": {\"sensor\": \"S-17\", \"temperature\": 21.5}, \"overrides\": {\"uniqueIdentifierLinkIdValues\": {\"00000000-0000-0000-0000-000000000001\": \"00000000-0000-0000-0000-000000000002\"}, \"actionExecutionTime\": \"2026-10-29T00:00:00+00:00\"}}]}",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "content-type": "application/json",
+            "accept": "application/json",
+            "content-length": "252"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": {
+            "edits": {
+              "edits": [],
+              "addedObjectCount": 0,
+              "modifiedObjectsCount": 1,
+              "deletedObjectsCount": 0,
+              "addedLinksCount": 0,
+              "deletedLinksCount": 0,
+              "type": "edits"
+            }
+          }
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.Action.apply_with_overrides",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "action": "setTemperature",
+        "request": {
+          "parameters": {
+            "sensor": "S-17",
+            "temperature": 21.5
+          }
+        },
+        "overrides": {
+          "uniqueIdentifierLinkIdValues": {
+            "00000000-0000-0000-0000-000000000001": "00000000-0000-0000-0000-000000000002"
+          },
+          "actionExecutionTime": "2026-10-29T00:00:00Z"
+        }
+      },
+      "payload": {
+        "validation": {
+          "result": "VALID",
+          "submissionCriteria": [],
+          "parameters": {}
+        },
+        "edits": {
+          "type": "edits",
+          "edits": [],
+          "addedObjectCount": 0,
+          "modifiedObjectsCount": 1,
+          "deletedObjectsCount": 0,
+          "addedLinksCount": 0,
+          "deletedLinksCount": 0
+        }
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/ontologies/qa-ontology/actions/setTemperature/applyWithOverrides",
+          "query": "b''",
+          "body": "{\"request\": {\"parameters\": {\"sensor\": \"S-17\", \"temperature\": 21.5}}, \"overrides\": {\"uniqueIdentifierLinkIdValues\": {\"00000000-0000-0000-0000-000000000001\": \"00000000-0000-0000-0000-000000000002\"}, \"actionExecutionTime\": \"2026-10-29T00:00:00+00:00\"}}",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "content-type": "application/json",
+            "accept": "application/json",
+            "content-length": "249"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": {
+            "validation": {
+              "result": "VALID",
+              "submissionCriteria": [],
+              "parameters": {}
+            },
+            "edits": {
+              "edits": [],
+              "addedObjectCount": 0,
+              "modifiedObjectsCount": 1,
+              "deletedObjectsCount": 0,
+              "addedLinksCount": 0,
+              "deletedLinksCount": 0,
+              "type": "edits"
+            }
+          }
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.Attachment.get",
+      "inputs": {
+        "attachment_rid": "ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001"
+      },
+      "payload": {
+        "rid": "ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001",
+        "filename": "qa.txt",
+        "sizeBytes": "14",
+        "mediaType": "text/plain",
+        "type": "single"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/ontologies/attachments/ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001",
+          "query": "b''",
+          "body": "",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "accept": "application/json"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": {
+            "rid": "ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001",
+            "filename": "qa.txt",
+            "sizeBytes": "14",
+            "mediaType": "text/plain",
+            "type": "single"
+          }
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.Attachment.read",
+      "inputs": {
+        "attachment_rid": "ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001"
+      },
+      "payload": "b'QA attachment\\n'",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/ontologies/attachments/ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001/content",
+          "query": "b''",
+          "body": "",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "accept": "*/*"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": "b'QA attachment\\n'"
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.Attachment.upload",
+      "inputs": {
+        "body": "b'QA attachment\\n'",
+        "content_length": 14,
+        "content_type": "text/plain",
+        "filename": "qa.txt"
+      },
+      "payload": {
+        "rid": "ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001",
+        "filename": "qa.txt",
+        "sizeBytes": "14",
+        "mediaType": "text/plain",
+        "type": "single"
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/ontologies/attachments/upload",
+          "query": "b'filename=qa.txt'",
+          "body": "QA attachment\n",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "content-length": "14",
+            "content-type": "*/*",
+            "accept": "application/json"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": {
+            "rid": "ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001",
+            "filename": "qa.txt",
+            "sizeBytes": "14",
+            "mediaType": "text/plain",
+            "type": "single"
+          }
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.Attachment.upload_with_rid",
+      "inputs": {
+        "attachment_rid": "ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001",
+        "body": "b'QA attachment\\n'",
+        "content_length": 14,
+        "content_type": "text/plain",
+        "filename": "qa.txt"
+      },
+      "payload": {
+        "rid": "ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001",
+        "filename": "qa.txt",
+        "sizeBytes": "14",
+        "mediaType": "text/plain",
+        "type": "single"
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/ontologies/attachments/upload/ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001",
+          "query": "b'filename=qa.txt'",
+          "body": "QA attachment\n",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "content-length": "14",
+            "content-type": "*/*",
+            "accept": "application/json"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": {
+            "rid": "ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001",
+            "filename": "qa.txt",
+            "sizeBytes": "14",
+            "mediaType": "text/plain",
+            "type": "single"
+          }
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.AttachmentProperty.get_attachment",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "object_type": "Sensor",
+        "primary_key": "S-17",
+        "property": "inspectionEvidence"
+      },
+      "payload": {
+        "rid": "ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001",
+        "filename": "qa.txt",
+        "sizeBytes": "14",
+        "mediaType": "text/plain",
+        "type": "single"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/ontologies/qa-ontology/objects/Sensor/S-17/attachments/inspectionEvidence",
+          "query": "b''",
+          "body": "",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "accept": "application/json"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": {
+            "rid": "ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001",
+            "filename": "qa.txt",
+            "sizeBytes": "14",
+            "mediaType": "text/plain",
+            "type": "single"
+          }
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.AttachmentProperty.get_attachment_by_rid",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "object_type": "Sensor",
+        "primary_key": "S-17",
+        "property": "inspectionEvidence",
+        "attachment_rid": "ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001"
+      },
+      "payload": {
+        "rid": "ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001",
+        "filename": "qa.txt",
+        "sizeBytes": "14",
+        "mediaType": "text/plain",
+        "type": "single"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/ontologies/qa-ontology/objects/Sensor/S-17/attachments/inspectionEvidence/ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001",
+          "query": "b''",
+          "body": "",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "accept": "application/json"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": {
+            "rid": "ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001",
+            "filename": "qa.txt",
+            "sizeBytes": "14",
+            "mediaType": "text/plain",
+            "type": "single"
+          }
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.AttachmentProperty.read_attachment",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "object_type": "Sensor",
+        "primary_key": "S-17",
+        "property": "inspectionEvidence"
+      },
+      "payload": "b'QA attachment\\n'",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/ontologies/qa-ontology/objects/Sensor/S-17/attachments/inspectionEvidence/content",
+          "query": "b''",
+          "body": "",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "accept": "*/*"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": "b'QA attachment\\n'"
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.AttachmentProperty.read_attachment_by_rid",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "object_type": "Sensor",
+        "primary_key": "S-17",
+        "property": "inspectionEvidence",
+        "attachment_rid": "ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001"
+      },
+      "payload": "b'QA attachment\\n'",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/ontologies/qa-ontology/objects/Sensor/S-17/attachments/inspectionEvidence/ri.attachments.main.attachment.00000000-0000-0000-0000-000000000001/content",
+          "query": "b''",
+          "body": "",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "accept": "*/*"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": "b'QA attachment\\n'"
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.CipherTextProperty.decrypt",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "object_type": "Sensor",
+        "primary_key": "S-17",
+        "property": "secret"
+      },
+      "payload": {
+        "plaintext": "QA synthetic secret"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/ontologies/qa-ontology/objects/Sensor/S-17/ciphertexts/secret/decrypt",
+          "query": "b''",
+          "body": "",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "accept": "application/json"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": {
+            "plaintext": "QA synthetic secret"
+          }
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.CipherTextProperty.encrypt",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "object_type": "Sensor",
+        "primary_key": "S-17",
+        "property": "secret",
+        "plaintext": "QA synthetic secret",
+        "cipher_channel_strategy": "PREFER_EXISTING",
+        "preview": true
+      },
+      "payload": {
+        "ciphertext": "qa-encrypted-value"
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/ontologies/qa-ontology/objects/Sensor/S-17/ciphertexts/secret/encrypt",
+          "query": "b'cipherChannelStrategy=PREFER_EXISTING&preview=true'",
+          "body": "{\"plaintext\": \"QA synthetic secret\"}",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "content-type": "application/json",
+            "accept": "application/json",
+            "content-length": "36"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": {
+            "ciphertext": "qa-encrypted-value"
+          }
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.CipherTextProperty.encrypt_with_default_channel",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "object_type": "Sensor",
+        "property": "secret",
+        "plaintext": "QA synthetic secret",
+        "preview": true
+      },
+      "payload": {
+        "ciphertext": "qa-encrypted-value"
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/ontologies/qa-ontology/objectTypes/Sensor/ciphertexts/secret/encrypt",
+          "query": "b'preview=true'",
+          "body": "{\"plaintext\": \"QA synthetic secret\"}",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "content-type": "application/json",
+            "accept": "application/json",
+            "content-length": "36"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": {
+            "ciphertext": "qa-encrypted-value"
+          }
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "object_type": "Sensor",
+        "primary_key": "S-17",
+        "property": "temperature",
+        "additional_properties": [
+          "temperature"
+        ],
+        "range": {
+          "type": "absolute",
+          "startTime": "2026-10-29T00:00:00Z",
+          "endTime": "2026-10-29T00:01:00Z"
+        },
+        "page_size": 2,
+        "preview": true
+      },
+      "payload": {
+        "data": [
+          {
+            "temperature": 21.5,
+            "time": "2026-10-29T00:00:00Z"
+          }
+        ],
+        "nextPageToken": "qa-page-2"
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/ontologies/qa-ontology/objects/Sensor/S-17/geotemporalSeries/temperature/loadEntries",
+          "query": "b'preview=true'",
+          "body": "{\"range\": {\"startTime\": \"2026-10-29T00:00:00+00:00\", \"endTime\": \"2026-10-29T00:01:00+00:00\", \"type\": \"absolute\"}, \"additionalProperties\": [\"temperature\"], \"pageSize\": 2}",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "content-type": "application/json",
+            "accept": "application/json",
+            "content-length": "169"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": {
+            "data": [
+              {
+                "temperature": 21.5,
+                "time": "2026-10-29T00:00:00Z"
+              }
+            ],
+            "nextPageToken": "qa-page-2"
+          }
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.MediaReferenceProperty.get_media_content",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "object_type": "Sensor",
+        "primary_key": "S-17",
+        "property": "inspectionPhoto",
+        "preview": true
+      },
+      "payload": "b'QA attachment\\n'",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/ontologies/qa-ontology/objects/Sensor/S-17/media/inspectionPhoto/content",
+          "query": "b'preview=true'",
+          "body": "",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "accept": "*/*"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": "b'QA attachment\\n'"
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.MediaReferenceProperty.get_media_metadata",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "object_type": "Sensor",
+        "primary_key": "S-17",
+        "property": "inspectionPhoto",
+        "preview": true
+      },
+      "payload": {
+        "sizeBytes": "14",
+        "mediaType": "text/plain"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/ontologies/qa-ontology/objects/Sensor/S-17/media/inspectionPhoto/metadata",
+          "query": "b'preview=true'",
+          "body": "",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "accept": "application/json"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": {
+            "sizeBytes": "14",
+            "mediaType": "text/plain"
+          }
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.MediaReferenceProperty.upload",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "object_type": "Sensor",
+        "property": "inspectionPhoto",
+        "preview": true,
+        "body": "b'QA attachment\\n'",
+        "media_item_path": "qa/inspection.txt"
+      },
+      "payload": {
+        "mimeType": "text/plain",
+        "reference": {
+          "type": "mediaSetViewItem",
+          "mediaSetViewItem": {
+            "mediaSetRid": "ri.mio.main.media-set.00000000-0000-0000-0000-000000000001",
+            "mediaSetViewRid": "ri.mio.main.view.00000000-0000-0000-0000-000000000002",
+            "mediaItemRid": "ri.mio.main.media-item.00000000-0000-0000-0000-000000000003"
+          }
+        }
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/ontologies/qa-ontology/objectTypes/Sensor/media/inspectionPhoto/upload",
+          "query": "b'mediaItemPath=qa%2Finspection.txt&preview=true'",
+          "body": "QA attachment\n",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "content-type": "*/*",
+            "accept": "application/json",
+            "content-length": "14"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": {
+            "mimeType": "text/plain",
+            "reference": {
+              "mediaSetViewItem": {
+                "mediaSetRid": "ri.mio.main.media-set.00000000-0000-0000-0000-000000000001",
+                "mediaSetViewRid": "ri.mio.main.view.00000000-0000-0000-0000-000000000002",
+                "mediaItemRid": "ri.mio.main.media-item.00000000-0000-0000-0000-000000000003"
+              },
+              "type": "mediaSetViewItem"
+            }
+          }
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.Query.execute",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "query_api_name": "sensorReading",
+        "parameters": {
+          "sensor": "S-17"
+        },
+        "version": "1.2.3"
+      },
+      "payload": {
+        "value": {
+          "temperature": 21.5,
+          "unit": "C"
+        }
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/ontologies/qa-ontology/queries/sensorReading/execute",
+          "query": "b'version=1.2.3'",
+          "body": "{\"parameters\": {\"sensor\": \"S-17\"}}",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "content-type": "application/json",
+            "accept": "application/json",
+            "content-length": "34"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": {
+            "value": {
+              "temperature": 21.5,
+              "unit": "C"
+            }
+          }
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.TimeSeriesPropertyV2.get_first_point",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "object_type": "Sensor",
+        "primary_key": "S-17",
+        "property": "temperature"
+      },
+      "payload": {
+        "time": "2026-10-29T00:00:00Z",
+        "value": 21.5
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/ontologies/qa-ontology/objects/Sensor/S-17/timeseries/temperature/firstPoint",
+          "query": "b''",
+          "body": "",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "accept": "application/json"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": {
+            "time": "2026-10-29T00:00:00+00:00",
+            "value": 21.5
+          }
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.TimeSeriesPropertyV2.get_last_point",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "object_type": "Sensor",
+        "primary_key": "S-17",
+        "property": "temperature"
+      },
+      "payload": {
+        "time": "2026-10-29T00:00:00Z",
+        "value": 21.5
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/ontologies/qa-ontology/objects/Sensor/S-17/timeseries/temperature/lastPoint",
+          "query": "b''",
+          "body": "",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "accept": "application/json"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": {
+            "time": "2026-10-29T00:00:00+00:00",
+            "value": 21.5
+          }
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "object_type": "Sensor",
+        "primary_key": "S-17",
+        "property": "temperature",
+        "format": "JSON",
+        "range": {
+          "type": "absolute",
+          "startTime": "2026-10-29T00:00:00Z",
+          "endTime": "2026-10-29T00:01:00Z"
+        }
+      },
+      "payload": "b'[{\"time\": \"2026-10-29T00:00:00Z\", \"value\": 21.5}]'",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/ontologies/qa-ontology/objects/Sensor/S-17/timeseries/temperature/streamPoints",
+          "query": "b'format=JSON'",
+          "body": "{\"range\": {\"startTime\": \"2026-10-29T00:00:00+00:00\", \"endTime\": \"2026-10-29T00:01:00+00:00\", \"type\": \"absolute\"}}",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "content-type": "application/json",
+            "accept": "*/*",
+            "content-length": "113"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": "b'[{\"time\": \"2026-10-29T00:00:00Z\", \"value\": 21.5}]'"
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.TimeSeriesValueBankProperty.get_latest_value",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "object_type": "Sensor",
+        "primary_key": "S-17",
+        "property_name": "temperature",
+        "branch": "master"
+      },
+      "payload": {
+        "time": "2026-10-29T00:00:00Z",
+        "value": 21.5
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/ontologies/qa-ontology/objects/Sensor/S-17/timeseries/temperature/latestValue",
+          "query": "b'branch=master'",
+          "body": "",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "accept": "application/json"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": {
+            "time": "2026-10-29T00:00:00+00:00",
+            "value": 21.5
+          }
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    },
+    {
+      "id": "v2.ontologies.TimeSeriesValueBankProperty.stream_values",
+      "inputs": {
+        "ontology": "qa-ontology",
+        "object_type": "Sensor",
+        "primary_key": "S-17",
+        "property": "temperature",
+        "branch": "master",
+        "range": {
+          "type": "absolute",
+          "startTime": "2026-10-29T00:00:00Z",
+          "endTime": "2026-10-29T00:01:00Z"
+        }
+      },
+      "payload": "b'[{\"time\": \"2026-10-29T00:00:00Z\", \"value\": 21.5}]'",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/ontologies/qa-ontology/objects/Sensor/S-17/timeseries/temperature/streamValues",
+          "query": "b'branch=master'",
+          "body": "{\"range\": {\"startTime\": \"2026-10-29T00:00:00+00:00\", \"endTime\": \"2026-10-29T00:01:00+00:00\", \"type\": \"absolute\"}}",
+          "headers": {
+            "host": "qa.example.invalid",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "connection": "keep-alive",
+            "user-agent": "python-httpx/0.28.1",
+            "authorization": "Bearer qa-independent-token",
+            "content-type": "application/json",
+            "accept": "*/*",
+            "content-length": "113"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "name": "independent_meaningful_success",
+          "verdict": "PASS",
+          "decoded": "b'[{\"time\": \"2026-10-29T00:00:00Z\", \"value\": 21.5}]'"
+        },
+        {
+          "name": "generic_permission_denial",
+          "verdict": "PASS",
+          "type": "PermissionDeniedError"
+        },
+        {
+          "name": "timeout_propagates_no_business_success_claim",
+          "verdict": "PASS",
+          "exception_module": "foundry_sdk._errors.timeout_error"
+        }
+      ]
+    }
+  ],
+  "models": [
+    {
+      "id": "foundry_sdk._core.api_client.ResponseMode",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\api_client.py",
+      "source_sha256": "7e6ba19fa9732b18b6f22d69f46c40b1a10af4533ce720c39df52c60ca191225",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/_core/ResponseMode.md",
+          "sha256": "cbc428d84d3ac081d7cb101d8ee383fdbfd9ed09dd938608c91ac3c8e269f35f",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides",
+        "v2.ontologies.Attachment.get",
+        "v2.ontologies.Attachment.read",
+        "v2.ontologies.Attachment.upload",
+        "v2.ontologies.Attachment.upload_with_rid",
+        "v2.ontologies.AttachmentProperty.get_attachment",
+        "v2.ontologies.AttachmentProperty.get_attachment_by_rid",
+        "v2.ontologies.AttachmentProperty.read_attachment",
+        "v2.ontologies.AttachmentProperty.read_attachment_by_rid",
+        "v2.ontologies.CipherTextProperty.decrypt",
+        "v2.ontologies.CipherTextProperty.encrypt",
+        "v2.ontologies.CipherTextProperty.encrypt_with_default_channel",
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries",
+        "v2.ontologies.MediaReferenceProperty.get_media_content",
+        "v2.ontologies.MediaReferenceProperty.get_media_metadata",
+        "v2.ontologies.MediaReferenceProperty.upload",
+        "v2.ontologies.Query.execute",
+        "v2.ontologies.TimeSeriesPropertyV2.get_first_point",
+        "v2.ontologies.TimeSeriesPropertyV2.get_last_point",
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+        "v2.ontologies.TimeSeriesValueBankProperty.get_latest_value",
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk._core.api_client.SdkInternal",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\api_client.py",
+      "source_sha256": "7e6ba19fa9732b18b6f22d69f46c40b1a10af4533ce720c39df52c60ca191225",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/_core/SdkInternal.md",
+          "sha256": "c2b86183f885c076f0c3c8b9a7f190b89a97e92ddeef26ddd57db3d1ed1fa4ca",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides",
+        "v2.ontologies.Attachment.get",
+        "v2.ontologies.Attachment.read",
+        "v2.ontologies.Attachment.upload",
+        "v2.ontologies.Attachment.upload_with_rid",
+        "v2.ontologies.AttachmentProperty.get_attachment",
+        "v2.ontologies.AttachmentProperty.get_attachment_by_rid",
+        "v2.ontologies.AttachmentProperty.read_attachment",
+        "v2.ontologies.AttachmentProperty.read_attachment_by_rid",
+        "v2.ontologies.CipherTextProperty.decrypt",
+        "v2.ontologies.CipherTextProperty.encrypt",
+        "v2.ontologies.CipherTextProperty.encrypt_with_default_channel",
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries",
+        "v2.ontologies.MediaReferenceProperty.get_media_content",
+        "v2.ontologies.MediaReferenceProperty.get_media_metadata",
+        "v2.ontologies.MediaReferenceProperty.upload",
+        "v2.ontologies.Query.execute",
+        "v2.ontologies.TimeSeriesPropertyV2.get_first_point",
+        "v2.ontologies.TimeSeriesPropertyV2.get_last_point",
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+        "v2.ontologies.TimeSeriesValueBankProperty.get_latest_value",
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.api_client.ResponseMode"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk._core.model_base.ModelBase",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\model_base.py",
+      "source_sha256": "9991688d13830547f029b78995d0b822d1ac63b2f99911d876277515c44dbb1e",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/_core/ModelBase.md",
+          "sha256": "5f5b16aa4764220b3b6b9c4287c5bb45e46b9cbe122d8965f7a6461b0e030587",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides",
+        "v2.ontologies.Attachment.get",
+        "v2.ontologies.Attachment.upload",
+        "v2.ontologies.Attachment.upload_with_rid",
+        "v2.ontologies.AttachmentProperty.get_attachment",
+        "v2.ontologies.AttachmentProperty.get_attachment_by_rid",
+        "v2.ontologies.CipherTextProperty.decrypt",
+        "v2.ontologies.CipherTextProperty.encrypt",
+        "v2.ontologies.CipherTextProperty.encrypt_with_default_channel",
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries",
+        "v2.ontologies.MediaReferenceProperty.get_media_metadata",
+        "v2.ontologies.MediaReferenceProperty.upload",
+        "v2.ontologies.Query.execute",
+        "v2.ontologies.TimeSeriesPropertyV2.get_first_point",
+        "v2.ontologies.TimeSeriesPropertyV2.get_last_point",
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+        "v2.ontologies.TimeSeriesValueBankProperty.get_latest_value",
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk._core.utils.AwareDatetime",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/_core/AwareDatetime.md",
+          "sha256": "cb790e832ad9c9da79d728855fa1eef3ad96bfdc2862da210fb943c7a3f370e1",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides",
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries",
+        "v2.ontologies.TimeSeriesPropertyV2.get_first_point",
+        "v2.ontologies.TimeSeriesPropertyV2.get_last_point",
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+        "v2.ontologies.TimeSeriesValueBankProperty.get_latest_value",
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk._core.utils.Long",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/_core/Long.md",
+          "sha256": "f9739e18a1a7b0bb06bd179a62b92f2e5a78f3906cf73dbb0818241237666cdf",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Attachment.get",
+        "v2.ontologies.Attachment.upload",
+        "v2.ontologies.Attachment.upload_with_rid",
+        "v2.ontologies.AttachmentProperty.get_attachment",
+        "v2.ontologies.AttachmentProperty.get_attachment_by_rid",
+        "v2.ontologies.MediaReferenceProperty.get_media_metadata"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk._core.utils.RID",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/_core/RID.md",
+          "sha256": "4af4eece28f34252abed320880118190a42c5cba5e72c27cd8dc8b72ecc223e2",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides",
+        "v2.ontologies.Attachment.get",
+        "v2.ontologies.Attachment.read",
+        "v2.ontologies.Attachment.upload",
+        "v2.ontologies.Attachment.upload_with_rid",
+        "v2.ontologies.AttachmentProperty.get_attachment",
+        "v2.ontologies.AttachmentProperty.get_attachment_by_rid",
+        "v2.ontologies.AttachmentProperty.read_attachment",
+        "v2.ontologies.AttachmentProperty.read_attachment_by_rid",
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries",
+        "v2.ontologies.MediaReferenceProperty.get_media_content",
+        "v2.ontologies.MediaReferenceProperty.get_media_metadata",
+        "v2.ontologies.MediaReferenceProperty.upload",
+        "v2.ontologies.Query.execute",
+        "v2.ontologies.TimeSeriesPropertyV2.get_first_point",
+        "v2.ontologies.TimeSeriesPropertyV2.get_last_point",
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+        "v2.ontologies.TimeSeriesValueBankProperty.get_latest_value",
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk._core.utils.Timeout",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/_core/Timeout.md",
+          "sha256": "1cd0a400d159d244916c364afaf160a1074016e2207d6bdd89e57f4292b3525a",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides",
+        "v2.ontologies.Attachment.get",
+        "v2.ontologies.Attachment.read",
+        "v2.ontologies.Attachment.upload",
+        "v2.ontologies.Attachment.upload_with_rid",
+        "v2.ontologies.AttachmentProperty.get_attachment",
+        "v2.ontologies.AttachmentProperty.get_attachment_by_rid",
+        "v2.ontologies.AttachmentProperty.read_attachment",
+        "v2.ontologies.AttachmentProperty.read_attachment_by_rid",
+        "v2.ontologies.CipherTextProperty.decrypt",
+        "v2.ontologies.CipherTextProperty.encrypt",
+        "v2.ontologies.CipherTextProperty.encrypt_with_default_channel",
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries",
+        "v2.ontologies.MediaReferenceProperty.get_media_content",
+        "v2.ontologies.MediaReferenceProperty.get_media_metadata",
+        "v2.ontologies.MediaReferenceProperty.upload",
+        "v2.ontologies.Query.execute",
+        "v2.ontologies.TimeSeriesPropertyV2.get_first_point",
+        "v2.ontologies.TimeSeriesPropertyV2.get_last_point",
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+        "v2.ontologies.TimeSeriesValueBankProperty.get_latest_value",
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk._core.utils.UUID",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\_core\\utils.py",
+      "source_sha256": "7e0b5a3197c4360561aa4429248db11e9324440b731c853898fb2fe63d5f5ded",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/_core/UUID.md",
+          "sha256": "19c51bc4bb69f8689a41de36b7f68d411988537c89900a13e8675de0cabc34c4",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.Attribution",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/Attribution.md",
+          "sha256": "bfef7b669143fb90ab7a97ebad2bca30c35a0af4bf42e2f69fe2b2e505a21e75",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Query.execute"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.ContentLength",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/ContentLength.md",
+          "sha256": "4954ff3391e4a71b1219d3fe17f51c79249a1f56e10218290ef8df901781491a",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Attachment.upload",
+        "v2.ontologies.Attachment.upload_with_rid"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.utils.Long"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.ContentType",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/ContentType.md",
+          "sha256": "de2297286162bd50657ca42d97a6e9e5362f1dd858aafedad5920589638f31bc",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Attachment.upload",
+        "v2.ontologies.Attachment.upload_with_rid"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.DisplayName",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/DisplayName.md",
+          "sha256": "349d48a4ca15ae4070558ebe009e35727851b361918d394632daa47d3af869f8",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.Filename",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/Filename.md",
+          "sha256": "c949ec8fcf5bc8525e0e4ff0891ec12a76f34a93e2618a83d62b93c9d1a3bfe0",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Attachment.get",
+        "v2.ontologies.Attachment.upload",
+        "v2.ontologies.Attachment.upload_with_rid",
+        "v2.ontologies.AttachmentProperty.get_attachment",
+        "v2.ontologies.AttachmentProperty.get_attachment_by_rid"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.FoundryBranch",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/FoundryBranch.md",
+          "sha256": "5c42f855b310884579c4ce67381c2026d4ef09231882fb9961967f9668838bce",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides",
+        "v2.ontologies.AttachmentProperty.get_attachment",
+        "v2.ontologies.AttachmentProperty.get_attachment_by_rid",
+        "v2.ontologies.AttachmentProperty.read_attachment",
+        "v2.ontologies.AttachmentProperty.read_attachment_by_rid",
+        "v2.ontologies.CipherTextProperty.decrypt",
+        "v2.ontologies.CipherTextProperty.encrypt",
+        "v2.ontologies.CipherTextProperty.encrypt_with_default_channel",
+        "v2.ontologies.MediaReferenceProperty.get_media_content",
+        "v2.ontologies.MediaReferenceProperty.get_media_metadata",
+        "v2.ontologies.Query.execute",
+        "v2.ontologies.TimeSeriesValueBankProperty.get_latest_value",
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.MediaItemPath",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/MediaItemPath.md",
+          "sha256": "797a5490e4643cd279eff3e9c477abd69dc3f571ea087d1a159420c4178fe850",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.MediaReferenceProperty.get_media_metadata",
+        "v2.ontologies.MediaReferenceProperty.upload"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.MediaItemReadToken",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/MediaItemReadToken.md",
+          "sha256": "1ea05fab9c0b0b646452c8bab0e0c397bc5c09bb3a2825b7b7719107c02287b0",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.MediaReferenceProperty.upload"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.MediaItemRid",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/MediaItemRid.md",
+          "sha256": "4e51f29eb99449bac1a1067cf33e804e03564e1e262d82b56693cd4897c263db",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.MediaReferenceProperty.upload"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.utils.RID"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.MediaReference",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/MediaReference.md",
+          "sha256": "5be263887480b5f33e13c52200c3676d71b1357fad5b37e82542141f8ed5386e",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.MediaReferenceProperty.upload"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.core.models.MediaType",
+        "foundry_sdk.v2.core.models.Reference"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.MediaSetRid",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/MediaSetRid.md",
+          "sha256": "1c63232b5c4897087482aca2052dbc53f0c6b09dc0f2a9cedc5538e804497ec1",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.MediaReferenceProperty.upload"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.utils.RID"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.MediaSetViewItem",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/MediaSetViewItem.md",
+          "sha256": "f5f9ac787b4d79ade92e852652342b0fb4ff6881b1b5903c7c61cbb0d52319a3",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.MediaReferenceProperty.upload"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.core.models.MediaItemReadToken",
+        "foundry_sdk.v2.core.models.MediaItemRid",
+        "foundry_sdk.v2.core.models.MediaSetRid",
+        "foundry_sdk.v2.core.models.MediaSetViewRid"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.MediaSetViewItemWrapper",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/MediaSetViewItemWrapper.md",
+          "sha256": "48c9f01861e5f8852977238298a59e15de7d6bf9333882500a1ec5238e683c38",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.MediaReferenceProperty.upload"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.core.models.MediaSetViewItem"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.MediaSetViewRid",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/MediaSetViewRid.md",
+          "sha256": "34b7900ec1848305be353d0c86a7503c865c9566136f26117b7f5634066ddb9b",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.MediaReferenceProperty.upload"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.utils.RID"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.MediaType",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/MediaType.md",
+          "sha256": "1927113bf38ebabb44d890ae993ca27bf08b02e38b2d23297f9930a1b1bb1b5f",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Attachment.get",
+        "v2.ontologies.Attachment.upload",
+        "v2.ontologies.Attachment.upload_with_rid",
+        "v2.ontologies.AttachmentProperty.get_attachment",
+        "v2.ontologies.AttachmentProperty.get_attachment_by_rid",
+        "v2.ontologies.MediaReferenceProperty.get_media_metadata",
+        "v2.ontologies.MediaReferenceProperty.upload"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.PageSize",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/PageSize.md",
+          "sha256": "413ee5ec268c70b624a527642add7474b15dad1923dcbe96ae90d2ca8ee19434",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.PageToken",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/PageToken.md",
+          "sha256": "79ab25b5f80c22c53a270b83eec405d5b7a6661a905882779508cebcac6f3d94",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.AttachmentProperty.get_attachment",
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.PreviewMode",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/PreviewMode.md",
+          "sha256": "0a4f9bd7751a704e495b046beaa8f32d2786538028ebcf65d0865fc39774629e",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides",
+        "v2.ontologies.Attachment.upload_with_rid",
+        "v2.ontologies.CipherTextProperty.encrypt",
+        "v2.ontologies.CipherTextProperty.encrypt_with_default_channel",
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries",
+        "v2.ontologies.MediaReferenceProperty.get_media_content",
+        "v2.ontologies.MediaReferenceProperty.get_media_metadata",
+        "v2.ontologies.MediaReferenceProperty.upload"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.Reference",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/Reference.md",
+          "sha256": "c1be6b6bf2537626ee14cb7fdb462e1adf933e64bf39b3199371f35ebd0196e0",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.MediaReferenceProperty.upload"
+      ],
+      "dependencies": [
+        "foundry_sdk.v2.core.models.MediaSetViewItemWrapper"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.SizeBytes",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/SizeBytes.md",
+          "sha256": "60730922de05d4599fdc5afff2834e70755e2251c91892df7a6ace604e8a9ba3",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Attachment.get",
+        "v2.ontologies.Attachment.upload",
+        "v2.ontologies.Attachment.upload_with_rid",
+        "v2.ontologies.AttachmentProperty.get_attachment",
+        "v2.ontologies.AttachmentProperty.get_attachment_by_rid",
+        "v2.ontologies.MediaReferenceProperty.get_media_metadata"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.utils.Long"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.TraceParent",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/TraceParent.md",
+          "sha256": "cc5fa7aedc4675a28eb3774c05a89e6dc20406bb927b5f100ac1724642079170",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Query.execute"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.core.models.TraceState",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\core\\models.py",
+      "source_sha256": "381fdb658b5cbae6dcc47938474676095ffc3be1ed352db80c117ff3d7e7fb2d",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/core/models/TraceState.md",
+          "sha256": "5b5702f65cf21e87a36e215e6050471e74f39d1d933ea4d500f44e6e175e162d",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Query.execute"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.AbsoluteTimeRange",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/AbsoluteTimeRange.md",
+          "sha256": "1b633e82df2f201ddd2f67a1164d633a7ca458f8a5d44c56a7f321e8b41b29a9",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries",
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk._core.utils.AwareDatetime"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ActionExecutionTime",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ActionExecutionTime.md",
+          "sha256": "a3252f2e378975eb36a0156cfe0af9a1d098019af58d25372b1c3d02188e9ef5",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.utils.AwareDatetime"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ActionResults",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ActionResults.md",
+          "sha256": "65f6e9d16e1e895d4a9fc50c7010ed0088d048514d3eb20c48a2f4140d7fed0c",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk.v2.ontologies.models.ObjectEdits",
+        "foundry_sdk.v2.ontologies.models.ObjectTypeEdits"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ActionTypeApiName",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ActionTypeApiName.md",
+          "sha256": "ae495322ed51eecfa8b3e460548f1d10aa58ef918229bf84eddfa070a347b018",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.AddLink",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/AddLink.md",
+          "sha256": "809f6bbdbd7a79a49517871d661332921b40a96edaa79783911a14ffd6204a0f",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.LinkSideObject",
+        "foundry_sdk.v2.ontologies.models.LinkTypeApiName"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.AddObject",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/AddObject.md",
+          "sha256": "3ce9b918aadaed541ed5c17119119e0999409c08a29cd9e29542b7a26d4656af",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.ObjectTypeApiName",
+        "foundry_sdk.v2.ontologies.models.PropertyValue"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.AggregateTimeSeries",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/AggregateTimeSeries.md",
+          "sha256": "5c19191470a7ce734dc5d065ff8949bb7a1daeec0bd749193e800fc427214cb2",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.TimeSeriesAggregationMethod",
+        "foundry_sdk.v2.ontologies.models.TimeSeriesAggregationStrategy"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ApplyActionMode",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ApplyActionMode.md",
+          "sha256": "cf05f540ea6992a13abab2370250c8e97a3d4b0accaeb3fc3538070d9edc21a9",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ApplyActionOverrides",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ApplyActionOverrides.md",
+          "sha256": "d7f4d33768b1268c269036b7fd35535450ae298aed87075358e0da912d7e6abb",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.ActionExecutionTime",
+        "foundry_sdk.v2.ontologies.models.UniqueIdentifierLinkId",
+        "foundry_sdk.v2.ontologies.models.UniqueIdentifierValue"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ApplyActionRequestOptions",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ApplyActionRequestOptions.md",
+          "sha256": "c206eca680470f1788b95e14e769472a53d5ab1e310bcfb2e993850d809c70ca",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.ApplyActionMode",
+        "foundry_sdk.v2.ontologies.models.ReturnEditsMode"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ApplyActionRequestV2",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ApplyActionRequestV2.md",
+          "sha256": "8120f8647b23e8b855f321c6b2a74cbf0089cf3b85c019421f767a4686a98240",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.ApplyActionRequestOptions",
+        "foundry_sdk.v2.ontologies.models.DataValue",
+        "foundry_sdk.v2.ontologies.models.ParameterId"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ApplyActionWithOverridesRequest",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ApplyActionWithOverridesRequest.md",
+          "sha256": "f5a5305131e38b2c7c0aa65c88618f23cd7b920f6bd920ddcbf254f15c2b37b5",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.ApplyActionOverrides",
+        "foundry_sdk.v2.ontologies.models.ApplyActionRequestV2"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ArrayEntryEvaluatedConstraint",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ArrayEntryEvaluatedConstraint.md",
+          "sha256": "10153b819b79803962e1402d98687ad009e3dea527ffbe2d3479bbbb726a5e1b",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk.v2.ontologies.models.StructEvaluatedConstraint"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ArrayEvaluatedConstraint",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ArrayEvaluatedConstraint.md",
+          "sha256": "b0172312addd11d291cdb2689f8c03b303de2fd463e47212510c0a00f7678bcd",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.ArrayEntryEvaluatedConstraint"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ArraySizeConstraint",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ArraySizeConstraint.md",
+          "sha256": "9ee704559c62249198349548ebcffbe218bf33502cd415276e1f49a19354580c",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.AttachmentMetadataResponse",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/AttachmentMetadataResponse.md",
+          "sha256": "d4e3bdfadbd3964e5fdb28a9a57522647fbefe2c8c631835d3bc9e0fc1f5fb9c",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.AttachmentProperty.get_attachment"
+      ],
+      "dependencies": [
+        "foundry_sdk.v2.ontologies.models.AttachmentV2",
+        "foundry_sdk.v2.ontologies.models.ListAttachmentsResponseV2"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.AttachmentRid",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/AttachmentRid.md",
+          "sha256": "517f59af8cd7bf9581b47d2fde94e4908f0731497316b3f64d415b730464cb36",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Attachment.get",
+        "v2.ontologies.Attachment.read",
+        "v2.ontologies.Attachment.upload",
+        "v2.ontologies.Attachment.upload_with_rid",
+        "v2.ontologies.AttachmentProperty.get_attachment",
+        "v2.ontologies.AttachmentProperty.get_attachment_by_rid",
+        "v2.ontologies.AttachmentProperty.read_attachment_by_rid"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.utils.RID"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.AttachmentV2",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/AttachmentV2.md",
+          "sha256": "34839385a5b2254dac2ca1875e49caec36ac8d357e1e49e9b24e515561e27cf6",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Attachment.get",
+        "v2.ontologies.Attachment.upload",
+        "v2.ontologies.Attachment.upload_with_rid",
+        "v2.ontologies.AttachmentProperty.get_attachment",
+        "v2.ontologies.AttachmentProperty.get_attachment_by_rid"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.core.models.Filename",
+        "foundry_sdk.v2.core.models.MediaType",
+        "foundry_sdk.v2.core.models.SizeBytes",
+        "foundry_sdk.v2.ontologies.models.AttachmentRid"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.BatchActionObjectEdit",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/BatchActionObjectEdit.md",
+          "sha256": "23d7de14e024e78817ec16bcee9b86f91d4f100bc3c07f31934a4a6bff2db3a4",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk.v2.ontologies.models.AddLink",
+        "foundry_sdk.v2.ontologies.models.AddObject",
+        "foundry_sdk.v2.ontologies.models.ModifyObject"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.BatchActionObjectEdits",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/BatchActionObjectEdits.md",
+          "sha256": "9d23182576c90e2af106c085a6342f35a957abb2b99b58f480cc1a951c8b8454",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.BatchActionObjectEdit"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.BatchActionResults",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/BatchActionResults.md",
+          "sha256": "d406d69efe101315cd3cdd1ee244389484deca0b4b94dfb40c4066be322b3917",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk.v2.ontologies.models.BatchActionObjectEdits",
+        "foundry_sdk.v2.ontologies.models.ObjectTypeEdits"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.BatchApplyActionRequestItem",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/BatchApplyActionRequestItem.md",
+          "sha256": "fd6fce7e6385e32c749286b3ccee44244fe859ae8cab02a85a29cbdca196593f",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply_batch"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.DataValue",
+        "foundry_sdk.v2.ontologies.models.ParameterId"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.BatchApplyActionRequestItemWithOverrides",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/BatchApplyActionRequestItemWithOverrides.md",
+          "sha256": "889a730c77bcab6d4ac12cfc142fcffee85ce17fe9d2e763b1552553e0f8a4b8",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply_batch_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.ApplyActionOverrides",
+        "foundry_sdk.v2.ontologies.models.DataValue",
+        "foundry_sdk.v2.ontologies.models.ParameterId"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.BatchApplyActionRequestOptions",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/BatchApplyActionRequestOptions.md",
+          "sha256": "a3bc7abd63fb0c8b8f69922226fecb09283014875d981f84c37bcaab77bb4d41",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.BatchReturnEditsMode"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.BatchApplyActionRequestV2",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/BatchApplyActionRequestV2.md",
+          "sha256": "d5203df5a461c6214a48f83256ec755ab871a6578f2344520110324061a1157c",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply_batch"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.BatchApplyActionRequestItem",
+        "foundry_sdk.v2.ontologies.models.BatchApplyActionRequestOptions"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.BatchApplyActionResponseV2",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/BatchApplyActionResponseV2.md",
+          "sha256": "355ab1f4b4960ffd50bda483591037dca4ce5b1e18a5d4b33bc0f59d458e17c5",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.BatchActionResults"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.BatchApplyActionWithOverridesRequest",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/BatchApplyActionWithOverridesRequest.md",
+          "sha256": "1cb674b978741c8b7dffa8b93c6f561743e461cfae6dd82d54266ce7cb035066",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply_batch_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.BatchApplyActionRequestItemWithOverrides",
+        "foundry_sdk.v2.ontologies.models.BatchApplyActionRequestOptions"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.BatchReturnEditsMode",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/BatchReturnEditsMode.md",
+          "sha256": "a6a5534151b75ec0705d819138f5fbe1d73ad75440a0efa9ed8de4e48f23925a",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.CipherChannelStrategy",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/CipherChannelStrategy.md",
+          "sha256": "242700ed64e4eaf60e0e4b83ac173be4a136923d23a0210d17f99c252dd0f226",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.CipherTextProperty.encrypt"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.CipherText",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/CipherText.md",
+          "sha256": "1b1b714f14fee63bf317ccad525649df75a18030691563356ceeabb2bf761837",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.CipherTextProperty.encrypt",
+        "v2.ontologies.CipherTextProperty.encrypt_with_default_channel"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.DataValue",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/DataValue.md",
+          "sha256": "ab34c9aaeb442d02c2b35e7034191212d8a88cf20c79b0e2cb97e5820c531311",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides",
+        "v2.ontologies.Query.execute"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.DecryptionResult",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/DecryptionResult.md",
+          "sha256": "1b9146dac54f2a530d2d33cf1c89246dd576df82e0527369f50580a5f677aacd",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.CipherTextProperty.decrypt"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.Plaintext"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.DeleteLink",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/DeleteLink.md",
+          "sha256": "5848fd6820d4d42af77fbe54c153e70cb0528ff7a16d276257777fcec9062ab2",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.LinkSideObject",
+        "foundry_sdk.v2.ontologies.models.LinkTypeApiName"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.DeleteObject",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/DeleteObject.md",
+          "sha256": "13aa7e793e7d34539bc08ca9955ec4d6441dc6442d6ef1719968207135bb41c4",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.ObjectTypeApiName",
+        "foundry_sdk.v2.ontologies.models.PropertyValue"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.EncryptionRequest",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/EncryptionRequest.md",
+          "sha256": "c616afd2e42062418130efd2ef923ad797bef744f9326dd24e74fa00fe384791",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.CipherTextProperty.encrypt",
+        "v2.ontologies.CipherTextProperty.encrypt_with_default_channel"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.Plaintext"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.EncryptionResult",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/EncryptionResult.md",
+          "sha256": "19ce696415cffacf23d127bc5c01eca4ac76d83a642eb04fa29152137edab8bf",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.CipherTextProperty.encrypt",
+        "v2.ontologies.CipherTextProperty.encrypt_with_default_channel"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.CipherText"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ExecuteQueryRequest",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ExecuteQueryRequest.md",
+          "sha256": "f5ded171570da501a43f6096495100c36a9cbaa63050f08d8250bc635859f886",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Query.execute"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.DataValue",
+        "foundry_sdk.v2.ontologies.models.ParameterId"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ExecuteQueryResponse",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ExecuteQueryResponse.md",
+          "sha256": "a519a0c26d38f41e00561facb6030b96976fea507482af9082818de2ac2ed711",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Query.execute"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.DataValue"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.FunctionVersion",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/FunctionVersion.md",
+          "sha256": "ef7979fc8a7181dcc389f7f597dbbb68a8371fb05cd42373c26b65193d6fc643",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Query.execute"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.GeotemporalSeriesEntry",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/GeotemporalSeriesEntry.md",
+          "sha256": "ee38995c3cb963f9677b4f3624daec145b5e1c2f851ef59cff17766ebd913547",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries"
+      ],
+      "dependencies": [
+        "foundry_sdk.v2.ontologies.models.PropertyApiName",
+        "foundry_sdk.v2.ontologies.models.PropertyValue"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.GroupMemberConstraint",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/GroupMemberConstraint.md",
+          "sha256": "8dfd939fe2466818c00540a047b1f0523c816bcb94a5acd2837c2e32c19e0c79",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.LinkSideObject",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/LinkSideObject.md",
+          "sha256": "6b4be48c23fbe3bf222b33c813125441ee04ea0a7a12f665784ab073c2a25cfe",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.ObjectTypeApiName",
+        "foundry_sdk.v2.ontologies.models.PropertyValue"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.LinkTypeApiName",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/LinkTypeApiName.md",
+          "sha256": "ac6c94e7f042a259a808d7a1783a8b3532d92f501c58dd497baa3574da23ef82",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ListAttachmentsResponseV2",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ListAttachmentsResponseV2.md",
+          "sha256": "b369dc7616616e3bc0dcf26c800679e07fc419186016750ab78010aca15027e0",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.AttachmentProperty.get_attachment"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.core.models.PageToken",
+        "foundry_sdk.v2.ontologies.models.AttachmentV2"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.LoadGeotemporalSeriesRequest",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/LoadGeotemporalSeriesRequest.md",
+          "sha256": "e4dc1751f619bea684ee8166899c722cc7246a6a61bf6e82429d6d158e70f1c4",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.core.models.PageSize",
+        "foundry_sdk.v2.core.models.PageToken",
+        "foundry_sdk.v2.ontologies.models.AbsoluteTimeRange",
+        "foundry_sdk.v2.ontologies.models.SelectedPropertyApiName"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.LoadGeotemporalSeriesResponse",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/LoadGeotemporalSeriesResponse.md",
+          "sha256": "5f878a51da2ec397f981d7c6cfe950a34c0abc065e0ff25bf383b09bcaa7486d",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.core.models.PageToken",
+        "foundry_sdk.v2.ontologies.models.GeotemporalSeriesEntry"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.MediaMetadata",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/MediaMetadata.md",
+          "sha256": "0ac8eb9115e84aa9b7664bcd78ac66559d7a91e6c40f8e2491ab3a3c07c5b0c8",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.MediaReferenceProperty.get_media_metadata"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.core.models.MediaItemPath",
+        "foundry_sdk.v2.core.models.MediaType",
+        "foundry_sdk.v2.core.models.SizeBytes"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ModifyObject",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ModifyObject.md",
+          "sha256": "9ff34b3e95a83104f251bf8ed45a6c9820283fe5ff53b3582e769a45af1658d5",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.ObjectTypeApiName",
+        "foundry_sdk.v2.ontologies.models.PropertyValue"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ObjectEdit",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ObjectEdit.md",
+          "sha256": "5876614f6c00de93c8fb5f28a97d8abe3e33ccebdc6b978f35e79aac1f52eb75",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk.v2.ontologies.models.AddLink",
+        "foundry_sdk.v2.ontologies.models.AddObject",
+        "foundry_sdk.v2.ontologies.models.DeleteLink",
+        "foundry_sdk.v2.ontologies.models.DeleteObject",
+        "foundry_sdk.v2.ontologies.models.ModifyObject"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ObjectEdits",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ObjectEdits.md",
+          "sha256": "b7d1bfa9932f753578fd66c0f8667f56d0a366df15b0a08e5a1eb84a4b7f336f",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.ObjectEdit"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ObjectPropertyValueConstraint",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ObjectPropertyValueConstraint.md",
+          "sha256": "0cf924af989329e3108bae49531c77da926328725e0dd92319f948dde31308ad",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ObjectQueryResultConstraint",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ObjectQueryResultConstraint.md",
+          "sha256": "e83801ccc5c70f47bc9b6c23add6e8f12154fe7543c726dca73ede89ce485cb1",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ObjectTypeApiName",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ObjectTypeApiName.md",
+          "sha256": "0653db3c58a688b9602562f0e532ed3c74408238c7e966c3e43ced3ba063c981",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides",
+        "v2.ontologies.AttachmentProperty.get_attachment",
+        "v2.ontologies.AttachmentProperty.get_attachment_by_rid",
+        "v2.ontologies.AttachmentProperty.read_attachment",
+        "v2.ontologies.AttachmentProperty.read_attachment_by_rid",
+        "v2.ontologies.CipherTextProperty.decrypt",
+        "v2.ontologies.CipherTextProperty.encrypt",
+        "v2.ontologies.CipherTextProperty.encrypt_with_default_channel",
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries",
+        "v2.ontologies.MediaReferenceProperty.get_media_content",
+        "v2.ontologies.MediaReferenceProperty.get_media_metadata",
+        "v2.ontologies.MediaReferenceProperty.upload",
+        "v2.ontologies.TimeSeriesPropertyV2.get_first_point",
+        "v2.ontologies.TimeSeriesPropertyV2.get_last_point",
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+        "v2.ontologies.TimeSeriesValueBankProperty.get_latest_value",
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ObjectTypeEdits",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ObjectTypeEdits.md",
+          "sha256": "efb441068d42a4bc581e848fadd01bfbf09348305b22c096bdba694774a2303b",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.ObjectTypeApiName"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.OneOfConstraint",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/OneOfConstraint.md",
+          "sha256": "19add4a7676a4a4309581f133adb062438d0b9f417816c94b5f0694c7de67997",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.ParameterOption"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.OntologyIdentifier",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/OntologyIdentifier.md",
+          "sha256": "d60c95a3de48418ff6fbe6d7e2f9f339b05052ad45fe26d1ebc486efde7c48e5",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides",
+        "v2.ontologies.AttachmentProperty.get_attachment",
+        "v2.ontologies.AttachmentProperty.get_attachment_by_rid",
+        "v2.ontologies.AttachmentProperty.read_attachment",
+        "v2.ontologies.AttachmentProperty.read_attachment_by_rid",
+        "v2.ontologies.CipherTextProperty.decrypt",
+        "v2.ontologies.CipherTextProperty.encrypt",
+        "v2.ontologies.CipherTextProperty.encrypt_with_default_channel",
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries",
+        "v2.ontologies.MediaReferenceProperty.get_media_content",
+        "v2.ontologies.MediaReferenceProperty.get_media_metadata",
+        "v2.ontologies.MediaReferenceProperty.upload",
+        "v2.ontologies.Query.execute",
+        "v2.ontologies.TimeSeriesPropertyV2.get_first_point",
+        "v2.ontologies.TimeSeriesPropertyV2.get_last_point",
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+        "v2.ontologies.TimeSeriesValueBankProperty.get_latest_value",
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.OntologyScenarioRid",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/OntologyScenarioRid.md",
+          "sha256": "b9e422575aa434602f7d1a2cd07a5f00586fbe047d93b249eaa61333815bba84",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides",
+        "v2.ontologies.Query.execute"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.utils.RID"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.OntologyTransactionId",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/OntologyTransactionId.md",
+          "sha256": "8264f2450a5b0d61abfe2e6f05c9e4e06cf15a3769342e031d5d227e694748af",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides",
+        "v2.ontologies.Query.execute"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ParameterEvaluatedConstraint",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ParameterEvaluatedConstraint.md",
+          "sha256": "aa9e116d5cefb889296f24c385ff39921d1076339011ba32ffc137c4f53f9389",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk.v2.ontologies.models.ArrayEvaluatedConstraint",
+        "foundry_sdk.v2.ontologies.models.ArraySizeConstraint",
+        "foundry_sdk.v2.ontologies.models.GroupMemberConstraint",
+        "foundry_sdk.v2.ontologies.models.ObjectPropertyValueConstraint",
+        "foundry_sdk.v2.ontologies.models.ObjectQueryResultConstraint",
+        "foundry_sdk.v2.ontologies.models.OneOfConstraint",
+        "foundry_sdk.v2.ontologies.models.RangeConstraint",
+        "foundry_sdk.v2.ontologies.models.StringLengthConstraint",
+        "foundry_sdk.v2.ontologies.models.StringRegexMatchConstraint",
+        "foundry_sdk.v2.ontologies.models.StructEvaluatedConstraint",
+        "foundry_sdk.v2.ontologies.models.UnevaluableConstraint"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ParameterEvaluationResult",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ParameterEvaluationResult.md",
+          "sha256": "b229bb3b9f3822c89984d18ffa354a58c35a3fedd26d960596811ede4781b91a",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.ParameterEvaluatedConstraint",
+        "foundry_sdk.v2.ontologies.models.ValidationResult"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ParameterId",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ParameterId.md",
+          "sha256": "065db5474242f2aa64848968f6f511f3fd7c1920aed6b82bb90a114fbf8a6820",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides",
+        "v2.ontologies.Query.execute"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ParameterOption",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ParameterOption.md",
+          "sha256": "f5f23ad067f0f80fc739256c70721b791a490d0bf5799e805a8a21205ea21abf",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.core.models.DisplayName"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.Plaintext",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/Plaintext.md",
+          "sha256": "2761294b769b4de25a747a6f8588b9458032a45ef3977d3c9935f3b88ac84f76",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.CipherTextProperty.decrypt",
+        "v2.ontologies.CipherTextProperty.encrypt",
+        "v2.ontologies.CipherTextProperty.encrypt_with_default_channel"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.PreciseDuration",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/PreciseDuration.md",
+          "sha256": "eb5371441e0d49e78c20435e050f3646bd9b7bff0349677f53d543f20c8a2a17",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.PreciseTimeUnit"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.PreciseTimeUnit",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/PreciseTimeUnit.md",
+          "sha256": "6664ea296591861adced9938a238dd434317d5f454e083e32f309b942349b868",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.PropertyApiName",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/PropertyApiName.md",
+          "sha256": "3d7d69991954ee916b1d9e683277fc52135145b4eb2b72fae0192adbece31320",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.AttachmentProperty.get_attachment",
+        "v2.ontologies.AttachmentProperty.get_attachment_by_rid",
+        "v2.ontologies.AttachmentProperty.read_attachment",
+        "v2.ontologies.AttachmentProperty.read_attachment_by_rid",
+        "v2.ontologies.CipherTextProperty.decrypt",
+        "v2.ontologies.CipherTextProperty.encrypt",
+        "v2.ontologies.CipherTextProperty.encrypt_with_default_channel",
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries",
+        "v2.ontologies.MediaReferenceProperty.get_media_content",
+        "v2.ontologies.MediaReferenceProperty.get_media_metadata",
+        "v2.ontologies.MediaReferenceProperty.upload",
+        "v2.ontologies.TimeSeriesPropertyV2.get_first_point",
+        "v2.ontologies.TimeSeriesPropertyV2.get_last_point",
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+        "v2.ontologies.TimeSeriesValueBankProperty.get_latest_value",
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.PropertyValue",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/PropertyValue.md",
+          "sha256": "a88574b7baafa1e8a381456bf642fd18112b56095b23c29e95063a38aea4b064",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides",
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.PropertyValueEscapedString",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/PropertyValueEscapedString.md",
+          "sha256": "83ad1d105d1768a68d9732e2d64a9d245767c370b73ea2353220d373bfc79fed",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.AttachmentProperty.get_attachment",
+        "v2.ontologies.AttachmentProperty.get_attachment_by_rid",
+        "v2.ontologies.AttachmentProperty.read_attachment",
+        "v2.ontologies.AttachmentProperty.read_attachment_by_rid",
+        "v2.ontologies.CipherTextProperty.decrypt",
+        "v2.ontologies.CipherTextProperty.encrypt",
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries",
+        "v2.ontologies.MediaReferenceProperty.get_media_content",
+        "v2.ontologies.MediaReferenceProperty.get_media_metadata",
+        "v2.ontologies.TimeSeriesPropertyV2.get_first_point",
+        "v2.ontologies.TimeSeriesPropertyV2.get_last_point",
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+        "v2.ontologies.TimeSeriesValueBankProperty.get_latest_value",
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.QueryApiName",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/QueryApiName.md",
+          "sha256": "0fb187554aa8151abd13ecddd2fba2cd2aa0cb4e8096489fb69ae345b6c9dcfd",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Query.execute"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.RangeConstraint",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/RangeConstraint.md",
+          "sha256": "4c54afda52246c734eddfb1b7b289e4b4daa791cf8e0a7ae1c57c76e3e817e7d",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.RelativeTime",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/RelativeTime.md",
+          "sha256": "db5cb5e7db9d702429a14f5c215c421864ed891ea6b0764ba7d6d80c68862f2d",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.RelativeTimeRelation",
+        "foundry_sdk.v2.ontologies.models.RelativeTimeSeriesTimeUnit"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.RelativeTimeRange",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/RelativeTimeRange.md",
+          "sha256": "16508bbedca9bdd5b518649bbbf931f8765c01b1352285866aacec403de39298",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.RelativeTime"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.RelativeTimeRelation",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/RelativeTimeRelation.md",
+          "sha256": "a520526625abdabb8d7940e3cfc307bfb9f67c2033322658b8f3b6135ccd1210",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.RelativeTimeSeriesTimeUnit",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/RelativeTimeSeriesTimeUnit.md",
+          "sha256": "e0a9e4e6d48147ac1ef2b1f42c9db5492bdecbf2f2a7fda18a6a25e63c274889",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ReturnEditsMode",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ReturnEditsMode.md",
+          "sha256": "a3ca9fdd6472cc82dd5da37b02a573228761e54cb97312fb370f27a2c503ab69",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.RollingAggregateWindowPoints",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/RollingAggregateWindowPoints.md",
+          "sha256": "0af9997d59a4db13b452b2c2dccfe968de3e237c0be2c1a61cb2b4eecf4a8c85",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.SdkPackageRid",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/SdkPackageRid.md",
+          "sha256": "0bd8ede3bdb264be8ef9e6e0aa5f35366f54ab16e5cb12f94d1a53e4a8e9252d",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides",
+        "v2.ontologies.AttachmentProperty.get_attachment",
+        "v2.ontologies.AttachmentProperty.get_attachment_by_rid",
+        "v2.ontologies.AttachmentProperty.read_attachment",
+        "v2.ontologies.AttachmentProperty.read_attachment_by_rid",
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries",
+        "v2.ontologies.MediaReferenceProperty.get_media_content",
+        "v2.ontologies.MediaReferenceProperty.get_media_metadata",
+        "v2.ontologies.Query.execute",
+        "v2.ontologies.TimeSeriesPropertyV2.get_first_point",
+        "v2.ontologies.TimeSeriesPropertyV2.get_last_point",
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+        "v2.ontologies.TimeSeriesValueBankProperty.get_latest_value",
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.utils.RID"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.SdkVersion",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/SdkVersion.md",
+          "sha256": "a679a724e919ff278388e7778135de1c55f67c07e4645c385a7548d9aa1549f2",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_batch",
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides",
+        "v2.ontologies.AttachmentProperty.get_attachment",
+        "v2.ontologies.AttachmentProperty.get_attachment_by_rid",
+        "v2.ontologies.AttachmentProperty.read_attachment",
+        "v2.ontologies.AttachmentProperty.read_attachment_by_rid",
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries",
+        "v2.ontologies.MediaReferenceProperty.get_media_content",
+        "v2.ontologies.MediaReferenceProperty.get_media_metadata",
+        "v2.ontologies.Query.execute",
+        "v2.ontologies.TimeSeriesPropertyV2.get_first_point",
+        "v2.ontologies.TimeSeriesPropertyV2.get_last_point",
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+        "v2.ontologies.TimeSeriesValueBankProperty.get_latest_value",
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.SelectedPropertyApiName",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/SelectedPropertyApiName.md",
+          "sha256": "cfd72182ee4595ba137a182c4c8fc2b7df50bdb85240e6c02f2f89f259b95968",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.GeotemporalSeriesProperty.load_geotemporal_series_entries"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.StreamTimeSeriesPointsRequest",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/StreamTimeSeriesPointsRequest.md",
+          "sha256": "4c404c388268cf6b13496730227ffa52772c0253287245855326b7a87e810c98",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.AggregateTimeSeries",
+        "foundry_sdk.v2.ontologies.models.TimeRange"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.StreamTimeSeriesValuesRequest",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/StreamTimeSeriesValuesRequest.md",
+          "sha256": "739986f6915a6bcec35d63057c16f96a9d012f4e0480a94a5a97ed86437973e9",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.TimeRange"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.StreamingOutputFormat",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/StreamingOutputFormat.md",
+          "sha256": "e9b00465e80703f95f6b391d17cd53ec3a9a107e3a6d0e9b9238aaf0829f42bb",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.StringLengthConstraint",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/StringLengthConstraint.md",
+          "sha256": "dcc98043df92f1f3af327ee374e16c1b92b01c1ed848ea1832d7967f27489b04",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.StringRegexMatchConstraint",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/StringRegexMatchConstraint.md",
+          "sha256": "d3e9ffddfcbd0cac204bd2f0e864ac2623013424413e7f36d359e9e0e7bfcf5a",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.StructEvaluatedConstraint",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/StructEvaluatedConstraint.md",
+          "sha256": "a40a127ef649ac08801b7c12fa157673f40c8fdbc565db9259696f6c7b90f239",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.StructFieldEvaluationResult",
+        "foundry_sdk.v2.ontologies.models.StructParameterFieldApiName"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.StructFieldEvaluatedConstraint",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/StructFieldEvaluatedConstraint.md",
+          "sha256": "9878b54e13bae1a2cd0f153bb3bbc7cb342fde1032788e51d4bc0ff34dbce1cd",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk.v2.ontologies.models.ObjectQueryResultConstraint",
+        "foundry_sdk.v2.ontologies.models.OneOfConstraint",
+        "foundry_sdk.v2.ontologies.models.RangeConstraint",
+        "foundry_sdk.v2.ontologies.models.StringLengthConstraint",
+        "foundry_sdk.v2.ontologies.models.StringRegexMatchConstraint"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.StructFieldEvaluationResult",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/StructFieldEvaluationResult.md",
+          "sha256": "976ce5c569d712824428d3c89d776a5f37bb68da6e04a92f0e475123aee16d5b",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.StructFieldEvaluatedConstraint",
+        "foundry_sdk.v2.ontologies.models.ValidationResult"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.StructParameterFieldApiName",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/StructParameterFieldApiName.md",
+          "sha256": "61b2c1c9055ebca502a83ecb35b3c0d6750fc2aed7edb205a54330e89cdf0552",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.SubmissionCriteriaEvaluation",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/SubmissionCriteriaEvaluation.md",
+          "sha256": "12d77fb74b8558e656b405e353b2610dc5e2299f0bb7256f86950b65460ce25b",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.ValidationResult"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.SyncApplyActionResponseV2",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/SyncApplyActionResponseV2.md",
+          "sha256": "44ed7b5c97738c38092637302c6789ddb5f860ff83ae19b776ca7fa6bdb98f25",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk._core.utils.RID",
+        "foundry_sdk.v2.ontologies.models.ActionResults",
+        "foundry_sdk.v2.ontologies.models.ValidateActionResponseV2"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.TimeRange",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/TimeRange.md",
+          "sha256": "c653a071709ae4cb36c435fbc58776a52d4869e7e8fbdc4de1b13928e21a3842",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points",
+        "v2.ontologies.TimeSeriesValueBankProperty.stream_values"
+      ],
+      "dependencies": [
+        "foundry_sdk.v2.ontologies.models.AbsoluteTimeRange",
+        "foundry_sdk.v2.ontologies.models.RelativeTimeRange"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.TimeSeriesAggregationMethod",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/TimeSeriesAggregationMethod.md",
+          "sha256": "28f73b69e9fcc55f49a0c147405e50578b2919ad8073ff21e6e1650862bc0829",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.TimeSeriesAggregationStrategy",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/TimeSeriesAggregationStrategy.md",
+          "sha256": "d7d0248bda3e90dca1320df13bfd02747e769e88caf9040f781e292ff3ee9943",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points"
+      ],
+      "dependencies": [
+        "foundry_sdk.v2.ontologies.models.TimeSeriesCumulativeAggregate",
+        "foundry_sdk.v2.ontologies.models.TimeSeriesPeriodicAggregate",
+        "foundry_sdk.v2.ontologies.models.TimeSeriesRollingAggregate"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.TimeSeriesCumulativeAggregate",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/TimeSeriesCumulativeAggregate.md",
+          "sha256": "7653135218d8e99b542ac6e710093ab90af720de42d3cf0a63c89961a441e8a2",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.TimeSeriesPeriodicAggregate",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/TimeSeriesPeriodicAggregate.md",
+          "sha256": "8774c93fba26f56a4b1ec6203961b3e92fc7151e7f33b340e2dc086f620df836",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk._core.utils.AwareDatetime",
+        "foundry_sdk.v2.ontologies.models.PreciseDuration",
+        "foundry_sdk.v2.ontologies.models.TimeSeriesWindowType"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.TimeSeriesPoint",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/TimeSeriesPoint.md",
+          "sha256": "c9426f806227ebafe9fee79c193e6f548157d831cf898f4505c4dc4f097e59ee",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesPropertyV2.get_first_point",
+        "v2.ontologies.TimeSeriesPropertyV2.get_last_point"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk._core.utils.AwareDatetime"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.TimeSeriesRollingAggregate",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/TimeSeriesRollingAggregate.md",
+          "sha256": "6dd779e73fd794a37cdc59d67613659761d485c0d19e2f7d4516bc4f5bd20df1",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.TimeSeriesRollingAggregateWindow"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.TimeSeriesRollingAggregateWindow",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/TimeSeriesRollingAggregateWindow.md",
+          "sha256": "38bae318fd28c371911152291c38de532f6f612069f8702bdb5c3d6fcbdd8a2b",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points"
+      ],
+      "dependencies": [
+        "foundry_sdk.v2.ontologies.models.PreciseDuration",
+        "foundry_sdk.v2.ontologies.models.RollingAggregateWindowPoints"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.TimeSeriesWindowType",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/TimeSeriesWindowType.md",
+          "sha256": "3cee09f9e96538385b43d732a7fcbfa68013abfe9c380e1dbebd7cac526025b4",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesPropertyV2.stream_points"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.TimeseriesEntry",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/TimeseriesEntry.md",
+          "sha256": "10d2e2a819e63b836f1bebeb22c55f51f833baa5236c655d48ae0e1f117c141e",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.TimeSeriesValueBankProperty.get_latest_value"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk._core.utils.AwareDatetime"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.UnevaluableConstraint",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/UnevaluableConstraint.md",
+          "sha256": "6ea42b9eb73d024ec26d3c98b0252b1b9b7dd77ee118b63eb334b844a0d457b9",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.UniqueIdentifierLinkId",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/UniqueIdentifierLinkId.md",
+          "sha256": "d5b1b516a52fcc47504805a2231e87cff186783e11306f6d81a508c4d4a21508",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.utils.UUID"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.UniqueIdentifierValue",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/UniqueIdentifierValue.md",
+          "sha256": "213e43bd22a8294abdc3a0959bbde024cf293b4802c0adeacb7d5ab307803d04",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply_batch_with_overrides",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.utils.UUID"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ValidateActionResponseV2",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ValidateActionResponseV2.md",
+          "sha256": "2191d92ae04d6f49e707e62f5d21da5a3f6c0e18faf950b0a342b5dfed15ff3f",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [
+        "foundry_sdk._core.model_base.ModelBase",
+        "foundry_sdk.v2.ontologies.models.ParameterEvaluationResult",
+        "foundry_sdk.v2.ontologies.models.ParameterId",
+        "foundry_sdk.v2.ontologies.models.SubmissionCriteriaEvaluation",
+        "foundry_sdk.v2.ontologies.models.ValidationResult"
+      ],
+      "prior_local_meaning_review": "PASS"
+    },
+    {
+      "id": "foundry_sdk.v2.ontologies.models.ValidationResult",
+      "source": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk\\v2\\ontologies\\models.py",
+      "source_sha256": "91ab281cf66e801ce7ab4daa1c4d828f2b317ab21f445b54600866f352b2f403",
+      "source_matches_frozen": true,
+      "pages": [
+        {
+          "path": "references/rest/models/v2/ontologies/models/ValidationResult.md",
+          "sha256": "5ab3db97b7b5c3ca7235d444109e7c7efbdf21cd0adebc766abe386a7d3ae3a6",
+          "matches_prior_matrix": true
+        }
+      ],
+      "consumers": [
+        "v2.ontologies.Action.apply",
+        "v2.ontologies.Action.apply_with_overrides"
+      ],
+      "dependencies": [],
+      "prior_local_meaning_review": "PASS"
+    }
+  ],
+  "guard": "socket connect/connect_ex/create_connection, DNS, HTTP(S)Connection.connect, urllib.urlopen denied; actual SDK with httpx.MockTransport",
+  "limits": "Independent fake HTTP payloads demonstrate client handling. Server permissions, side effects, ordering and supported tenant schemas require authorized enrollment validation."
+}

@@ -17,16 +17,16 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'common'))
 from mock_transport import mock_resource
 
 EXPECTED_METHOD = 'GET'
-EXPECTED_PATH = '/api/v1/ontologies/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/objects/Asset/A-1/links/synthetic-value'
+EXPECTED_PATH = '/api/v1/ontologies/ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001/objects/Asset/A-1/links/facility'
 EXPECTED_BODY = None
 EXPECTED_QUERY = {'orderBy': None, 'pageSize': None, 'pageToken': None, 'properties': None}
 EXPECTED_HEADERS = {'Accept': 'application/json'}
-SUCCESS = {'data': [{'properties': {},
-           'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001'}]}
+SUCCESS = {'data': [{'properties': {'facilityId': 'F-1', 'name': 'North depot'},
+           'rid': 'ri.synthetic.main.resource.00000000-0000-0000-0000-000000000002'}]}
 ERRORS = []
 
 def invoke(client):
-    return client.with_raw_response.list_linked_objects(ontology_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', object_type='Asset', primary_key='A-1', link_type='synthetic-value', request_timeout=30)
+    return client.with_raw_response.list_linked_objects(ontology_rid='ri.synthetic.main.resource.00000000-0000-0000-0000-000000000001', object_type='Asset', primary_key='A-1', link_type='facility', request_timeout=30)
 
 def check_request(request):
     assert request.method == EXPECTED_METHOD
@@ -43,6 +43,13 @@ def check_request(request):
         assert request.content == EXPECTED_BODY
     elif EXPECTED_BODY is not None:
         assert json.loads(request.content) == EXPECTED_BODY
+
+def check_result(result, request):
+    for item in result.get('data', [result]):
+        assert item['properties']['facilityId'] == 'F-1', 'Wrong linked target identity'
+        assert item['properties']['name'] == 'North depot'
+        assert 'assetId' not in item['properties'], 'Expected Facility target, not source Asset'
+
 
 def normalized(value):
     if isinstance(value, dict):
@@ -61,7 +68,7 @@ def verify():
     calls = []
     def success(request):
         check_request(request)
-        calls.append(True)
+        calls.append(request)
         if isinstance(SUCCESS, bytes):
             return httpx.Response(200, content=SUCCESS)
         if SUCCESS is None:
@@ -70,7 +77,9 @@ def verify():
     with mock_resource(OntologyObjectClient, success) as client:
         raw = invoke(client)
         try:
-            assert normalized(raw.decode()) == SUCCESS
+            result = normalized(raw.decode())
+            check_result(result, calls[-1])
+            assert result == SUCCESS
         finally:
             raw.close()
     assert len(calls) == 1
