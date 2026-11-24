@@ -1,0 +1,41 @@
+[
+  {
+    "id": "wrong-consumer-branch",
+    "consumer_branch": "master",
+    "build_branch": "demo",
+    "required_input": "input-42",
+    "build_input": "input-41",
+    "job_status": "SUCCEEDED",
+    "output_transaction": "output-9",
+    "consumer_transaction": "output-8",
+    "check_evaluated_at": "2026-01-01T09:00:00Z",
+    "output_committed_at": "2026-01-01T10:00:00Z",
+    "check_status": "PASS"
+  },
+  {
+    "id": "failed-job",
+    "consumer_branch": "master",
+    "build_branch": "master",
+    "required_input": "input-42",
+    "build_input": "input-42",
+    "job_status": "FAILED",
+    "output_transaction": "output-8",
+    "consumer_transaction": "output-8",
+    "check_evaluated_at": "2026-01-01T09:00:00Z",
+    "output_committed_at": "2026-01-01T09:00:00Z",
+    "check_status": "PASS"
+  },
+  {
+    "id": "old-health-result",
+    "consumer_branch": "master",
+    "build_branch": "master",
+    "required_input": "input-42",
+    "build_input": "input-42",
+    "job_status": "SUCCEEDED",
+    "output_transaction": "output-9",
+    "consumer_transaction": "output-9",
+    "check_evaluated_at": "2026-01-01T09:00:00Z",
+    "output_committed_at": "2026-01-01T10:00:00Z",
+    "check_status": "PASS"
+  }
+]

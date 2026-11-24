@@ -17,3 +17,8 @@ For snapshot/incremental decisions use [transaction behavior](pipelines/transact
 For build versus code delivery use [release procedure](pipelines/releases.md).
 External integrations use [REST request/error contracts](rest-api.md); Compute processing
 has its own [mode and resource-effects contract](compute/execution.md).
+
+Run the [synthetic incident classifier](../examples/operations/incident.py) with
+`python examples/operations/incident.py` from this skill's root. Its bundled records
+separate branch mismatch, failed job and stale health evaluation. These records
+demonstrate decisions only; actual recovery requires authorized Foundry inspection.
