@@ -46,12 +46,14 @@ Illustrative totals updates every 15 minutes; critical deadline is 60 minutes si
 Configure an automatic Time Since Last Updated check at 60 minutes, watch All failures
 on a test dataset and record its last commit as 09:00 UTC.
 
-A 09:58 commit refreshes the evaluated condition and next deadline. If none arrives,
-inspect the threshold evaluation around 10:00 and its failure/notification. After a 10:02
-repair commit, inspect the passing evaluation. Service processing can add delay; record
-actual timestamps instead of assuming punctual email delivery. An empty transaction resets
-update freshness without proving fresh business rows. Also verify timestamp/content
-under a separate check where the output contract requires it.
+An empty commit at 09:58 UTC resets the 60-minute timer. At 10:00 UTC, the last update is
+two minutes old and the check is within its threshold. If the newest business row is still
+from 09:00 UTC, it is 60 minutes old. Verify row timestamps or content separately.
+
+If nothing else commits, check for a failing evaluation and notification at the new 10:58
+UTC threshold. After a repair commit at 11:02 UTC, inspect the passing evaluation and the
+new business rows. Record the actual evaluation and notification times because service
+processing can add delay.
 
 ## Expected result and checks
 
